@@ -128,12 +128,29 @@ module.exports = function (grunt) {
         ],
         tasks: ['clean', 'copy', 'less', 'assemble']
       }
+    },
+    
+    //
+    // Git Commands
+    //
+    'gh-pages': {
+      
+      options: {
+        base: '<%= dest %>',
+        branch: 'master',
+        repo: '<%= pkg.repository.url %>',
+        message: 'Site updated at <%= new Date().toString() %>'
+      },
+      
+      src: '**/*'
+      
     }
   });
 
   // Load npm plugins to provide necessary tasks
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
+  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -144,4 +161,7 @@ module.exports = function (grunt) {
 
   // Task for development that reloads browser when you make changes
   grunt.registerTask('design', ['clean', 'copy', 'less', 'assemble:site', 'assemble:docs', 'connect', 'watch']);
+  
+  // Task to deploy to GH (only contributors)
+  grunt.registerTask('deploy', ['default', 'gh-pages']);
 };
