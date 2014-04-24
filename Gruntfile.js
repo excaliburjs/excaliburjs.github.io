@@ -79,7 +79,8 @@ module.exports = function (grunt) {
             data: 'data/api.json',
             dest: '<%= dest %>/docs/api/'
           }
-        }
+        },
+        files: { '<%= dest %>/docs/api/': 'pages/api/*.html' }
       }
     },
 

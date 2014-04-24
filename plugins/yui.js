@@ -10,7 +10,7 @@ var compileHtml = function (hbs) {
   try{
     return Handlebars.compile(hbs)({});
   } catch (err) {
-    return err;
+    return '<div class="alert alert-danger">' + err + '</div>';
   }
 };
 

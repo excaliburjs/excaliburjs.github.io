@@ -6,22 +6,20 @@ layout: default
   <div class="container">
 
     <div class="row">
-      <div class="sidebar col-sm-3">         
-          
-          <div class="panel panel-primary">
-            <div class="panel-heading"><h3 class="panel-title">API Documentation</h3></div>
-            <div class="panel-body">
-              <ul class="nav">
-                {{#eachProperty api.classes}}
-                  <li><a href="/docs/api/classes/{{key}}.html">{{key}}</a></li>
-                {{/eachProperty}}
-              </ul>  
-            </div>
+      <div class="sidebar col-sm-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <ul class="nav">              
+              <li><a href="/docs/api">API Home</a></li>
+            </ul>
           </div>
+        </div>
+        
+        {{{api_sidebar api_nav.nav api}}}
       </div>
 
       <div class="col-sm-9">
-        {{> body }}        
+        {{> body }}
       </div>
     </div>
   </div>
