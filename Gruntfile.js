@@ -16,10 +16,11 @@ module.exports = function (grunt) {
       // Globals
       options: {
         engine: 'swig',
-
+        pkg: grunt.file.readJSON('package.json'),
+        
         // Register Swig extensions
         helpers: ['extensions/*.js', 'extensions/filters/*.js'],
-
+        
         flatten: true,
         prettify: {
           indent: 2,
@@ -64,6 +65,21 @@ module.exports = function (grunt) {
           layout: 'docs'
         },
         files: { '<%= dest %>/docs/': 'content/docs/**/*.md' }
+      },
+      
+      //
+      // API (YUI Doc)
+      //
+      api: {
+        options: {
+          plugins: ['plugins/yui.js'],
+          layout: 'api',
+          engine: 'handlebars',
+          yui: {
+            data: 'data/api.json',
+            dest: '<%= dest %>/docs/api/'
+          }
+        }
       }
     },
 
@@ -157,10 +173,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task to be run
-  grunt.registerTask('default', ['clean', 'copy', 'less', 'assemble:site', 'assemble:docs']);
+  grunt.registerTask('default', ['clean', 'copy', 'less', 'assemble']);
 
   // Task for development that reloads browser when you make changes
-  grunt.registerTask('design', ['clean', 'copy', 'less', 'assemble:site', 'assemble:docs', 'connect', 'watch']);
+  grunt.registerTask('design', ['clean', 'copy', 'less', 'assemble', 'connect', 'watch']);
   
   // Task to deploy to GH (only contributors)
   grunt.registerTask('deploy', ['default', 'gh-pages']);

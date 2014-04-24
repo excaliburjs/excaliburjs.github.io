@@ -1,0 +1,29 @@
+<a name="{{name}}"></a>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <code>{{#if is_constructor}}new ex.{{moduleName}}{{else}}{{ name }}{{/if}}({{{paramList}}}){{#if returnType}} : {{returnType}}{{/if}}</code>
+    {{#if isPrivate}}<span class="label label-danger pull-right">private</span>{{/if}}
+    {{#if extended_from}}<span class="pull-right">Defined in <a href="{{extended_from}}.html#{{name}}">{{extended_from}}</a></span>{{/if}}
+  </div>
+  <div class="panel-body">
+    {{{description}}}
+  </div>
+  {{#if params}}
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+  {{#params}}
+    <tr>
+      <td><code>{{name}}{{#if optional}}?{{/if}}{{#if optdefault}} = {{optdefault}}{{/if}}</code></td>
+      <td>{{{typeLink type}}}</td>
+      <td>{{{description}}}</td>
+    </tr>
+  {{/params}}
+  </table>
+  {{/if}}
+</div>

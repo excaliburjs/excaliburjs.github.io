@@ -1,0 +1,45 @@
+<h1>ex.{{ moduleName }}</h1>
+
+{{#if uses}}
+Uses:
+{{#each uses}}
+- [{{this}}]({{this}}.html)
+{{/each}}
+{{/if}}
+
+{{#if extends}}
+<p>Extends: <a href="{{ extends }}.html">{{ extends }}</a></p>
+{{/if}}
+
+<div class="well">
+{{{ classDescription }}}
+</div>
+
+{{#if is_constructor}}
+  <h2>Constructor</h2>
+  {{>method}}
+{{/if}}
+
+{{#if properties}}
+  <h2>Properties</h2>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+  {{#properties}}
+  {{>props}}
+  {{/properties}}
+{{/if}}
+</table>
+
+{{#if methods}}
+  <h2>Methods</h2>
+  {{#methods}}
+  {{>method}}
+  {{/methods}}
+{{/if}}

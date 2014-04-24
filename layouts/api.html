@@ -6,9 +6,7 @@ layout: default
   <div class="container">
 
     <div class="row">
-      <div class="sidebar col-sm-3">
-
-          {{{docs_sidebar docs.sidebar pages}}}
+      <div class="sidebar col-sm-3">         
           
           <div class="panel panel-primary">
             <div class="panel-heading"><h3 class="panel-title">API Documentation</h3></div>
@@ -23,11 +21,7 @@ layout: default
       </div>
 
       <div class="col-sm-9">
-{{#markdown}}
-{{> body }}
-{{/markdown}}
-        <hr/>
-        <a href="{{ pkg.homepage }}/blob/site/{{ page.src }}">Contribute to or modify this page</a>
+        {{> body }}        
       </div>
     </div>
   </div>
