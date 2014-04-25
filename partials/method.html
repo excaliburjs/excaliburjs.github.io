@@ -1,7 +1,7 @@
 <a name="{{name}}"></a>
 <div class="panel panel-default method {{#if extended_from}}member-inherited{{/if}}">
   <div class="panel-heading">
-    <code>{{#if is_constructor}}new ex.{{moduleName}}{{else}}{{ name }}{{/if}}({{{paramList}}}){{#if returnType}}: {{returnType}}{{/if}}</code>
+    <code>{{#if is_constructor}}new ex.{{moduleName}}{{else}}{{ name }}{{/if}}({{{paramList}}}){{#if returnType}}: {{{returnType}}}{{/if}}</code>
     {{#if isPrivate}}<span class="label label-danger pull-right">private</span>{{/if}}
     {{#if extended_from}}<a href="{{extended_from}}.html#{{name}}" class="label label-default pull-right">Inherited from {{extended_from}}</a>{{/if}}
   </div>

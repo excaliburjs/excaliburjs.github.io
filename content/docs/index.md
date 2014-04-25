@@ -21,6 +21,6 @@ grammatical errors. It could be as large as writing an entire tutorial on, say, 
 
 To edit a page you're on, look for the link at the bottom that says **Contribute to or modify this page**.
 
-To write bigger tutorials or documentation pages, visit our [GitHub repository for this site]({{pkg.repository.url}}).
+To write bigger tutorials or documentation pages, visit our [GitHub repository for this site]({{pkg.homepage}}).
 
 {{>questions}}

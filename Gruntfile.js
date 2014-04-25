@@ -15,7 +15,6 @@ module.exports = function (grunt) {
 
       // Globals
       options: {
-        engine: 'swig',
         pkg: grunt.file.readJSON('package.json'),
         
         // Register Swig extensions
@@ -43,7 +42,8 @@ module.exports = function (grunt) {
         layout: 'default',
 
         // global vars
-        year: 2014
+        year: "<%= new Date().getFullYear() %>",
+        googleGroup: "https://groups.google.com/forum/#!forum/excaliburjs"
       },
 
       //
@@ -52,6 +52,19 @@ module.exports = function (grunt) {
         files: {
           '<%= dest %>/': ['pages/*.html']
         }
+      },
+      
+      //
+      // Showcase
+      showcase: {
+        files: [
+          {
+            expand: true,
+            cwd: 'pages/showcase',
+            src: ['**/*.html'],
+            dest: '<%= dest %>/showcase/'
+          }
+        ]
       },
 
       //
@@ -93,6 +106,7 @@ module.exports = function (grunt) {
       assets: {
         files: [
 		  { expand: true, cwd: 'content/docs/images', src: ['**'], dest: '<%= dest %>/docs/images' },
+          { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/showcase/' },
           { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' }
         ]
       }
