@@ -107,7 +107,8 @@ module.exports = function (grunt) {
         files: [
 		  { expand: true, cwd: 'content/docs/images', src: ['**'], dest: '<%= dest %>/docs/images' },
           { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/showcase/' },
-          { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' }
+          { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' },
+          { '<%= dest %>/': 'favicon.png' }
         ]
       }
 
