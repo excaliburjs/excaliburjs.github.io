@@ -6,6 +6,8 @@ title: Documentation
 
 Thanks for using Excalibur! We hope you enjoy using it.
 
+<a href="https://github.com/excaliburjs/Excalibur/releases/tag/v{{pkg.version}}" class="btn btn-primary btn-lg">**Latest Release:** {{pkg.version}}</a>
+
 ## Where to Begin
 
 To get started using Excalibur, be sure to check out our [install guide](install.html). After that

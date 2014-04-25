@@ -4,10 +4,9 @@ title: Quick Start
 
 # Quick Start : Build your first game
 
-Please check out the [API Reference](/docs/api) for specific API methods.
-
-
 ### Download and Install Excalibur 
+
+<a href="https://github.com/excaliburjs/Excalibur/releases/tag/v{{pkg.version}}" class="btn btn-primary btn-lg">**Latest Release:** {{pkg.version}}</a>
 
 Review the [install guide](/docs/install.html) for instructions.
 

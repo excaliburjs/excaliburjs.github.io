@@ -3,6 +3,8 @@ title: Install Guide
 ---
 # Install Guide
 
+<a href="https://github.com/excaliburjs/Excalibur/releases/tag/v{{pkg.version}}" class="btn btn-primary btn-lg">**Latest Release:** {{pkg.version}}</a>
+
 ## Get Excalibur
 
 You can install Excalibur through one of many package managers:
