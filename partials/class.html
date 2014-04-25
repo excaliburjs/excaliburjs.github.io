@@ -1,14 +1,22 @@
-<h1>ex.{{ moduleName }}</h1>
+<div class="clearfix">
+  <h1 class="pull-left">ex.{{ moduleName }}</h1>
+  <p class="pull-right source-file"><a class="btn btn-primary btn-xs" href="{{pkg.author.git}}/blob/master/{{file}}#L{{line}}"><i class="fa fa-file-text"></i> {{file}}</a></p>
+</div>
 
 {{#if uses}}
-Uses:
+<strong>Uses:</strong>
 {{#each uses}}
-- [{{this}}]({{this}}.html)
+  <a href="{{this}}.html">{{this}}</a>
 {{/each}}
 {{/if}}
-
 {{#if extends}}
-<p>Extends: <a href="{{ extends }}.html">{{ extends }}</a></p>
+  <strong>Inheritance:</strong>
+  <ul class="list-unstyled">
+    {{#extends}}
+    <li>{{{nbsp @index 4}}}<a href="{{ this }}.html">{{ this }}</a></li>
+    {{/extends}}
+    <li>{{{nbsp extends.length 4}}}{{moduleName}}</li>
+  </ul>
 {{/if}}
 
 <div class="well">
@@ -21,7 +29,12 @@ Uses:
 {{/if}}
 
 {{#if properties}}
-  <h2>Properties</h2>
+  <div class="clearfix">
+    <h2 class="pull-left">Properties</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
 
   <table class="table table-bordered">
     <thead>
@@ -31,15 +44,20 @@ Uses:
         <th>Description</th>
       </tr>
     </thead>
-  {{#properties}}
+  {{#withSort properties "name"}}
   {{>props}}
-  {{/properties}}
+  {{/withSort}}
 {{/if}}
 </table>
 
 {{#if methods}}
-  <h2>Methods</h2>
-  {{#methods}}
+  <div class="clearfix">
+    <h2 class="pull-left">Methods</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
+  {{#withSort methods "name"}}
   {{>method}}
-  {{/methods}}
+  {{/withSort}}
 {{/if}}

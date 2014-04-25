@@ -14,7 +14,7 @@ var compileHtml = function (hbs) {
   }
 };
 
-var mapApiMethodToDto = function (method, cls) {
+var mapApiMethodToDto = function (method, clsDto) {
   var dto = _.clone(method);
   
   dto.returnType = dto.return && dto.return.description;
@@ -30,24 +30,32 @@ var mapApiMethodToDto = function (method, cls) {
     });
   }
   
-  if (cls.extends === dto.class) {
-    dto.extended_from = cls.extends;
+  var extendIdx;
+  if ((extendIdx = clsDto.extends.indexOf(dto.class)) > -1) {
+    dto.extended_from = clsDto.extends[extendIdx];
   }
   
   return dto;
 };
 
-var mapApiPropertyToDto = function (prop) {
-  prop.description = compileHtml(prop.description);
+var mapApiPropertyToDto = function (prop, clsDto) {
+  var dto = _.clone(prop);
   
-  return prop;
+  dto.description = compileHtml(dto.description);
+  
+  var extendIdx;
+  if ((extendIdx = clsDto.extends.indexOf(dto.class)) > -1) {
+    dto.extended_from = clsDto.extends[extendIdx];
+  }
+  
+  return dto;
 };
 
 var createParamsList = function (params) {
   if (!params) return "";
   
   return params.map(function (p) { 
-    return p.name + (p.optional ? "?" : "") + " : " + p.type; 
+    return p.name + (p.optional ? "?" : "") + ": " + p.type; 
   }).join(", ");
 };
 
@@ -84,8 +92,7 @@ module.exports = function (params, callback) {
     var className = expr[0];
     var memberName = expr.length > 1 ? expr[1].split(':')[0] : "";
     var type = expr.length > 1 ? expr[1].split(':')[1] : "";
-    
-    // TODO support Type/method:method syntax
+        
     if (api.classes[className]) {
       var result = '<a href="' + className + assemble.options.ext + (memberName ? '#' + memberName : '') + '">' + className + (memberName ? '.' + memberName + ' ' + type : '') + '</a>';
     
@@ -108,31 +115,49 @@ module.exports = function (params, callback) {
     
     // modify API data a bit that we pass to class partial
     apiRaw = api.classes[className];
+    apiDto = {};
+    
+    apiDto.extends = [];
+    
+    if (apiRaw.extends) {
+      
+      // find inherited classes
+      var extendedCls = apiRaw.extends;
+      
+      while(extendedCls) {
+        apiDto.extends.push(extendedCls);
+        
+        extendedCls = api.classes[extendedCls].extends;
+      }
+    }    
+    
+    // reverse inheritance
+    apiDto.extends.reverse();
+    
     apiMethods = api.classitems.filter(function (classitem) {
       var isMember    = classitem.itemtype === 'method' && classitem.class === className;
-      var isInherited = classitem.itemtype === 'method' && classitem.class === apiRaw.extends;
-      
-      // TODO follow inheritance chain
-      
+      var isInherited = classitem.itemtype === 'method' && apiDto.extends.indexOf(classitem.class) > -1;
+
       return isMember || isInherited;
     });
     apiProps = api.classitems.filter(function (classitem) {
-      
-      // TODO follow inheritance chain
-      
-      return classitem.itemtype === 'property' && classitem.class === className;
+      var isMember = classitem.itemtype === 'property' && classitem.class === className;
+      var isInherited = classitem.itemtype === 'property' && apiDto.extends.indexOf(classitem.class) > -1;
+
+      return isMember || isInherited;
     });
-    apiDto = {};
+    
     apiDto.title = apiRaw.name;
-    apiDto.uses = apiRaw.uses;
-    apiDto.extends = apiRaw.extends;
+    apiDto.uses = apiRaw.uses;    
     apiDto.extension_for = apiRaw.extension_for;
     apiDto.is_constructor = apiRaw.is_constructor;
+    apiDto.file = apiRaw.file;
+    apiDto.line = apiRaw.line;
     apiDto.moduleName = apiRaw.name;
     apiDto.classDescription = Handlebars.compile(apiRaw.description)({});
-    apiDto.methods = apiMethods.map(function (m) { return mapApiMethodToDto(m, apiRaw); });
+    apiDto.methods = apiMethods.map(function (m) { return mapApiMethodToDto(m, apiDto); });
     apiDto.params = apiRaw.params;
-    apiDto.properties = apiProps.map(mapApiPropertyToDto);
+    apiDto.properties = apiProps.map(function (p) { return mapApiPropertyToDto(p, apiDto); });
     
     if (apiRaw.is_constructor) {
       apiDto.paramList = createParamsList(apiRaw.params);

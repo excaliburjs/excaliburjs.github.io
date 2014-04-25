@@ -8,17 +8,32 @@ module.exports.register = function (Handlebars, opts) {
   
   var helpers = {
 
+    nbsp: function (times, length) {
+      var result = [];
+      for(var i=0;i<(times * length);i++){
+        result.push("&nbsp;");
+      }
+      return result.join("");
+    },
+    
     filename: function (filePath, options) {
       return path.basename(filePath).split(".")[0];
     },
 
     /**
-     * Usage: {{typeLink type data=api}}
+     * Usage: {{typeLink type}}
      */
-    typeLink: function (type, options) {      
-
-      if (opts.data.api && opts.data.api.classes[type]) {
-        var link = '<a href="' + type + opts.ext + '">' + type + '</a>';
+    typeLink: function (type) {      
+      
+      var searchType = type;
+      
+      // Array?
+      if (searchType && searchType.indexOf('[]')) {
+        searchType = searchType.replace("[]", "");
+      }
+      
+      if (opts.data.api && opts.data.api.classes[searchType]) {
+        var link = '<a href="' + searchType + opts.ext + '">' + type + '</a>';
         return new Handlebars.SafeString(link);
       }
 
@@ -209,9 +224,9 @@ module.exports.register = function (Handlebars, opts) {
      * available documentation pages Assemble finds.
      * @todo this is terrible and i'm a terrible human being
      */
-    api_sidebar: function (data, api) {
+    api_sidebar: function (data, api, apiPage) {
       if (!api || !data) { return "ERROR"; }
-
+      
       // console.log(pages);
 
       // YAML:
@@ -297,8 +312,12 @@ module.exports.register = function (Handlebars, opts) {
 
       var createMenuItemLink = function (page, closeTag) {
         var link = "";
-        var classes = [];
-
+        var classes = [];              
+        
+        if (apiPage.data.title === page.name) {
+          classes.push("current");
+        }
+        
         link += "<li class='" + classes.join(" ") + "'>";
         link += "<a href='/docs/api/classes/" + page.name + ".html'>" + page.name + "</a>";
 

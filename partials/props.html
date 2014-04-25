@@ -1,5 +1,10 @@
-<tr>
+<tr class="{{#if extended_from}}member-inherited{{/if}}">
   <td><a name="{{name}}"></a>{{#if static}}<label class="label label-default">static</label>{{/if}} <code>{{name}}</code></td>
   <td>{{{typeLink type}}}</td>
-  <td>{{{description}}}</td>
+  <td>
+    {{{description}}}
+    {{#if extended_from}}
+      <span class="text-muted">(Inherited from <a href="{{extended_from}}.html#{{name}}">{{extended_from}}</a>)</span>
+    {{/if}}
+  </td>
 </tr>
