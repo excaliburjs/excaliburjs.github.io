@@ -13,7 +13,7 @@ Review the [install guide](/docs/install.html) for instructions.
 
 ### Build your game script
 
-Create a script in your project, here I've named it `game.js`. Excalibur games are built off of the ex.Engine container. It is important to start the engine once you are done buildig your game.
+Create a script in your project, here I've named it `game.js`. Excalibur games are built off of the ex.Engine container. It is important to start the engine once you are done building your game.
 
 >ProTip&trade;  Call `game.start()` right away so you don't forget
 
@@ -22,7 +22,7 @@ Create a script in your project, here I've named it `game.js`. Excalibur games a
 // game.js
 
 // Create an instance of the engine. 
-// I'm specifying that the game be 800 pixels wide by 600 tall. 
+// I'm specifying that the game be 800 pixels wide by 600 pixels tall. 
 // If no dimensions are specified the game will be fullscreen.
 var game = new ex.Engine(800, 600);
 // todo build awesome game here
@@ -46,9 +46,9 @@ Open a browser and view the blank blue screen of goodness.
 
 ### Hello Excalibur: Building Breakout!
 
-Thats cool, but lets make something more interesting on the screen.
+That's cool, but let's make something more interesting on the screen.
 
-To do this Excalibur uses a primitive called an `Actor`, and places them into a `Scene`. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.
+To do this Excalibur uses a primitive called an `Actor`, and places actors into a `Scene`. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.
 
 
 > ProTip&trade; Actors must be added to a scene to be drawn or updated! `game.addChild(actor)` Will add an actor to the current scene.
@@ -59,12 +59,12 @@ To do this Excalibur uses a primitive called an `Actor`, and places them into a 
 // Create an instance of the engine. 
 var game = new ex.Engine(800, 600);
 
-// Create an actor at with a x position of 100px,
+// Create an actor with x position of 100px,
 // y position of 40px from the bottom of the screen,
 // width of 200px, height and a height of 20px
 var paddle = new ex.Actor(100, game.getHeight() - 40, 200, 20);
 
-// Lets give it some color with one of the predefinied
+// Let's give it some color with one of the predefined
 // color constants
 paddle.color = ex.Color.Chartreuse;
 
@@ -81,7 +81,7 @@ Open up your favorite browser and you should see something like this
 ![Hello World Excalibur](images/quickstart/breakoutPartial.png "Hello World Excalibur")
 
 
-That's neat, but break is way more fun if things move around. Let's make the paddle follow the mouse around in the x direction.
+That's neat, but this game is way more fun if things move around. Let's make the paddle follow the mouse around in the x direction.
    
 ```javascript
 // Add a mouse move listener
@@ -90,7 +90,7 @@ game.on('mousemove', function (ev) {
 });
 ```
 
-What's breakout without the ball? To make the ball bounce, Excalibur comes prebuilt with an "elastic" collision type the does naive elastic collisions, which is sufficient for breakout.
+What's breakout without the ball? To make the ball bounce, Excalibur comes prebuilt with an "elastic" collision type that does naive elastic collisions, which is sufficient for breakout.
 
 ```javascript
 // Create a "ball"
@@ -113,7 +113,7 @@ game.addChild(ball);
 
 ```
 
-The ball will now bounce off of the paddle, but does not bounce with the side of the screen to fix that lets take advantage of the `update` event.
+The ball will now bounce off of the paddle, but does not bounce with the side of the screen. To fix that, let's take advantage of the `update` event.
 
 ```javascript
 // Wire up to the update event
@@ -125,7 +125,7 @@ ball.on('update', function () {
     }
 
     // If the ball collides with the right side
-    // of the screen revese the x velocity
+    // of the screen reverse the x velocity
     if (this.x + this.getWidth() > game.getWidth()) {
         this.dx *= -1;
     }
@@ -157,7 +157,7 @@ ball.draw = function (ctx, delta) {
 }
 
 ```
-> ProTip&trade; Overriding a method like this will remove any built in excalibur functionality. If you would like to call the original draw for example `ex.Actor.prototype.draw.call(this, ctx, delta)`
+> ProTip&trade; Overriding a method like this will remove any built-in Excalibur functionality. If you would like to call the original draw for example `ex.Actor.prototype.draw.call(this, ctx, delta)`
 
 
 Breakout needs some bricks to break. To do this we calculate our brick layout and add them to the current scene.
@@ -211,7 +211,7 @@ ball.on('exitviewport', function(){
 ```
 
 ![Breakout Example Excalibur](images/quickstart/breakoutFinal.png "Breakout Example Excalibur")
-Congratualtions! You have just created your first game in Excalibur! Please review the documentation for more examples and api reference
+Congratulations! You have just created your first game in Excalibur! Please review the documentation for more examples and an API reference.
 
 <iframe width="100%" height="700" src="http://jsfiddle.net/excaliburjs/6Ay9S/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
