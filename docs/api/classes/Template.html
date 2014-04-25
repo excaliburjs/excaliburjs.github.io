@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Template - Excalibur.js HTML5 Game Engine</title>
+  <title>Template - Excalibur.js HTML5 Game Engine</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<!-- Webfonts -->
-	<script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Webfonts -->
+  <script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
 
+  <!-- Highlight -->
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow-night-blue.min.css">  
 </head>
 <body>
 
@@ -31,8 +33,9 @@
 	      <!-- Collect the nav links, forms, and other content for toggling -->
 	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	          <li> <a href="/docs">Documentation</a> </li>
-	          <li> <a href="/showcase">Showcase</a> </li>
+	          <li><a href="/docs">Documentation</a></li>
+	          <li><a href="/showcase.html">Showcase</a></li>
+              <li><a href="http://blog.excaliburjs.com">Blog</a></li>
 	        </ul>
 
 	        <ul class="nav navbar-nav navbar-right">
@@ -64,12 +67,20 @@
       </div>
 
       <div class="col-sm-9">
-        <h1>ex.Template</h1>
+        <div class="clearfix">
+  <h1 class="pull-left">ex.Template</h1>
+  <p class="pull-right source-file"><a class="btn btn-primary btn-xs" href="https://github.com/excaliburjs/Excalibur/blob/master/src\engine\Binding.ts#L6"><i class="fa fa-file-text"></i> src\engine\Binding.ts</a></p>
+</div>
 
 
 
-
-<p>Extends: <a href="ILoadable.html">ILoadable</a></p>
+  <strong>Inheritance:</strong>
+  <ul class="list-unstyled">
+    
+    <li><a href="ILoadable.html">ILoadable</a></li>
+    
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;Template</li>
+  </ul>
 
 
 <div class="well">
@@ -83,24 +94,14 @@ javascript expressions.
 
   <h2>Constructor</h2>
   <a name=""></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>new ex.Template(path : String)</code>
+    <code>new ex.Template(path: String)</code>
     
-    
-  </div>
-  <div class="panel-body">
     
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>path</code></td>
@@ -110,42 +111,23 @@ javascript expressions.
   
   </table>
   
+  <div class="panel-body">
+    
+      <i class="text-muted">This method has no description</i>
+    
+  </div>  
 </div>
 
 
 
-</table>
+  <div class="clearfix">
+    <h2 class="pull-left">Properties</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
 
-
-  <h2>Methods</h2>
-  
-  <a name="getTemplateString"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>getTemplateString() : string</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Returns the full html template string once loaded.
-  </div>
-  
-</div>
-  
-  <a name="apply"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>apply(ctx : Any) : any</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Applies any ctx object you wish and evaluates the template.
-Overload this method to include your favorite template library.
-You may return either an HTML string or a Dom node.
-  </div>
-  
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
       <tr>
         <th>Name</th>
@@ -153,6 +135,60 @@ You may return either an HTML string or a Dom node.
         <th>Description</th>
       </tr>
     </thead>
+  
+  <tr class="member-inherited">
+  <td><a name="oncomplete"></a> <code>oncomplete</code></td>
+  <td><code>Any=>void</code></td>
+  <td>
+    oncomplete handler
+    
+      <span class="text-muted">(Inherited from <a href="ILoadable.html#oncomplete">ILoadable</a>)</span>
+    
+  </td>
+</tr>
+  
+  <tr class="member-inherited">
+  <td><a name="onerror"></a> <code>onerror</code></td>
+  <td><code>Any=>void</code></td>
+  <td>
+    onerror handler
+    
+      <span class="text-muted">(Inherited from <a href="ILoadable.html#onerror">ILoadable</a>)</span>
+    
+  </td>
+</tr>
+  
+  <tr class="member-inherited">
+  <td><a name="onprogress"></a> <code>onprogress</code></td>
+  <td><code>Any=>void</code></td>
+  <td>
+    onprogress handler
+    
+      <span class="text-muted">(Inherited from <a href="ILoadable.html#onprogress">ILoadable</a>)</span>
+    
+  </td>
+</tr>
+  
+
+</table>
+
+
+  <div class="clearfix">
+    <h2 class="pull-left">Methods</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
+  
+  <a name="apply"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>apply(ctx: Any): any</code>
+    
+    
+  </div>
+  
+  <table class="table params">
   
     <tr>
       <td><code>ctx</code></td>
@@ -162,58 +198,88 @@ You may return either an HTML string or a Dom node.
   
   </table>
   
+  <div class="panel-body">
+    
+      Applies any ctx object you wish and evaluates the template.
+Overload this method to include your favorite template library.
+You may return either an HTML string or a Dom node.
+    
+  </div>  
 </div>
   
-  <a name="load"></a>
-<div class="panel panel-default">
+  <a name="getTemplateString"></a>
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>load()</code>
+    <code>getTemplateString(): string</code>
     
     
-  </div>
-  <div class="panel-body">
-    Begins loading the template. Returns a promise that resolves with the template string when loaded.
   </div>
   
+  <div class="panel-body">
+    
+      Returns the full html template string once loaded.
+    
+  </div>  
 </div>
   
   <a name="isLoaded"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
     <code>isLoaded()</code>
     
     
   </div>
+  
   <div class="panel-body">
-    Indicates whether the template has been loaded
-  </div>
-  
-</div>
-  
-  <a name="load"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>load() : Promise&amp;lt;any&amp;gt;</code>
     
-    <span class="pull-right">Defined in <a href="ILoadable.html#load">ILoadable</a></span>
-  </div>
-  <div class="panel-body">
-    Begins loading the resource and returns a promise to be resolved on completion
-  </div>
-  
+      Indicates whether the template has been loaded
+    
+  </div>  
 </div>
   
   <a name="isLoaded"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method member-inherited">
   <div class="panel-heading">
-    <code>isLoaded() : boolean</code>
+    <code>isLoaded(): boolean</code>
     
-    <span class="pull-right">Defined in <a href="ILoadable.html#isLoaded">ILoadable</a></span>
-  </div>
-  <div class="panel-body">
-    Returns true if the loadable is loaded
+    <a href="ILoadable.html#isLoaded" class="label label-default pull-right">Inherited from ILoadable</a>
   </div>
   
+  <div class="panel-body">
+    
+      Returns true if the loadable is loaded
+    
+  </div>  
+</div>
+  
+  <a name="load"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>load()</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Begins loading the template. Returns a promise that resolves with the template string when loaded.
+    
+  </div>  
+</div>
+  
+  <a name="load"></a>
+<div class="panel panel-default method member-inherited">
+  <div class="panel-heading">
+    <code>load(): Promise&amp;lt;any&amp;gt;</code>
+    
+    <a href="ILoadable.html#load" class="label label-default pull-right">Inherited from ILoadable</a>
+  </div>
+  
+  <div class="panel-body">
+    
+      Begins loading the resource and returns a promise to be resolved on completion
+    
+  </div>  
 </div>
   
 
@@ -221,7 +287,6 @@ You may return either an HTML string or a Dom node.
     </div>
   </div>
 </div>
-
 
 	<div class="container">
 	  <div class="alert">
@@ -237,8 +302,14 @@ You may return either an HTML string or a Dom node.
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-	    <p>Copyright &copy;2014</p>
+	    <p class="text-muted">Copyright &copy;2014. Thank you for all your support!</p>        
 	  </div>
 	</div>
+  
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/assets/js/docs.js"></script>
 </body>
 </html>

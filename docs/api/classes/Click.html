@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Click - Excalibur.js HTML5 Game Engine</title>
+  <title>Click - Excalibur.js HTML5 Game Engine</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<!-- Webfonts -->
-	<script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Webfonts -->
+  <script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
 
+  <!-- Highlight -->
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow-night-blue.min.css">  
 </head>
 <body>
 
@@ -31,8 +33,9 @@
 	      <!-- Collect the nav links, forms, and other content for toggling -->
 	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	          <li> <a href="/docs">Documentation</a> </li>
-	          <li> <a href="/showcase">Showcase</a> </li>
+	          <li><a href="/docs">Documentation</a></li>
+	          <li><a href="/showcase.html">Showcase</a></li>
+              <li><a href="http://blog.excaliburjs.com">Blog</a></li>
 	        </ul>
 
 	        <ul class="nav navbar-nav navbar-right">
@@ -64,12 +67,20 @@
       </div>
 
       <div class="col-sm-9">
-        <h1>ex.Click</h1>
+        <div class="clearfix">
+  <h1 class="pull-left">ex.Click</h1>
+  <p class="pull-right source-file"><a class="btn btn-primary btn-xs" href="https://github.com/excaliburjs/Excalibur/blob/master/src\engine\Events.ts#L502"><i class="fa fa-file-text"></i> src\engine\Events.ts</a></p>
+</div>
 
 
 
-
-<p>Extends: <a href="GameEvent.html">GameEvent</a></p>
+  <strong>Inheritance:</strong>
+  <ul class="list-unstyled">
+    
+    <li><a href="GameEvent.html">GameEvent</a></li>
+    
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;Click</li>
+  </ul>
 
 
 <div class="well">
@@ -79,24 +90,14 @@ Event thrown on a game object on Click
 
   <h2>Constructor</h2>
   <a name=""></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>new ex.Click(x : Number, y : Number)</code>
+    <code>new ex.Click(x: Number, y: Number)</code>
     
-    
-  </div>
-  <div class="panel-body">
     
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>x</code></td>
@@ -112,9 +113,42 @@ Event thrown on a game object on Click
   
   </table>
   
+  <div class="panel-body">
+    
+      <i class="text-muted">This method has no description</i>
+    
+  </div>  
 </div>
 
 
+
+  <div class="clearfix">
+    <h2 class="pull-left">Properties</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+  
+  <tr class="member-inherited">
+  <td><a name="target"></a> <code>target</code></td>
+  <td><code>Any</code></td>
+  <td>
+    Target object for this event.
+    
+      <span class="text-muted">(Inherited from <a href="GameEvent.html#target">GameEvent</a>)</span>
+    
+  </td>
+</tr>
+  
 
 </table>
 
@@ -123,7 +157,6 @@ Event thrown on a game object on Click
     </div>
   </div>
 </div>
-
 
 	<div class="container">
 	  <div class="alert">
@@ -139,8 +172,14 @@ Event thrown on a game object on Click
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-	    <p>Copyright &copy;2014</p>
+	    <p class="text-muted">Copyright &copy;2014. Thank you for all your support!</p>        
 	  </div>
 	</div>
+  
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/assets/js/docs.js"></script>
 </body>
 </html>

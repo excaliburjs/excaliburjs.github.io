@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CollisionType - Excalibur.js HTML5 Game Engine</title>
+  <title>CollisionType - Excalibur.js HTML5 Game Engine</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<!-- Webfonts -->
-	<script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Webfonts -->
+  <script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
 
+  <!-- Highlight -->
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow-night-blue.min.css">  
 </head>
 <body>
 
@@ -31,8 +33,9 @@
 	      <!-- Collect the nav links, forms, and other content for toggling -->
 	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	          <li> <a href="/docs">Documentation</a> </li>
-	          <li> <a href="/showcase">Showcase</a> </li>
+	          <li><a href="/docs">Documentation</a></li>
+	          <li><a href="/showcase.html">Showcase</a></li>
+              <li><a href="http://blog.excaliburjs.com">Blog</a></li>
 	        </ul>
 
 	        <ul class="nav navbar-nav navbar-right">
@@ -64,8 +67,10 @@
       </div>
 
       <div class="col-sm-9">
-        <h1>ex.CollisionType</h1>
-
+        <div class="clearfix">
+  <h1 class="pull-left">ex.CollisionType</h1>
+  <p class="pull-right source-file"><a class="btn btn-primary btn-xs" href="https://github.com/excaliburjs/Excalibur/blob/master/src\engine\Entities.ts#L293"><i class="fa fa-file-text"></i> src\engine\Entities.ts</a></p>
+</div>
 
 
 
@@ -77,7 +82,12 @@ An enum that describes the types of collisions actors can participate in
 
 
 
-  <h2>Properties</h2>
+  <div class="clearfix">
+    <h2 class="pull-left">Properties</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
 
   <table class="table table-bordered">
     <thead>
@@ -88,45 +98,60 @@ An enum that describes the types of collisions actors can participate in
       </tr>
     </thead>
   
-  <tr>
-  <td><a name="PreventCollision"></a><label class="label label-default">static</label> <code>PreventCollision</code></td>
-  <td><a href="CollisionType.html">CollisionType</a></td>
-  <td>Actors with the PreventCollision setting do not participate in any
-collisions and do not raise collision events.</td>
-</tr>
-  
-  <tr>
-  <td><a name="Passive"></a><label class="label label-default">static</label> <code>Passive</code></td>
-  <td><a href="CollisionType.html">CollisionType</a></td>
-  <td>Actors with the Passive setting only raise collision events, but are not
-influenced or moved by other actors and do not influence or move other actors.</td>
-</tr>
-  
-  <tr>
+  <tr class="">
   <td><a name="Active"></a><label class="label label-default">static</label> <code>Active</code></td>
   <td><a href="CollisionType.html">CollisionType</a></td>
-  <td>Actors with the Active setting raise collision events and participate
+  <td>
+    Actors with the Active setting raise collision events and participate
 in collisions with other actors and will be push or moved by actors sharing
-the Active or Fixed setting.</td>
+the Active or Fixed setting.
+    
+  </td>
 </tr>
   
-  <tr>
+  <tr class="">
   <td><a name="Elastic"></a><label class="label label-default">static</label> <code>Elastic</code></td>
   <td><a href="CollisionType.html">CollisionType</a></td>
-  <td>Actors with the Elastic setting will behave the same as Active, except that they will
+  <td>
+    Actors with the Elastic setting will behave the same as Active, except that they will
 "bounce" in the opposite direction given their velocity dx/dy. This is a naive implementation meant for
-prototyping, for a more robust elastic collision listen to the "collision" event and perform your custom logic.</td>
+prototyping, for a more robust elastic collision listen to the "collision" event and perform your custom logic.
+    
+  </td>
 </tr>
   
-  <tr>
+  <tr class="">
   <td><a name="Fixed"></a><label class="label label-default">static</label> <code>Fixed</code></td>
   <td><a href="CollisionType.html">CollisionType</a></td>
-  <td>Actors with the Fixed setting raise collision events and participate in
+  <td>
+    Actors with the Fixed setting raise collision events and participate in
 collisions with other actors. Actors with the Fixed setting will not be
 pushed or moved by other actors sharing the Fixed or Actors. Think of Fixed
 actors as "immovable/onstoppable" objects. If two Fixed actors meet they will
 not be pushed or moved by each other, they will not interact except to throw
-collision events.</td>
+collision events.
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="Passive"></a><label class="label label-default">static</label> <code>Passive</code></td>
+  <td><a href="CollisionType.html">CollisionType</a></td>
+  <td>
+    Actors with the Passive setting only raise collision events, but are not
+influenced or moved by other actors and do not influence or move other actors.
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="PreventCollision"></a><label class="label label-default">static</label> <code>PreventCollision</code></td>
+  <td><a href="CollisionType.html">CollisionType</a></td>
+  <td>
+    Actors with the PreventCollision setting do not participate in any
+collisions and do not raise collision events.
+    
+  </td>
 </tr>
   
 
@@ -137,7 +162,6 @@ collision events.</td>
     </div>
   </div>
 </div>
-
 
 	<div class="container">
 	  <div class="alert">
@@ -153,8 +177,14 @@ collision events.</td>
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-	    <p>Copyright &copy;2014</p>
+	    <p class="text-muted">Copyright &copy;2014. Thank you for all your support!</p>        
 	  </div>
 	</div>
+  
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/assets/js/docs.js"></script>
 </body>
 </html>

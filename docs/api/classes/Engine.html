@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Engine - Excalibur.js HTML5 Game Engine</title>
+  <title>Engine - Excalibur.js HTML5 Game Engine</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<!-- Webfonts -->
-	<script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Webfonts -->
+  <script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
 
+  <!-- Highlight -->
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow-night-blue.min.css">  
 </head>
 <body>
 
@@ -31,8 +33,9 @@
 	      <!-- Collect the nav links, forms, and other content for toggling -->
 	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	          <li> <a href="/docs">Documentation</a> </li>
-	          <li> <a href="/showcase">Showcase</a> </li>
+	          <li><a href="/docs">Documentation</a></li>
+	          <li><a href="/showcase.html">Showcase</a></li>
+              <li><a href="http://blog.excaliburjs.com">Blog</a></li>
 	        </ul>
 
 	        <ul class="nav navbar-nav navbar-right">
@@ -60,12 +63,14 @@
           </div>
         </div>
         
-        <div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Core</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Actor.html'>Actor</a></li><li class=''><a href='/docs/api/classes/Scene.html'>Scene</a></li><li class=''><a href='/docs/api/classes/Engine.html'>Engine</a></li><li class=''><a href='/docs/api/classes/Label.html'>Label</a></li><li class=''><a href='/docs/api/classes/Class.html'>Class</a></li><li class=''><a href='/docs/api/classes/Color.html'>Color</a></li><li class=''><a href='/docs/api/classes/Trigger.html'>Trigger</a></li><li class=''><a href='/docs/api/classes/DisplayMode.html'>DisplayMode</a></li><li class=''><a href='/docs/api/classes/Side.html'>Side</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Media</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Sound.html'>Sound</a></li><li class=''><a href='/docs/api/classes/Texture.html'>Texture</a></li><li class=''><a href='/docs/api/classes/Polygon.html'>Polygon</a></li><li class=''><a href='/docs/api/classes/Animation.html'>Animation</a></li><li class=''><a href='/docs/api/classes/Sprite.html'>Sprite</a></li><li class=''><a href='/docs/api/classes/SpriteSheet.html'>SpriteSheet</a></li><li class=''><a href='/docs/api/classes/SpriteFont.html'>SpriteFont</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Cameras</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/TopCamera.html'>TopCamera</a></li><li class=''><a href='/docs/api/classes/SideCamera.html'>SideCamera</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Collision</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/BoundingBox.html'>BoundingBox</a></li><li class=''><a href='/docs/api/classes/CollisionMap.html'>CollisionMap</a></li><li class=''><a href='/docs/api/classes/Cell.html'>Cell</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Effects</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/ParticleEmitter.html'>ParticleEmitter</a></li><li class=''><a href='/docs/api/classes/EmitterType.html'>EmitterType</a></li><li class=''><a href='/docs/api/classes/Effects.Grayscale.html'>Effects.Grayscale</a></li><li class=''><a href='/docs/api/classes/Effects.Invert.html'>Effects.Invert</a></li><li class=''><a href='/docs/api/classes/Effects.Opacity.html'>Effects.Opacity</a></li><li class=''><a href='/docs/api/classes/Effects.Colorize.html'>Effects.Colorize</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Utility</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Loader.html'>Loader</a></li><li class=''><a href='/docs/api/classes/Promise.html'>Promise</a></li><li class=''><a href='/docs/api/classes/PromiseState.html'>PromiseState</a></li><li class=''><a href='/docs/api/classes/Timer.html'>Timer</a></li><li class=''><a href='/docs/api/classes/Collection.html'>Collection</a></li><li class=''><a href='/docs/api/classes/EventDispatcher.html'>EventDispatcher</a></li><li class=''><a href='/docs/api/classes/EventType.html'>EventType</a></li><li class=''><a href='/docs/api/classes/Logger.html'>Logger</a></li><li class=''><a href='/docs/api/classes/LogLevel.html'>LogLevel</a></li><li class=''><a href='/docs/api/classes/ConsoleAppender.html'>ConsoleAppender</a></li><li class=''><a href='/docs/api/classes/ScreenAppender.html'>ScreenAppender</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Math</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Point.html'>Point</a></li><li class=''><a href='/docs/api/classes/Vector.html'>Vector</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Interfaces</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/IAppender.html'>IAppender</a></li><li class=''><a href='/docs/api/classes/IDrawable.html'>IDrawable</a></li><li class=''><a href='/docs/api/classes/ILoadable.html'>ILoadable</a></li><li class=''><a href='/docs/api/classes/InputKey.html'>InputKey</a></li><li class=''><a href='/docs/api/classes/ISpriteEffect.html'>ISpriteEffect</a></li><li class=''><a href='/docs/api/classes/ICollidable.html'>ICollidable</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Events</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/GameEvent.html'>GameEvent</a></li><li class=''><a href='/docs/api/classes/UpdateEvent.html'>UpdateEvent</a></li><li class=''><a href='/docs/api/classes/ActivateEvent.html'>ActivateEvent</a></li><li class=''><a href='/docs/api/classes/DeactivateEvent.html'>DeactivateEvent</a></li><li class=''><a href='/docs/api/classes/CollisionEvent.html'>CollisionEvent</a></li><li class=''><a href='/docs/api/classes/InitializeEvent.html'>InitializeEvent</a></li><li class=''><a href='/docs/api/classes/ExitViewPortEvent.html'>ExitViewPortEvent</a></li><li class=''><a href='/docs/api/classes/EnterViewPortEvent.html'>EnterViewPortEvent</a></li><li class=''><a href='/docs/api/classes/FocusEvent.html'>FocusEvent</a></li><li class=''><a href='/docs/api/classes/BlurEvent.html'>BlurEvent</a></li><li class=''><a href='/docs/api/classes/KeyEvent.html'>KeyEvent</a></li><li class=''><a href='/docs/api/classes/KeyUp.html'>KeyUp</a></li><li class=''><a href='/docs/api/classes/KeyDown.html'>KeyDown</a></li><li class=''><a href='/docs/api/classes/KeyPress.html'>KeyPress</a></li><li class=''><a href='/docs/api/classes/MouseUp.html'>MouseUp</a></li><li class=''><a href='/docs/api/classes/MouseDown.html'>MouseDown</a></li><li class=''><a href='/docs/api/classes/MouseMove.html'>MouseMove</a></li><li class=''><a href='/docs/api/classes/TouchEvent.html'>TouchEvent</a></li><li class=''><a href='/docs/api/classes/TouchStart.html'>TouchStart</a></li><li class=''><a href='/docs/api/classes/TouchEnd.html'>TouchEnd</a></li><li class=''><a href='/docs/api/classes/TouchMove.html'>TouchMove</a></li><li class=''><a href='/docs/api/classes/TouchCancel.html'>TouchCancel</a></li></ul></div></div>
+        <div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Core</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Actor.html'>Actor</a></li><li class=''><a href='/docs/api/classes/Scene.html'>Scene</a></li><li class='current'><a href='/docs/api/classes/Engine.html'>Engine</a></li><li class=''><a href='/docs/api/classes/Label.html'>Label</a></li><li class=''><a href='/docs/api/classes/Class.html'>Class</a></li><li class=''><a href='/docs/api/classes/Color.html'>Color</a></li><li class=''><a href='/docs/api/classes/Trigger.html'>Trigger</a></li><li class=''><a href='/docs/api/classes/DisplayMode.html'>DisplayMode</a></li><li class=''><a href='/docs/api/classes/Side.html'>Side</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Media</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Sound.html'>Sound</a></li><li class=''><a href='/docs/api/classes/Texture.html'>Texture</a></li><li class=''><a href='/docs/api/classes/Polygon.html'>Polygon</a></li><li class=''><a href='/docs/api/classes/Animation.html'>Animation</a></li><li class=''><a href='/docs/api/classes/Sprite.html'>Sprite</a></li><li class=''><a href='/docs/api/classes/SpriteSheet.html'>SpriteSheet</a></li><li class=''><a href='/docs/api/classes/SpriteFont.html'>SpriteFont</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Cameras</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/TopCamera.html'>TopCamera</a></li><li class=''><a href='/docs/api/classes/SideCamera.html'>SideCamera</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Collision</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/BoundingBox.html'>BoundingBox</a></li><li class=''><a href='/docs/api/classes/CollisionMap.html'>CollisionMap</a></li><li class=''><a href='/docs/api/classes/Cell.html'>Cell</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Effects</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/ParticleEmitter.html'>ParticleEmitter</a></li><li class=''><a href='/docs/api/classes/EmitterType.html'>EmitterType</a></li><li class=''><a href='/docs/api/classes/Effects.Grayscale.html'>Effects.Grayscale</a></li><li class=''><a href='/docs/api/classes/Effects.Invert.html'>Effects.Invert</a></li><li class=''><a href='/docs/api/classes/Effects.Opacity.html'>Effects.Opacity</a></li><li class=''><a href='/docs/api/classes/Effects.Colorize.html'>Effects.Colorize</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Utility</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Loader.html'>Loader</a></li><li class=''><a href='/docs/api/classes/Promise.html'>Promise</a></li><li class=''><a href='/docs/api/classes/PromiseState.html'>PromiseState</a></li><li class=''><a href='/docs/api/classes/Timer.html'>Timer</a></li><li class=''><a href='/docs/api/classes/Collection.html'>Collection</a></li><li class=''><a href='/docs/api/classes/EventDispatcher.html'>EventDispatcher</a></li><li class=''><a href='/docs/api/classes/EventType.html'>EventType</a></li><li class=''><a href='/docs/api/classes/Logger.html'>Logger</a></li><li class=''><a href='/docs/api/classes/LogLevel.html'>LogLevel</a></li><li class=''><a href='/docs/api/classes/ConsoleAppender.html'>ConsoleAppender</a></li><li class=''><a href='/docs/api/classes/ScreenAppender.html'>ScreenAppender</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Math</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/Point.html'>Point</a></li><li class=''><a href='/docs/api/classes/Vector.html'>Vector</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Interfaces</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/IAppender.html'>IAppender</a></li><li class=''><a href='/docs/api/classes/IDrawable.html'>IDrawable</a></li><li class=''><a href='/docs/api/classes/ILoadable.html'>ILoadable</a></li><li class=''><a href='/docs/api/classes/InputKey.html'>InputKey</a></li><li class=''><a href='/docs/api/classes/ISpriteEffect.html'>ISpriteEffect</a></li><li class=''><a href='/docs/api/classes/ICollidable.html'>ICollidable</a></li></ul></div></div><div class='panel panel-primary'><div class='panel-heading'><h3 class='panel-title'>Events</h3></div><div class='panel-body'><ul class='nav sub-nav'><li class=''><a href='/docs/api/classes/GameEvent.html'>GameEvent</a></li><li class=''><a href='/docs/api/classes/UpdateEvent.html'>UpdateEvent</a></li><li class=''><a href='/docs/api/classes/ActivateEvent.html'>ActivateEvent</a></li><li class=''><a href='/docs/api/classes/DeactivateEvent.html'>DeactivateEvent</a></li><li class=''><a href='/docs/api/classes/CollisionEvent.html'>CollisionEvent</a></li><li class=''><a href='/docs/api/classes/InitializeEvent.html'>InitializeEvent</a></li><li class=''><a href='/docs/api/classes/ExitViewPortEvent.html'>ExitViewPortEvent</a></li><li class=''><a href='/docs/api/classes/EnterViewPortEvent.html'>EnterViewPortEvent</a></li><li class=''><a href='/docs/api/classes/FocusEvent.html'>FocusEvent</a></li><li class=''><a href='/docs/api/classes/BlurEvent.html'>BlurEvent</a></li><li class=''><a href='/docs/api/classes/KeyEvent.html'>KeyEvent</a></li><li class=''><a href='/docs/api/classes/KeyUp.html'>KeyUp</a></li><li class=''><a href='/docs/api/classes/KeyDown.html'>KeyDown</a></li><li class=''><a href='/docs/api/classes/KeyPress.html'>KeyPress</a></li><li class=''><a href='/docs/api/classes/MouseUp.html'>MouseUp</a></li><li class=''><a href='/docs/api/classes/MouseDown.html'>MouseDown</a></li><li class=''><a href='/docs/api/classes/MouseMove.html'>MouseMove</a></li><li class=''><a href='/docs/api/classes/TouchEvent.html'>TouchEvent</a></li><li class=''><a href='/docs/api/classes/TouchStart.html'>TouchStart</a></li><li class=''><a href='/docs/api/classes/TouchEnd.html'>TouchEnd</a></li><li class=''><a href='/docs/api/classes/TouchMove.html'>TouchMove</a></li><li class=''><a href='/docs/api/classes/TouchCancel.html'>TouchCancel</a></li></ul></div></div>
       </div>
 
       <div class="col-sm-9">
-        <h1>ex.Engine</h1>
-
+        <div class="clearfix">
+  <h1 class="pull-left">ex.Engine</h1>
+  <p class="pull-right source-file"><a class="btn btn-primary btn-xs" href="https://github.com/excaliburjs/Excalibur/blob/master/src\engine\Core.ts#L480"><i class="fa fa-file-text"></i> src\engine\Core.ts</a></p>
+</div>
 
 
 
@@ -79,24 +84,14 @@ loading resources, and managing the scene.
 
   <h2>Constructor</h2>
   <a name=""></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>new ex.Engine(width? : Number, height? : Number, canvasElementId? : String, displayMode? : DisplayMode)</code>
+    <code>new ex.Engine(width?: Number, height?: Number, canvasElementId?: String, displayMode?: DisplayMode)</code>
     
-    
-  </div>
-  <div class="panel-body">
     
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>width?</code></td>
@@ -124,11 +119,21 @@ loading resources, and managing the scene.
   
   </table>
   
+  <div class="panel-body">
+    
+      <i class="text-muted">This method has no description</i>
+    
+  </div>  
 </div>
 
 
 
-  <h2>Properties</h2>
+  <div class="clearfix">
+    <h2 class="pull-left">Properties</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
 
   <table class="table table-bordered">
     <thead>
@@ -139,141 +144,116 @@ loading resources, and managing the scene.
       </tr>
     </thead>
   
-  <tr>
-  <td><a name="canvas"></a> <code>canvas</code></td>
-  <td><code>HTMLCanvasElement</code></td>
-  <td>Direct access to the engine's canvas element</td>
-</tr>
-  
-  <tr>
-  <td><a name="ctx"></a> <code>ctx</code></td>
-  <td><code>CanvasRenderingContext2D</code></td>
-  <td>Direct access to the engine's 2D rendering context</td>
-</tr>
-  
-  <tr>
-  <td><a name="canvasElementId"></a> <code>canvasElementId</code></td>
-  <td><code>String</code></td>
-  <td>Direct access to the canvas element id, if an id exists</td>
-</tr>
-  
-  <tr>
-  <td><a name="width"></a> <code>width</code></td>
-  <td><code>Number</code></td>
-  <td>The width of the game canvas in pixels</td>
-</tr>
-  
-  <tr>
-  <td><a name="height"></a> <code>height</code></td>
-  <td><code>Number</code></td>
-  <td>The height of the game canvas in pixels</td>
-</tr>
-  
-  <tr>
-  <td><a name="rootScene"></a> <code>rootScene</code></td>
-  <td><a href="Scene.html">Scene</a></td>
-  <td>The default scene of the game, use <a href="Engine.html#goToScene">Engine.goToScene undefined</a> to transition to different scenes.</td>
-</tr>
-  
-  <tr>
-  <td><a name="isFullscreen"></a> <code>isFullscreen</code></td>
-  <td><code>Boolean</code></td>
-  <td>Indicates whether the engine is set to fullscreen or not</td>
-</tr>
-  
-  <tr>
-  <td><a name="[displayMode=FullScreen]"></a> <code>[displayMode=FullScreen]</code></td>
-  <td><a href="DisplayMode.html">DisplayMode</a></td>
-  <td>Indicates the current DisplayMode of the engine.</td>
-</tr>
-  
-  <tr>
-  <td><a name="[isDebug=false]"></a> <code>[isDebug=false]</code></td>
-  <td><code>Boolean</code></td>
-  <td>Indicates whether the engine should draw with debug information</td>
-</tr>
-  
-  <tr>
+  <tr class="">
   <td><a name="[backgroundColor=new Color(0, 0, 100)]"></a> <code>[backgroundColor=new Color(0, 0, 100)]</code></td>
   <td><a href="Color.html">Color</a></td>
-  <td>Sets the background color for the engine.</td>
+  <td>
+    Sets the background color for the engine.
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="[displayMode=FullScreen]"></a> <code>[displayMode=FullScreen]</code></td>
+  <td><a href="DisplayMode.html">DisplayMode</a></td>
+  <td>
+    Indicates the current DisplayMode of the engine.
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="[isDebug=false]"></a> <code>[isDebug=false]</code></td>
+  <td><code>Boolean</code></td>
+  <td>
+    Indicates whether the engine should draw with debug information
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="canvas"></a> <code>canvas</code></td>
+  <td><code>HTMLCanvasElement</code></td>
+  <td>
+    Direct access to the engine's canvas element
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="canvasElementId"></a> <code>canvasElementId</code></td>
+  <td><code>String</code></td>
+  <td>
+    Direct access to the canvas element id, if an id exists
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="ctx"></a> <code>ctx</code></td>
+  <td><code>CanvasRenderingContext2D</code></td>
+  <td>
+    Direct access to the engine's 2D rendering context
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="height"></a> <code>height</code></td>
+  <td><code>Number</code></td>
+  <td>
+    The height of the game canvas in pixels
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="isFullscreen"></a> <code>isFullscreen</code></td>
+  <td><code>Boolean</code></td>
+  <td>
+    Indicates whether the engine is set to fullscreen or not
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="rootScene"></a> <code>rootScene</code></td>
+  <td><a href="Scene.html">Scene</a></td>
+  <td>
+    The default scene of the game, use <a href="Engine.html#goToScene">Engine.goToScene undefined</a> to transition to different scenes.
+    
+  </td>
+</tr>
+  
+  <tr class="">
+  <td><a name="width"></a> <code>width</code></td>
+  <td><code>Number</code></td>
+  <td>
+    The width of the game canvas in pixels
+    
+  </td>
 </tr>
   
 
 </table>
 
 
-  <h2>Methods</h2>
-  
-  <a name="playAnimation"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>playAnimation(animation : Animation, x : Number, y : Number)</code>
-    
-    
+  <div class="clearfix">
+    <h2 class="pull-left">Methods</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
   </div>
-  <div class="panel-body">
-    Plays a sprite animation on the screen at the specified x and y
-(in game coordinates, not screen pixels). These animations play
-independent of actors, and will be cleaned up internally as soon
-as they are complete. Note animations that loop will never be
-cleaned up.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>animation</code></td>
-      <td><a href="Animation.html">Animation</a></td>
-      <td>Animation to play</td>
-    </tr>
-  
-    <tr>
-      <td><code>x</code></td>
-      <td><code>Number</code></td>
-      <td>x game coordinate to play the animation</td>
-    </tr>
-  
-    <tr>
-      <td><code>y</code></td>
-      <td><code>Number</code></td>
-      <td>y game coordinate to play the animation</td>
-    </tr>
-  
-  </table>
-  
-</div>
   
   <a name="addChild"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>addChild(actor : Actor)</code>
+    <code>addChild(actor: Actor)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Adds an actor to the current scene of the game. This is synonymous
-to calling engine.currentScene.addChild(actor : Actor).
-
-Actors can only be drawn if they are a member of a scene, and only
-the 'currentScene' may be drawn or updated.
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>actor</code></td>
@@ -283,120 +263,26 @@ the 'currentScene' may be drawn or updated.
   
   </table>
   
-</div>
-  
-  <a name="removeChild"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>removeChild(actor : Actor)</code>
-    
-    
-  </div>
   <div class="panel-body">
-    Removes an actor from the currentScene of the game. This is synonymous
-to calling engine.currentScene.removeChild(actor : Actor).
-Actors that are removed from a scene will no longer be drawn or updated.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>actor</code></td>
-      <td><a href="Actor.html">Actor</a></td>
-      <td>The actor to remove from the current scene.</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="addTimer"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>addTimer(timer : Timer)</code>
     
+      Adds an actor to the current scene of the game. This is synonymous
+to calling engine.currentScene.addChild(actor : Actor).
+
+Actors can only be drawn if they are a member of a scene, and only
+the 'currentScene' may be drawn or updated.
     
-  </div>
-  <div class="panel-body">
-    Adds an excalibur timer to the current scene.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>timer</code></td>
-      <td><a href="Timer.html">Timer</a></td>
-      <td>The timer to add to the current scene.</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="removeTimer"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>removeTimer(timer : Timer)</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Removes an excalibur timer from the current scene.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>timer</code></td>
-      <td><a href="Timer.html">Timer</a></td>
-      <td>The timer to remove to the current scene.</td>
-    </tr>
-  
-  </table>
-  
+  </div>  
 </div>
   
   <a name="addScene"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>addScene(name : String, scene : Scene)</code>
+    <code>addScene(name: String, scene: Scene)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Adds a scene to the engine, think of scenes in excalibur as you
-would scenes in a play.
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>name</code></td>
@@ -412,335 +298,48 @@ would scenes in a play.
   
   </table>
   
+  <div class="panel-body">
+    
+      Adds a scene to the engine, think of scenes in excalibur as you
+would scenes in a play.
+    
+  </div>  
 </div>
   
-  <a name="goToScene"></a>
-<div class="panel panel-default">
+  <a name="addTimer"></a>
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>goToScene(name : String)</code>
+    <code>addTimer(timer: Timer)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Changes the currently updating and drawing scene to a different,
-named scene.
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
-      <td><code>name</code></td>
-      <td><code>String</code></td>
-      <td>The name of the scene to trasition to.</td>
+      <td><code>timer</code></td>
+      <td><a href="Timer.html">Timer</a></td>
+      <td>The timer to add to the current scene.</td>
     </tr>
   
   </table>
   
-</div>
-  
-  <a name="getWidth"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>getWidth() : number The width of the drawing surface in pixels.</code>
-    
-    
-  </div>
   <div class="panel-body">
-    Returns the width of the engines drawing surface in pixels.
-  </div>
-  
-</div>
-  
-  <a name="getHeight"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>getHeight() : number The height of the drawing surface in pixels.</code>
     
+      Adds an excalibur timer to the current scene.
     
-  </div>
-  <div class="panel-body">
-    Returns the height of the engines drawing surface in pixels.
-  </div>
-  
-</div>
-  
-  <a name="screenToWorldCoordinates"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>screenToWorldCoordinates(point : Point)</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Transforms the current x, y from screen coordinates to world coordinates
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>point</code></td>
-      <td><a href="Point.html">Point</a></td>
-      <td>screen coordinate to convert</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="worldToScreenCoordinates"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>worldToScreenCoordinates(point : Point)</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Transforms a world coordinate, to a screen coordinate
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>point</code></td>
-      <td><a href="Point.html">Point</a></td>
-      <td>world coordinate to convert</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="setHeightByDisplayMode"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>setHeightByDisplayMode()</code>
-    <span class="label label-danger pull-right">private</span>
-    
-  </div>
-  <div class="panel-body">
-    Sets the internal canvas height based on the selected display mode.
-  </div>
-  
-</div>
-  
-  <a name="initialize"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>initialize()</code>
-    <span class="label label-danger pull-right">private</span>
-    
-  </div>
-  <div class="panel-body">
-    Initializes the internal canvas, rendering context, displaymode, and native event listeners
-  </div>
-  
-</div>
-  
-  <a name="setAntialiasing"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>setAntialiasing(isSmooth : Boolean)</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    If supported by the browser, this will set the antialiasing flag on the
-canvas. Set this to false if you want a 'jagged' pixel art look to your
-image resources.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>isSmooth</code></td>
-      <td><code>Boolean</code></td>
-      <td>Set smoothing to true or false</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="getAntialiasing"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>getAntialiasing() : boolean</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Return the current smoothing status of the canvas
-  </div>
-  
-</div>
-  
-  <a name="isKeyDown"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>isKeyDown(key : InputKey) : boolean</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Tests if a certain key is down.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>key</code></td>
-      <td><a href="InputKey.html">InputKey</a></td>
-      <td>Test wether a key is down</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="isKeyPressed"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>isKeyPressed(key : InputKey) : boolean</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Tests if a certain key is pressed.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>key</code></td>
-      <td><a href="InputKey.html">InputKey</a></td>
-      <td>Test wether a key is pressed</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="isKeyUp"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>isKeyUp(key : InputKey) : boolean</code>
-    
-    
-  </div>
-  <div class="panel-body">
-    Tests if a certain key is up.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>key</code></td>
-      <td><a href="InputKey.html">InputKey</a></td>
-      <td>Test wether a key is up</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="update"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>update(delta : Number)</code>
-    <span class="label label-danger pull-right">private</span>
-    
-  </div>
-  <div class="panel-body">
-    Updates the entire state of the game
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>delta</code></td>
-      <td><code>Number</code></td>
-      <td>Number of milliseconds elapsed since the last update.</td>
-    </tr>
-  
-  </table>
-  
+  </div>  
 </div>
   
   <a name="draw"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>draw(draw : Number)</code>
+    <code>draw(draw: Number)</code>
     <span class="label label-danger pull-right">private</span>
     
   </div>
-  <div class="panel-body">
-    Draws the entire game
-  </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>draw</code></td>
@@ -750,72 +349,22 @@ image resources.
   
   </table>
   
-</div>
-  
-  <a name="start"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>start(loader? : ILoadable) : Promise</code>
-    
-    
-  </div>
   <div class="panel-body">
-    Starts the internal game loop for Excalibur after loading
-any provided assets.
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>loader? = undefined</code></td>
-      <td><a href="ILoadable.html">ILoadable</a></td>
-      <td>Optional resources to load before 
-starting the mainloop. Some loadable such as a Loader collection, Sound, or Texture.</td>
-    </tr>
-  
-  </table>
-  
-</div>
-  
-  <a name="stop"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>stop()</code>
     
+      Draws the entire game
     
-  </div>
-  <div class="panel-body">
-    Stops Excalibur's mainloop, useful for pausing the game.
-  </div>
-  
+  </div>  
 </div>
   
   <a name="drawLoadingBar"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>drawLoadingBar(ctx : CanvasRenderingContext2D, loaded : Number, total : Number)</code>
+    <code>drawLoadingBar(ctx: CanvasRenderingContext2D, loaded: Number, total: Number)</code>
     <span class="label label-danger pull-right">private</span>
     
   </div>
-  <div class="panel-body">
-    Draws the Excalibur loading bar
-  </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>ctx</code></td>
@@ -837,27 +386,370 @@ starting the mainloop. Some loadable such as a Loader collection, Sound, or Text
   
   </table>
   
+  <div class="panel-body">
+    
+      Draws the Excalibur loading bar
+    
+  </div>  
+</div>
+  
+  <a name="getAntialiasing"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>getAntialiasing(): boolean</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Return the current smoothing status of the canvas
+    
+  </div>  
+</div>
+  
+  <a name="getHeight"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>getHeight(): number The height of the drawing surface in pixels.</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Returns the height of the engines drawing surface in pixels.
+    
+  </div>  
+</div>
+  
+  <a name="getWidth"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>getWidth(): number The width of the drawing surface in pixels.</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Returns the width of the engines drawing surface in pixels.
+    
+  </div>  
+</div>
+  
+  <a name="goToScene"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>goToScene(name: String)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>name</code></td>
+      <td><code>String</code></td>
+      <td>The name of the scene to trasition to.</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Changes the currently updating and drawing scene to a different,
+named scene.
+    
+  </div>  
+</div>
+  
+  <a name="initialize"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>initialize()</code>
+    <span class="label label-danger pull-right">private</span>
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Initializes the internal canvas, rendering context, displaymode, and native event listeners
+    
+  </div>  
+</div>
+  
+  <a name="isKeyDown"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>isKeyDown(key: InputKey): boolean</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>key</code></td>
+      <td><a href="InputKey.html">InputKey</a></td>
+      <td>Test wether a key is down</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Tests if a certain key is down.
+    
+  </div>  
+</div>
+  
+  <a name="isKeyPressed"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>isKeyPressed(key: InputKey): boolean</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>key</code></td>
+      <td><a href="InputKey.html">InputKey</a></td>
+      <td>Test wether a key is pressed</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Tests if a certain key is pressed.
+    
+  </div>  
+</div>
+  
+  <a name="isKeyUp"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>isKeyUp(key: InputKey): boolean</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>key</code></td>
+      <td><a href="InputKey.html">InputKey</a></td>
+      <td>Test wether a key is up</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Tests if a certain key is up.
+    
+  </div>  
+</div>
+  
+  <a name="load"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>load(loader: ILoadable)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>loader</code></td>
+      <td><a href="ILoadable.html">ILoadable</a></td>
+      <td>Some loadable such as a Loader collection, Sound, or Texture.</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Another option available to you to load resources into the game. 
+Immediately after calling this the game will pause and the loading screen
+will appear.
+    
+  </div>  
+</div>
+  
+  <a name="playAnimation"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>playAnimation(animation: Animation, x: Number, y: Number)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>animation</code></td>
+      <td><a href="Animation.html">Animation</a></td>
+      <td>Animation to play</td>
+    </tr>
+  
+    <tr>
+      <td><code>x</code></td>
+      <td><code>Number</code></td>
+      <td>x game coordinate to play the animation</td>
+    </tr>
+  
+    <tr>
+      <td><code>y</code></td>
+      <td><code>Number</code></td>
+      <td>y game coordinate to play the animation</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Plays a sprite animation on the screen at the specified x and y
+(in game coordinates, not screen pixels). These animations play
+independent of actors, and will be cleaned up internally as soon
+as they are complete. Note animations that loop will never be
+cleaned up.
+    
+  </div>  
+</div>
+  
+  <a name="removeChild"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>removeChild(actor: Actor)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>actor</code></td>
+      <td><a href="Actor.html">Actor</a></td>
+      <td>The actor to remove from the current scene.</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Removes an actor from the currentScene of the game. This is synonymous
+to calling engine.currentScene.removeChild(actor : Actor).
+Actors that are removed from a scene will no longer be drawn or updated.
+    
+  </div>  
+</div>
+  
+  <a name="removeTimer"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>removeTimer(timer: Timer)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>timer</code></td>
+      <td><a href="Timer.html">Timer</a></td>
+      <td>The timer to remove to the current scene.</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Removes an excalibur timer from the current scene.
+    
+  </div>  
+</div>
+  
+  <a name="screenToWorldCoordinates"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>screenToWorldCoordinates(point: Point)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>point</code></td>
+      <td><a href="Point.html">Point</a></td>
+      <td>screen coordinate to convert</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Transforms the current x, y from screen coordinates to world coordinates
+    
+  </div>  
+</div>
+  
+  <a name="setAntialiasing"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>setAntialiasing(isSmooth: Boolean)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>isSmooth</code></td>
+      <td><code>Boolean</code></td>
+      <td>Set smoothing to true or false</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      If supported by the browser, this will set the antialiasing flag on the
+canvas. Set this to false if you want a 'jagged' pixel art look to your
+image resources.
+    
+  </div>  
+</div>
+  
+  <a name="setHeightByDisplayMode"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>setHeightByDisplayMode()</code>
+    <span class="label label-danger pull-right">private</span>
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Sets the internal canvas height based on the selected display mode.
+    
+  </div>  
 </div>
   
   <a name="setLoadingDrawFunction"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>setLoadingDrawFunction(fcn : Ctx: CanvasRenderingContext2D, loaded: number, total: number) => void)</code>
+    <code>setLoadingDrawFunction(fcn: Ctx: CanvasRenderingContext2D, loaded: number, total: number) => void)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Sets the loading screen draw function if you want to customize the draw
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>fcn</code></td>
@@ -868,38 +760,103 @@ Callback to draw the loading screen which is passed a rendering context, the num
   
   </table>
   
+  <div class="panel-body">
+    
+      Sets the loading screen draw function if you want to customize the draw
+    
+  </div>  
 </div>
   
-  <a name="load"></a>
-<div class="panel panel-default">
+  <a name="start"></a>
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>load(loader : ILoadable)</code>
+    <code>start(loader?: ILoadable): Promise</code>
     
     
-  </div>
-  <div class="panel-body">
-    Another option available to you to load resources into the game. 
-Immediately after calling this the game will pause and the loading screen
-will appear.
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
-      <td><code>loader</code></td>
+      <td><code>loader? = undefined</code></td>
       <td><a href="ILoadable.html">ILoadable</a></td>
-      <td>Some loadable such as a Loader collection, Sound, or Texture.</td>
+      <td>Optional resources to load before 
+starting the mainloop. Some loadable such as a Loader collection, Sound, or Texture.</td>
     </tr>
   
   </table>
   
+  <div class="panel-body">
+    
+      Starts the internal game loop for Excalibur after loading
+any provided assets.
+    
+  </div>  
+</div>
+  
+  <a name="stop"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>stop()</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Stops Excalibur's mainloop, useful for pausing the game.
+    
+  </div>  
+</div>
+  
+  <a name="update"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>update(delta: Number)</code>
+    <span class="label label-danger pull-right">private</span>
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>delta</code></td>
+      <td><code>Number</code></td>
+      <td>Number of milliseconds elapsed since the last update.</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Updates the entire state of the game
+    
+  </div>  
+</div>
+  
+  <a name="worldToScreenCoordinates"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>worldToScreenCoordinates(point: Point)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>point</code></td>
+      <td><a href="Point.html">Point</a></td>
+      <td>world coordinate to convert</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Transforms a world coordinate, to a screen coordinate
+    
+  </div>  
 </div>
   
 
@@ -907,7 +864,6 @@ will appear.
     </div>
   </div>
 </div>
-
 
 	<div class="container">
 	  <div class="alert">
@@ -923,8 +879,14 @@ will appear.
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-	    <p>Copyright &copy;2014</p>
+	    <p class="text-muted">Copyright &copy;2014. Thank you for all your support!</p>        
 	  </div>
 	</div>
+  
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/assets/js/docs.js"></script>
 </body>
 </html>

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Camera - Excalibur.js HTML5 Game Engine</title>
+  <title>Camera - Excalibur.js HTML5 Game Engine</title>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="/assets/css/main.css">
-	<!-- Webfonts -->
-	<script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <!-- Webfonts -->
+  <script src="//use.edgefonts.net/source-sans-pro:n2,n4.js"></script>
 
+  <!-- Highlight -->
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/tomorrow-night-blue.min.css">  
 </head>
 <body>
 
@@ -31,8 +33,9 @@
 	      <!-- Collect the nav links, forms, and other content for toggling -->
 	      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	        <ul class="nav navbar-nav">
-	          <li> <a href="/docs">Documentation</a> </li>
-	          <li> <a href="/showcase">Showcase</a> </li>
+	          <li><a href="/docs">Documentation</a></li>
+	          <li><a href="/showcase.html">Showcase</a></li>
+              <li><a href="http://blog.excaliburjs.com">Blog</a></li>
 	        </ul>
 
 	        <ul class="nav navbar-nav navbar-right">
@@ -64,8 +67,10 @@
       </div>
 
       <div class="col-sm-9">
-        <h1>ex.Camera</h1>
-
+        <div class="clearfix">
+  <h1 class="pull-left">ex.Camera</h1>
+  <p class="pull-right source-file"><a class="btn btn-primary btn-xs" href="https://github.com/excaliburjs/Excalibur/blob/master/src\engine\Camera.ts#L6"><i class="fa fa-file-text"></i> src\engine\Camera.ts</a></p>
+</div>
 
 
 
@@ -77,24 +82,14 @@ A base implementation of a camera. This class is meant to be extended.
 
   <h2>Constructor</h2>
   <a name=""></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>new ex.Camera(engine : Engine)</code>
+    <code>new ex.Camera(engine: Engine)</code>
     
-    
-  </div>
-  <div class="panel-body">
     
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>engine</code></td>
@@ -104,6 +99,11 @@ A base implementation of a camera. This class is meant to be extended.
   
   </table>
   
+  <div class="panel-body">
+    
+      <i class="text-muted">This method has no description</i>
+    
+  </div>  
 </div>
 
 
@@ -111,30 +111,52 @@ A base implementation of a camera. This class is meant to be extended.
 </table>
 
 
-  <h2>Methods</h2>
+  <div class="clearfix">
+    <h2 class="pull-left">Methods</h2>
+    <div class="member-visibility pull-right checkbox">
+      <label><input type="checkbox" checked value="inherited"> Show Inherited</label>
+    </div>
+  </div>
+  
+  <a name="getFocus"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>getFocus(): Point</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      Returns the focal point of the camera
+    
+  </div>  
+</div>
+  
+  <a name="getZoom"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>getZoom(): the current zoom scale</code>
+    
+    
+  </div>
+  
+  <div class="panel-body">
+    
+      gets the current zoom scale
+    
+  </div>  
+</div>
   
   <a name="setActorToFollow"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>setActorToFollow(actor : Actor)</code>
+    <code>setActorToFollow(actor: Actor)</code>
     
     
-  </div>
-  <div class="panel-body">
-    <div class="alert alert-danger">Error: Parse error on line 1:
-...crossLink Actor}}{{//crossLink}} to foll
------------------------^
-Expecting 'ID', got 'SEP'</div>
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>actor</code></td>
@@ -144,40 +166,25 @@ Expecting 'ID', got 'SEP'</div>
   
   </table>
   
-</div>
-  
-  <a name="getFocus"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>getFocus() : Point</code>
-    
-    
-  </div>
   <div class="panel-body">
-    Returns the focal point of the camera
-  </div>
-  
+    
+      <div class="alert alert-danger">Error: Parse error on line 1:
+...crossLink Actor}}{{//crossLink}} to foll
+-----------------------^
+Expecting 'ID', got 'SEP'</div>
+    
+  </div>  
 </div>
   
   <a name="setFocus"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>setFocus(x : Number, y : Number)</code>
+    <code>setFocus(x: Number, y: Number)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Sets the focal point of the camera. This value can only be set if there is no actor to be followed.
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>x</code></td>
@@ -193,27 +200,22 @@ Expecting 'ID', got 'SEP'</div>
   
   </table>
   
+  <div class="panel-body">
+    
+      Sets the focal point of the camera. This value can only be set if there is no actor to be followed.
+    
+  </div>  
 </div>
   
   <a name="shake"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>shake(magnitudeX : Number, magnitudeY : Number, duration : Number)</code>
+    <code>shake(magnitudeX: Number, magnitudeY: Number, duration: Number)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Sets the camera to shake at the specified magnitudes for the specified duration
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>magnitudeX</code></td>
@@ -235,28 +237,47 @@ Expecting 'ID', got 'SEP'</div>
   
   </table>
   
+  <div class="panel-body">
+    
+      Sets the camera to shake at the specified magnitudes for the specified duration
+    
+  </div>  
+</div>
+  
+  <a name="update"></a>
+<div class="panel panel-default method ">
+  <div class="panel-heading">
+    <code>update(delta: Number)</code>
+    
+    
+  </div>
+  
+  <table class="table params">
+  
+    <tr>
+      <td><code>delta</code></td>
+      <td><code>Number</code></td>
+      <td>The number of milliseconds since the last update</td>
+    </tr>
+  
+  </table>
+  
+  <div class="panel-body">
+    
+      Applies the relevant transformations to the game canvas to "move" or apply effects to the Camera
+    
+  </div>  
 </div>
   
   <a name="zoom"></a>
-<div class="panel panel-default">
+<div class="panel panel-default method ">
   <div class="panel-heading">
-    <code>zoom(scale : Number, duration? : Number)</code>
+    <code>zoom(scale: Number, duration?: Number)</code>
     
     
-  </div>
-  <div class="panel-body">
-    Zooms the camera in or out by the specified scale over the specified duration. 
-If no duration is specified, it will zoom by a set amount until the scale is reached.
   </div>
   
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
+  <table class="table params">
   
     <tr>
       <td><code>scale</code></td>
@@ -272,49 +293,12 @@ If no duration is specified, it will zoom by a set amount until the scale is rea
   
   </table>
   
-</div>
-  
-  <a name="getZoom"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>getZoom() : the current zoom scale</code>
-    
-    
-  </div>
   <div class="panel-body">
-    gets the current zoom scale
-  </div>
-  
-</div>
-  
-  <a name="update"></a>
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <code>update(delta : Number)</code>
     
+      Zooms the camera in or out by the specified scale over the specified duration. 
+If no duration is specified, it will zoom by a set amount until the scale is reached.
     
-  </div>
-  <div class="panel-body">
-    Applies the relevant transformations to the game canvas to "move" or apply effects to the Camera
-  </div>
-  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-  
-    <tr>
-      <td><code>delta</code></td>
-      <td><code>Number</code></td>
-      <td>The number of milliseconds since the last update</td>
-    </tr>
-  
-  </table>
-  
+  </div>  
 </div>
   
 
@@ -322,7 +306,6 @@ If no duration is specified, it will zoom by a set amount until the scale is rea
     </div>
   </div>
 </div>
-
 
 	<div class="container">
 	  <div class="alert">
@@ -338,8 +321,14 @@ If no duration is specified, it will zoom by a set amount until the scale is rea
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 	    <iframe src="http://ghbtns.com/github-btn.html?user=excaliburjs&amp;repo=excalibur&amp;type=fork&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
-	    <p>Copyright &copy;2014</p>
+	    <p class="text-muted">Copyright &copy;2014. Thank you for all your support!</p>        
 	  </div>
 	</div>
+  
+  <script src="/assets/js/jquery.js"></script>
+  <script src="/assets/js/jquery.cookie.js"></script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="/assets/js/docs.js"></script>
 </body>
 </html>
