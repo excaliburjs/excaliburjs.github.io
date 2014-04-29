@@ -17,12 +17,18 @@ You can name them however, but it would be best to keep the same prefix. We can 
 
 **Note:** We do support [GHFM](https://help.github.com/articles/github-flavored-markdown) for fenced code blocks. 
 
-## Getting Started
+## Contributing to the Codebase
 
 ### Requirements
 
 - Node.js (0.10.x)
 - Windows or Unix-like
+
+### Packages we use
+
+- Assemble for static site generation
+- Grunt for tasks
+- YUIDoc for API documentation (with custom Assemble plugin)
 
 Once you've cloned the repository, run the following commands:
 
