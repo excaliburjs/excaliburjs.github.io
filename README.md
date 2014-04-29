@@ -1,8 +1,21 @@
 # Excalibur.js Site
 
-## Contributing Content
+## Contributing and Editing Content
 
-All authored tutorials and documentation is under `content/docs`. Data is under `data`.
+Be sure to fork the repository and make all your changes in the `site` branch. Send us a pull request with your changes!
+
+All authored tutorials and documentation is under `content/docs` and are in [Markdown](http://daringfireball.net/projects/markdown/) format. The name of the Markdown file will be the name of the HTML file that gets generated at http://excaliburjs.com/docs. YAML configuration (such as navigation) is under `data` folder.
+
+If you want to contribute a tutorial (or other documentation), all you need to know is Markdown! Create your Markdown tutorial in the `content/docs` folder (pending organizational changes) and send us a pull request to review it. We will add it to the navigation.
+
+Tutorials can be organized into parts like so:
+- quickstart.md
+- quickstart-appendix1.md
+- quickstart-appendix2.md
+
+You can name them however, but it would be best to keep the same prefix. We can then add the additional steps as sub-navigation items to the menu so they'll only display when you view your tutorial.
+
+**Note:** We do support [GHFM](https://help.github.com/articles/github-flavored-markdown) for fenced code blocks. 
 
 ## Getting Started
 
