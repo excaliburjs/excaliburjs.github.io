@@ -77,14 +77,14 @@
   <strong>Inheritance:</strong>
   <ul class="list-unstyled">
     
-    <li><a href="Camera.html">Camera</a></li>
+    <li><a href="BaseCamera.html">BaseCamera</a></li>
     
     <li>&nbsp;&nbsp;&nbsp;&nbsp;SideCamera</li>
   </ul>
 
 
 <div class="well">
-An extension of Camera that is locked vertically; it will only move side to side.
+An extension of BaseCamera that is locked vertically; it will only move side to side.
 </div>
 
 
@@ -127,21 +127,6 @@ An extension of Camera that is locked vertically; it will only move side to side
   </div>
   
   <a name="getFocus"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>getFocus(): Point</code>
-    
-    <a href="Camera.html#getFocus" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <div class="panel-body">
-    
-      Returns the focal point of the camera
-    
-  </div>  
-</div>
-  
-  <a name="getFocus"></a>
 <div class="panel panel-default method ">
   <div class="panel-heading">
     <code>getFocus(): point</code>
@@ -152,174 +137,6 @@ An extension of Camera that is locked vertically; it will only move side to side
   <div class="panel-body">
     
       Returns the focal point of the camera in world space
-    
-  </div>  
-</div>
-  
-  <a name="getZoom"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>getZoom(): the current zoom scale</code>
-    
-    <a href="Camera.html#getZoom" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <div class="panel-body">
-    
-      gets the current zoom scale
-    
-  </div>  
-</div>
-  
-  <a name="setActorToFollow"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>setActorToFollow(actor: Actor)</code>
-    
-    <a href="Camera.html#setActorToFollow" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <table class="table params">
-  
-    <tr>
-      <td><code>actor</code></td>
-      <td><a href="Actor.html">Actor</a></td>
-      <td>The actor to follow</td>
-    </tr>
-  
-  </table>
-  
-  <div class="panel-body">
-    
-      <div class="alert alert-danger">Error: Parse error on line 1:
-...crossLink Actor}}{{//crossLink}} to foll
------------------------^
-Expecting 'ID', got 'SEP'</div>
-    
-  </div>  
-</div>
-  
-  <a name="setFocus"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>setFocus(x: Number, y: Number)</code>
-    
-    <a href="Camera.html#setFocus" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <table class="table params">
-  
-    <tr>
-      <td><code>x</code></td>
-      <td><code>Number</code></td>
-      <td>The x coordinate of the focal point</td>
-    </tr>
-  
-    <tr>
-      <td><code>y</code></td>
-      <td><code>Number</code></td>
-      <td>The y coordinate of the focal point</td>
-    </tr>
-  
-  </table>
-  
-  <div class="panel-body">
-    
-      Sets the focal point of the camera. This value can only be set if there is no actor to be followed.
-    
-  </div>  
-</div>
-  
-  <a name="shake"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>shake(magnitudeX: Number, magnitudeY: Number, duration: Number)</code>
-    
-    <a href="Camera.html#shake" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <table class="table params">
-  
-    <tr>
-      <td><code>magnitudeX</code></td>
-      <td><code>Number</code></td>
-      <td>the x magnitude of the shake</td>
-    </tr>
-  
-    <tr>
-      <td><code>magnitudeY</code></td>
-      <td><code>Number</code></td>
-      <td>the y magnitude of the shake</td>
-    </tr>
-  
-    <tr>
-      <td><code>duration</code></td>
-      <td><code>Number</code></td>
-      <td>the duration of the shake</td>
-    </tr>
-  
-  </table>
-  
-  <div class="panel-body">
-    
-      Sets the camera to shake at the specified magnitudes for the specified duration
-    
-  </div>  
-</div>
-  
-  <a name="update"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>update(delta: Number)</code>
-    
-    <a href="Camera.html#update" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <table class="table params">
-  
-    <tr>
-      <td><code>delta</code></td>
-      <td><code>Number</code></td>
-      <td>The number of milliseconds since the last update</td>
-    </tr>
-  
-  </table>
-  
-  <div class="panel-body">
-    
-      Applies the relevant transformations to the game canvas to "move" or apply effects to the Camera
-    
-  </div>  
-</div>
-  
-  <a name="zoom"></a>
-<div class="panel panel-default method member-inherited">
-  <div class="panel-heading">
-    <code>zoom(scale: Number, duration?: Number)</code>
-    
-    <a href="Camera.html#zoom" class="label label-default pull-right">Inherited from Camera</a>
-  </div>
-  
-  <table class="table params">
-  
-    <tr>
-      <td><code>scale</code></td>
-      <td><code>Number</code></td>
-      <td>the scale of the zoom</td>
-    </tr>
-  
-    <tr>
-      <td><code>duration?</code></td>
-      <td><code>Number</code></td>
-      <td>the duration of the zoom</td>
-    </tr>
-  
-  </table>
-  
-  <div class="panel-body">
-    
-      Zooms the camera in or out by the specified scale over the specified duration. 
-If no duration is specified, it will zoom by a set amount until the scale is reached.
     
   </div>  
 </div>

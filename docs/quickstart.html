@@ -73,15 +73,15 @@
 <h3 id="download-and-install-excalibur">Download and Install Excalibur</h3>
 <p><a href="https://github.com/excaliburjs/Excalibur/releases/tag/v0.2.2" class="btn btn-primary btn-lg"><strong>Latest Release:</strong> 0.2.2</a></p>
 <p>Review the <a href="/docs/install.html">install guide</a> for instructions.</p>
-<h3 id="build-your-game-script">Build your game script</h3>
-<p>Create a script in your project, here I&#39;ve named it <code>game.js</code>. Excalibur games are built off of the ex.Engine container. It is important to start the engine once you are done buildig your game.</p>
+<h3 id="build-your-game-script">Build Your Game Script</h3>
+<p>Create a script in your project, here I&#39;ve named it <code>game.js</code>. Excalibur games are built off of the <code>ex.Engine</code> container. It is important to start the engine once you are done building your game.</p>
 <blockquote>
 <p>ProTip&trade;  Call <code>game.start()</code> right away so you don&#39;t forget</p>
 </blockquote>
 <pre><code class="language-javascript"><span class="comment">// game.js</span>
 
-<span class="comment">// Create an instance of the engine. </span>
-<span class="comment">// I'm specifying that the game be 800 pixels wide by 600 tall. </span>
+<span class="comment">// Create an instance of the engine.</span>
+<span class="comment">// I'm specifying that the game be 800 pixels wide by 600 pixels tall.</span>
 <span class="comment">// If no dimensions are specified the game will be fullscreen.</span>
 <span class="keyword">var</span> game = <span class="keyword">new</span> ex.Engine(<span class="number">800</span>, <span class="number">600</span>);
 <span class="comment">// todo build awesome game here</span>
@@ -95,40 +95,40 @@ game.start();</code></pre>
 ...</code></pre>
 <p>Open a browser and view the blank blue screen of goodness.</p>
 <h3 id="hello-excalibur-building-breakout-">Hello Excalibur: Building Breakout!</h3>
-<p>Thats cool, but lets make something more interesting on the screen.</p>
-<p>To do this Excalibur uses a primitive called an <code>Actor</code>, and places them into a <code>Scene</code>. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.</p>
+<p>That&#39;s cool, but let&#39;s make something more interesting on the screen.</p>
+<p>To do this Excalibur uses a primitive called an <code>Actor</code>, and places actors into a <code>Scene</code>. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.</p>
 <blockquote>
 <p>ProTip&trade; Actors must be added to a scene to be drawn or updated! <code>game.addChild(actor)</code> Will add an actor to the current scene.</p>
 </blockquote>
 <pre><code class="language-javascript"><span class="comment">// game.js</span>
 
-<span class="comment">// Create an instance of the engine. </span>
+<span class="comment">// Create an instance of the engine.</span>
 <span class="keyword">var</span> game = <span class="keyword">new</span> ex.Engine(<span class="number">800</span>, <span class="number">600</span>);
 
-<span class="comment">// Create an actor at with a x position of 100px,</span>
+<span class="comment">// Create an actor with x position of 100px,</span>
 <span class="comment">// y position of 40px from the bottom of the screen,</span>
 <span class="comment">// width of 200px, height and a height of 20px</span>
 <span class="keyword">var</span> paddle = <span class="keyword">new</span> ex.Actor(<span class="number">100</span>, game.getHeight() - <span class="number">40</span>, <span class="number">200</span>, <span class="number">20</span>);
 
-<span class="comment">// Lets give it some color with one of the predefinied</span>
+<span class="comment">// Let's give it some color with one of the predefined</span>
 <span class="comment">// color constants</span>
 paddle.color = ex.Color.Chartreuse;
 
-<span class="comment">// `game.addChild` is the same as calling </span>
+<span class="comment">// `game.addChild` is the same as calling</span>
 <span class="comment">// `game.currentScene.addChild`</span>
 game.addChild(paddle);
 
 <span class="comment">// Start the engine to begin the game.</span>
 game.start();</code></pre>
-<p>Open up your favorite browser and you should see something like this
+<p>Open up your favorite browser and you should see something like this:
 <img src="images/quickstart/breakoutPartial.png" alt="Hello World Excalibur" title="Hello World Excalibur"></p>
-<p>That&#39;s neat, but break is way more fun if things move around. Let&#39;s make the paddle follow the mouse around in the x direction.</p>
+<p>That&#39;s neat, but this game is way more fun if things move around. Let&#39;s make the paddle follow the mouse around in the x direction.</p>
 <pre><code class="language-javascript"><span class="comment">// Add a mouse move listener</span>
 game.on(<span class="string">'mousemove'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(ev)</span> {</span>
     paddle.x = ev.x - paddle.getWidth()/<span class="number">2</span>;
 });</code></pre>
-<p>What&#39;s breakout without the ball? To make the ball bounce, Excalibur comes prebuilt with an &quot;elastic&quot; collision type the does naive elastic collisions, which is sufficient for breakout.</p>
-<pre><code class="language-javascript"><span class="comment">// Create a "ball"</span>
+<p>What&#39;s breakout without the ball? To make the ball bounce, Excalibur comes prebuilt with an &quot;elastic&quot; collision type that does naive elastic collisions, which is sufficient for breakout.</p>
+<pre><code class="language-javascript"><span class="comment">// Create a ball</span>
 <span class="keyword">var</span> ball = <span class="keyword">new</span> ex.Actor(<span class="number">100</span>, <span class="number">300</span>, <span class="number">20</span>, <span class="number">20</span>);
 
 <span class="comment">// Set the color</span>
@@ -140,22 +140,22 @@ ball.dx = <span class="number">100</span>;
 <span class="comment">// Set the y velocity in pixels per second</span>
 ball.dy = <span class="number">100</span>;
 
-<span class="comment">// Set the collision Type to elastic so </span>
+<span class="comment">// Set the collision Type to elastic</span>
 ball.collisionType = ex.CollisionType.Elastic;
 
 <span class="comment">// Add the ball to the current scene</span>
 game.addChild(ball);</code></pre>
-<p>The ball will now bounce off of the paddle, but does not bounce with the side of the screen to fix that lets take advantage of the <code>update</code> event.</p>
+<p>The ball will now bounce off of the paddle, but does not bounce with the side of the screen. To fix that, let&#39;s take advantage of the <code>update</code> event.</p>
 <pre><code class="language-javascript"><span class="comment">// Wire up to the update event</span>
 ball.on(<span class="string">'update'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
-    <span class="comment">// If the ball collides with the left side </span>
+    <span class="comment">// If the ball collides with the left side</span>
     <span class="comment">// of the screen reverse the x velocity</span>
     <span class="keyword">if</span> (<span class="keyword">this</span>.x &lt; <span class="number">0</span>) {
         <span class="keyword">this</span>.dx *= -<span class="number">1</span>;
     }
 
     <span class="comment">// If the ball collides with the right side</span>
-    <span class="comment">// of the screen revese the x velocity</span>
+    <span class="comment">// of the screen reverse the x velocity</span>
     <span class="keyword">if</span> (<span class="keyword">this</span>.x + <span class="keyword">this</span>.getWidth() &gt; game.getWidth()) {
         <span class="keyword">this</span>.dx *= -<span class="number">1</span>;
     }
@@ -164,9 +164,9 @@ ball.on(<span class="string">'update'</span>, <span class="function"><span class
     <span class="comment">// of the screen reverse the y velocity</span>
     <span class="keyword">if</span> (<span class="keyword">this</span>.y &lt; <span class="number">0</span>) {
         <span class="keyword">this</span>.dy *= -<span class="number">1</span>;
-    }    
+    }
 });</code></pre>
-<p>Don&#39;t like square balls, me neither. You can create your own custom drawing function like so</p>
+<p>Don&#39;t like square balls? Me neither. You can create your own custom drawing function like so:</p>
 <pre><code class="language-javascript"><span class="comment">// Draw is passed a rendering context and a delta in milliseconds since the last frame</span>
 ball.draw = <span class="function"><span class="keyword">function</span> <span class="params">(ctx, delta)</span> {</span>
     <span class="comment">// Optionally call original 'base' method</span>
@@ -180,13 +180,13 @@ ball.draw = <span class="function"><span class="keyword">function</span> <span c
     ctx.fill();
 }</code></pre>
 <blockquote>
-<p>ProTip&trade; Overriding a method like this will remove any built in excalibur functionality. If you would like to call the original draw for example <code>ex.Actor.prototype.draw.call(this, ctx, delta)</code></p>
+<p>ProTip&trade; Overriding a method like this will remove any built-in Excalibur functionality. If you would like to call the original draw for example <code>ex.Actor.prototype.draw.call(this, ctx, delta)</code></p>
 </blockquote>
 <p>Breakout needs some bricks to break. To do this we calculate our brick layout and add them to the current scene.</p>
 <pre><code class="language-javascript"><span class="comment">// Build Bricks</span>
 
 <span class="comment">// Padding between bricks</span>
-<span class="keyword">var</span> padding = <span class="number">20</span>;<span class="comment">//px</span>
+<span class="keyword">var</span> padding = <span class="number">20</span>; <span class="comment">// px</span>
 
 <span class="keyword">var</span> columns = <span class="number">5</span>;
 <span class="keyword">var</span> rows = <span class="number">3</span>;
@@ -195,7 +195,7 @@ ball.draw = <span class="function"><span class="keyword">function</span> <span c
 
 <span class="comment">// Individual brick width with padding factored in</span>
 <span class="keyword">var</span> brickWidth = game.getWidth() / columns - padding - padding/columns; <span class="comment">// px</span>
-<span class="keyword">var</span> brickHeight = <span class="number">30</span>;<span class="comment">// px</span>
+<span class="keyword">var</span> brickHeight = <span class="number">30</span>; <span class="comment">// px</span>
 <span class="keyword">var</span> bricks = [];
 <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; rows; j++) {
     <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; columns; i++) {
@@ -222,13 +222,8 @@ ball.on(<span class="string">'collision'</span>, <span class="function"><span cl
     alert(<span class="string">'You lose!'</span>);
 });</code></pre>
 <p><img src="images/quickstart/breakoutFinal.png" alt="Breakout Example Excalibur" title="Breakout Example Excalibur">
-Congratualtions! You have just created your first game in Excalibur! Please review the documentation for more examples and api reference</p>
+Congratulations! You have just created your first game in Excalibur! Please review the documentation for more examples and an <a href="/docs/api">API Reference</a>.</p>
 <iframe width="100%" height="700" src="http://jsfiddle.net/excaliburjs/6Ay9S/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-
-
-
-
 
 
         <hr/>
