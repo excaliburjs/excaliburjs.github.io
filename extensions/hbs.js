@@ -227,7 +227,7 @@ module.exports.register = function (Handlebars, opts) {
     api_sidebar: function (data, api, apiPage) {
       if (!api || !data) { return "ERROR"; }
       
-      // console.log(pages);
+      // console.log(api);
 
       // YAML:
       // data:

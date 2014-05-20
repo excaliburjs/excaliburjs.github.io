@@ -30,9 +30,11 @@ var mapApiMethodToDto = function (method, clsDto) {
     });
   }
   
-  var extendIdx;
-  if ((extendIdx = clsDto.extends.indexOf(dto.class)) > -1) {
-    dto.extended_from = clsDto.extends[extendIdx];
+  if (clsDto.extends) {
+    var extendIdx;
+    if ((extendIdx = clsDto.extends.indexOf(dto.class)) > -1) {
+      dto.extended_from = clsDto.extends[extendIdx];
+    }
   }
   
   return dto;
@@ -43,9 +45,11 @@ var mapApiPropertyToDto = function (prop, clsDto) {
   
   dto.description = compileHtml(dto.description);
   
-  var extendIdx;
-  if ((extendIdx = clsDto.extends.indexOf(dto.class)) > -1) {
-    dto.extended_from = clsDto.extends[extendIdx];
+  if (clsDto.extends) {
+    var extendIdx;
+    if ((extendIdx = clsDto.extends.indexOf(dto.class)) > -1) {
+      dto.extended_from = clsDto.extends[extendIdx];
+    }
   }
   
   return dto;
@@ -82,6 +86,11 @@ module.exports = function (params, callback) {
   }
   
   var api = grunt.file.readJSON(yui.data);
+  
+  if (!api) {
+    grunt.log.writeln("Failed to parse JSON"); 
+    return;
+  }
   
   // register helpers
   Handlebars.registerHelper('crossLink', function (expr) {
@@ -127,7 +136,7 @@ module.exports = function (params, callback) {
       while(extendedCls) {
         apiDto.extends.push(extendedCls);
         
-        extendedCls = api.classes[extendedCls].extends;
+        extendedCls = api.classes[extendedCls] && api.classes[extendedCls].extends;
       }
     }    
     

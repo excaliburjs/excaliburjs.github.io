@@ -1,4 +1,5 @@
 /*globals module */
+var path = require('path');
 
 module.exports = function (grunt) {
   'use strict';
@@ -111,6 +112,12 @@ module.exports = function (grunt) {
           { '<%= dest %>/': 'favicon.png' },
           { '<%= dest %>/': 'CNAME' }
         ]
+      },
+      
+      // yuidocs
+      yui: {
+        src: 'data/yui/data.json',
+        dest: 'data/api.json'
       }
 
     },
@@ -126,7 +133,7 @@ module.exports = function (grunt) {
     //
     // Clean before assembling
     //
-    clean: ['<%= dest %>/**/*.html'],
+    clean: ['<%= dest %>/**/*.html', 'data/yui'],
 
     //
     // Configure live reload and a static server
@@ -164,6 +171,20 @@ module.exports = function (grunt) {
     },
     
     //
+    // Shell
+    //
+    shell: {
+      docs: {
+        options: {
+          execOptions: {
+            cwd: 'Excalibur'
+          }
+        },
+        command: path.join('..', 'node_modules', '.bin', 'yuidoc') + ' --norecurse --extension .ts --outdir ../data/yui --parse-only ./src/engine',
+      }
+    },
+    
+    //
     // Git Commands
     //
     'gh-pages': {
@@ -188,12 +209,16 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-shell');
 
   // Default task to be run
-  grunt.registerTask('default', ['clean', 'copy', 'less', 'assemble']);
+  grunt.registerTask('default', ['clean', 'copy:assets', 'less', 'assemble']);
 
   // Task for development that reloads browser when you make changes
-  grunt.registerTask('design', ['clean', 'copy', 'less', 'assemble', 'connect', 'watch']);
+  grunt.registerTask('design', ['clean', 'copy:assets', 'less', 'assemble', 'connect', 'watch']);
+  
+  // YUI doc generation
+  grunt.registerTask('docs', ['shell:docs', 'copy:yui', 'clean']);
   
   // Task to deploy to GH (only contributors)
   grunt.registerTask('deploy', ['default', 'gh-pages']);
