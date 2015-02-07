@@ -2,7 +2,7 @@ var git = require('gift');
 var path = require('path');
 var async = require('async');
 var child_process = require('child_process');
-var YUI_CMD = path.join('..', 'node_modules', '.bin', 'yuidoc') + ' --norecurse --extension .ts --parse-only ./src/engine --outdir ../data/yui/';
+var BUILD_CMD = path.join('..', 'node_modules', '.bin', 'typedoc') + ' src/engine --mode file --out ../_ghpages/docs/api/';
 
 var repo = git(path.join(__dirname, 'Excalibur'));
 
@@ -22,7 +22,7 @@ repo.remote_fetch('origin', function (err) {
 	// Generate docs for edge (master)
 	repo.checkout('master', function (err) {
 
-		child_process.execSync(YUI_CMD + 'edge', {
+		child_process.execSync(BUILD_CMD + 'edge', {
 			cwd: './Excalibur'
 		});
 
@@ -37,11 +37,15 @@ repo.remote_fetch('origin', function (err) {
 				// Checkout tag
 				repo.checkout('tags/' + tag.name, function (err) {
 
-					child_process.execSync(YUI_CMD + tag.name, {
-						cwd: './Excalibur'
-					});
-
-					callback(err);
+					try {
+						child_process.execSync(BUILD_CMD + tag.name, {
+							cwd: './Excalibur'
+						});
+						callback(err);
+					} catch (ex) {
+						console.log("WARN: Couldn't generate docs for " + tag.name, ex);
+						callback(err);
+					}					
 				});
 
 			});
