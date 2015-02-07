@@ -1,5 +1,6 @@
 /*globals module */
 var path = require('path');
+var fs = require('fs');
 
 module.exports = function (grunt) {
   'use strict';
@@ -79,22 +80,6 @@ module.exports = function (grunt) {
           layout: 'docs'
         },
         files: { '<%= dest %>/docs/': 'content/docs/**/*.md' }
-      },
-      
-      //
-      // API (YUI Doc)
-      //
-      api: {
-        options: {
-          plugins: ['plugins/yui.js'],
-          layout: 'api',
-          engine: 'handlebars',
-          yui: {
-            data: 'data/api.json',
-            dest: '<%= dest %>/docs/api/'
-          }
-        },
-        files: { '<%= dest %>/docs/api/': 'pages/api/*.html' }
       }
     },
 
@@ -112,13 +97,7 @@ module.exports = function (grunt) {
           { '<%= dest %>/': 'favicon.png' },
           { '<%= dest %>/': 'CNAME' }
         ]
-      },
-      
-      // yuidocs
-      yui: {
-        src: 'data/yui/data.json',
-        dest: 'data/api.json'
-      }
+      }      
 
     },
 
@@ -133,7 +112,7 @@ module.exports = function (grunt) {
     //
     // Clean before assembling
     //
-    clean: ['<%= dest %>/**/*.html', 'data/yui'],
+    clean: ['<%= dest %>/**/*.html'],
 
     //
     // Configure live reload and a static server
@@ -174,13 +153,8 @@ module.exports = function (grunt) {
     // Shell
     //
     shell: {
-      docs: {
-        options: {
-          execOptions: {
-            cwd: 'Excalibur'
-          }
-        },
-        command: path.join('..', 'node_modules', '.bin', 'yuidoc') + ' --norecurse --extension .ts --outdir ../data/yui --parse-only ./src/engine',
+      docs: {        
+        command: 'node docs.js'
       }
     },
     
@@ -201,6 +175,37 @@ module.exports = function (grunt) {
     }
   });
 
+  // Assemble API tasks
+  (function () {
+    var out = {};
+
+    // get all API doc folders
+    var folders = fs.readdirSync('./data/yui');
+
+    folders.forEach(function (folder) {
+
+      // create grunt cmd for each one
+      out[folder] = { 
+        options: {
+          plugins: ['plugins/yui.js'],
+          layout: 'api',
+          engine: 'handlebars',
+          yui: {
+            data: 'data/yui/' + folder + '/data.json',
+            dest: '<%= dest %>/docs/api/' + folder + '/'
+          }
+        }        
+      };
+      out[folder].files = {};
+      out[folder].files['<%= dest %>/docs/api/'] = 'pages/api/*.html';
+    });
+
+    grunt.config.merge({
+      assemble: out
+    });
+
+  })();
+
   // Load npm plugins to provide necessary tasks
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
@@ -218,7 +223,7 @@ module.exports = function (grunt) {
   grunt.registerTask('design', ['clean', 'copy:assets', 'less', 'assemble', 'connect', 'watch']);
   
   // YUI doc generation
-  grunt.registerTask('docs', ['shell:docs', 'copy:yui', 'clean']);
+  grunt.registerTask('docs', ['shell:docs']);
   
   // Task to deploy to GH (only contributors)
   grunt.registerTask('deploy', ['default', 'gh-pages']);
