@@ -25,32 +25,6 @@ repo.remote_fetch('origin', function (err) {
 		child_process.execSync(BUILD_CMD + 'edge', {
 			cwd: './Excalibur'
 		});
-
-		// Get tags for repo
-		repo.tags(function (err, tags) {
-
-			// Iterate through tags
-			async.eachSeries(tags, function (tag, callback) {
-
-				console.log("Generating docs for " + tag.name + "...");
-
-				// Checkout tag
-				repo.checkout('tags/' + tag.name, function (err) {
-
-					try {
-						child_process.execSync(BUILD_CMD + tag.name, {
-							cwd: './Excalibur'
-						});
-						callback(err);
-					} catch (ex) {
-						console.log("WARN: Couldn't generate docs for " + tag.name, ex);
-						callback(err);
-					}					
-				});
-
-			});
-
-		});
 	});
 
 	

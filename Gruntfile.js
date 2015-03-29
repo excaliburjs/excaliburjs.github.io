@@ -222,7 +222,7 @@ module.exports = function (grunt) {
   // Task for development that reloads browser when you make changes
   grunt.registerTask('design', ['clean', 'copy:assets', 'less', 'assemble', 'connect', 'watch']);
   
-  // YUI doc generation
+  // Docs generation
   grunt.registerTask('docs', ['shell:docs']);
   
   // Task to deploy to GH (only contributors)
