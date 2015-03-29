@@ -1,0 +1,13 @@
+language: nodejs
+node_js:
+  - "0.10"
+branches:
+  only:
+    - site
+env:
+  global:
+  - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
+script:
+  - grunt travis
+  - chmod ugo+x deploy.sh
+  - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./deploy.sh'

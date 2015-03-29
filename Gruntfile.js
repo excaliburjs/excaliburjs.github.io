@@ -162,29 +162,12 @@ module.exports = function (grunt) {
       docs: {        
         command: 'node docs.js'
       }
-    },
-    
-    //
-    // Git Commands
-    //
-    'gh-pages': {
-      
-      options: {
-        base: '<%= dest %>',
-        branch: 'master',
-        repo: '<%= pkg.repository.url %>',
-        message: 'Site updated at <%= new Date().toString() %>'
-      },
-      
-      src: '**/*'
-      
     }
   });
 
   // Load npm plugins to provide necessary tasks
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
-  grunt.loadNpmTasks('grunt-gh-pages');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -195,11 +178,11 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['clean', 'copy', 'less', 'assemble']);
 
   // Task for development that reloads browser when you make changes
-  grunt.registerTask('design', ['clean', 'copy', 'less', 'assemble', 'connect', 'watch']);
+  grunt.registerTask('design', ['default', 'connect', 'watch']);
   
   // Docs generation
   grunt.registerTask('docs', ['shell:docs']);
-  
-  // Task to deploy to GH (only contributors)
-  grunt.registerTask('deploy', ['default', 'gh-pages']);
+
+  // Travis CI
+  grunt.registerTask('travis', ['docs', 'default']);
 };
