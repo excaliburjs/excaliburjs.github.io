@@ -79,7 +79,7 @@ module.exports = function (grunt) {
           engine: 'handlebars',
           layout: 'docs'
         },
-        files: { '<%= dest %>/docs/': 'content/docs/**/*.md' }
+        files: [{ expand: true, cwd: 'content/docs', src: '**/*.md', dest: '<%= dest %>/docs/' }]
       }
     },
 
@@ -91,12 +91,16 @@ module.exports = function (grunt) {
       // asset files
       assets: {
         files: [
-		  { expand: true, cwd: 'content/docs/images', src: ['**'], dest: '<%= dest %>/docs/images' },
+		      { expand: true, cwd: 'content/docs/images', src: ['**'], dest: '<%= dest %>/docs/images' },
           { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/showcase/' },
           { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' },
           { '<%= dest %>/': 'favicon.png' },
           { '<%= dest %>/': 'CNAME' }
         ]
+      },
+
+      api: {
+        files: [{ expand: true, cwd: 'pages/api/', src: '**', dest: '<%= dest %>/docs/api' }]
       }      
 
     },
@@ -112,7 +116,9 @@ module.exports = function (grunt) {
     //
     // Clean before assembling
     //
-    clean: ['<%= dest %>/**/*.html'],
+    clean: {
+      html: ['<%= dest %>/**/*.html', '!<%= dest %>/docs/api/**/*.html']
+    },
 
     //
     // Configure live reload and a static server
@@ -175,37 +181,6 @@ module.exports = function (grunt) {
     }
   });
 
-  // Assemble API tasks
-  (function () {
-    var out = {};
-
-    // get all API doc folders
-    var folders = fs.readdirSync('./data/yui');
-
-    folders.forEach(function (folder) {
-
-      // create grunt cmd for each one
-      out[folder] = { 
-        options: {
-          plugins: ['plugins/yui.js'],
-          layout: 'api',
-          engine: 'handlebars',
-          yui: {
-            data: 'data/yui/' + folder + '/data.json',
-            dest: '<%= dest %>/docs/api/' + folder + '/'
-          }
-        }        
-      };
-      out[folder].files = {};
-      out[folder].files['<%= dest %>/docs/api/'] = 'pages/api/*.html';
-    });
-
-    grunt.config.merge({
-      assemble: out
-    });
-
-  })();
-
   // Load npm plugins to provide necessary tasks
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('assemble-less');
@@ -217,10 +192,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   // Default task to be run
-  grunt.registerTask('default', ['clean', 'copy:assets', 'less', 'assemble']);
+  grunt.registerTask('default', ['clean', 'copy', 'less', 'assemble']);
 
   // Task for development that reloads browser when you make changes
-  grunt.registerTask('design', ['clean', 'copy:assets', 'less', 'assemble', 'connect', 'watch']);
+  grunt.registerTask('design', ['clean', 'copy', 'less', 'assemble', 'connect', 'watch']);
   
   // Docs generation
   grunt.registerTask('docs', ['shell:docs']);

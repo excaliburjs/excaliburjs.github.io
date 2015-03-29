@@ -28,7 +28,7 @@ You can name them however, but it would be best to keep the same prefix. We can 
 
 - Assemble for static site generation
 - Grunt for tasks
-- YUIDoc for API documentation (with custom Assemble plugin)
+- Typedoc for API documentation
 
 Once you've cloned the repository, run the following commands:
 
@@ -69,3 +69,34 @@ Example:
     git submodule add https://github.com/eonarheim/Excalibur-Shmup showcase/shmup
     
 This is how we can include the Shoot 'Em Up demo without maintaining two versions.
+
+### Compiling documentation
+
+Travis will automatically compile `master` and place it into the edge API documentation.
+
+**Release compiling**
+
+TypeDoc is used to compile docs for Excalibur 0.2+. You should only need to perform the generation once per release and then copy the compiled docs to **_ghpages/docs/api**.
+
+To generate documentation with TypeDoc, you can run the following command:
+
+    node_modules\.bin\typedoc 
+     -t ES5 
+     --hideGenerator 
+     --readme none 
+     --name "Excalibur.js v0.2.2 API Documentation" 
+     --out v0.2.2
+     ex\src\engine
+
+A reliable way is to create a temporary folder and clone Excalibur, then checkout the release tag, and install the appropriate version of TypeDoc that supports the targeted TypeScript version. For example, v0.2.2 uses TypeScript 1.0 so only TypeDoc v0.1.3 can generate documentation.
+
+Example commands:
+
+    mkdir excalibur-docs
+    cd excalibur-docs
+    git clone https://github.com/excaliburjs/Excalibur ex
+    cd ex
+    git checkout v0.2.2
+    cd..
+    npm install typedoc@0.1.3
+    node_modules\.bin\typedoc -t ES5 --hideGenerator --readme none --name "Excalibur.js v0.2.2 API Documentation" --out v0.2.2 ex\src\engine
