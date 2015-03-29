@@ -7,9 +7,11 @@ branches:
 env:
   global:
   - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
-script:
+install:
   - npm install grunt-cli -g
   - npm install
+script:
   - grunt travis
+after_success:
   - chmod ugo+x deploy.sh
   - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./deploy.sh'
