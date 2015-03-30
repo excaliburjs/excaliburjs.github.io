@@ -14,7 +14,7 @@ cd _deploy
 echo "Committing and pushing to GH"
 
 git config user.name "Travis-CI"
-git config user.email "travis@kamranicus.com"
+git config user.email "travis@excaliburjs.com"
 git add -A
 git commit --allow-empty -m "Deploying site for $CURRENT_COMMIT" || exit 1
 git push origin master > /dev/null 2>&1 || exit 1
