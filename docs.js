@@ -6,9 +6,7 @@ var BUILD_CMD = path.join('..', 'node_modules', '.bin', 'typedoc');
 
 console.log("Fetching Excalibur... ");
 
-process.stdout.write(child_process.execSync("git fetch", { cwd: './Excalibur' }));
-process.stdout.write(child_process.execSync("git checkout master", { cwd: './Excalibur' }));
-process.stdout.write(child_process.execSync("git pull", { cwd: './Excalibur' }));
+process.stdout.write(child_process.execSync("git clone https://github.com/excaliburjs/Excalibur"));
 
 console.log("Removing existing docs...");
 
