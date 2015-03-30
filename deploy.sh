@@ -8,7 +8,7 @@ echo "Cloning master branch..."
 git clone -b master "https://${GH_TOKEN}@${GH_REF}" _deploy > /dev/null 2>&1 || exit 1
 
 echo "Copying built files"
-cp -R _ghpages/. _deploy
+cp -R _ghpages/* _deploy
 cd _deploy
 
 echo "Committing and pushing to GH"
