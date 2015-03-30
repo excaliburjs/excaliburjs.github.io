@@ -13,6 +13,7 @@ cd _deploy
 
 echo "Committing and pushing to GH"
 
+git status
 git config user.name "Travis-CI"
 git config user.email "travis@excaliburjs.com"
 git add -A
