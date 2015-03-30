@@ -21,6 +21,8 @@ process.stdout.write(child_process.execSync(BUILD_CMD +
 	' --readme none' +
 	' --hideGenerator' +
 	' --mode file' +
+	' --gaID UA-46390208-1' +
+	' --gaSite excaliburjs.com' +
 	' --out ../pages/api/edge' +
 	' src/engine', {
 	cwd: './Excalibur'
