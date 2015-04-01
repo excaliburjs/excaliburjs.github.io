@@ -78,6 +78,12 @@
 					</li>
 				</ul>
 			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/ex.ipostprocessor.html" class="tsd-signature-type">IPostProcessor</a></li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -88,7 +94,7 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.colorblindcorrector.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.colorblindcorrector.html#_fragmentshader" class="tsd-kind-icon">_fragment<wbr>Shader</a></li>
@@ -96,6 +102,9 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.colorblindcorrector.html#_internalcanvas" class="tsd-kind-icon">_internal<wbr>Canvas</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.colorblindcorrector.html#_program" class="tsd-kind-icon">_program</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.colorblindcorrector.html#_vertexshader" class="tsd-kind-icon">_vertex<wbr>Shader</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.colorblindcorrector.html#colormode" class="tsd-kind-icon">color<wbr>Mode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.colorblindcorrector.html#engine" class="tsd-kind-icon">engine</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.colorblindcorrector.html#simulate" class="tsd-kind-icon">simulate</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -137,14 +146,12 @@
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> colorMode: <a href="../enums/ex.colorblindness.html" class="tsd-signature-type">ColorBlindness</a><span class="tsd-signature-symbol"> =&nbsp;ColorBlindness.Protanope</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns 
-								<a href="ex.colorblindcorrector.html" class="tsd-signature-type">ColorBlindCorrector</a>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <a href="ex.colorblindcorrector.html" class="tsd-signature-type">ColorBlindCorrector</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_fragmentshader" class="tsd-anchor"></a>
@@ -196,6 +203,36 @@
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="colormode" class="tsd-anchor"></a>
+					<h3>color<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">color<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.colorblindness.html" class="tsd-signature-type">ColorBlindness</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/PostProcessing/ColorBlindCorrector.ts#L109">PostProcessing/ColorBlindCorrector.ts:109</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="engine" class="tsd-anchor"></a>
+					<h3>engine</h3>
+					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/PostProcessing/ColorBlindCorrector.ts#L109">PostProcessing/ColorBlindCorrector.ts:109</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="simulate" class="tsd-anchor"></a>
+					<h3>simulate</h3>
+					<div class="tsd-signature tsd-kind-icon">simulate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/PostProcessing/ColorBlindCorrector.ts#L109">PostProcessing/ColorBlindCorrector.ts:109</a></li>
+						</ul>
+					</aside>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
@@ -218,9 +255,7 @@
 									<h5>colorMode: <a href="../enums/ex.colorblindness.html" class="tsd-signature-type">ColorBlindness</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns 
-								<span class="tsd-signature-type">string</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -246,9 +281,7 @@
 									<h5>program: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns 
-								<span class="tsd-signature-type">WebGLShader</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">WebGLShader</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -283,9 +316,7 @@
 									<h5>height: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns 
-								<span class="tsd-signature-type">void</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -311,9 +342,7 @@
 									<h5>out: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns 
-								<span class="tsd-signature-type">void</span>
-							</h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -325,7 +354,7 @@
 					<li class="globals  ">
 						<a href="../index.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module tsd-is-not-exported">
+					<li class="current tsd-kind-module">
 						<a href="../modules/ex.html">ex</a>
 						<ul>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
@@ -383,6 +412,15 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.colorblindcorrector.html#_vertexshader" class="tsd-kind-icon">_vertex<wbr>Shader</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.colorblindcorrector.html#colormode" class="tsd-kind-icon">color<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.colorblindcorrector.html#engine" class="tsd-kind-icon">engine</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.colorblindcorrector.html#simulate" class="tsd-kind-icon">simulate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="ex.colorblindcorrector.html#_getfragmentshaderbymode" class="tsd-kind-icon">_get<wbr>Fragment<wbr>Shader<wbr>ByMode</a>
