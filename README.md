@@ -1,5 +1,7 @@
 # Excalibur.js Site
 
+[![Build Status](https://travis-ci.org/excaliburjs/excaliburjs.github.io.svg?branch=site)](https://travis-ci.org/excaliburjs/excaliburjs.github.io)
+
 ## Contributing and Editing Content
 
 Be sure to fork the repository and make all your changes in the `site` branch. Send us a pull request with your changes!
