@@ -82,8 +82,11 @@ To generate documentation with TypeDoc, you can run the following command:
 
     node_modules\.bin\typedoc 
      -t ES5 
+     --mode file
      --hideGenerator 
-     --readme none 
+     --readme none
+     --gaID UA-46390208-1
+     --gaSite excaliburjs.com
      --name "Excalibur.js v0.2.2 API Documentation" 
      --out v0.2.2
      ex\src\engine
