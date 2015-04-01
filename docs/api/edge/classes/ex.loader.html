@@ -75,21 +75,30 @@
 					<div class="lead">
 						<p>The loader provides a mechanism to preload multiple resources at
 							one time. The loader must be passed to the engine in order to
-						trigger the loading progress bar</p>
+						trigger the loading progress bar.</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>class</dt>
-						<dd><p>Loader</p>
-						</dd>
-						<dt>extend</dt>
-						<dd><p>ILoadable</p>
-						</dd>
-						<dt>constructor</dt>
-						<dd></dd>
-						<dt>param</dt>
-						<dd><p>Optionally provide the list of resources you want to load at constructor time</p>
-						</dd>
-					</dl>
+					<h2 id="example-pre-loading-resources-for-a-game">Example: Pre-loading resources for a game</h2>
+					<pre><code class="lang-js"><span class="hljs-comment">// create a loader</span>
+<span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader();
+
+<span class="hljs-comment">// create a resource dictionary (best practice is to keep a separate file)</span>
+<span class="hljs-keyword">var</span> resources = {
+  TextureGround: <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/images/textures/ground.png"</span>),
+  SoundDeath: <span class="hljs-keyword">new</span> ex.Sound(<span class="hljs-string">"/sound/death.wav"</span>, <span class="hljs-string">"/sound/death.mp3"</span>)
+};
+
+<span class="hljs-comment">// loop through dictionary and add to loader</span>
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> loadable <span class="hljs-keyword">in</span> resources) {
+  <span class="hljs-keyword">if</span> (resources.hasOwnProperty(loadable)) {
+    loader.addResource(loadable);
+  }
+}
+
+<span class="hljs-comment">// start game</span>
+game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Game started!"</span>);
+});
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -157,13 +166,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L273">Loader.ts:273</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L295">Loader.ts:295</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> loadables: <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Optionally provide the list of resources you want to load at constructor time</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="ex.loader.html" class="tsd-signature-type">Loader</a></h4>
@@ -179,7 +195,7 @@
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L273">Loader.ts:273</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L295">Loader.ts:295</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L267">Loader.ts:267</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L289">Loader.ts:289</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">num<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L270">Loader.ts:270</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L292">Loader.ts:292</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -209,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">progress<wbr>Counts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L271">Loader.ts:271</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L293">Loader.ts:293</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -227,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">resource<wbr>Count<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L269">Loader.ts:269</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L291">Loader.ts:291</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +253,7 @@
 					<div class="tsd-signature tsd-kind-icon">resource<wbr>List<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L266">Loader.ts:266</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L288">Loader.ts:288</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +263,7 @@
 					<div class="tsd-signature tsd-kind-icon">total<wbr>Counts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L272">Loader.ts:272</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L294">Loader.ts:294</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -272,18 +288,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L290">Loader.ts:290</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L314">Loader.ts:314</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Add a resource to the loader to load</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>addResource</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -308,18 +319,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L303">Loader.ts:303</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L326">Loader.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Add a list of resources to the loader to load</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>addResources</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -344,18 +350,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L322">Loader.ts:322</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L344">Loader.ts:344</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns true if the loader has completely loaded all resources</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>isLoaded</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
@@ -371,21 +372,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L332">Loader.ts:332</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L353">Loader.ts:353</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Begin loading all of the supplied resources, returning a promise that resolves when loading of all is complete</p>
+									<p>Begin loading all of the supplied resources, returning a promise
+									that resolves when loading of all is complete</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>load</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Promsie&lt;any&gt;</p>
 						</li>
 					</ul>
 				</section>
@@ -399,7 +395,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L381">Loader.ts:381</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L402">Loader.ts:402</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -416,7 +412,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L383">Loader.ts:383</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L404">Loader.ts:404</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -433,7 +429,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L379">Loader.ts:379</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L400">Loader.ts:400</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -450,7 +446,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L309">Loader.ts:309</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L332">Loader.ts:332</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -473,7 +469,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L281">Loader.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L306">Loader.ts:306</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

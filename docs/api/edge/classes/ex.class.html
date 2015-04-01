@@ -73,15 +73,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Excalibur base class</p>
+						<p>Excalibur base class that provides basic functionality such as <a href="ex.eventdispatcher.html">EventDispatcher</a>
+						and extending abilities for vanilla Javascript projects</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>class</dt>
-						<dd><p>Class</p>
-						</dd>
-						<dt>constructor</dt>
-						<dd></dd>
-					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -185,11 +179,6 @@
 						<div class="lead">
 							<p>Direct access to the game object event dispatcher.</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt>property</dt>
-							<dd><p>eventDispatcher {EventDispatcher}</p>
-							</dd>
-						</dl>
 					</div>
 				</section>
 			</section>
@@ -205,7 +194,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L26">Class.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L27">Class.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -214,8 +203,8 @@
 									events off of the engine; see the events section below for a complete list.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>addEventListener</p>
+									<dt>obsolete</dt>
+									<dd><p>Use <a href="ex.class.html#on">Class.on</a> instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -271,15 +260,10 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Alias for &quot;removeEventListener&quot;. If only the eventName is specified
+									<p>Alias for <code>removeEventListener</code>. If only the eventName is specified
 										it will remove all handlers registered for that specific event. If the eventName
 									and the handler instance are specified only that handler will be removed.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>off</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -291,6 +275,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Event handler for the thrown event</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -330,14 +317,9 @@
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Alias for &quot;addEventListener&quot;. You can listen for a variety of
+									<p>Alias for <code>addEventListener</code>. You can listen for a variety of
 									events off of the engine; see the events section below for a complete list.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>on</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -386,7 +368,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L39">Class.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L40">Class.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -396,8 +378,8 @@
 									and the handler instance are specified just that handler will be removed.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>removeEventListener</p>
+									<dt>obsolete</dt>
+									<dd><p>Use <a href="ex.class.html#off">Class.off</a> instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -411,6 +393,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Event handler for the thrown event</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -445,46 +430,46 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L88">Class.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L97">Class.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>You may wish to extend native Excalibur functionality. Any method on
-										actor may be extended to support additional functionaliy. In the
-										example below we create a new type called &quot;MyActor&quot;
-										<br/><b>Example</b><pre>var MyActor = Actor.extend({
-constructor : function(){
-this.newprop = &#39;something&#39;;
-Actor.apply(this, arguments);
-},
-update : function(engine, delta){
-// Implement custom update</p>
-
-                </div>
-                <p>// Call super constructor update
-Actor.prototype.update.call(this, engine, delta);
-console.log(&quot;Something cool!&quot;);
-}
-});
-var myActor = new MyActor(100, 100, 100, 100, Color.Azure);</pre></p>
-									<dl class="tsd-comment-tags">
-										<dt>method</dt>
-										<dd><p>extend</p>
-										</dd>
-										<dt>static</dt>
-										<dd></dd>
-									</dl>
+									<p>You may wish to extend native Excalibur functionality in vanilla Javascript.
+										Any method on a class inheriting <a href="ex.class.html">Class</a> may be extended to support
+									additional functionaliy. In the example below we create a new type called <code>MyActor</code>.</p>
 								</div>
-								<h4 class="tsd-parameters-title">Parameters</h4>
-								<ul class="tsd-parameters">
-									<li>
-										<h5>methods: <span class="tsd-signature-type">any</span></h5>
-										<div class="tsd-comment tsd-typography">
-										</div>
-									</li>
-								</ul>
-								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
+
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+      <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
+      Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+   },
+
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+      <span class="hljs-comment">// Implement custom update</span>
+      <span class="hljs-comment">// Call super constructor update</span>
+      Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);
+
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Something cool!"</span>);
+   }
+});
+
+<span class="hljs-keyword">var</span> myActor = <span class="hljs-keyword">new</span> MyActor(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, Color.Azure);
+</code></pre>
+								<p>In TypeScript, you only need to use the <code>extends</code> syntax, you do not need
+								to use this method of extension.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>methods: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A JSON object contain any methods/properties you want to extend</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>

@@ -73,18 +73,63 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Excalibur&#39;s internal event dispatcher implementation. Callbacks are fired immediately after an event is published</p>
+						<p>Excalibur&#39;s internal event dispatcher implementation.
+							Callbacks are fired immediately after an event is published.
+							Typically you&#39;d use <a href="ex.class.html#eventdispatcher">Class.eventDispatcher</a> since most classes in
+							Excalibur inherit from <a href="ex.class.html">Class</a>. You&#39;d rarely create an <code>EventDispatcher</code>
+						yourself.</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>class</dt>
-						<dd><p>EventDispatcher</p>
-						</dd>
-						<dt>constructor</dt>
-						<dd></dd>
-						<dt>param</dt>
-						<dd><p>The object that will be the recipient of events from this event dispatcher</p>
-						</dd>
-					</dl>
+					<p>When working with events, be sure to keep in mind the order of subscriptions
+						and try not to create a situation that requires specific things to happen in
+						order. Events are best used for input events, tying together disparate objects,
+					or for UI updates.</p>
+					<h2 id="example-actor-events">Example: Actor events</h2>
+					<p>Actors implement an EventDispatcher (<a href="ex.actor.html#eventdispatcher">Actor.eventDispatcher</a>) so they can
+						send and receive events. For example, they can enable Pointer events (mouse/touch)
+					and you can respond to them by subscribing to the event names.</p>
+					<p>You can also emit any other kind of event for your game just by using a custom
+					<code>string</code> value and implementing a class that inherits from <a href="ex.gameevent.html">GameEvent</a>.</p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> ex.Actor(...);
+
+<span class="hljs-comment">// Enable pointer events for this actor</span>
+player.enableCapturePointer = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// subscribe to pointerdown event</span>
+player.on(<span class="hljs-string">"pointerdown"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt: ex.Input.PointerEvent)</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Player was clicked!"</span>);
+});
+
+<span class="hljs-comment">// turn off subscription</span>
+player.off(<span class="hljs-string">"pointerdown"</span>);
+
+<span class="hljs-comment">// subscribe to custom event</span>
+player.on(<span class="hljs-string">"death"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Player died:"</span>, evt);
+});
+
+<span class="hljs-comment">// trigger custom event</span>
+player.triggerEvent(<span class="hljs-string">"death"</span>, <span class="hljs-keyword">new</span> DeathEvent());
+</code></pre>
+					<h2 id="example-pub-sub-with-excalibur">Example: Pub/Sub with Excalibur</h2>
+					<p>You can also create an EventDispatcher for any arbitrary object, for example
+						a global game event aggregator (<code>vent</code>). Anything in your game can subscribe to
+					it, if the event aggregator is in the global scope.</p>
+					<p><em>Warning:</em> This can easily get out of hand. Avoid this usage, it just serves as
+					an example.</p>
+					<pre><code class="lang-js"><span class="hljs-comment">// create a publisher on an empty object</span>
+<span class="hljs-keyword">var</span> vent = <span class="hljs-keyword">new</span> ex.EventDispatcher({});
+
+<span class="hljs-comment">// handler for an event</span>
+<span class="hljs-keyword">var</span> subscription = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+  <span class="hljs-built_in">console</span>.log(event);
+}
+
+<span class="hljs-comment">// add a subscription</span>
+vent.subscribe(<span class="hljs-string">"someevent"</span>, subscription);
+
+<span class="hljs-comment">// publish an event somewhere in the game</span>
+vent.publish(<span class="hljs-string">"someevent"</span>, <span class="hljs-keyword">new</span> ex.GameEvent());
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -140,13 +185,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L15">EventDispatcher.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L80">EventDispatcher.ts:80</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>target: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The object that will be the recipient of events from this event dispatcher</p>
+										</div>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="ex.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></h4>
@@ -162,7 +214,7 @@
 					<div class="tsd-signature tsd-kind-icon">_handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L11">EventDispatcher.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L76">EventDispatcher.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -198,7 +250,7 @@
 					<div class="tsd-signature tsd-kind-icon">_log<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L15">EventDispatcher.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L80">EventDispatcher.ts:80</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +260,7 @@
 					<div class="tsd-signature tsd-kind-icon">_target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L14">EventDispatcher.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L79">EventDispatcher.ts:79</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +270,7 @@
 					<div class="tsd-signature tsd-kind-icon">_wired<wbr>Event<wbr>Dispatchers<span class="tsd-signature-symbol">:</span> <a href="ex.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L12">EventDispatcher.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L77">EventDispatcher.ts:77</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -235,18 +287,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L51">EventDispatcher.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L118">EventDispatcher.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Alias for publish, publishs an event for target</p>
+									<p>Alias for <a href="ex.scene.html#publish">publish</a>, publishes an event for target</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>emit</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -258,6 +305,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optionally pass an event data object to the handler</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -274,18 +324,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L26">EventDispatcher.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L94">EventDispatcher.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Publish an event for target</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>publish</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -297,6 +342,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optionally pass an event data object to the handler</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -313,18 +361,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L61">EventDispatcher.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L127">EventDispatcher.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Subscribe an event handler to a particular event name, multiple handlers per event name are allowed.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>subscribe</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -373,20 +416,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L83">EventDispatcher.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L149">EventDispatcher.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Unsubscribe a event handler(s) from an event. If a specific handler
+									<p>Unsubscribe an event handler(s) from an event. If a specific handler
 										is specified for an event, only that handler will be unsubscribed.
 									Otherwise all handlers will be unsubscribed for that event.</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>unsubscribe</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -398,6 +436,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optionally the specific handler to unsubscribe</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -432,25 +473,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L116">EventDispatcher.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L178">EventDispatcher.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Unwires this event dispatcher from another</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>unwire</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>eventDispatcher: <a href="ex.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -467,25 +501,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L107">EventDispatcher.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/EventDispatcher.ts#L171">EventDispatcher.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Wires this event dispatcher to also recieve events from another</p>
 								</div>
-								<dl class="tsd-comment-tags">
-									<dt>method</dt>
-									<dd><p>wire</p>
-									</dd>
-								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>eventDispatcher: <a href="ex.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></h5>
-									<div class="tsd-comment tsd-typography">
-									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
