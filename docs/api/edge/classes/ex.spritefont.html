@@ -73,9 +73,63 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>SpriteFonts are a used in conjunction with a <a href="ex.label.html">Label</a> to specify
-						a particular bitmap as a font.</p>
+						<p>Sprite Fonts</p>
 					</div>
+					<p>Sprite fonts are a used in conjunction with a <a href="ex.label.html">Label</a> to specify
+					a particular bitmap as a font.</p>
+					<h2 id="generating-the-font-sheet">Generating the font sheet</h2>
+					<p>You can use tools such as <a href="http://www.lmnopc.com/bitmapfontbuilder/">Bitmap Font Builder</a> to
+					generate a sprite sheet for you to load into Excalibur.</p>
+					<h2 id="creating-a-sprite-font">Creating a sprite font</h2>
+					<p>Start with an image with a grid containing all the letters you want to support.
+						Once you load it into Excalibur using a <a href="ex.texture.html">Texture</a> resource, you can create
+					a <a href="ex.spritefont.html">SpriteFont</a> using the constructor.</p>
+					<p>For example, here is a representation of a font sprite sheet for an uppercase alphabet
+					with 4 columns and 7 rows:</p>
+					<pre><code><span class="hljs-title">ABCD</span>
+EFGH
+IJKL
+MNOP
+QRST
+UVWX
+YZ
+</code></pre><p>Each letter is 30x30 and after Z is a blank one to represent a space.</p>
+					<p>Then to create the <a href="ex.spritefont.html">SpriteFont</a>:</p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+<span class="hljs-keyword">var</span> txFont = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/font.png"</span>);
+
+<span class="hljs-comment">// load assets</span>
+<span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txFont);
+
+<span class="hljs-comment">// start game</span>
+game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+  <span class="hljs-comment">// create a font</span>
+  <span class="hljs-keyword">var</span> font = <span class="hljs-keyword">new</span> ex.SpriteFont(txFont, <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ "</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
+
+  <span class="hljs-comment">// create a label using this font</span>
+  <span class="hljs-keyword">var</span> label = <span class="hljs-keyword">new</span> ex.Label(<span class="hljs-string">"Hello World"</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">null</span>, font);
+
+  <span class="hljs-comment">// display in-game</span>
+  game.add(label);
+
+});
+</code></pre>
+					<p>If you want to use a lowercase representation in the font, you can pass <code>false</code> for <a href="ex.spritefont.html#caseinsensitive">caseInsensitive</a>
+						and the matching will be case-sensitive. In our example, you would need another 7 rows of
+					lowercase characters.</p>
+					<h2 id="font-colors">Font colors</h2>
+					<p>When using sprite fonts with a <a href="ex.label.html">Label</a>, you can set the <a href="ex.label.html#color">Label.color</a> property
+					to use different colors.</p>
+					<h2 id="known-issues">Known Issues</h2>
+					<p><strong>One font per Label</strong>
+					<a href="https://github.com/excaliburjs/Excalibur/issues/172">Issue #172</a></p>
+					<p>If you intend on changing colors or applying opacity effects, you have to use
+					a new <a href="ex.spritefont.html">SpriteFont</a> instance per <a href="ex.label.html">Label</a>.</p>
+					<p><strong>Using opacity removes other effects</strong>
+					<a href="https://github.com/excaliburjs/Excalibur/issues/148">Issue #148</a></p>
+					<p>If you apply any custom effects to the sprites in a SpriteFont, including trying to
+					use <a href="ex.label.html#color">Label.color</a>, they will be removed when modifying <a href="ex.label.html#opacity">Label.opacity</a>.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -140,7 +194,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L111">SpriteSheet.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L270">SpriteSheet.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -207,7 +261,7 @@
 					<div class="tsd-signature tsd-kind-icon">_current<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L111">SpriteSheet.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L270">SpriteSheet.ts:270</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +271,7 @@
 					<div class="tsd-signature tsd-kind-icon">alphabet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L122">SpriteSheet.ts:122</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L281">SpriteSheet.ts:281</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -232,7 +286,7 @@
 					<div class="tsd-signature tsd-kind-icon">case<wbr>Insensitive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L122">SpriteSheet.ts:122</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L281">SpriteSheet.ts:281</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -242,7 +296,7 @@
 					<div class="tsd-signature tsd-kind-icon">color<wbr>Lookup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L110">SpriteSheet.ts:110</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L269">SpriteSheet.ts:269</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -260,7 +314,7 @@
 					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="ex.texture.html" class="tsd-signature-type">Texture</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L122">SpriteSheet.ts:122</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L281">SpriteSheet.ts:281</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -275,7 +329,7 @@
 					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="ex.texture.html" class="tsd-signature-type">Texture</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L23">SpriteSheet.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L106">SpriteSheet.ts:106</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -290,7 +344,7 @@
 					<div class="tsd-signature tsd-kind-icon">sprite<wbr>Lookup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L109">SpriteSheet.ts:109</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L268">SpriteSheet.ts:268</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -309,7 +363,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#sprites">sprites</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L13">SpriteSheet.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L96">SpriteSheet.ts:96</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -327,7 +381,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getanimationbetween">getAnimationBetween</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L71">SpriteSheet.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L154">SpriteSheet.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,7 +432,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getanimationbyindices">getAnimationByIndices</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L52">SpriteSheet.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L135">SpriteSheet.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -423,7 +477,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getanimationforall">getAnimationForAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L85">SpriteSheet.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L168">SpriteSheet.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -462,7 +516,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getsprite">getSprite</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L97">SpriteSheet.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L180">SpriteSheet.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +548,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L129">SpriteSheet.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L288">SpriteSheet.ts:288</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

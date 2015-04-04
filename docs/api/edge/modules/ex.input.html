@@ -70,6 +70,32 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Working with Input</p>
+					</div>
+					<p>Excalibur offers several modes of input for your games.</p>
+					<p>The <a href="../classes/ex.engine.html#input">Engine.input</a> property that can be inspected during <a href="../classes/ex.actor.html#update">Actor.update</a>
+						or other areas of the game. This makes it easy to respond to any type
+					of user input without writing complex input event code.</p>
+					<p>Learn more about [[Pointers|Mouse and Touch]], <a href="../classes/ex.input.keyboard.html">Keyboard</a>, and [[Gamepads|Controller]] support.</p>
+					<h2 id="inspecting-engine-input">Inspecting engine input</h2>
+					<p>Access <a href="../classes/ex.engine.html#input">Engine.input</a> to see if any input is being tracked during the current update frame.</p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Player extends ex.Actor {
+  <span class="hljs-keyword">public</span> update(engine, delta) {
+
+    <span class="hljs-keyword">if</span> (engine.input.keyboard.isKeyDown(ex.Input.Keys.W) ||
+        engine.input.gamepads.at(<span class="hljs-number">0</span>).getAxes(ex.Input.Axes.LeftStickY) &gt; <span class="hljs-number">0.5</span>) {
+
+      player._moveForward();
+    }
+
+  }
+}
+</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">

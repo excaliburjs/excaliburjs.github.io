@@ -75,10 +75,92 @@
 					<div class="lead">
 						<p>Scenes</p>
 					</div>
-					<p><a href="ex.actor.html">Actor</a>s are composed together into groupings called Scenes in
+					<p>[[Actor|Actors]] are composed together into groupings called Scenes in
 						Excalibur. The metaphor models the same idea behind real world
 					actors in a scene. Only actors in scenes will be updated and drawn.</p>
 					<p>Typical usages of a scene include: levels, menus, loading screens, etc.</p>
+					<h2 id="adding-actors-to-the-scene">Adding actors to the scene</h2>
+					<p>For an <a href="ex.actor.html">Actor</a> to be drawn and updated, it needs to be part of the &quot;scene graph&quot;.
+						The <a href="ex.engine.html">Engine</a> provides several easy ways to quickly add/remove actors from the
+					current scene.</p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game   = <span class="hljs-keyword">new</span> ex.Engine(...);
+
+<span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> ex.Actor();
+<span class="hljs-keyword">var</span> enemy  = <span class="hljs-keyword">new</span> ex.Actor();
+
+<span class="hljs-comment">// add them to the "root" scene</span>
+
+game.add(player);
+game.add(enemy);
+
+<span class="hljs-comment">// start game</span>
+game.start();
+</code></pre>
+					<p>You can also add actors to a <a href="ex.scene.html">Scene</a> instance specifically.</p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game   = <span class="hljs-keyword">new</span> ex.Engine();
+<span class="hljs-keyword">var</span> level1 = <span class="hljs-keyword">new</span> ex.Scene();
+
+<span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> ex.Actor();
+<span class="hljs-keyword">var</span> enemy  = <span class="hljs-keyword">new</span> ex.Actor();
+
+<span class="hljs-comment">// add actors to level1</span>
+level1.add(player);
+level1.add(enemy);
+
+<span class="hljs-comment">// add level1 to the game</span>
+game.add(<span class="hljs-string">"level1"</span>, level1);
+
+<span class="hljs-comment">// start the game</span>
+game.start();
+
+<span class="hljs-comment">// after player clicks start game, for example</span>
+game.goToScene(<span class="hljs-string">"level1"</span>);
+</code></pre>
+					<h2 id="extending-scenes">Extending scenes</h2>
+					<p>For more complex games, you might want more control over a scene in which
+						case you can extend <a href="ex.scene.html">Scene</a>. This is useful for menus, custom loaders,
+					and levels.</p>
+					<p>Just use <a href="ex.engine.html#add">Engine.add</a> to add a new scene to the game. You can then use
+						<a href="ex.engine.html#gotoscene">Engine.goToScene</a> to switch scenes which calls <a href="ex.scene.html#onactivate">Scene.onActivate</a> for the
+						new scene and <a href="ex.scene.html#ondeactivate">Scene.onDeactivate</a> for the old scene. Use <a href="ex.scene.html#oninitialize">Scene.onInitialize</a>
+					to perform any start-up logic, which is called once.</p>
+					<p><strong>TypeScript</strong></p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> MainMenu extends ex.Scene {
+
+  <span class="hljs-comment">// start-up logic, called once</span>
+  <span class="hljs-keyword">public</span> onInitialize(engine: ex.Engine) { }
+
+  <span class="hljs-comment">// each time the scene is entered (Engine.goToScene)</span>
+  <span class="hljs-keyword">public</span> onActivate() { }
+
+  <span class="hljs-comment">// each time the scene is exited (Engine.goToScene)</span>
+  <span class="hljs-keyword">public</span> onDeactivate() { }
+}
+
+<span class="hljs-comment">// add to game and activate it</span>
+game.add(<span class="hljs-string">"mainmenu"</span>, <span class="hljs-keyword">new</span> MainMenu());
+game.goToScene(<span class="hljs-string">"mainmenu"</span>);
+</code></pre>
+					<p><strong>Javascript</strong></p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> MainMenu = ex.Scene.extend({
+  <span class="hljs-comment">// start-up logic, called once</span>
+  onInitialize: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(engine)</span> </span>{ },
+
+  <span class="hljs-comment">// each time the scene is activated by Engine.goToScene</span>
+  onActivate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ },
+
+  <span class="hljs-comment">// each time the scene is deactivated by Engine.goToScene</span>
+  onDeactivate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ }
+});
+
+game.add(<span class="hljs-string">"mainmenu"</span>, <span class="hljs-keyword">new</span> MainMenu());
+game.goToScene(<span class="hljs-string">"mainmenu"</span>);
+</code></pre>
+					<h2 id="scene-camera">Scene camera</h2>
+					<p>By default, a <a href="ex.scene.html">Scene</a> is initialized with a <a href="ex.basecamera.html">BaseCamera</a> which
+					does not move and centers the game world.</p>
+					<p>Learn more about [[BaseCamera|Cameras]] and how to modify them to suit
+					your game.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -172,7 +254,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L63">Scene.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L165">Scene.ts:165</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -194,7 +276,7 @@
 					<div class="tsd-signature tsd-kind-icon">_cancel<wbr>Queue<span class="tsd-signature-symbol">:</span> <a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L61">Scene.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L163">Scene.ts:163</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +286,7 @@
 					<div class="tsd-signature tsd-kind-icon">_collision<wbr>Resolver<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.icollisionresolver.html" class="tsd-signature-type">ICollisionResolver</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L57">Scene.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L159">Scene.ts:159</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +296,7 @@
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Initialized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L62">Scene.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L164">Scene.ts:164</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -224,7 +306,7 @@
 					<div class="tsd-signature tsd-kind-icon">_kill<wbr>Queue<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L59">Scene.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L161">Scene.ts:161</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,7 +316,7 @@
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L63">Scene.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L165">Scene.ts:165</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +326,7 @@
 					<div class="tsd-signature tsd-kind-icon">_timers<span class="tsd-signature-symbol">:</span> <a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L60">Scene.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L162">Scene.ts:162</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -254,7 +336,7 @@
 					<div class="tsd-signature tsd-kind-icon">actor<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L25">Scene.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L127">Scene.ts:127</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -269,7 +351,7 @@
 					<div class="tsd-signature tsd-kind-icon">camera<span class="tsd-signature-symbol">:</span> <a href="ex.basecamera.html" class="tsd-signature-type">BaseCamera</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L30">Scene.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L132">Scene.ts:132</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -284,7 +366,7 @@
 					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L35">Scene.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L137">Scene.ts:137</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -299,7 +381,7 @@
 					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L50">Scene.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L152">Scene.ts:152</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -330,7 +412,7 @@
 					<div class="tsd-signature tsd-kind-icon">groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L45">Scene.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L147">Scene.ts:147</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -353,7 +435,7 @@
 					<div class="tsd-signature tsd-kind-icon">tile<wbr>Maps<span class="tsd-signature-symbol">:</span> <a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L40">Scene.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L142">Scene.ts:142</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -368,7 +450,7 @@
 					<div class="tsd-signature tsd-kind-icon">ui<wbr>Actors<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L55">Scene.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L157">Scene.ts:157</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -393,7 +475,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L250">Scene.ts:250</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L352">Scene.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +497,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L255">Scene.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L357">Scene.ts:357</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -434,7 +516,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L261">Scene.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L363">Scene.ts:363</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -456,7 +538,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L267">Scene.ts:267</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L369">Scene.ts:369</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -487,7 +569,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L351">Scene.ts:351</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L453">Scene.ts:453</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,7 +659,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L362">Scene.ts:362</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L464">Scene.ts:464</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -605,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L389">Scene.ts:389</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L491">Scene.ts:491</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -636,7 +718,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L333">Scene.ts:333</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L435">Scene.ts:435</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -670,7 +752,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L412">Scene.ts:412</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L514">Scene.ts:514</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -701,7 +783,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L242">Scene.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L344">Scene.ts:344</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -729,7 +811,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L427">Scene.ts:427</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L529">Scene.ts:529</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -757,7 +839,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L222">Scene.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L324">Scene.ts:324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -788,7 +870,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L174">Scene.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L276">Scene.ts:276</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -825,7 +907,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L434">Scene.ts:434</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L536">Scene.ts:536</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -853,7 +935,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L420">Scene.ts:420</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L522">Scene.ts:522</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -996,7 +1078,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L77">Scene.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L179">Scene.ts:179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1019,7 +1101,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L85">Scene.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L187">Scene.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1042,7 +1124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L93">Scene.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L195">Scene.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1071,7 +1153,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L103">Scene.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L205">Scene.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1111,7 +1193,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L290">Scene.ts:290</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L392">Scene.ts:392</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1133,7 +1215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L296">Scene.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L398">Scene.ts:398</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1154,7 +1236,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L302">Scene.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L404">Scene.ts:404</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1176,7 +1258,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L308">Scene.ts:308</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L410">Scene.ts:410</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1207,7 +1289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L379">Scene.ts:379</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L481">Scene.ts:481</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1299,7 +1381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L441">Scene.ts:441</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L543">Scene.ts:543</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1318,7 +1400,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L446">Scene.ts:446</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L548">Scene.ts:548</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1346,7 +1428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L369">Scene.ts:369</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L471">Scene.ts:471</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1374,7 +1456,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L400">Scene.ts:400</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L502">Scene.ts:502</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1410,7 +1492,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L341">Scene.ts:341</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L443">Scene.ts:443</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1438,7 +1520,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L114">Scene.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Scene.ts#L216">Scene.ts:216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

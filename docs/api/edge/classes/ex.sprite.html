@@ -75,8 +75,32 @@
 					<div class="lead">
 						<p>Sprites</p>
 					</div>
-					<p>A <code>Sprite</code> is one of the main drawing primitives. It is responsible for drawing
-					images or parts of images known as <a href="ex.texture.html">Texture</a>s to the screen.</p>
+					<p>A <a href="ex.sprite.html">Sprite</a> is one of the main drawing primitives. It is responsible for drawing
+					images or parts of images from a <a href="ex.texture.html">Texture</a> resource to the screen.</p>
+					<h2 id="creating-a-sprite">Creating a sprite</h2>
+					<p>To create a <a href="ex.sprite.html">Sprite</a> you need to have a loaded <a href="ex.texture.html">Texture</a> resource. You can
+						then use <a href="ex.texture.html#assprite">Texture.asSprite</a> to quickly create a <a href="ex.sprite.html">Sprite</a> or you can create
+						a new instance of <a href="ex.sprite.html">Sprite</a> using the constructor. This is useful if you
+					want to &quot;slice&quot; out a portion of an image or if you want to change the dimensions.</p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+<span class="hljs-keyword">var</span> txPlayer = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/player.png"</span>);
+
+<span class="hljs-comment">// load assets</span>
+<span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txPlayer);
+
+<span class="hljs-comment">// start game</span>
+game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+  <span class="hljs-comment">// create a sprite (quick)</span>
+  <span class="hljs-keyword">var</span> playerSprite = txPlayer.asSprite();
+
+  <span class="hljs-comment">// create a sprite (custom)</span>
+  <span class="hljs-keyword">var</span> playerSprite = <span class="hljs-keyword">new</span> ex.Sprite(txPlayer, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
+
+});
+</code></pre>
+					<p>You can then assign an <a href="ex.actor.html">Actor</a> a sprite through <a href="ex.actor.html#adddrawing">Actor.addDrawing</a> and
+					<a href="ex.actor.html#setdrawing">Actor.setDrawing</a>.</p>
 					<h2 id="sprite-effects">Sprite Effects</h2>
 					<p>Excalibur offers many sprite effects such as <a href="ex.effects.colorize.html">Effects.Colorize</a> to let you manipulate
 						sprites. Keep in mind, more effects requires more power and can lead to memory or CPU
@@ -172,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L39">Sprite.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L75">Sprite.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -233,7 +257,7 @@
 					<div class="tsd-signature tsd-kind-icon">_texture<span class="tsd-signature-symbol">:</span> <a href="ex.texture.html" class="tsd-signature-type">Texture</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L19">Sprite.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L48">Sprite.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">anchor<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L22">Sprite.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L51">Sprite.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +277,7 @@
 					<div class="tsd-signature tsd-kind-icon">dirty<wbr>Effect<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L39">Sprite.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L75">Sprite.ts:75</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +287,7 @@
 					<div class="tsd-signature tsd-kind-icon">effects<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.effects.ispriteeffect.html" class="tsd-signature-type">ISpriteEffect</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L32">Sprite.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L68">Sprite.ts:68</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -273,9 +297,14 @@
 					<div class="tsd-signature tsd-kind-icon">flip<wbr>Horizontal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L28">Sprite.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L64">Sprite.ts:64</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Draws the sprite flipped horizontally</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="flipvertical" class="tsd-anchor"></a>
@@ -283,9 +312,14 @@
 					<div class="tsd-signature tsd-kind-icon">flip<wbr>Vertical<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L27">Sprite.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L59">Sprite.ts:59</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Draws the sprite flipped vertically</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="height" class="tsd-anchor"></a>
@@ -293,7 +327,7 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L31">Sprite.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L67">Sprite.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +337,7 @@
 					<div class="tsd-signature tsd-kind-icon">internal<wbr>Image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLImageElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L34">Sprite.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L70">Sprite.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -313,7 +347,7 @@
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L25">Sprite.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L54">Sprite.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +357,7 @@
 					<div class="tsd-signature tsd-kind-icon">pixel<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ImageData</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L37">Sprite.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L73">Sprite.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +367,7 @@
 					<div class="tsd-signature tsd-kind-icon">pixels<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L38">Sprite.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L74">Sprite.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -343,7 +377,7 @@
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L21">Sprite.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L50">Sprite.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -353,7 +387,7 @@
 					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L23">Sprite.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L52">Sprite.ts:52</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -363,7 +397,7 @@
 					<div class="tsd-signature tsd-kind-icon">sheight<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L48">Sprite.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L84">Sprite.ts:84</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -378,7 +412,7 @@
 					<div class="tsd-signature tsd-kind-icon">sprite<wbr>Canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLCanvasElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L35">Sprite.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L71">Sprite.ts:71</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -388,7 +422,7 @@
 					<div class="tsd-signature tsd-kind-icon">sprite<wbr>Ctx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L36">Sprite.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L72">Sprite.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -398,7 +432,7 @@
 					<div class="tsd-signature tsd-kind-icon">swidth<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L48">Sprite.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L84">Sprite.ts:84</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -413,7 +447,7 @@
 					<div class="tsd-signature tsd-kind-icon">sx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L48">Sprite.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L84">Sprite.ts:84</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -428,7 +462,7 @@
 					<div class="tsd-signature tsd-kind-icon">sy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L48">Sprite.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L84">Sprite.ts:84</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -443,7 +477,7 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L30">Sprite.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L66">Sprite.ts:66</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -460,7 +494,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L164">Sprite.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L200">Sprite.ts:200</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -491,7 +525,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L204">Sprite.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L240">Sprite.ts:240</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -508,7 +542,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L232">Sprite.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L268">Sprite.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -530,7 +564,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L300">Sprite.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L336">Sprite.ts:336</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -552,7 +586,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L128">Sprite.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L164">Sprite.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -580,7 +614,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L142">Sprite.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L178">Sprite.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,7 +642,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L244">Sprite.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L280">Sprite.ts:280</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -637,7 +671,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L156">Sprite.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L192">Sprite.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -665,7 +699,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L262">Sprite.ts:262</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L298">Sprite.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -708,7 +742,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L121">Sprite.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L157">Sprite.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -736,7 +770,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L107">Sprite.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L143">Sprite.ts:143</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -758,7 +792,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L114">Sprite.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L150">Sprite.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -780,7 +814,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L135">Sprite.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L171">Sprite.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -808,7 +842,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L72">Sprite.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L108">Sprite.ts:108</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -825,7 +859,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L100">Sprite.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L136">Sprite.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -854,7 +888,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L179">Sprite.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L215">Sprite.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -876,7 +910,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L185">Sprite.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L221">Sprite.ts:221</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -907,7 +941,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L240">Sprite.ts:240</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L276">Sprite.ts:276</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -929,7 +963,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L149">Sprite.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Sprite.ts#L185">Sprite.ts:185</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

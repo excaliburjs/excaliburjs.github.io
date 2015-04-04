@@ -76,7 +76,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Individual state for a Gamepad</p>
+						<p>Gamepad holds state information for a connected controller. See <a href="ex.input.gamepads.html">Gamepads</a>
+						for more information on handling controller input.</p>
 					</div>
 				</div>
 			</section>
@@ -143,7 +144,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L170">Input/Gamepad.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L247">Input/Gamepad.ts:247</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="ex.input.gamepad.html" class="tsd-signature-type">Gamepad</a></h4>
@@ -159,7 +160,7 @@
 					<div class="tsd-signature tsd-kind-icon">_axes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L170">Input/Gamepad.ts:170</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L247">Input/Gamepad.ts:247</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -169,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">_buttons<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L169">Input/Gamepad.ts:169</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L246">Input/Gamepad.ts:246</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">connected<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L167">Input/Gamepad.ts:167</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L244">Input/Gamepad.ts:244</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -274,12 +275,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L202">Input/Gamepad.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L281">Input/Gamepad.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the given axis value</p>
+									<p>Gets the given axis value between -1 and 1. Values below
+									<a href="ex.input.gamepads.html#minaxismovethreshold">MinAxisMoveThreshold</a> are considered 0.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -302,12 +304,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L195">Input/Gamepad.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L273">Input/Gamepad.ts:273</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Gets the given button value</p>
+									<p>Gets the given button value between 0 and 1</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -330,7 +332,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L188">Input/Gamepad.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L266">Input/Gamepad.ts:266</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -342,6 +344,9 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>button: <a href="../enums/ex.input.buttons.html" class="tsd-signature-type">Buttons</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The button to query</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> threshold: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></h5>
@@ -542,7 +547,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L216">Input/Gamepad.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L295">Input/Gamepad.ts:295</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -568,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L212">Input/Gamepad.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L291">Input/Gamepad.ts:291</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

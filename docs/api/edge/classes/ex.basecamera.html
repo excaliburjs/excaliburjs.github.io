@@ -73,12 +73,41 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A base implementation of a camera. This class is meant to be extended.</p>
+						<p>Cameras</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt>abstract</dt>
-						<dd></dd>
-					</dl>
+					<p><a href="ex.basecamera.html">BaseCamera</a> is the base class for all Excalibur cameras. Cameras are used
+						to move around your game and set focus. They are used to determine
+					what is &quot;off screen&quot; and can be used to scale the game.</p>
+					<p>Excalibur comes with a <a href="ex.topcamera.html">TopCamera</a> and a <a href="ex.sidecamera.html">SideCamera</a>, depending on
+					your game needs.</p>
+					<p>Cameras are attached to [[Scene|Scenes]] and can be changed by
+						setting <a href="ex.scene.html#camera">Scene.camera</a>. By default, a <a href="ex.scene.html">Scene</a> is initialized with a
+					<a href="ex.basecamera.html">BaseCamera</a> that doesn&#39;t move and is centered on the screen.</p>
+					<h2 id="focus">Focus</h2>
+					<p>Cameras have a [[BaseCamera.focus|focus]] which means they center around a specific
+						<a href="ex.point.html">Point</a>. This can be an <a href="ex.actor.html">Actor</a> (<a href="ex.basecamera.html#setactortofollow">BaseCamera.setActorToFollow</a>) or a specific
+					<a href="ex.point.html">Point</a> (<a href="ex.basecamera.html#setfocus">BaseCamera.setFocus</a>).</p>
+					<p>If a camera is following an <a href="ex.actor.html">Actor</a>, it will ensure the <a href="ex.actor.html">Actor</a> is always at the
+						center of the screen. You can use <a href="ex.basecamera.html#setfocus">BaseCamera.setFocus</a> instead if you wish to
+					offset the focal point.</p>
+					<h2 id="camera-shake">Camera Shake</h2>
+					<p>To add some fun effects to your game, the <a href="ex.basecamera.html#shake">BaseCamera.shake</a> method
+						will do a random shake. This is great for explosions, damage, and other
+					in-game effects.</p>
+					<h2 id="camera-lerp">Camera Lerp</h2>
+					<p>&quot;Lerp&quot; is short for <a href="http://en.wikipedia.org/wiki/Linear_interpolation">Linear Interpolation</a>
+						and it enables the camera focus to move smoothly between two points using timing functions.
+					Set <a href="ex.basecamera.html#lerp">BaseCamera.lerp</a> to <code>true</code> to enable &quot;lerping&quot;.</p>
+					<h2 id="camera-zooming">Camera Zooming</h2>
+					<p>To adjust the zoom for your game, use <a href="ex.basecamera.html#zoom">BaseCamera.zoom</a> which will scale the
+					game accordingly. You can pass a duration to transition between zoom levels.</p>
+					<h2 id="known-issues">Known Issues</h2>
+					<p><strong>Cameras do not support <a href="ex.easingfunctions.html">EasingFunctions</a></strong>
+					<a href="https://github.com/excaliburjs/Excalibur/issues/320">Issue #320</a></p>
+					<p>Currently <a href="ex.basecamera.html#lerp">BaseCamera.lerp</a> only supports <code>easeInOutCubic</code> but will support
+					[[EasingFunctions|easing functions]] soon.</p>
+					<p><strong>Actors following a path will wobble when camera is moving</strong>
+					<a href="https://github.com/excaliburjs/Excalibur/issues/276">Issue #276</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -154,7 +183,7 @@
 					<div class="tsd-signature tsd-kind-icon">_camera<wbr>Moving<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L14">Camera.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L63">Camera.ts:63</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">_current<wbr>Lerp<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L15">Camera.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L64">Camera.ts:64</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">_lerp<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L16">Camera.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L65">Camera.ts:65</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +213,7 @@
 					<div class="tsd-signature tsd-kind-icon">_lerp<wbr>End<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L19">Camera.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L68">Camera.ts:68</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -194,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">_lerp<wbr>Start<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L18">Camera.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L67">Camera.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -204,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">_total<wbr>Lerp<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L17">Camera.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L66">Camera.ts:66</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +243,7 @@
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L29">Camera.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L78">Camera.ts:78</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -224,7 +253,7 @@
 					<div class="tsd-signature tsd-kind-icon">elapsed<wbr>Shake<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L26">Camera.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L75">Camera.ts:75</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,7 +263,7 @@
 					<div class="tsd-signature tsd-kind-icon">elapsed<wbr>Zoom<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L32">Camera.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L81">Camera.ts:81</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +273,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L12">Camera.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L61">Camera.ts:61</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -254,7 +283,7 @@
 					<div class="tsd-signature tsd-kind-icon">follow<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L11">Camera.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L60">Camera.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +293,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Shaking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L22">Camera.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L71">Camera.ts:71</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +303,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Zooming<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L28">Camera.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L77">Camera.ts:77</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -284,7 +313,7 @@
 					<div class="tsd-signature tsd-kind-icon">lerp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L13">Camera.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L62">Camera.ts:62</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -294,7 +323,7 @@
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L30">Camera.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L79">Camera.ts:79</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -304,7 +333,7 @@
 					<div class="tsd-signature tsd-kind-icon">shake<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L25">Camera.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L74">Camera.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -314,7 +343,7 @@
 					<div class="tsd-signature tsd-kind-icon">shake<wbr>MagnitudeX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L23">Camera.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L72">Camera.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -324,7 +353,7 @@
 					<div class="tsd-signature tsd-kind-icon">shake<wbr>MagnitudeY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L24">Camera.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L73">Camera.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -334,7 +363,7 @@
 					<div class="tsd-signature tsd-kind-icon">zoom<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L31">Camera.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L80">Camera.ts:80</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -344,7 +373,7 @@
 					<div class="tsd-signature tsd-kind-icon">zoom<wbr>Increment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L33">Camera.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L82">Camera.ts:82</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L203">Camera.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L252">Camera.ts:252</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -384,7 +413,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L37">Camera.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L86">Camera.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -416,7 +445,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L57">Camera.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L106">Camera.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -438,7 +467,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L128">Camera.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L177">Camera.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -460,7 +489,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L212">Camera.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L261">Camera.ts:261</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -477,7 +506,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L216">Camera.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L265">Camera.ts:265</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -494,7 +523,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L50">Camera.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L99">Camera.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -525,7 +554,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L132">Camera.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L181">Camera.ts:181</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -548,7 +577,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L66">Camera.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L115">Camera.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -585,7 +614,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L87">Camera.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L136">Camera.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -628,7 +657,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L140">Camera.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L189">Camera.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -662,13 +691,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L100">Camera.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L149">Camera.ts:149</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Zooms the camera in or out by the specified scale over the specified duration.
-									If no duration is specified, it will zoom by a set amount until the scale is reached.</p>
+									If no duration is specified, it take effect immediately.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -680,7 +709,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> duration: <span class="tsd-signature-type">number</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> duration: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The duration of the zoom in milliseconds</p>
 									</div>

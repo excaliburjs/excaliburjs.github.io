@@ -76,8 +76,31 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Manages Keyboard input events that you can query or listen for events on</p>
+						<p>Keyboard input</p>
 					</div>
+					<p>Working with the keyboard is easy in Excalibur. You can inspect
+						whether a button is [[Keyboard.isKeyDown|down]], [[Keyboard.isKeyUp|up]], or
+						[[Keyboard.isKeyPressed|pressed]]. Common keys are held in the <a href="../enums/ex.input.keys.html">Input.Keys</a>
+					enumeration but you can pass any character code to the methods.</p>
+					<p>Excalibur subscribes to the browser events and keeps track of
+						what keys are currently down, up, or pressed. A key can be pressed
+						for multiple frames, but a key cannot be down or up for more than one
+					update frame.</p>
+					<h2 id="inspecting-the-keyboard">Inspecting the keyboard</h2>
+					<p>You can inspect <a href="ex.engine.html#input">Engine.input</a> to see what the state of the keyboard
+					is during an update.</p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Player extends ex.Actor {
+  <span class="hljs-keyword">public</span> update(engine, delta) {
+
+    <span class="hljs-keyword">if</span> (engine.input.keyboard.isKeyPressed(ex.Input.Keys.W) ||
+        engine.input.keyboard.isKeyPressed(ex.Input.Keys.Up)) {
+
+      player._moveForward();
+    }
+
+  }
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -145,7 +168,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L80">Input/Keyboard.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L109">Input/Keyboard.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -167,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L80">Input/Keyboard.ts:80</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L109">Input/Keyboard.ts:109</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">_keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L77">Input/Keyboard.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L106">Input/Keyboard.ts:106</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">_keys<wbr>Down<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L79">Input/Keyboard.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L108">Input/Keyboard.ts:108</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">_keys<wbr>Up<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L78">Input/Keyboard.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L107">Input/Keyboard.ts:107</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L126">Input/Keyboard.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L155">Input/Keyboard.ts:155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -314,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L91">Input/Keyboard.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L120">Input/Keyboard.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,12 +359,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L134">Input/Keyboard.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L163">Input/Keyboard.ts:163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Tests if a certain key is down.</p>
+									<p>Tests if a certain key is down. This is cleared at the end of the update frame.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -367,12 +390,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L142">Input/Keyboard.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L171">Input/Keyboard.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Tests if a certain key is pressed.</p>
+									<p>Tests if a certain key is pressed. This is persisted between frames.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -398,12 +421,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L150">Input/Keyboard.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L179">Input/Keyboard.ts:179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Tests if a certain key is up.</p>
+									<p>Tests if a certain key is up. This is cleared at the end of the update frame.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -607,7 +630,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L117">Input/Keyboard.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L146">Input/Keyboard.ts:146</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

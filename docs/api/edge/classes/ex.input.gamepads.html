@@ -76,9 +76,71 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Manages Gamepad API input. You can query the gamepads that are connected
-						or listen to events (&quot;button&quot; and &quot;axis&quot;).</p>
+						<p>Controller Support (Gamepads)</p>
 					</div>
+					<p>Excalibur leverages the HTML5 Gamepad API <a href="http://caniuse.com/#feat=gamepad">where it is supported</a>
+					to provide controller support for your games.</p>
+					<p>You can query any [[Gamepad|Gamepads]] that are connected or listen to events (&quot;button&quot; and &quot;axis&quot;).</p>
+					<p>You must opt-in to controller support (<a href="ex.input.gamepads.html#enabled">Gamepads.enabled</a>) because it is a polling-based
+					API, so we have to check it each update frame.</p>
+					<p>Any number of gamepads are supported using the <a href="ex.input.gamepads.html#at">Gamepads.at</a> method. If a <a href="ex.input.gamepad.html">Gamepad</a> is
+					not connected, it will simply not throw events.</p>
+					<h2 id="responding-to-button-input">Responding to button input</h2>
+					<p>[[Buttons|Gamepad buttons]] typically have values between 0 and 1, however depending on
+						the sensitivity of the controller, even if a button is idle it could have a
+						very tiny value. For this reason, you can pass in a threshold to several
+					methods to customize how sensitive you want to be in detecting button presses.</p>
+					<p>You can inspect any connected <a href="ex.input.gamepad.html">Gamepad</a> using <a href="ex.input.gamepad.html#isbuttonpressed">Gamepad.isButtonPressed</a>, <a href="ex.input.gamepad.html#getbutton">Gamepad.getButton</a>,
+						or you can subscribe to the <code>button</code> event published on the <a href="ex.input.gamepad.html">Gamepad</a> which passes
+					a <a href="ex.input.gamepadbuttonevent.html">GamepadButtonEvent</a> to your handler.</p>
+					<pre><code class="lang-js"><span class="hljs-comment">// enable gamepad support</span>
+engine.input.gamepads.enabled = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// query gamepad on update</span>
+engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+
+  <span class="hljs-comment">// access any gamepad by index</span>
+  <span class="hljs-keyword">if</span> (engine.input.gamepads.at(<span class="hljs-number">0</span>).isButtonPressed(ex.Input.Buttons.Face1)) {
+    ex.Logger.getInstance().info(<span class="hljs-string">"Controller A button pressed"</span>);
+  }
+
+  <span class="hljs-comment">// query individual button</span>
+  <span class="hljs-keyword">if</span> (engine.input.gamepads.at(<span class="hljs-number">0</span>).getButton(ex.Input.Buttons.DpadLeft) &gt; <span class="hljs-number">0.2</span>) {
+    ex.Logger.getInstance().info(<span class="hljs-string">"Controller D-pad left value is &gt; 0.2"</span>)
+  }
+});
+
+<span class="hljs-comment">// subscribe to button events</span>
+engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hljs-string">"button"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+  ex.Logger.getInstance().info(ev.button, ev.value);
+});
+</code></pre>
+					<h2 id="responding-to-axis-input">Responding to axis input</h2>
+					<p>[[Axes|Gamepad axes]] typically have values between -1 and 1, but even idle
+						sticks can still propogate very small values depending on the quality and age
+						of a controller. For this reason, you can set <a href="ex.input.gamepads.html#minaxismovethreshold">Gamepads.MinAxisMoveThreshold</a>
+						to set the (absolute) threshold after which Excalibur will start publishing <code>axis</code> events.
+					By default it is set to a value that normally will not throw events if a stick is idle.</p>
+					<p>You can query axes via <a href="ex.input.gamepad.html#getaxes">Gamepad.getAxes</a> or by subscribing to the <code>axis</code> event on <a href="ex.input.gamepad.html">Gamepad</a>
+					which passes a <a href="ex.input.gamepadaxisevent.html">GamepadAxisEvent</a> to your handler.</p>
+					<pre><code class="lang-js"><span class="hljs-comment">// enable gamepad support</span>
+engine.input.gamepads.enabled = <span class="hljs-literal">true</span>;
+
+<span class="hljs-comment">// query gamepad on update</span>
+engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+
+  <span class="hljs-comment">// access any gamepad by index</span>
+  <span class="hljs-keyword">var</span> axisValue;
+  <span class="hljs-keyword">if</span> ((axisValue = engine.input.gamepads.at(<span class="hljs-number">0</span>).getAxes(ex.Input.Axes.LeftStickX)) &gt; <span class="hljs-number">0.5</span>) {
+    ex.Logger.getInstance().info(<span class="hljs-string">"Move right"</span>, axisValue);
+  }
+});
+
+<span class="hljs-comment">// subscribe to axis events</span>
+engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hljs-string">"axis"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+  ex.Logger.getInstance().info(ev.axis, ev.value);
+});
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -151,7 +213,7 @@
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L29">Input/Gamepad.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L105">Input/Gamepad.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -173,7 +235,7 @@
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L28">Input/Gamepad.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L104">Input/Gamepad.ts:104</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">_game<wbr>Pad<wbr>Time<wbr>Stamps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L24">Input/Gamepad.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L100">Input/Gamepad.ts:100</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">_init<wbr>Success<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L27">Input/Gamepad.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L103">Input/Gamepad.ts:103</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">_navigator<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.input.inavigatorgamepads.html" class="tsd-signature-type">INavigatorGamepads</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L29">Input/Gamepad.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L105">Input/Gamepad.ts:105</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +275,7 @@
 					<div class="tsd-signature tsd-kind-icon">_old<wbr>Pads<span class="tsd-signature-symbol">:</span> <a href="ex.input.gamepad.html" class="tsd-signature-type">Gamepad</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L25">Input/Gamepad.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L101">Input/Gamepad.ts:101</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -223,7 +285,7 @@
 					<div class="tsd-signature tsd-kind-icon">_pads<span class="tsd-signature-symbol">:</span> <a href="ex.input.gamepad.html" class="tsd-signature-type">Gamepad</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L26">Input/Gamepad.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L102">Input/Gamepad.ts:102</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,12 +295,12 @@
 					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L12">Input/Gamepad.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L88">Input/Gamepad.ts:88</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Whether or not to poll for Gamepad input (default: false)</p>
+							<p>Whether or not to poll for Gamepad input (default: <code>false</code>)</p>
 						</div>
 					</div>
 				</section>
@@ -264,7 +326,7 @@
 					<div class="tsd-signature tsd-kind-icon">supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L17">Input/Gamepad.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L93">Input/Gamepad.ts:93</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -279,7 +341,7 @@
 					<div class="tsd-signature tsd-kind-icon">Min<wbr>Axis<wbr>Move<wbr>Threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L22">Input/Gamepad.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L98">Input/Gamepad.ts:98</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -301,7 +363,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L146">Input/Gamepad.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L222">Input/Gamepad.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -329,7 +391,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L135">Input/Gamepad.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L211">Input/Gamepad.ts:211</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -414,7 +476,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L115">Input/Gamepad.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L191">Input/Gamepad.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -442,7 +504,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L131">Input/Gamepad.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L207">Input/Gamepad.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,7 +526,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L37">Input/Gamepad.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L113">Input/Gamepad.ts:113</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -659,7 +721,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L52">Input/Gamepad.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L128">Input/Gamepad.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
