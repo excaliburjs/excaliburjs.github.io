@@ -8,6 +8,12 @@ module.exports.register = function (Handlebars, opts) {
   
   var helpers = {
 
+    ifin: function (source, find, options) {
+      if (source.indexOf(find) > -1) {
+        return options.fn(this);
+      }
+    },
+
     nbsp: function (times, length) {
       var result = [];
       for(var i=0;i<(times * length);i++){

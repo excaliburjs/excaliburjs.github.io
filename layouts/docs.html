@@ -8,16 +8,26 @@ layout: default
     <div class="row">
       <div class="sidebar col-sm-3">
 
-          {{{docs_sidebar docs.sidebar pages}}}
-          
           <div class="panel panel-primary">
             <div class="panel-heading"><h3 class="panel-title">API Documentation</h3></div>
             <div class="panel-body">
               <ul class="nav">
-                  <li><a href="/docs/api/">View Documentation</a></li>
+                  {{#each docs.api}}
+                    <li>
+                      <a href="/docs/api/{{ this }}">
+                        {{ @key }}
+                        {{#ifin this ../pkg.version }}
+                        <span class="label label-success">latest</span>
+                        {{/ifin}}
+                      </a>
+                    </li>
+                  {{/each}}
               </ul>  
             </div>
           </div>
+
+          {{{docs_sidebar docs.sidebar pages}}}
+          
       </div>
 
       <div class="col-sm-9">
