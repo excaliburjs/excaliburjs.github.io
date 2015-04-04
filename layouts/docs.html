@@ -17,7 +17,10 @@ layout: default
                       <a href="/docs/api/{{ this }}">
                         {{ @key }}
                         {{#ifin this ../pkg.version }}
-                        <span class="label label-success">latest</span>
+                        <span class="label label-success" title="Latest stable release">latest</span>
+                        {{/ifin}}
+                        {{#ifin this "edge" }}
+                        <span class="label label-danger" title="Generated from the master branch">master</span>
                         {{/ifin}}
                       </a>
                     </li>
