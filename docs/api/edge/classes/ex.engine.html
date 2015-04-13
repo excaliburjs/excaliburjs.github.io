@@ -97,7 +97,7 @@ game.start().then(<span class="hljs-function"><span class="hljs-keyword">functio
 </code></pre>
 					<h2 id="the-main-loop">The Main Loop</h2>
 					<p>The Excalibur engine uses a simple main loop. The engine updates and renders
-						the &quot;scene graph&quot; which is the [[Scene|scenes]] and the tree of [[Actor|actors]] within that
+						the &quot;scene graph&quot; which is the <a href="ex.scene.html">scenes</a> and the tree of <a href="ex.actor.html">actors</a> within that
 						scene. Only one <a href="ex.scene.html">Scene</a> can be active at once, the engine does not update/draw any other
 					scene, which means any actors will not be updated/drawn if they are part of a deactivated scene.</p>
 					<p><strong>Scene Graph</strong></p>
@@ -112,20 +112,20 @@ game.start().then(<span class="hljs-function"><span class="hljs-keyword">functio
 						to keep your game smart about splitting duties so that you aren&#39;t drawing when doing
 					logic or performing logic as you draw.</p>
 					<h3 id="update-loop">Update Loop</h3>
-					<p>The first operation run is the [[Engine.update|update]] loop. <a href="ex.actor.html">Actor</a> and <a href="ex.scene.html">Scene</a> both implement
+					<p>The first operation run is the <a href="ex.engine.html#update">update</a> loop. <a href="ex.actor.html">Actor</a> and <a href="ex.scene.html">Scene</a> both implement
 						an overridable/extendable <code>update</code> method. Use it to perform any logic-based operations
 					in your game for a particular class.</p>
 					<h3 id="draw-loop">Draw Loop</h3>
-					<p>The next step is the [[Engine.draw|draw]] loop. A <a href="ex.scene.html">Scene</a> loops through its child [[Actor|actors]] and
+					<p>The next step is the <a href="ex.engine.html#draw">draw</a> loop. A <a href="ex.scene.html">Scene</a> loops through its child <a href="ex.actor.html">actors</a> and
 						draws each one. You can override the <code>draw</code> method on an actor to customize its drawing.
 					You should <strong>not</strong> perform any logic in a draw call, it should only relate to drawing.</p>
 					<h2 id="working-with-scenes">Working with Scenes</h2>
 					<p>The engine automatically creates a &quot;root&quot; <a href="ex.scene.html">Scene</a>. You can use this for whatever you want.
-						You can manipulate scenes using [[Engine.add|add]], [[Engine.remove|remove]],
-						and [[Engine.goToScene|goToScene]]. You can overwrite or remove the <code>root</code> scene if
+						You can manipulate scenes using <a href="ex.engine.html#add">add</a>, <a href="ex.engine.html#remove">remove</a>,
+						and <a href="ex.engine.html#gotoscene">goToScene</a>. You can overwrite or remove the <code>root</code> scene if
 						you want. There always has to be at least one scene and only <strong>one</strong> scene can be
 					active at any one time.</p>
-					<p>Learn more about the [[Scene|scene lifecycle]].</p>
+					<p>Learn more about the <a href="ex.scene.html">scene lifecycle</a>.</p>
 					<h3 id="adding-a-scene">Adding a scene</h3>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 
@@ -142,14 +142,14 @@ game.goToScene(<span class="hljs-string">"level1"</span>);
 game.goToScene(<span class="hljs-string">"root"</span>);
 </code></pre>
 					<h3 id="accessing-the-current-scene">Accessing the current scene</h3>
-					<p>To add actors and other entities to the current <a href="ex.scene.html">Scene</a>, you can use [[Engine.add|add]]. Alternatively,
+					<p>To add actors and other entities to the current <a href="ex.scene.html">Scene</a>, you can use <a href="ex.engine.html#add">add</a>. Alternatively,
 					you can use <a href="ex.engine.html#currentscene">Engine.currentScene</a> to directly access the current scene.</p>
 					<h2 id="managing-the-viewport">Managing the Viewport</h2>
-					<p>Excalibur supports multiple [[DisplayMode|display modes]] for a game. Pass in a <code>displayMode</code>
+					<p>Excalibur supports multiple <a href="../enums/ex.displaymode.html">display modes</a> for a game. Pass in a <code>displayMode</code>
 					option when creating a game to customize the viewport.</p>
 					<h2 id="extending-the-engine">Extending the Engine</h2>
 					<p>For complex games, any entity that inherits <a href="ex.class.html">Class</a> can be extended to override built-in
-					functionality. This is recommended for [[Actor|actors]] and [[Scene|scenes]], especially.</p>
+					functionality. This is recommended for <a href="ex.actor.html">actors</a> and <a href="ex.scene.html">scenes</a>, especially.</p>
 					<p>You can customize the options or provide more for your game by extending <a href="ex.engine.html">Engine</a>.</p>
 					<p><strong>TypeScript</strong></p>
 					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Game extends ex.Engine {
@@ -2514,5 +2514,14 @@ game.start();
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

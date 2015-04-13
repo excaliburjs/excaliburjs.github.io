@@ -80,13 +80,13 @@
 					</div>
 					<p>Excalibur leverages the HTML5 Gamepad API <a href="http://caniuse.com/#feat=gamepad">where it is supported</a>
 					to provide controller support for your games.</p>
-					<p>You can query any [[Gamepad|Gamepads]] that are connected or listen to events (&quot;button&quot; and &quot;axis&quot;).</p>
+					<p>You can query any <a href="ex.input.gamepad.html">Gamepads</a> that are connected or listen to events (&quot;button&quot; and &quot;axis&quot;).</p>
 					<p>You must opt-in to controller support (<a href="ex.input.gamepads.html#enabled">Gamepads.enabled</a>) because it is a polling-based
 					API, so we have to check it each update frame.</p>
 					<p>Any number of gamepads are supported using the <a href="ex.input.gamepads.html#at">Gamepads.at</a> method. If a <a href="ex.input.gamepad.html">Gamepad</a> is
 					not connected, it will simply not throw events.</p>
 					<h2 id="responding-to-button-input">Responding to button input</h2>
-					<p>[[Buttons|Gamepad buttons]] typically have values between 0 and 1, however depending on
+					<p><a href="../enums/ex.input.buttons.html">Gamepad buttons</a> typically have values between 0 and 1, however depending on
 						the sensitivity of the controller, even if a button is idle it could have a
 						very tiny value. For this reason, you can pass in a threshold to several
 					methods to customize how sensitive you want to be in detecting button presses.</p>
@@ -116,7 +116,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 });
 </code></pre>
 					<h2 id="responding-to-axis-input">Responding to axis input</h2>
-					<p>[[Axes|Gamepad axes]] typically have values between -1 and 1, but even idle
+					<p><a href="../enums/ex.input.axes.html">Gamepad axes</a> typically have values between -1 and 1, but even idle
 						sticks can still propogate very small values depending on the quality and age
 						of a controller. For this reason, you can set <a href="ex.input.gamepads.html#minaxismovethreshold">Gamepads.MinAxisMoveThreshold</a>
 						to set the (absolute) threshold after which Excalibur will start publishing <code>axis</code> events.
@@ -1042,5 +1042,14 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

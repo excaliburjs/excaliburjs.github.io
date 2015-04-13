@@ -162,8 +162,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.spritefont.html#alphabet" class="tsd-kind-icon">alphabet</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.spritefont.html#caseinsensitive" class="tsd-kind-icon">case<wbr>Insensitive</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.spritefont.html#colorlookup" class="tsd-kind-icon">color<wbr>Lookup</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.spritefont.html#image" class="tsd-kind-icon">image</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.spritefont.html#image-1" class="tsd-kind-icon">image</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="ex.spritefont.html#image" class="tsd-kind-icon">image</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.spritefont.html#spritelookup" class="tsd-kind-icon">sprite<wbr>Lookup</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.spritefont.html#sprites" class="tsd-kind-icon">sprites</a></li>
 							</ul>
@@ -308,11 +307,12 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="image" class="tsd-anchor"></a>
 					<h3>image</h3>
 					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="ex.texture.html" class="tsd-signature-type">Texture</a></div>
 					<aside class="tsd-sources">
+						<p>Overwrites <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#image">image</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L281">SpriteSheet.ts:281</a></li>
 						</ul>
@@ -320,21 +320,6 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The backing image texture to build the SpriteFont</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="image-1" class="tsd-anchor"></a>
-					<h3>image</h3>
-					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="ex.texture.html" class="tsd-signature-type">Texture</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/SpriteSheet.ts#L106">SpriteSheet.ts:106</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The backing image texture to build the SpriteSheet</p>
 						</div>
 					</div>
 				</section>
@@ -629,11 +614,8 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.spritefont.html#colorlookup" class="tsd-kind-icon">color<wbr>Lookup</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="ex.spritefont.html#image" class="tsd-kind-icon">image</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.spritefont.html#image-1" class="tsd-kind-icon">image</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.spritefont.html#spritelookup" class="tsd-kind-icon">sprite<wbr>Lookup</a>
@@ -727,5 +709,14 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

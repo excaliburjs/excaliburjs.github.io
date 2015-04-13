@@ -184,7 +184,7 @@ game.add(player);
 					<h3 id="working-with-textures-sprites">Working with Textures &amp; Sprites</h3>
 					<p>A common usage is to use a <a href="ex.texture.html">Texture</a> or <a href="ex.sprite.html">Sprite</a> for an actor. If you are using the <a href="ex.loader.html">Loader</a> to
 						pre-load assets, you can simply assign an actor a <a href="ex.texture.html">Texture</a> to draw. You can
-					also create a [[Texture.asSprite|sprite from a Texture]] to quickly create a <a href="ex.sprite.html">Sprite</a> instance.</p>
+					also create a <a href="ex.texture.html#assprite">sprite from a Texture</a> to quickly create a <a href="ex.sprite.html">Sprite</a> instance.</p>
 					<pre><code class="lang-ts"><span class="hljs-comment">// assume Resources.TxPlayer is a 80x80 png image</span>
 
 <span class="hljs-keyword">public</span> onInitialize(engine: ex.Engine) {
@@ -227,14 +227,14 @@ game.add(player);
 }
 </code></pre>
 					<h2 id="actions">Actions</h2>
-					<p>You can use the [[ActionContext|Action API]] to create chains of
+					<p>You can use the <a href="ex.actioncontext.html">Action API</a> to create chains of
 					actions and script actors into doing your bidding for your game.</p>
 					<p>Actions can be simple or can be chained together to create complex
 						AI routines. In the future, it will be easier to create timelines or
 						scripts to run depending on the state of your actor, such as an
 						enemy ship that is Guarding a path and then is Alerted when a Player
 					draws near.</p>
-					<p>Learn more about the [[ActionContext|Action API]].</p>
+					<p>Learn more about the <a href="ex.actioncontext.html">Action API</a>.</p>
 					<h2 id="collision-detection">Collision Detection</h2>
 					<p>By default Actors do not participate in collisions. If you wish to make
 					an actor participate, you need to enable the <a href="ex.collisiondetectionmodule.html">CollisionDetectionModule</a></p>
@@ -3674,5 +3674,14 @@ game.add(player);
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

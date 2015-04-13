@@ -80,11 +80,11 @@
 					what is &quot;off screen&quot; and can be used to scale the game.</p>
 					<p>Excalibur comes with a <a href="ex.topcamera.html">TopCamera</a> and a <a href="ex.sidecamera.html">SideCamera</a>, depending on
 					your game needs.</p>
-					<p>Cameras are attached to [[Scene|Scenes]] and can be changed by
+					<p>Cameras are attached to <a href="ex.scene.html">Scenes</a> and can be changed by
 						setting <a href="ex.scene.html#camera">Scene.camera</a>. By default, a <a href="ex.scene.html">Scene</a> is initialized with a
 					<a href="ex.basecamera.html">BaseCamera</a> that doesn&#39;t move and is centered on the screen.</p>
 					<h2 id="focus">Focus</h2>
-					<p>Cameras have a [[BaseCamera.focus|focus]] which means they center around a specific
+					<p>Cameras have a <a href="ex.basecamera.html#focus">focus</a> which means they center around a specific
 						<a href="ex.point.html">Point</a>. This can be an <a href="ex.actor.html">Actor</a> (<a href="ex.basecamera.html#setactortofollow">BaseCamera.setActorToFollow</a>) or a specific
 					<a href="ex.point.html">Point</a> (<a href="ex.basecamera.html#setfocus">BaseCamera.setFocus</a>).</p>
 					<p>If a camera is following an <a href="ex.actor.html">Actor</a>, it will ensure the <a href="ex.actor.html">Actor</a> is always at the
@@ -105,7 +105,7 @@
 					<p><strong>Cameras do not support <a href="ex.easingfunctions.html">EasingFunctions</a></strong>
 					<a href="https://github.com/excaliburjs/Excalibur/issues/320">Issue #320</a></p>
 					<p>Currently <a href="ex.basecamera.html#lerp">BaseCamera.lerp</a> only supports <code>easeInOutCubic</code> but will support
-					[[EasingFunctions|easing functions]] soon.</p>
+					<a href="ex.easingfunctions.html">easing functions</a> soon.</p>
 					<p><strong>Actors following a path will wobble when camera is moving</strong>
 					<a href="https://github.com/excaliburjs/Excalibur/issues/276">Issue #276</a></p>
 				</div>
@@ -935,5 +935,14 @@
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

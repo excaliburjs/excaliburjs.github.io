@@ -79,7 +79,7 @@
 					creating the illusion of change. Generally these images will come from a <a href="ex.spritesheet.html">SpriteSheet</a> source.</p>
 					<h2 id="creating-an-animation">Creating an animation</h2>
 					<p>Create a <a href="ex.texture.html">Texture</a> that contains the frames of your animation. Once the texture
-						is [[Loader|loaded]], you can then generate an <a href="ex.animation.html">Animation</a> by creating a <a href="ex.spritesheet.html">SpriteSheet</a>
+						is <a href="ex.loader.html">loaded</a>, you can then generate an <a href="ex.animation.html">Animation</a> by creating a <a href="ex.spritesheet.html">SpriteSheet</a>
 					and using <a href="ex.spritesheet.html#getanimationforall">SpriteSheet.getAnimationForAll</a>.</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 <span class="hljs-keyword">var</span> txAnimPlayerIdle = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/anim-player-idle.png"</span>);
@@ -1254,5 +1254,14 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>

@@ -76,10 +76,10 @@
 						<p>Sprite Sheets</p>
 					</div>
 					<p>Sprite sheets are a useful mechanism for slicing up image resources into
-						separate sprites or for generating in game animations. [[Sprite|Sprites]] are organized
+						separate sprites or for generating in game animations. <a href="ex.sprite.html">Sprites</a> are organized
 					in row major order in the <a href="ex.spritesheet.html">SpriteSheet</a>.</p>
 					<p>You can also use a <a href="ex.spritefont.html">SpriteFont</a> which is special kind of <a href="ex.spritesheet.html">SpriteSheet</a> for use
-					with [[Label|Labels]].</p>
+					with <a href="ex.label.html">Labels</a>.</p>
 					<h2 id="creating-a-spritesheet">Creating a SpriteSheet</h2>
 					<p>To create a <a href="ex.spritesheet.html">SpriteSheet</a> you need a loaded <a href="ex.texture.html">Texture</a> resource.</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
@@ -114,7 +114,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						It&#39;s recommended to generate animations for an <a href="ex.actor.html">Actor</a> in their <a href="ex.actor.html#oninitialize">Actor.onInitialize</a>
 						event because the <a href="ex.engine.html">Engine</a> is passed to the initialization function. However, if your
 						<a href="ex.engine.html">Engine</a> instance is in the global scope, you can create an <a href="ex.animation.html">Animation</a> at any time
-					provided the <a href="ex.texture.html">Texture</a> has been [[Loader|loaded]].</p>
+					provided the <a href="ex.texture.html">Texture</a> has been <a href="ex.loader.html">loaded</a>.</p>
 					<pre><code class="lang-js">  <span class="hljs-comment">// create sprite sheet with 5 columns, 1 row, 80x80 frames</span>
   <span class="hljs-keyword">var</span> playerIdleSheet = <span class="hljs-keyword">new</span> ex.SpriteSheet(txAnimPlayerIdle, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
 
@@ -641,5 +641,14 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
 <script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
 </body>
 </html>
