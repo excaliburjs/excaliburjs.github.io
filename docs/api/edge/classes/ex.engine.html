@@ -91,7 +91,7 @@
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine({ width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span> });
 
 <span class="hljs-comment">// call game.start, which is a Promise</span>
-game.start().then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+game.start().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   <span class="hljs-comment">// ready, set, go!</span>
 });
 </code></pre>
@@ -177,16 +177,16 @@ game.start();
 					<p><strong>Javascript</strong></p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> Game = ex.Engine.extend({
 
-  constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     Engine.call(<span class="hljs-keyword">this</span>, { width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span>, displayMode: DisplayMode.FullScreen });
   }
 
-  start: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+  start: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
     <span class="hljs-comment">// add custom scenes</span>
     <span class="hljs-keyword">this</span>.add(<span class="hljs-string">"mainmenu"</span>, <span class="hljs-keyword">new</span> MainMenu());
 
     <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>;
-    <span class="hljs-keyword">return</span> Engine.prototype.start.call(<span class="hljs-keyword">this</span>, myLoader).then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> Engine.prototype.start.call(<span class="hljs-keyword">this</span>, myLoader).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
 
       _this.goToScene(<span class="hljs-string">"mainmenu"</span>);
 
@@ -2176,12 +2176,12 @@ game.start();
 								</div>
 								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
-   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
       Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
    },
 
-   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
       <span class="hljs-comment">// Implement custom update</span>
       <span class="hljs-comment">// Call super constructor update</span>
       Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);

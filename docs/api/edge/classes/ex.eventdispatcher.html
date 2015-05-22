@@ -95,7 +95,7 @@
 player.enableCapturePointer = <span class="hljs-literal">true</span>;
 
 <span class="hljs-comment">// subscribe to pointerdown event</span>
-player.on(<span class="hljs-string">"pointerdown"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt: ex.Input.PointerEvent)</span> </span>{
+player.on(<span class="hljs-string">"pointerdown"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt: ex.Input.PointerEvent</span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Player was clicked!"</span>);
 });
 
@@ -103,7 +103,7 @@ player.on(<span class="hljs-string">"pointerdown"</span>, <span class="hljs-func
 player.off(<span class="hljs-string">"pointerdown"</span>);
 
 <span class="hljs-comment">// subscribe to custom event</span>
-player.on(<span class="hljs-string">"death"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{
+player.on(<span class="hljs-string">"death"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{
   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Player died:"</span>, evt);
 });
 
@@ -120,7 +120,7 @@ player.triggerEvent(<span class="hljs-string">"death"</span>, <span class="hljs-
 <span class="hljs-keyword">var</span> vent = <span class="hljs-keyword">new</span> ex.EventDispatcher({});
 
 <span class="hljs-comment">// handler for an event</span>
-<span class="hljs-keyword">var</span> subscription = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(event)</span> </span>{
+<span class="hljs-keyword">var</span> subscription = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
   <span class="hljs-built_in">console</span>.log(event);
 }
 

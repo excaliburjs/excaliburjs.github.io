@@ -144,13 +144,13 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<p><strong>Javascript</strong></p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> MainMenu = ex.Scene.extend({
   <span class="hljs-comment">// start-up logic, called once</span>
-  onInitialize: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(engine)</span> </span>{ },
+  onInitialize: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">engine</span>) </span>{ },
 
   <span class="hljs-comment">// each time the scene is activated by Engine.goToScene</span>
-  onActivate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ },
+  onActivate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ },
 
   <span class="hljs-comment">// each time the scene is deactivated by Engine.goToScene</span>
-  onDeactivate: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{ }
+  onDeactivate: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{ }
 });
 
 game.add(<span class="hljs-string">"mainmenu"</span>, <span class="hljs-keyword">new</span> MainMenu());
@@ -1643,12 +1643,12 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								</div>
 								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
-   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
       Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
    },
 
-   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
       <span class="hljs-comment">// Implement custom update</span>
       <span class="hljs-comment">// Call super constructor update</span>
       Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);

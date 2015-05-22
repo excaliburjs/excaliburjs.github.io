@@ -130,12 +130,12 @@ game.add(player);
   endurance: <span class="hljs-number">0</span>,
   fortitude: <span class="hljs-number">0</span>,
 
-  onInitialize: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(engine)</span> </span>{
+  onInitialize: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">engine</span>) </span>{
     <span class="hljs-keyword">this</span>.endurance = <span class="hljs-number">20</span>;
     <span class="hljs-keyword">this</span>.fortitude = <span class="hljs-number">16</span>;
   },
 
-  getMaxHealth: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+  getMaxHealth: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
     <span class="hljs-keyword">return</span> (<span class="hljs-number">0.4</span> * <span class="hljs-keyword">this</span>.endurance) + (<span class="hljs-number">0.9</span> * <span class="hljs-keyword">this</span>.fortitude) + (<span class="hljs-keyword">this</span>.level * <span class="hljs-number">1.2</span>);
   }
 });
@@ -165,7 +165,7 @@ game.add(player);
 </code></pre>
 					<p><strong>Javascript</strong></p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> Player = ex.Actor.extend({
-  update: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(engine, delta)</span> </span>{
+  update: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">engine, delta</span>) </span>{
     ex.Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta); <span class="hljs-comment">// call base update logic</span>
 
     <span class="hljs-comment">// check if player died</span>
@@ -3257,12 +3257,12 @@ game.add(player);
 								</div>
 								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
-   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
       Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
    },
 
-   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
       <span class="hljs-comment">// Implement custom update</span>
       <span class="hljs-comment">// Call super constructor update</span>
       Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);

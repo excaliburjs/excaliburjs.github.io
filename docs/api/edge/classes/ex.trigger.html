@@ -82,7 +82,7 @@
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Game();
 
 <span class="hljs-comment">// create a handler</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onTrigger</span><span class="hljs-params">()</span> </span>{
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onTrigger</span>(<span class="hljs-params"></span>) </span>{
 
   <span class="hljs-comment">// `this` will be the Trigger instance</span>
   ex.Logger.getInstance().info(<span class="hljs-string">"Trigger was triggered!"</span>, <span class="hljs-keyword">this</span>);
@@ -3091,12 +3091,12 @@ game.start();
 								</div>
 								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
-   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
       Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
    },
 
-   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
       <span class="hljs-comment">// Implement custom update</span>
       <span class="hljs-comment">// Call super constructor update</span>
       Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);

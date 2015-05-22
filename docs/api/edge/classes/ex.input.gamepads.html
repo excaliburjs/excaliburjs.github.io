@@ -97,7 +97,7 @@
 engine.input.gamepads.enabled = <span class="hljs-literal">true</span>;
 
 <span class="hljs-comment">// query gamepad on update</span>
-engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ev</span>) </span>{
 
   <span class="hljs-comment">// access any gamepad by index</span>
   <span class="hljs-keyword">if</span> (engine.input.gamepads.at(<span class="hljs-number">0</span>).isButtonPressed(ex.Input.Buttons.Face1)) {
@@ -111,7 +111,7 @@ engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"
 });
 
 <span class="hljs-comment">// subscribe to button events</span>
-engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hljs-string">"button"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hljs-string">"button"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ev</span>) </span>{
   ex.Logger.getInstance().info(ev.button, ev.value);
 });
 </code></pre>
@@ -127,7 +127,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 engine.input.gamepads.enabled = <span class="hljs-literal">true</span>;
 
 <span class="hljs-comment">// query gamepad on update</span>
-engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ev</span>) </span>{
 
   <span class="hljs-comment">// access any gamepad by index</span>
   <span class="hljs-keyword">var</span> axisValue;
@@ -137,7 +137,7 @@ engine.on(<span class="hljs-string">"update"</span>, <span class="hljs-function"
 });
 
 <span class="hljs-comment">// subscribe to axis events</span>
-engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hljs-string">"axis"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hljs-string">"axis"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ev</span>) </span>{
   ex.Logger.getInstance().info(ev.axis, ev.value);
 });
 </code></pre>
@@ -761,12 +761,12 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 								</div>
 								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
-   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
       Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
    },
 
-   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
       <span class="hljs-comment">// Implement custom update</span>
       <span class="hljs-comment">// Call super constructor update</span>
       Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);

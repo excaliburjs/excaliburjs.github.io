@@ -97,10 +97,10 @@
 						<li><code>move</code> - When a pointer moves (be wary of performance issues when subscribing to this)</li>
 						<li><code>cancel</code> - When a pointer event is canceled for some reason</li>
 					</ul>
-					<pre><code class="lang-js">engine.input.pointers.primary.on(<span class="hljs-string">"down"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{ });
-engine.input.pointers.primary.on(<span class="hljs-string">"up"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{ });
-engine.input.pointers.primary.on(<span class="hljs-string">"move"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{ });
-engine.input.pointers.primary.on(<span class="hljs-string">"cancel"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(evt)</span> </span>{ });
+					<pre><code class="lang-js">engine.input.pointers.primary.on(<span class="hljs-string">"down"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
+engine.input.pointers.primary.on(<span class="hljs-string">"up"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
+engine.input.pointers.primary.on(<span class="hljs-string">"move"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
+engine.input.pointers.primary.on(<span class="hljs-string">"cancel"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
 </code></pre>
 					<h2 id="pointer-scope-window-vs-canvas-">Pointer scope (window vs. canvas)</h2>
 					<p>You have the option to handle <em>all</em> pointer events in the browser by setting
@@ -116,7 +116,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"cancel"</span>, <spa
 					<h2 id="responding-to-input">Responding to input</h2>
 					<p>The primary pointer can be a mouse, stylus, or 1 finger touch event. You
 					can inspect what it is from the <a href="ex.input.pointerevent.html">PointerEvent</a> handled.</p>
-					<pre><code class="lang-js">engine.input.pointers.primary.on(<span class="hljs-string">"down"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pe)</span> </span>{
+					<pre><code class="lang-js">engine.input.pointers.primary.on(<span class="hljs-string">"down"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pe</span>) </span>{
   <span class="hljs-keyword">if</span> (pe.pointerType === ex.Input.PointerType.Mouse) {
     ex.Logger.getInstance().info(<span class="hljs-string">"Mouse event:"</span>, pe);
   } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pe.pointerType === ex.Input.PointerType.Touch) {
@@ -137,10 +137,10 @@ engine.input.pointers.primary.on(<span class="hljs-string">"cancel"</span>, <spa
 					subscribe to, so by all means, support all 10 fingers.</p>
 					<p><em>Note:</em> There is no way to identify touches after they happen; you can only
 					know that there are <em>n</em> touches on the screen at once.</p>
-					<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">paint</span><span class="hljs-params">(color)</span> </span>{
+					<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">paint</span>(<span class="hljs-params">color</span>) </span>{
 
   <span class="hljs-comment">// create a handler for the event</span>
-  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(pe)</span> </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pe</span>) </span>{
     <span class="hljs-keyword">if</span> (pe.pointerType === ex.Input.PointerType.Touch) {
       engine.canvas.fillStyle = color;
       engine.canvas.fillRect(pe.x, pe.y, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>);
@@ -172,7 +172,7 @@ player.enableCapturePointer = <span class="hljs-literal">true</span>;
 player.capturePointer.captureMoveEvents = <span class="hljs-literal">true</span>;
 
 <span class="hljs-comment">// subscribe to input</span>
-player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(ev)</span> </span>{
+player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">ev</span>) </span>{
   player.logger.info(<span class="hljs-string">"Player selected!"</span>, ev);
 });
 </code></pre>
@@ -895,12 +895,12 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 								</div>
 								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
-   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
       Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
    },
 
-   update: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(engine, delta)</span> </span>{
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
       <span class="hljs-comment">// Implement custom update</span>
       <span class="hljs-comment">// Call super constructor update</span>
       Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);
