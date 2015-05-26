@@ -84,7 +84,7 @@
 						setting <a href="ex.scene.html#camera">Scene.camera</a>. By default, a <a href="ex.scene.html">Scene</a> is initialized with a
 					<a href="ex.basecamera.html">BaseCamera</a> that doesn&#39;t move and is centered on the screen.</p>
 					<h2 id="focus">Focus</h2>
-					<p>Cameras have a <a href="ex.basecamera.html#focus">focus</a> which means they center around a specific
+					<p>Cameras have a [[BaseCamera.focus|focus]] which means they center around a specific
 						<a href="ex.point.html">Point</a>. This can be an <a href="ex.actor.html">Actor</a> (<a href="ex.basecamera.html#setactortofollow">BaseCamera.setActorToFollow</a>) or a specific
 					<a href="ex.point.html">Point</a> (<a href="ex.basecamera.html#setfocus">BaseCamera.setFocus</a>).</p>
 					<p>If a camera is following an <a href="ex.actor.html">Actor</a>, it will ensure the <a href="ex.actor.html">Actor</a> is always at the
@@ -97,14 +97,14 @@
 					<h2 id="camera-lerp">Camera Lerp</h2>
 					<p>&quot;Lerp&quot; is short for <a href="http://en.wikipedia.org/wiki/Linear_interpolation">Linear Interpolation</a>
 						and it enables the camera focus to move smoothly between two points using timing functions.
-					Set <a href="ex.basecamera.html#lerp">BaseCamera.lerp</a> to <code>true</code> to enable &quot;lerping&quot;.</p>
+					Set [[BaseCamera.lerp]] to <code>true</code> to enable &quot;lerping&quot;.</p>
 					<h2 id="camera-zooming">Camera Zooming</h2>
 					<p>To adjust the zoom for your game, use <a href="ex.basecamera.html#zoom">BaseCamera.zoom</a> which will scale the
 					game accordingly. You can pass a duration to transition between zoom levels.</p>
 					<h2 id="known-issues">Known Issues</h2>
 					<p><strong>Cameras do not support <a href="ex.easingfunctions.html">EasingFunctions</a></strong>
 					<a href="https://github.com/excaliburjs/Excalibur/issues/320">Issue #320</a></p>
-					<p>Currently <a href="ex.basecamera.html#lerp">BaseCamera.lerp</a> only supports <code>easeInOutCubic</code> but will support
+					<p>Currently [[BaseCamera.lerp]] only supports <code>easeInOutCubic</code> but will support
 					<a href="ex.easingfunctions.html">easing functions</a> soon.</p>
 					<p><strong>Actors following a path will wobble when camera is moving</strong>
 					<a href="https://github.com/excaliburjs/Excalibur/issues/276">Issue #276</a></p>
@@ -135,37 +135,37 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_cameramoving" class="tsd-kind-icon">_camera<wbr>Moving</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_currentlerptime" class="tsd-kind-icon">_current<wbr>Lerp<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_currentzoomscale" class="tsd-kind-icon">_current<wbr>Zoom<wbr>Scale</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_elapsedshaketime" class="tsd-kind-icon">_elapsed<wbr>Shake<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_elapsedzoomtime" class="tsd-kind-icon">_elapsed<wbr>Zoom<wbr>Time</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#_focus" class="tsd-kind-icon">_focus</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#_follow" class="tsd-kind-icon">_follow</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#_isshaking" class="tsd-kind-icon">_is<wbr>Shaking</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#_iszooming" class="tsd-kind-icon">_is<wbr>Zooming</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#_lerp" class="tsd-kind-icon">_lerp</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_lerpduration" class="tsd-kind-icon">_lerp<wbr>Duration</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_lerpend" class="tsd-kind-icon">_lerp<wbr>End</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_lerpstart" class="tsd-kind-icon">_lerp<wbr>Start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_maxzoomscale" class="tsd-kind-icon">_max<wbr>Zoom<wbr>Scale</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_shakeduration" class="tsd-kind-icon">_shake<wbr>Duration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_shakemagnitudex" class="tsd-kind-icon">_shake<wbr>MagnitudeX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_shakemagnitudey" class="tsd-kind-icon">_shake<wbr>MagnitudeY</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_totallerptime" class="tsd-kind-icon">_total<wbr>Lerp<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#currentzoomscale" class="tsd-kind-icon">current<wbr>Zoom<wbr>Scale</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#elapsedshaketime" class="tsd-kind-icon">elapsed<wbr>Shake<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#elapsedzoomtime" class="tsd-kind-icon">elapsed<wbr>Zoom<wbr>Time</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#focus" class="tsd-kind-icon">focus</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#follow" class="tsd-kind-icon">follow</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#isshaking" class="tsd-kind-icon">is<wbr>Shaking</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#iszooming" class="tsd-kind-icon">is<wbr>Zooming</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="ex.basecamera.html#lerp" class="tsd-kind-icon">lerp</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#maxzoomscale" class="tsd-kind-icon">max<wbr>Zoom<wbr>Scale</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#shakeduration" class="tsd-kind-icon">shake<wbr>Duration</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#shakemagnitudex" class="tsd-kind-icon">shake<wbr>MagnitudeX</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#shakemagnitudey" class="tsd-kind-icon">shake<wbr>MagnitudeY</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#zoomduration" class="tsd-kind-icon">zoom<wbr>Duration</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#zoomincrement" class="tsd-kind-icon">zoom<wbr>Increment</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_zoomduration" class="tsd-kind-icon">_zoom<wbr>Duration</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_zoomincrement" class="tsd-kind-icon">_zoom<wbr>Increment</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_easeinoutcubic" class="tsd-kind-icon">_ease<wbr>InOut<wbr>Cubic</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_isdoneshaking" class="tsd-kind-icon">_is<wbr>Done<wbr>Shaking</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_isdonezooming" class="tsd-kind-icon">_is<wbr>Done<wbr>Zooming</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#_setcurrentzoomscale" class="tsd-kind-icon">_set<wbr>Current<wbr>Zoom<wbr>Scale</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#easeinoutcubic" class="tsd-kind-icon">ease<wbr>InOut<wbr>Cubic</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#getfocus" class="tsd-kind-icon">get<wbr>Focus</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#getzoom" class="tsd-kind-icon">get<wbr>Zoom</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#isdoneshaking" class="tsd-kind-icon">is<wbr>Done<wbr>Shaking</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#isdonezooming" class="tsd-kind-icon">is<wbr>Done<wbr>Zooming</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#setactortofollow" class="tsd-kind-icon">set<wbr>Actor<wbr>ToFollow</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.basecamera.html#setcurrentzoomscale" class="tsd-kind-icon">set<wbr>Current<wbr>Zoom<wbr>Scale</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#setfocus" class="tsd-kind-icon">set<wbr>Focus</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#shake" class="tsd-kind-icon">shake</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.basecamera.html#update" class="tsd-kind-icon">update</a></li>
@@ -194,6 +194,86 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L64">Camera.ts:64</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_currentzoomscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _current<wbr>Zoom<wbr>Scale</h3>
+					<div class="tsd-signature tsd-kind-icon">_current<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L78">Camera.ts:78</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_elapsedshaketime" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _elapsed<wbr>Shake<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">_elapsed<wbr>Shake<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L75">Camera.ts:75</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_elapsedzoomtime" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _elapsed<wbr>Zoom<wbr>Time</h3>
+					<div class="tsd-signature tsd-kind-icon">_elapsed<wbr>Zoom<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L81">Camera.ts:81</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_focus" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _focus</h3>
+					<div class="tsd-signature tsd-kind-icon">_focus<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L61">Camera.ts:61</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_follow" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _follow</h3>
+					<div class="tsd-signature tsd-kind-icon">_follow<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L60">Camera.ts:60</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_isshaking" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _is<wbr>Shaking</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Shaking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L71">Camera.ts:71</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_iszooming" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _is<wbr>Zooming</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Zooming<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L77">Camera.ts:77</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_lerp" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _lerp</h3>
+					<div class="tsd-signature tsd-kind-icon">_lerp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L62">Camera.ts:62</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -228,6 +308,46 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_maxzoomscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _max<wbr>Zoom<wbr>Scale</h3>
+					<div class="tsd-signature tsd-kind-icon">_max<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L79">Camera.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_shakeduration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _shake<wbr>Duration</h3>
+					<div class="tsd-signature tsd-kind-icon">_shake<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L74">Camera.ts:74</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_shakemagnitudex" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _shake<wbr>MagnitudeX</h3>
+					<div class="tsd-signature tsd-kind-icon">_shake<wbr>MagnitudeX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L72">Camera.ts:72</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_shakemagnitudey" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _shake<wbr>MagnitudeY</h3>
+					<div class="tsd-signature tsd-kind-icon">_shake<wbr>MagnitudeY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L73">Camera.ts:73</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_totallerptime" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _total<wbr>Lerp<wbr>Time</h3>
 					<div class="tsd-signature tsd-kind-icon">_total<wbr>Lerp<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -238,129 +358,9 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="currentzoomscale" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> current<wbr>Zoom<wbr>Scale</h3>
-					<div class="tsd-signature tsd-kind-icon">current<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L78">Camera.ts:78</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="elapsedshaketime" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> elapsed<wbr>Shake<wbr>Time</h3>
-					<div class="tsd-signature tsd-kind-icon">elapsed<wbr>Shake<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L75">Camera.ts:75</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="elapsedzoomtime" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> elapsed<wbr>Zoom<wbr>Time</h3>
-					<div class="tsd-signature tsd-kind-icon">elapsed<wbr>Zoom<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L81">Camera.ts:81</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="focus" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> focus</h3>
-					<div class="tsd-signature tsd-kind-icon">focus<span class="tsd-signature-symbol">:</span> <a href="ex.point.html" class="tsd-signature-type">Point</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L61">Camera.ts:61</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="follow" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> follow</h3>
-					<div class="tsd-signature tsd-kind-icon">follow<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L60">Camera.ts:60</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="isshaking" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> is<wbr>Shaking</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Shaking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L71">Camera.ts:71</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="iszooming" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> is<wbr>Zooming</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Zooming<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L77">Camera.ts:77</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-					<a name="lerp" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagProtected">Protected</span> lerp</h3>
-					<div class="tsd-signature tsd-kind-icon">lerp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L62">Camera.ts:62</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="maxzoomscale" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> max<wbr>Zoom<wbr>Scale</h3>
-					<div class="tsd-signature tsd-kind-icon">max<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L79">Camera.ts:79</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="shakeduration" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> shake<wbr>Duration</h3>
-					<div class="tsd-signature tsd-kind-icon">shake<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L74">Camera.ts:74</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="shakemagnitudex" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> shake<wbr>MagnitudeX</h3>
-					<div class="tsd-signature tsd-kind-icon">shake<wbr>MagnitudeX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L72">Camera.ts:72</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="shakemagnitudey" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> shake<wbr>MagnitudeY</h3>
-					<div class="tsd-signature tsd-kind-icon">shake<wbr>MagnitudeY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L73">Camera.ts:73</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="zoomduration" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> zoom<wbr>Duration</h3>
-					<div class="tsd-signature tsd-kind-icon">zoom<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="_zoomduration" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _zoom<wbr>Duration</h3>
+					<div class="tsd-signature tsd-kind-icon">_zoom<wbr>Duration<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L80">Camera.ts:80</a></li>
@@ -368,9 +368,9 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="zoomincrement" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> zoom<wbr>Increment</h3>
-					<div class="tsd-signature tsd-kind-icon">zoom<wbr>Increment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="_zoomincrement" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _zoom<wbr>Increment</h3>
+					<div class="tsd-signature tsd-kind-icon">_zoom<wbr>Increment<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L82">Camera.ts:82</a></li>
@@ -380,34 +380,11 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="debugdraw" class="tsd-anchor"></a>
-					<h3>debug<wbr>Draw</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">debug<wbr>Draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L252">Camera.ts:252</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="easeinoutcubic" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> ease<wbr>InOut<wbr>Cubic</h3>
+					<a name="_easeinoutcubic" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _ease<wbr>InOut<wbr>Cubic</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">ease<wbr>InOut<wbr>Cubic<span class="tsd-signature-symbol">(</span>currentTime<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, startValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, endValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, duration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">_ease<wbr>InOut<wbr>Cubic<span class="tsd-signature-symbol">(</span>currentTime<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, startValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, endValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, duration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -432,6 +409,86 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_isdoneshaking" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Done<wbr>Shaking</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_is<wbr>Done<wbr>Shaking<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L262">Camera.ts:262</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_isdonezooming" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Done<wbr>Zooming</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_is<wbr>Done<wbr>Zooming<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L266">Camera.ts:266</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_setcurrentzoomscale" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _set<wbr>Current<wbr>Zoom<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_set<wbr>Current<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">(</span>zoomScale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L178">Camera.ts:178</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>zoomScale: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="debugdraw" class="tsd-anchor"></a>
+					<h3>debug<wbr>Draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">debug<wbr>Draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L253">Camera.ts:253</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -467,7 +524,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L177">Camera.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L174">Camera.ts:174</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -476,40 +533,6 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="isdoneshaking" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Done<wbr>Shaking</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Done<wbr>Shaking<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L261">Camera.ts:261</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="isdonezooming" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Done<wbr>Zooming</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Done<wbr>Zooming<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L265">Camera.ts:265</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -538,29 +561,6 @@
 									<div class="tsd-comment tsd-typography">
 										<p>The actor to follow</p>
 									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="setcurrentzoomscale" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> set<wbr>Current<wbr>Zoom<wbr>Scale</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Current<wbr>Zoom<wbr>Scale<span class="tsd-signature-symbol">(</span>zoomScale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L181">Camera.ts:181</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>zoomScale: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -614,7 +614,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L136">Camera.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L135">Camera.ts:135</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -657,7 +657,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L189">Camera.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L186">Camera.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -691,7 +691,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L149">Camera.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Camera.ts#L148">Camera.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -761,6 +761,30 @@
 								<a href="ex.basecamera.html#_currentlerptime" class="tsd-kind-icon">_current<wbr>Lerp<wbr>Time</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_currentzoomscale" class="tsd-kind-icon">_current<wbr>Zoom<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_elapsedshaketime" class="tsd-kind-icon">_elapsed<wbr>Shake<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_elapsedzoomtime" class="tsd-kind-icon">_elapsed<wbr>Zoom<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="ex.basecamera.html#_focus" class="tsd-kind-icon">_focus</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="ex.basecamera.html#_follow" class="tsd-kind-icon">_follow</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="ex.basecamera.html#_isshaking" class="tsd-kind-icon">_is<wbr>Shaking</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="ex.basecamera.html#_iszooming" class="tsd-kind-icon">_is<wbr>Zooming</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="ex.basecamera.html#_lerp" class="tsd-kind-icon">_lerp</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.basecamera.html#_lerpduration" class="tsd-kind-icon">_lerp<wbr>Duration</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -770,55 +794,40 @@
 								<a href="ex.basecamera.html#_lerpstart" class="tsd-kind-icon">_lerp<wbr>Start</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_maxzoomscale" class="tsd-kind-icon">_max<wbr>Zoom<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_shakeduration" class="tsd-kind-icon">_shake<wbr>Duration</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_shakemagnitudex" class="tsd-kind-icon">_shake<wbr>MagnitudeX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_shakemagnitudey" class="tsd-kind-icon">_shake<wbr>MagnitudeY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.basecamera.html#_totallerptime" class="tsd-kind-icon">_total<wbr>Lerp<wbr>Time</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#currentzoomscale" class="tsd-kind-icon">current<wbr>Zoom<wbr>Scale</a>
+								<a href="ex.basecamera.html#_zoomduration" class="tsd-kind-icon">_zoom<wbr>Duration</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#elapsedshaketime" class="tsd-kind-icon">elapsed<wbr>Shake<wbr>Time</a>
+								<a href="ex.basecamera.html#_zoomincrement" class="tsd-kind-icon">_zoom<wbr>Increment</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#elapsedzoomtime" class="tsd-kind-icon">elapsed<wbr>Zoom<wbr>Time</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_easeinoutcubic" class="tsd-kind-icon">_ease<wbr>InOut<wbr>Cubic</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="ex.basecamera.html#focus" class="tsd-kind-icon">focus</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_isdoneshaking" class="tsd-kind-icon">_is<wbr>Done<wbr>Shaking</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="ex.basecamera.html#follow" class="tsd-kind-icon">follow</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_isdonezooming" class="tsd-kind-icon">_is<wbr>Done<wbr>Zooming</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="ex.basecamera.html#isshaking" class="tsd-kind-icon">is<wbr>Shaking</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="ex.basecamera.html#iszooming" class="tsd-kind-icon">is<wbr>Zooming</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
-								<a href="ex.basecamera.html#lerp" class="tsd-kind-icon">lerp</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#maxzoomscale" class="tsd-kind-icon">max<wbr>Zoom<wbr>Scale</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#shakeduration" class="tsd-kind-icon">shake<wbr>Duration</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#shakemagnitudex" class="tsd-kind-icon">shake<wbr>MagnitudeX</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#shakemagnitudey" class="tsd-kind-icon">shake<wbr>MagnitudeY</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#zoomduration" class="tsd-kind-icon">zoom<wbr>Duration</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#zoomincrement" class="tsd-kind-icon">zoom<wbr>Increment</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.basecamera.html#_setcurrentzoomscale" class="tsd-kind-icon">_set<wbr>Current<wbr>Zoom<wbr>Scale</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.basecamera.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#easeinoutcubic" class="tsd-kind-icon">ease<wbr>InOut<wbr>Cubic</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.basecamera.html#getfocus" class="tsd-kind-icon">get<wbr>Focus</a>
@@ -826,17 +835,8 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.basecamera.html#getzoom" class="tsd-kind-icon">get<wbr>Zoom</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#isdoneshaking" class="tsd-kind-icon">is<wbr>Done<wbr>Shaking</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#isdonezooming" class="tsd-kind-icon">is<wbr>Done<wbr>Zooming</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.basecamera.html#setactortofollow" class="tsd-kind-icon">set<wbr>Actor<wbr>ToFollow</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="ex.basecamera.html#setcurrentzoomscale" class="tsd-kind-icon">set<wbr>Current<wbr>Zoom<wbr>Scale</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.basecamera.html#setfocus" class="tsd-kind-icon">set<wbr>Focus</a>
