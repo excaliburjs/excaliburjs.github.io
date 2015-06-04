@@ -11,8 +11,6 @@ You can install Excalibur through one of many package managers:
 
 **Bower:** `bower install excalibur`
 
-**NPM:** `npm install excalibur`
-
 **NuGet:** `Install-Package Excalibur`
 
 You can also obtain the latest version on GitHub: [{{pkg.author.git}}]({{pkg.author.git}})

@@ -10,11 +10,12 @@ title: Showcase
       Do you have a game you've made with Excalibur? <a href="{{googleGroup}}">Let us know!</a>
     </div>
     
+    {{#each showcase.rows}}
     <div class="row">
-      {{#each showcase.items}}
+      {{#each items}}
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
-          <img src="/assets/images/showcase/{{image}}.png" alt="{{title}}" title="{{title}}" />
+          <img src="/assets/images/showcase/{{image}}" alt="{{title}}" title="{{title}}" />
           <div class="caption">
             <h3>{{title}}</h3>
 
@@ -25,5 +26,6 @@ title: Showcase
       </div>
       {{/each}}
     </div>
+    {{/each}}
   </div>
 </div>
