@@ -237,7 +237,7 @@ game.add(player);
 					<p>Learn more about the <a href="ex.actioncontext.html">Action API</a>.</p>
 					<h2 id="collision-detection">Collision Detection</h2>
 					<p>By default Actors do not participate in collisions. If you wish to make
-					an actor participate, you need to enable the <a href="ex.collisiondetectionmodule.html">CollisionDetectionModule</a></p>
+					an actor participate, you need to enable the [[CollisionDetectionModule]]</p>
 					<pre><code class="lang-ts"><span class="hljs-keyword">public</span> Player extends ex.Actor {
   <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{
     <span class="hljs-keyword">super</span>();
@@ -337,7 +337,6 @@ game.add(player);
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#logger" class="tsd-kind-icon">logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#opacity" class="tsd-kind-icon">opacity</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#parent" class="tsd-kind-icon">parent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#pipeline" class="tsd-kind-icon">pipeline</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#rotation" class="tsd-kind-icon">rotation</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#rx" class="tsd-kind-icon">rx</a></li>
@@ -345,6 +344,7 @@ game.add(player);
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#scene" class="tsd-kind-icon">scene</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#sx" class="tsd-kind-icon">sx</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#sy" class="tsd-kind-icon">sy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#traits" class="tsd-kind-icon">traits</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#visible" class="tsd-kind-icon">visible</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#x" class="tsd-kind-icon">x</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#y" class="tsd-kind-icon">y</a></li>
@@ -793,7 +793,7 @@ game.add(player);
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Whether or not to enable the <a href="ex.capturepointermodule.html">CapturePointerModule</a> trait that propogates
+							<p>Whether or not to enable the <a href="ex.traits.capturepointer.html">CapturePointer</a> trait that propogates
 							pointer events to this actor</p>
 						</div>
 					</div>
@@ -909,21 +909,6 @@ game.add(player);
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="pipeline" class="tsd-anchor"></a>
-					<h3>pipeline</h3>
-					<div class="tsd-signature tsd-kind-icon">pipeline<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.ipipelinemodule.html" class="tsd-signature-type">IPipelineModule</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L389">Actor.ts:389</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Modify the current actor update pipeline.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="previousopacity" class="tsd-anchor"></a>
 					<h3>previous<wbr>Opacity</h3>
 					<div class="tsd-signature tsd-kind-icon">previous<wbr>Opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -1020,6 +1005,21 @@ game.add(player);
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The y scalar velocity of the actor in scale/second</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="traits" class="tsd-anchor"></a>
+					<h3>traits</h3>
+					<div class="tsd-signature tsd-kind-icon">traits<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iactortrait.html" class="tsd-signature-type">IActorTrait</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L389">Actor.ts:389</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modify the current actor update pipeline.</p>
 						</div>
 					</div>
 				</section>
@@ -1581,7 +1581,7 @@ game.add(player);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1105">Actor.ts:1105</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1102">Actor.ts:1102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3305,7 +3305,7 @@ game.add(player);
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configuration for <a href="ex.capturepointermodule.html">CapturePointerModule</a> trait</p>
+							<p>Configuration for <a href="ex.traits.capturepointer.html">CapturePointer</a> trait</p>
 						</div>
 					</div>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -3341,6 +3341,9 @@ game.add(player);
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.internal.actions.html">ex.<wbr>Internal.<wbr>Actions</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.traits.html">ex.<wbr>Traits</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.util.html">ex.<wbr>Util</a>
@@ -3442,9 +3445,6 @@ game.add(player);
 								<a href="ex.actor.html#parent" class="tsd-kind-icon">parent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.actor.html#pipeline" class="tsd-kind-icon">pipeline</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.actor.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -3464,6 +3464,9 @@ game.add(player);
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.actor.html#sy" class="tsd-kind-icon">sy</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.actor.html#traits" class="tsd-kind-icon">traits</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.actor.html#visible" class="tsd-kind-icon">visible</a>

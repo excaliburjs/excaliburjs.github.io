@@ -158,7 +158,6 @@ game.start();
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#logger" class="tsd-kind-icon">logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#opacity" class="tsd-kind-icon">opacity</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#parent" class="tsd-kind-icon">parent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#pipeline" class="tsd-kind-icon">pipeline</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.trigger.html#repeats" class="tsd-kind-icon">repeats</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#rotation" class="tsd-kind-icon">rotation</a></li>
@@ -168,6 +167,7 @@ game.start();
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#sx" class="tsd-kind-icon">sx</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#sy" class="tsd-kind-icon">sy</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.trigger.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#traits" class="tsd-kind-icon">traits</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#visible" class="tsd-kind-icon">visible</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#x" class="tsd-kind-icon">x</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.trigger.html#y" class="tsd-kind-icon">y</a></li>
@@ -564,7 +564,7 @@ game.start();
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Whether or not to enable the <a href="ex.capturepointermodule.html">CapturePointerModule</a> trait that propogates
+							<p>Whether or not to enable the <a href="ex.traits.capturepointer.html">CapturePointer</a> trait that propogates
 							pointer events to this actor</p>
 						</div>
 					</div>
@@ -682,22 +682,6 @@ game.start();
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The parent of this actor</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="pipeline" class="tsd-anchor"></a>
-					<h3>pipeline</h3>
-					<div class="tsd-signature tsd-kind-icon">pipeline<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.ipipelinemodule.html" class="tsd-signature-type">IPipelineModule</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#pipeline">pipeline</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L389">Actor.ts:389</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Modify the current actor update pipeline.</p>
 						</div>
 					</div>
 				</section>
@@ -827,6 +811,22 @@ game.start();
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Trigger.ts#L43">Trigger.ts:43</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="traits" class="tsd-anchor"></a>
+					<h3>traits</h3>
+					<div class="tsd-signature tsd-kind-icon">traits<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iactortrait.html" class="tsd-signature-type">IActorTrait</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#traits">traits</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L389">Actor.ts:389</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modify the current actor update pipeline.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="visible" class="tsd-anchor"></a>
@@ -3139,7 +3139,7 @@ game.start();
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configuration for <a href="ex.capturepointermodule.html">CapturePointerModule</a> trait</p>
+							<p>Configuration for <a href="ex.traits.capturepointer.html">CapturePointer</a> trait</p>
 						</div>
 					</div>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -3175,6 +3175,9 @@ game.start();
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.internal.actions.html">ex.<wbr>Internal.<wbr>Actions</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.traits.html">ex.<wbr>Traits</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.util.html">ex.<wbr>Util</a>
@@ -3258,9 +3261,6 @@ game.start();
 								<a href="ex.trigger.html#parent" class="tsd-kind-icon">parent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.trigger.html#pipeline" class="tsd-kind-icon">pipeline</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.trigger.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -3286,6 +3286,9 @@ game.start();
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.trigger.html#target" class="tsd-kind-icon">target</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.trigger.html#traits" class="tsd-kind-icon">traits</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.trigger.html#visible" class="tsd-kind-icon">visible</a>

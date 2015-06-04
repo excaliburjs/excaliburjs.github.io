@@ -173,7 +173,6 @@ engine.add(emitter);
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.particleemitter.html#particlerotationalvelocity" class="tsd-kind-icon">particle<wbr>Rotational<wbr>Velocity</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.particleemitter.html#particlesprite" class="tsd-kind-icon">particle<wbr>Sprite</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.particleemitter.html#particles" class="tsd-kind-icon">particles</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#pipeline" class="tsd-kind-icon">pipeline</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.particleemitter.html#radius" class="tsd-kind-icon">radius</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.particleemitter.html#randomrotation" class="tsd-kind-icon">random<wbr>Rotation</a></li>
@@ -184,6 +183,7 @@ engine.add(emitter);
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.particleemitter.html#startsize" class="tsd-kind-icon">start<wbr>Size</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#sx" class="tsd-kind-icon">sx</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#sy" class="tsd-kind-icon">sy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#traits" class="tsd-kind-icon">traits</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#visible" class="tsd-kind-icon">visible</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#x" class="tsd-kind-icon">x</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.particleemitter.html#y" class="tsd-kind-icon">y</a></li>
@@ -639,7 +639,7 @@ engine.add(emitter);
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Whether or not to enable the <a href="ex.capturepointermodule.html">CapturePointerModule</a> trait that propogates
+							<p>Whether or not to enable the <a href="ex.traits.capturepointer.html">CapturePointer</a> trait that propogates
 							pointer events to this actor</p>
 						</div>
 					</div>
@@ -1010,22 +1010,6 @@ engine.add(emitter);
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="pipeline" class="tsd-anchor"></a>
-					<h3>pipeline</h3>
-					<div class="tsd-signature tsd-kind-icon">pipeline<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.ipipelinemodule.html" class="tsd-signature-type">IPipelineModule</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#pipeline">pipeline</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L389">Actor.ts:389</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Modify the current actor update pipeline.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="previousopacity" class="tsd-anchor"></a>
 					<h3>previous<wbr>Opacity</h3>
 					<div class="tsd-signature tsd-kind-icon">previous<wbr>Opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
@@ -1173,6 +1157,22 @@ engine.add(emitter);
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="traits" class="tsd-anchor"></a>
+					<h3>traits</h3>
+					<div class="tsd-signature tsd-kind-icon">traits<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iactortrait.html" class="tsd-signature-type">IActorTrait</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#traits">traits</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L389">Actor.ts:389</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Modify the current actor update pipeline.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="visible" class="tsd-anchor"></a>
 					<h3>visible</h3>
 					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
@@ -1249,7 +1249,7 @@ engine.add(emitter);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L331">Particles.ts:331</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L339">Particles.ts:339</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="ex.particle.html" class="tsd-signature-type">Particle</a></h4>
@@ -1621,7 +1621,7 @@ engine.add(emitter);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L326">Particles.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L334">Particles.ts:334</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -1742,7 +1742,7 @@ engine.add(emitter);
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#debugdraw">debugDraw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L401">Particles.ts:401</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L409">Particles.ts:409</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1825,7 +1825,7 @@ engine.add(emitter);
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#draw">draw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L394">Particles.ts:394</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L402">Particles.ts:402</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1930,7 +1930,7 @@ engine.add(emitter);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L320">Particles.ts:320</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L328">Particles.ts:328</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2928,7 +2928,7 @@ engine.add(emitter);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L312">Particles.ts:312</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L320">Particles.ts:320</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3414,7 +3414,7 @@ engine.add(emitter);
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L377">Particles.ts:377</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Particles.ts#L385">Particles.ts:385</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3537,7 +3537,7 @@ engine.add(emitter);
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Configuration for <a href="ex.capturepointermodule.html">CapturePointerModule</a> trait</p>
+							<p>Configuration for <a href="ex.traits.capturepointer.html">CapturePointer</a> trait</p>
 						</div>
 					</div>
 					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -3573,6 +3573,9 @@ engine.add(emitter);
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.internal.actions.html">ex.<wbr>Internal.<wbr>Actions</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.traits.html">ex.<wbr>Traits</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.util.html">ex.<wbr>Util</a>
@@ -3725,9 +3728,6 @@ engine.add(emitter);
 								<a href="ex.particleemitter.html#particles" class="tsd-kind-icon">particles</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.particleemitter.html#pipeline" class="tsd-kind-icon">pipeline</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.particleemitter.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -3756,6 +3756,9 @@ engine.add(emitter);
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.particleemitter.html#sy" class="tsd-kind-icon">sy</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.particleemitter.html#traits" class="tsd-kind-icon">traits</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.particleemitter.html#visible" class="tsd-kind-icon">visible</a>
