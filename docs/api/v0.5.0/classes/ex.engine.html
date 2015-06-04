@@ -1,0 +1,2519 @@
+﻿<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Engine | Excalibur v0.5.0 API Documentation</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Excalibur v0.5.0 API Documentation</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../index.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/ex.html">ex</a>
+				</li>
+				<li>
+					<a href="ex.engine.html">Engine</a>
+				</li>
+			</ul>
+			<h1>Class Engine</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The Excalibur Engine</p>
+					</div>
+					<p>The <a href="ex.engine.html">Engine</a> is the main driver for a game. It is responsible for
+						starting/stopping the game, maintaining state, transmitting events,
+					loading resources, and managing the scene.</p>
+					<p>Excalibur uses the HTML5 Canvas API for drawing your game to the screen.
+						The canvas is available to all <code>draw</code> functions for raw manipulation,
+						but Excalibur is meant to simplify or completely remove the need to use
+					the canvas directly.</p>
+					<h2 id="creating-a-game">Creating a Game</h2>
+					<p>To create a new game, create a new instance of <a href="ex.engine.html">Engine</a> and pass in
+						the configuration (<a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a>). Excalibur only supports a single
+					instance of a game at a time, so it is safe to use globally.</p>
+					<p>You can then call <a href="ex.engine.html#start">start</a> which starts the game and optionally accepts
+					a <a href="ex.loader.html">Loader</a> which you can use to pre-load assets.</p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine({ width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span> });
+
+<span class="hljs-comment">// call game.start, which is a Promise</span>
+game.start().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ready, set, go!</span>
+});
+</code></pre>
+					<h2 id="the-main-loop">The Main Loop</h2>
+					<p>The Excalibur engine uses a simple main loop. The engine updates and renders
+						the &quot;scene graph&quot; which is the <a href="ex.scene.html">scenes</a> and the tree of <a href="ex.actor.html">actors</a> within that
+						scene. Only one <a href="ex.scene.html">Scene</a> can be active at once, the engine does not update/draw any other
+					scene, which means any actors will not be updated/drawn if they are part of a deactivated scene.</p>
+					<p><strong>Scene Graph</strong></p>
+					<pre><code>Engine
+  <span class="hljs-string">|_ Scene 1 (activated)</span>
+    <span class="hljs-string">|_ Actor 1</span>
+      <span class="hljs-string">|_ Child Actor 1</span>
+    <span class="hljs-string">|_ Actor 2</span>
+  <span class="hljs-string">|_ Scene 2 (deactiveated)</span>
+  <span class="hljs-string">|_ Scene 3 (deactiveated)</span>
+</code></pre><p>The engine splits the game into two primary responsibilities: updating and drawing. This is
+						to keep your game smart about splitting duties so that you aren&#39;t drawing when doing
+					logic or performing logic as you draw.</p>
+					<h3 id="update-loop">Update Loop</h3>
+					<p>The first operation run is the [[Engine.update|update]] loop. <a href="ex.actor.html">Actor</a> and <a href="ex.scene.html">Scene</a> both implement
+						an overridable/extendable <code>update</code> method. Use it to perform any logic-based operations
+					in your game for a particular class.</p>
+					<h3 id="draw-loop">Draw Loop</h3>
+					<p>The next step is the [[Engine.draw|draw]] loop. A <a href="ex.scene.html">Scene</a> loops through its child <a href="ex.actor.html">actors</a> and
+						draws each one. You can override the <code>draw</code> method on an actor to customize its drawing.
+					You should <strong>not</strong> perform any logic in a draw call, it should only relate to drawing.</p>
+					<h2 id="working-with-scenes">Working with Scenes</h2>
+					<p>The engine automatically creates a &quot;root&quot; <a href="ex.scene.html">Scene</a>. You can use this for whatever you want.
+						You can manipulate scenes using <a href="ex.engine.html#add">add</a>, <a href="ex.engine.html#remove">remove</a>,
+						and <a href="ex.engine.html#gotoscene">goToScene</a>. You can overwrite or remove the <code>root</code> scene if
+						you want. There always has to be at least one scene and only <strong>one</strong> scene can be
+					active at any one time.</p>
+					<p>Learn more about the <a href="ex.scene.html">scene lifecycle</a>.</p>
+					<h3 id="adding-a-scene">Adding a scene</h3>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+
+<span class="hljs-comment">// create a new level</span>
+<span class="hljs-keyword">var</span> level1 = <span class="hljs-keyword">new</span> ex.Scene();
+
+<span class="hljs-comment">// add level 1 to the game</span>
+game.add(<span class="hljs-string">"level1"</span>, level1);
+
+<span class="hljs-comment">// in response to user input, go to level 1</span>
+game.goToScene(<span class="hljs-string">"level1"</span>);
+
+<span class="hljs-comment">// go back to main menu</span>
+game.goToScene(<span class="hljs-string">"root"</span>);
+</code></pre>
+					<h3 id="accessing-the-current-scene">Accessing the current scene</h3>
+					<p>To add actors and other entities to the current <a href="ex.scene.html">Scene</a>, you can use <a href="ex.engine.html#add">add</a>. Alternatively,
+					you can use <a href="ex.engine.html#currentscene">Engine.currentScene</a> to directly access the current scene.</p>
+					<h2 id="managing-the-viewport">Managing the Viewport</h2>
+					<p>Excalibur supports multiple <a href="../enums/ex.displaymode.html">display modes</a> for a game. Pass in a <code>displayMode</code>
+					option when creating a game to customize the viewport.</p>
+					<h2 id="extending-the-engine">Extending the Engine</h2>
+					<p>For complex games, any entity that inherits <a href="ex.class.html">Class</a> can be extended to override built-in
+					functionality. This is recommended for <a href="ex.actor.html">actors</a> and <a href="ex.scene.html">scenes</a>, especially.</p>
+					<p>You can customize the options or provide more for your game by extending <a href="ex.engine.html">Engine</a>.</p>
+					<p><strong>TypeScript</strong></p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Game extends ex.Engine {
+
+  <span class="hljs-constructor"><span class="hljs-keyword">constructor</span>() </span>{
+    <span class="hljs-keyword">super</span>({ width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span>, displayMode: DisplayMode.FullScreen });
+  }
+
+  <span class="hljs-keyword">public</span> start() {
+    <span class="hljs-comment">// add custom scenes</span>
+    <span class="hljs-keyword">this</span>.add(<span class="hljs-string">"mainmenu"</span>, <span class="hljs-keyword">new</span> MainMenu());
+
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.start(myLoader).then(() =&gt; {
+
+      <span class="hljs-keyword">this</span>.goToScene(<span class="hljs-string">"mainmenu"</span>);
+
+      <span class="hljs-comment">// custom start-up</span>
+    });
+  }
+}
+
+<span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> Game();
+game.start();
+</code></pre>
+					<p><strong>Javascript</strong></p>
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> Game = ex.Engine.extend({
+
+  constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+    Engine.call(<span class="hljs-keyword">this</span>, { width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span>, displayMode: DisplayMode.FullScreen });
+  }
+
+  start: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">// add custom scenes</span>
+    <span class="hljs-keyword">this</span>.add(<span class="hljs-string">"mainmenu"</span>, <span class="hljs-keyword">new</span> MainMenu());
+
+    <span class="hljs-keyword">var</span> _this = <span class="hljs-keyword">this</span>;
+    <span class="hljs-keyword">return</span> Engine.prototype.start.call(<span class="hljs-keyword">this</span>, myLoader).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+      _this.goToScene(<span class="hljs-string">"mainmenu"</span>);
+
+      <span class="hljs-comment">// custom start-up</span>
+    });
+  }
+});
+
+<span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> Game();
+game.start();
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="ex.class.html" class="tsd-signature-type">Class</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">Engine</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="ex.engine.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_animations" class="tsd-kind-icon">_animations</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_hasstarted" class="tsd-kind-icon">_has<wbr>Started</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_isloading" class="tsd-kind-icon">_is<wbr>Loading</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_issmoothingenabled" class="tsd-kind-icon">_is<wbr>Smoothing<wbr>Enabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_loader" class="tsd-kind-icon">_loader</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_loadingdraw" class="tsd-kind-icon">_loading<wbr>Draw</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_logger" class="tsd-kind-icon">_logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_progress" class="tsd-kind-icon">_progress</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_total" class="tsd-kind-icon">_total</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#canvas" class="tsd-kind-icon">canvas</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#canvaselementid" class="tsd-kind-icon">canvas<wbr>Element<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#collisionstrategy" class="tsd-kind-icon">collision<wbr>Strategy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#ctx" class="tsd-kind-icon">ctx</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#currentscene" class="tsd-kind-icon">current<wbr>Scene</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#debugcolor" class="tsd-kind-icon">debug<wbr>Color</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#displaymode" class="tsd-kind-icon">display<wbr>Mode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.engine.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#fps" class="tsd-kind-icon">fps</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#input" class="tsd-kind-icon">input</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#isdebug" class="tsd-kind-icon">is<wbr>Debug</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#isfullscreen" class="tsd-kind-icon">is<wbr>Fullscreen</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#pauseaudiowhenhidden" class="tsd-kind-icon">pause<wbr>Audio<wbr>When<wbr>Hidden</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#postprocessors" class="tsd-kind-icon">post<wbr>Processors</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#rootscene" class="tsd-kind-icon">root<wbr>Scene</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#scenes" class="tsd-kind-icon">scenes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.engine.html#width" class="tsd-kind-icon">width</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_draw" class="tsd-kind-icon">_draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_drawloadingbar" class="tsd-kind-icon">_draw<wbr>Loading<wbr>Bar</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_setheightbydisplaymode" class="tsd-kind-icon">_set<wbr>Height<wbr>ByDisplay<wbr>Mode</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.engine.html#_update" class="tsd-kind-icon">_update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addchild" class="tsd-kind-icon">add<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.engine.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addtilemap" class="tsd-kind-icon">add<wbr>Tile<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addtimer" class="tsd-kind-icon">add<wbr>Timer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#getantialiasing" class="tsd-kind-icon">get<wbr>Antialiasing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#getheight" class="tsd-kind-icon">get<wbr>Height</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#gotoscene" class="tsd-kind-icon">go<wbr>ToScene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#load" class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.engine.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.engine.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#playanimation" class="tsd-kind-icon">play<wbr>Animation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.engine.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#removescene" class="tsd-kind-icon">remove<wbr>Scene</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#removetilemap" class="tsd-kind-icon">remove<wbr>Tile<wbr>Map</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#removetimer" class="tsd-kind-icon">remove<wbr>Timer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#screentoworldcoordinates" class="tsd-kind-icon">screen<wbr>ToWorld<wbr>Coordinates</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#screenshot" class="tsd-kind-icon">screenshot</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#setantialiasing" class="tsd-kind-icon">set<wbr>Antialiasing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#setloadingdrawfunction" class="tsd-kind-icon">set<wbr>Loading<wbr>Draw<wbr>Function</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#stop" class="tsd-kind-icon">stop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#worldtoscreencoordinates" class="tsd-kind-icon">world<wbr>ToScreen<wbr>Coordinates</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="ex.engine.html#extend" class="tsd-kind-icon">extend</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Engine<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iengineoptions.html" class="tsd-signature-type">IEngineOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Engine<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, canvasElementId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, displayMode<span class="tsd-signature-symbol">?: </span><a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in Engine.ts:403</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new game using the given <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>options: <a href="../interfaces/ex.iengineoptions.html" class="tsd-signature-type">IEngineOptions</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.engine.html" class="tsd-signature-type">Engine</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in Engine.ts:408</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new game with the given options</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>obsolete</dt>
+									<dd><p>Use <a href="ex.engine.html#constructor">Engine.constructor</a> with <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> width: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The width in pixels of the Excalibur game viewport</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> height: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The height in pixels of the Excalibur game viewport</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> canvasElementId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>If this is not specified, then a new canvas will be created and inserted into the body.</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> displayMode: <a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>If this is not specified, then it will fall back to fixed if a height and width are specified, else the
+											display mode will be FullScreen.</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.engine.html" class="tsd-signature-type">Engine</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_animations" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _animations</h3>
+					<div class="tsd-signature tsd-kind-icon">_animations<span class="tsd-signature-symbol">:</span> <a href="ex.animationnode.html" class="tsd-signature-type">AnimationNode</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:368</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_hasstarted" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _has<wbr>Started</h3>
+					<div class="tsd-signature tsd-kind-icon">_has<wbr>Started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:341</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_isloading" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Loading</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:400</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_issmoothingenabled" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Smoothing<wbr>Enabled</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Smoothing<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:396</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_loader" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _loader</h3>
+					<div class="tsd-signature tsd-kind-icon">_loader<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:399</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_loadingdraw" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _loading<wbr>Draw</h3>
+					<div class="tsd-signature tsd-kind-icon">_loading<wbr>Draw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:403</li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, loaded<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, total<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+											</li>
+											<li>
+												<h5>loaded: <span class="tsd-signature-type">number</span></h5>
+											</li>
+											<li>
+												<h5>total: <span class="tsd-signature-type">number</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_logger" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
+					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:395</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_progress" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _progress</h3>
+					<div class="tsd-signature tsd-kind-icon">_progress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:401</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_total" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _total</h3>
+					<div class="tsd-signature tsd-kind-icon">_total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:402</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="backgroundcolor" class="tsd-anchor"></a>
+					<h3>background<wbr>Color</h3>
+					<div class="tsd-signature tsd-kind-icon">background<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:393</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Sets the background color for the engine.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="canvas" class="tsd-anchor"></a>
+					<h3>canvas</h3>
+					<div class="tsd-signature tsd-kind-icon">canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLCanvasElement</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:310</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Direct access to the engine&#39;s canvas element</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="canvaselementid" class="tsd-anchor"></a>
+					<h3>canvas<wbr>Element<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">canvas<wbr>Element<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:320</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Direct access to the canvas element ID, if an ID exists</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="collisionstrategy" class="tsd-anchor"></a>
+					<h3>collision<wbr>Strategy</h3>
+					<div class="tsd-signature tsd-kind-icon">collision<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.collisionstrategy.html" class="tsd-signature-type">CollisionStrategy</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:339</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets or sets the <a href="../enums/ex.collisionstrategy.html">CollisionStrategy</a> for Excalibur actors</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="ctx" class="tsd-anchor"></a>
+					<h3>ctx</h3>
+					<div class="tsd-signature tsd-kind-icon">ctx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:315</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Direct access to the engine&#39;s 2D rendering context</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="currentscene" class="tsd-anchor"></a>
+					<h3>current<wbr>Scene</h3>
+					<div class="tsd-signature tsd-kind-icon">current<wbr>Scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:356</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The current <a href="ex.scene.html">Scene</a> being drawn and updated on screen</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="debugcolor" class="tsd-anchor"></a>
+					<h3>debug<wbr>Color</h3>
+					<div class="tsd-signature tsd-kind-icon">debug<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:389</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="displaymode" class="tsd-anchor"></a>
+					<h3>display<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">display<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:378</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the current <a href="../enums/ex.displaymode.html">DisplayMode</a> of the engine.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="eventdispatcher" class="tsd-anchor"></a>
+					<h3>event<wbr>Dispatcher</h3>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Dispatcher<span class="tsd-signature-symbol">:</span> <a href="ex.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
+						<ul>
+							<li>Defined in Class.ts:14</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Direct access to the game object event dispatcher.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="fps" class="tsd-anchor"></a>
+					<h3>fps</h3>
+					<div class="tsd-signature tsd-kind-icon">fps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:346</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Current FPS</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="height" class="tsd-anchor"></a>
+					<h3>height</h3>
+					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:329</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The height of the game canvas in pixels</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="input" class="tsd-anchor"></a>
+					<h3>input</h3>
+					<div class="tsd-signature tsd-kind-icon">input<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.input.iengineinput.html" class="tsd-signature-type">IEngineInput</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:334</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Access engine input like pointer, keyboard, or gamepad</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="isdebug" class="tsd-anchor"></a>
+					<h3>is<wbr>Debug</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:388</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates whether the engine should draw with debug information</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="isfullscreen" class="tsd-anchor"></a>
+					<h3>is<wbr>Fullscreen</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Fullscreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:373</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates whether the engine is set to fullscreen or not</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="pauseaudiowhenhidden" class="tsd-anchor"></a>
+					<h3>pause<wbr>Audio<wbr>When<wbr>Hidden</h3>
+					<div class="tsd-signature tsd-kind-icon">pause<wbr>Audio<wbr>When<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:383</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates whether audio should be paused when the game is no longer visible.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="postprocessors" class="tsd-anchor"></a>
+					<h3>post<wbr>Processors</h3>
+					<div class="tsd-signature tsd-kind-icon">post<wbr>Processors<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.ipostprocessor.html" class="tsd-signature-type">IPostProcessor</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:351</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets or sets the list of post processors to apply at the end of drawing a frame (such as <a href="ex.colorblindcorrector.html">ColorBlindCorrector</a>)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="rootscene" class="tsd-anchor"></a>
+					<h3>root<wbr>Scene</h3>
+					<div class="tsd-signature tsd-kind-icon">root<wbr>Scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:361</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default <a href="ex.scene.html">Scene</a> of the game, use <a href="ex.engine.html#gotoscene">Engine.goToScene</a> to transition to different scenes.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="scenes" class="tsd-anchor"></a>
+					<h3>scenes</h3>
+					<div class="tsd-signature tsd-kind-icon">scenes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:366</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Contains all the scenes currently registered with Excalibur</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="width" class="tsd-anchor"></a>
+					<h3>width</h3>
+					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in Engine.ts:325</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The width of the game canvas in pixels</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_draw" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_draw<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:944</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draws the entire game</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_drawloadingbar" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _draw<wbr>Loading<wbr>Bar</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_draw<wbr>Loading<wbr>Bar<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, loaded<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, total<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:1073</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draws the Excalibur loading bar</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The canvas rendering context</p>
+									</div>
+								</li>
+								<li>
+									<h5>loaded: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of bytes loaded</p>
+									</div>
+								</li>
+								<li>
+									<h5>total: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Total number of bytes to load</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_initialize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _initialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_initialize<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ex.iengineoptions.html" class="tsd-signature-type">IEngineOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:832</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializes the internal canvas, rendering context, displaymode, and native event listeners</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/ex.iengineoptions.html" class="tsd-signature-type">IEngineOptions</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_setheightbydisplaymode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _set<wbr>Height<wbr>ByDisplay<wbr>Mode</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_set<wbr>Height<wbr>ByDisplay<wbr>Mode<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:815</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the internal canvas height based on the selected display mode.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>parent: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_update" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_update<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:918</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates the entire state of the game</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number of milliseconds elapsed since the last update.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="add" class="tsd-anchor"></a>
+					<h3>add</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>sceneKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>tileMap<span class="tsd-signature-symbol">: </span><a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>uiActor<span class="tsd-signature-symbol">: </span><a href="ex.uiactor.html" class="tsd-signature-type">UIActor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:607</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.scene.html">Scene</a> to the engine, think of scenes in Excalibur as you
+									would levels or menus.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sceneKey: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The key of the scene, must be unique</p>
+									</div>
+								</li>
+								<li>
+									<h5>scene: <a href="ex.scene.html" class="tsd-signature-type">Scene</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene to add to the engine</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:612</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.timer.html">Timer</a> to the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timer: <a href="ex.timer.html" class="tsd-signature-type">Timer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The timer to add to the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:617</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.tilemap.html">TileMap</a> to the <a href="ex.engine.html#currentscene">currentScene</a>, once this is done the TileMap
+									will be drawn and updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tileMap: <a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:627</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an actor to the <a href="ex.engine.html#currentscene">currentScene</a> of the game. This is synonymous
+									to calling <code>engine.currentScene.addChild(actor)</code>.</p>
+								</div>
+								<p>Actors can only be drawn if they are a member of a scene, and only
+								the <a href="ex.engine.html#currentscene">currentScene</a> may be drawn or updated.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>actor: <a href="ex.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The actor to add to the <a href="ex.engine.html#currentscene">currentScene</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:635</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.uiactor.html">UIActor</a> to the <a href="ex.engine.html#currentscene">currentScene</a> of the game,
+										UIActors do not participate in collisions, instead the
+									remain in the same place on the screen.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uiActor: <a href="ex.uiactor.html" class="tsd-signature-type">UIActor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The UIActor to add to the <a href="ex.engine.html#currentscene">currentScene</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addchild" class="tsd-anchor"></a>
+					<h3>add<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Child<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:509</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds an actor to the <a href="ex.engine.html#currentscene">currentScene</a> of the game. This is synonymous
+									to calling <code>engine.currentScene.addChild(actor)</code>.</p>
+								</div>
+								<p>Actors can only be drawn if they are a member of a scene, and only
+								the <a href="ex.engine.html#currentscene">currentScene</a> may be drawn or updated.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>actor: <a href="ex.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The actor to add to the <a href="ex.engine.html#currentscene">currentScene</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="addeventlistener" class="tsd-anchor"></a>
+					<h3>add<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#addeventlistener">addEventListener</a></p>
+								<ul>
+									<li>Defined in Class.ts:27</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add an event listener. You can listen for a variety of
+									events off of the engine; see the events section below for a complete list.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>obsolete</dt>
+									<dd><p>Use <a href="ex.class.html#on">Class.on</a> instead</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the event to listen for</p>
+									</div>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Event handler for the thrown event</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addscene" class="tsd-anchor"></a>
+					<h3>add<wbr>Scene</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Scene<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:562</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.scene.html">Scene</a> to the engine, think of scenes in Excalibur as you
+									would levels or menus.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the scene, must be unique</p>
+									</div>
+								</li>
+								<li>
+									<h5>scene: <a href="ex.scene.html" class="tsd-signature-type">Scene</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene to add to the engine</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addtilemap" class="tsd-anchor"></a>
+					<h3>add<wbr>Tile<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Tile<wbr>Map<span class="tsd-signature-symbol">(</span>tileMap<span class="tsd-signature-symbol">: </span><a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:528</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.tilemap.html">TileMap</a> to the <a href="ex.engine.html#currentscene">currentScene</a>, once this is done the TileMap
+									will be drawn and updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tileMap: <a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="addtimer" class="tsd-anchor"></a>
+					<h3>add<wbr>Timer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Timer<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:543</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a <a href="ex.timer.html">Timer</a> to the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timer: <a href="ex.timer.html" class="tsd-signature-type">Timer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The timer to add to the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.timer.html" class="tsd-signature-type">Timer</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getantialiasing" class="tsd-anchor"></a>
+					<h3>get<wbr>Antialiasing</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Antialiasing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:906</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return the current smoothing status of the canvas</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getheight" class="tsd-anchor"></a>
+					<h3>get<wbr>Height</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Height<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:762</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the height of the engine&#39;s drawing surface in pixels.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getwidth" class="tsd-anchor"></a>
+					<h3>get<wbr>Width</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Width<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:752</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the width of the engine&#39;s drawing surface in pixels.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gotoscene" class="tsd-anchor"></a>
+					<h3>go<wbr>ToScene</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">go<wbr>ToScene<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:720</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Changes the currently updating and drawing scene to a different,
+									named scene. Calls the <a href="ex.scene.html">Scene</a> lifecycle events.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The key of the scene to trasition to.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="load" class="tsd-anchor"></a>
+					<h3>load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>loader<span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:1125</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Another option available to you to load resources into the game.
+										Immediately after calling this the game will pause and the loading screen
+									will appear.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>loader: <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Some <a href="../interfaces/ex.iloadable.html">ILoadable</a> such as a <a href="ex.loader.html">Loader</a> collection, <a href="ex.sound.html">Sound</a>, or <a href="ex.texture.html">Texture</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="off" class="tsd-anchor"></a>
+					<h3>off</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in Class.ts:62</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Alias for <code>removeEventListener</code>. If only the eventName is specified
+										it will remove all handlers registered for that specific event. If the eventName
+									and the handler instance are specified only that handler will be removed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the event to listen for</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Event handler for the thrown event</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="on" class="tsd-anchor"></a>
+					<h3>on</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
+								<ul>
+									<li>Defined in Class.ts:50</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Alias for <code>addEventListener</code>. You can listen for a variety of
+									events off of the engine; see the events section below for a complete list.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the event to listen for</p>
+									</div>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Event handler for the thrown event</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="playanimation" class="tsd-anchor"></a>
+					<h3>play<wbr>Animation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">play<wbr>Animation<span class="tsd-signature-symbol">(</span>animation<span class="tsd-signature-symbol">: </span><a href="ex.animation.html" class="tsd-signature-type">Animation</a>, x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:496</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Plays a sprite animation on the screen at the specified <code>x</code> and <code>y</code>
+										(in game coordinates, not screen pixels). These animations play
+										independent of actors, and will be cleaned up internally as soon
+										as they are complete. Note animations that loop will never be
+									cleaned up.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>animation: <a href="ex.animation.html" class="tsd-signature-type">Animation</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Animation to play</p>
+									</div>
+								</li>
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>x game coordinate to play the animation</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>y game coordinate to play the animation</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="remove" class="tsd-anchor"></a>
+					<h3>remove</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>sceneKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>tileMap<span class="tsd-signature-symbol">: </span><a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>uiActor<span class="tsd-signature-symbol">: </span><a href="ex.uiactor.html" class="tsd-signature-type">UIActor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:661</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a scene instance from the engine</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>scene: <a href="ex.scene.html" class="tsd-signature-type">Scene</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene to remove</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:666</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a scene from the engine by key</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>sceneKey: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene to remove</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:671</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a <a href="ex.timer.html">Timer</a> from the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timer: <a href="ex.timer.html" class="tsd-signature-type">Timer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The timer to remove to the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:675</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a <a href="ex.tilemap.html">TileMap</a> from the <a href="ex.engine.html#currentscene">currentScene</a>, it will no longer be drawn or updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tileMap: <a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:683</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes an actor from the <a href="ex.engine.html#currentscene">currentScene</a> of the game. This is synonymous
+										to calling <code>engine.currentScene.removeChild(actor)</code>.
+									Actors that are removed from a scene will no longer be drawn or updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>actor: <a href="ex.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The actor to remove from the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:688</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a <a href="ex.uiactor.html">UIActor</a> to the scene, it will no longer be drawn or updated</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>uiActor: <a href="ex.uiactor.html" class="tsd-signature-type">UIActor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The UIActor to remove from the <a href="ex.engine.html#currentscene">currentScene</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removechild" class="tsd-anchor"></a>
+					<h3>remove<wbr>Child</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Child<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:520</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes an actor from the <a href="ex.engine.html#currentscene">currentScene</a> of the game. This is synonymous
+										to calling <code>engine.currentScene.removeChild(actor)</code>.
+									Actors that are removed from a scene will no longer be drawn or updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>actor: <a href="ex.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The actor to remove from the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="removeeventlistener" class="tsd-anchor"></a>
+					<h3>remove<wbr>Event<wbr>Listener</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#removeeventlistener">removeEventListener</a></p>
+								<ul>
+									<li>Defined in Class.ts:40</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes an event listener. If only the eventName is specified
+										it will remove all handlers registered for that specific event. If the eventName
+									and the handler instance are specified just that handler will be removed.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>obsolete</dt>
+									<dd><p>Use <a href="ex.class.html#off">Class.off</a> instead</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the event to listen for</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Event handler for the thrown event</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removescene" class="tsd-anchor"></a>
+					<h3>remove<wbr>Scene</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Scene<span class="tsd-signature-symbol">(</span>scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Scene<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:574</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a <a href="ex.scene.html">Scene</a> instance from the engine</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>scene: <a href="ex.scene.html" class="tsd-signature-type">Scene</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene to remove</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:579</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a scene from the engine by key</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The scene key to remove</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removetilemap" class="tsd-anchor"></a>
+					<h3>remove<wbr>Tile<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Tile<wbr>Map<span class="tsd-signature-symbol">(</span>tileMap<span class="tsd-signature-symbol">: </span><a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:535</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a <a href="ex.tilemap.html">TileMap</a> from the <a href="ex.engine.html#currentscene">currentScene</a>, it will no longer be drawn or updated.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tileMap: <a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="removetimer" class="tsd-anchor"></a>
+					<h3>remove<wbr>Timer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Timer<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:551</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a <a href="ex.timer.html">Timer</a> from the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timer: <a href="ex.timer.html" class="tsd-signature-type">Timer</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The timer to remove to the <a href="ex.engine.html#currentscene">currentScene</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.timer.html" class="tsd-signature-type">Timer</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="screentoworldcoordinates" class="tsd-anchor"></a>
+					<h3>screen<wbr>ToWorld<wbr>Coordinates</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">screen<wbr>ToWorld<wbr>Coordinates<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:773</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transforms the current x, y from screen coordinates to world coordinates</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="ex.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Screen coordinate to convert</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.point.html" class="tsd-signature-type">Point</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="screenshot" class="tsd-anchor"></a>
+					<h3>screenshot</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">screenshot<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLImageElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:1060</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes a screen shot of the current viewport and returns it as an
+									HTML Image Element.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLImageElement</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setantialiasing" class="tsd-anchor"></a>
+					<h3>set<wbr>Antialiasing</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Antialiasing<span class="tsd-signature-symbol">(</span>isSmooth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:895</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If supported by the browser, this will set the antialiasing flag on the
+										canvas. Set this to <code>false</code> if you want a &#39;jagged&#39; pixel art look to your
+									image resources.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>isSmooth: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Set smoothing to true or false</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setloadingdrawfunction" class="tsd-anchor"></a>
+					<h3>set<wbr>Loading<wbr>Draw<wbr>Function</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Loading<wbr>Draw<wbr>Function<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:1115</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the loading screen draw function if you want to customize the draw</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fcn: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Callback to draw the loading screen which is passed a rendering context, the number of bytes loaded, and the total
+										number of bytes to load.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, loaded<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, total<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+														</li>
+														<li>
+															<h5>loaded: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>total: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="start" class="tsd-anchor"></a>
+					<h3>start</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>loader<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:997</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Starts the internal game loop for Excalibur after loading
+									any provided assets.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> loader: <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional resources to load before starting the main loop. Some <a href="../interfaces/ex.iloadable.html">ILoadable</a> such as a <a href="ex.loader.html">Loader</a> collection,
+										<a href="ex.sound.html">Sound</a>, or <a href="ex.texture.html">Texture</a>.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="stop" class="tsd-anchor"></a>
+					<h3>stop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:1049</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stops Excalibur&#39;s main loop, useful for pausing the game.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="worldtoscreencoordinates" class="tsd-anchor"></a>
+					<h3>world<wbr>ToScreen<wbr>Coordinates</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">world<wbr>ToScreen<wbr>Coordinates<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Engine.ts:793</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Transforms a world coordinate, to a screen coordinate</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>point: <a href="ex.point.html" class="tsd-signature-type">Point</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>World coordinate to convert</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.point.html" class="tsd-signature-type">Point</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="extend" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> extend</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">extend<span class="tsd-signature-symbol">(</span>methods<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
+								<ul>
+									<li>Defined in Class.ts:97</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>You may wish to extend native Excalibur functionality in vanilla Javascript.
+										Any method on a class inheriting <a href="ex.class.html">Class</a> may be extended to support
+									additional functionaliy. In the example below we create a new type called <code>MyActor</code>.</p>
+								</div>
+								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
+
+   constructor: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
+      Actor.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+   },
+
+   update: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
+      <span class="hljs-comment">// Implement custom update</span>
+      <span class="hljs-comment">// Call super constructor update</span>
+      Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta);
+
+      <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Something cool!"</span>);
+   }
+});
+
+<span class="hljs-keyword">var</span> myActor = <span class="hljs-keyword">new</span> MyActor(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, Color.Azure);
+</code></pre>
+								<p>In TypeScript, you only need to use the <code>extends</code> syntax, you do not need
+								to use this method of extension.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>methods: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A JSON object contain any methods/properties you want to extend</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../index.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/ex.html">ex</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.effects.html">ex.<wbr>Effects</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.input.html">ex.<wbr>Input</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.internal.html">ex.<wbr>Internal</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.internal.actions.html">ex.<wbr>Internal.<wbr>Actions</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.traits.html">ex.<wbr>Traits</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.util.html">ex.<wbr>Util</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="ex.engine.html" class="tsd-kind-icon">Engine</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+								<a href="ex.engine.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_animations" class="tsd-kind-icon">_animations</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_hasstarted" class="tsd-kind-icon">_has<wbr>Started</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_isloading" class="tsd-kind-icon">_is<wbr>Loading</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_issmoothingenabled" class="tsd-kind-icon">_is<wbr>Smoothing<wbr>Enabled</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_loader" class="tsd-kind-icon">_loader</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_loadingdraw" class="tsd-kind-icon">_loading<wbr>Draw</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_logger" class="tsd-kind-icon">_logger</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_progress" class="tsd-kind-icon">_progress</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_total" class="tsd-kind-icon">_total</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#canvas" class="tsd-kind-icon">canvas</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#canvaselementid" class="tsd-kind-icon">canvas<wbr>Element<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#collisionstrategy" class="tsd-kind-icon">collision<wbr>Strategy</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#ctx" class="tsd-kind-icon">ctx</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#currentscene" class="tsd-kind-icon">current<wbr>Scene</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#debugcolor" class="tsd-kind-icon">debug<wbr>Color</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#displaymode" class="tsd-kind-icon">display<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.engine.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#fps" class="tsd-kind-icon">fps</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#height" class="tsd-kind-icon">height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#input" class="tsd-kind-icon">input</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#isdebug" class="tsd-kind-icon">is<wbr>Debug</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#isfullscreen" class="tsd-kind-icon">is<wbr>Fullscreen</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#pauseaudiowhenhidden" class="tsd-kind-icon">pause<wbr>Audio<wbr>When<wbr>Hidden</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#postprocessors" class="tsd-kind-icon">post<wbr>Processors</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#rootscene" class="tsd-kind-icon">root<wbr>Scene</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#scenes" class="tsd-kind-icon">scenes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.engine.html#width" class="tsd-kind-icon">width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_draw" class="tsd-kind-icon">_draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_drawloadingbar" class="tsd-kind-icon">_draw<wbr>Loading<wbr>Bar</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_initialize" class="tsd-kind-icon">_initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_setheightbydisplaymode" class="tsd-kind-icon">_set<wbr>Height<wbr>ByDisplay<wbr>Mode</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.engine.html#_update" class="tsd-kind-icon">_update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#add" class="tsd-kind-icon">add</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#addchild" class="tsd-kind-icon">add<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.engine.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#addtilemap" class="tsd-kind-icon">add<wbr>Tile<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#addtimer" class="tsd-kind-icon">add<wbr>Timer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#getantialiasing" class="tsd-kind-icon">get<wbr>Antialiasing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#getheight" class="tsd-kind-icon">get<wbr>Height</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#gotoscene" class="tsd-kind-icon">go<wbr>ToScene</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#load" class="tsd-kind-icon">load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.engine.html#off" class="tsd-kind-icon">off</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.engine.html#on" class="tsd-kind-icon">on</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#playanimation" class="tsd-kind-icon">play<wbr>Animation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#remove" class="tsd-kind-icon">remove</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#removechild" class="tsd-kind-icon">remove<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.engine.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#removescene" class="tsd-kind-icon">remove<wbr>Scene</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#removetilemap" class="tsd-kind-icon">remove<wbr>Tile<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#removetimer" class="tsd-kind-icon">remove<wbr>Timer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#screentoworldcoordinates" class="tsd-kind-icon">screen<wbr>ToWorld<wbr>Coordinates</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#screenshot" class="tsd-kind-icon">screenshot</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#setantialiasing" class="tsd-kind-icon">set<wbr>Antialiasing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#setloadingdrawfunction" class="tsd-kind-icon">set<wbr>Loading<wbr>Draw<wbr>Function</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#start" class="tsd-kind-icon">start</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#stop" class="tsd-kind-icon">stop</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.engine.html#worldtoscreencoordinates" class="tsd-kind-icon">world<wbr>ToScreen<wbr>Coordinates</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="ex.engine.html#extend" class="tsd-kind-icon">extend</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
