@@ -104,8 +104,13 @@
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_actor" class="tsd-kind-icon">_actor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_direction" class="tsd-kind-icon">_direction</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_distance" class="tsd-kind-icon">_distance</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_end" class="tsd-kind-icon">_end</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_longdistance" class="tsd-kind-icon">_long<wbr>Distance</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_rotationtype" class="tsd-kind-icon">_rotation<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_shortdistance" class="tsd-kind-icon">_short<wbr>Distance</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_shortestpathispositive" class="tsd-kind-icon">_shortest<wbr>Path<wbr>IsPositive</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_speed" class="tsd-kind-icon">_speed</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_start" class="tsd-kind-icon">_start</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.internal.actions.rotateto.html#_started" class="tsd-kind-icon">_started</a></li>
@@ -132,13 +137,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Rotate<wbr>To<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a>, angleRadians<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, speed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.internal.actions.rotateto.html" class="tsd-signature-type">RotateTo</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Rotate<wbr>To<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a>, angleRadians<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, speed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, rotationType<span class="tsd-signature-symbol">?: </span><a href="../enums/ex.internal.actions.rotationtype.html" class="tsd-signature-type">RotationType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.internal.actions.rotateto.html" class="tsd-signature-type">RotateTo</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L365">Actions/Action.ts:365</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L370">Actions/Action.ts:370</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -151,6 +156,9 @@
 								</li>
 								<li>
 									<h5>speed: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> rotationType: <a href="../enums/ex.internal.actions.rotationtype.html" class="tsd-signature-type">RotationType</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="ex.internal.actions.rotateto.html" class="tsd-signature-type">RotateTo</a></h4>
@@ -171,12 +179,22 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_direction" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _direction</h3>
+					<div class="tsd-signature tsd-kind-icon">_direction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L364">Actions/Action.ts:364</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_distance" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _distance</h3>
 					<div class="tsd-signature tsd-kind-icon">_distance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L363">Actions/Action.ts:363</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L365">Actions/Action.ts:365</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,6 +205,46 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L361">Actions/Action.ts:361</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_longdistance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _long<wbr>Distance</h3>
+					<div class="tsd-signature tsd-kind-icon">_long<wbr>Distance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L367">Actions/Action.ts:367</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_rotationtype" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _rotation<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">_rotation<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.internal.actions.rotationtype.html" class="tsd-signature-type">RotationType</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L363">Actions/Action.ts:363</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_shortdistance" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _short<wbr>Distance</h3>
+					<div class="tsd-signature tsd-kind-icon">_short<wbr>Distance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L366">Actions/Action.ts:366</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_shortestpathispositive" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _shortest<wbr>Path<wbr>IsPositive</h3>
+					<div class="tsd-signature tsd-kind-icon">_shortest<wbr>Path<wbr>IsPositive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L368">Actions/Action.ts:368</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +274,7 @@
 					<div class="tsd-signature tsd-kind-icon">_started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L364">Actions/Action.ts:364</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L369">Actions/Action.ts:369</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -226,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">_stopped<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L365">Actions/Action.ts:365</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L370">Actions/Action.ts:370</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +321,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L388">Actions/Action.ts:388</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L439">Actions/Action.ts:439</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -286,7 +344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L397">Actions/Action.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L449">Actions/Action.ts:449</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -303,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L392">Actions/Action.ts:392</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L444">Actions/Action.ts:444</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -320,7 +378,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L373">Actions/Action.ts:373</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L378">Actions/Action.ts:378</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -366,6 +424,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ex.internal.actions.rotationtype.html" class="tsd-kind-icon">Rotation<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="ex.internal.actions.actionqueue.html" class="tsd-kind-icon">Action<wbr>Queue</a>
 					</li>
@@ -420,10 +481,25 @@
 								<a href="ex.internal.actions.rotateto.html#_actor" class="tsd-kind-icon">_actor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.internal.actions.rotateto.html#_direction" class="tsd-kind-icon">_direction</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.internal.actions.rotateto.html#_distance" class="tsd-kind-icon">_distance</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.internal.actions.rotateto.html#_end" class="tsd-kind-icon">_end</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.internal.actions.rotateto.html#_longdistance" class="tsd-kind-icon">_long<wbr>Distance</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.internal.actions.rotateto.html#_rotationtype" class="tsd-kind-icon">_rotation<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.internal.actions.rotateto.html#_shortdistance" class="tsd-kind-icon">_short<wbr>Distance</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.internal.actions.rotateto.html#_shortestpathispositive" class="tsd-kind-icon">_shortest<wbr>Path<wbr>IsPositive</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.internal.actions.rotateto.html#_speed" class="tsd-kind-icon">_speed</a>

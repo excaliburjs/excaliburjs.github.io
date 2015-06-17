@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IAction | Excalibur.js Edge API Documentation</title>
+	<title>RotationType | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -66,10 +66,10 @@
 					<a href="../modules/ex.internal.actions.html">Actions</a>
 				</li>
 				<li>
-					<a href="ex.internal.actions.iaction.html">IAction</a>
+					<a href="ex.internal.actions.rotationtype.html">RotationType</a>
 				</li>
 			</ul>
-			<h1>Interface IAction</h1>
+			<h1>Enumeration RotationType</h1>
 		</div>
 	</div>
 </header>
@@ -79,136 +79,91 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Used for implementing actions for the <a href="../classes/ex.actioncontext.html">Action API</a>.</p>
+						<p>An enum that describes the strategies that rotation actions can use</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<span class="target">IAction</span>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/ex.internal.actions.blink.html" class="tsd-signature-type">Blink</a></li>
-					<li><a href="../classes/ex.internal.actions.callmethod.html" class="tsd-signature-type">CallMethod</a></li>
-					<li><a href="../classes/ex.internal.actions.delay.html" class="tsd-signature-type">Delay</a></li>
-					<li><a href="../classes/ex.internal.actions.die.html" class="tsd-signature-type">Die</a></li>
-					<li><a href="../classes/ex.internal.actions.easeto.html" class="tsd-signature-type">EaseTo</a></li>
-					<li><a href="../classes/ex.internal.actions.fade.html" class="tsd-signature-type">Fade</a></li>
-					<li><a href="../classes/ex.internal.actions.follow.html" class="tsd-signature-type">Follow</a></li>
-					<li><a href="../classes/ex.internal.actions.meet.html" class="tsd-signature-type">Meet</a></li>
-					<li><a href="../classes/ex.internal.actions.moveby.html" class="tsd-signature-type">MoveBy</a></li>
-					<li><a href="../classes/ex.internal.actions.moveto.html" class="tsd-signature-type">MoveTo</a></li>
-					<li><a href="../classes/ex.internal.actions.repeat.html" class="tsd-signature-type">Repeat</a></li>
-					<li><a href="../classes/ex.internal.actions.repeatforever.html" class="tsd-signature-type">RepeatForever</a></li>
-					<li><a href="../classes/ex.internal.actions.rotateby.html" class="tsd-signature-type">RotateBy</a></li>
-					<li><a href="../classes/ex.internal.actions.rotateto.html" class="tsd-signature-type">RotateTo</a></li>
-					<li><a href="../classes/ex.internal.actions.scaleby.html" class="tsd-signature-type">ScaleBy</a></li>
-					<li><a href="../classes/ex.internal.actions.scaleto.html" class="tsd-signature-type">ScaleTo</a></li>
-				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.internal.actions.iaction.html#iscomplete" class="tsd-kind-icon">is<wbr>Complete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.internal.actions.iaction.html#reset" class="tsd-kind-icon">reset</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.internal.actions.iaction.html#stop" class="tsd-kind-icon">stop</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.internal.actions.iaction.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.internal.actions.rotationtype.html#clockwise" class="tsd-kind-icon">Clockwise</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.internal.actions.rotationtype.html#counterclockwise" class="tsd-kind-icon">Counter<wbr>Clockwise</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.internal.actions.rotationtype.html#longestpath" class="tsd-kind-icon">Longest<wbr>Path</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.internal.actions.rotationtype.html#shortestpath" class="tsd-kind-icon">Shortest<wbr>Path</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="iscomplete" class="tsd-anchor"></a>
-					<h3>is<wbr>Complete</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Complete<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L15">Actions/Action.ts:15</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>actor: <a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="clockwise" class="tsd-anchor"></a>
+					<h3>Clockwise</h3>
+					<div class="tsd-signature tsd-kind-icon">Clockwise<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L1056">Actions/Action.ts:1056</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Rotation via <code>Clockwise</code> will travel in a clockwise direction,
+							regardless of the starting and ending points.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="reset" class="tsd-anchor"></a>
-					<h3>reset</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">reset<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L16">Actions/Action.ts:16</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="counterclockwise" class="tsd-anchor"></a>
+					<h3>Counter<wbr>Clockwise</h3>
+					<div class="tsd-signature tsd-kind-icon">Counter<wbr>Clockwise<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L1061">Actions/Action.ts:1061</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Rotation via <code>CounterClockwise</code> will travel in a counterclockwise direction,
+							regardless of the starting and ending points.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="stop" class="tsd-anchor"></a>
-					<h3>stop</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L17">Actions/Action.ts:17</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="longestpath" class="tsd-anchor"></a>
+					<h3>Longest<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Longest<wbr>Path<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L1051">Actions/Action.ts:1051</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Rotation via <code>LongestPath</code> will use the largest angle
+							between the starting and ending points.</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="update" class="tsd-anchor"></a>
-					<h3>update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L14">Actions/Action.ts:14</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>delta: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="shortestpath" class="tsd-anchor"></a>
+					<h3>Shortest<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Shortest<wbr>Path<span class="tsd-signature-symbol">:</span> </div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/Action.ts#L1046">Actions/Action.ts:1046</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Rotation via <code>ShortestPath</code> will use the smallest angle
+							between the starting and ending points. This strategy is the default behavior.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -243,9 +198,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="../enums/ex.internal.actions.rotationtype.html" class="tsd-kind-icon">Rotation<wbr>Type</a>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-enum tsd-parent-kind-module">
+						<a href="ex.internal.actions.rotationtype.html" class="tsd-kind-icon">Rotation<wbr>Type</a>
+						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ex.internal.actions.rotationtype.html#clockwise" class="tsd-kind-icon">Clockwise</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ex.internal.actions.rotationtype.html#counterclockwise" class="tsd-kind-icon">Counter<wbr>Clockwise</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ex.internal.actions.rotationtype.html#longestpath" class="tsd-kind-icon">Longest<wbr>Path</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="ex.internal.actions.rotationtype.html#shortestpath" class="tsd-kind-icon">Shortest<wbr>Path</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/ex.internal.actions.actionqueue.html" class="tsd-kind-icon">Action<wbr>Queue</a>
 					</li>
@@ -297,27 +270,9 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/ex.internal.actions.scaleto.html" class="tsd-kind-icon">Scale<wbr>To</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="ex.internal.actions.iaction.html" class="tsd-kind-icon">IAction</a>
-						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.internal.actions.iaction.html#iscomplete" class="tsd-kind-icon">is<wbr>Complete</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.internal.actions.iaction.html#reset" class="tsd-kind-icon">reset</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.internal.actions.iaction.html#stop" class="tsd-kind-icon">stop</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.internal.actions.iaction.html#update" class="tsd-kind-icon">update</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/ex.internal.actions.iaction.html" class="tsd-kind-icon">IAction</a>
 					</li>
-				</ul>
-				<ul class="after-current">
 				</ul>
 			</nav>
 		</div>
