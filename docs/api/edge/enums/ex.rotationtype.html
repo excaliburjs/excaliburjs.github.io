@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CollisionType | Excalibur.js Edge API Documentation</title>
+	<title>RotationType | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -60,10 +60,10 @@
 					<a href="../modules/ex.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.collisiontype.html">CollisionType</a>
+					<a href="ex.rotationtype.html">RotationType</a>
 				</li>
 			</ul>
-			<h1>Enumeration CollisionType</h1>
+			<h1>Enumeration RotationType</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>An enum that describes the types of collisions actors can participate in</p>
+						<p>An enum that describes the strategies that rotation actions can use</p>
 					</div>
 				</div>
 			</section>
@@ -84,11 +84,10 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisiontype.html#active" class="tsd-kind-icon">Active</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisiontype.html#elastic" class="tsd-kind-icon">Elastic</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisiontype.html#fixed" class="tsd-kind-icon">Fixed</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisiontype.html#passive" class="tsd-kind-icon">Passive</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisiontype.html#preventcollision" class="tsd-kind-icon">Prevent<wbr>Collision</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.rotationtype.html#clockwise" class="tsd-kind-icon">Clockwise</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.rotationtype.html#counterclockwise" class="tsd-kind-icon">Counter<wbr>Clockwise</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.rotationtype.html#longestpath" class="tsd-kind-icon">Longest<wbr>Path</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.rotationtype.html#shortestpath" class="tsd-kind-icon">Shortest<wbr>Path</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,88 +96,66 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="active" class="tsd-anchor"></a>
-					<h3>Active</h3>
-					<div class="tsd-signature tsd-kind-icon">Active<span class="tsd-signature-symbol">:</span> </div>
+					<a name="clockwise" class="tsd-anchor"></a>
+					<h3>Clockwise</h3>
+					<div class="tsd-signature tsd-kind-icon">Clockwise<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1160">Actor.ts:1160</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/RotationType.ts#L20">Actions/RotationType.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Active</code> setting raise collision events and participate
-								in collisions with other actors and will be push or moved by actors sharing
-							the <code>Active</code> or <code>Fixed</code> setting.</p>
+							<p>Rotation via <code>Clockwise</code> will travel in a clockwise direction,
+							regardless of the starting and ending points.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="elastic" class="tsd-anchor"></a>
-					<h3>Elastic</h3>
-					<div class="tsd-signature tsd-kind-icon">Elastic<span class="tsd-signature-symbol">:</span> </div>
+					<a name="counterclockwise" class="tsd-anchor"></a>
+					<h3>Counter<wbr>Clockwise</h3>
+					<div class="tsd-signature tsd-kind-icon">Counter<wbr>Clockwise<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1166">Actor.ts:1166</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/RotationType.ts#L25">Actions/RotationType.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Elastic</code> setting will behave the same as <code>Active</code>, except that they will
-								&quot;bounce&quot; in the opposite direction given their velocity dx/dy. This is a naive implementation meant for
-							prototyping, for a more robust elastic collision listen to the &quot;collision&quot; event and perform your custom logic.</p>
+							<p>Rotation via <code>CounterClockwise</code> will travel in a counterclockwise direction,
+							regardless of the starting and ending points.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="fixed" class="tsd-anchor"></a>
-					<h3>Fixed</h3>
-					<div class="tsd-signature tsd-kind-icon">Fixed<span class="tsd-signature-symbol">:</span> </div>
+					<a name="longestpath" class="tsd-anchor"></a>
+					<h3>Longest<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Longest<wbr>Path<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1175">Actor.ts:1175</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/RotationType.ts#L15">Actions/RotationType.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Fixed</code> setting raise collision events and participate in
-								collisions with other actors. Actors with the <code>Fixed</code> setting will not be
-								pushed or moved by other actors sharing the <code>Fixed</code>. Think of Fixed
-								actors as &quot;immovable/onstoppable&quot; objects. If two <code>Fixed</code> actors meet they will
-								not be pushed or moved by each other, they will not interact except to throw
-							collision events.</p>
+							<p>Rotation via <code>LongestPath</code> will use the largest angle
+							between the starting and ending points.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="passive" class="tsd-anchor"></a>
-					<h3>Passive</h3>
-					<div class="tsd-signature tsd-kind-icon">Passive<span class="tsd-signature-symbol">:</span> </div>
+					<a name="shortestpath" class="tsd-anchor"></a>
+					<h3>Shortest<wbr>Path</h3>
+					<div class="tsd-signature tsd-kind-icon">Shortest<wbr>Path<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1154">Actor.ts:1154</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/RotationType.ts#L10">Actions/RotationType.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Passive</code> setting only raise collision events, but are not
-							influenced or moved by other actors and do not influence or move other actors.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="preventcollision" class="tsd-anchor"></a>
-					<h3>Prevent<wbr>Collision</h3>
-					<div class="tsd-signature tsd-kind-icon">Prevent<wbr>Collision<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actor.ts#L1149">Actor.ts:1149</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Actors with the <code>PreventCollision</code> setting do not participate in any
-							collisions and do not raise collision events.</p>
+							<p>Rotation via <code>ShortestPath</code> will use the smallest angle
+							between the starting and ending points. This strategy is the default behavior.</p>
 						</div>
 					</div>
 				</section>
@@ -218,22 +195,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.collisiontype.html" class="tsd-kind-icon">Collision<wbr>Type</a>
+						<a href="ex.rotationtype.html" class="tsd-kind-icon">Rotation<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisiontype.html#active" class="tsd-kind-icon">Active</a>
+								<a href="ex.rotationtype.html#clockwise" class="tsd-kind-icon">Clockwise</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisiontype.html#elastic" class="tsd-kind-icon">Elastic</a>
+								<a href="ex.rotationtype.html#counterclockwise" class="tsd-kind-icon">Counter<wbr>Clockwise</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisiontype.html#fixed" class="tsd-kind-icon">Fixed</a>
+								<a href="ex.rotationtype.html#longestpath" class="tsd-kind-icon">Longest<wbr>Path</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisiontype.html#passive" class="tsd-kind-icon">Passive</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisiontype.html#preventcollision" class="tsd-kind-icon">Prevent<wbr>Collision</a>
+								<a href="ex.rotationtype.html#shortestpath" class="tsd-kind-icon">Shortest<wbr>Path</a>
 							</li>
 						</ul>
 					</li>
