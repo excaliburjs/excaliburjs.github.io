@@ -16,4 +16,4 @@ after_success:
   - chmod ugo+x deploy.sh
   - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./deploy.sh'
 notifications:
-  slack: excaliburjs.github.io:"${notifications.slack}"
+  slack: excaliburjs.github.io:"${NOTIFICATION_TOKEN}"
