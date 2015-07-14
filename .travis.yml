@@ -1,19 +1,20 @@
 language: node_js
 node_js:
-  - "0.12"
+- '0.12'
 branches:
   only:
-    - site
+  - site
 env:
   global:
   - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
 install:
-  - npm install grunt-cli -g
-  - npm install
+- npm install grunt-cli -g
+- npm install
 script:
-  - grunt travis
+- grunt travis
 after_success:
-  - chmod ugo+x deploy.sh
-  - '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./deploy.sh'
+- chmod ugo+x deploy.sh
+- ! '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./deploy.sh'
 notifications:
-  slack: "${NOTIFICATION_TOKEN}"
+  slack:
+    secure: smD+hnNSy3lhrD9zuDabdItTErnVh465hoCJMovHN/+8+y0vVu41Z9UdaFcZga1QRhwf9fnqgs2UmeE52B76ptntvbg1YZfQ7u8RlAgy6Tp7nXrLOoso0TX05pvHgL27qXzmZyZQilj2bS0pUPI0OS2Nx19cUtNoDU89boRI1VU=
