@@ -135,11 +135,11 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						Indexes are zero-based, so while you might think to yourself the first column is
 						column &quot;1&quot;, to the engine it is column &quot;0&quot;. You can easily calculate an index
 					of a frame using this formula:</p>
-					<pre><code><span class="hljs-attribute">Given</span>: <span class="hljs-string">col = 5, row = 3, columns = 10</span>
+					<pre><code>Given: col = <span class="hljs-number">5</span>, row = <span class="hljs-number">3</span>, columns = <span class="hljs-number">10</span>
 
-<span class="vim"><span class="hljs-built_in">index</span> = <span class="hljs-built_in">col</span> + row * columns
-<span class="hljs-built_in">index</span> = <span class="hljs-number">4</span> + <span class="hljs-number">2</span> * <span class="hljs-number">10</span> // zero-based, subtract <span class="hljs-number">1</span> from <span class="hljs-built_in">col</span> &amp; row
-<span class="hljs-built_in">index</span> = <span class="hljs-number">24</span></span>
+index = col + row * columns
+index = <span class="hljs-number">4</span> + <span class="hljs-number">2</span> * <span class="hljs-number">10</span> <span class="hljs-comment">// zero-based, subtract 1 from col &amp; row</span>
+index = <span class="hljs-number">24</span>
 </code></pre><p>You can also simply count the frames of the image visually starting from the top left
 					and beginning with zero.</p>
 					<pre><code class="lang-js"><span class="hljs-comment">// get a sprite for column 3, row 6</span>
