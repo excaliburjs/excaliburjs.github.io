@@ -104,6 +104,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#fliphorizontal" class="tsd-kind-icon">flip<wbr>Horizontal</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#flipvertical" class="tsd-kind-icon">flip<wbr>Vertical</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#naturalheight" class="tsd-kind-icon">natural<wbr>Height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#naturalwidth" class="tsd-kind-icon">natural<wbr>Width</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#rotation" class="tsd-kind-icon">rotation</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#scale" class="tsd-kind-icon">scale</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.idrawable.html#width" class="tsd-kind-icon">width</a></li>
@@ -130,7 +132,7 @@
 					<div class="tsd-signature tsd-kind-icon">anchor<span class="tsd-signature-symbol">:</span> <a href="../classes/ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L54">Interfaces/IDrawable.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L63">Interfaces/IDrawable.ts:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -181,7 +183,37 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Indicates the height of the drawing in pixels</p>
+							<p>Indicates the current height of the drawing in pixels, factoring in the scale</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="naturalheight" class="tsd-anchor"></a>
+					<h3>natural<wbr>Height</h3>
+					<div class="tsd-signature tsd-kind-icon">natural<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L32">Interfaces/IDrawable.ts:32</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the natural height of the drawing in pixels, this is the original height of the source image</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="naturalwidth" class="tsd-anchor"></a>
+					<h3>natural<wbr>Width</h3>
+					<div class="tsd-signature tsd-kind-icon">natural<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L28">Interfaces/IDrawable.ts:28</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Indicates the natural width of the drawing in pixels, this is the original width of the source image</p>
 						</div>
 					</div>
 				</section>
@@ -191,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L65">Interfaces/IDrawable.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L74">Interfaces/IDrawable.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,7 +238,7 @@
 					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="../classes/ex.point.html" class="tsd-signature-type">Point</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L60">Interfaces/IDrawable.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L69">Interfaces/IDrawable.ts:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,7 +258,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Indicates the width of the drawing in pixels</p>
+							<p>Indicates the current width of the drawing in pixels, factoring in the scale</p>
 						</div>
 					</div>
 				</section>
@@ -243,7 +275,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L29">Interfaces/IDrawable.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L38">Interfaces/IDrawable.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -274,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L48">Interfaces/IDrawable.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L57">Interfaces/IDrawable.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -296,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L78">Interfaces/IDrawable.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L87">Interfaces/IDrawable.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -341,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L35">Interfaces/IDrawable.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L44">Interfaces/IDrawable.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,7 +395,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L41">Interfaces/IDrawable.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L50">Interfaces/IDrawable.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -385,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L42">Interfaces/IDrawable.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L51">Interfaces/IDrawable.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -408,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L70">Interfaces/IDrawable.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Interfaces/IDrawable.ts#L79">Interfaces/IDrawable.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,6 +501,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="ex.idrawable.html#height" class="tsd-kind-icon">height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ex.idrawable.html#naturalheight" class="tsd-kind-icon">natural<wbr>Height</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ex.idrawable.html#naturalwidth" class="tsd-kind-icon">natural<wbr>Width</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="ex.idrawable.html#rotation" class="tsd-kind-icon">rotation</a>
