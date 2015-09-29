@@ -79,8 +79,8 @@
 						<p>Keyboard input</p>
 					</div>
 					<p>Working with the keyboard is easy in Excalibur. You can inspect
-						whether a button is <a href="ex.input.keyboard.html#iskeydown">down</a>, <a href="ex.input.keyboard.html#iskeyup">up</a>, or
-						<a href="ex.input.keyboard.html#iskeypressed">pressed</a>. Common keys are held in the <a href="../enums/ex.input.keys.html">Input.Keys</a>
+						whether a button is [[Keyboard.isKeyDown|down]], [[Keyboard.isKeyUp|up]], or
+						[[Keyboard.isKeyPressed|pressed]]. Common keys are held in the <a href="../enums/ex.input.keys.html">Input.Keys</a>
 					enumeration but you can pass any character code to the methods.</p>
 					<p>Excalibur subscribes to the browser events and keeps track of
 						what keys are currently down, up, or pressed. A key can be pressed
@@ -142,13 +142,13 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.input.keyboard.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#getkeys" class="tsd-kind-icon">get<wbr>Keys</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#init" class="tsd-kind-icon">init</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#iskeydown" class="tsd-kind-icon">is<wbr>Key<wbr>Down</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#iskeypressed" class="tsd-kind-icon">is<wbr>Key<wbr>Pressed</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#iskeyup" class="tsd-kind-icon">is<wbr>Key<wbr>Up</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#isheld" class="tsd-kind-icon">is<wbr>Held</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.input.keyboard.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.input.keyboard.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.input.keyboard.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#waspressed" class="tsd-kind-icon">was<wbr>Pressed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#wasreleased" class="tsd-kind-icon">was<wbr>Released</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="ex.input.keyboard.html#extend" class="tsd-kind-icon">extend</a></li>
 							</ul>
 						</section>
@@ -315,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L155">Input/Keyboard.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L164">Input/Keyboard.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -350,21 +350,21 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="iskeydown" class="tsd-anchor"></a>
-					<h3>is<wbr>Key<wbr>Down</h3>
+					<a name="isheld" class="tsd-anchor"></a>
+					<h3>is<wbr>Held</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Key<wbr>Down<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Held<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L163">Input/Keyboard.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L180">Input/Keyboard.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Tests if a certain key is down. This is cleared at the end of the update frame.</p>
+									<p>Tests if a certain key is held down. This is persisted between frames.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -372,69 +372,7 @@
 								<li>
 									<h5>key: <a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Test wether a key is down</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="iskeypressed" class="tsd-anchor"></a>
-					<h3>is<wbr>Key<wbr>Pressed</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Key<wbr>Pressed<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L171">Input/Keyboard.ts:171</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Tests if a certain key is pressed. This is persisted between frames.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>key: <a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Test wether a key is pressed</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="iskeyup" class="tsd-anchor"></a>
-					<h3>is<wbr>Key<wbr>Up</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Key<wbr>Up<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L179">Input/Keyboard.ts:179</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Tests if a certain key is up. This is cleared at the end of the update frame.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>key: <a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Test wether a key is up</p>
+										<p>Test wether a key is held down</p>
 									</div>
 								</li>
 							</ul>
@@ -630,7 +568,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L146">Input/Keyboard.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L150">Input/Keyboard.ts:150</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -640,6 +578,68 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="waspressed" class="tsd-anchor"></a>
+					<h3>was<wbr>Pressed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">was<wbr>Pressed<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L172">Input/Keyboard.ts:172</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tests if a certain key was just pressed this frame. This is cleared at the end of the update frame.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Test wether a key was just pressed</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="wasreleased" class="tsd-anchor"></a>
+					<h3>was<wbr>Released</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">was<wbr>Released<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Keyboard.ts#L188">Input/Keyboard.ts:188</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tests if a certain key was just released this frame. This is cleared at the end of the update frame.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>key: <a href="../enums/ex.input.keys.html" class="tsd-signature-type">Keys</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Test wether a key was just released</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -796,13 +796,7 @@
 								<a href="ex.input.keyboard.html#init" class="tsd-kind-icon">init</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="ex.input.keyboard.html#iskeydown" class="tsd-kind-icon">is<wbr>Key<wbr>Down</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="ex.input.keyboard.html#iskeypressed" class="tsd-kind-icon">is<wbr>Key<wbr>Pressed</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="ex.input.keyboard.html#iskeyup" class="tsd-kind-icon">is<wbr>Key<wbr>Up</a>
+								<a href="ex.input.keyboard.html#isheld" class="tsd-kind-icon">is<wbr>Held</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.input.keyboard.html#off" class="tsd-kind-icon">off</a>
@@ -815,6 +809,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.input.keyboard.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.input.keyboard.html#waspressed" class="tsd-kind-icon">was<wbr>Pressed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.input.keyboard.html#wasreleased" class="tsd-kind-icon">was<wbr>Released</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="ex.input.keyboard.html#extend" class="tsd-kind-icon">extend</a>
