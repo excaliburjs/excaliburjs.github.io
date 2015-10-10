@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PointerScope | Excalibur.js Edge API Documentation</title>
+	<title>IGamepadConfiguration | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -63,10 +63,10 @@
 					<a href="../modules/ex.input.html">Input</a>
 				</li>
 				<li>
-					<a href="ex.input.pointerscope.html">PointerScope</a>
+					<a href="ex.input.igamepadconfiguration.html">IGamepadConfiguration</a>
 				</li>
 			</ul>
-			<h1>Enumeration PointerScope</h1>
+			<h1>Interface IGamepadConfiguration</h1>
 		</div>
 	</div>
 </header>
@@ -75,57 +75,55 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Determines the scope of handling mouse/touch events. See <a href="../classes/ex.input.pointers.html">Pointers</a> for more information.</p>
-					</div>
+					<dl class="tsd-comment-tags">
+						<dt>internal</dt>
+						<dd></dd>
+					</dl>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IGamepadConfiguration</span>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.input.pointerscope.html#canvas" class="tsd-kind-icon">Canvas</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.input.pointerscope.html#document" class="tsd-kind-icon">Document</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.input.igamepadconfiguration.html#axis" class="tsd-kind-icon">axis</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.input.igamepadconfiguration.html#buttons" class="tsd-kind-icon">buttons</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="canvas" class="tsd-anchor"></a>
-					<h3>Canvas</h3>
-					<div class="tsd-signature tsd-kind-icon">Canvas<span class="tsd-signature-symbol">:</span> </div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="axis" class="tsd-anchor"></a>
+					<h3>axis</h3>
+					<div class="tsd-signature tsd-kind-icon">axis<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Pointer.ts#L34">Input/Pointer.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L554">Input/Gamepad.ts:554</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Handle events on the <code>canvas</code> element only. Events originating outside the
-							<code>canvas</code> will not be handled.</p>
-						</div>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="document" class="tsd-anchor"></a>
-					<h3>Document</h3>
-					<div class="tsd-signature tsd-kind-icon">Document<span class="tsd-signature-symbol">:</span> </div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="buttons" class="tsd-anchor"></a>
+					<h3>buttons</h3>
+					<div class="tsd-signature tsd-kind-icon">buttons<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Pointer.ts#L39">Input/Pointer.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Input/Gamepad.ts#L555">Input/Gamepad.ts:555</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Handles events on the entire document. All events will be handled by Excalibur.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -161,34 +159,22 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.input.axes.html" class="tsd-kind-icon">Axes</a>
+						<a href="../enums/ex.input.axes.html" class="tsd-kind-icon">Axes</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.input.buttons.html" class="tsd-kind-icon">Buttons</a>
+						<a href="../enums/ex.input.buttons.html" class="tsd-kind-icon">Buttons</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.input.keys.html" class="tsd-kind-icon">Keys</a>
+						<a href="../enums/ex.input.keys.html" class="tsd-kind-icon">Keys</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.input.pointerbutton.html" class="tsd-kind-icon">Pointer<wbr>Button</a>
+						<a href="../enums/ex.input.pointerbutton.html" class="tsd-kind-icon">Pointer<wbr>Button</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.input.pointerscope.html" class="tsd-kind-icon">Pointer<wbr>Scope</a>
-						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.input.pointerscope.html#canvas" class="tsd-kind-icon">Canvas</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.input.pointerscope.html#document" class="tsd-kind-icon">Document</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.input.pointertype.html" class="tsd-kind-icon">Pointer<wbr>Type</a>
+						<a href="../enums/ex.input.pointerscope.html" class="tsd-kind-icon">Pointer<wbr>Scope</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/ex.input.pointertype.html" class="tsd-kind-icon">Pointer<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/ex.input.gamepad.html" class="tsd-kind-icon">Gamepad</a>
@@ -224,28 +210,40 @@
 						<a href="../classes/ex.input.pointers.html" class="tsd-kind-icon">Pointers</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.iengineinput.html" class="tsd-kind-icon">IEngine<wbr>Input</a>
+						<a href="ex.input.iengineinput.html" class="tsd-kind-icon">IEngine<wbr>Input</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="ex.input.igamepadconfiguration.html" class="tsd-kind-icon">IGamepad<wbr>Configuration</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ex.input.igamepadconfiguration.html#axis" class="tsd-kind-icon">axis</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ex.input.igamepadconfiguration.html#buttons" class="tsd-kind-icon">buttons</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="ex.input.inavigatorgamepad.html" class="tsd-kind-icon">INavigator<wbr>Gamepad</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.igamepadconfiguration.html" class="tsd-kind-icon">IGamepad<wbr>Configuration</a>
+						<a href="ex.input.inavigatorgamepadbutton.html" class="tsd-kind-icon">INavigator<wbr>Gamepad<wbr>Button</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.inavigatorgamepad.html" class="tsd-kind-icon">INavigator<wbr>Gamepad</a>
+						<a href="ex.input.inavigatorgamepadevent.html" class="tsd-kind-icon">INavigator<wbr>Gamepad<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.inavigatorgamepadbutton.html" class="tsd-kind-icon">INavigator<wbr>Gamepad<wbr>Button</a>
+						<a href="ex.input.inavigatorgamepads.html" class="tsd-kind-icon">INavigator<wbr>Gamepads</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.inavigatorgamepadevent.html" class="tsd-kind-icon">INavigator<wbr>Gamepad<wbr>Event</a>
+						<a href="ex.input.itouch.html" class="tsd-kind-icon">ITouch</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.inavigatorgamepads.html" class="tsd-kind-icon">INavigator<wbr>Gamepads</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.itouch.html" class="tsd-kind-icon">ITouch</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.input.itouchevent.html" class="tsd-kind-icon">ITouch<wbr>Event</a>
+						<a href="ex.input.itouchevent.html" class="tsd-kind-icon">ITouch<wbr>Event</a>
 					</li>
 				</ul>
 			</nav>
