@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="default no-js">
 <head>
 	<meta charset="utf-8">
@@ -81,7 +81,8 @@
 					<h2 id="pre-loading-sounds">Pre-loading sounds</h2>
 					<p>Pass the <a href="ex.sound.html">Sound</a> to a <a href="ex.loader.html">Loader</a> to pre-load the asset. Once a <a href="ex.sound.html">Sound</a>
 					is loaded, you can <a href="ex.sound.html#play">play</a> it.</p>
-					<pre><code class="lang-js"><span class="hljs-keyword">var</span> sndPlayerDeath = <span class="hljs-keyword">new</span> ex.Sound(<span class="hljs-string">"/assets/snd/player-death.mp3"</span>, <span class="hljs-string">"/assets/snd/player-wav.mp3"</span>);
+					<pre><code class="lang-js"><span class="hljs-comment">// define multiple sources (such as mp3/wav/ogg) as a browser fallback</span>
+<span class="hljs-keyword">var</span> sndPlayerDeath = <span class="hljs-keyword">new</span> ex.Sound(<span class="hljs-string">"/assets/snd/player-death.mp3"</span>, <span class="hljs-string">"/assets/snd/player-death.wav"</span>);
 
 <span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(sndPlayerDeath);
 
@@ -154,7 +155,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				<h2>Constructors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
+					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Sound<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>paths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.sound.html" class="tsd-signature-type">Sound</a></li>
 					</ul>
@@ -162,7 +163,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L183">Loader.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L184">Loader.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -187,61 +188,61 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_engine" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _engine</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _engine</h3>
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L157">Loader.ts:157</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_isloaded" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Loaded</h3>
-					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L153">Loader.ts:153</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_logger" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
-					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L143">Loader.ts:143</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_selectedfile" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _selected<wbr>File</h3>
-					<div class="tsd-signature tsd-kind-icon">_selected<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L155">Loader.ts:155</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_wasplayingonhidden" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _was<wbr>Playing<wbr>OnHidden</h3>
-					<div class="tsd-signature tsd-kind-icon">_was<wbr>Playing<wbr>OnHidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L158">Loader.ts:158</a></li>
 						</ul>
 					</aside>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_isloaded" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Loaded</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L154">Loader.ts:154</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_logger" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
+					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L144">Loader.ts:144</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_selectedfile" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _selected<wbr>File</h3>
+					<div class="tsd-signature tsd-kind-icon">_selected<wbr>File<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L156">Loader.ts:156</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_wasplayingonhidden" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _was<wbr>Playing<wbr>OnHidden</h3>
+					<div class="tsd-signature tsd-kind-icon">_was<wbr>Playing<wbr>OnHidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L159">Loader.ts:159</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="sound" class="tsd-anchor"></a>
-					<h3>sound</h3>
+					<h3> sound</h3>
 					<div class="tsd-signature tsd-kind-icon">sound<span class="tsd-signature-symbol">:</span> <a href="ex.internal.fallbackaudio.html" class="tsd-signature-type">FallbackAudio</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L163">Loader.ts:163</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L164">Loader.ts:164</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -255,15 +256,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="isloaded" class="tsd-anchor"></a>
-					<h3>is<wbr>Loaded</h3>
+					<h3> is<wbr>Loaded</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Loaded<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#isloaded">isLoaded</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L277">Loader.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L278">Loader.ts:278</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -277,15 +279,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="isplaying" class="tsd-anchor"></a>
-					<h3>is<wbr>Playing</h3>
+					<h3> is<wbr>Playing</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Playing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#isplaying">isPlaying</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L249">Loader.ts:249</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L250">Loader.ts:250</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,15 +302,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="load" class="tsd-anchor"></a>
-					<h3>load</h3>
+					<h3> load</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><a href="ex.internal.fallbackaudio.html" class="tsd-signature-type">FallbackAudio</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#load">load</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L284">Loader.ts:284</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L285">Loader.ts:285</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -321,7 +325,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="oncomplete" class="tsd-anchor"></a>
-					<h3>oncomplete</h3>
+					<h3> oncomplete</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">oncomplete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -329,7 +333,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L147">Loader.ts:147</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L148">Loader.ts:148</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -338,7 +342,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="onerror" class="tsd-anchor"></a>
-					<h3>onerror</h3>
+					<h3> onerror</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">onerror<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -346,7 +350,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L149">Loader.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L150">Loader.ts:150</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -355,7 +359,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="onload" class="tsd-anchor"></a>
-					<h3>onload</h3>
+					<h3> onload</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">onload<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -363,7 +367,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L151">Loader.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L152">Loader.ts:152</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -372,7 +376,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="onprogress" class="tsd-anchor"></a>
-					<h3>onprogress</h3>
+					<h3> onprogress</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">onprogress<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -380,7 +384,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L145">Loader.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L146">Loader.ts:146</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -389,15 +393,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="pause" class="tsd-anchor"></a>
-					<h3>pause</h3>
+					<h3> pause</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">pause<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#pause">pause</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L263">Loader.ts:263</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L264">Loader.ts:264</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -411,15 +416,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="play" class="tsd-anchor"></a>
-					<h3>play</h3>
+					<h3> play</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">play<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#play">play</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L256">Loader.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L257">Loader.ts:257</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,15 +439,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setloop" class="tsd-anchor"></a>
-					<h3>set<wbr>Loop</h3>
+					<h3> set<wbr>Loop</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>Loop<span class="tsd-signature-symbol">(</span>loop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#setloop">setLoop</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L242">Loader.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L243">Loader.ts:243</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,15 +471,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setvolume" class="tsd-anchor"></a>
-					<h3>set<wbr>Volume</h3>
+					<h3> set<wbr>Volume</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>Volume<span class="tsd-signature-symbol">(</span>volume<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#setvolume">setVolume</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L234">Loader.ts:234</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L235">Loader.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,15 +503,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="stop" class="tsd-anchor"></a>
-					<h3>stop</h3>
+					<h3> stop</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.internal.isound.html">ISound</a>.<a href="../interfaces/ex.internal.isound.html#stop">stop</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L270">Loader.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L271">Loader.ts:271</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,15 +526,16 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="wireengine" class="tsd-anchor"></a>
-					<h3>wire<wbr>Engine</h3>
+					<h3> wire<wbr>Engine</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">wire<wbr>Engine<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#wireengine">wireEngine</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L211">Loader.ts:211</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L212">Loader.ts:212</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -540,7 +550,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="canplayfile" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> can<wbr>Play<wbr>File</h3>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> can<wbr>Play<wbr>File</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">can<wbr>Play<wbr>File<span class="tsd-signature-symbol">(</span>file<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
@@ -548,7 +558,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L168">Loader.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L169">Loader.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

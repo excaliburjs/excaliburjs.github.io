@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="default no-js">
 <head>
 	<meta charset="utf-8">
@@ -73,8 +73,20 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Base event type in Excalibur that all other event types derive from.</p>
+						<p>Base event type in Excalibur that all other event types derive from. Not all event types are thrown on all Excalibur game objects,
+						some events are unique to a type, others are not.</p>
 					</div>
+					<p>Excalibur events follow the convention that the name of the thrown event for listening will be the same as the Event object in all
+					lower case with the &#39;Event&#39; suffix removed.</p>
+					<p>For example:</p>
+					<ul>
+						<li>PreDrawEvent event object and &quot;predraw&quot; as the event name</li>
+					</ul>
+					<pre><code class="lang-typescript">
+actor.on(<span class="hljs-string">'predraw'</span>, (evtObj: PreDrawEvent) =&gt; {
+   <span class="hljs-comment">// do some pre drawing</span>
+})
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -83,6 +95,36 @@
 					<li>
 						<span class="target">GameEvent</span>
 						<ul class="tsd-hierarchy">
+							<li>
+								<a href="ex.predrawevent.html" class="tsd-signature-type">PreDrawEvent</a>
+							</li>
+							<li>
+								<a href="ex.postdrawevent.html" class="tsd-signature-type">PostDrawEvent</a>
+							</li>
+							<li>
+								<a href="ex.predebugdrawevent.html" class="tsd-signature-type">PreDebugDrawEvent</a>
+							</li>
+							<li>
+								<a href="ex.postdebugdrawevent.html" class="tsd-signature-type">PostDebugDrawEvent</a>
+							</li>
+							<li>
+								<a href="ex.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a>
+							</li>
+							<li>
+								<a href="ex.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a>
+							</li>
+							<li>
+								<a href="ex.gamepadconnectevent.html" class="tsd-signature-type">GamepadConnectEvent</a>
+							</li>
+							<li>
+								<a href="ex.gamepaddisconnectevent.html" class="tsd-signature-type">GamepadDisconnectEvent</a>
+							</li>
+							<li>
+								<a href="ex.gamepadbuttonevent.html" class="tsd-signature-type">GamepadButtonEvent</a>
+							</li>
+							<li>
+								<a href="ex.gamepadaxisevent.html" class="tsd-signature-type">GamepadAxisEvent</a>
+							</li>
 							<li>
 								<a href="ex.subscribeevent.html" class="tsd-signature-type">SubscribeEvent</a>
 							</li>
@@ -122,18 +164,6 @@
 							<li>
 								<a href="ex.input.keyevent.html" class="tsd-signature-type">KeyEvent</a>
 							</li>
-							<li>
-								<a href="ex.input.gamepadconnectevent.html" class="tsd-signature-type">GamepadConnectEvent</a>
-							</li>
-							<li>
-								<a href="ex.input.gamepaddisconnectevent.html" class="tsd-signature-type">GamepadDisconnectEvent</a>
-							</li>
-							<li>
-								<a href="ex.input.gamepadbuttonevent.html" class="tsd-signature-type">GamepadButtonEvent</a>
-							</li>
-							<li>
-								<a href="ex.input.gamepadaxisevent.html" class="tsd-signature-type">GamepadAxisEvent</a>
-							</li>
 						</ul>
 					</li>
 				</ul>
@@ -155,7 +185,7 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="target" class="tsd-anchor"></a>
-					<h3>target</h3>
+					<h3> target</h3>
 					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>

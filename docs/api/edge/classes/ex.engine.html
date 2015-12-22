@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="default no-js">
 <head>
 	<meta charset="utf-8">
@@ -100,6 +100,7 @@ game.start().then(<span class="hljs-function"><span class="hljs-keyword">functio
 						the &quot;scene graph&quot; which is the <a href="ex.scene.html">scenes</a> and the tree of <a href="ex.actor.html">actors</a> within that
 						scene. Only one <a href="ex.scene.html">Scene</a> can be active at once, the engine does not update/draw any other
 					scene, which means any actors will not be updated/drawn if they are part of a deactivated scene.</p>
+					<p><img src="../../assets/images/docs/EngineLifeCycle.png" alt="Engine Lifecycle"></p>
 					<p><strong>Scene Graph</strong></p>
 					<pre><code>Engine
   <span class="hljs-string">|_ Scene 1 (activated)</span>
@@ -112,11 +113,11 @@ game.start().then(<span class="hljs-function"><span class="hljs-keyword">functio
 						to keep your game smart about splitting duties so that you aren&#39;t drawing when doing
 					logic or performing logic as you draw.</p>
 					<h3 id="update-loop">Update Loop</h3>
-					<p>The first operation run is the [[Engine.update|update]] loop. <a href="ex.actor.html">Actor</a> and <a href="ex.scene.html">Scene</a> both implement
+					<p>The first operation run is the <a href="ex.engine.html#_update">update</a> loop. <a href="ex.actor.html">Actor</a> and <a href="ex.scene.html">Scene</a> both implement
 						an overridable/extendable <code>update</code> method. Use it to perform any logic-based operations
 					in your game for a particular class.</p>
 					<h3 id="draw-loop">Draw Loop</h3>
-					<p>The next step is the [[Engine.draw|draw]] loop. A <a href="ex.scene.html">Scene</a> loops through its child <a href="ex.actor.html">actors</a> and
+					<p>The next step is the <a href="ex.engine.html#_draw">draw</a> loop. A <a href="ex.scene.html">Scene</a> loops through its child <a href="ex.actor.html">actors</a> and
 						draws each one. You can override the <code>draw</code> method on an actor to customize its drawing.
 					You should <strong>not</strong> perform any logic in a draw call, it should only relate to drawing.</p>
 					<h2 id="working-with-scenes">Working with Scenes</h2>
@@ -272,6 +273,7 @@ game.start();
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addscene" class="tsd-kind-icon">add<wbr>Scene</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addtilemap" class="tsd-kind-icon">add<wbr>Tile<wbr>Map</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#addtimer" class="tsd-kind-icon">add<wbr>Timer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.engine.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#getantialiasing" class="tsd-kind-icon">get<wbr>Antialiasing</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#getheight" class="tsd-kind-icon">get<wbr>Height</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.engine.html#getwidth" class="tsd-kind-icon">get<wbr>Width</a></li>
@@ -304,7 +306,7 @@ game.start();
 				<h2>Constructors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
+					<h3><span class="tsd-flag ts-flagObsolete">Obsolete</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Engine<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iengineoptions.html" class="tsd-signature-type">IEngineOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a></li>
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Engine<span class="tsd-signature-symbol">(</span>width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, canvasElementId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, displayMode<span class="tsd-signature-symbol">?: </span><a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a></li>
@@ -314,7 +316,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L415">Engine.ts:415</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L417">Engine.ts:417</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,7 +336,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L420">Engine.ts:420</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L422">Engine.ts:422</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -342,8 +344,8 @@ game.start();
 									<p>Creates a new game with the given options</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>obsolete</dt>
-									<dd><p>Use <a href="ex.engine.html#constructor">Engine.constructor</a> with <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a></p>
+									<dt class="ts-flagObsolete">obsolete</dt>
+									<dd class="ts-flagObsolete"><p>Use <a href="ex.engine.html#constructor">Engine.constructor</a> with <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a></p>
 									</dd>
 								</dl>
 							</div>
@@ -392,71 +394,71 @@ game.start();
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_animations" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _animations</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _animations</h3>
 					<div class="tsd-signature tsd-kind-icon">_animations<span class="tsd-signature-symbol">:</span> <a href="ex.animationnode.html" class="tsd-signature-type">AnimationNode</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L369">Engine.ts:369</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L371">Engine.ts:371</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_compatible" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _compatible</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _compatible</h3>
 					<div class="tsd-signature tsd-kind-icon">_compatible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L408">Engine.ts:408</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L410">Engine.ts:410</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_hasstarted" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _has<wbr>Started</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _has<wbr>Started</h3>
 					<div class="tsd-signature tsd-kind-icon">_has<wbr>Started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L342">Engine.ts:342</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L344">Engine.ts:344</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_isloading" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Loading</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Loading</h3>
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L412">Engine.ts:412</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L414">Engine.ts:414</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_issmoothingenabled" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Smoothing<wbr>Enabled</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Smoothing<wbr>Enabled</h3>
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Smoothing<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L402">Engine.ts:402</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L404">Engine.ts:404</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_loader" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _loader</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _loader</h3>
 					<div class="tsd-signature tsd-kind-icon">_loader<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L411">Engine.ts:411</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L413">Engine.ts:413</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_loadingdraw" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _loading<wbr>Draw</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _loading<wbr>Draw</h3>
 					<div class="tsd-signature tsd-kind-icon">_loading<wbr>Draw<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L415">Engine.ts:415</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L417">Engine.ts:417</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -489,51 +491,51 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_logger" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L401">Engine.ts:401</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L403">Engine.ts:403</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_progress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _progress</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _progress</h3>
 					<div class="tsd-signature tsd-kind-icon">_progress<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L413">Engine.ts:413</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L415">Engine.ts:415</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_requestid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _request<wbr>Id</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _request<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">_request<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L405">Engine.ts:405</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L407">Engine.ts:407</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_total" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _total</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _total</h3>
 					<div class="tsd-signature tsd-kind-icon">_total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L414">Engine.ts:414</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L416">Engine.ts:416</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="backgroundcolor" class="tsd-anchor"></a>
-					<h3>background<wbr>Color</h3>
+					<h3> background<wbr>Color</h3>
 					<div class="tsd-signature tsd-kind-icon">background<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L394">Engine.ts:394</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L396">Engine.ts:396</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -544,11 +546,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="canvas" class="tsd-anchor"></a>
-					<h3>canvas</h3>
+					<h3> canvas</h3>
 					<div class="tsd-signature tsd-kind-icon">canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLCanvasElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L311">Engine.ts:311</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L313">Engine.ts:313</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -559,11 +561,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="canvaselementid" class="tsd-anchor"></a>
-					<h3>canvas<wbr>Element<wbr>Id</h3>
+					<h3> canvas<wbr>Element<wbr>Id</h3>
 					<div class="tsd-signature tsd-kind-icon">canvas<wbr>Element<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L321">Engine.ts:321</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L323">Engine.ts:323</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -574,11 +576,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="collisionstrategy" class="tsd-anchor"></a>
-					<h3>collision<wbr>Strategy</h3>
+					<h3> collision<wbr>Strategy</h3>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.collisionstrategy.html" class="tsd-signature-type">CollisionStrategy</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L340">Engine.ts:340</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L342">Engine.ts:342</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -589,11 +591,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="ctx" class="tsd-anchor"></a>
-					<h3>ctx</h3>
+					<h3> ctx</h3>
 					<div class="tsd-signature tsd-kind-icon">ctx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L316">Engine.ts:316</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L318">Engine.ts:318</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -604,11 +606,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="currentscene" class="tsd-anchor"></a>
-					<h3>current<wbr>Scene</h3>
+					<h3> current<wbr>Scene</h3>
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L357">Engine.ts:357</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L359">Engine.ts:359</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -619,21 +621,21 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="debugcolor" class="tsd-anchor"></a>
-					<h3>debug<wbr>Color</h3>
+					<h3> debug<wbr>Color</h3>
 					<div class="tsd-signature tsd-kind-icon">debug<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L390">Engine.ts:390</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L392">Engine.ts:392</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="displaymode" class="tsd-anchor"></a>
-					<h3>display<wbr>Mode</h3>
+					<h3> display<wbr>Mode</h3>
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L379">Engine.ts:379</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L381">Engine.ts:381</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -644,7 +646,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="eventdispatcher" class="tsd-anchor"></a>
-					<h3>event<wbr>Dispatcher</h3>
+					<h3> event<wbr>Dispatcher</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Dispatcher<span class="tsd-signature-symbol">:</span> <a href="ex.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
@@ -660,11 +662,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="fps" class="tsd-anchor"></a>
-					<h3>fps</h3>
+					<h3> fps</h3>
 					<div class="tsd-signature tsd-kind-icon">fps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L347">Engine.ts:347</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L349">Engine.ts:349</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -675,11 +677,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="height" class="tsd-anchor"></a>
-					<h3>height</h3>
+					<h3> height</h3>
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L330">Engine.ts:330</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L332">Engine.ts:332</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -690,11 +692,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="input" class="tsd-anchor"></a>
-					<h3>input</h3>
+					<h3> input</h3>
 					<div class="tsd-signature tsd-kind-icon">input<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.input.iengineinput.html" class="tsd-signature-type">IEngineInput</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L335">Engine.ts:335</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L337">Engine.ts:337</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -705,11 +707,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="isdebug" class="tsd-anchor"></a>
-					<h3>is<wbr>Debug</h3>
+					<h3> is<wbr>Debug</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L389">Engine.ts:389</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L391">Engine.ts:391</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -720,11 +722,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="isfullscreen" class="tsd-anchor"></a>
-					<h3>is<wbr>Fullscreen</h3>
+					<h3> is<wbr>Fullscreen</h3>
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Fullscreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L374">Engine.ts:374</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L376">Engine.ts:376</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -735,11 +737,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="pauseaudiowhenhidden" class="tsd-anchor"></a>
-					<h3>pause<wbr>Audio<wbr>When<wbr>Hidden</h3>
+					<h3> pause<wbr>Audio<wbr>When<wbr>Hidden</h3>
 					<div class="tsd-signature tsd-kind-icon">pause<wbr>Audio<wbr>When<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L384">Engine.ts:384</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L386">Engine.ts:386</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -750,11 +752,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="postprocessors" class="tsd-anchor"></a>
-					<h3>post<wbr>Processors</h3>
+					<h3> post<wbr>Processors</h3>
 					<div class="tsd-signature tsd-kind-icon">post<wbr>Processors<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.ipostprocessor.html" class="tsd-signature-type">IPostProcessor</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L352">Engine.ts:352</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L354">Engine.ts:354</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -765,11 +767,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="rootscene" class="tsd-anchor"></a>
-					<h3>root<wbr>Scene</h3>
+					<h3> root<wbr>Scene</h3>
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L362">Engine.ts:362</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L364">Engine.ts:364</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -780,11 +782,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="scenes" class="tsd-anchor"></a>
-					<h3>scenes</h3>
+					<h3> scenes</h3>
 					<div class="tsd-signature tsd-kind-icon">scenes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L367">Engine.ts:367</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L369">Engine.ts:369</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -803,11 +805,11 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="width" class="tsd-anchor"></a>
-					<h3>width</h3>
+					<h3> width</h3>
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L326">Engine.ts:326</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L328">Engine.ts:328</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -821,7 +823,7 @@ game.start();
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="_draw" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _draw</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _draw</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">_draw<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -829,7 +831,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L993">Engine.ts:993</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L997">Engine.ts:997</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -849,7 +851,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="_drawloadingbar" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _draw<wbr>Loading<wbr>Bar</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _draw<wbr>Loading<wbr>Bar</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">_draw<wbr>Loading<wbr>Bar<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, loaded<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, total<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -857,7 +859,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1133">Engine.ts:1133</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1136">Engine.ts:1136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -892,7 +894,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="_initialize" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _initialize</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _initialize</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">_initialize<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ex.iengineoptions.html" class="tsd-signature-type">IEngineOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -900,7 +902,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L881">Engine.ts:881</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L883">Engine.ts:883</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -920,7 +922,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="_setheightbydisplaymode" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _set<wbr>Height<wbr>ByDisplay<wbr>Mode</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _set<wbr>Height<wbr>ByDisplay<wbr>Mode</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">_set<wbr>Height<wbr>ByDisplay<wbr>Mode<span class="tsd-signature-symbol">(</span>parent<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -928,7 +930,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L864">Engine.ts:864</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L866">Engine.ts:866</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -948,7 +950,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
 					<a name="_update" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _update</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">_update<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -956,7 +958,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L967">Engine.ts:967</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L969">Engine.ts:969</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -979,7 +981,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="add" class="tsd-anchor"></a>
-					<h3>add</h3>
+					<h3> add</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>sceneKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -991,7 +993,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L644">Engine.ts:644</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L646">Engine.ts:646</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1020,7 +1022,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L649">Engine.ts:649</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L651">Engine.ts:651</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1042,7 +1044,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L654">Engine.ts:654</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L656">Engine.ts:656</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1062,7 +1064,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L664">Engine.ts:664</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L666">Engine.ts:666</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1087,7 +1089,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L672">Engine.ts:672</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L674">Engine.ts:674</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1112,7 +1114,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addchild" class="tsd-anchor"></a>
-					<h3>add<wbr>Child</h3>
+					<h3><span class="tsd-flag ts-flagObsolete">Obsolete</span> add<wbr>Child</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Child<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1120,7 +1122,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L546">Engine.ts:546</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L548">Engine.ts:548</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1131,8 +1133,8 @@ game.start();
 								<p>Actors can only be drawn if they are a member of a scene, and only
 								the <a href="ex.engine.html#currentscene">currentScene</a> may be drawn or updated.</p>
 								<dl class="tsd-comment-tags">
-									<dt>obsolete</dt>
-									<dd><p>Use <a href="ex.engine.html#add">add</a> instead.</p>
+									<dt class="ts-flagObsolete">obsolete</dt>
+									<dd class="ts-flagObsolete"><p>Use <a href="ex.engine.html#add">add</a> instead.</p>
 									</dd>
 								</dl>
 							</div>
@@ -1151,7 +1153,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="addeventlistener" class="tsd-anchor"></a>
-					<h3>add<wbr>Event<wbr>Listener</h3>
+					<h3><span class="tsd-flag ts-flagObsolete">Obsolete</span> add<wbr>Event<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1169,8 +1171,8 @@ game.start();
 									events off of the engine; see the events section below for a complete list.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>obsolete</dt>
-									<dd><p>Use <a href="ex.class.html#on">Class.on</a> instead</p>
+									<dt class="ts-flagObsolete">obsolete</dt>
+									<dd class="ts-flagObsolete"><p>Use <a href="ex.class.html#on">Class.on</a> instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -1213,7 +1215,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addscene" class="tsd-anchor"></a>
-					<h3>add<wbr>Scene</h3>
+					<h3> add<wbr>Scene</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Scene<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1221,7 +1223,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L599">Engine.ts:599</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L601">Engine.ts:601</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1251,7 +1253,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addtilemap" class="tsd-anchor"></a>
-					<h3>add<wbr>Tile<wbr>Map</h3>
+					<h3> add<wbr>Tile<wbr>Map</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Tile<wbr>Map<span class="tsd-signature-symbol">(</span>tileMap<span class="tsd-signature-symbol">: </span><a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1259,7 +1261,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L565">Engine.ts:565</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L567">Engine.ts:567</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1280,7 +1282,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addtimer" class="tsd-anchor"></a>
-					<h3>add<wbr>Timer</h3>
+					<h3> add<wbr>Timer</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Timer<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a></li>
 					</ul>
@@ -1288,7 +1290,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L580">Engine.ts:580</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L582">Engine.ts:582</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1309,9 +1311,47 @@ game.start();
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="emit" class="tsd-anchor"></a>
+					<h3> emit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, eventObject<span class="tsd-signature-symbol">?: </span><a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#emit">emit</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L71">Class.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Emits a new event</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Name of the event to emit</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> eventObject: <a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Data associated with this event</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getantialiasing" class="tsd-anchor"></a>
-					<h3>get<wbr>Antialiasing</h3>
+					<h3> get<wbr>Antialiasing</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Antialiasing<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
@@ -1319,7 +1359,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L955">Engine.ts:955</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L957">Engine.ts:957</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1333,7 +1373,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getheight" class="tsd-anchor"></a>
-					<h3>get<wbr>Height</h3>
+					<h3> get<wbr>Height</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Height<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
@@ -1341,7 +1381,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L799">Engine.ts:799</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L801">Engine.ts:801</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1355,7 +1395,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getwidth" class="tsd-anchor"></a>
-					<h3>get<wbr>Width</h3>
+					<h3> get<wbr>Width</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Width<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
@@ -1363,7 +1403,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L789">Engine.ts:789</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L791">Engine.ts:791</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1377,7 +1417,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="gotoscene" class="tsd-anchor"></a>
-					<h3>go<wbr>ToScene</h3>
+					<h3> go<wbr>ToScene</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">go<wbr>ToScene<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1385,7 +1425,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L757">Engine.ts:757</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L759">Engine.ts:759</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1409,7 +1449,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="load" class="tsd-anchor"></a>
-					<h3>load</h3>
+					<h3> load</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span>loader<span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -1417,7 +1457,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1185">Engine.ts:1185</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1188">Engine.ts:1188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1442,7 +1482,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="off" class="tsd-anchor"></a>
-					<h3>off</h3>
+					<h3> off</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1500,7 +1540,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="on" class="tsd-anchor"></a>
-					<h3>on</h3>
+					<h3> on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1557,7 +1597,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="onfatalexception" class="tsd-anchor"></a>
-					<h3>on<wbr>Fatal<wbr>Exception</h3>
+					<h3> on<wbr>Fatal<wbr>Exception</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Fatal<wbr>Exception<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1565,7 +1605,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L399">Engine.ts:399</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L401">Engine.ts:401</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1585,7 +1625,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="playanimation" class="tsd-anchor"></a>
-					<h3>play<wbr>Animation</h3>
+					<h3> play<wbr>Animation</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">play<wbr>Animation<span class="tsd-signature-symbol">(</span>animation<span class="tsd-signature-symbol">: </span><a href="ex.animation.html" class="tsd-signature-type">Animation</a>, x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1593,7 +1633,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L531">Engine.ts:531</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L533">Engine.ts:533</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1632,7 +1672,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="remove" class="tsd-anchor"></a>
-					<h3>remove</h3>
+					<h3> remove</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">remove<span class="tsd-signature-symbol">(</span>sceneKey<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -1645,7 +1685,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L698">Engine.ts:698</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L700">Engine.ts:700</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1667,7 +1707,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L703">Engine.ts:703</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L705">Engine.ts:705</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1689,7 +1729,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L708">Engine.ts:708</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L710">Engine.ts:710</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1711,7 +1751,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L712">Engine.ts:712</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L714">Engine.ts:714</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1730,7 +1770,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L720">Engine.ts:720</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L722">Engine.ts:722</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1754,7 +1794,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L725">Engine.ts:725</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L727">Engine.ts:727</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1777,7 +1817,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="removechild" class="tsd-anchor"></a>
-					<h3>remove<wbr>Child</h3>
+					<h3> remove<wbr>Child</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Child<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1785,7 +1825,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L557">Engine.ts:557</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L559">Engine.ts:559</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1810,7 +1850,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="removeeventlistener" class="tsd-anchor"></a>
-					<h3>remove<wbr>Event<wbr>Listener</h3>
+					<h3><span class="tsd-flag ts-flagObsolete">Obsolete</span> remove<wbr>Event<wbr>Listener</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Event<wbr>Listener<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1829,8 +1869,8 @@ game.start();
 									and the handler instance are specified just that handler will be removed.</p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>obsolete</dt>
-									<dd><p>Use <a href="ex.class.html#off">Class.off</a> instead</p>
+									<dt class="ts-flagObsolete">obsolete</dt>
+									<dd class="ts-flagObsolete"><p>Use <a href="ex.class.html#off">Class.off</a> instead</p>
 									</dd>
 								</dl>
 							</div>
@@ -1873,7 +1913,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="removescene" class="tsd-anchor"></a>
-					<h3>remove<wbr>Scene</h3>
+					<h3> remove<wbr>Scene</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Scene<span class="tsd-signature-symbol">(</span>scene<span class="tsd-signature-symbol">: </span><a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Scene<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -1882,7 +1922,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L611">Engine.ts:611</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L613">Engine.ts:613</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1904,7 +1944,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L616">Engine.ts:616</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L618">Engine.ts:618</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1927,7 +1967,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="removetilemap" class="tsd-anchor"></a>
-					<h3>remove<wbr>Tile<wbr>Map</h3>
+					<h3> remove<wbr>Tile<wbr>Map</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Tile<wbr>Map<span class="tsd-signature-symbol">(</span>tileMap<span class="tsd-signature-symbol">: </span><a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -1935,7 +1975,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L572">Engine.ts:572</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L574">Engine.ts:574</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1955,7 +1995,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="removetimer" class="tsd-anchor"></a>
-					<h3>remove<wbr>Timer</h3>
+					<h3> remove<wbr>Timer</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Timer<span class="tsd-signature-symbol">(</span>timer<span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.timer.html" class="tsd-signature-type">Timer</a></li>
 					</ul>
@@ -1963,7 +2003,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L588">Engine.ts:588</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L590">Engine.ts:590</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1986,7 +2026,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="screentoworldcoordinates" class="tsd-anchor"></a>
-					<h3>screen<wbr>ToWorld<wbr>Coordinates</h3>
+					<h3> screen<wbr>ToWorld<wbr>Coordinates</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">screen<wbr>ToWorld<wbr>Coordinates<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a></li>
 					</ul>
@@ -1994,7 +2034,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L810">Engine.ts:810</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L812">Engine.ts:812</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2017,7 +2057,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="screenshot" class="tsd-anchor"></a>
-					<h3>screenshot</h3>
+					<h3> screenshot</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">screenshot<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLImageElement</span></li>
 					</ul>
@@ -2025,7 +2065,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1120">Engine.ts:1120</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1123">Engine.ts:1123</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2040,7 +2080,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setantialiasing" class="tsd-anchor"></a>
-					<h3>set<wbr>Antialiasing</h3>
+					<h3> set<wbr>Antialiasing</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>Antialiasing<span class="tsd-signature-symbol">(</span>isSmooth<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -2048,7 +2088,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L944">Engine.ts:944</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L946">Engine.ts:946</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2073,7 +2113,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setloadingdrawfunction" class="tsd-anchor"></a>
-					<h3>set<wbr>Loading<wbr>Draw<wbr>Function</h3>
+					<h3> set<wbr>Loading<wbr>Draw<wbr>Function</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">set<wbr>Loading<wbr>Draw<wbr>Function<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -2081,7 +2121,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1175">Engine.ts:1175</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1178">Engine.ts:1178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2129,7 +2169,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="start" class="tsd-anchor"></a>
-					<h3>start</h3>
+					<h3> start</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span>loader<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -2137,7 +2177,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1046">Engine.ts:1046</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1049">Engine.ts:1049</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2162,7 +2202,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="stop" class="tsd-anchor"></a>
-					<h3>stop</h3>
+					<h3> stop</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -2170,7 +2210,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1109">Engine.ts:1109</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L1112">Engine.ts:1112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2184,7 +2224,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="worldtoscreencoordinates" class="tsd-anchor"></a>
-					<h3>world<wbr>ToScreen<wbr>Coordinates</h3>
+					<h3> world<wbr>ToScreen<wbr>Coordinates</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">world<wbr>ToScreen<wbr>Coordinates<span class="tsd-signature-symbol">(</span>point<span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.point.html" class="tsd-signature-type">Point</a></li>
 					</ul>
@@ -2192,7 +2232,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L838">Engine.ts:838</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Engine.ts#L840">Engine.ts:840</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2215,7 +2255,7 @@ game.start();
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 					<a name="extend" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> extend</h3>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> extend</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 						<li class="tsd-signature tsd-kind-icon">extend<span class="tsd-signature-symbol">(</span>methods<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
@@ -2224,7 +2264,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L97">Class.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Class.ts#L107">Class.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2430,6 +2470,9 @@ game.start();
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.engine.html#addtimer" class="tsd-kind-icon">add<wbr>Timer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.engine.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.engine.html#getantialiasing" class="tsd-kind-icon">get<wbr>Antialiasing</a>

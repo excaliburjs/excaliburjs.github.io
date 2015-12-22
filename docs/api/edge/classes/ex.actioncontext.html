@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="default no-js">
 <head>
 	<meta charset="utf-8">
@@ -161,9 +161,6 @@
 					<p>The Excalibur team is working on extending and rebuilding the Action API
 						in future versions to support multiple timelines/scripts, better eventing,
 					and a more robust API to allow for complex and customized actions.</p>
-					<h2 id="known-issues">Known Issues</h2>
-					<p><strong>Rotation actions do not use shortest angle</strong>
-					<a href="https://github.com/excaliburjs/Excalibur/issues/282">Issue #282</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -201,6 +198,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#clearactions" class="tsd-kind-icon">clear<wbr>Actions</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#delay" class="tsd-kind-icon">delay</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#die" class="tsd-kind-icon">die</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#easeto" class="tsd-kind-icon">ease<wbr>To</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#fade" class="tsd-kind-icon">fade</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#follow" class="tsd-kind-icon">follow</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.actioncontext.html#meet" class="tsd-kind-icon">meet</a></li>
@@ -222,7 +220,7 @@
 				<h2>Constructors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
+					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Action<wbr>Context<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Action<wbr>Context<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
@@ -232,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L119">Actions/ActionContext.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L114">Actions/ActionContext.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></h4>
@@ -240,7 +238,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L121">Actions/ActionContext.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L116">Actions/ActionContext.ts:116</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -254,7 +252,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L122">Actions/ActionContext.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L117">Actions/ActionContext.ts:117</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -272,21 +270,21 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_actors" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _actors</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _actors</h3>
 					<div class="tsd-signature tsd-kind-icon">_actors<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L118">Actions/ActionContext.ts:118</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L113">Actions/ActionContext.ts:113</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_queues" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _queues</h3>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _queues</h3>
 					<div class="tsd-signature tsd-kind-icon">_queues<span class="tsd-signature-symbol">:</span> <a href="ex.internal.actions.actionqueue.html" class="tsd-signature-type">ActionQueue</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L119">Actions/ActionContext.ts:119</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L114">Actions/ActionContext.ts:114</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -295,7 +293,7 @@
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addactortocontext" class="tsd-anchor"></a>
-					<h3>add<wbr>Actor<wbr>ToContext</h3>
+					<h3> add<wbr>Actor<wbr>ToContext</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Actor<wbr>ToContext<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -303,7 +301,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L143">Actions/ActionContext.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L138">Actions/ActionContext.ts:138</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -318,7 +316,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="aspromise" class="tsd-anchor"></a>
-					<h3>as<wbr>Promise</h3>
+					<h3> as<wbr>Promise</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">as<wbr>Promise&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
@@ -326,7 +324,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L397">Actions/ActionContext.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L417">Actions/ActionContext.ts:417</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,7 +345,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="blink" class="tsd-anchor"></a>
-					<h3>blink</h3>
+					<h3> blink</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">blink<span class="tsd-signature-symbol">(</span>timeVisible<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, timeNotVisible<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, numBlinks<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -355,7 +353,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L260">Actions/ActionContext.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L280">Actions/ActionContext.ts:280</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -393,7 +391,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="callmethod" class="tsd-anchor"></a>
-					<h3>call<wbr>Method</h3>
+					<h3> call<wbr>Method</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">call<wbr>Method<span class="tsd-signature-symbol">(</span>method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -401,7 +399,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L315">Actions/ActionContext.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L335">Actions/ActionContext.ts:335</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,7 +433,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="clearactions" class="tsd-anchor"></a>
-					<h3>clear<wbr>Actions</h3>
+					<h3> clear<wbr>Actions</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">clear<wbr>Actions<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -443,7 +441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L136">Actions/ActionContext.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L131">Actions/ActionContext.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -457,7 +455,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="delay" class="tsd-anchor"></a>
-					<h3>delay</h3>
+					<h3> delay</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">delay<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -465,7 +463,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L289">Actions/ActionContext.ts:289</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L309">Actions/ActionContext.ts:309</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -490,7 +488,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="die" class="tsd-anchor"></a>
-					<h3>die</h3>
+					<h3> die</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">die<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -498,7 +496,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L302">Actions/ActionContext.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L322">Actions/ActionContext.ts:322</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -513,8 +511,86 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="easeto" class="tsd-anchor"></a>
+					<h3> ease<wbr>To</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">ease<wbr>To<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, duration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, easingFcn<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L161">Actions/ActionContext.ts:161</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This method will move an actor to the specified <code>x</code> and <code>y</code> position over the
+										specified duration using a given <a href="ex.easingfunctions.html">EasingFunctions</a> and return back the actor. This
+									method is part of the actor &#39;Action&#39; fluent API allowing action chaining.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The x location to move the actor to</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The y location to move the actor to</p>
+									</div>
+								</li>
+								<li>
+									<h5>duration: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The time it should take the actor to move to the new location in milliseconds</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> easingFcn: <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> =&nbsp;ex.EasingFunctions.Linear</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Use <a href="ex.easingfunctions.html">EasingFunctions</a> or a custom function to use to calculate position</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>currentTime<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, startValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, endValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, duration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>currentTime: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>startValue: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>endValue: <span class="tsd-signature-type">number</span></h5>
+														</li>
+														<li>
+															<h5>duration: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="fade" class="tsd-anchor"></a>
-					<h3>fade</h3>
+					<h3> fade</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">fade<span class="tsd-signature-symbol">(</span>opacity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -522,7 +598,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L275">Actions/ActionContext.ts:275</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L295">Actions/ActionContext.ts:295</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -553,7 +629,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="follow" class="tsd-anchor"></a>
-					<h3>follow</h3>
+					<h3> follow</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">follow<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a>, followDistance<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -561,7 +637,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L362">Actions/ActionContext.ts:362</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L382">Actions/ActionContext.ts:382</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -590,7 +666,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="meet" class="tsd-anchor"></a>
-					<h3>meet</h3>
+					<h3> meet</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">meet<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a>, speed<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -598,7 +674,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L380">Actions/ActionContext.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L400">Actions/ActionContext.ts:400</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -628,7 +704,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="moveby" class="tsd-anchor"></a>
-					<h3>move<wbr>By</h3>
+					<h3> move<wbr>By</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">move<wbr>By<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -636,7 +712,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L182">Actions/ActionContext.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L202">Actions/ActionContext.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -673,7 +749,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="moveto" class="tsd-anchor"></a>
-					<h3>move<wbr>To</h3>
+					<h3> move<wbr>To</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">move<wbr>To<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, speed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -681,7 +757,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L165">Actions/ActionContext.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L185">Actions/ActionContext.ts:185</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -718,7 +794,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="removeactorfromcontext" class="tsd-anchor"></a>
-					<h3>remove<wbr>Actor<wbr>From<wbr>Context</h3>
+					<h3> remove<wbr>Actor<wbr>From<wbr>Context</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Actor<wbr>From<wbr>Context<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
@@ -726,7 +802,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L149">Actions/ActionContext.ts:149</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L144">Actions/ActionContext.ts:144</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -741,7 +817,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="repeat" class="tsd-anchor"></a>
-					<h3>repeat</h3>
+					<h3> repeat</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">repeat<span class="tsd-signature-symbol">(</span>times<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -749,7 +825,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L331">Actions/ActionContext.ts:331</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L351">Actions/ActionContext.ts:351</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -776,7 +852,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="repeatforever" class="tsd-anchor"></a>
-					<h3>repeat<wbr>Forever</h3>
+					<h3> repeat<wbr>Forever</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">repeat<wbr>Forever<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -784,7 +860,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L349">Actions/ActionContext.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L369">Actions/ActionContext.ts:369</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -800,7 +876,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="rotateby" class="tsd-anchor"></a>
-					<h3>rotate<wbr>By</h3>
+					<h3> rotate<wbr>By</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">rotate<wbr>By<span class="tsd-signature-symbol">(</span>angleRadians<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -808,7 +884,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L212">Actions/ActionContext.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L232">Actions/ActionContext.ts:232</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -839,7 +915,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="rotateto" class="tsd-anchor"></a>
-					<h3>rotate<wbr>To</h3>
+					<h3> rotate<wbr>To</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">rotate<wbr>To<span class="tsd-signature-symbol">(</span>angleRadians<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, speed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -847,7 +923,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L197">Actions/ActionContext.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L217">Actions/ActionContext.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -878,7 +954,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="scaleby" class="tsd-anchor"></a>
-					<h3>scale<wbr>By</h3>
+					<h3> scale<wbr>By</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">scale<wbr>By<span class="tsd-signature-symbol">(</span>sizeX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sizeY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -886,7 +962,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L243">Actions/ActionContext.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L263">Actions/ActionContext.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -917,7 +993,7 @@
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="scaleto" class="tsd-anchor"></a>
-					<h3>scale<wbr>To</h3>
+					<h3> scale<wbr>To</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">scale<wbr>To<span class="tsd-signature-symbol">(</span>sizeX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, sizeY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, speedX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, speedY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.actioncontext.html" class="tsd-signature-type">ActionContext</a></li>
 					</ul>
@@ -925,7 +1001,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L228">Actions/ActionContext.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Actions/ActionContext.ts#L248">Actions/ActionContext.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1022,6 +1098,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.actioncontext.html#die" class="tsd-kind-icon">die</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.actioncontext.html#easeto" class="tsd-kind-icon">ease<wbr>To</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.actioncontext.html#fade" class="tsd-kind-icon">fade</a>
