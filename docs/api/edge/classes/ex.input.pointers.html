@@ -108,14 +108,14 @@ engine.input.pointers.primary.on(<span class="hljs-string">"cancel"</span>, <spa
 						Excalibur will handle every pointer event in the browser. This is useful for handling
 					complex input and having control over every interaction.</p>
 					<p>You can also use <a href="../enums/ex.input.pointerscope.html#canvas">PointerScope.Canvas</a> to only scope event handling to the game
-					canvas. This is useful if you don&#39;t care about events that occur outside.</p>
+					canvas. This is useful if you don&#39;t care about events that occur outside the game.</p>
 					<p>One real-world example is dragging and gestures. Sometimes a player will drag their
 						finger outside your game and then into it, expecting it to work. If <a href="../enums/ex.input.pointerscope.html">PointerScope</a>
 						is set to <a href="../enums/ex.input.pointerscope.html#canvas">Canvas</a> this will not work. If it is set to
 					<a href="../enums/ex.input.pointerscope.html#document">Document</a>, it will.</p>
 					<h2 id="responding-to-input">Responding to input</h2>
-					<p>The primary pointer can be a mouse, stylus, or 1 finger touch event. You
-					can inspect what it is from the <a href="ex.input.pointerevent.html">PointerEvent</a> handled.</p>
+					<p>The primary pointer can be a mouse, stylus, or single finger touch event. You
+					can inspect what type of pointer it is from the <a href="ex.input.pointerevent.html">PointerEvent</a> handled.</p>
 					<pre><code class="lang-js">engine.input.pointers.primary.on(<span class="hljs-string">"down"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">pe</span>) </span>{
   <span class="hljs-keyword">if</span> (pe.pointerType === ex.Input.PointerType.Mouse) {
     ex.Logger.getInstance().info(<span class="hljs-string">"Mouse event:"</span>, pe);
