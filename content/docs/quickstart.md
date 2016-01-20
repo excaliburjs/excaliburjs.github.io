@@ -24,7 +24,10 @@ Create a script in your project, here I've named it `game.js`. Excalibur games a
 // Create an instance of the engine.
 // I'm specifying that the game be 800 pixels wide by 600 pixels tall.
 // If no dimensions are specified the game will be fullscreen.
-var game = new ex.Engine(800, 600);
+var game = new ex.Engine({
+    width: 800, 
+    height: 600
+});
 // todo build awesome game here
 
 // Start the engine to begin the game.
@@ -51,13 +54,16 @@ That's cool, but let's make something more interesting on the screen.
 
 To do this Excalibur uses a primitive called an `Actor`, and places actors into a `Scene`. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.
 
-> ProTip&trade; Actors must be added to a scene to be drawn or updated! `game.addChild(actor)` Will add an actor to the current scene.
+> ProTip&trade; Actors must be added to a scene to be drawn or updated! `game.add(actor)` Will add an actor to the current scene.
 
 ```javascript
 // game.js
 
 // Create an instance of the engine.
-var game = new ex.Engine(800, 600);
+var game = new ex.Engine({
+    width: 800, 
+    height: 600
+});
 
 // Create an actor with x position of 100px,
 // y position of 40px from the bottom of the screen,
@@ -70,7 +76,7 @@ paddle.color = ex.Color.Chartreuse;
 
 // `game.addChild` is the same as calling
 // `game.currentScene.addChild`
-game.addChild(paddle);
+game.add(paddle);
 
 // Start the engine to begin the game.
 game.start();
@@ -85,8 +91,8 @@ That's neat, but this game is way more fun if things move around. Let's make the
 
 ```javascript
 // Add a mouse move listener
-game.on('mousemove', function (ev) {
-    paddle.x = ev.x - paddle.getWidth()/2;
+game.input.pointers.primary.on('move', function (evt) {
+    paddle.x = evt.x - paddle.getWidth()/2;
 });
 ```
 
@@ -109,7 +115,7 @@ ball.dy = 100;
 ball.collisionType = ex.CollisionType.Elastic;
 
 // Add the ball to the current scene
-game.addChild(ball);
+game.add(ball);
 
 ```
 
@@ -186,7 +192,7 @@ for (var j = 0; j < rows; j++) {
 
 bricks.forEach(function (brick) {
     // Add the brick to the current scene to be drawn
-    game.addChild(brick);
+    game.add(brick);
 });
 ```
 
@@ -213,4 +219,4 @@ ball.on('exitviewport', function(){
 ![Breakout Example Excalibur](images/quickstart/breakoutFinal.png "Breakout Example Excalibur")
 Congratulations! You have just created your first game in Excalibur! Please review the documentation for more examples and an [API Reference](/docs/api).
 
-<iframe width="100%" height="700" src="http://jsfiddle.net/excaliburjs/6Ay9S/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="700" src="//jsfiddle.net/excaliburjs/6Ay9S/19/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
