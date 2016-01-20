@@ -34,12 +34,18 @@ var game = new ex.Engine({
 game.start();
 ```
 
-Include your game script after your source.
+Include your game script after the excalibur script.
 
 ```html
-...
-<script src="excalibur-version.js"></script>
-<script src="game.js"></script>
+<html>
+<head>
+</head>
+<body>    
+    <!-- Include your script at the end of the body tag -->
+    <script src="excalibur-version.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
 ...
 
 ```
@@ -74,6 +80,9 @@ var paddle = new ex.Actor(100, game.getHeight() - 40, 200, 20);
 // color constants
 paddle.color = ex.Color.Chartreuse;
 
+// Make sure the paddle can partipate in collisions, by default excalibur actors do not collide
+paddle.collisionType = ex.CollisionType.Active;
+
 // `game.addChild` is the same as calling
 // `game.currentScene.addChild`
 game.add(paddle);
@@ -92,7 +101,7 @@ That's neat, but this game is way more fun if things move around. Let's make the
 ```javascript
 // Add a mouse move listener
 game.input.pointers.primary.on('move', function (evt) {
-    paddle.x = evt.x - paddle.getWidth()/2;
+    paddle.x = evt.x;
 });
 ```
 
@@ -157,7 +166,7 @@ ball.draw = function (ctx, delta) {
 	// Custom draw code
     ctx.fillStyle = this.color.toString();
     ctx.beginPath();
-    ctx.arc(this.x+this.getWidth()/2, this.y+this.getHeight()/2, 10, 0, Math.PI * 2);
+    ctx.arc(this.x, this.y, 10, 0, Math.PI * 2);
     ctx.closePath();
     ctx.fill();
 }
@@ -191,6 +200,9 @@ for (var j = 0; j < rows; j++) {
 
 
 bricks.forEach(function (brick) {
+    // Make sure that bricks can participate in collisions
+    brick.collisionType = ex.CollisionType.Active;
+    
     // Add the brick to the current scene to be drawn
     game.add(brick);
 });
