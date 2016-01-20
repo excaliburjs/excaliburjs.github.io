@@ -91,7 +91,9 @@
 <span class="hljs-keyword">var</span> label = <span class="hljs-keyword">new</span> ex.Label();
 label.x = <span class="hljs-number">50</span>;
 label.y = <span class="hljs-number">50</span>;
-label.font = <span class="hljs-string">"10px Arial"</span>;
+label.fontFamily = <span class="hljs-string">"Arial"</span>;
+label.fontSize = <span class="hljs-number">10</span>;
+lable.fontUnit = ex.FontUnit.Px <span class="hljs-comment">// pixels are the default</span>
 label.text = <span class="hljs-string">"Foo"</span>;
 label.color = ex.Color.White;
 label.textAlign = ex.TextAlign.Center;
@@ -106,7 +108,7 @@ game.start();
 					<p>The HTML5 Canvas API draws text using CSS syntax. Because of this, web fonts
 						are fully supported. To draw a web font, follow the same procedure you use
 						for CSS. Then simply pass in the font string to the <a href="ex.label.html">Label</a> constructor
-					or set <a href="ex.label.html#font">Label.font</a>.</p>
+					or set [[Label.font]].</p>
 					<p><strong>index.html</strong></p>
 					<pre><code class="lang-html"><span class="hljs-doctype">&lt;!doctype html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
@@ -124,7 +126,8 @@ game.start();
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 
 <span class="hljs-keyword">var</span> label = <span class="hljs-keyword">new</span> ex.Label();
-label.font = <span class="hljs-string">"12px Foobar, Arial, Sans-Serif"</span>;
+label.fontFamily = <span class="hljs-string">"Foobar, Arial, Sans-Serif"</span>;
+label.fontSize = <span class="hljs-number">10</span>;
 label.text = <span class="hljs-string">"Hello World"</span>;
 
 game.add(label);
@@ -198,8 +201,9 @@ game.start();
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#dy" class="tsd-kind-icon">dy</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#enablecapturepointer" class="tsd-kind-icon">enable<wbr>Capture<wbr>Pointer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.label.html#font" class="tsd-kind-icon">font</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.label.html#fontfamily" class="tsd-kind-icon">font<wbr>Family</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.label.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.label.html#fontunit" class="tsd-kind-icon">font<wbr>Unit</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#frames" class="tsd-kind-icon">frames</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#isoffscreen" class="tsd-kind-icon">is<wbr>Off<wbr>Screen</a></li>
@@ -230,6 +234,7 @@ game.start();
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.label.html#_fontdraw" class="tsd-kind-icon">_font<wbr>Draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.label.html#_lookupbasealign" class="tsd-kind-icon">_lookup<wbr>Base<wbr>Align</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.label.html#_lookupfontunit" class="tsd-kind-icon">_lookup<wbr>Font<wbr>Unit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.label.html#_lookuptextalign" class="tsd-kind-icon">_lookup<wbr>Text<wbr>Align</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.label.html#addcollisiongroup" class="tsd-kind-icon">add<wbr>Collision<wbr>Group</a></li>
@@ -312,14 +317,14 @@ game.start();
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Label<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, font<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, spriteFont<span class="tsd-signature-symbol">?: </span><a href="ex.spritefont.html" class="tsd-signature-type">SpriteFont</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.label.html" class="tsd-signature-type">Label</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Label<span class="tsd-signature-symbol">(</span>text<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, fontFamily<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, spriteFont<span class="tsd-signature-symbol">?: </span><a href="ex.spritefont.html" class="tsd-signature-type">SpriteFont</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.label.html" class="tsd-signature-type">Label</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L208">Label.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L243">Label.ts:243</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,12 +356,7 @@ game.start();
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> font: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Use any valid CSS font string for the label&#39;s font. Web fonts are supported. Default is <code>10px sans-serif</code>.</p>
-										</div>
-									</div>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fontFamily: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> spriteFont: <a href="ex.spritefont.html" class="tsd-signature-type">SpriteFont</a></h5>
@@ -381,7 +381,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L208">Label.ts:208</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L243">Label.ts:243</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -391,7 +391,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L202">Label.ts:202</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L237">Label.ts:237</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -401,7 +401,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>Color<wbr>Dirty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L203">Label.ts:203</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L238">Label.ts:238</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -411,7 +411,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>OffsetX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L200">Label.ts:200</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L235">Label.ts:235</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -421,7 +421,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>OffsetY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L201">Label.ts:201</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L236">Label.ts:236</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -431,7 +431,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>Sprites<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L206">Label.ts:206</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L241">Label.ts:241</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -449,7 +449,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_text<wbr>Shadow<wbr>On<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L199">Label.ts:199</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L234">Label.ts:234</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -459,7 +459,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_text<wbr>Sprites<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L205">Label.ts:205</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L240">Label.ts:240</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -558,7 +558,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Align<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.basealign.html" class="tsd-signature-type">BaseAlign</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L182">Label.ts:182</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L217">Label.ts:217</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -573,7 +573,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">case<wbr>Insensitive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L197">Label.ts:197</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L232">Label.ts:232</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -750,17 +750,17 @@ game.start();
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="font" class="tsd-anchor"></a>
-					<h3> font</h3>
-					<div class="tsd-signature tsd-kind-icon">font<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="fontfamily" class="tsd-anchor"></a>
+					<h3> font<wbr>Family</h3>
+					<div class="tsd-signature tsd-kind-icon">font<wbr>Family<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L167">Label.ts:167</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L197">Label.ts:197</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The CSS font string (e.g. <code>sans-serif</code>, <code>Droid Sans Pro</code>). Web fonts
+							<p>The CSS font family string (e.g. <code>sans-serif</code>, <code>Droid Sans Pro</code>). Web fonts
 							are supported, same as in CSS.</p>
 						</div>
 					</div>
@@ -771,12 +771,27 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L172">Label.ts:172</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L202">Label.ts:202</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The font size in pixels, default is 10px</p>
+							<p>The font size in the selected units, default is 10 (default units is pixel)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="fontunit" class="tsd-anchor"></a>
+					<h3> font<wbr>Unit</h3>
+					<div class="tsd-signature tsd-kind-icon">font<wbr>Unit<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.fontunit.html" class="tsd-signature-type">FontUnit</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L207">Label.ts:207</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The css units for a font size such as px, pt, em (SpriteFont only support px), by default is &#39;px&#39;;</p>
 						</div>
 					</div>
 				</section>
@@ -837,7 +852,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">letter<wbr>Spacing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L192">Label.ts:192</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L227">Label.ts:227</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -868,7 +883,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L187">Label.ts:187</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L222">Label.ts:222</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -991,12 +1006,12 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">sprite<wbr>Font<span class="tsd-signature-symbol">:</span> <a href="ex.spritefont.html" class="tsd-signature-type">SpriteFont</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L161">Label.ts:161</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L191">Label.ts:191</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The <a href="ex.spritefont.html">SpriteFont</a> to use, if any. Overrides <a href="ex.label.html#font">font</a> if present.</p>
+							<p>The <a href="ex.spritefont.html">SpriteFont</a> to use, if any. Overrides [[font]] if present.</p>
 						</div>
 					</div>
 				</section>
@@ -1038,7 +1053,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L156">Label.ts:156</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L186">Label.ts:186</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1053,7 +1068,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">text<wbr>Align<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.textalign.html" class="tsd-signature-type">TextAlign</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L177">Label.ts:177</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L212">Label.ts:212</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1155,7 +1170,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L350">Label.ts:350</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L402">Label.ts:402</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1189,13 +1204,36 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L261">Label.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L313">Label.ts:313</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>baseAlign: <a href="../enums/ex.basealign.html" class="tsd-signature-type">BaseAlign</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_lookupfontunit" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _lookup<wbr>Font<wbr>Unit</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_lookup<wbr>Font<wbr>Unit<span class="tsd-signature-symbol">(</span>fontUnit<span class="tsd-signature-symbol">: </span><a href="../enums/ex.fontunit.html" class="tsd-signature-type">FontUnit</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L279">Label.ts:279</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fontUnit: <a href="../enums/ex.fontunit.html" class="tsd-signature-type">FontUnit</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1212,7 +1250,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L244">Label.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L296">Label.ts:296</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1610,7 +1648,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L300">Label.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L352">Label.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1742,7 +1780,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#debugdraw">debugDraw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L383">Label.ts:383</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L435">Label.ts:435</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1835,7 +1873,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#draw">draw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L331">Label.ts:331</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L383">Label.ts:383</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2305,7 +2343,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L235">Label.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L270">Label.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3401,7 +3439,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L286">Label.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L338">Label.ts:338</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3505,7 +3543,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.actor.html">Actor</a>.<a href="ex.actor.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L307">Label.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L359">Label.ts:359</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3531,7 +3569,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L293">Label.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L345">Label.ts:345</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3790,10 +3828,13 @@ game.start();
 								<a href="ex.label.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.label.html#font" class="tsd-kind-icon">font</a>
+								<a href="ex.label.html#fontfamily" class="tsd-kind-icon">font<wbr>Family</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.label.html#fontsize" class="tsd-kind-icon">font<wbr>Size</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.label.html#fontunit" class="tsd-kind-icon">font<wbr>Unit</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.label.html#frames" class="tsd-kind-icon">frames</a>
@@ -3869,6 +3910,9 @@ game.start();
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="ex.label.html#_lookupbasealign" class="tsd-kind-icon">_lookup<wbr>Base<wbr>Align</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.label.html#_lookupfontunit" class="tsd-kind-icon">_lookup<wbr>Font<wbr>Unit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="ex.label.html#_lookuptextalign" class="tsd-kind-icon">_lookup<wbr>Text<wbr>Align</a>

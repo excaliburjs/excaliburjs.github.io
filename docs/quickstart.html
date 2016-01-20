@@ -160,10 +160,16 @@
 
 <span class="comment">// Start the engine to begin the game.</span>
 game.start();</code></pre>
-<p>Include your game script after your source.</p>
-<pre><code class="language-html">...
-&lt;script src=&quot;excalibur-version.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;game.js&quot;&gt;&lt;/script&gt;
+<p>Include your game script after the excalibur script.</p>
+<pre><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+&lt;/head&gt;
+&lt;body&gt;    
+    &lt;!-- Include your script at the end of the body tag --&gt;
+    &lt;script src=&quot;excalibur-version.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;game.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 ...</code></pre>
 <p>Open a browser and view the blank blue screen of goodness.</p>
 <h3 id="hello-excalibur-building-breakout-">Hello Excalibur: Building Breakout!</h3>
@@ -189,6 +195,9 @@ game.start();</code></pre>
 <span class="comment">// color constants</span>
 paddle.color = ex.Color.Chartreuse;
 
+<span class="comment">// Make sure the paddle can partipate in collisions, by default excalibur actors do not collide</span>
+paddle.collisionType = ex.CollisionType.Active;
+
 <span class="comment">// `game.addChild` is the same as calling</span>
 <span class="comment">// `game.currentScene.addChild`</span>
 game.add(paddle);
@@ -200,7 +209,7 @@ game.start();</code></pre>
 <p>That&#39;s neat, but this game is way more fun if things move around. Let&#39;s make the paddle follow the mouse around in the x direction.</p>
 <pre><code class="language-javascript"><span class="comment">// Add a mouse move listener</span>
 game.input.pointers.primary.on(<span class="string">'move'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(evt)</span> {</span>
-    paddle.x = evt.x - paddle.getWidth()/<span class="number">2</span>;
+    paddle.x = evt.x;
 });</code></pre>
 <p>What&#39;s breakout without the ball? To make the ball bounce, Excalibur comes prebuilt with an &quot;elastic&quot; collision type that does naive elastic collisions, which is sufficient for breakout.</p>
 <pre><code class="language-javascript"><span class="comment">// Create a ball</span>
@@ -250,7 +259,7 @@ ball.draw = <span class="function"><span class="keyword">function</span> <span c
     <span class="comment">// Custom draw code</span>
     ctx.fillStyle = <span class="keyword">this</span>.color.toString();
     ctx.beginPath();
-    ctx.arc(<span class="keyword">this</span>.x+<span class="keyword">this</span>.getWidth()/<span class="number">2</span>, <span class="keyword">this</span>.y+<span class="keyword">this</span>.getHeight()/<span class="number">2</span>, <span class="number">10</span>, <span class="number">0</span>, Math.PI * <span class="number">2</span>);
+    ctx.arc(<span class="keyword">this</span>.x, <span class="keyword">this</span>.y, <span class="number">10</span>, <span class="number">0</span>, Math.PI * <span class="number">2</span>);
     ctx.closePath();
     ctx.fill();
 }</code></pre>
@@ -280,6 +289,9 @@ ball.draw = <span class="function"><span class="keyword">function</span> <span c
 
 
 bricks.forEach(<span class="function"><span class="keyword">function</span> <span class="params">(brick)</span> {</span>
+    <span class="comment">// Make sure that bricks can participate in collisions</span>
+    brick.collisionType = ex.CollisionType.Active;
+
     <span class="comment">// Add the brick to the current scene to be drawn</span>
     game.add(brick);
 });</code></pre>

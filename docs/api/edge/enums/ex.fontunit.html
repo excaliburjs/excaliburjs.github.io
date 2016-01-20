@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BaseAlign | Excalibur.js Edge API Documentation</title>
+	<title>FontUnit | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -60,10 +60,10 @@
 					<a href="../modules/ex.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.basealign.html">BaseAlign</a>
+					<a href="ex.fontunit.html">FontUnit</a>
 				</li>
 			</ul>
-			<h1>Enumeration BaseAlign</h1>
+			<h1>Enumeration FontUnit</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,8 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Enum representing the different baseline text alignments</p>
+						<p>Enum representing the different font size units
+						<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font-size">https://developer.mozilla.org/en-US/docs/Web/CSS/font-size</a></p>
 					</div>
 				</div>
 			</section>
@@ -84,12 +85,11 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.basealign.html#alphabetic" class="tsd-kind-icon">Alphabetic</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.basealign.html#bottom" class="tsd-kind-icon">Bottom</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.basealign.html#hanging" class="tsd-kind-icon">Hanging</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.basealign.html#ideographic" class="tsd-kind-icon">Ideographic</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.basealign.html#middle" class="tsd-kind-icon">Middle</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.basealign.html#top" class="tsd-kind-icon">Top</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.fontunit.html#em" class="tsd-kind-icon">Em</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.fontunit.html#percent" class="tsd-kind-icon">Percent</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.fontunit.html#pt" class="tsd-kind-icon">Pt</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.fontunit.html#px" class="tsd-kind-icon">Px</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.fontunit.html#rem" class="tsd-kind-icon">Rem</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,98 +98,77 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="alphabetic" class="tsd-anchor"></a>
-					<h3> Alphabetic</h3>
-					<div class="tsd-signature tsd-kind-icon">Alphabetic<span class="tsd-signature-symbol">:</span> </div>
+					<a name="em" class="tsd-anchor"></a>
+					<h3> Em</h3>
+					<div class="tsd-signature tsd-kind-icon">Em<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L79">Label.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L12">Label.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The text baseline is the normal alphabetic baseline.</p>
+							<p>Em is a scalable unit, 1 em is equal to the current font size of the current element, parent elements can effect em values</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="bottom" class="tsd-anchor"></a>
-					<h3> Bottom</h3>
-					<div class="tsd-signature tsd-kind-icon">Bottom<span class="tsd-signature-symbol">:</span> </div>
+					<a name="percent" class="tsd-anchor"></a>
+					<h3> Percent</h3>
+					<div class="tsd-signature tsd-kind-icon">Percent<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L92">Label.ts:92</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L28">Label.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The text baseline is the bottom of the bounding box.  This differs
-								from the ideographic baseline in that the ideographic baseline
-							doesn&#39;t consider descenders.</p>
+							<p>Percent is a scalable unit similar to Em, the only difference is the Em units scale faster when Text-Size stuff</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="hanging" class="tsd-anchor"></a>
-					<h3> Hanging</h3>
-					<div class="tsd-signature tsd-kind-icon">Hanging<span class="tsd-signature-symbol">:</span> </div>
+					<a name="pt" class="tsd-anchor"></a>
+					<h3> Pt</h3>
+					<div class="tsd-signature tsd-kind-icon">Pt<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L71">Label.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L24">Label.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The text baseline is the hanging baseline.  Currently unsupported; this will act like
-							alphabetic.</p>
+							<p>Point is a physical unit length (1/72 of an inch)</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="ideographic" class="tsd-anchor"></a>
-					<h3> Ideographic</h3>
-					<div class="tsd-signature tsd-kind-icon">Ideographic<span class="tsd-signature-symbol">:</span> </div>
+					<a name="px" class="tsd-anchor"></a>
+					<h3> Px</h3>
+					<div class="tsd-signature tsd-kind-icon">Px<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L86">Label.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L20">Label.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The text baseline is the ideographic baseline; this is the bottom of
-								the body of the characters, if the main body of characters protrudes
-								beneath the alphabetic baseline.  Currently unsupported; this will
-							act like alphabetic.</p>
+							<p>Pixel is a unit of length in screen pixels</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="middle" class="tsd-anchor"></a>
-					<h3> Middle</h3>
-					<div class="tsd-signature tsd-kind-icon">Middle<span class="tsd-signature-symbol">:</span> </div>
+					<a name="rem" class="tsd-anchor"></a>
+					<h3> Rem</h3>
+					<div class="tsd-signature tsd-kind-icon">Rem<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L75">Label.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L16">Label.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The text baseline is the middle of the em square.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="top" class="tsd-anchor"></a>
-					<h3> Top</h3>
-					<div class="tsd-signature tsd-kind-icon">Top<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Label.ts#L66">Label.ts:66</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The text baseline is the top of the em square.</p>
+							<p>Rem is similar to the Em, it is a scalable unit. 1 rem is eqaul to the font size of the root element</p>
 						</div>
 					</div>
 				</section>
@@ -229,25 +208,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.basealign.html" class="tsd-kind-icon">Base<wbr>Align</a>
+						<a href="ex.fontunit.html" class="tsd-kind-icon">Font<wbr>Unit</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.basealign.html#alphabetic" class="tsd-kind-icon">Alphabetic</a>
+								<a href="ex.fontunit.html#em" class="tsd-kind-icon">Em</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.basealign.html#bottom" class="tsd-kind-icon">Bottom</a>
+								<a href="ex.fontunit.html#percent" class="tsd-kind-icon">Percent</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.basealign.html#hanging" class="tsd-kind-icon">Hanging</a>
+								<a href="ex.fontunit.html#pt" class="tsd-kind-icon">Pt</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.basealign.html#ideographic" class="tsd-kind-icon">Ideographic</a>
+								<a href="ex.fontunit.html#px" class="tsd-kind-icon">Px</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.basealign.html#middle" class="tsd-kind-icon">Middle</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.basealign.html#top" class="tsd-kind-icon">Top</a>
+								<a href="ex.fontunit.html#rem" class="tsd-kind-icon">Rem</a>
 							</li>
 						</ul>
 					</li>
