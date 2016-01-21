@@ -67,22 +67,9 @@ module.exports = function (grunt) {
             dest: '<%= dest %>/showcase/'
           }
         ]
-      },
-
-      //
-      // Docs (Markdown)
-      // @todo Have to use handlebars because swig doesn't work. See:
-      //       https://github.com/assemble/assemble/issues/494
-      docs: {
-        options: {
-          ext: '.html',
-          engine: 'handlebars',
-          layout: 'docs'
-        },
-        files: [{ expand: true, cwd: 'content/docs', src: '**/*.md', dest: '<%= dest %>/docs/' }]
-      }
+      },      
     },
-
+    
     //
     // Copy static files over
     //
@@ -90,8 +77,7 @@ module.exports = function (grunt) {
 
       // asset files
       assets: {
-        files: [
-		      { expand: true, cwd: 'content/docs/images', src: ['**'], dest: '<%= dest %>/docs/images' },
+        files: [		  
           { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/showcase/' },
           { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' },
           { '<%= dest %>/': 'favicon.png' },
@@ -147,7 +133,6 @@ module.exports = function (grunt) {
           'less/**/*.less',
           'pages/**/*.html',
           'layouts/**/*.html',
-          'content/**/*.md',
           'partials/**/*.html',
           'extensions/**/*.js'
         ],
