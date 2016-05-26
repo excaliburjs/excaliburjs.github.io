@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Texture | Excalibur.js Edge API Documentation</title>
+	<title>PauseAfterLoader | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -60,10 +60,10 @@
 					<a href="../modules/ex.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.texture.html">Texture</a>
+					<a href="ex.pauseafterloader.html">PauseAfterLoader</a>
 				</li>
 			</ul>
-			<h1>Class Texture</h1>
+			<h1>Class PauseAfterLoader</h1>
 		</div>
 	</div>
 </header>
@@ -73,29 +73,62 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Textures</p>
+						<p>A <a href="ex.loader.html">Loader</a> that pauses after loading to allow user
+							to proceed to play the game. Typically you will
+							want to use this loader for iOS to allow sounds
+							to play after loading (Apple Safari requires user
+						interaction to allow sounds, even for games)</p>
 					</div>
-					<p>The <a href="ex.texture.html">Texture</a> object allows games built in Excalibur to load image resources.
-						<a href="ex.texture.html">Texture</a> is an <a href="../interfaces/ex.iloadable.html">ILoadable</a> which means it can be passed to a <a href="ex.loader.html">Loader</a>
-					to pre-load before starting a level or game.</p>
-					<p>Textures are the raw image so to add a drawing to a game, you must create
-						a <a href="ex.sprite.html">Sprite</a>. You can use <a href="ex.texture.html#assprite">Texture.asSprite</a> to quickly generate a Sprite
-					instance.</p>
-					<h2 id="pre-loading-textures">Pre-loading textures</h2>
-					<p>Pass the <a href="ex.texture.html">Texture</a> to a <a href="ex.loader.html">Loader</a> to pre-load the asset. Once a <a href="ex.texture.html">Texture</a>
-					is loaded, you can generate a <a href="ex.sprite.html">Sprite</a> with it.</p>
-					<pre><code class="lang-js"><span class="hljs-keyword">var</span> txPlayer = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/player.png"</span>);
+					<p><strong>Note:</strong> Because Loader is not part of a Scene, you must
+					call <code>update</code> and <code>draw</code> manually on &quot;child&quot; objects.</p>
+					<h2 id="implementing-a-trigger">Implementing a Trigger</h2>
+					<p>The <code>PauseAfterLoader</code> requires an element to act as the trigger button
+					to start the game.</p>
+					<p>For example, let&#39;s create an <code>&lt;a&gt;</code> tag to be our trigger and call it <code>tap-to-play</code>.</p>
+					<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"wrapper"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">canvas</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"game"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">canvas</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"tap-to-play"</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">'javascript:void(0);'</span>&gt;</span>Tap to Play<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+					<p>We&#39;ve put it inside a wrapper to position it properly over the game canvas.</p>
+					<p>Now let&#39;s add some CSS to style it (insert into <code>&lt;head&gt;</code>):</p>
+					<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">style</span>&gt;</span><span class="css">
+    <span class="hljs-id">#wrapper</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> relative</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">500px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">500px</span></span></span>;
+    }</span>
+    <span class="hljs-id">#tap-to-play</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> none</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">24px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">font-family</span>:<span class="hljs-value"> sans-serif</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">text-align</span>:<span class="hljs-value"> center</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">border</span>:<span class="hljs-value"> <span class="hljs-number">3px</span> solid white</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">position</span>:<span class="hljs-value"> absolute</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> white</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">200px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">height</span>:<span class="hljs-value"> <span class="hljs-number">50px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">line-height</span>:<span class="hljs-value"> <span class="hljs-number">50px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">text-decoration</span>:<span class="hljs-value"> none</span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">left</span>:<span class="hljs-value"> <span class="hljs-number">147px</span></span></span>;
+        <span class="hljs-rule"><span class="hljs-attribute">top</span>:<span class="hljs-value"> <span class="hljs-number">80%</span></span></span>;
+    }</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+</code></pre>
+					<p>Now we can create a <code>PauseAfterLoader</code> with a reference to our trigger button:</p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.PauseAfterLoader(<span class="hljs-string">'tap-to-play'</span>, [...]);
+</code></pre>
+					<h2 id="use-pauseafterloader-for-ios">Use PauseAfterLoader for iOS</h2>
+					<p>The primary use case for pausing before starting the game is to
+						pass Apple&#39;s requirement of user interaction. The Web Audio context
+					in Safari is disabled by default until user interaction.</p>
+					<p>Therefore, you can use this snippet to only use PauseAfterLoader when
+						iOS is detected (see <a href="http://stackoverflow.com/questions/9038625/detect-if-device-is-ios">this thread</a>
+					for more techniques).</p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">var</span> iOS = <span class="hljs-regexp">/iPad|iPhone|iPod/</span>.test(navigator.userAgent) &amp;&amp; !(&lt;<span class="hljs-built_in">any</span>&gt;<span class="hljs-built_in">window</span>).MSStream;
+<span class="hljs-keyword">var</span> loader: ex.Loader = iOS ? <span class="hljs-keyword">new</span> ex.PauseAfterLoader(<span class="hljs-string">'tap-to-play'</span>) : <span class="hljs-keyword">new</span> ex.Loader();
 
-<span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txPlayer);
-
-game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-
-  <span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> ex.Actor();
-
-  player.addDrawing(txPlayer);
-
-  game.add(player);
-});
+loader.addResource(...);
 </code></pre>
 				</div>
 			</section>
@@ -103,10 +136,10 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="ex.resource.html" class="tsd-signature-type">Resource</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HTMLImageElement</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="ex.loader.html" class="tsd-signature-type">Loader</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Texture</span>
+								<span class="target">PauseAfterLoader</span>
 							</li>
 						</ul>
 					</li>
@@ -115,7 +148,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a></li>
+					<li><a href="../interfaces/ex.iloader.html" class="tsd-signature-type">ILoader</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -125,48 +158,42 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="ex.texture.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="ex.pauseafterloader.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.texture.html#_donecallback" class="tsd-kind-icon">_done<wbr>Callback</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.texture.html#_errorcallback" class="tsd-kind-icon">_error<wbr>Callback</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.texture.html#_isloaded" class="tsd-kind-icon">_is<wbr>Loaded</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.texture.html#_progresscallback" class="tsd-kind-icon">_progress<wbr>Callback</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.texture.html#_sprite" class="tsd-kind-icon">_sprite</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="ex.texture.html#bustcache" class="tsd-kind-icon">bust<wbr>Cache</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#data" class="tsd-kind-icon">data</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.texture.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.texture.html#image" class="tsd-kind-icon">image</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.texture.html#loaded" class="tsd-kind-icon">loaded</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#logger" class="tsd-kind-icon">logger</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="ex.texture.html#path" class="tsd-kind-icon">path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.texture.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.pauseafterloader.html#_loaded" class="tsd-kind-icon">_loaded</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.pauseafterloader.html#_loadedvalue" class="tsd-kind-icon">_loaded<wbr>Value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.pauseafterloader.html#_playtrigger" class="tsd-kind-icon">_play<wbr>Trigger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.pauseafterloader.html#_waitpromise" class="tsd-kind-icon">_wait<wbr>Promise</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.texture.html#assprite" class="tsd-kind-icon">as<wbr>Sprite</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#emit" class="tsd-kind-icon">emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#getdata" class="tsd-kind-icon">get<wbr>Data</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="ex.texture.html#isloaded" class="tsd-kind-icon">is<wbr>Loaded</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="ex.texture.html#load" class="tsd-kind-icon">load</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#oncomplete" class="tsd-kind-icon">oncomplete</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#onerror" class="tsd-kind-icon">onerror</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#onprogress" class="tsd-kind-icon">onprogress</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#processdata" class="tsd-kind-icon">process<wbr>Data</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#setdata" class="tsd-kind-icon">set<wbr>Data</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.texture.html#wireengine" class="tsd-kind-icon">wire<wbr>Engine</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="ex.texture.html#extend" class="tsd-kind-icon">extend</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.pauseafterloader.html#_handleontrigger" class="tsd-kind-icon">_handle<wbr>OnTrigger</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#addresource" class="tsd-kind-icon">add<wbr>Resource</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#addresources" class="tsd-kind-icon">add<wbr>Resources</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#draw" class="tsd-kind-icon">draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#getdata" class="tsd-kind-icon">get<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#isloaded" class="tsd-kind-icon">is<wbr>Loaded</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="ex.pauseafterloader.html#load" class="tsd-kind-icon">load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#oncomplete" class="tsd-kind-icon">oncomplete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#onerror" class="tsd-kind-icon">onerror</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#onprogress" class="tsd-kind-icon">onprogress</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#processdata" class="tsd-kind-icon">process<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#setdata" class="tsd-kind-icon">set<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.pauseafterloader.html#wireengine" class="tsd-kind-icon">wire<wbr>Engine</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="ex.pauseafterloader.html#extend" class="tsd-kind-icon">extend</a></li>
 							</ul>
 						</section>
 					</div>
@@ -178,38 +205,26 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Texture<span class="tsd-signature-symbol">(</span>path<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, bustCache<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.texture.html" class="tsd-signature-type">Texture</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Pause<wbr>After<wbr>Loader<span class="tsd-signature-symbol">(</span>triggerElementId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, loadables<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.pauseafterloader.html" class="tsd-signature-type">PauseAfterLoader</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#constructor">constructor</a></p>
+								<p>Overwrites <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L67">Resources/Texture.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L304">Loader.ts:304</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>path: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Path to the image resource</p>
-										</div>
-									</div>
+									<h5>triggerElementId: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> bustCache: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Optionally load texture with cache busting</p>
-										</div>
-									</div>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> loadables: <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ex.texture.html" class="tsd-signature-type">Texture</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="ex.pauseafterloader.html" class="tsd-signature-type">PauseAfterLoader</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -217,139 +232,42 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_donecallback" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _done<wbr>Callback</h3>
-					<div class="tsd-signature tsd-kind-icon">_done<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<a name="_loaded" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _loaded</h3>
+					<div class="tsd-signature tsd-kind-icon">_loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L66">Resources/Texture.ts:66</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_errorcallback" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _error<wbr>Callback</h3>
-					<div class="tsd-signature tsd-kind-icon">_error<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L67">Resources/Texture.ts:67</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>e: <span class="tsd-signature-type">string</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_isloaded" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Loaded</h3>
-					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L57">Resources/Texture.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L301">Loader.ts:301</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_progresscallback" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _progress<wbr>Callback</h3>
-					<div class="tsd-signature tsd-kind-icon">_progress<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<a name="_loadedvalue" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _loaded<wbr>Value</h3>
+					<div class="tsd-signature tsd-kind-icon">_loaded<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L65">Resources/Texture.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L302">Loader.ts:302</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-siganture">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>progress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, total<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>progress: <span class="tsd-signature-type">number</span></h5>
-											</li>
-											<li>
-												<h5>total: <span class="tsd-signature-type">number</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_sprite" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _sprite</h3>
-					<div class="tsd-signature tsd-kind-icon">_sprite<span class="tsd-signature-symbol">:</span> <a href="ex.sprite.html" class="tsd-signature-type">Sprite</a></div>
+					<a name="_playtrigger" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _play<wbr>Trigger</h3>
+					<div class="tsd-signature tsd-kind-icon">_play<wbr>Trigger<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L58">Resources/Texture.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L304">Loader.ts:304</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="bustcache" class="tsd-anchor"></a>
-					<h3> bust<wbr>Cache</h3>
-					<div class="tsd-signature tsd-kind-icon">bust<wbr>Cache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_waitpromise" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _wait<wbr>Promise</h3>
+					<div class="tsd-signature tsd-kind-icon">_wait<wbr>Promise<span class="tsd-signature-symbol">:</span> <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#bustcache">bustCache</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L73">Resources/Texture.ts:73</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Optionally load texture with cache busting</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="data" class="tsd-anchor"></a>
-					<h3> data</h3>
-					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLImageElement</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#data">data</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L39">Resources/Resource.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L303">Loader.ts:303</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -369,112 +287,26 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="height" class="tsd-anchor"></a>
-					<h3> height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L50">Resources/Texture.ts:50</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The height of the texture in pixels</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="image" class="tsd-anchor"></a>
-					<h3> image</h3>
-					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLImageElement</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L63">Resources/Texture.ts:63</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Populated once loading is complete</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="loaded" class="tsd-anchor"></a>
-					<h3> loaded</h3>
-					<div class="tsd-signature tsd-kind-icon">loaded<span class="tsd-signature-symbol">:</span> <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L55">Resources/Texture.ts:55</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A <a href="ex.promise.html">Promise</a> that resolves when the Texture is loaded.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="logger" class="tsd-anchor"></a>
-					<h3> logger</h3>
-					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#logger">logger</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L40">Resources/Resource.ts:40</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="path" class="tsd-anchor"></a>
-					<h3> path</h3>
-					<div class="tsd-signature tsd-kind-icon">path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#path">path</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L73">Resources/Texture.ts:73</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Path to the image resource</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="responsetype" class="tsd-anchor"></a>
-					<h3> response<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">response<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#responsetype">responseType</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L48">Resources/Resource.ts:48</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The Content-Type to expect (e.g. <code>application/json</code>)</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="width" class="tsd-anchor"></a>
-					<h3> width</h3>
-					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L45">Resources/Texture.ts:45</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The width of the texture in pixels</p>
-						</div>
-					</div>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_handleontrigger" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _handle<wbr>OnTrigger</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_handle<wbr>OnTrigger<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L331">Loader.ts:331</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="addeventlistener" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagObsolete">Obsolete</span> add<wbr>Event<wbr>Listener</h3>
@@ -537,20 +369,100 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="assprite" class="tsd-anchor"></a>
-					<h3> as<wbr>Sprite</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">as<wbr>Sprite<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.sprite.html" class="tsd-signature-type">Sprite</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="addresource" class="tsd-anchor"></a>
+					<h3> add<wbr>Resource</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Resource<span class="tsd-signature-symbol">(</span>loadable<span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#addresource">addResource</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L112">Resources/Texture.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L72">Loader.ts:72</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="ex.sprite.html" class="tsd-signature-type">Sprite</a></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add a resource to the loader to load</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>loadable: <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Resource to add</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="addresources" class="tsd-anchor"></a>
+					<h3> add<wbr>Resources</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Resources<span class="tsd-signature-symbol">(</span>loadables<span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#addresources">addResources</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L84">Loader.ts:84</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add a list of resources to the loader to load</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>loadables: <a href="../interfaces/ex.iloadable.html" class="tsd-signature-type">ILoadable</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The list of resources to load</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="draw" class="tsd-anchor"></a>
+					<h3> draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#draw">draw</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#draw">draw</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L162">Loader.ts:162</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Loader draw function. Draws the default Excalibur loading screen. Override to customize the drawing.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -596,45 +508,39 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<a name="getdata" class="tsd-anchor"></a>
 					<h3> get<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Data<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#getdata">getData</a></p>
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#getdata">getData</a></p>
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#getdata">getData</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#getdata">getData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L121">Resources/Resource.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L204">Loader.ts:204</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the loaded data once the resource is loaded</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="isloaded" class="tsd-anchor"></a>
 					<h3> is<wbr>Loaded</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Loaded<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#isloaded">isLoaded</a></p>
-								<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#isloaded">isLoaded</a></p>
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#isloaded">isLoaded</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#isloaded">isLoaded</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L83">Resources/Texture.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L104">Loader.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns true if the Texture is completely loaded and is ready
-									to be drawn.</p>
+									<p>Returns true if the loader has completely loaded all resources</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -645,23 +551,18 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<a name="load" class="tsd-anchor"></a>
 					<h3> load</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HTMLImageElement</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">load<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#load">load</a></p>
-								<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#load">load</a></p>
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#load">load</a></p>
+								<p>Overwrites <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#load">load</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Texture.ts#L90">Resources/Texture.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L313">Loader.ts:313</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Begins loading the texture and returns a promise to be resolved on completion</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">HTMLImageElement</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -789,9 +690,9 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#oncomplete">oncomplete</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#oncomplete">oncomplete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L143">Resources/Resource.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L217">Loader.ts:217</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -807,9 +708,9 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#onerror">onerror</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#onerror">onerror</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L145">Resources/Resource.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L219">Loader.ts:219</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -820,16 +721,22 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<a name="onprogress" class="tsd-anchor"></a>
 					<h3> onprogress</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">onprogress<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">onprogress<span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#onprogress">onprogress</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#onprogress">onprogress</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L141">Resources/Resource.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L210">Loader.ts:210</a></li>
 								</ul>
 							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>e: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -838,29 +745,24 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<a name="processdata" class="tsd-anchor"></a>
 					<h3> process<wbr>Data</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">process<wbr>Data<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLImageElement</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Data<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#processdata">processData</a></p>
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#processdata">processData</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#processdata">processData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L136">Resources/Resource.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L208">Loader.ts:208</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>This method is meant to be overriden to handle any additional
-									processing. Such as decoding downloaded audio bits.</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <span class="tsd-signature-type">HTMLImageElement</span></h5>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -936,21 +838,50 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#setdata">setData</a></p>
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#setdata">setData</a></p>
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#setdata">setData</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#setdata">setData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L128">Resources/Resource.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L206">Loader.ts:206</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="update" class="tsd-anchor"></a>
+					<h3> update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#update">update</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#update">update</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L200">Loader.ts:200</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the data for this resource directly</p>
+									<p>Perform any calculations or logic in the <code>update</code> method. The default <code>Loader</code> does not
+									do anything in this method so it is safe to override.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>data: <span class="tsd-signature-type">any</span></h5>
+									<h5>engine: <a href="ex.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -966,10 +897,10 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#wireengine">wireEngine</a></p>
-								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#wireengine">wireEngine</a></p>
+								<p>Implementation of <a href="../interfaces/ex.iloader.html">ILoader</a>.<a href="../interfaces/ex.iloader.html#wireengine">wireEngine</a></p>
+								<p>Inherited from <a href="ex.loader.html">Loader</a>.<a href="ex.loader.html#wireengine">wireEngine</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Resources/Resource.ts#L60">Resources/Resource.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Loader.ts#L64">Loader.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1072,103 +1003,85 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.texture.html" class="tsd-kind-icon">Texture</a>
+						<a href="ex.pauseafterloader.html" class="tsd-kind-icon">Pause<wbr>After<wbr>Loader</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="ex.texture.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="ex.pauseafterloader.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.texture.html#_donecallback" class="tsd-kind-icon">_done<wbr>Callback</a>
+								<a href="ex.pauseafterloader.html#_loaded" class="tsd-kind-icon">_loaded</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.texture.html#_errorcallback" class="tsd-kind-icon">_error<wbr>Callback</a>
+								<a href="ex.pauseafterloader.html#_loadedvalue" class="tsd-kind-icon">_loaded<wbr>Value</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.texture.html#_isloaded" class="tsd-kind-icon">_is<wbr>Loaded</a>
+								<a href="ex.pauseafterloader.html#_playtrigger" class="tsd-kind-icon">_play<wbr>Trigger</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.texture.html#_progresscallback" class="tsd-kind-icon">_progress<wbr>Callback</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="ex.texture.html#_sprite" class="tsd-kind-icon">_sprite</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="ex.texture.html#bustcache" class="tsd-kind-icon">bust<wbr>Cache</a>
+								<a href="ex.pauseafterloader.html#_waitpromise" class="tsd-kind-icon">_wait<wbr>Promise</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#data" class="tsd-kind-icon">data</a>
+								<a href="ex.pauseafterloader.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.texture.html#height" class="tsd-kind-icon">height</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.texture.html#image" class="tsd-kind-icon">image</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.texture.html#loaded" class="tsd-kind-icon">loaded</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#logger" class="tsd-kind-icon">logger</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="ex.texture.html#path" class="tsd-kind-icon">path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.texture.html#width" class="tsd-kind-icon">width</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.pauseafterloader.html#_handleontrigger" class="tsd-kind-icon">_handle<wbr>OnTrigger</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="ex.texture.html#assprite" class="tsd-kind-icon">as<wbr>Sprite</a>
+								<a href="ex.pauseafterloader.html#addeventlistener" class="tsd-kind-icon">add<wbr>Event<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#emit" class="tsd-kind-icon">emit</a>
+								<a href="ex.pauseafterloader.html#addresource" class="tsd-kind-icon">add<wbr>Resource</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#getdata" class="tsd-kind-icon">get<wbr>Data</a>
+								<a href="ex.pauseafterloader.html#addresources" class="tsd-kind-icon">add<wbr>Resources</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.pauseafterloader.html#draw" class="tsd-kind-icon">draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.pauseafterloader.html#emit" class="tsd-kind-icon">emit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.pauseafterloader.html#getdata" class="tsd-kind-icon">get<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.pauseafterloader.html#isloaded" class="tsd-kind-icon">is<wbr>Loaded</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="ex.texture.html#isloaded" class="tsd-kind-icon">is<wbr>Loaded</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="ex.texture.html#load" class="tsd-kind-icon">load</a>
+								<a href="ex.pauseafterloader.html#load" class="tsd-kind-icon">load</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#off" class="tsd-kind-icon">off</a>
+								<a href="ex.pauseafterloader.html#off" class="tsd-kind-icon">off</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#on" class="tsd-kind-icon">on</a>
+								<a href="ex.pauseafterloader.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#oncomplete" class="tsd-kind-icon">oncomplete</a>
+								<a href="ex.pauseafterloader.html#oncomplete" class="tsd-kind-icon">oncomplete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#onerror" class="tsd-kind-icon">onerror</a>
+								<a href="ex.pauseafterloader.html#onerror" class="tsd-kind-icon">onerror</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#onprogress" class="tsd-kind-icon">onprogress</a>
+								<a href="ex.pauseafterloader.html#onprogress" class="tsd-kind-icon">onprogress</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#processdata" class="tsd-kind-icon">process<wbr>Data</a>
+								<a href="ex.pauseafterloader.html#processdata" class="tsd-kind-icon">process<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
+								<a href="ex.pauseafterloader.html#removeeventlistener" class="tsd-kind-icon">remove<wbr>Event<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#setdata" class="tsd-kind-icon">set<wbr>Data</a>
+								<a href="ex.pauseafterloader.html#setdata" class="tsd-kind-icon">set<wbr>Data</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.texture.html#wireengine" class="tsd-kind-icon">wire<wbr>Engine</a>
+								<a href="ex.pauseafterloader.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="ex.pauseafterloader.html#wireengine" class="tsd-kind-icon">wire<wbr>Engine</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="ex.texture.html#extend" class="tsd-kind-icon">extend</a>
+								<a href="ex.pauseafterloader.html#extend" class="tsd-kind-icon">extend</a>
 							</li>
 						</ul>
 					</li>

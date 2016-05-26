@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GamepadAxisEvent | Excalibur.js Edge API Documentation</title>
+	<title>KillEvent | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -60,10 +60,10 @@
 					<a href="../modules/ex.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.gamepadaxisevent.html">GamepadAxisEvent</a>
+					<a href="ex.killevent.html">KillEvent</a>
 				</li>
 			</ul>
-			<h1>Class GamepadAxisEvent</h1>
+			<h1>Class KillEvent</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Gamepad axis event. See <a href="ex.input.gamepads.html">Gamepads</a> for information on responding to controller input. <a href="ex.input.gamepad.html">Gamepad</a> instances receive this event;</p>
+						<p>The &#39;kill&#39; event is emitted on actors when it is killed. The target is the actor that was killed.</p>
 					</div>
 				</div>
 			</section>
@@ -84,7 +84,7 @@
 						<a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">GamepadAxisEvent</span>
+								<span class="target">KillEvent</span>
 							</li>
 						</ul>
 					</li>
@@ -97,15 +97,13 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.gamepadaxisevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.killevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.gamepadaxisevent.html#axis" class="tsd-kind-icon">axis</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.gamepadaxisevent.html#target" class="tsd-kind-icon">target</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.gamepadaxisevent.html#value" class="tsd-kind-icon">value</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="ex.killevent.html#target" class="tsd-kind-icon">target</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,88 +115,38 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Gamepad<wbr>Axis<wbr>Event<span class="tsd-signature-symbol">(</span>axis<span class="tsd-signature-symbol">: </span><a href="../enums/ex.input.axes.html" class="tsd-signature-type">Axes</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.gamepadaxisevent.html" class="tsd-signature-type">GamepadAxisEvent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Kill<wbr>Event<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.killevent.html" class="tsd-signature-type">KillEvent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Events.ts#L136">Events.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Events.ts#L36">Events.ts:36</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>axis: <a href="../enums/ex.input.axes.html" class="tsd-signature-type">Axes</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The Gamepad axis</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>value: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>A numeric value between -1 and 1</p>
-										</div>
-									</div>
+									<h5>target: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ex.gamepadaxisevent.html" class="tsd-signature-type">GamepadAxisEvent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="ex.killevent.html" class="tsd-signature-type">KillEvent</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="axis" class="tsd-anchor"></a>
-					<h3> axis</h3>
-					<div class="tsd-signature tsd-kind-icon">axis<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.input.axes.html" class="tsd-signature-type">Axes</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Events.ts#L142">Events.ts:142</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The Gamepad axis</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="target" class="tsd-anchor"></a>
 					<h3> target</h3>
 					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.gameevent.html">GameEvent</a>.<a href="ex.gameevent.html#target">target</a></p>
+						<p>Overwrites <a href="ex.gameevent.html">GameEvent</a>.<a href="ex.gameevent.html#target">target</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Events.ts#L30">Events.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Events.ts#L37">Events.ts:37</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Target object for this event.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="value" class="tsd-anchor"></a>
-					<h3> value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/master/src/engine/Events.ts#L142">Events.ts:142</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>A numeric value between -1 and 1</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -236,19 +184,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.gamepadaxisevent.html" class="tsd-kind-icon">Gamepad<wbr>Axis<wbr>Event</a>
+						<a href="ex.killevent.html" class="tsd-kind-icon">Kill<wbr>Event</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="ex.gamepadaxisevent.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="ex.killevent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.gamepadaxisevent.html#axis" class="tsd-kind-icon">axis</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.gamepadaxisevent.html#target" class="tsd-kind-icon">target</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.gamepadaxisevent.html#value" class="tsd-kind-icon">value</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+								<a href="ex.killevent.html#target" class="tsd-kind-icon">target</a>
 							</li>
 						</ul>
 					</li>
