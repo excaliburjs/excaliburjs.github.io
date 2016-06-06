@@ -4,6 +4,8 @@ var rimraf = require('rimraf');
 
 var BUILD_CMD = path.join('..', 'node_modules', '.bin', 'typedoc');
 
+rimraf.sync('Excalibur');
+
 console.log("Fetching Excalibur... ");
 
 process.stdout.write(child_process.execSync("git clone https://github.com/excaliburjs/Excalibur"));
