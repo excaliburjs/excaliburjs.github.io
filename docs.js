@@ -18,6 +18,14 @@ console.log("Removing existing docs...");
 
 rimraf.sync('pages/api/edge');
 
+console.log("Compiling default template (default)...");
+try {
+	child_process.execSync("npm install", { cwd: "./typedoc-default-themes", stdio: [0,1,2] });
+} catch (e) {
+	// fails to execute Linux commands, OK
+}
+child_process.execSync("grunt", { cwd: "./typedoc-default-themes", stdio: [0,1,2] });
+
 console.log("Executing typedoc...");
 
 child_process.execSync(BUILD_CMD + 
