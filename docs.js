@@ -8,11 +8,8 @@ rimraf.sync('Excalibur');
 
 console.log("Fetching Excalibur... ");
 
-child_process.execSync("git clone https://github.com/excaliburjs/Excalibur", {stdio: [0,1,2]});
-// BEGINTEMP: remove before merging
-child_process.execSync("git checkout 596-ts18", {cwd: "./Excalibur", stdio: [0,1,2]});
-// ENDTEMP
-child_process.execSync("git rev-parse HEAD", { cwd: "./Excalibur", stdio: [0,1,2] });
+process.stdout.write(child_process.execSync("git clone https://github.com/excaliburjs/Excalibur"));
+process.stdout.write(child_process.execSync("git rev-parse HEAD", { cwd: "./Excalibur" }));
 
 console.log("Removing existing docs...");
 
@@ -20,13 +17,16 @@ rimraf.sync('pages/api/edge');
 
 console.log("Executing typedoc...");
 
-child_process.execSync(BUILD_CMD + 
-	' --target ES5' +
+process.stdout.write(child_process.execSync(BUILD_CMD + 
+	' -t ES5' +
 	' --name "Excalibur.js Edge API Documentation"' +
 	' --readme none' +
-	' --mode file' +	
+	' --hideGenerator' +
+	' --mode file' +
+	' --gaID UA-46390208-1' +
+	' --gaSite excaliburjs.com' +
 	' --out ../pages/api/edge' +
+	' --theme ../typedoc-default-themes/bin/default/' +
 	' src/engine', {
-	cwd: './Excalibur',
-	stdio: [0,1,2]
-});
+	cwd: './Excalibur'
+}));
