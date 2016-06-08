@@ -26,6 +26,7 @@ child_process.execSync(BUILD_CMD +
 	' --readme none' +
 	' --mode file' +	
 	' --out ../pages/api/edge' +
+	' --theme ../typedoc-default-themes/bin/default' +
 	' src/engine', {
 	cwd: './Excalibur',
 	stdio: [0,1,2]
