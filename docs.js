@@ -35,6 +35,10 @@ child_process.execSync(BUILD_CMD +
 	' --mode file' +	
 	' --out ../pages/api/edge' +
 	' --theme ../typedoc-default-themes/bin/default' +
+	' --hideGenerator' +
+	' --gaID UA-46390208-1' +
+	' --gaSite excaliburjs.com' +	
+	' --entryPoint ex' +
 	' src/engine', {
 	cwd: './Excalibur',
 	stdio: [0,1,2]
