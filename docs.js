@@ -8,7 +8,7 @@ rimraf.sync('Excalibur');
 
 console.log("Fetching Excalibur... ");
 
-child_process.execSync("git clone https://github.com/excaliburjs/Excalibur", {stdio: [0,1,2]});a
+child_process.execSync("git clone https://github.com/excaliburjs/Excalibur", {stdio: [0,1,2]});
 child_process.execSync("git rev-parse HEAD", { cwd: "./Excalibur", stdio: [0,1,2] });
 
 console.log("Removing existing docs...");
