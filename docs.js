@@ -8,25 +8,38 @@ rimraf.sync('Excalibur');
 
 console.log("Fetching Excalibur... ");
 
-process.stdout.write(child_process.execSync("git clone https://github.com/excaliburjs/Excalibur"));
-process.stdout.write(child_process.execSync("git rev-parse HEAD", { cwd: "./Excalibur" }));
+child_process.execSync("git clone https://github.com/excaliburjs/Excalibur", {stdio: [0,1,2]});
+// BEGINTEMP: remove before merging
+child_process.execSync("git checkout 596-ts18", {cwd: "./Excalibur", stdio: [0,1,2]});
+// ENDTEMP
+child_process.execSync("git rev-parse HEAD", { cwd: "./Excalibur", stdio: [0,1,2] });
 
 console.log("Removing existing docs...");
 
 rimraf.sync('pages/api/edge');
 
+console.log("Compiling default template (default)...");
+try {
+	child_process.execSync("npm install", { cwd: "./typedoc-default-themes", stdio: [0,1,2] });
+} catch (e) {
+	// fails to execute Linux commands, OK
+}
+child_process.execSync("grunt", { cwd: "./typedoc-default-themes", stdio: [0,1,2] });
+
 console.log("Executing typedoc...");
 
-process.stdout.write(child_process.execSync(BUILD_CMD + 
-	' -t ES5' +
+child_process.execSync(BUILD_CMD + 
+	' --target ES5' +
 	' --name "Excalibur.js Edge API Documentation"' +
 	' --readme none' +
-	' --hideGenerator' +
-	' --mode file' +
-	' --gaID UA-46390208-1' +
-	' --gaSite excaliburjs.com' +
+	' --mode file' +	
 	' --out ../pages/api/edge' +
-	' --theme ../typedoc-default-themes/bin/default/' +
+	' --theme ../typedoc-default-themes/bin/default' +
+	' --hideGenerator' +
+	' --gaID UA-46390208-1' +
+	' --gaSite excaliburjs.com' +	
+	' --entryPoint ex' +
 	' src/engine', {
-	cwd: './Excalibur'
-}));
+	cwd: './Excalibur',
+	stdio: [0,1,2]
+});
