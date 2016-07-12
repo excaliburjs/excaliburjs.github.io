@@ -320,9 +320,11 @@ actor.collisionType = ex.CollisionType.Active;
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_collisionhandlers" class="tsd-kind-icon">_collision<wbr>Handlers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_framesdirty" class="tsd-kind-icon">_frames<wbr>Dirty</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_height" class="tsd-kind-icon">_height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_isinitialized" class="tsd-kind-icon">_is<wbr>Initialized</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_iskilled" class="tsd-kind-icon">_is<wbr>Killed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_opacityfx" class="tsd-kind-icon">_opacity<wbr>Fx</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_width" class="tsd-kind-icon">_width</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.actor.html#_zindex" class="tsd-kind-icon">_z<wbr>Index</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.actor.html#acc" class="tsd-kind-icon">acc</a></li>
@@ -456,7 +458,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L472">Actor.ts:472</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L474">Actor.ts:474</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,7 +520,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">_collision<wbr>Handlers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L432">Actor.ts:432</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L432">Actor.ts:432</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -549,12 +551,22 @@ actor.collisionType = ex.CollisionType.Active;
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_framesdirty" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _frames<wbr>Dirty</h3>
+					<div class="tsd-signature tsd-kind-icon">_frames<wbr>Dirty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L435">Actor.ts:435</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="_height" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _height</h3>
 					<div class="tsd-signature tsd-kind-icon">_height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L362">Actor.ts:362</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L362">Actor.ts:362</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -564,7 +576,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Initialized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L433">Actor.ts:433</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L433">Actor.ts:433</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -574,7 +586,17 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Killed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L472">Actor.ts:472</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L473">Actor.ts:473</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_opacityfx" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _opacity<wbr>Fx</h3>
+					<div class="tsd-signature tsd-kind-icon">_opacity<wbr>Fx<span class="tsd-signature-symbol">:</span> <a href="ex.effects.opacity.html" class="tsd-signature-type">Opacity</a><span class="tsd-signature-symbol"> =&nbsp;new Effects.Opacity(this.opacity)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L474">Actor.ts:474</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -584,7 +606,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">_width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L363">Actor.ts:363</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L363">Actor.ts:363</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -594,7 +616,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">_z<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L471">Actor.ts:471</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L472">Actor.ts:472</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -604,7 +626,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">acc<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new ex.Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L318">Actor.ts:318</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L318">Actor.ts:318</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -620,7 +642,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Queue<span class="tsd-signature-symbol">:</span> <a href="ex.internal.actions.actionqueue.html" class="tsd-signature-type">ActionQueue</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L403">Actor.ts:403</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L403">Actor.ts:403</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -636,7 +658,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.iactionable.html">IActionable</a>.<a href="../interfaces/ex.iactionable.html#actions">actions</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L408">Actor.ts:408</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L408">Actor.ts:408</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -651,7 +673,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">anchor<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L360">Actor.ts:360</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L360">Actor.ts:360</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -671,7 +693,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">center<wbr>DrawingX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L442">Actor.ts:442</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L443">Actor.ts:443</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -681,7 +703,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">center<wbr>DrawingY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L443">Actor.ts:443</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L444">Actor.ts:444</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -691,7 +713,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L425">Actor.ts:425</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L425">Actor.ts:425</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -706,7 +728,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L431">Actor.ts:431</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L431">Actor.ts:431</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -716,7 +738,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.collisiontype.html" class="tsd-signature-type">CollisionType</a><span class="tsd-signature-symbol"> =&nbsp;CollisionType.PreventCollision</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L430">Actor.ts:430</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L430">Actor.ts:430</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -732,7 +754,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L456">Actor.ts:456</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L457">Actor.ts:457</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -749,7 +771,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Drawing<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.idrawable.html" class="tsd-signature-type">IDrawable</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L441">Actor.ts:441</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L442">Actor.ts:442</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -766,7 +788,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">enable<wbr>Capture<wbr>Pointer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L462">Actor.ts:462</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L463">Actor.ts:463</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -783,7 +805,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -798,7 +820,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">frames<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L434">Actor.ts:434</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L434">Actor.ts:434</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -816,7 +838,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">friction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.99</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L344">Actor.ts:344</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L344">Actor.ts:344</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -831,7 +853,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;Actor.maxId++</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L291">Actor.ts:291</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L291">Actor.ts:291</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -846,7 +868,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Off<wbr>Screen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L388">Actor.ts:388</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L388">Actor.ts:388</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -861,7 +883,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> =&nbsp;Logger.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L412">Actor.ts:412</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L412">Actor.ts:412</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -876,7 +898,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">mass<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L329">Actor.ts:329</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L329">Actor.ts:329</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -891,7 +913,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">moi<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L334">Actor.ts:334</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L334">Actor.ts:334</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -906,7 +928,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">motion<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L339">Actor.ts:339</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L339">Actor.ts:339</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -921,7 +943,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">old<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new ex.Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L302">Actor.ts:302</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L302">Actor.ts:302</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -936,7 +958,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">old<wbr>Vel<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new ex.Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L312">Actor.ts:312</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L312">Actor.ts:312</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -951,7 +973,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L397">Actor.ts:397</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L397">Actor.ts:397</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -967,7 +989,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L420">Actor.ts:420</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L420">Actor.ts:420</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -982,7 +1004,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new ex.Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L297">Actor.ts:297</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L297">Actor.ts:297</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -998,7 +1020,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">previous<wbr>Opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L398">Actor.ts:398</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L398">Actor.ts:398</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -1008,7 +1030,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">restitution<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L349">Actor.ts:349</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L349">Actor.ts:349</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1023,7 +1045,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L367">Actor.ts:367</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L367">Actor.ts:367</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1038,7 +1060,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">rx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L371">Actor.ts:371</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L371">Actor.ts:371</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1053,7 +1075,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new ex.Vector(1, 1)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L375">Actor.ts:375</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L375">Actor.ts:375</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1068,7 +1090,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L416">Actor.ts:416</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L416">Actor.ts:416</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1083,7 +1105,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">sx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L379">Actor.ts:379</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L379">Actor.ts:379</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1098,7 +1120,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">sy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L383">Actor.ts:383</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L383">Actor.ts:383</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1113,7 +1135,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">torque<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L324">Actor.ts:324</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L324">Actor.ts:324</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1128,7 +1150,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">traits<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iactortrait.html" class="tsd-signature-type">IActorTrait</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L448">Actor.ts:448</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L449">Actor.ts:449</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1143,7 +1165,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">vel<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new ex.Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L307">Actor.ts:307</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L307">Actor.ts:307</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1158,7 +1180,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L392">Actor.ts:392</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L392">Actor.ts:392</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1173,7 +1195,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L287">Actor.ts:287</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L287">Actor.ts:287</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1195,7 +1217,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L511">Actor.ts:511</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L513">Actor.ts:513</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1218,7 +1240,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1119">Actor.ts:1119</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1122">Actor.ts:1122</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="ex.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -1235,7 +1257,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L577">Actor.ts:577</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L579">Actor.ts:579</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1268,7 +1290,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L674">Actor.ts:674</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L677">Actor.ts:677</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1304,7 +1326,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L619">Actor.ts:619</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L621">Actor.ts:621</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1323,7 +1345,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L623">Actor.ts:623</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L625">Actor.ts:625</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1342,7 +1364,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L629">Actor.ts:629</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L631">Actor.ts:631</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1380,7 +1402,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#addeventlistener">addEventListener</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L528">Actor.ts:528</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L530">Actor.ts:530</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1441,7 +1463,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1112">Actor.ts:1112</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1115">Actor.ts:1115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1475,7 +1497,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1004">Actor.ts:1004</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1007">Actor.ts:1007</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1526,7 +1548,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1047">Actor.ts:1047</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1050">Actor.ts:1050</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1573,7 +1595,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L896">Actor.ts:896</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L899">Actor.ts:899</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1600,7 +1622,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L857">Actor.ts:857</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L860">Actor.ts:860</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1632,7 +1654,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L833">Actor.ts:833</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L836">Actor.ts:836</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1663,7 +1685,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L796">Actor.ts:796</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L799">Actor.ts:799</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1706,7 +1728,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1204">Actor.ts:1204</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1219">Actor.ts:1219</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1737,7 +1759,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1027">Actor.ts:1027</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1030">Actor.ts:1030</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1775,7 +1797,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1037">Actor.ts:1037</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1040">Actor.ts:1040</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1804,7 +1826,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1155">Actor.ts:1155</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1178">Actor.ts:1178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1841,7 +1863,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L909">Actor.ts:909</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L912">Actor.ts:912</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1925,7 +1947,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Class.ts#L71">Class.ts:71</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Class.ts#L71">Class.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1962,7 +1984,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1016">Actor.ts:1016</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1019">Actor.ts:1019</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2006,7 +2028,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1084">Actor.ts:1084</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1087">Actor.ts:1087</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2048,7 +2070,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L748">Actor.ts:748</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L751">Actor.ts:751</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2070,7 +2092,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L783">Actor.ts:783</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L786">Actor.ts:786</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2092,7 +2114,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L691">Actor.ts:691</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L694">Actor.ts:694</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2114,7 +2136,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L874">Actor.ts:874</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L877">Actor.ts:877</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -2154,7 +2176,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L772">Actor.ts:772</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L775">Actor.ts:775</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2176,7 +2198,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L710">Actor.ts:710</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L713">Actor.ts:713</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2198,7 +2220,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L730">Actor.ts:730</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L733">Actor.ts:733</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2220,7 +2242,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L736">Actor.ts:736</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L739">Actor.ts:739</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2242,7 +2264,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L813">Actor.ts:813</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L816">Actor.ts:816</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2273,7 +2295,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L742">Actor.ts:742</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L745">Actor.ts:745</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2295,7 +2317,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L698">Actor.ts:698</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L701">Actor.ts:701</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2317,7 +2339,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L754">Actor.ts:754</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L757">Actor.ts:757</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2339,7 +2361,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L763">Actor.ts:763</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L766">Actor.ts:766</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2361,7 +2383,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L649">Actor.ts:649</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L652">Actor.ts:652</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2384,7 +2406,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L568">Actor.ts:568</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L570">Actor.ts:570</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2406,7 +2428,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L548">Actor.ts:548</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L550">Actor.ts:550</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2429,7 +2451,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1099">Actor.ts:1099</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1102">Actor.ts:1102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2472,7 +2494,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L938">Actor.ts:938</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L941">Actor.ts:941</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2522,7 +2544,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L925">Actor.ts:925</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L928">Actor.ts:928</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2573,7 +2595,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Class.ts#L62">Class.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Class.ts#L62">Class.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2631,7 +2653,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L539">Actor.ts:539</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L541">Actor.ts:541</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2687,7 +2709,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L868">Actor.ts:868</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L871">Actor.ts:871</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2742,7 +2764,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L507">Actor.ts:507</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L509">Actor.ts:509</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2771,7 +2793,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L587">Actor.ts:587</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L589">Actor.ts:589</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2802,7 +2824,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L881">Actor.ts:881</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L884">Actor.ts:884</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2833,7 +2855,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L681">Actor.ts:681</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L684">Actor.ts:684</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2865,7 +2887,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#removeeventlistener">removeEventListener</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Class.ts#L40">Class.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Class.ts#L40">Class.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2927,7 +2949,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1060">Actor.ts:1060</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1063">Actor.ts:1063</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2967,7 +2989,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1074">Actor.ts:1074</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1077">Actor.ts:1077</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2996,7 +3018,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L962">Actor.ts:962</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L965">Actor.ts:965</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3043,7 +3065,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L950">Actor.ts:950</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L953">Actor.ts:953</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3090,7 +3112,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L990">Actor.ts:990</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L993">Actor.ts:993</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3140,7 +3162,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L977">Actor.ts:977</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L980">Actor.ts:980</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3197,7 +3219,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L723">Actor.ts:723</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L726">Actor.ts:726</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3229,7 +3251,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L597">Actor.ts:597</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L599">Actor.ts:599</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3252,7 +3274,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L603">Actor.ts:603</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L605">Actor.ts:605</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3284,7 +3306,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L716">Actor.ts:716</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L719">Actor.ts:719</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3312,7 +3334,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L704">Actor.ts:704</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L707">Actor.ts:707</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3340,7 +3362,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L659">Actor.ts:659</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L662">Actor.ts:662</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3370,7 +3392,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L561">Actor.ts:561</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L563">Actor.ts:563</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3392,7 +3414,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L1127">Actor.ts:1127</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L1130">Actor.ts:1130</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3429,7 +3451,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L889">Actor.ts:889</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L892">Actor.ts:892</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3467,7 +3489,7 @@ actor.collisionType = ex.CollisionType.Active;
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Class.ts#L107">Class.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Class.ts#L107">Class.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3519,7 +3541,7 @@ actor.collisionType = ex.CollisionType.Active;
 					<div class="tsd-signature tsd-kind-icon">capture<wbr>Pointer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L467">Actor.ts:467</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L468">Actor.ts:468</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -3533,7 +3555,7 @@ actor.collisionType = ex.CollisionType.Active;
 						<div class="tsd-signature tsd-kind-icon">capture<wbr>Move<wbr>Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/67e1a0e/src/engine/Actor.ts#L468">Actor.ts:468</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d56cc8f/src/engine/Actor.ts#L469">Actor.ts:469</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -3580,6 +3602,9 @@ actor.collisionType = ex.CollisionType.Active;
 								<a href="ex.actor.html#_collisionhandlers" class="tsd-kind-icon">_collision<wbr>Handlers</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.actor.html#_framesdirty" class="tsd-kind-icon">_frames<wbr>Dirty</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.actor.html#_height" class="tsd-kind-icon">_height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -3587,6 +3612,9 @@ actor.collisionType = ex.CollisionType.Active;
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.actor.html#_iskilled" class="tsd-kind-icon">_is<wbr>Killed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.actor.html#_opacityfx" class="tsd-kind-icon">_opacity<wbr>Fx</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.actor.html#_width" class="tsd-kind-icon">_width</a>
