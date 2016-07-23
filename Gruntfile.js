@@ -20,7 +20,7 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         
         // Register Swig extensions
-        helpers: ['extensions/*.js', 'extensions/filters/*.js'],
+        helpers: ['extensions/*.js'],
         
         flatten: true,
         prettify: {
@@ -57,14 +57,14 @@ module.exports = function (grunt) {
       },
       
       //
-      // Showcase
-      showcase: {
+      // Samples
+      samples: {
         files: [
           {
             expand: true,
-            cwd: 'pages/showcase',
+            cwd: 'pages/samples',
             src: ['**/*.html'],
-            dest: '<%= dest %>/showcase/'
+            dest: '<%= dest %>/samples/'
           }
         ]
       },      
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
       // asset files
       assets: {
         files: [		  
-          { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/showcase/' },
+          { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/samples/' },
           { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' },
           { '<%= dest %>/': 'favicon.png' },
           { '<%= dest %>/': 'CNAME' }
@@ -89,14 +89,6 @@ module.exports = function (grunt) {
         files: [{ expand: true, cwd: 'pages/api/', src: '**', dest: '<%= dest %>/docs/api' }]
       }      
 
-    },
-
-    // Compile Less to CSS
-    less: {
-      site: {
-        src: ['less/main.less'],
-        dest: '<%= assemble.options.assets %>/css/main.css'
-      }
     },
 
     //
@@ -110,7 +102,7 @@ module.exports = function (grunt) {
     // Configure live reload and a static server
     connect: {
       options: {
-        port: 3000,
+        port: 1774,
         livereload: 35729,
         hostname: 'localhost'
       },
@@ -130,13 +122,14 @@ module.exports = function (grunt) {
       site: {
         files: [
           'assets/**/*.js',
-          'less/**/*.less',
           'pages/**/*.html',
           'layouts/**/*.html',
           'partials/**/*.html',
-          'extensions/**/*.js'
+          'extensions/**/*.js',
+          'ui/src/site/**/*.overrides',
+          'ui/src/site/**/*.variables'
         ],
-        tasks: ['clean', 'copy', 'less', 'assemble']
+        tasks: ['clean', 'shell:ui', 'copy', 'assemble']
       }
     },
     
@@ -146,13 +139,16 @@ module.exports = function (grunt) {
     shell: {
       docs: {        
         command: 'node docs.js'
+      },
+
+      ui: {
+        command: 'gulp build --cwd ui'
       }
     }
   });
 
   // Load npm plugins to provide necessary tasks
   grunt.loadNpmTasks('assemble');
-  grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -160,7 +156,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-shell');
 
   // Default task to be run
-  grunt.registerTask('default', ['clean', 'copy', 'less', 'assemble']);
+  grunt.registerTask('default', ['clean', 'shell:ui', 'copy', 'assemble']);
 
   // Task for development that reloads browser when you make changes
   grunt.registerTask('design', ['default', 'connect', 'watch']);
