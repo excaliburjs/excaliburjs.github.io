@@ -95,7 +95,8 @@ module.exports = function (grunt) {
     // Clean before assembling
     //
     clean: {
-      html: ['<%= dest %>/**/*.html', '!<%= dest %>/docs/api/**/*.html']
+      html: ['<%= dest %>/**/*.html', '!<%= dest %>/docs/api/**/*.html'],
+      assets: ['<%= dest %>/assets/**/*.{js,css,png,jpg,gif,eot,svg,woff,ttf,woff2}']
     },
 
     //
