@@ -81,7 +81,8 @@ module.exports = function (grunt) {
           { expand: true, cwd: 'showcase', src: ['**'], dest: '<%= dest %>/samples/' },
           { expand: true, cwd: 'assets', src: ['**'], dest: '<%= assemble.options.assets %>' },
           { '<%= dest %>/': 'favicon.png' },
-          { '<%= dest %>/': 'CNAME' }
+          { '<%= dest %>/': 'CNAME' },
+          { '<%= dest %>/': '.gitattributes' }
         ]
       },
 
