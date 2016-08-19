@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PreUpdateEvent | Excalibur.js Edge API Documentation</title>
+	<title>DrawUtil | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,176 +57,217 @@
 					<a href="../index.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.preupdateevent.html">PreUpdateEvent</a>
+					<a href="ex.util.html">Util</a>
+				</li>
+				<li>
+					<a href="ex.util.drawutil.html">DrawUtil</a>
 				</li>
 			</ul>
-			<h1>Class PreUpdateEvent</h1>
+			<h1>Module DrawUtil</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>The &#39;preupdate&#39; event is emitted on actors, scenes, and engine before the update starts.</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel tsd-hierarchy">
-				<h3>Hierarchy</h3>
-				<ul class="tsd-hierarchy">
-					<li>
-						<a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">PreUpdateEvent</span>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.preupdateevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/ex.util.drawutil.iborderradius.html" class="tsd-kind-icon">IBorder<wbr>Radius</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.preupdateevent.html#delta" class="tsd-kind-icon">delta</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.preupdateevent.html#engine" class="tsd-kind-icon">engine</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="ex.preupdateevent.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#line" class="tsd-kind-icon">line</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#roundrect" class="tsd-kind-icon">round<wbr>Rect</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3> constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pre<wbr>Update<wbr>Event<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></li>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="line" class="tsd-anchor"></a>
+					<h3> line</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50b371f/src/engine/Events.ts#L85">Events.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50b371f/src/engine/Util/DrawUtil.ts#L15">Util/DrawUtil.ts:15</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draw a line on canvas context</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>engine: <a href="ex.engine.html" class="tsd-signature-type">Engine</a></h5>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The canvas context</p>
+									</div>
 								</li>
 								<li>
-									<h5>delta: <span class="tsd-signature-type">any</span></h5>
+									<h5>color: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The color of the line</p>
+									</div>
 								</li>
 								<li>
-									<h5>target: <span class="tsd-signature-type">any</span></h5>
+									<h5>x1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The start x coordinate</p>
+									</div>
+								</li>
+								<li>
+									<h5>y1: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The start y coordinate</p>
+									</div>
+								</li>
+								<li>
+									<h5>x2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ending x coordinate</p>
+									</div>
+								</li>
+								<li>
+									<h5>y2: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ending y coordinate</p>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ex.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="delta" class="tsd-anchor"></a>
-					<h3> delta</h3>
-					<div class="tsd-signature tsd-kind-icon">delta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50b371f/src/engine/Events.ts#L86">Events.ts:86</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="engine" class="tsd-anchor"></a>
-					<h3> engine</h3>
-					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50b371f/src/engine/Events.ts#L86">Events.ts:86</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="target" class="tsd-anchor"></a>
-					<h3> target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Overwrites <a href="ex.gameevent.html">GameEvent</a>.<a href="ex.gameevent.html#target">target</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50b371f/src/engine/Events.ts#L86">Events.ts:86</a></li>
-						</ul>
-					</aside>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="roundrect" class="tsd-anchor"></a>
+					<h3> round<wbr>Rect</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">round<wbr>Rect<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, width<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, radius<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ex.util.drawutil.iborderradius.html" class="tsd-signature-type">IBorderRadius</a>, stroke<span class="tsd-signature-symbol">?: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, fill<span class="tsd-signature-symbol">?: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50b371f/src/engine/Util/DrawUtil.ts#L59">Util/DrawUtil.ts:59</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draw a round rectange on a canvas context</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The canvas context</p>
+									</div>
+								</li>
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The top-left x coordinate</p>
+									</div>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The top-left y coordinate</p>
+									</div>
+								</li>
+								<li>
+									<h5>width: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The width of the rectangle</p>
+									</div>
+								</li>
+								<li>
+									<h5>height: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The height of the rectangle</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radius: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/ex.util.drawutil.iborderradius.html" class="tsd-signature-type">IBorderRadius</a><span class="tsd-signature-symbol"> =&nbsp;5</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The border radius of the rectangle</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> stroke: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;ex.Color.White</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <a href="../classes/ex.color.html">ex.Color</a> to stroke rectangle with</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fill: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <a href="../classes/ex.color.html">ex.Color</a> to fill rectangle with</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../index.html">ex</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.effects.html">ex.<wbr>Effects</a>
+						<a href="ex.effects.html">ex.<wbr>Effects</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.input.html">ex.<wbr>Input</a>
+						<a href="ex.input.html">ex.<wbr>Input</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.internal.html">ex.<wbr>Internal</a>
+						<a href="ex.internal.html">ex.<wbr>Internal</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.internal.actions.html">ex.<wbr>Internal.<wbr>Actions</a>
+						<a href="ex.internal.actions.html">ex.<wbr>Internal.<wbr>Actions</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.traits.html">ex.<wbr>Traits</a>
+						<a href="ex.traits.html">ex.<wbr>Traits</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.util.html">ex.<wbr>Util</a>
+						<a href="ex.util.html">ex.<wbr>Util</a>
 					</li>
-					<li class=" tsd-kind-module tsd-parent-kind-module">
-						<a href="../modules/ex.util.drawutil.html">ex.<wbr>Util.<wbr>Draw<wbr>Util</a>
+					<li class="current tsd-kind-module tsd-parent-kind-module">
+						<a href="ex.util.drawutil.html">ex.<wbr>Util.<wbr>Draw<wbr>Util</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.preupdateevent.html" class="tsd-kind-icon">Pre<wbr>Update<wbr>Event</a>
-						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="ex.preupdateevent.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.preupdateevent.html#delta" class="tsd-kind-icon">delta</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.preupdateevent.html#engine" class="tsd-kind-icon">engine</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="ex.preupdateevent.html#target" class="tsd-kind-icon">target</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/ex.util.drawutil.iborderradius.html" class="tsd-kind-icon">IBorder<wbr>Radius</a>
 					</li>
-				</ul>
-				<ul class="after-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ex.util.drawutil.html#line" class="tsd-kind-icon">line</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ex.util.drawutil.html#roundrect" class="tsd-kind-icon">round<wbr>Rect</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
