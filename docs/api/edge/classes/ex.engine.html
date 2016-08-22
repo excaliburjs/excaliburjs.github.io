@@ -85,7 +85,13 @@
 					instance of a game at a time, so it is safe to use globally.</p>
 					<p>You can then call <a href="ex.engine.html#start">start</a> which starts the game and optionally accepts
 					a <a href="ex.loader.html">Loader</a> which you can use to pre-load assets.</p>
-					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine({ width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span> });
+					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine({
+  width: <span class="hljs-number">800</span>, <span class="hljs-comment">// the width of the canvas</span>
+  height: <span class="hljs-number">600</span>, <span class="hljs-comment">// the height of the canvas</span>
+  canvasElementId: <span class="hljs-string">''</span>, <span class="hljs-comment">// the DOM canvas element ID, if you are providing your own</span>
+  displayMode: ex.DisplayMode.FullScreen, <span class="hljs-comment">// the display mode</span>
+  pointerScope: ex.Input.PointerScope.Document <span class="hljs-comment">// the scope of capturing pointer (mouse/touch) events</span>
+});
 
 <span class="hljs-comment">// call game.start, which is a Promise</span>
 game.start().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
@@ -145,6 +151,13 @@ game.goToScene(<span class="hljs-string">"root"</span>);
 					<h2 id="managing-the-viewport">Managing the Viewport</h2>
 					<p>Excalibur supports multiple <a href="../enums/ex.displaymode.html">display modes</a> for a game. Pass in a <code>displayMode</code>
 					option when creating a game to customize the viewport.</p>
+					<p>The <a href="ex.engine.html#width">width</a> and <a href="ex.engine.html#height">height</a> are still used to represent the native width and height
+						of the canvas, but you can leave them at 0 or <code>undefined</code> to ignore them. If width and height
+						are not specified, the game won&#39;t be scaled and native resolution will be the physical screen
+					width/height.</p>
+					<p>If you use <a href="../enums/ex.displaymode.html#container">ex.DisplayMode.Container</a>, the canvas will automatically resize to fit inside of
+						it&#39;s parent DOM element. This allows you maximum control over the game viewport, e.g. in case
+					you want to provide HTML UI on top or as part of your game.</p>
 					<h2 id="extending-the-engine">Extending the Engine</h2>
 					<p>For complex games, any entity that inherits <a href="ex.class.html">Class</a> can be extended to override built-in
 					functionality. This is recommended for <a href="ex.actor.html">actors</a> and <a href="ex.scene.html">scenes</a>, especially.</p>
@@ -317,13 +330,29 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L428">Engine.ts:428</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L464">Engine.ts:464</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates a new game using the given <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a></p>
+									<p>Creates a new game using the given <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a>. By default, if no options are provided,
+										the game will be rendered full screen (taking up all available browser window space).
+									You can customize the game rendering through <a href="../interfaces/ex.iengineoptions.html">IEngineOptions</a>.</p>
 								</div>
+								<p>Example:</p>
+								<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine({
+  width: <span class="hljs-number">0</span>, <span class="hljs-comment">// the width of the canvas</span>
+  height: <span class="hljs-number">0</span>, <span class="hljs-comment">// the height of the canvas</span>
+  canvasElementId: <span class="hljs-string">''</span>, <span class="hljs-comment">// the DOM canvas element ID, if you are providing your own</span>
+  displayMode: ex.DisplayMode.FullScreen, <span class="hljs-comment">// the display mode</span>
+  pointerScope: ex.Input.PointerScope.Document <span class="hljs-comment">// the scope of capturing pointer (mouse/touch) events</span>
+});
+
+<span class="hljs-comment">// call game.start, which is a Promise</span>
+game.start().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+  <span class="hljs-comment">// ready, set, go!</span>
+});
+</code></pre>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -344,7 +373,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_animations<span class="tsd-signature-symbol">:</span> <a href="ex.animationnode.html" class="tsd-signature-type">AnimationNode</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L376">Engine.ts:376</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L410">Engine.ts:410</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -354,7 +383,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_compatible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L415">Engine.ts:415</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L449">Engine.ts:449</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -364,7 +393,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_has<wbr>Started<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L349">Engine.ts:349</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L383">Engine.ts:383</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -374,7 +403,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loading<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L419">Engine.ts:419</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L453">Engine.ts:453</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -384,7 +413,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Smoothing<wbr>Enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L409">Engine.ts:409</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L443">Engine.ts:443</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -394,7 +423,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_loader<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.iloader.html" class="tsd-signature-type">ILoader</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L418">Engine.ts:418</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L452">Engine.ts:452</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -404,7 +433,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L408">Engine.ts:408</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L442">Engine.ts:442</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -414,7 +443,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_request<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L412">Engine.ts:412</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L446">Engine.ts:446</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -424,7 +453,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">background<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;new Color(0, 0, 100)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L401">Engine.ts:401</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L435">Engine.ts:435</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -439,7 +468,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLCanvasElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L318">Engine.ts:318</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L352">Engine.ts:352</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -454,7 +483,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">canvas<wbr>Element<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L328">Engine.ts:328</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L362">Engine.ts:362</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -469,7 +498,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.collisionstrategy.html" class="tsd-signature-type">CollisionStrategy</a><span class="tsd-signature-symbol"> =&nbsp;CollisionStrategy.DynamicAABBTree</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L347">Engine.ts:347</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L381">Engine.ts:381</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -484,7 +513,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">ctx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L323">Engine.ts:323</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L357">Engine.ts:357</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -499,7 +528,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L364">Engine.ts:364</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L398">Engine.ts:398</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -514,7 +543,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">debug<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;new Color(255, 255, 255)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L397">Engine.ts:397</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L431">Engine.ts:431</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -524,7 +553,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a><span class="tsd-signature-symbol"> =&nbsp;DisplayMode.FullScreen</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L386">Engine.ts:386</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L420">Engine.ts:420</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -540,7 +569,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Class.ts#L15">Class.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Class.ts#L15">Class.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -555,7 +584,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">fps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L354">Engine.ts:354</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L388">Engine.ts:388</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -570,7 +599,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L337">Engine.ts:337</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L371">Engine.ts:371</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -585,7 +614,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">input<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.input.iengineinput.html" class="tsd-signature-type">IEngineInput</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L342">Engine.ts:342</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L376">Engine.ts:376</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -600,7 +629,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L396">Engine.ts:396</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L430">Engine.ts:430</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -615,7 +644,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Fullscreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L381">Engine.ts:381</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L415">Engine.ts:415</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -630,7 +659,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">pause<wbr>Audio<wbr>When<wbr>Hidden<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L391">Engine.ts:391</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L425">Engine.ts:425</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -645,7 +674,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">post<wbr>Processors<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.ipostprocessor.html" class="tsd-signature-type">IPostProcessor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L359">Engine.ts:359</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L393">Engine.ts:393</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -660,7 +689,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">root<wbr>Scene<span class="tsd-signature-symbol">:</span> <a href="ex.scene.html" class="tsd-signature-type">Scene</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L369">Engine.ts:369</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L403">Engine.ts:403</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -675,7 +704,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">scenes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L374">Engine.ts:374</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L408">Engine.ts:408</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -698,7 +727,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L333">Engine.ts:333</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L367">Engine.ts:367</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -720,7 +749,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L724">Engine.ts:724</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L779">Engine.ts:779</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -754,7 +783,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L988">Engine.ts:988</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L1043">Engine.ts:1043</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -782,7 +811,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L868">Engine.ts:868</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L923">Engine.ts:923</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -810,7 +839,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L735">Engine.ts:735</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L790">Engine.ts:790</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -843,7 +872,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L851">Engine.ts:851</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L906">Engine.ts:906</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -871,7 +900,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L954">Engine.ts:954</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L1009">Engine.ts:1009</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -906,7 +935,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L608">Engine.ts:608</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L663">Engine.ts:663</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -935,7 +964,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L613">Engine.ts:613</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L668">Engine.ts:668</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -957,7 +986,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L618">Engine.ts:618</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L673">Engine.ts:673</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -977,7 +1006,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L628">Engine.ts:628</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L683">Engine.ts:683</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1002,7 +1031,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L636">Engine.ts:636</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L691">Engine.ts:691</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1035,7 +1064,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L563">Engine.ts:563</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L618">Engine.ts:618</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1073,7 +1102,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L529">Engine.ts:529</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L584">Engine.ts:584</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1102,7 +1131,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L544">Engine.ts:544</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L599">Engine.ts:599</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1135,7 +1164,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/ex.ievented.html">IEvented</a>.<a href="../interfaces/ex.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Class.ts#L48">Class.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Class.ts#L48">Class.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1172,7 +1201,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L942">Engine.ts:942</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L997">Engine.ts:997</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1194,7 +1223,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L786">Engine.ts:786</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L841">Engine.ts:841</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1216,7 +1245,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L776">Engine.ts:776</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L831">Engine.ts:831</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1238,7 +1267,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L744">Engine.ts:744</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L799">Engine.ts:799</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1270,7 +1299,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L1124">Engine.ts:1124</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L1179">Engine.ts:1179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1304,7 +1333,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Class.ts#L39">Class.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Class.ts#L39">Class.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1362,7 +1391,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Class.ts#L27">Class.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Class.ts#L27">Class.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1418,7 +1447,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L406">Engine.ts:406</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L440">Engine.ts:440</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1446,7 +1475,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L521">Engine.ts:521</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L576">Engine.ts:576</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1498,7 +1527,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L662">Engine.ts:662</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L717">Engine.ts:717</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1520,7 +1549,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L667">Engine.ts:667</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L722">Engine.ts:722</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1542,7 +1571,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L672">Engine.ts:672</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L727">Engine.ts:727</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1564,7 +1593,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L676">Engine.ts:676</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L731">Engine.ts:731</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1583,7 +1612,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L684">Engine.ts:684</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L739">Engine.ts:739</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1607,7 +1636,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L689">Engine.ts:689</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L744">Engine.ts:744</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1639,7 +1668,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L575">Engine.ts:575</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L630">Engine.ts:630</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1661,7 +1690,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L580">Engine.ts:580</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L635">Engine.ts:635</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1692,7 +1721,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L536">Engine.ts:536</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L591">Engine.ts:591</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1720,7 +1749,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L552">Engine.ts:552</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L607">Engine.ts:607</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1751,7 +1780,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L797">Engine.ts:797</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L852">Engine.ts:852</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1782,7 +1811,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L1111">Engine.ts:1111</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L1166">Engine.ts:1166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1805,7 +1834,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L931">Engine.ts:931</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L986">Engine.ts:986</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1838,7 +1867,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L1038">Engine.ts:1038</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L1093">Engine.ts:1093</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1871,7 +1900,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L1100">Engine.ts:1100</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L1155">Engine.ts:1155</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1893,7 +1922,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L825">Engine.ts:825</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L880">Engine.ts:880</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1925,7 +1954,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Class.ts#L84">Class.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Class.ts#L84">Class.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1977,7 +2006,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_<wbr>Default<wbr>Engine<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L424">Engine.ts:424</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L458">Engine.ts:458</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1991,7 +2020,17 @@ game.start();
 						<div class="tsd-signature tsd-kind-icon">canvas<wbr>Element<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L427">Engine.ts:427</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L461">Engine.ts:461</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="_defaultengineoptions.displaymode-1" class="tsd-anchor"></a>
+						<h3> display<wbr>Mode</h3>
+						<div class="tsd-signature tsd-kind-icon">display<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.displaymode.html" class="tsd-signature-type">DisplayMode</a><span class="tsd-signature-symbol"> =&nbsp;DisplayMode.FullScreen</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L462">Engine.ts:462</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2001,7 +2040,17 @@ game.start();
 						<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L426">Engine.ts:426</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L460">Engine.ts:460</a></li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+						<a name="_defaultengineoptions.pointerscope" class="tsd-anchor"></a>
+						<h3> pointer<wbr>Scope</h3>
+						<div class="tsd-signature tsd-kind-icon">pointer<wbr>Scope<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.input.pointerscope.html" class="tsd-signature-type">PointerScope</a><span class="tsd-signature-symbol"> =&nbsp;Input.PointerScope.Document</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L463">Engine.ts:463</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -2011,7 +2060,7 @@ game.start();
 						<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/8e7949d/src/engine/Engine.ts#L425">Engine.ts:425</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9dcaf69/src/engine/Engine.ts#L459">Engine.ts:459</a></li>
 							</ul>
 						</aside>
 					</section>
