@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CollisionStrategy | Excalibur.js Edge API Documentation</title>
+	<title>CollisionResolutionStrategy | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,16 +57,26 @@
 					<a href="../index.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.collisionstrategy.html">CollisionStrategy</a>
+					<a href="ex.collisionresolutionstrategy.html">CollisionResolutionStrategy</a>
 				</li>
 			</ul>
-			<h1>Enumeration CollisionStrategy</h1>
+			<h1>Enumeration CollisionResolutionStrategy</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Possible collision resolution strategies</p>
+					</div>
+					<p>The default is <a href="ex.collisionresolutionstrategy.html#box">CollisionResolutionStrategy.Box</a> which performs simple axis aligned arcade style physcs.</p>
+					<p>More advanced rigid body physics are enabled by setting <a href="ex.collisionresolutionstrategy.html#rigidbody">CollisionResolutionStrategy.RigidBody</a> which allows for complicated
+					simulated physical interactions.</p>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -74,9 +84,8 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisionstrategy.html#dynamicaabbtree" class="tsd-kind-icon">DynamicAABBTree</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisionstrategy.html#naive" class="tsd-kind-icon">Naive</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisionstrategy.html#separatingaxis" class="tsd-kind-icon">Separating<wbr>Axis</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisionresolutionstrategy.html#box" class="tsd-kind-icon">Box</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="ex.collisionresolutionstrategy.html#rigidbody" class="tsd-kind-icon">Rigid<wbr>Body</a></li>
 							</ul>
 						</section>
 					</div>
@@ -85,32 +94,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="dynamicaabbtree" class="tsd-anchor"></a>
-					<h3> DynamicAABBTree</h3>
-					<div class="tsd-signature tsd-kind-icon">DynamicAABBTree<span class="tsd-signature-symbol">:</span> </div>
+					<a name="box" class="tsd-anchor"></a>
+					<h3> Box</h3>
+					<div class="tsd-signature tsd-kind-icon">Box<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/BoundingBox.ts#L7">Collision/BoundingBox.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Physics.ts#L12">Physics.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="naive" class="tsd-anchor"></a>
-					<h3> Naive</h3>
-					<div class="tsd-signature tsd-kind-icon">Naive<span class="tsd-signature-symbol">:</span> </div>
+					<a name="rigidbody" class="tsd-anchor"></a>
+					<h3> Rigid<wbr>Body</h3>
+					<div class="tsd-signature tsd-kind-icon">Rigid<wbr>Body<span class="tsd-signature-symbol">:</span> </div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/BoundingBox.ts#L6">Collision/BoundingBox.ts:6</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="separatingaxis" class="tsd-anchor"></a>
-					<h3> Separating<wbr>Axis</h3>
-					<div class="tsd-signature tsd-kind-icon">Separating<wbr>Axis<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/BoundingBox.ts#L8">Collision/BoundingBox.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Physics.ts#L13">Physics.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -150,16 +149,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="ex.collisionstrategy.html" class="tsd-kind-icon">Collision<wbr>Strategy</a>
+						<a href="ex.collisionresolutionstrategy.html" class="tsd-kind-icon">Collision<wbr>Resolution<wbr>Strategy</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisionstrategy.html#dynamicaabbtree" class="tsd-kind-icon">DynamicAABBTree</a>
+								<a href="ex.collisionresolutionstrategy.html#box" class="tsd-kind-icon">Box</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisionstrategy.html#naive" class="tsd-kind-icon">Naive</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="ex.collisionstrategy.html#separatingaxis" class="tsd-kind-icon">Separating<wbr>Axis</a>
+								<a href="ex.collisionresolutionstrategy.html#rigidbody" class="tsd-kind-icon">Rigid<wbr>Body</a>
 							</li>
 						</ul>
 					</li>

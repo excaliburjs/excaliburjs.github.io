@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ICollisionResolver | Excalibur.js Edge API Documentation</title>
+	<title>ICollisionBroadphase | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../index.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.icollisionresolver.html">ICollisionResolver</a>
+					<a href="ex.icollisionbroadphase.html">ICollisionBroadphase</a>
 				</li>
 			</ul>
-			<h1>Interface ICollisionResolver</h1>
+			<h1>Interface ICollisionBroadphase</h1>
 		</div>
 	</div>
 </header>
@@ -71,15 +71,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ICollisionResolver</span>
+						<span class="target">ICollisionBroadphase</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/ex.dynamictreecollisionresolver.html" class="tsd-signature-type">DynamicTreeCollisionResolver</a></li>
-					<li><a href="../classes/ex.naivecollisionresolver.html" class="tsd-signature-type">NaiveCollisionResolver</a></li>
+					<li><a href="../classes/ex.dynamictreecollisionbroadphase.html" class="tsd-signature-type">DynamicTreeCollisionBroadphase</a></li>
+					<li><a href="../classes/ex.naivecollisionbroadphase.html" class="tsd-signature-type">NaiveCollisionBroadphase</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -89,11 +89,11 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionresolver.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionresolver.html#evaluate" class="tsd-kind-icon">evaluate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionresolver.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionresolver.html#remove" class="tsd-kind-icon">remove</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionresolver.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionbroadphase.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionbroadphase.html#findcollisioncontacts" class="tsd-kind-icon">find<wbr>Collision<wbr>Contacts</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionbroadphase.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionbroadphase.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.icollisionbroadphase.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,7 +111,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/ICollisionResolver.ts#L8">Collision/ICollisionResolver.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Collision/ICollisionResolver.ts#L10">Collision/ICollisionResolver.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -128,16 +128,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="evaluate" class="tsd-anchor"></a>
-					<h3> evaluate</h3>
+					<a name="findcollisioncontacts" class="tsd-anchor"></a>
+					<h3> find<wbr>Collision<wbr>Contacts</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">evaluate<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/ex.collisionpair.html" class="tsd-signature-type">CollisionPair</a><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Collision<wbr>Contacts<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/ex.collisioncontact.html" class="tsd-signature-type">CollisionContact</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/ICollisionResolver.ts#L6">Collision/ICollisionResolver.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Collision/ICollisionResolver.ts#L7">Collision/ICollisionResolver.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -145,8 +145,11 @@
 								<li>
 									<h5>targets: <a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/ex.collisionpair.html" class="tsd-signature-type">CollisionPair</a><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/ex.collisioncontact.html" class="tsd-signature-type">CollisionContact</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -160,7 +163,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/ICollisionResolver.ts#L4">Collision/ICollisionResolver.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Collision/ICollisionResolver.ts#L4">Collision/ICollisionResolver.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -183,7 +186,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/ICollisionResolver.ts#L5">Collision/ICollisionResolver.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Collision/ICollisionResolver.ts#L5">Collision/ICollisionResolver.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -200,19 +203,22 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3> update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Collision/ICollisionResolver.ts#L7">Collision/ICollisionResolver.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Collision/ICollisionResolver.ts#L8">Collision/ICollisionResolver.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>targets: <a href="../classes/ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -255,22 +261,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="ex.icollisionresolver.html" class="tsd-kind-icon">ICollision<wbr>Resolver</a>
+						<a href="ex.icollisionbroadphase.html" class="tsd-kind-icon">ICollision<wbr>Broadphase</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.icollisionresolver.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
+								<a href="ex.icollisionbroadphase.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.icollisionresolver.html#evaluate" class="tsd-kind-icon">evaluate</a>
+								<a href="ex.icollisionbroadphase.html#findcollisioncontacts" class="tsd-kind-icon">find<wbr>Collision<wbr>Contacts</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.icollisionresolver.html#register" class="tsd-kind-icon">register</a>
+								<a href="ex.icollisionbroadphase.html#register" class="tsd-kind-icon">register</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.icollisionresolver.html#remove" class="tsd-kind-icon">remove</a>
+								<a href="ex.icollisionbroadphase.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="ex.icollisionresolver.html#update" class="tsd-kind-icon">update</a>
+								<a href="ex.icollisionbroadphase.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>

@@ -149,7 +149,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L128">PostProcessing/ColorBlindCorrector.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L128">PostProcessing/ColorBlindCorrector.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -177,7 +177,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_fragment<wbr>Shader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x27;precision mediump float;&#x27; +// our texture&#x27;uniform sampler2D u_image;&#x27; +// the texCoords passed in from the vertex shader.&#x27;varying vec2 v_texCoord;&#x27; +// Color blind conversions/*&#x27;mat3 m[9] &#x3D;&#x27; +&#x27;{&#x27; +&#x27;mat3(1.0, 0.0, 0.0,  0.0, 1.0, 0.0,  0.0, 0.0, 1.0  ),&#x27; + // normal&#x27;mat3(0.567, 0.433, 0.0,  0.558, 0.442, 0.0,  0.0, 0.242, 0.758),&#x27; + // protanopia&#x27;mat3(0.817, 0.183, 0.0,  0.333, 0.667, 0.0,  0.0, 0.125,0.875),&#x27; + // protanomaly&#x27;mat3(0.625, 0.375, 0.0,  0.7, 0.3, 0.0,  0.0, 0.3,0.7  ),&#x27; + // deuteranopia&#x27;mat3(0.8, 0.2, 0.0,  0.258, 0.742, 0.0,  0.0, 0.142,0.858),&#x27; + // deuteranomaly&#x27;mat3(0.95, 0.05, 0.0,  0.0, 0.433, 0.567,  0.0, 0.475,0.525),&#x27; + // tritanopia&#x27;mat3(0.967, 0.033, 0.0,  0.0, 0.733, 0.267,  0.0, 0.183,0.817),&#x27; + // tritanomaly&#x27;mat3(0.299, 0.587, 0.114,  0.299, 0.587, 0.114,  0.299, 0.587,0.114),&#x27; + // achromatopsia&#x27;mat3(0.618, 0.320, 0.062,  0.163, 0.775, 0.062,  0.163, 0.320,0.516)&#x27; +  // achromatomaly&#x27;};&#x27; +*/&#x27;void main() {&#x27; +&#x27;vec4 o &#x3D;  texture2D(u_image, v_texCoord);&#x27; +// RGB to LMS matrix conversion&#x27;float L &#x3D; (17.8824 * o.r) + (43.5161 * o.g) + (4.11935 * o.b);&#x27; +&#x27;float M &#x3D; (3.45565 * o.r) + (27.1554 * o.g) + (3.86714 * o.b);&#x27; +&#x27;float S &#x3D; (0.0299566 * o.r) + (0.184309 * o.g) + (1.46709 * o.b);&#x27; +// Simulate color blindness&#x27;//MODE CODE//&#x27; +/* Deuteranope for testing&#x27;float l &#x3D; 1.0 * L + 0.0 * M + 0.0 * S;&#x27; +&#x27;float m &#x3D; 0.494207 * L + 0.0 * M + 1.24827 * S;&#x27; +&#x27;float s &#x3D; 0.0 * L + 0.0 * M + 1.0 * S;&#x27; +*/// LMS to RGB matrix conversion&#x27;vec4 error;&#x27; +&#x27;error.r &#x3D; (0.0809444479 * l) + (-0.130504409 * m) + (0.116721066 * s);&#x27; +&#x27;error.g &#x3D; (-0.0102485335 * l) + (0.0540193266 * m) + (-0.113614708 * s);&#x27; +&#x27;error.b &#x3D; (-0.000365296938 * l) + (-0.00412161469 * m) + (0.693511405 * s);&#x27; +&#x27;error.a &#x3D; 1.0;&#x27; +&#x27;vec4 diff &#x3D; o - error;&#x27; +&#x27;vec4 correction;&#x27; +&#x27;correction.r &#x3D; 0.0;&#x27; +&#x27;correction.g &#x3D;  (diff.r * 0.7) + (diff.g * 1.0);&#x27; +&#x27;correction.b &#x3D;  (diff.r * 0.7) + (diff.b * 1.0);&#x27; +&#x27;correction &#x3D; o + correction;&#x27; +&#x27;correction.a &#x3D; o.a;&#x27; +&#x27;//SIMULATE//&#x27; +&#x27;}&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L66">PostProcessing/ColorBlindCorrector.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L66">PostProcessing/ColorBlindCorrector.ts:66</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +187,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_gl<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebGLRenderingContext</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L127">PostProcessing/ColorBlindCorrector.ts:127</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L127">PostProcessing/ColorBlindCorrector.ts:127</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +197,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_internal<wbr>Canvas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLCanvasElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L126">PostProcessing/ColorBlindCorrector.ts:126</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L126">PostProcessing/ColorBlindCorrector.ts:126</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -207,7 +207,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_program<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">WebGLProgram</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L128">PostProcessing/ColorBlindCorrector.ts:128</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L128">PostProcessing/ColorBlindCorrector.ts:128</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +217,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_vertex<wbr>Shader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x27;attribute vec2 a_position;&#x27; +&#x27;attribute vec2 a_texCoord;&#x27; +&#x27;uniform vec2 u_resolution;&#x27; +&#x27;varying vec2 v_texCoord;&#x27; +&#x27;void main() {&#x27; +// convert the rectangle from pixels to 0.0 to 1.0&#x27;vec2 zeroToOne &#x3D; a_position / u_resolution;&#x27; +// convert from 0-&gt;1 to 0-&gt;2&#x27;vec2 zeroToTwo &#x3D; zeroToOne * 2.0;&#x27; +// convert from 0-&gt;2 to -1-&gt;+1 (clipspace)&#x27;vec2 clipSpace &#x3D; zeroToTwo - 1.0;&#x27; +&#x27;gl_Position &#x3D; vec4(clipSpace * vec2(1, -1), 0, 1);&#x27; +// pass the texCoord to the fragment shader// The GPU will interpolate this value between points.&#x27;v_texCoord &#x3D; a_texCoord;&#x27; +&#x27;}&#x27;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L41">PostProcessing/ColorBlindCorrector.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L41">PostProcessing/ColorBlindCorrector.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +227,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">color<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.colorblindness.html" class="tsd-signature-type">ColorBlindness</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L131">PostProcessing/ColorBlindCorrector.ts:131</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L131">PostProcessing/ColorBlindCorrector.ts:131</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +237,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L131">PostProcessing/ColorBlindCorrector.ts:131</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L131">PostProcessing/ColorBlindCorrector.ts:131</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +247,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">simulate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L131">PostProcessing/ColorBlindCorrector.ts:131</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L131">PostProcessing/ColorBlindCorrector.ts:131</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +264,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L153">PostProcessing/ColorBlindCorrector.ts:153</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L153">PostProcessing/ColorBlindCorrector.ts:153</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -287,7 +287,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L196">PostProcessing/ColorBlindCorrector.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L196">PostProcessing/ColorBlindCorrector.ts:196</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -313,7 +313,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L182">PostProcessing/ColorBlindCorrector.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L182">PostProcessing/ColorBlindCorrector.ts:182</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -349,7 +349,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.ipostprocessor.html">IPostProcessor</a>.<a href="../interfaces/ex.ipostprocessor.html#process">process</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/PostProcessing/ColorBlindCorrector.ts#L218">PostProcessing/ColorBlindCorrector.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/PostProcessing/ColorBlindCorrector.ts#L218">PostProcessing/ColorBlindCorrector.ts:218</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

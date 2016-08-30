@@ -84,7 +84,9 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#line" class="tsd-kind-icon">line</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#point" class="tsd-kind-icon">point</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#roundrect" class="tsd-kind-icon">round<wbr>Rect</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#vector" class="tsd-kind-icon">vector</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,13 +98,13 @@
 					<a name="line" class="tsd-anchor"></a>
 					<h3> line</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">?: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Util/DrawUtil.ts#L15">Util/DrawUtil.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Util/DrawUtil.ts#L16">Util/DrawUtil.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -119,7 +121,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>color: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> color: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;Color.Red.clone()</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The color of the line</p>
 									</div>
@@ -154,6 +156,40 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="point" class="tsd-anchor"></a>
+					<h3> point</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">?: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, point<span class="tsd-signature-symbol">: </span><a href="../classes/ex.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Util/DrawUtil.ts#L30">Util/DrawUtil.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draw the vector as a point onto the canvas.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> color: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;Color.Red.clone()</span></h5>
+								</li>
+								<li>
+									<h5>point: <a href="../classes/ex.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="roundrect" class="tsd-anchor"></a>
 					<h3> round<wbr>Rect</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -163,7 +199,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b9b20c/src/engine/Util/DrawUtil.ts#L59">Util/DrawUtil.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Util/DrawUtil.ts#L89">Util/DrawUtil.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,6 +262,46 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="vector" class="tsd-anchor"></a>
+					<h3> vector</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">vector<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, origin<span class="tsd-signature-symbol">: </span><a href="../classes/ex.vector.html" class="tsd-signature-type">Vector</a>, vector<span class="tsd-signature-symbol">: </span><a href="../classes/ex.vector.html" class="tsd-signature-type">Vector</a>, scale<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/39cbaa0/src/engine/Util/DrawUtil.ts#L42">Util/DrawUtil.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Draw the vector as a line onto the canvas starting a origin point.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>color: <a href="../classes/ex.color.html" class="tsd-signature-type">Color</a></h5>
+								</li>
+								<li>
+									<h5>origin: <a href="../classes/ex.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5>vector: <a href="../classes/ex.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> scale: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -266,7 +342,13 @@
 						<a href="ex.util.drawutil.html#line" class="tsd-kind-icon">line</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ex.util.drawutil.html#point" class="tsd-kind-icon">point</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ex.util.drawutil.html#roundrect" class="tsd-kind-icon">round<wbr>Rect</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="ex.util.drawutil.html#vector" class="tsd-kind-icon">vector</a>
 					</li>
 				</ul>
 			</nav>
