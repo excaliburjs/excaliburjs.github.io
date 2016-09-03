@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Invert | Excalibur.js Edge API Documentation</title>
+	<title>WebAudio | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,13 +57,10 @@
 					<a href="../index.html">ex</a>
 				</li>
 				<li>
-					<a href="../modules/ex.effects.html">Effects</a>
-				</li>
-				<li>
-					<a href="ex.effects.invert.html">Invert</a>
+					<a href="ex.webaudio.html">WebAudio</a>
 				</li>
 			</ul>
-			<h1>Class Invert</h1>
+			<h1>Class WebAudio</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Applies the &quot;Invert&quot; effect to a sprite, inverting the pixel colors.</p>
+						<p>An audio implementation for Web Audio API.</p>
 					</div>
 				</div>
 			</section>
@@ -81,14 +78,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Invert</span>
+						<span class="target">WebAudio</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/ex.effects.ispriteeffect.html" class="tsd-signature-type">ISpriteEffect</a></li>
+					<li><a href="../interfaces/ex.iaudioimplementation.html" class="tsd-signature-type">IAudioImplementation</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,42 +93,158 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.webaudio.html#_logger" class="tsd-kind-icon">_logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.webaudio.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static"><a href="ex.webaudio.html#_unlocked" class="tsd-kind-icon">_unlocked</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.effects.invert.html#updatepixel" class="tsd-kind-icon">update<wbr>Pixel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.webaudio.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.webaudio.html#processdata" class="tsd-kind-icon">process<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="ex.webaudio.html#isunlocked" class="tsd-kind-icon">is<wbr>Unlocked</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="ex.webaudio.html#unlock" class="tsd-kind-icon">unlock</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_logger" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _logger</h3>
+					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> =&nbsp;Logger.getInstance()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L44">Resources/Sound.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="responsetype" class="tsd-anchor"></a>
+					<h3> response<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">response<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;arraybuffer&quot;</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/ex.iaudioimplementation.html">IAudioImplementation</a>.<a href="../interfaces/ex.iaudioimplementation.html#responsetype">responseType</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L46">Resources/Sound.ts:46</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+					<a name="_unlocked" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagPrivate">Private</span> _unlocked</h3>
+					<div class="tsd-signature tsd-kind-icon">_unlocked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L75">Resources/Sound.ts:75</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="updatepixel" class="tsd-anchor"></a>
-					<h3> update<wbr>Pixel</h3>
+					<a name="createinstance" class="tsd-anchor"></a>
+					<h3> create<wbr>Instance</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Pixel<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, imageData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageData</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Instance<span class="tsd-signature-symbol">(</span>buffer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">AudioBuffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ex.iaudio.html" class="tsd-signature-type">IAudio</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.effects.ispriteeffect.html">ISpriteEffect</a>.<a href="../interfaces/ex.effects.ispriteeffect.html#updatepixel">updatePixel</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Drawing/SpriteEffects.ts#L48">Drawing/SpriteEffects.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L71">Resources/Sound.ts:71</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new WebAudio AudioBufferSourceNode to play a sound instance</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>x: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>y: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>imageData: <span class="tsd-signature-type">ImageData</span></h5>
+									<h5>buffer: <span class="tsd-signature-type">AudioBuffer</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ex.iaudio.html" class="tsd-signature-type">IAudio</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="processdata" class="tsd-anchor"></a>
+					<h3> process<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Data<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ArrayBuffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">AudioBuffer</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L51">Resources/Sound.ts:51</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Processes raw arraybuffer data and decodes into WebAudio buffer (async).</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">ArrayBuffer</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">AudioBuffer</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="isunlocked" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> is<wbr>Unlocked</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Unlocked<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L120">Resources/Sound.ts:120</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="unlock" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> unlock</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">unlock<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Resources/Sound.ts#L82">Resources/Sound.ts:82</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Play an empty sound to unlock Safari WebAudio context. Call this function
+									right after a user interaction event. Typically used by <a href="ex.pauseafterloader.html">PauseAfterLoader</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt >source</dt>
+									<dd ><p><a href="https://paulbakaus.com/tutorials/html5/web-audio-on-ios/">https://paulbakaus.com/tutorials/html5/web-audio-on-ios/</a></p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -141,10 +254,10 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../index.html">ex</a>
 					</li>
-					<li class="current tsd-kind-module tsd-parent-kind-module">
+					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.effects.html">ex.<wbr>Effects</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
@@ -169,45 +282,36 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.colorize.html" class="tsd-kind-icon">Colorize</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.darken.html" class="tsd-kind-icon">Darken</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.desaturate.html" class="tsd-kind-icon">Desaturate</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.fill.html" class="tsd-kind-icon">Fill</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.grayscale.html" class="tsd-kind-icon">Grayscale</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.invert.html" class="tsd-kind-icon">Invert</a>
+						<a href="ex.webaudio.html" class="tsd-kind-icon">Web<wbr>Audio</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.webaudio.html#_logger" class="tsd-kind-icon">_logger</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.webaudio.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-static">
+								<a href="ex.webaudio.html#_unlocked" class="tsd-kind-icon">_unlocked</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="ex.effects.invert.html#updatepixel" class="tsd-kind-icon">update<wbr>Pixel</a>
+								<a href="ex.webaudio.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.webaudio.html#processdata" class="tsd-kind-icon">process<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="ex.webaudio.html#isunlocked" class="tsd-kind-icon">is<wbr>Unlocked</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="ex.webaudio.html#unlock" class="tsd-kind-icon">unlock</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.lighten.html" class="tsd-kind-icon">Lighten</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.opacity.html" class="tsd-kind-icon">Opacity</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.saturate.html" class="tsd-kind-icon">Saturate</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.effects.ispriteeffect.html" class="tsd-kind-icon">ISprite<wbr>Effect</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

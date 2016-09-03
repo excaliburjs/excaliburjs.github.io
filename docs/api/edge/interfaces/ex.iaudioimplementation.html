@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GamepadDisconnectEvent | Excalibur.js Edge API Documentation</title>
+	<title>IAudioImplementation | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,10 +57,10 @@
 					<a href="../index.html">ex</a>
 				</li>
 				<li>
-					<a href="ex.gamepaddisconnectevent.html">GamepadDisconnectEvent</a>
+					<a href="ex.iaudioimplementation.html">IAudioImplementation</a>
 				</li>
 			</ul>
-			<h1>Class GamepadDisconnectEvent</h1>
+			<h1>Interface IAudioImplementation</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Event received when a gamepad is disconnected from Excalibur. <a href="ex.input.gamepads.html">engine.input.gamepads</a> receives this event.</p>
+						<p>Represents an audio implementation like <a href="../classes/ex.audiotag.html">AudioTag</a> or <a href="../classes/ex.webaudio.html">WebAudio</a></p>
 					</div>
 				</div>
 			</section>
@@ -78,13 +78,15 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="ex.gameevent.html" class="tsd-signature-type">GameEvent</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">GamepadDisconnectEvent</span>
-							</li>
-						</ul>
+						<span class="target">IAudioImplementation</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/ex.audiotag.html" class="tsd-signature-type">AudioTag</a></li>
+					<li><a href="../classes/ex.webaudio.html" class="tsd-signature-type">WebAudio</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -92,74 +94,96 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.gamepaddisconnectevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ex.iaudioimplementation.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
+							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.gamepaddisconnectevent.html#index" class="tsd-kind-icon">index</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.gamepaddisconnectevent.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.iaudioimplementation.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="ex.iaudioimplementation.html#processdata" class="tsd-kind-icon">process<wbr>Data</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3> constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Gamepad<wbr>Disconnect<wbr>Event<span class="tsd-signature-symbol">(</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.gamepaddisconnectevent.html" class="tsd-signature-type">GamepadDisconnectEvent</a></li>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="responsetype" class="tsd-anchor"></a>
+					<h3> response<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">response<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Interfaces/IAudioImplementation.ts#L11">Interfaces/IAudioImplementation.ts:11</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>XHR response type</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="createinstance" class="tsd-anchor"></a>
+					<h3> create<wbr>Instance</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Instance<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.iaudio.html" class="tsd-signature-type">IAudio</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Events.ts#L113">Events.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Interfaces/IAudioImplementation.ts#L21">Interfaces/IAudioImplementation.ts:21</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Factory method that returns an instance of a played audio track</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>index: <span class="tsd-signature-type">number</span></h5>
+									<h5>data: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ex.gamepaddisconnectevent.html" class="tsd-signature-type">GamepadDisconnectEvent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="ex.iaudio.html" class="tsd-signature-type">IAudio</a></h4>
 						</li>
 					</ul>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="index" class="tsd-anchor"></a>
-					<h3> index</h3>
-					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Events.ts#L114">Events.ts:114</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="target" class="tsd-anchor"></a>
-					<h3> target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="ex.gameevent.html">GameEvent</a>.<a href="ex.gameevent.html#target">target</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Events.ts#L30">Events.ts:30</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Target object for this event.</p>
-						</div>
-					</div>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="processdata" class="tsd-anchor"></a>
+					<h3> process<wbr>Data</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Data<span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda6db2/src/engine/Interfaces/IAudioImplementation.ts#L16">Interfaces/IAudioImplementation.ts:16</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Processes raw data and transforms into sound data</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>data: <span class="tsd-signature-type">Blob</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ArrayBuffer</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../classes/ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AudioBuffer</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -196,17 +220,17 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.gamepaddisconnectevent.html" class="tsd-kind-icon">Gamepad<wbr>Disconnect<wbr>Event</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="ex.iaudioimplementation.html" class="tsd-kind-icon">IAudio<wbr>Implementation</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="ex.gamepaddisconnectevent.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="ex.iaudioimplementation.html#responsetype" class="tsd-kind-icon">response<wbr>Type</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.gamepaddisconnectevent.html#index" class="tsd-kind-icon">index</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ex.iaudioimplementation.html#createinstance" class="tsd-kind-icon">create<wbr>Instance</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="ex.gamepaddisconnectevent.html#target" class="tsd-kind-icon">target</a>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="ex.iaudioimplementation.html#processdata" class="tsd-kind-icon">process<wbr>Data</a>
 							</li>
 						</ul>
 					</li>
