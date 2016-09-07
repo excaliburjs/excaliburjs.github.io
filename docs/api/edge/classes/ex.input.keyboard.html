@@ -110,9 +110,9 @@
 						<li><code>release</code> - When a key was just released this frame</li>
 						<li><code>hold</code> - Whenever a key is in the down position</li>
 					</ul>
-					<pre><code class="lang-ts">engine.input.pointers.primary.on(<span class="hljs-string">"press"</span>, (evt: KeyEvent) =&gt; {...});
-engine.input.pointers.primary.on(<span class="hljs-string">"release"</span>, (evt: KeyEvent) =&gt; {...});
-engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent) =&gt; {...});
+					<pre><code class="lang-ts">engine.input.keyboard.on(<span class="hljs-string">"press"</span>, (evt: KeyEvent) =&gt; {...});
+engine.input.keyboard.on(<span class="hljs-string">"release"</span>, (evt: KeyEvent) =&gt; {...});
+engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent) =&gt; {...});
 </code></pre>
 				</div>
 			</section>
@@ -163,7 +163,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#init" class="tsd-kind-icon">init</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#isheld" class="tsd-kind-icon">is<wbr>Held</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.input.keyboard.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="ex.input.keyboard.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="ex.input.keyboard.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#waspressed" class="tsd-kind-icon">was<wbr>Pressed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.input.keyboard.html#wasreleased" class="tsd-kind-icon">was<wbr>Released</a></li>
@@ -186,7 +186,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L126">Input/Keyboard.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L126">Input/Keyboard.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -208,7 +208,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L126">Input/Keyboard.ts:126</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L126">Input/Keyboard.ts:126</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +218,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 					<div class="tsd-signature tsd-kind-icon">_keys<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L123">Input/Keyboard.ts:123</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L123">Input/Keyboard.ts:123</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -228,7 +228,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 					<div class="tsd-signature tsd-kind-icon">_keys<wbr>Down<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L125">Input/Keyboard.ts:125</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L125">Input/Keyboard.ts:125</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -238,7 +238,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 					<div class="tsd-signature tsd-kind-icon">_keys<wbr>Up<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L124">Input/Keyboard.ts:124</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L124">Input/Keyboard.ts:124</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -249,7 +249,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Class.ts#L15">Class.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Class.ts#L15">Class.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -273,7 +273,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 								<p>Implementation of <a href="../interfaces/ex.ievented.html">IEvented</a>.<a href="../interfaces/ex.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Class.ts#L48">Class.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Class.ts#L48">Class.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -310,7 +310,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L181">Input/Keyboard.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L189">Input/Keyboard.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,7 +332,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L137">Input/Keyboard.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L145">Input/Keyboard.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -354,7 +354,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L197">Input/Keyboard.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L205">Input/Keyboard.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +386,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Class.ts#L39">Class.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Class.ts#L39">Class.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,39 +433,138 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="on" class="tsd-anchor"></a>
 					<h3> on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><a href="../modules/ex.events.html#press" class="tsd-signature-type">press</a>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><a href="../modules/ex.events.html#release" class="tsd-signature-type">release</a>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><a href="../modules/ex.events.html#hold" class="tsd-signature-type">hold</a>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
+								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Class.ts#L27">Class.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L134">Input/Keyboard.ts:134</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Alias for <code>addEventListener</code>. You can listen for a variety of
-									events off of the engine; see the events section below for a complete list.</p>
-								</div>
-							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <a href="../modules/ex.events.html#press" class="tsd-signature-type">press</a></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L135">Input/Keyboard.ts:135</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <a href="../modules/ex.events.html#release" class="tsd-signature-type">release</a></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L136">Input/Keyboard.ts:136</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <a href="../modules/ex.events.html#hold" class="tsd-signature-type">hold</a></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">KeyboardEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">KeyboardEvent</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overwrites <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L137">Input/Keyboard.ts:137</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Name of the event to listen for</p>
-									</div>
 								</li>
 								<li>
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Event handler for the thrown event</p>
-									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -486,7 +585,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -500,7 +599,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L167">Input/Keyboard.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L175">Input/Keyboard.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -523,7 +622,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L189">Input/Keyboard.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L197">Input/Keyboard.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -554,7 +653,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Input/Keyboard.ts#L205">Input/Keyboard.ts:205</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Input/Keyboard.ts#L213">Input/Keyboard.ts:213</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -586,7 +685,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/502a52a/src/engine/Class.ts#L84">Class.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bf7bd93/src/engine/Class.ts#L84">Class.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -639,6 +738,9 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.effects.html">ex.<wbr>Effects</a>
+					</li>
+					<li class=" tsd-kind-module tsd-parent-kind-module">
+						<a href="../modules/ex.events.html">ex.<wbr>Events</a>
 					</li>
 					<li class="current tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.input.html">ex.<wbr>Input</a>
@@ -727,7 +829,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">"hold"</span>, (evt: 
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="ex.input.keyboard.html#off" class="tsd-kind-icon">off</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="ex.input.keyboard.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
