@@ -81,6 +81,12 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="ex.util.drawutil.html#linecapstyle" class="tsd-kind-icon">Line<wbr>Cap<wbr>Style</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="ex.util.drawutil.html#line" class="tsd-kind-icon">line</a></li>
@@ -93,18 +99,37 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="linecapstyle" class="tsd-anchor"></a>
+					<h3> Line<wbr>Cap<wbr>Style</h3>
+					<div class="tsd-signature tsd-kind-icon">Line<wbr>Cap<wbr>Style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"butt"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"round"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"square"</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f2cea40/src/engine/Util/DrawUtil.ts#L9">Util/DrawUtil.ts:9</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A canvas linecap style. &quot;butt&quot; is the default flush style, &quot;round&quot; is a semi-circle cap with a radius half the width of
+							the line, and &quot;square&quot; is a rectangle that is an equal width and half height cap.</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="line" class="tsd-anchor"></a>
 					<h3> line</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">?: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">line<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">?: </span><a href="../classes/ex.color.html" class="tsd-signature-type">Color</a>, x1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y1<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, x2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, thickness<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, cap<span class="tsd-signature-symbol">?: </span><a href="ex.util.drawutil.html#linecapstyle" class="tsd-signature-type">LineCapStyle</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a8e550e/src/engine/Util/DrawUtil.ts#L16">Util/DrawUtil.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f2cea40/src/engine/Util/DrawUtil.ts#L24">Util/DrawUtil.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,6 +175,18 @@
 										<p>The ending y coordinate</p>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> thickness: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The line thickness</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> cap: <a href="ex.util.drawutil.html#linecapstyle" class="tsd-signature-type">LineCapStyle</a><span class="tsd-signature-symbol"> =&nbsp;&quot;butt&quot;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <a href="ex.util.drawutil.html#linecapstyle">LineCapStyle</a> (butt, round, or square)</p>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -165,7 +202,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a8e550e/src/engine/Util/DrawUtil.ts#L30">Util/DrawUtil.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f2cea40/src/engine/Util/DrawUtil.ts#L40">Util/DrawUtil.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -199,7 +236,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a8e550e/src/engine/Util/DrawUtil.ts#L89">Util/DrawUtil.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f2cea40/src/engine/Util/DrawUtil.ts#L99">Util/DrawUtil.ts:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,7 +309,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a8e550e/src/engine/Util/DrawUtil.ts#L42">Util/DrawUtil.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f2cea40/src/engine/Util/DrawUtil.ts#L52">Util/DrawUtil.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -340,6 +377,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/ex.util.drawutil.iborderradius.html" class="tsd-kind-icon">IBorder<wbr>Radius</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="ex.util.drawutil.html#linecapstyle" class="tsd-kind-icon">Line<wbr>Cap<wbr>Style</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="ex.util.drawutil.html#line" class="tsd-kind-icon">line</a>
