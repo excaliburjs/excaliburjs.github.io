@@ -100,10 +100,19 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="ex.line.html#intercept" class="tsd-kind-icon">intercept</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="ex.line.html#slope" class="tsd-kind-icon">slope</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.line.html#findpoint" class="tsd-kind-icon">find<wbr>Point</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.line.html#getlength" class="tsd-kind-icon">get<wbr>Length</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.line.html#getslope" class="tsd-kind-icon">get<wbr>Slope</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.line.html#haspoint" class="tsd-kind-icon">has<wbr>Point</a></li>
 							</ul>
 						</section>
 					</div>
@@ -121,7 +130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/36925be/src/engine/Algebra.ts#L296">Algebra.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L296">Algebra.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -158,7 +167,7 @@
 					<div class="tsd-signature tsd-kind-icon">begin<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/36925be/src/engine/Algebra.ts#L302">Algebra.ts:302</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L302">Algebra.ts:302</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -173,7 +182,7 @@
 					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <a href="ex.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/36925be/src/engine/Algebra.ts#L302">Algebra.ts:302</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L302">Algebra.ts:302</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -184,7 +193,93 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="intercept" class="tsd-anchor"></a>
+					<h3> intercept</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> intercept<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L315">Algebra.ts:315</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the Y-intercept (b) of the line. Will return (+/-)Infinity if there is no intercept.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="slope" class="tsd-anchor"></a>
+					<h3> slope</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> slope<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L308">Algebra.ts:308</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets the raw slope (m) of the line. Will return (+/-)Infinity for vertical lines.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="findpoint" class="tsd-anchor"></a>
+					<h3> find<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Point<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.vector.html" class="tsd-signature-type">Vector</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L347">Algebra.ts:347</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Finds a point on the line given only an X or a Y value. Given an X value, the function returns
+									a new point with the calculated Y value and vice-versa.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> x: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The known X value of the target point</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> y: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The known Y value of the target point</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="ex.vector.html" class="tsd-signature-type">Vector</a></h4>
+							<p>A new point with the other calculated axis value</p>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getlength" class="tsd-anchor"></a>
 					<h3> get<wbr>Length</h3>
@@ -195,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/36925be/src/engine/Algebra.ts#L318">Algebra.ts:318</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L332">Algebra.ts:332</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -217,7 +312,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/36925be/src/engine/Algebra.ts#L308">Algebra.ts:308</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L322">Algebra.ts:322</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -226,6 +321,67 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="ex.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="haspoint" class="tsd-anchor"></a>
+					<h3> has<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Point<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, threshold<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Point<span class="tsd-signature-symbol">(</span>v<span class="tsd-signature-symbol">: </span><a href="ex.vector.html" class="tsd-signature-type">Vector</a>, threshold<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L363">Algebra.ts:363</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Whether or not the given point lies on this line. This method is precise by default
+										meaning the point must lie exactly on the line. Adjust threshold to
+									loosen the strictness of the check for floating-point calculations.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> threshold: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3169979/src/engine/Algebra.ts#L370">Algebra.ts:370</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Whether or not the given point lies on this line. This method is precise by default
+										meaning the point must lie exactly on the line. Adjust threshold to
+									loosen the strictness of the check for floating-point calculations.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>v: <a href="ex.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> threshold: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -279,11 +435,23 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.line.html#end" class="tsd-kind-icon">end</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="ex.line.html#intercept" class="tsd-kind-icon">intercept</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="ex.line.html#slope" class="tsd-kind-icon">slope</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.line.html#findpoint" class="tsd-kind-icon">find<wbr>Point</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.line.html#getlength" class="tsd-kind-icon">get<wbr>Length</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="ex.line.html#getslope" class="tsd-kind-icon">get<wbr>Slope</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.line.html#haspoint" class="tsd-kind-icon">has<wbr>Point</a>
 							</li>
 						</ul>
 					</li>
