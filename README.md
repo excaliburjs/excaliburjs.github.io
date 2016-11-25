@@ -23,7 +23,10 @@ You can name them however, but it would be best to keep the same prefix. We can 
 
 ### Requirements
 
-- Node.js (0.10.x)
+- Node.js (0.4.x)
+- Ruby 2.2.x (ensure it's in PATH)
+- Ruby Gems 2.6.x ([fix SSL error on Windows x64](https://gist.github.com/luislavena/f064211759ee0f806c88#gistcomment-1916808))
+- Sass (`gem install sass`)
 - Windows or Unix-like
 
 ### Packages we use
@@ -31,6 +34,7 @@ You can name them however, but it would be best to keep the same prefix. We can 
 - Assemble for static site generation
 - Grunt for tasks
 - Typedoc for API documentation
+- Semantic UI framework
 
 Once you've cloned the repository, run the following commands:
 
@@ -82,26 +86,8 @@ TypeDoc is used to compile docs for Excalibur 0.2+. You should only need to perf
 
 To generate documentation with TypeDoc, you can run the following command:
 
-    node_modules\.bin\typedoc 
-     -t ES5 
-     --mode file
-     --hideGenerator 
-     --readme none
-     --gaID UA-46390208-1
-     --gaSite excaliburjs.com
-     --name "Excalibur.js v0.2.2 API Documentation" 
-     --out v0.2.2
-     ex\src\engine
+    node docs.js
 
-A reliable way is to create a temporary folder and clone Excalibur, then checkout the release tag, and install the appropriate version of TypeDoc that supports the targeted TypeScript version. For example, v0.2.2 uses TypeScript 1.0 so only TypeDoc v0.1.3 can generate documentation.
+Edit docs.js and modify the `git checkout` command to use a specific branch when testing API docs. e.g.
 
-Example commands:
-
-    mkdir excalibur-docs
-    cd excalibur-docs
-    git clone https://github.com/excaliburjs/Excalibur ex
-    cd ex
-    git checkout v0.2.2
-    cd..
-    npm install typedoc@0.1.3
-    node_modules\.bin\typedoc -t ES5 --hideGenerator --readme none --name "Excalibur.js v0.2.2 API Documentation" --out v0.2.2 ex\src\engine
+    git checkout -b issue-foo https://...
