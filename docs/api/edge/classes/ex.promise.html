@@ -70,35 +70,29 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Promises/A+ spec implementation of promises</p>
+						<p>Promises are used to do asynchronous work and they are useful for
+							creating a chain of actions. In Excalibur they are used for loading,
+						sounds, animation, actions, and more.</p>
 					</div>
-					<p>Promises are used to do asynchronous work and they are useful for
-						creating a chain of actions. In Excalibur they are used for loading,
-					sounds, animation, actions, and more.</p>
 					<h2 id="a-promise-chain">A Promise Chain</h2>
 					<p>Promises can be chained together and can be useful for creating a queue
-					of functions to be called when something is done.</p>
-					<p>The first <a href="ex.promise.html">Promise</a> you will encounter is probably <a href="ex.engine.html#start">Engine.start</a>
+						of functions to be called when something is done.
+						The first <a href="ex.promise.html">Promise</a> you will encounter is probably <a href="ex.engine.html#start">Engine.start</a>
 					which resolves when the game has finished loading.</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
-
 <span class="hljs-comment">// perform start-up logic once game is ready</span>
 game.start().then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-
   <span class="hljs-comment">// start-up &amp; initialization logic</span>
-
 });
 </code></pre>
 					<h2 id="handling-errors">Handling errors</h2>
 					<p>You can optionally pass an error handler to <a href="ex.promise.html#then">Promise.then</a> which will handle
 					any errors that occur during Promise execution.</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
-
 game.start().then(
   <span class="hljs-comment">// success handler</span>
   <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   },
-
   <span class="hljs-comment">// error handler</span>
   <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err</span>) </span>{
   }
@@ -170,7 +164,7 @@ game.start().then(
 					<div class="tsd-signature tsd-kind-icon">_error<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L79">Promises.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L39">Promises.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -201,7 +195,7 @@ game.start().then(
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> =&nbsp;Logger.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L80">Promises.ts:80</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L40">Promises.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +205,7 @@ game.start().then(
 					<div class="tsd-signature tsd-kind-icon">_state<span class="tsd-signature-symbol">:</span> <a href="../enums/ex.promisestate.html" class="tsd-signature-type">PromiseState</a><span class="tsd-signature-symbol"> =&nbsp;PromiseState.Pending</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L75">Promises.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L35">Promises.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -221,7 +215,7 @@ game.start().then(
 					<div class="tsd-signature tsd-kind-icon">_success<wbr>Callbacks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L77">Promises.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L37">Promises.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -252,7 +246,7 @@ game.start().then(
 					<div class="tsd-signature tsd-kind-icon">_value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L76">Promises.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L36">Promises.ts:36</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +263,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L266">Promises.ts:266</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L226">Promises.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -292,7 +286,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L78">Promises.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L38">Promises.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -309,7 +303,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L211">Promises.ts:211</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L171">Promises.ts:171</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,7 +353,7 @@ game.start().then(
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.ipromise.html">IPromise</a>.<a href="../interfaces/ex.ipromise.html#reject">reject</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L244">Promises.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L204">Promises.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,7 +385,7 @@ game.start().then(
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.ipromise.html">IPromise</a>.<a href="../interfaces/ex.ipromise.html#resolve">resolve</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L222">Promises.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L182">Promises.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -423,7 +417,7 @@ game.start().then(
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.ipromise.html">IPromise</a>.<a href="../interfaces/ex.ipromise.html#state">state</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L262">Promises.ts:262</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L222">Promises.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -445,7 +439,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L178">Promises.ts:178</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L138">Promises.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -519,7 +513,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L116">Promises.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L76">Promises.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -545,7 +539,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L122">Promises.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L82">Promises.ts:82</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -580,7 +574,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L106">Promises.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L66">Promises.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -617,7 +611,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L96">Promises.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L56">Promises.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -654,7 +648,7 @@ game.start().then(
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Promises.ts#L87">Promises.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Promises.ts#L47">Promises.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

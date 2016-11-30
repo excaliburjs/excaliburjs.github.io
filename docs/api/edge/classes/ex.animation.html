@@ -70,20 +70,17 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Animations</p>
+						<p>Animations allow you to display a series of images one after another,
+						creating the illusion of change. Generally these images will come from a <a href="ex.spritesheet.html">SpriteSheet</a> source.</p>
 					</div>
-					<p>Animations allow you to display a series of images one after another,
-					creating the illusion of change. Generally these images will come from a <a href="ex.spritesheet.html">SpriteSheet</a> source.</p>
 					<h2 id="creating-an-animation">Creating an animation</h2>
 					<p>Create a <a href="ex.texture.html">Texture</a> that contains the frames of your animation. Once the texture
 						is <a href="ex.loader.html">loaded</a>, you can then generate an <a href="ex.animation.html">Animation</a> by creating a <a href="ex.spritesheet.html">SpriteSheet</a>
 					and using <a href="ex.spritesheet.html#getanimationforall">SpriteSheet.getAnimationForAll</a>.</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 <span class="hljs-keyword">var</span> txAnimPlayerIdle = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/anim-player-idle.png"</span>);
-
 <span class="hljs-comment">// load assets</span>
 <span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txAnimPlayerIdle);
-
 <span class="hljs-comment">// start game</span>
 game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
   <span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> ex.Actor();
@@ -96,7 +93,6 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 
   <span class="hljs-comment">// add drawing to player as "idle"</span>
   player.addDrawing(<span class="hljs-string">"idle"</span>, playerIdleAnimation);
-
   <span class="hljs-comment">// add player to game</span>
   game.add(player);
 });
@@ -194,7 +190,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L96">Drawing/Animation.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L59">Drawing/Animation.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -250,7 +246,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L81">Drawing/Animation.ts:81</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L44">Drawing/Animation.ts:44</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +256,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_old<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;Date.now()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L64">Drawing/Animation.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L27">Drawing/Animation.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -271,7 +267,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#anchor">anchor</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L66">Drawing/Animation.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L29">Drawing/Animation.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -281,7 +277,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L62">Drawing/Animation.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L25">Drawing/Animation.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -297,7 +293,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#fliphorizontal">flipHorizontal</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L91">Drawing/Animation.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L54">Drawing/Animation.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -313,7 +309,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#flipvertical">flipVertical</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L86">Drawing/Animation.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L49">Drawing/Animation.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -328,7 +324,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">freeze<wbr>Frame<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L79">Drawing/Animation.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L42">Drawing/Animation.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -345,7 +341,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#height">height</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L94">Drawing/Animation.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L57">Drawing/Animation.ts:57</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -355,7 +351,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">loop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L73">Drawing/Animation.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L36">Drawing/Animation.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -371,7 +367,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#naturalheight">naturalHeight</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L96">Drawing/Animation.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L59">Drawing/Animation.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -382,7 +378,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#naturalwidth">naturalWidth</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L95">Drawing/Animation.ts:95</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L58">Drawing/Animation.ts:58</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -393,7 +389,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#rotation">rotation</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L67">Drawing/Animation.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L30">Drawing/Animation.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -404,7 +400,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#scale">scale</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L68">Drawing/Animation.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L31">Drawing/Animation.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -414,7 +410,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">speed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L57">Drawing/Animation.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L20">Drawing/Animation.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -429,7 +425,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">sprites<span class="tsd-signature-symbol">:</span> <a href="ex.sprite.html" class="tsd-signature-type">Sprite</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L52">Drawing/Animation.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L15">Drawing/Animation.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -446,7 +442,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#width">width</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L93">Drawing/Animation.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L56">Drawing/Animation.ts:56</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -463,7 +459,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L226">Drawing/Animation.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L189">Drawing/Animation.ts:189</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -486,7 +482,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L234">Drawing/Animation.ts:234</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L197">Drawing/Animation.ts:197</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -509,7 +505,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L242">Drawing/Animation.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L205">Drawing/Animation.ts:205</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -532,7 +528,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L277">Drawing/Animation.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L240">Drawing/Animation.ts:240</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -550,7 +546,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#addeffect">addEffect</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L194">Drawing/Animation.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L157">Drawing/Animation.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -579,7 +575,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#cleareffects">clearEffects</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L220">Drawing/Animation.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L183">Drawing/Animation.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -601,7 +597,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L159">Drawing/Animation.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L122">Drawing/Animation.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -630,7 +626,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L173">Drawing/Animation.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L136">Drawing/Animation.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -658,7 +654,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L187">Drawing/Animation.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L150">Drawing/Animation.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -687,7 +683,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#draw">draw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L291">Drawing/Animation.ts:291</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L254">Drawing/Animation.ts:254</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -716,7 +712,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L151">Drawing/Animation.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L114">Drawing/Animation.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -744,7 +740,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L137">Drawing/Animation.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L100">Drawing/Animation.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -766,7 +762,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L144">Drawing/Animation.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L107">Drawing/Animation.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -788,7 +784,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L260">Drawing/Animation.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L223">Drawing/Animation.ts:223</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -810,7 +806,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L166">Drawing/Animation.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L129">Drawing/Animation.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -838,7 +834,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L130">Drawing/Animation.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L93">Drawing/Animation.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -866,7 +862,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L323">Drawing/Animation.ts:323</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L286">Drawing/Animation.ts:286</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -905,7 +901,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#removeeffect">removeEffect</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L204">Drawing/Animation.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L167">Drawing/Animation.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -928,7 +924,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#removeeffect">removeEffect</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L210">Drawing/Animation.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L173">Drawing/Animation.ts:173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -960,7 +956,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ex.idrawable.html">IDrawable</a>.<a href="../interfaces/ex.idrawable.html#reset">reset</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L253">Drawing/Animation.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L216">Drawing/Animation.ts:216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -982,7 +978,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L180">Drawing/Animation.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L143">Drawing/Animation.ts:143</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1010,7 +1006,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L287">Drawing/Animation.ts:287</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L250">Drawing/Animation.ts:250</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1041,7 +1037,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/Animation.ts#L269">Drawing/Animation.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/Animation.ts#L232">Drawing/Animation.ts:232</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

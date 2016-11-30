@@ -70,10 +70,9 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Tile Maps</p>
+						<p>The <a href="ex.tilemap.html">TileMap</a> class provides a lightweight way to do large complex scenes with collision
+						without the overhead of actors.</p>
 					</div>
-					<p>The <a href="ex.tilemap.html">TileMap</a> class provides a lightweight way to do large complex scenes with collision
-					without the overhead of actors.</p>
 					<p>Tile maps are made up of <a href="ex.cell.html">Cells</a> which can draw <a href="ex.tilesprite.html">TileSprites</a>. Tile
 						maps support multiple layers and work well for building tile-based games such as RPGs,
 						adventure games, strategy games, and others. Cells can be <a href="ex.cell.html#solid">solid</a> so
@@ -89,14 +88,12 @@
 						draw. <a href="ex.tilemap.html">TileMap</a> supports multiple sprite sheets, letting you organize tile sheets
 					to your liking.</p>
 					<p>Next, you need to populate each <a href="ex.cell.html">Cell</a> with one or more <a href="ex.tilesprite.html">TileSprites</a>
-						using <a href="ex.cell.html#pushsprite">Cell.pushSprite</a>.
-					Once the <a href="ex.tilemap.html">TileMap</a> is added to a <a href="ex.scene.html">Scene</a>, it will be drawn and updated.</p>
+					using <a href="ex.cell.html#pushsprite">Cell.pushSprite</a>.</p>
+					<p>Once the <a href="ex.tilemap.html">TileMap</a> is added to a <a href="ex.scene.html">Scene</a>, it will be drawn and updated.</p>
 					<p>You can then add <a href="ex.actor.html">Actors</a> to the <a href="ex.scene.html">Scene</a> and interact with the <a href="ex.tilemap.html">TileMap</a>.</p>
 					<p>In this example, we take in a map configuration that we designed (for example,
 					based on the exported structure of a JSON file).</p>
-					<pre><code class="lang-ts">
-<span class="hljs-comment">// define TypeScript interfaces to make our life easier</span>
-
+					<pre><code class="lang-typescript"><span class="hljs-comment">// define TypeScript interfaces to make our life easier</span>
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> IMapDefinition {
   cells: IMapCellDefinition[];
   tileSheets: IMapTileSheet[];
@@ -122,25 +119,18 @@
 
 <span class="hljs-comment">// create a Map class that creates a game map</span>
 <span class="hljs-comment">// based on JSON configuration</span>
-
 <span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Map extends ex.Scene {
-
   <span class="hljs-keyword">private</span> _mapDefinition: IMapDefinition;
   <span class="hljs-keyword">private</span> _tileMap: ex.TileMap;
-
   <span class="hljs-keyword">constructor</span>(mapDef: IMapDefinition) {
-
     <span class="hljs-comment">// store reference to definition</span>
     <span class="hljs-keyword">this</span>._mapDefinition = mapDef;
-
     <span class="hljs-comment">// create a tile map</span>
-    <span class="hljs-keyword">this</span>._tileMap = <span class="hljs-keyword">new</span> ex.TileMap(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, mapDef.tileWidth, mapDef.tileHeight,
+    <span class="hljs-keyword">this</span>._tileMap = <span class="hljs-keyword">new</span> ex.TileMap(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, mapDef.tileWidth, mapDef.tileHeight, 
       mapDef.width / mapDef.tileWidth, mapDef.height / mapDef.tileHeight);
   }
-
   <span class="hljs-keyword">public</span> onInitialize() {
     <span class="hljs-comment">// build our map based on JSON config</span>
-
     <span class="hljs-comment">// build sprite sheets</span>
     <span class="hljs-keyword">this</span>._mapDefinition.tileSheets.forEach(sheet =&gt; {
 
@@ -148,19 +138,15 @@
       <span class="hljs-comment">// normally, you will want to ensure you load the Texture before</span>
       <span class="hljs-comment">// creating the SpriteSheet</span>
       <span class="hljs-comment">// this can be done outside the Map class, in a Loader</span>
-      <span class="hljs-keyword">this</span>._tileMap.registerSpriteSheet(sheet.id.toString(),
-        <span class="hljs-keyword">new</span> ex.SpriteSheet(<span class="hljs-keyword">new</span> ex.Texture(sheet.path), sheet.columns, sheet.rows,
+      <span class="hljs-keyword">this</span>._tileMap.registerSpriteSheet(sheet.id.toString(), 
+        <span class="hljs-keyword">new</span> ex.SpriteSheet(<span class="hljs-keyword">new</span> ex.Texture(sheet.path), sheet.columns, sheet.rows, 
           <span class="hljs-keyword">this</span>._mapDefinition.tileWidth, <span class="hljs-keyword">this</span>._mapDefinition.tileHeight));
-
     });
-
     <span class="hljs-comment">// fill cells with sprites</span>
     <span class="hljs-keyword">this</span>._mapDefinition.cells.forEach(cell =&gt; {
-
       <span class="hljs-comment">// create a TileSprite</span>
       <span class="hljs-comment">// assume tileId is the index of the frame in the sprite sheet</span>
       <span class="hljs-keyword">var</span> ts = <span class="hljs-keyword">new</span> ex.TileSprite(cell.sheetId.toString(), cell.spriteId);
-
       <span class="hljs-comment">// add to cell</span>
       <span class="hljs-keyword">this</span>._tileMap.getCell(cell.x, cell.y).pushSprite(ts);
     }
@@ -172,9 +158,7 @@
 
 <span class="hljs-comment">// add our level (JSON from external source)</span>
 <span class="hljs-keyword">var</span> map1 = <span class="hljs-keyword">new</span> Map({ ... });
-
 game.add(<span class="hljs-string">"map1"</span>, map1);
-
 game.start();
 </code></pre>
 					<p>In a real game, you will want to ensure all the textures for the sprite sheets
@@ -257,7 +241,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L152">TileMap.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L21">TileMap.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -326,7 +310,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_collidingX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L144">TileMap.ts:144</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L13">TileMap.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -336,7 +320,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_collidingY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L145">TileMap.ts:145</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L14">TileMap.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -346,7 +330,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_on<wbr>ScreenXEnd<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;9999</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L147">TileMap.ts:147</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L16">TileMap.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -356,7 +340,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_on<wbr>ScreenXStart<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L146">TileMap.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L15">TileMap.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -366,7 +350,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_on<wbr>ScreenYEnd<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;9999</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L149">TileMap.ts:149</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L18">TileMap.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -376,7 +360,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_on<wbr>ScreenYStart<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L148">TileMap.ts:148</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L17">TileMap.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -386,7 +370,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">_sprite<wbr>Sheets<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L150">TileMap.ts:150</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L19">TileMap.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -404,7 +388,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L166">TileMap.ts:166</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L35">TileMap.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -419,7 +403,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L165">TileMap.ts:165</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L34">TileMap.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -434,7 +418,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">cols<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L168">TileMap.ts:168</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L37">TileMap.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -449,7 +433,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <a href="ex.cell.html" class="tsd-signature-type">Cell</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L152">TileMap.ts:152</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L21">TileMap.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -459,7 +443,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> =&nbsp;Logger.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L151">TileMap.ts:151</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L20">TileMap.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -469,7 +453,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">rows<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L167">TileMap.ts:167</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L36">TileMap.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -484,7 +468,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L163">TileMap.ts:163</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L32">TileMap.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -499,7 +483,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L164">TileMap.ts:164</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L33">TileMap.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -521,7 +505,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L192">TileMap.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L61">TileMap.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -550,7 +534,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L318">TileMap.ts:318</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L187">TileMap.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -581,7 +565,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L273">TileMap.ts:273</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L142">TileMap.ts:142</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -618,7 +602,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L238">TileMap.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L107">TileMap.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -649,7 +633,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L232">TileMap.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L101">TileMap.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -677,7 +661,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L248">TileMap.ts:248</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L117">TileMap.ts:117</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,7 +693,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L185">TileMap.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L54">TileMap.ts:54</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -735,7 +719,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/TileMap.ts#L258">TileMap.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/TileMap.ts#L127">TileMap.ts:127</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

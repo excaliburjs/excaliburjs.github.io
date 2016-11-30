@@ -70,11 +70,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Textures</p>
+						<p>The <a href="ex.texture.html">Texture</a> object allows games built in Excalibur to load image resources.
+							<a href="ex.texture.html">Texture</a> is an <a href="../interfaces/ex.iloadable.html">ILoadable</a> which means it can be passed to a <a href="ex.loader.html">Loader</a>
+						to pre-load before starting a level or game.</p>
 					</div>
-					<p>The <a href="ex.texture.html">Texture</a> object allows games built in Excalibur to load image resources.
-						<a href="ex.texture.html">Texture</a> is an <a href="../interfaces/ex.iloadable.html">ILoadable</a> which means it can be passed to a <a href="ex.loader.html">Loader</a>
-					to pre-load before starting a level or game.</p>
 					<p>Textures are the raw image so to add a drawing to a game, you must create
 						a <a href="ex.sprite.html">Sprite</a>. You can use <a href="ex.texture.html#assprite">Texture.asSprite</a> to quickly generate a Sprite
 					instance.</p>
@@ -82,15 +81,10 @@
 					<p>Pass the <a href="ex.texture.html">Texture</a> to a <a href="ex.loader.html">Loader</a> to pre-load the asset. Once a <a href="ex.texture.html">Texture</a>
 					is loaded, you can generate a <a href="ex.sprite.html">Sprite</a> with it.</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> txPlayer = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/player.png"</span>);
-
 <span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txPlayer);
-
 game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
-
   <span class="hljs-keyword">var</span> player = <span class="hljs-keyword">new</span> ex.Actor();
-
   player.addDrawing(txPlayer);
-
   game.add(player);
 });
 </code></pre>
@@ -181,7 +175,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L67">Resources/Texture.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L43">Resources/Texture.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -218,7 +212,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_done<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L66">Resources/Texture.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L42">Resources/Texture.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -243,7 +237,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_error<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L67">Resources/Texture.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L43">Resources/Texture.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -274,7 +268,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Loaded<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L57">Resources/Texture.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L33">Resources/Texture.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -284,7 +278,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_progress<wbr>Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L65">Resources/Texture.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L41">Resources/Texture.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -318,7 +312,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_sprite<span class="tsd-signature-symbol">:</span> <a href="ex.sprite.html" class="tsd-signature-type">Sprite</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L58">Resources/Texture.ts:58</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L34">Resources/Texture.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -329,7 +323,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#bustcache">bustCache</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L73">Resources/Texture.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L49">Resources/Texture.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -345,7 +339,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#data">data</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L39">Resources/Resource.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L12">Resources/Resource.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -356,7 +350,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Class.ts#L15">Class.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Class.ts#L15">Class.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -371,7 +365,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L50">Resources/Texture.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L26">Resources/Texture.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -386,7 +380,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLImageElement</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L63">Resources/Texture.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L39">Resources/Texture.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -401,7 +395,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">loaded<span class="tsd-signature-symbol">:</span> <a href="ex.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Promise&lt;any&gt;()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L55">Resources/Texture.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L31">Resources/Texture.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -417,7 +411,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#logger">logger</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L40">Resources/Resource.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L13">Resources/Resource.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -428,7 +422,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#path">path</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L73">Resources/Texture.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L49">Resources/Texture.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -444,7 +438,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#responsetype">responseType</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L48">Resources/Resource.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L21">Resources/Resource.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -459,7 +453,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L45">Resources/Texture.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L21">Resources/Texture.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -481,7 +475,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L112">Resources/Texture.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L88">Resources/Texture.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="ex.sprite.html" class="tsd-signature-type">Sprite</a></h4>
@@ -500,7 +494,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<p>Implementation of <a href="../interfaces/ex.ievented.html">IEvented</a>.<a href="../interfaces/ex.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Class.ts#L48">Class.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Class.ts#L48">Class.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,7 +533,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#getdata">getData</a></p>
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#getdata">getData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L121">Resources/Resource.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L94">Resources/Resource.ts:94</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -563,7 +557,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#isloaded">isLoaded</a></p>
 								<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#isloaded">isLoaded</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L83">Resources/Texture.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L59">Resources/Texture.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -588,7 +582,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#load">load</a></p>
 								<p>Overwrites <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#load">load</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Texture.ts#L90">Resources/Texture.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Texture.ts#L66">Resources/Texture.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -611,7 +605,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Class.ts#L39">Class.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Class.ts#L39">Class.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -669,7 +663,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Class.ts#L27">Class.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Class.ts#L27">Class.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -726,7 +720,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#oncomplete">oncomplete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L143">Resources/Resource.ts:143</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L116">Resources/Resource.ts:116</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -744,7 +738,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#onerror">onerror</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L145">Resources/Resource.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L118">Resources/Resource.ts:118</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -762,7 +756,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#onprogress">onprogress</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L141">Resources/Resource.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L114">Resources/Resource.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -780,7 +774,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#processdata">processData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L136">Resources/Resource.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L109">Resources/Resource.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -811,7 +805,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#setdata">setData</a></p>
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#setdata">setData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L128">Resources/Resource.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L101">Resources/Resource.ts:101</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -841,7 +835,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 								<p>Implementation of <a href="../interfaces/ex.iloadable.html">ILoadable</a>.<a href="../interfaces/ex.iloadable.html#wireengine">wireEngine</a></p>
 								<p>Inherited from <a href="ex.resource.html">Resource</a>.<a href="ex.resource.html#wireengine">wireEngine</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Resources/Resource.ts#L60">Resources/Resource.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Resources/Resource.ts#L33">Resources/Resource.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -865,7 +859,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Class.ts#L84">Class.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Class.ts#L84">Class.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

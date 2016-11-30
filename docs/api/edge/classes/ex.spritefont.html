@@ -70,17 +70,16 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Sprite Fonts</p>
+						<p>Sprite fonts are a used in conjunction with a <a href="ex.label.html">Label</a> to specify
+							a particular bitmap as a font. Note that some font features are not
+						supported by Sprite fonts.</p>
 					</div>
-					<p>Sprite fonts are a used in conjunction with a <a href="ex.label.html">Label</a> to specify
-						a particular bitmap as a font. Note that some font features are not
-					supported by Sprite fonts.</p>
 					<h2 id="generating-the-font-sheet">Generating the font sheet</h2>
 					<p>You can use tools such as <a href="http://www.lmnopc.com/bitmapfontbuilder/">Bitmap Font Builder</a> to
 					generate a sprite sheet for you to load into Excalibur.</p>
 					<h2 id="creating-a-sprite-font">Creating a sprite font</h2>
-					<p>Start with an image with a grid containing all the letters you want to support.
-						Once you load it into Excalibur using a <a href="ex.texture.html">Texture</a> resource, you can create
+					<p>Start with an image with a grid containing all the letters you want to support.</p>
+					<p>Once you load it into Excalibur using a <a href="ex.texture.html">Texture</a> resource, you can create
 					a <a href="ex.spritefont.html">SpriteFont</a> using the constructor.</p>
 					<p>For example, here is a representation of a font sprite sheet for an uppercase alphabet
 					with 4 columns and 7 rows:</p>
@@ -95,7 +94,6 @@ YZ</span>
 					<p>Then to create the <a href="ex.spritefont.html">SpriteFont</a>:</p>
 					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 <span class="hljs-keyword">var</span> txFont = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">"/assets/tx/font.png"</span>);
-
 <span class="hljs-comment">// load assets</span>
 <span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txFont);
 
@@ -104,13 +102,10 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 
   <span class="hljs-comment">// create a font</span>
   <span class="hljs-keyword">var</span> font = <span class="hljs-keyword">new</span> ex.SpriteFont(txFont, <span class="hljs-string">"ABCDEFGHIJKLMNOPQRSTUVWXYZ "</span>, <span class="hljs-literal">true</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">30</span>, <span class="hljs-number">30</span>);
-
   <span class="hljs-comment">// create a label using this font</span>
   <span class="hljs-keyword">var</span> label = <span class="hljs-keyword">new</span> ex.Label(<span class="hljs-string">"Hello World"</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">null</span>, font);
-
   <span class="hljs-comment">// display in-game</span>
   game.add(label);
-
 });
 </code></pre>
 					<p>If you want to use a lowercase representation in the font, you can pass <code>false</code> for <a href="ex.spritefont.html#caseinsensitive">caseInsensitive</a>
@@ -120,12 +115,10 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<p>When using sprite fonts with a <a href="ex.label.html">Label</a>, you can set the <a href="ex.label.html#color">Label.color</a> property
 					to use different colors.</p>
 					<h2 id="known-issues">Known Issues</h2>
-					<p><strong>One font per Label</strong>
-					<a href="https://github.com/excaliburjs/Excalibur/issues/172">Issue #172</a></p>
+					<p><strong>One font per Label</strong><br><a href="https://github.com/excaliburjs/Excalibur/issues/172">Issue #172</a></p>
 					<p>If you intend on changing colors or applying opacity effects, you have to use
 					a new <a href="ex.spritefont.html">SpriteFont</a> instance per <a href="ex.label.html">Label</a>.</p>
-					<p><strong>Using opacity removes other effects</strong>
-					<a href="https://github.com/excaliburjs/Excalibur/issues/148">Issue #148</a></p>
+					<p><strong>Using opacity removes other effects</strong><br><a href="https://github.com/excaliburjs/Excalibur/issues/148">Issue #148</a></p>
 					<p>If you apply any custom effects to the sprites in a SpriteFont, including trying to
 					use <a href="ex.label.html#color">Label.color</a>, they will be removed when modifying <a href="ex.label.html#opacity">Label.opacity</a>.</p>
 				</div>
@@ -205,7 +198,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Overwrites <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L281">Drawing/SpriteSheet.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L124">Drawing/SpriteSheet.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -282,7 +275,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_color<wbr>Lookup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L270">Drawing/SpriteSheet.ts:270</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L113">Drawing/SpriteSheet.ts:113</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -300,7 +293,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_current<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;Color.Black.clone()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L271">Drawing/SpriteSheet.ts:271</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L114">Drawing/SpriteSheet.ts:114</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -310,7 +303,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_current<wbr>Opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L272">Drawing/SpriteSheet.ts:272</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L115">Drawing/SpriteSheet.ts:115</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +313,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>OffsetX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L280">Drawing/SpriteSheet.ts:280</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L123">Drawing/SpriteSheet.ts:123</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -330,7 +323,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_shadow<wbr>OffsetY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L281">Drawing/SpriteSheet.ts:281</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L124">Drawing/SpriteSheet.ts:124</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -340,7 +333,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_sprite<wbr>Lookup<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L269">Drawing/SpriteSheet.ts:269</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L112">Drawing/SpriteSheet.ts:112</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -358,7 +351,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_sprites<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L273">Drawing/SpriteSheet.ts:273</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L116">Drawing/SpriteSheet.ts:116</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -376,7 +369,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_text<wbr>Shadow<wbr>Color<span class="tsd-signature-symbol">:</span> <a href="ex.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;Color.Black.clone()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L278">Drawing/SpriteSheet.ts:278</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L121">Drawing/SpriteSheet.ts:121</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -386,7 +379,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_text<wbr>Shadow<wbr>Dirty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L277">Drawing/SpriteSheet.ts:277</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L120">Drawing/SpriteSheet.ts:120</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -396,7 +389,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_text<wbr>Shadow<wbr>On<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L276">Drawing/SpriteSheet.ts:276</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L119">Drawing/SpriteSheet.ts:119</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -406,7 +399,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">_text<wbr>Shadow<wbr>Sprites<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L279">Drawing/SpriteSheet.ts:279</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L122">Drawing/SpriteSheet.ts:122</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -424,7 +417,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">alphabet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L295">Drawing/SpriteSheet.ts:295</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L138">Drawing/SpriteSheet.ts:138</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -439,7 +432,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">case<wbr>Insensitive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L296">Drawing/SpriteSheet.ts:296</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L139">Drawing/SpriteSheet.ts:139</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -455,7 +448,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Overwrites <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#image">image</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L294">Drawing/SpriteSheet.ts:294</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L137">Drawing/SpriteSheet.ts:137</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -470,7 +463,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">sp<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L300">Drawing/SpriteSheet.ts:300</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L143">Drawing/SpriteSheet.ts:143</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -485,7 +478,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<div class="tsd-signature tsd-kind-icon">sp<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L299">Drawing/SpriteSheet.ts:299</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L142">Drawing/SpriteSheet.ts:142</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -501,7 +494,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#sprites">sprites</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L96">Drawing/SpriteSheet.ts:96</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L13">Drawing/SpriteSheet.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -518,7 +511,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L430">Drawing/SpriteSheet.ts:430</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L273">Drawing/SpriteSheet.ts:273</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -541,7 +534,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L350">Drawing/SpriteSheet.ts:350</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L193">Drawing/SpriteSheet.ts:193</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -582,7 +575,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getanimationbetween">getAnimationBetween</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L154">Drawing/SpriteSheet.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L71">Drawing/SpriteSheet.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -633,7 +626,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getanimationbyindices">getAnimationByIndices</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L135">Drawing/SpriteSheet.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L52">Drawing/SpriteSheet.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -678,7 +671,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getanimationforall">getAnimationForAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L168">Drawing/SpriteSheet.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L85">Drawing/SpriteSheet.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -717,7 +710,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.spritesheet.html">SpriteSheet</a>.<a href="ex.spritesheet.html#getsprite">getSprite</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L180">Drawing/SpriteSheet.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L97">Drawing/SpriteSheet.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -749,7 +742,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L308">Drawing/SpriteSheet.ts:308</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L151">Drawing/SpriteSheet.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -776,7 +769,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L326">Drawing/SpriteSheet.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L169">Drawing/SpriteSheet.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -819,7 +812,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/48ed769/src/engine/Drawing/SpriteSheet.ts#L340">Drawing/SpriteSheet.ts:340</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b27a289/src/engine/Drawing/SpriteSheet.ts#L183">Drawing/SpriteSheet.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
