@@ -47,17 +47,7 @@ Once you've cloned the repository, run the following commands:
     # Run site for local development
     grunt design
 
-We recommend using the free [Brackets](http://brackets.io) editor since it's easy to use and works on any platform.
-
-## Deploying
-
-If you're a core contributor, it's easy to push the site to GitHub. Just run:
-
-    grunt deploy
-    
-You may need to type in your credentials, but after that the production site will be updated.
-
-**Tip:** Don't do this if you don't want the latest changes to be public!
+We recommend using the free [Visual Studio Code](http://code.visualstudio.com) editor since it's easy to use and works on any platform.
 
 ## Adding to Showcase
 
@@ -91,3 +81,5 @@ To generate documentation with TypeDoc, you can run the following command:
 Edit docs.js and modify the `git checkout` command to use a specific branch when testing API docs. e.g.
 
     git checkout -b issue-foo https://...
+
+You will also need to modify the output folder from `edge` to a version for specific version building (or copy the edge to a new folder).

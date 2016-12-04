@@ -30,7 +30,7 @@ child_process.execSync(BUILD_CMD +
 	' --name "Excalibur.js Edge API Documentation"' +
 	' --readme none' +
 	' --mode file' +	
-  ' --includes src/engine/Docs' +
+    ' --includes src/engine/Docs' +
 	' --out ../pages/api/edge' +
 	' --theme ../typedoc-default-themes/bin/default' +
 	' --hideGenerator' +
