@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Desaturate | Excalibur.js Edge API Documentation</title>
+	<title>Pair | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,13 +57,10 @@
 					<a href="../index.html">ex</a>
 				</li>
 				<li>
-					<a href="../modules/ex.effects.html">Effects</a>
-				</li>
-				<li>
-					<a href="ex.effects.desaturate.html">Desaturate</a>
+					<a href="ex.pair.html">Pair</a>
 				</li>
 			</ul>
-			<h1>Class Desaturate</h1>
+			<h1>Class Pair</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +70,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Applies the &quot;Desaturate&quot; effect to a sprite, desaturates the color according to HSL</p>
+						<p>Models a potential collision between 2 bodies</p>
 					</div>
 				</div>
 			</section>
@@ -81,14 +78,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Desaturate</span>
+						<span class="target">Pair</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/ex.effects.ispriteeffect.html" class="tsd-signature-type">ISpriteEffect</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -98,19 +89,25 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.effects.desaturate.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="ex.pair.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.effects.desaturate.html#factor" class="tsd-kind-icon">factor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.pair.html#bodya" class="tsd-kind-icon">bodyA</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.pair.html#bodyb" class="tsd-kind-icon">bodyB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.pair.html#collision" class="tsd-kind-icon">collision</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.pair.html#id" class="tsd-kind-icon">id</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.effects.desaturate.html#updatepixel" class="tsd-kind-icon">update<wbr>Pixel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.pair.html#collide" class="tsd-kind-icon">collide</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.pair.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.pair.html#resolve" class="tsd-kind-icon">resolve</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="ex.pair.html#calculatepairhash" class="tsd-kind-icon">calculate<wbr>Pair<wbr>Hash</a></li>
 							</ul>
 						</section>
 					</div>
@@ -122,29 +119,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Desaturate<span class="tsd-signature-symbol">(</span>factor<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.effects.desaturate.html" class="tsd-signature-type">Desaturate</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Pair<span class="tsd-signature-symbol">(</span>bodyA<span class="tsd-signature-symbol">: </span><a href="ex.body.html" class="tsd-signature-type">Body</a>, bodyB<span class="tsd-signature-symbol">: </span><a href="ex.body.html" class="tsd-signature-type">Body</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="ex.pair.html" class="tsd-signature-type">Pair</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Drawing/SpriteEffects.ts#L159">Drawing/SpriteEffects.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L12">Collision/Pair.ts:12</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> factor: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.1</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The factor of the effect between 0-1</p>
-										</div>
-									</div>
+									<h5>bodyA: <a href="ex.body.html" class="tsd-signature-type">Body</a></h5>
+								</li>
+								<li>
+									<h5>bodyB: <a href="ex.body.html" class="tsd-signature-type">Body</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="ex.effects.desaturate.html" class="tsd-signature-type">Desaturate</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="ex.pair.html" class="tsd-signature-type">Pair</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -152,50 +145,152 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="factor" class="tsd-anchor"></a>
-					<h3> factor</h3>
-					<div class="tsd-signature tsd-kind-icon">factor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="bodya" class="tsd-anchor"></a>
+					<h3> bodyA</h3>
+					<div class="tsd-signature tsd-kind-icon">bodyA<span class="tsd-signature-symbol">:</span> <a href="ex.body.html" class="tsd-signature-type">Body</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Drawing/SpriteEffects.ts#L163">Drawing/SpriteEffects.ts:163</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L14">Collision/Pair.ts:14</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The factor of the effect between 0-1</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="bodyb" class="tsd-anchor"></a>
+					<h3> bodyB</h3>
+					<div class="tsd-signature tsd-kind-icon">bodyB<span class="tsd-signature-symbol">:</span> <a href="ex.body.html" class="tsd-signature-type">Body</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L14">Collision/Pair.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="collision" class="tsd-anchor"></a>
+					<h3> collision</h3>
+					<div class="tsd-signature tsd-kind-icon">collision<span class="tsd-signature-symbol">:</span> <a href="ex.collisioncontact.html" class="tsd-signature-type">CollisionContact</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L12">Collision/Pair.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="id" class="tsd-anchor"></a>
+					<h3> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L11">Collision/Pair.ts:11</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="updatepixel" class="tsd-anchor"></a>
-					<h3> update<wbr>Pixel</h3>
+					<a name="collide" class="tsd-anchor"></a>
+					<h3> collide</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Pixel<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, imageData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageData</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">collide<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/ex.effects.ispriteeffect.html">ISpriteEffect</a>.<a href="../interfaces/ex.effects.ispriteeffect.html#updatepixel">updatePixel</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Drawing/SpriteEffects.ts#L164">Drawing/SpriteEffects.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L21">Collision/Pair.ts:21</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Runs the collison intersection logic on the members of this pair</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="debugdraw" class="tsd-anchor"></a>
+					<h3> debug<wbr>Draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">debug<wbr>Draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L46">Collision/Pair.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>x: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>y: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>imageData: <span class="tsd-signature-type">ImageData</span></h5>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="resolve" class="tsd-anchor"></a>
+					<h3> resolve</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, strategy<span class="tsd-signature-symbol">: </span><a href="../enums/ex.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L28">Collision/Pair.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resovles the collision body position and velocity if a collision occured</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>strategy: <a href="../enums/ex.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="calculatepairhash" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> calculate<wbr>Pair<wbr>Hash</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">calculate<wbr>Pair<wbr>Hash<span class="tsd-signature-symbol">(</span>bodyA<span class="tsd-signature-symbol">: </span><a href="ex.body.html" class="tsd-signature-type">Body</a>, bodyB<span class="tsd-signature-symbol">: </span><a href="ex.body.html" class="tsd-signature-type">Body</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3e895ba/src/engine/Collision/Pair.ts#L37">Collision/Pair.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Calculates the unique pair hash id for this collision pair</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bodyA: <a href="ex.body.html" class="tsd-signature-type">Body</a></h5>
+								</li>
+								<li>
+									<h5>bodyB: <a href="ex.body.html" class="tsd-signature-type">Body</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -204,10 +299,10 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="../index.html">ex</a>
 					</li>
-					<li class="current tsd-kind-module tsd-parent-kind-module">
+					<li class=" tsd-kind-module tsd-parent-kind-module">
 						<a href="../modules/ex.effects.html">ex.<wbr>Effects</a>
 					</li>
 					<li class=" tsd-kind-module tsd-parent-kind-module">
@@ -235,51 +330,42 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.colorize.html" class="tsd-kind-icon">Colorize</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.darken.html" class="tsd-kind-icon">Darken</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.desaturate.html" class="tsd-kind-icon">Desaturate</a>
+						<a href="ex.pair.html" class="tsd-kind-icon">Pair</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="ex.effects.desaturate.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="ex.pair.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.effects.desaturate.html#factor" class="tsd-kind-icon">factor</a>
+								<a href="ex.pair.html#bodya" class="tsd-kind-icon">bodyA</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.pair.html#bodyb" class="tsd-kind-icon">bodyB</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.pair.html#collision" class="tsd-kind-icon">collision</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="ex.pair.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="ex.effects.desaturate.html#updatepixel" class="tsd-kind-icon">update<wbr>Pixel</a>
+								<a href="ex.pair.html#collide" class="tsd-kind-icon">collide</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.pair.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.pair.html#resolve" class="tsd-kind-icon">resolve</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="ex.pair.html#calculatepairhash" class="tsd-kind-icon">calculate<wbr>Pair<wbr>Hash</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.fill.html" class="tsd-kind-icon">Fill</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.grayscale.html" class="tsd-kind-icon">Grayscale</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.invert.html" class="tsd-kind-icon">Invert</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.lighten.html" class="tsd-kind-icon">Lighten</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.opacity.html" class="tsd-kind-icon">Opacity</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="ex.effects.saturate.html" class="tsd-kind-icon">Saturate</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/ex.effects.ispriteeffect.html" class="tsd-kind-icon">ISprite<wbr>Effect</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
