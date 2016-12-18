@@ -180,6 +180,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_broadphase" class="tsd-kind-icon">_broadphase</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_cancelqueue" class="tsd-kind-icon">_cancel<wbr>Queue</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_isinitialized" class="tsd-kind-icon">_is<wbr>Initialized</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_killqueue" class="tsd-kind-icon">_kill<wbr>Queue</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_logger" class="tsd-kind-icon">_logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_sorteddrawingtree" class="tsd-kind-icon">_sorted<wbr>Drawing<wbr>Tree</a></li>
@@ -190,15 +191,22 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.scene.html#engine" class="tsd-kind-icon">engine</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="ex.scene.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.scene.html#groups" class="tsd-kind-icon">groups</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.scene.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.scene.html#tilemaps" class="tsd-kind-icon">tile<wbr>Maps</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="ex.scene.html#uiactors" class="tsd-kind-icon">ui<wbr>Actors</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="ex.scene.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="ex.scene.html#_addchild" class="tsd-kind-icon">_add<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.scene.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="ex.scene.html#_initializechildren" class="tsd-kind-icon">_initialize<wbr>Children</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="ex.scene.html#_removechild" class="tsd-kind-icon">_remove<wbr>Child</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.scene.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="ex.scene.html#addtilemap" class="tsd-kind-icon">add<wbr>Tile<wbr>Map</a></li>
@@ -244,7 +252,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L69">Scene.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L67">Scene.ts:67</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -266,7 +274,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">_broadphase<span class="tsd-signature-symbol">:</span> <a href="../interfaces/ex.icollisionbroadphase.html" class="tsd-signature-type">ICollisionBroadphase</a><span class="tsd-signature-symbol"> =&nbsp;new DynamicTreeCollisionBroadphase()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L64">Scene.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L62">Scene.ts:62</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -276,7 +284,17 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">_cancel<wbr>Queue<span class="tsd-signature-symbol">:</span> <a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L68">Scene.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L66">Scene.ts:66</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_isinitialized" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _is<wbr>Initialized</h3>
+					<div class="tsd-signature tsd-kind-icon">_is<wbr>Initialized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L58">Scene.ts:58</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -286,7 +304,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">_kill<wbr>Queue<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L66">Scene.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L64">Scene.ts:64</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -296,7 +314,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">_logger<span class="tsd-signature-symbol">:</span> <a href="ex.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> =&nbsp;Logger.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L69">Scene.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L67">Scene.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -306,7 +324,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">_sorted<wbr>Drawing<wbr>Tree<span class="tsd-signature-symbol">:</span> <a href="ex.sortedlist.html" class="tsd-signature-type">SortedList</a><span class="tsd-signature-symbol">&lt;</span><a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new SortedList&lt;Actor&gt;(Actor.prototype.getZIndex)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L62">Scene.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L60">Scene.ts:60</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -316,7 +334,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">_timers<span class="tsd-signature-symbol">:</span> <a href="ex.timer.html" class="tsd-signature-type">Timer</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L67">Scene.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L65">Scene.ts:65</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -326,7 +344,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">actor<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L25">Scene.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L25">Scene.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -341,7 +359,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">camera<span class="tsd-signature-symbol">:</span> <a href="ex.basecamera.html" class="tsd-signature-type">BaseCamera</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L30">Scene.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L30">Scene.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -356,7 +374,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L35">Scene.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L35">Scene.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -371,7 +389,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="ex.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L50">Scene.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L50">Scene.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -387,7 +405,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Class.ts#L15">Class.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Class.ts#L15">Class.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -402,7 +420,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L45">Scene.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L45">Scene.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -420,27 +438,12 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="isinitialized" class="tsd-anchor"></a>
-					<h3> is<wbr>Initialized</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Initialized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L60">Scene.ts:60</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Whether or the <a href="ex.scene.html">Scene</a> has been initialized</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="tilemaps" class="tsd-anchor"></a>
 					<h3> tile<wbr>Maps</h3>
 					<div class="tsd-signature tsd-kind-icon">tile<wbr>Maps<span class="tsd-signature-symbol">:</span> <a href="ex.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L40">Scene.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L40">Scene.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -455,7 +458,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">ui<wbr>Actors<span class="tsd-signature-symbol">:</span> <a href="ex.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L55">Scene.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L55">Scene.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -463,6 +466,31 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<p>The <a href="ex.uiactor.html">UIActor</a>s in a scene, if any; these are drawn last</p>
 						</div>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="isinitialized" class="tsd-anchor"></a>
+					<h3> is<wbr>Initialized</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isInitialized<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L136">Scene.ts:136</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets whether or not the <a href="ex.scene.html">Scene</a> has been initialized</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -477,7 +505,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L404">Scene.ts:404</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L432">Scene.ts:432</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,6 +523,61 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_initialize" class="tsd-anchor"></a>
+					<h3> _initialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_initialize<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="ex.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L145">Scene.ts:145</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializes the scene before the first update, meant to be called by engine not by users of
+									Excalibur</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <a href="ex.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_initializechildren" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagPrivate">Private</span> _initialize<wbr>Children</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_initialize<wbr>Children<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L127">Scene.ts:127</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializes actors in the scene</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="_removechild" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _remove<wbr>Child</h3>
@@ -505,7 +588,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L432">Scene.ts:432</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L460">Scene.ts:460</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -536,7 +619,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L291">Scene.ts:291</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L319">Scene.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -558,7 +641,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L296">Scene.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L324">Scene.ts:324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,7 +660,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L302">Scene.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L330">Scene.ts:330</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -599,7 +682,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L308">Scene.ts:308</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L336">Scene.ts:336</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -630,7 +713,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L415">Scene.ts:415</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L443">Scene.ts:443</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -658,7 +741,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L442">Scene.ts:442</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L470">Scene.ts:470</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -689,7 +772,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L386">Scene.ts:386</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L414">Scene.ts:414</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -723,7 +806,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L465">Scene.ts:465</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L493">Scene.ts:493</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -754,7 +837,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L513">Scene.ts:513</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L541">Scene.ts:541</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -782,7 +865,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L283">Scene.ts:283</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L311">Scene.ts:311</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -810,7 +893,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L480">Scene.ts:480</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L508">Scene.ts:508</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -838,7 +921,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L261">Scene.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L289">Scene.ts:289</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -869,7 +952,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L211">Scene.ts:211</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L239">Scene.ts:239</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -908,7 +991,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								<p>Implementation of <a href="../interfaces/ex.ievented.html">IEvented</a>.<a href="../interfaces/ex.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Class.ts#L48">Class.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Class.ts#L48">Class.ts:48</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -945,7 +1028,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L487">Scene.ts:487</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L515">Scene.ts:515</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -973,7 +1056,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L473">Scene.ts:473</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L501">Scene.ts:501</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1002,7 +1085,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Class.ts#L39">Class.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Class.ts#L39">Class.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1069,7 +1152,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L80">Scene.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L78">Scene.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1105,7 +1188,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L81">Scene.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L79">Scene.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1141,7 +1224,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L82">Scene.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L80">Scene.ts:80</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1177,7 +1260,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L83">Scene.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L81">Scene.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1213,7 +1296,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L84">Scene.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L82">Scene.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1249,7 +1332,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L85">Scene.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L83">Scene.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1285,7 +1368,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L86">Scene.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L84">Scene.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1321,7 +1404,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L87">Scene.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L85">Scene.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1357,7 +1440,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L88">Scene.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L86">Scene.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1393,7 +1476,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="ex.class.html">Class</a>.<a href="ex.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L89">Scene.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L87">Scene.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1437,7 +1520,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L112">Scene.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L110">Scene.ts:110</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1460,7 +1543,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L121">Scene.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L119">Scene.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1483,7 +1566,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L99">Scene.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L97">Scene.ts:97</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1515,7 +1598,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L343">Scene.ts:343</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L371">Scene.ts:371</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1537,7 +1620,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L349">Scene.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L377">Scene.ts:377</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1558,7 +1641,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L355">Scene.ts:355</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L383">Scene.ts:383</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1580,7 +1663,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L361">Scene.ts:361</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L389">Scene.ts:389</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1612,7 +1695,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L494">Scene.ts:494</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L522">Scene.ts:522</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1631,7 +1714,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L499">Scene.ts:499</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L527">Scene.ts:527</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1659,7 +1742,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L422">Scene.ts:422</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L450">Scene.ts:450</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1687,7 +1770,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L453">Scene.ts:453</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L481">Scene.ts:481</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1723,7 +1806,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L394">Scene.ts:394</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L422">Scene.ts:422</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1751,7 +1834,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L131">Scene.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L159">Scene.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1788,7 +1871,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Scene.ts#L520">Scene.ts:520</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Scene.ts#L548">Scene.ts:548</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1817,7 +1900,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="ex.class.html">Class</a>.<a href="ex.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a085617/src/engine/Class.ts#L84">Class.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/31a5d4e/src/engine/Class.ts#L84">Class.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1911,6 +1994,9 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								<a href="ex.scene.html#_cancelqueue" class="tsd-kind-icon">_cancel<wbr>Queue</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="ex.scene.html#_isinitialized" class="tsd-kind-icon">_is<wbr>Initialized</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="ex.scene.html#_killqueue" class="tsd-kind-icon">_kill<wbr>Queue</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -1941,16 +2027,22 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								<a href="ex.scene.html#groups" class="tsd-kind-icon">groups</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="ex.scene.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.scene.html#tilemaps" class="tsd-kind-icon">tile<wbr>Maps</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="ex.scene.html#uiactors" class="tsd-kind-icon">ui<wbr>Actors</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="ex.scene.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="ex.scene.html#_addchild" class="tsd-kind-icon">_add<wbr>Child</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="ex.scene.html#_initialize" class="tsd-kind-icon">_initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="ex.scene.html#_initializechildren" class="tsd-kind-icon">_initialize<wbr>Children</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="ex.scene.html#_removechild" class="tsd-kind-icon">_remove<wbr>Child</a>
