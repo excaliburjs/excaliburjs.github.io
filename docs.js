@@ -27,6 +27,7 @@ console.log("Executing typedoc...");
 
 child_process.execSync(BUILD_CMD + 
 	' --target ES5' +
+	' --experimentalDecorators' +
 	' --name "Excalibur.js Edge API Documentation"' +
 	' --readme none' +
 	' --mode file' +	
