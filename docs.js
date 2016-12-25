@@ -21,8 +21,6 @@ try {
 } catch (e) {
 	// fails to execute Linux commands, OK
 }
-child_process.execSync("grunt", { cwd: "./typedoc-default-themes", stdio: [0,1,2] });
-
 console.log("Executing typedoc...");
 
 child_process.execSync(BUILD_CMD + 
