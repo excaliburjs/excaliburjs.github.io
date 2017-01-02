@@ -11,7 +11,7 @@ echo "Clean deploy dir"
 rm _deploy/* -rf
 
 echo "Copying built files"
-cp -R _ghpages/* _deploy
+cp -R _ghpages/. _deploy
 cd _deploy
 
 echo "Committing and pushing to GH"
