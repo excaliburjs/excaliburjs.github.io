@@ -99,16 +99,19 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_input_pointer_.pointer.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#lastpagepos" class="tsd-kind-icon">last<wbr>Page<wbr>Pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#lastscreenpos" class="tsd-kind-icon">last<wbr>Screen<wbr>Pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#lastworldpos" class="tsd-kind-icon">last<wbr>World<wbr>Pos</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
@@ -123,20 +126,20 @@
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Pointer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointer.html" class="tsd-signature-type">Pointer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Class.ts#L14">Class.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L347">Input/Pointer.ts:347</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_input_pointer_.pointer.html" class="tsd-signature-type">Pointer</a></h4>
@@ -144,7 +147,7 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="eventdispatcher" class="tsd-anchor"></a>
@@ -153,12 +156,57 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Direct access to the game object event dispatcher.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="lastpagepos" class="tsd-anchor"></a>
+					<h3> last<wbr>Page<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Page<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L358">Input/Pointer.ts:358</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The last position on the document this pointer was at. Can be <code>null</code> if pointer was never active.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="lastscreenpos" class="tsd-anchor"></a>
+					<h3> last<wbr>Screen<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Screen<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L363">Input/Pointer.ts:363</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The last position on the screen this pointer was at. Can be <code>null</code> if pointer was never active.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="lastworldpos" class="tsd-anchor"></a>
+					<h3> last<wbr>World<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>World<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L368">Input/Pointer.ts:368</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The last position in the game world coordinates this pointer was at. Can be <code>null</code> if pointer was never active.</p>
 						</div>
 					</div>
 				</section>
@@ -177,7 +225,7 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Class.ts#L47">Class.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Class.ts#L47">Class.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -215,7 +263,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Class.ts#L38">Class.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Class.ts#L38">Class.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,7 +321,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Class.ts#L26">Class.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Class.ts#L26">Class.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,7 +378,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Class.ts#L83">Class.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Class.ts#L83">Class.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -402,11 +450,20 @@
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_input_pointer_.pointer.html" class="tsd-kind-icon">Pointer</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_input_pointer_.pointer.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_input_pointer_.pointer.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointer.html#lastpagepos" class="tsd-kind-icon">last<wbr>Page<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointer.html#lastscreenpos" class="tsd-kind-icon">last<wbr>Screen<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointer.html#lastworldpos" class="tsd-kind-icon">last<wbr>World<wbr>Pos</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_input_pointer_.pointer.html#emit" class="tsd-kind-icon">emit</a>

@@ -108,7 +108,11 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#button" class="tsd-kind-icon">button</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#ev" class="tsd-kind-icon">ev</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#pagex" class="tsd-kind-icon">pageX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#pagey" class="tsd-kind-icon">pageY</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#pointertype" class="tsd-kind-icon">pointer<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#screenx" class="tsd-kind-icon">screenX</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#screeny" class="tsd-kind-icon">screenY</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointerevent.html#target" class="tsd-kind-icon">target</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#x" class="tsd-kind-icon">x</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointerevent.html#y" class="tsd-kind-icon">y</a></li>
@@ -123,13 +127,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pointer<wbr>Event<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, pointerType<span class="tsd-signature-symbol">: </span><a href="../enums/_input_pointer_.pointertype.html" class="tsd-signature-type">PointerType</a>, button<span class="tsd-signature-symbol">: </span><a href="../enums/_input_pointer_.pointerbutton.html" class="tsd-signature-type">PointerButton</a>, ev<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Pointer<wbr>Event<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, pageX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, pageY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, screenX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, screenY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, pointerType<span class="tsd-signature-symbol">: </span><a href="../enums/_input_pointer_.pointertype.html" class="tsd-signature-type">PointerType</a>, button<span class="tsd-signature-symbol">: </span><a href="../enums/_input_pointer_.pointerbutton.html" class="tsd-signature-type">PointerButton</a>, ev<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L54">Input/Pointer.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L54">Input/Pointer.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -149,6 +153,38 @@
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The <code>y</code> coordinate of the event (in world coordinates)</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>pageX: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The <code>x</code> coordinate of the event (in document coordinates)</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>pageY: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The <code>y</code> coordinate of the event (in document coordinates)</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>screenX: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The <code>x</code> coordinate of the event (in screen coordinates)</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5>screenY: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The <code>y</code> coordinate of the event (in screen coordinates)</p>
 										</div>
 									</div>
 								</li>
@@ -198,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">button<span class="tsd-signature-symbol">:</span> <a href="../enums/_input_pointer_.pointerbutton.html" class="tsd-signature-type">PointerButton</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L68">Input/Pointer.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L76">Input/Pointer.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -213,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">ev<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L69">Input/Pointer.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L77">Input/Pointer.ts:77</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -228,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L66">Input/Pointer.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L74">Input/Pointer.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -238,17 +274,77 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="pagex" class="tsd-anchor"></a>
+					<h3> pageX</h3>
+					<div class="tsd-signature tsd-kind-icon">pageX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L70">Input/Pointer.ts:70</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <code>x</code> coordinate of the event (in document coordinates)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="pagey" class="tsd-anchor"></a>
+					<h3> pageY</h3>
+					<div class="tsd-signature tsd-kind-icon">pageY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L71">Input/Pointer.ts:71</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <code>y</code> coordinate of the event (in document coordinates)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="pointertype" class="tsd-anchor"></a>
 					<h3> pointer<wbr>Type</h3>
 					<div class="tsd-signature tsd-kind-icon">pointer<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/_input_pointer_.pointertype.html" class="tsd-signature-type">PointerType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L67">Input/Pointer.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L75">Input/Pointer.ts:75</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The type of pointer</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="screenx" class="tsd-anchor"></a>
+					<h3> screenX</h3>
+					<div class="tsd-signature tsd-kind-icon">screenX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L72">Input/Pointer.ts:72</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <code>x</code> coordinate of the event (in screen coordinates)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="screeny" class="tsd-anchor"></a>
+					<h3> screenY</h3>
+					<div class="tsd-signature tsd-kind-icon">screenY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L73">Input/Pointer.ts:73</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The <code>y</code> coordinate of the event (in screen coordinates)</p>
 						</div>
 					</div>
 				</section>
@@ -259,7 +355,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_events_.gameevent.html">GameEvent</a>.<a href="_events_.gameevent.html#target">target</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Events.ts#L70">Events.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Events.ts#L70">Events.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -274,7 +370,7 @@
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L64">Input/Pointer.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L68">Input/Pointer.ts:68</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -289,7 +385,7 @@
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d64f989/src/engine/Input/Pointer.ts#L65">Input/Pointer.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1189a30/src/engine/Input/Pointer.ts#L69">Input/Pointer.ts:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -343,7 +439,19 @@
 								<a href="_input_pointer_.pointerevent.html#index" class="tsd-kind-icon">index</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointerevent.html#pagex" class="tsd-kind-icon">pageX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointerevent.html#pagey" class="tsd-kind-icon">pageY</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_input_pointer_.pointerevent.html#pointertype" class="tsd-kind-icon">pointer<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointerevent.html#screenx" class="tsd-kind-icon">screenX</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointerevent.html#screeny" class="tsd-kind-icon">screenY</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_input_pointer_.pointerevent.html#target" class="tsd-kind-icon">target</a>
