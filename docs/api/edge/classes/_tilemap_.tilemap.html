@@ -121,7 +121,7 @@
 
 <span class="hljs-comment">// create a Map class that creates a game map</span>
 <span class="hljs-comment">// based on JSON configuration</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Map extends ex.Scene {
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> Map <span class="hljs-keyword">extends</span> ex.Scene {
   <span class="hljs-keyword">private</span> _mapDefinition: IMapDefinition;
   <span class="hljs-keyword">private</span> _tileMap: ex.TileMap;
   <span class="hljs-keyword">constructor</span>(<span class="hljs-params">mapDef: IMapDefinition</span>) {
@@ -134,7 +134,7 @@
   <span class="hljs-keyword">public</span> onInitialize() {
     <span class="hljs-comment">// build our map based on JSON config</span>
     <span class="hljs-comment">// build sprite sheets</span>
-    <span class="hljs-keyword">this</span>._mapDefinition.tileSheets.forEach(sheet =&gt; {
+    <span class="hljs-keyword">this</span>._mapDefinition.tileSheets.forEach(<span class="hljs-function"><span class="hljs-params">sheet</span> =&gt;</span> {
 
       <span class="hljs-comment">// register sprite sheet with the tile map</span>
       <span class="hljs-comment">// normally, you will want to ensure you load the Texture before</span>
@@ -145,7 +145,7 @@
           <span class="hljs-keyword">this</span>._mapDefinition.tileWidth, <span class="hljs-keyword">this</span>._mapDefinition.tileHeight));
     });
     <span class="hljs-comment">// fill cells with sprites</span>
-    <span class="hljs-keyword">this</span>._mapDefinition.cells.forEach(cell =&gt; {
+    <span class="hljs-keyword">this</span>._mapDefinition.cells.forEach(<span class="hljs-function"><span class="hljs-params">cell</span> =&gt;</span> {
       <span class="hljs-comment">// create a TileSprite</span>
       <span class="hljs-comment">// assume tileId is the index of the frame in the sprite sheet</span>
       <span class="hljs-keyword">var</span> ts = <span class="hljs-keyword">new</span> ex.TileSprite(cell.sheetId.toString(), cell.spriteId);
@@ -253,7 +253,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L35">TileMap.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L35">TileMap.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -322,7 +322,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L49">TileMap.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L49">TileMap.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -337,7 +337,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L48">TileMap.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L48">TileMap.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -352,7 +352,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">cols<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L51">TileMap.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L51">TileMap.ts:51</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -367,7 +367,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <a href="_tilemap_.cell.html" class="tsd-signature-type">Cell</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L26">TileMap.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L26">TileMap.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -378,7 +378,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -393,7 +393,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_util_log_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> =&nbsp;Logger.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L25">TileMap.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L25">TileMap.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -403,7 +403,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">rows<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L50">TileMap.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L50">TileMap.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -418,7 +418,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L46">TileMap.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L46">TileMap.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -433,7 +433,7 @@ game.start();
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L47">TileMap.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L47">TileMap.ts:47</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -455,7 +455,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L76">TileMap.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L76">TileMap.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -484,7 +484,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L210">TileMap.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L209">TileMap.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -515,7 +515,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L161">TileMap.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L160">TileMap.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -546,7 +546,7 @@ game.start();
 					<a name="emit" class="tsd-anchor"></a>
 					<h3> emit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, eventObject<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, eventObject<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -554,7 +554,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L47">Class.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L47">Class.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -571,7 +571,7 @@ game.start();
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> eventObject: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> eventObject: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Data associated with this event</p>
 									</div>
@@ -591,7 +591,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L122">TileMap.ts:122</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L121">TileMap.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -622,7 +622,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L116">TileMap.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L115">TileMap.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -650,7 +650,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L132">TileMap.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L131">TileMap.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -683,7 +683,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L38">Class.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L38">Class.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,14 +709,14 @@ game.start();
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -734,18 +734,18 @@ game.start();
 					<a name="on" class="tsd-anchor"></a>
 					<h3> on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.preupdate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postupdate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.predraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postdraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.preupdate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postupdate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.predraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postdraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L28">TileMap.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L28">TileMap.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -775,13 +775,13 @@ game.start();
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L29">TileMap.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L29">TileMap.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -811,13 +811,13 @@ game.start();
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L30">TileMap.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L30">TileMap.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -847,13 +847,13 @@ game.start();
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L31">TileMap.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L31">TileMap.ts:31</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -883,13 +883,13 @@ game.start();
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L32">TileMap.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L32">TileMap.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -902,14 +902,14 @@ game.start();
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Events.GameEvent</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Events.GameEvent</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">Events.GameEvent</span></h5>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <span class="tsd-signature-type">Events.GameEvent</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -919,7 +919,7 @@ game.start();
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -933,7 +933,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L69">TileMap.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L69">TileMap.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -959,7 +959,7 @@ game.start();
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/TileMap.ts#L142">TileMap.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/TileMap.ts#L141">TileMap.ts:141</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -986,7 +986,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L83">Class.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L83">Class.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

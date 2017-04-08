@@ -86,7 +86,7 @@
 					<p>You can inspect <a href="_engine_.engine.html#input">Engine.input</a> to see what the state of the keyboard
 					is during an update.</p>
 					<p>It is recommended that keyboard actions that directly effect actors be handled like so to improve code quality:</p>
-					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Player extends ex.Actor {
+					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Player <span class="hljs-keyword">extends</span> ex.Actor {
   <span class="hljs-keyword">public</span> update(engine, delta) {
 
     <span class="hljs-keyword">if</span> (engine.input.keyboard.isHeld(ex.Input.Keys.W) ||
@@ -109,9 +109,9 @@
 						<li><code>release</code> - When a key was just released this frame</li>
 						<li><code>hold</code> - Whenever a key is in the down position </li>
 					</ul>
-					<pre><code class="lang-ts">engine.input.keyboard.on(<span class="hljs-string">"press"</span>, (evt: KeyEvent) =&gt; {...});
-engine.input.keyboard.on(<span class="hljs-string">"release"</span>, (evt: KeyEvent) =&gt; {...});
-engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent) =&gt; {...});
+					<pre><code class="lang-ts">engine.input.keyboard.on(<span class="hljs-string">"press"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
+engine.input.keyboard.on(<span class="hljs-string">"release"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
+engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
 </code></pre>
 				</div>
 			</section>
@@ -181,7 +181,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L85">Input/Keyboard.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L85">Input/Keyboard.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -204,7 +204,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -220,7 +220,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 					<a name="emit" class="tsd-anchor"></a>
 					<h3> emit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, eventObject<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, eventObject<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -228,7 +228,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L47">Class.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L47">Class.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +245,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> eventObject: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> eventObject: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Data associated with this event</p>
 									</div>
@@ -265,7 +265,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L148">Input/Keyboard.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L148">Input/Keyboard.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -287,7 +287,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L104">Input/Keyboard.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L104">Input/Keyboard.ts:104</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -315,7 +315,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L164">Input/Keyboard.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L164">Input/Keyboard.ts:164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,7 +347,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L38">Class.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L38">Class.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,14 +373,14 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -398,17 +398,17 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 					<a name="on" class="tsd-anchor"></a>
 					<h3> on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.press</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.release</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.hold</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.press</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.release</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.hold</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L93">Input/Keyboard.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L93">Input/Keyboard.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -438,13 +438,13 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L94">Input/Keyboard.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L94">Input/Keyboard.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -474,13 +474,13 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L95">Input/Keyboard.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L95">Input/Keyboard.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -510,13 +510,13 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L96">Input/Keyboard.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L96">Input/Keyboard.ts:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -529,14 +529,14 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -546,7 +546,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -554,21 +554,15 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 					<a name="update" class="tsd-anchor"></a>
 					<h3> update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L134">Input/Keyboard.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L134">Input/Keyboard.ts:134</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>delta: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -583,7 +577,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L156">Input/Keyboard.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L156">Input/Keyboard.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -614,7 +608,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Input/Keyboard.ts#L172">Input/Keyboard.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Input/Keyboard.ts#L172">Input/Keyboard.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -646,7 +640,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, (evt: KeyEvent
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/Class.ts#L83">Class.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Class.ts#L83">Class.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

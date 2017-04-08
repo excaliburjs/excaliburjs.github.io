@@ -88,7 +88,7 @@
 					<ul>
 						<li>PreDrawEvent event object and &quot;predraw&quot; as the event name</li>
 					</ul>
-					<pre><code class="lang-typescript">actor.on(<span class="hljs-string">'predraw'</span>, (evtObj: PreDrawEvent) =&gt; {
+					<pre><code class="lang-typescript">actor.on(<span class="hljs-string">'predraw'</span>, <span class="hljs-function">(<span class="hljs-params">evtObj: PreDrawEvent</span>) =&gt;</span> {
    <span class="hljs-comment">// do some pre drawing</span>
 })
 </code></pre>
@@ -183,7 +183,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/EventDispatcher.ts#L20">EventDispatcher.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/EventDispatcher.ts#L18">EventDispatcher.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -210,14 +210,14 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 					<a name="emit" class="tsd-anchor"></a>
 					<h3> emit</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">emit<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/EventDispatcher.ts#L34">EventDispatcher.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/EventDispatcher.ts#L32">EventDispatcher.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -234,7 +234,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optionally pass an event data object to the handler</p>
 									</div>
@@ -254,7 +254,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/EventDispatcher.ts#L92">EventDispatcher.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/EventDispatcher.ts#L90">EventDispatcher.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,14 +280,14 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -311,7 +311,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/EventDispatcher.ts#L70">EventDispatcher.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/EventDispatcher.ts#L68">EventDispatcher.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,14 +335,14 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a></h5>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -366,7 +366,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/EventDispatcher.ts#L121">EventDispatcher.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/EventDispatcher.ts#L119">EventDispatcher.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,7 +394,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/2ec6619/src/engine/EventDispatcher.ts#L114">EventDispatcher.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/EventDispatcher.ts#L112">EventDispatcher.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

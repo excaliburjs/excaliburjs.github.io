@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>KillEvent | Excalibur.js Edge API Documentation</title>
+	<title>IDebugStats | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_events_.html">&quot;Events&quot;</a>
+					<a href="../modules/_debug_.html">&quot;Debug&quot;</a>
 				</li>
 				<li>
-					<a href="_events_.killevent.html">KillEvent</a>
+					<a href="_debug_.idebugstats.html">IDebugStats</a>
 				</li>
 			</ul>
-			<h1>Class KillEvent</h1>
+			<h1>Interface IDebugStats</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The &#39;kill&#39; event is emitted on actors when it is killed. The target is the actor that was killed.</p>
+						<p>Debug stats containing current and previous frame statistics</p>
 					</div>
 				</div>
 			</section>
@@ -80,12 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">KillEvent</span>
-							</li>
-						</ul>
+						<span class="target">IDebugStats</span>
 					</li>
 				</ul>
 			</section>
@@ -94,56 +89,34 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_events_.killevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_events_.killevent.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_debug_.idebugstats.html#currframe" class="tsd-kind-icon">curr<wbr>Frame</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_debug_.idebugstats.html#prevframe" class="tsd-kind-icon">prev<wbr>Frame</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3> constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Kill<wbr>Event<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_events_.killevent.html" class="tsd-signature-type">KillEvent</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Events.ts#L77">Events.ts:77</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>target: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_events_.killevent.html" class="tsd-signature-type">KillEvent</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-					<a name="target" class="tsd-anchor"></a>
-					<h3> target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="currframe" class="tsd-anchor"></a>
+					<h3> curr<wbr>Frame</h3>
+					<div class="tsd-signature tsd-kind-icon">curr<wbr>Frame<span class="tsd-signature-symbol">:</span> <a href="../classes/_debug_.framestats.html" class="tsd-signature-type">FrameStats</a></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="_events_.gameevent.html">GameEvent</a>.<a href="_events_.gameevent.html#target">target</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Events.ts#L78">Events.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Debug.ts#L7">Debug.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="prevframe" class="tsd-anchor"></a>
+					<h3> prev<wbr>Frame</h3>
+					<div class="tsd-signature tsd-kind-icon">prev<wbr>Frame<span class="tsd-signature-symbol">:</span> <a href="../classes/_debug_.framestats.html" class="tsd-signature-type">FrameStats</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0721e9/src/engine/Debug.ts#L8">Debug.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -156,27 +129,48 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_events_.html">"<wbr>Events"</a>
+						<a href="../modules/_debug_.html">"<wbr>Debug"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_debug_.debug.html" class="tsd-kind-icon">Debug</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_debug_.framestats.html" class="tsd-kind-icon">Frame<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_debug_.physicsstats.html" class="tsd-kind-icon">Physics<wbr>Stats</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_events_.killevent.html" class="tsd-kind-icon">Kill<wbr>Event</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_debug_.idebugstats.html" class="tsd-kind-icon">IDebug<wbr>Stats</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_events_.killevent.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_debug_.idebugstats.html#currframe" class="tsd-kind-icon">curr<wbr>Frame</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_events_.killevent.html#target" class="tsd-kind-icon">target</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_debug_.idebugstats.html#prevframe" class="tsd-kind-icon">prev<wbr>Frame</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_debug_.iframeactorstats.html" class="tsd-kind-icon">IFrame<wbr>Actor<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_debug_.iframedurationstats.html" class="tsd-kind-icon">IFrame<wbr>Duration<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_debug_.iframestats.html" class="tsd-kind-icon">IFrame<wbr>Stats</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_debug_.iphysicsstats.html" class="tsd-kind-icon">IPhysics<wbr>Stats</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
