@@ -36,11 +36,12 @@ child_process.execSync(BUILD_CMD +
 	' --readme src/engine/Docs/Index.md' +
 	' --mode modules' +
 	' --module amd' +
-    ' --includes src/engine/Docs' +
+        ' --includes src/engine/Docs' +
 	' --out ../pages/api/edge' +
 	' --theme ../typedoc-default-themes/bin/default' +
 	' --hideGenerator' +
 	' --excludePrivate' +
+	' --listInvalidSymbolLinks' +
 	' --gaID UA-46390208-1' +
 	' --gaSite excaliburjs.com' +
 	' --noImplicitAny' +
