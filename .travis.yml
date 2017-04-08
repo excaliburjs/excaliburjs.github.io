@@ -34,7 +34,7 @@ before_script:
 # Gzip file
 - gzip excalibur.min.js
 # Export gzipped size
-- export GH_RELEASE_GZIP="$(ls -lah excalibur.min.js | awk '{ print $5}')"
+- export GH_RELEASE_GZIP="$(ls -lah excalibur.min.js.gz | awk '{ print $5}')"
 script:
 - grunt travis
 after_success:
