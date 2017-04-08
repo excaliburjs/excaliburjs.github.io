@@ -22,7 +22,7 @@ addons:
 before_install:
 - gem install sass
 # Query Github for latest release tag
-- ! 'export GH_RELEASE_TAG=$(curl -s -H `"Authorization: token $GH_TOKEN`" https://api.github.com/repos/excaliburjs/Excalibur/releases/latest | jq -r `".tag_name`")'
+- ! 'export GH_RELEASE_TAG=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/excaliburjs/Excalibur/releases/latest | jq -r ".tag_name")'
 # Download latest release (minified)
 - curl -o excalibur.min.js -H 'Accept: application/vnd.github.v3.raw' -L https://api.github.com/repos/excaliburjs/excalibur-dist/contents/dist/excalibur.min.js?ref=$GH_RELEASE_TAG
 # Export file size
