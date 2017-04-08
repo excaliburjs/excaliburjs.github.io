@@ -18,7 +18,12 @@ module.exports = function (grunt) {
       // Globals
       options: {
         pkg: grunt.file.readJSON('package.json'),
-        
+        release: {
+          tag: process.env.GH_RELEASE_TAG,
+          size: process.env.GH_RELEASE_SIZE,
+          gzip: process.env.GH_RELEASE_GZIP
+        },
+
         // Register Swig extensions
         helpers: ['extensions/*.js'],
         

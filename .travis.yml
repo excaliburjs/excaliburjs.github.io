@@ -12,11 +12,29 @@ cache:
 env:
   global:
   - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
+  - GH_RELEASE_TAG: master
+  - GH_RELEASE_SIZE: 0K
+  - GH_RELEASE_GZIP: 0K
+addons:
+  apt:
+    packages:
+    - jq
 before_install:
 - gem install sass
 install:
 - npm install grunt-cli -g
 - npm install
+before_script:
+# Query Github for latest release tag
+- export GH_RELEASE_TAG=$(curl -s -H 'Authorization: token $GH_TOKEN' 'https://api.github.com/repos/excaliburjs/Excalibur/releases/latest' | jq '.tag_name')
+# Download latest release (minified)
+- curl -o excalibur.min.js -H 'Accept: application/vnd.github.v3.raw' -L https://api.github.com/repos/excaliburjs/excalibur-dist/contents/dist/excalibur.min.js?ref=$GH_RELEASE_TAG
+# Export file size
+- export GH_RELEASE_SIZE=$(ls -lah excalibur.min.js | awk '{ print $5}')
+# Gzip file
+- gzip excalibur.min.js
+# Export gzipped size
+- export GH_RELEASE_GZIP=$(ls -lah excalibur.min.js | awk '{ print $5}')
 script:
 - grunt travis
 after_success:
