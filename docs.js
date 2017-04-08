@@ -43,6 +43,12 @@ child_process.execSync(BUILD_CMD +
 	' --excludePrivate' +
 	' --gaID UA-46390208-1' +
 	' --gaSite excaliburjs.com' +
+	' --noImplicitAny' +
+	' --noFallthroughCasesInSwitch' +
+	' --noImplicitReturns' +
+	' --noImplicitThis' +
+	' --noUnusedLocals' +
+	' --noUnusedParameters' +
 	' src/engine', {
 	cwd: './Excalibur',
 	stdio: [0,1,2]
