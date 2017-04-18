@@ -75,12 +75,14 @@ const res = request('GET',
 
 const releases = JSON.parse(res.getBody());
 
-// Ignore releases that are already checked into source control
-const tags = releases.map(r => r.tag_name);
+// Ignore drafts
+const tags = releases.filter(r => !r.draft).map(r => r.tag_name);
 
 console.info('Discovered', tags.length, 'releases:', tags);
 
 tags.forEach(function (tag) {
+
+	// Ignore releases that are already checked into source control
 	if (fs.existsSync(path.join('pages', 'api', tag))) {
 		return;
 	}
