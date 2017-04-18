@@ -2,7 +2,6 @@
   "name": "excaliburjs.github.io",
   "description": "Excalibur.js documentation site",
   "private": true,
-  "version": "0.0.1",
   "homepage": "https://github.com/excaliburjs/excaliburjs.github.io",
   "author": {
     "name": "excaliburjs",
@@ -23,7 +22,12 @@
     "url": "https://github.com/excaliburjs/excaliburjs.github.io/issues"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 6"
+  },
+  "scripts": {
+    "start": "node_modules/.bin/grunt design",
+    "all": "node_modules/.bin/grunt",
+    "docs": "node docs.js"
   },
   "devDependencies": {
     "assemble": "~0.4.42",
@@ -73,6 +77,8 @@
     "run-sequence": "^1.2.2",
     "semantic-ui": "^2.2.2",
     "swig-extensions": "~0.1.0",
+    "sync-request": "^4.0.2",
+    "wrench": "^1.5.9",
     "yamljs": "^0.2.8"
   },
   "keywords": []

@@ -4,26 +4,13 @@
 
 ## Contributing and Editing Content
 
-Be sure to fork the repository and make all your changes in the `site` branch. Send us a pull request with your changes!
+User documentation can be contributed to in the core repository [excalibur](https://github.com/excaliburjs/Excalibur) under the `docs` folder.
 
-All authored tutorials and documentation is under `content/docs` and are in [Markdown](http://daringfireball.net/projects/markdown/) format. The name of the Markdown file will be the name of the HTML file that gets generated at http://excaliburjs.com/docs. YAML configuration (such as navigation) is under `data` folder.
-
-If you want to contribute a tutorial (or other documentation), all you need to know is Markdown! Create your Markdown tutorial in the `content/docs` folder (pending organizational changes) and send us a pull request to review it. We will add it to the navigation.
-
-Tutorials can be organized into parts like so:
-- quickstart.md
-- quickstart-appendix1.md
-- quickstart-appendix2.md
-
-You can name them however, but it would be best to keep the same prefix. We can then add the additional steps as sub-navigation items to the menu so they'll only display when you view your tutorial.
-
-**Note:** We do support [GHFM](https://help.github.com/articles/github-flavored-markdown) for fenced code blocks. 
-
-## Contributing to the Codebase
+## Build Environment
 
 ### Requirements
 
-- Node.js (0.4.x)
+- Node.js (6.x)
 - Ruby 2.2.x (ensure it's in PATH)
 - Ruby Gems 2.6.x ([fix SSL error on Windows x64](https://gist.github.com/luislavena/f064211759ee0f806c88#gistcomment-1916808))
 - Sass (`gem install sass`)
@@ -33,21 +20,41 @@ You can name them however, but it would be best to keep the same prefix. We can 
 
 - Assemble for static site generation
 - Grunt for tasks
-- Typedoc for API documentation
 - Semantic UI framework
 
 Once you've cloned the repository, run the following commands:
-
-    # If not already installed, install grunt globally
-    npm install grunt -g
 
     # Install dependencies
     npm install
 
     # Run site for local development
-    grunt design
+    npm start
+
+    # Run all Grunt tasks
+    npm run all
+
+    # Compile documentation
+    npm run docs
 
 We recommend using the free [Visual Studio Code](http://code.visualstudio.com) editor since it's easy to use and works on any platform.
+
+### Compiling documentation
+
+Travis will automatically compile `master` (edge) and any tagged releases. If a release folder already exists, the GitHub release is ignored and the source controlled version is used.
+
+Compiled documentation lives in `pages/api/[version]`. The documentation generation works by cloning each version of Excalibur and running the `npm run apidocs` script. API documentation is generated in `ex/[version]/docs/api` and then copied to the corresponding `pages/api/[version]` folder.
+
+**Generating locally**
+
+To generate documentation locally, you can run the following command:
+
+    # Compile edge (master)
+    npm run docs
+
+    # Compile specific version
+    npm run docs -- [version]
+
+If a `version` is passed, the documentation will build and output to that version's location (`pages/api/[version]`). Excalibur versions v0.10.0 and prior will not build locally and are already generated.
 
 ## Adding to Showcase
 
@@ -65,21 +72,3 @@ Example:
     git submodule add https://github.com/eonarheim/Excalibur-Shmup showcase/shmup
     
 This is how we can include the Shoot 'Em Up demo without maintaining two versions.
-
-### Compiling documentation
-
-Travis will automatically compile `master` and place it into the edge API documentation.
-
-**Release compiling**
-
-TypeDoc is used to compile docs for Excalibur 0.2+. You should only need to perform the generation once per release and then copy the compiled docs to **_ghpages/docs/api**.
-
-To generate documentation with TypeDoc, you can run the following command:
-
-    node docs.js
-
-Edit docs.js and modify the `git checkout` command to use a specific branch when testing API docs. e.g.
-
-    git checkout -b issue-foo https://...
-
-You will also need to modify the output folder from `edge` to a version for specific version building (or copy the edge to a new folder).
