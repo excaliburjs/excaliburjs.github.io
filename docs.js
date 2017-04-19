@@ -53,7 +53,7 @@ if (process.argv.length === 3) {
 	build(process.argv[2], process.argv[2]);
 } else {
 	// Build edge
-	build('edge', 'master');
+	build('edge', 'Edge');
 }
 
 if (process.env.TRAVIS_CI && !process.env.GH_TOKEN) {
