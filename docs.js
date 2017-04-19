@@ -27,18 +27,20 @@ function build(version, title) {
 		child_process.execSync('npm install', { cwd: exPath, stdio: [0,1,2] });
 	}
 
-	console.log('Removing existing docs...');
+	console.log('Removing existing docs...', destPath);
 
 	// Remove existing docs
 	rimraf.sync(destPath);
 
-	console.log('Building docs...');
+	console.log('Building docs...', BUILD_CMD + ' apidocs:' + title);
 
 	// Execute docs build step
 	child_process.execSync(BUILD_CMD + ' apidocs:' + title, {
 		cwd: exPath,
 		stdio: [0,1,2]
 	});
+	
+	console.log('Copying compiled docs...', destPath);
 
 	// Copy to destination docs folder
 	wrench.copyDirSyncRecursive(docsPath, destPath);
@@ -51,7 +53,7 @@ if (process.argv.length === 3) {
 	build(process.argv[2], process.argv[2]);
 } else {
 	// Build edge
-	build('edge', 'v0.10.0');
+	build('edge', 'master');
 }
 
 if (process.env.TRAVIS_CI && !process.env.GH_TOKEN) {
