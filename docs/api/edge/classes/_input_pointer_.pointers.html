@@ -97,6 +97,14 @@ engine.input.pointers.primary.on(<span class="hljs-string">"up"</span>, <span cl
 engine.input.pointers.primary.on(<span class="hljs-string">"move"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
 engine.input.pointers.primary.on(<span class="hljs-string">"cancel"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
 </code></pre>
+					<h3 id="wheel-event">Wheel Event</h3>
+					<p>You can also subscribe to the mouse wheel event through <code>engine.input.pointers.on</code>. A <a href="_input_pointer_.wheelevent.html">WheelEvent</a>
+					object is passed to your handler which offers information about the wheel event being received.</p>
+					<ul>
+						<li><code>wheel</code> - When a mousewheel is activated (trackpad scroll or mouse wheel)</li>
+					</ul>
+					<pre><code class="lang-js">engine.input.pointers.on(<span class="hljs-string">"wheel"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">evt</span>) </span>{ });
+</code></pre>
 					<h2 id="last-position-querying">Last position querying</h2>
 					<p>If you don&#39;t wish to subscribe to events, you can also access the <a href="_input_pointer_.pointer.html#lastpagepos">Pointer.lastPagePos</a>, <a href="_input_pointer_.pointer.html#lastscreenpos">Pointer.lastScreenPos</a>
 					or <a href="_input_pointer_.pointer.html#lastworldpos">Pointer.lastWorldPos</a> coordinates (<a href="_algebra_.vector.html">Vector</a>) on the pointer you&#39;re targeting.</p>
@@ -243,7 +251,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L96">Input/Pointer.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L148">Input/Pointer.ts:148</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -266,7 +274,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -281,7 +289,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 					<div class="tsd-signature tsd-kind-icon">primary<span class="tsd-signature-symbol">:</span> <a href="_input_pointer_.pointer.html" class="tsd-signature-type">Pointer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L119">Input/Pointer.ts:119</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L172">Input/Pointer.ts:172</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -303,7 +311,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L176">Input/Pointer.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L237">Input/Pointer.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -334,7 +342,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L192">Input/Pointer.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L253">Input/Pointer.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +366,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Class.ts#L47">Class.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Class.ts#L47">Class.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -389,13 +397,13 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 					<a name="init" class="tsd-anchor"></a>
 					<h3> init</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span>scope<span class="tsd-signature-symbol">?: </span><a href="../enums/_input_pointer_.pointerscope.html" class="tsd-signature-type">PointerScope</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">init<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">GlobalEventHandlers</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L124">Input/Pointer.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L177">Input/Pointer.ts:177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -406,7 +414,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> scope: <a href="../enums/_input_pointer_.pointerscope.html" class="tsd-signature-type">PointerScope</a><span class="tsd-signature-symbol"> =&nbsp;PointerScope.Document</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> target: <span class="tsd-signature-type">GlobalEventHandlers</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -424,7 +432,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Class.ts#L38">Class.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Class.ts#L38">Class.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -479,6 +487,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.down</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.move</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.cancel</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.wheel</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -486,7 +495,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L107">Input/Pointer.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L159">Input/Pointer.ts:159</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -522,7 +531,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L108">Input/Pointer.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L160">Input/Pointer.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -558,7 +567,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L109">Input/Pointer.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L161">Input/Pointer.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -594,7 +603,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L110">Input/Pointer.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L162">Input/Pointer.ts:162</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -630,7 +639,43 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L111">Input/Pointer.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L163">Input/Pointer.ts:163</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.wheel</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_input_pointer_.wheelevent.html" class="tsd-signature-type">WheelEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_input_pointer_.wheelevent.html" class="tsd-signature-type">WheelEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L164">Input/Pointer.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -674,7 +719,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L199">Input/Pointer.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L260">Input/Pointer.ts:260</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +747,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Input/Pointer.ts#L165">Input/Pointer.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Input/Pointer.ts#L225">Input/Pointer.ts:225</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -720,7 +765,7 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Class.ts#L83">Class.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Class.ts#L83">Class.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -787,6 +832,9 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_input_pointer_.pointertype.html" class="tsd-kind-icon">Pointer<wbr>Type</a>
 					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/_input_pointer_.wheeldeltamode.html" class="tsd-kind-icon">Wheel<wbr>Delta<wbr>Mode</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_input_pointer_.pointer.html" class="tsd-kind-icon">Pointer</a>
 					</li>
@@ -838,11 +886,17 @@ player.on(<span class="hljs-string">"pointerup"</span>, <span class="hljs-functi
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_input_pointer_.wheelevent.html" class="tsd-kind-icon">Wheel<wbr>Event</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../interfaces/_input_pointer_.itouch.html" class="tsd-kind-icon">ITouch</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../interfaces/_input_pointer_.itouchevent.html" class="tsd-kind-icon">ITouch<wbr>Event</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../modules/_input_pointer_.html#scrollwheelnormalizationfactor" class="tsd-kind-icon">Scroll<wbr>Wheel<wbr>Normalization<wbr>Factor</a>
 					</li>
 				</ul>
 			</nav>

@@ -95,6 +95,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#displaymode" class="tsd-kind-icon">display<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#height" class="tsd-kind-icon">height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#pointerscope" class="tsd-kind-icon">pointer<wbr>Scope</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#scrollpreventionmode" class="tsd-kind-icon">scroll<wbr>Prevention<wbr>Mode</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#suppressconsolebootmessage" class="tsd-kind-icon">suppress<wbr>Console<wbr>Boot<wbr>Message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#suppressminimumbrowserfeaturedetection" class="tsd-kind-icon">suppress<wbr>Minimum<wbr>Browser<wbr>Feature<wbr>Detection</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_engine_.iengineoptions.html#width" class="tsd-kind-icon">width</a></li>
@@ -111,7 +113,7 @@
 					<div class="tsd-signature tsd-kind-icon">canvas<wbr>Element<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L62">Engine.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L99">Engine.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -126,7 +128,7 @@
 					<div class="tsd-signature tsd-kind-icon">display<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/_engine_.displaymode.html" class="tsd-signature-type">DisplayMode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L67">Engine.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L104">Engine.ts:104</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -141,7 +143,7 @@
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L57">Engine.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L94">Engine.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -156,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">pointer<wbr>Scope<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Input.PointerScope</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L73">Engine.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L110">Engine.ts:110</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -167,12 +169,46 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="position" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> position</h3>
+					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_engine_.iabsoluteposition.html" class="tsd-signature-type">IAbsolutePosition</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L132">Engine.ts:132</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Specify how the game window is to be positioned when the <a href="../enums/_engine_.displaymode.html#position">DisplayMode.Position</a> is chosen. This option MUST be specified
+								if the DisplayMode is set as <a href="../enums/_engine_.displaymode.html#position">DisplayMode.Position</a>. The position can be either a string or an <a href="_engine_.iabsoluteposition.html">IAbsolutePosition</a>.
+							String must be in the format of css style background-position. The vertical position must precede the horizontal position in strings.</p>
+						</div>
+						<p>Valid String examples: &quot;top left&quot;, &quot;top&quot;, &quot;bottom&quot;, &quot;middle&quot;, &quot;middle center&quot;, &quot;bottom right&quot;
+						Valid <a href="_engine_.iabsoluteposition.html">IAbsolutePosition</a> examples: <code>{top: 5, right: 10%}</code>, <code>{bottom: 49em, left: 10px}</code>, <code>{left: 10, bottom: 40}</code></p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="scrollpreventionmode" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> scroll<wbr>Prevention<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">scroll<wbr>Prevention<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/_engine_.scrollpreventionmode.html" class="tsd-signature-type">ScrollPreventionMode</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L137">Engine.ts:137</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Scroll prevention method.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="suppressconsolebootmessage" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> suppress<wbr>Console<wbr>Boot<wbr>Message</h3>
 					<div class="tsd-signature tsd-kind-icon">suppress<wbr>Console<wbr>Boot<wbr>Message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L78">Engine.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L115">Engine.ts:115</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -187,7 +223,7 @@
 					<div class="tsd-signature tsd-kind-icon">suppress<wbr>Minimum<wbr>Browser<wbr>Feature<wbr>Detection<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L85">Engine.ts:85</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L122">Engine.ts:122</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -204,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7fd1341/src/engine/Engine.ts#L52">Engine.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24cdb6/src/engine/Engine.ts#L89">Engine.ts:89</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -231,11 +267,17 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_engine_.displaymode.html" class="tsd-kind-icon">Display<wbr>Mode</a>
 					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/_engine_.scrollpreventionmode.html" class="tsd-kind-icon">Scroll<wbr>Prevention<wbr>Mode</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../classes/_engine_.animationnode.html" class="tsd-kind-icon">Animation<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="../classes/_engine_.engine.html" class="tsd-kind-icon">Engine</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_engine_.iabsoluteposition.html" class="tsd-kind-icon">IAbsolute<wbr>Position</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -253,6 +295,12 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_engine_.iengineoptions.html#pointerscope" class="tsd-kind-icon">pointer<wbr>Scope</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_engine_.iengineoptions.html#position" class="tsd-kind-icon">position</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_engine_.iengineoptions.html#scrollpreventionmode" class="tsd-kind-icon">scroll<wbr>Prevention<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_engine_.iengineoptions.html#suppressconsolebootmessage" class="tsd-kind-icon">suppress<wbr>Console<wbr>Boot<wbr>Message</a>
