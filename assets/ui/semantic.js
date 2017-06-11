@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.2
+ * # Semantic UI - 2.2.7
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.2.2 - Site
+ * # Semantic UI 2.2.7 - Site
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -497,7 +497,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.2 - Transition
+ * # Semantic UI 2.2.7 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1043,7 +1043,6 @@ $.fn.transition = function() {
                 animation : animation
               });
             }
-            return $.fn.transition.settings;
           },
           animationClass: function(animation) {
             var
@@ -1111,11 +1110,15 @@ $.fn.transition = function() {
               : duration
             ;
           },
-          displayType: function() {
+          displayType: function(shouldDetermine) {
+            shouldDetermine = (shouldDetermine !== undefined)
+              ? shouldDetermine
+              : true
+            ;
             if(settings.displayType) {
               return settings.displayType;
             }
-            if($module.data(metadata.displayType) === undefined) {
+            if(shouldDetermine && $module.data(metadata.displayType) === undefined) {
               // create fake element to determine display state
               module.can.transition(true);
             }
@@ -1172,13 +1175,13 @@ $.fn.transition = function() {
             var
               animation         = settings.animation,
               transitionExists  = module.get.transitionExists(animation),
+              displayType       = module.get.displayType(false),
               elementClass,
               tagName,
               $clone,
               currentAnimation,
               inAnimation,
-              directionExists,
-              displayType
+              directionExists
             ;
             if( transitionExists === undefined || forced) {
               module.verbose('Determining whether animation exists');
@@ -1198,16 +1201,18 @@ $.fn.transition = function() {
                 .addClass(className.inward)
                 .css('animationName')
               ;
-              displayType = $clone
-                .attr('class', elementClass)
-                .removeAttr('style')
-                .removeClass(className.hidden)
-                .removeClass(className.visible)
-                .show()
-                .css('display')
-              ;
-              module.verbose('Determining final display state', displayType);
-              module.save.displayType(displayType);
+              if(!displayType) {
+                displayType = $clone
+                  .attr('class', elementClass)
+                  .removeAttr('style')
+                  .removeClass(className.hidden)
+                  .removeClass(className.visible)
+                  .show()
+                  .css('display')
+                ;
+                module.verbose('Determining final display state', displayType);
+                module.save.displayType(displayType);
+              }
 
               $clone.remove();
               if(currentAnimation != inAnimation) {
@@ -1588,7 +1593,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.2 - State
+ * # Semantic UI 2.2.7 - State
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2297,7 +2302,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.2 - Visibility
+ * # Semantic UI 2.2.7 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *
