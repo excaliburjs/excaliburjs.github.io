@@ -72,7 +72,20 @@ module.exports = function (grunt) {
             dest: '<%= dest %>/samples/'
           }
         ]
-      },      
+      },  
+
+      //
+      // Gallery
+      gallery: {
+        files: [
+          {
+            expand: true,
+            cwd: 'pages/gallery',
+            src: ['**/*.html'],
+            dest: '<%= dest %>/gallery/'
+          }
+        ]
+      },    
     },
     
     //
