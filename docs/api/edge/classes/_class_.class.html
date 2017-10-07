@@ -151,6 +151,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_class_.class.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_class_.class.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_class_.class.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_class_.class.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_class_.class.html#extend" class="tsd-kind-icon">extend</a></li>
 							</ul>
 						</section>
@@ -169,7 +170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/27867b7/src/engine/Class.ts#L14">Class.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L14">Class.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_class_.class.html" class="tsd-signature-type">Class</a></h4>
@@ -185,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Dispatcher<span class="tsd-signature-symbol">:</span> <a href="_eventdispatcher_.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/27867b7/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -208,7 +209,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/27867b7/src/engine/Class.ts#L47">Class.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L47">Class.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +246,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/27867b7/src/engine/Class.ts#L38">Class.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L38">Class.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -302,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/27867b7/src/engine/Class.ts#L26">Class.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L26">Class.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -348,6 +349,61 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="once" class="tsd-anchor"></a>
+					<h3> once</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L57">Class.ts:57</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Once listens to an event one time, then unsubscribes from that event</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The name of the event to subscribe to once</p>
+									</div>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The handler of the event that will be auto unsubscribed</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
 					<a name="extend" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagStatic">Static</span> extend</h3>
@@ -358,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/27867b7/src/engine/Class.ts#L83">Class.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/1d3c176/src/engine/Class.ts#L93">Class.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,6 +491,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_class_.class.html#on" class="tsd-kind-icon">on</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_class_.class.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_class_.class.html#extend" class="tsd-kind-icon">extend</a>
