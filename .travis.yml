@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-- '8'
+- '8.9.3'
 branches:
   only:
   - site
@@ -22,6 +22,8 @@ addons:
 before_install:
 - gem install sass -v 3.4.24
 install:
+- npm i npm@5.6.0 -g
+- npm cache clean
 - npm install grunt-cli -g
 - npm install
 before_script:
