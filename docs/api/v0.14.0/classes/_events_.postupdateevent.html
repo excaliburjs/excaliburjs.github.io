@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CollisionEvent | Excalibur.js Edge API Documentation</title>
+	<title>PostUpdateEvent | Excalibur.js v0.14.0 API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">Excalibur.js Edge API Documentation</a>
+					<a href="../index.html" class="title">Excalibur.js v0.14.0 API Documentation</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -59,10 +59,10 @@
 					<a href="../modules/_events_.html">&quot;Events&quot;</a>
 				</li>
 				<li>
-					<a href="_events_.collisionevent.html">CollisionEvent</a>
+					<a href="_events_.postupdateevent.html">PostUpdateEvent</a>
 				</li>
 			</ul>
-			<h1>Class CollisionEvent</h1>
+			<h1>Class PostUpdateEvent</h1>
 		</div>
 	</div>
 </header>
@@ -72,23 +72,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>OBSOLETE: Event thrown on an <a href="_actor_.actor.html">actor</a> when a collision will occur this frame</p>
+						<p>The &#39;postupdate&#39; event is emitted on actors, scenes, and engine after the update ends.</p>
 					</div>
-					<dl class="tsd-comment-tags">
-						<dt >deprecated</dt>
-						<dd ><p>Will be removed in v0.14, please use PreCollisionEvent</p>
-						</dd>
-					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_tilemap_.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">CollisionEvent</span>
+								<span class="target">PostUpdateEvent</span>
 							</li>
 						</ul>
 					</li>
@@ -101,17 +96,15 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_events_.collisionevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_events_.postupdateevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.collisionevent.html#actor" class="tsd-kind-icon">actor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.collisionevent.html#intersection" class="tsd-kind-icon">intersection</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.collisionevent.html#other" class="tsd-kind-icon">other</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.collisionevent.html#side" class="tsd-kind-icon">side</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_events_.collisionevent.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.postupdateevent.html#delta" class="tsd-kind-icon">delta</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.postupdateevent.html#engine" class="tsd-kind-icon">engine</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_events_.postupdateevent.html#target" class="tsd-kind-icon">target</a></li>
 							</ul>
 						</section>
 					</div>
@@ -123,53 +116,28 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Collision<wbr>Event<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a>, other<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a>, side<span class="tsd-signature-symbol">: </span><a href="../enums/_collision_side_.side.html" class="tsd-signature-type">Side</a>, intersection<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_events_.collisionevent.html" class="tsd-signature-type">CollisionEvent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Post<wbr>Update<wbr>Event<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, target<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_tilemap_.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Events.ts#L275">Events.ts:275</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fa2c84b/src/engine/Events.ts#L163">Events.ts:163</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>actor: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The actor the event was thrown on</p>
-										</div>
-									</div>
+									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
 								</li>
 								<li>
-									<h5>other: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The actor that was collided with</p>
-										</div>
-									</div>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>side: <a href="../enums/_collision_side_.side.html" class="tsd-signature-type">Side</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The side that was collided with</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5>intersection: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Intersection vector</p>
-										</div>
-									</div>
+									<h5>target: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_tilemap_.tilemap.html" class="tsd-signature-type">TileMap</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_events_.collisionevent.html" class="tsd-signature-type">CollisionEvent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -177,80 +145,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="actor" class="tsd-anchor"></a>
-					<h3> actor</h3>
-					<div class="tsd-signature tsd-kind-icon">actor<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
+					<a name="delta" class="tsd-anchor"></a>
+					<h3> delta</h3>
+					<div class="tsd-signature tsd-kind-icon">delta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Events.ts#L283">Events.ts:283</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fa2c84b/src/engine/Events.ts#L164">Events.ts:164</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The actor the event was thrown on</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="intersection" class="tsd-anchor"></a>
-					<h3> intersection</h3>
-					<div class="tsd-signature tsd-kind-icon">intersection<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<a name="engine" class="tsd-anchor"></a>
+					<h3> engine</h3>
+					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Events.ts#L283">Events.ts:283</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fa2c84b/src/engine/Events.ts#L164">Events.ts:164</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Intersection vector</p>
-						</div>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="other" class="tsd-anchor"></a>
-					<h3> other</h3>
-					<div class="tsd-signature tsd-kind-icon">other<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Events.ts#L283">Events.ts:283</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The actor that was collided with</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="side" class="tsd-anchor"></a>
-					<h3> side</h3>
-					<div class="tsd-signature tsd-kind-icon">side<span class="tsd-signature-symbol">:</span> <a href="../enums/_collision_side_.side.html" class="tsd-signature-type">Side</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Events.ts#L283">Events.ts:283</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The side that was collided with</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="target" class="tsd-anchor"></a>
 					<h3> target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_tilemap_.tilemap.html" class="tsd-signature-type">TileMap</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_events_.gameevent.html">GameEvent</a>.<a href="_events_.gameevent.html#target">target</a></p>
+						<p>Overrides <a href="_events_.gameevent.html">GameEvent</a>.<a href="_events_.gameevent.html#target">target</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Events.ts#L76">Events.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fa2c84b/src/engine/Events.ts#L164">Events.ts:164</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Target object for this event.</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -270,25 +193,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_events_.collisionevent.html" class="tsd-kind-icon">Collision<wbr>Event</a>
+						<a href="_events_.postupdateevent.html" class="tsd-kind-icon">Post<wbr>Update<wbr>Event</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_events_.collisionevent.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_events_.postupdateevent.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_events_.collisionevent.html#actor" class="tsd-kind-icon">actor</a>
+								<a href="_events_.postupdateevent.html#delta" class="tsd-kind-icon">delta</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_events_.collisionevent.html#intersection" class="tsd-kind-icon">intersection</a>
+								<a href="_events_.postupdateevent.html#engine" class="tsd-kind-icon">engine</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_events_.collisionevent.html#other" class="tsd-kind-icon">other</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_events_.collisionevent.html#side" class="tsd-kind-icon">side</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_events_.collisionevent.html#target" class="tsd-kind-icon">target</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_events_.postupdateevent.html#target" class="tsd-kind-icon">target</a>
 							</li>
 						</ul>
 					</li>

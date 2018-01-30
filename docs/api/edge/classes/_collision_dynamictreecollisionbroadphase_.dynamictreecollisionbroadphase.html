@@ -94,6 +94,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#narrowphase" class="tsd-kind-icon">narrowphase</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#resolve" class="tsd-kind-icon">resolve</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#runcollisionstartend" class="tsd-kind-icon">run<wbr>Collision<wbr>Start<wbr>End</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#track" class="tsd-kind-icon">track</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#untrack" class="tsd-kind-icon">untrack</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#update" class="tsd-kind-icon">update</a></li>
@@ -108,14 +109,14 @@
 					<a name="broadphase" class="tsd-anchor"></a>
 					<h3> broadphase</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">broadphase<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, stats<span class="tsd-signature-symbol">?: </span><a href="_debug_.framestats.html" class="tsd-signature-type">FrameStats</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a></li>
+						<li class="tsd-signature tsd-kind-icon">broadphase<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, stats<span class="tsd-signature-symbol">?: </span><a href="_debug_.framestats.html" class="tsd-signature-type">FrameStats</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html">ICollisionBroadphase</a>.<a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html#broadphase">broadphase</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L62">Collision/DynamicTreeCollisionBroadphase.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L65">Collision/DynamicTreeCollisionBroadphase.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -126,7 +127,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>targets: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<h5>targets: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5>delta: <span class="tsd-signature-type">number</span></h5>
@@ -135,7 +136,7 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> stats: <a href="_debug_.framestats.html" class="tsd-signature-type">FrameStats</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -149,7 +150,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L215">Collision/DynamicTreeCollisionBroadphase.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L247">Collision/DynamicTreeCollisionBroadphase.ts:247</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -166,14 +167,14 @@
 					<a name="narrowphase" class="tsd-anchor"></a>
 					<h3> narrowphase</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">narrowphase<span class="tsd-signature-symbol">(</span>pairs<span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a>, stats<span class="tsd-signature-symbol">?: </span><a href="_debug_.framestats.html" class="tsd-signature-type">FrameStats</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">narrowphase<span class="tsd-signature-symbol">(</span>pairs<span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span>, stats<span class="tsd-signature-symbol">?: </span><a href="_debug_.framestats.html" class="tsd-signature-type">FrameStats</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html">ICollisionBroadphase</a>.<a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html#narrowphase">narrowphase</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L166">Collision/DynamicTreeCollisionBroadphase.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L169">Collision/DynamicTreeCollisionBroadphase.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -185,13 +186,13 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pairs: <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a></h5>
+									<h5>pairs: <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> stats: <a href="_debug_.framestats.html" class="tsd-signature-type">FrameStats</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -199,14 +200,14 @@
 					<a name="resolve" class="tsd-anchor"></a>
 					<h3> resolve</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, strategy<span class="tsd-signature-symbol">: </span><a href="../enums/_physics_.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">resolve<span class="tsd-signature-symbol">(</span>pairs<span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, strategy<span class="tsd-signature-symbol">: </span><a href="../enums/_physics_.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html">ICollisionBroadphase</a>.<a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html#resolve">resolve</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L179">Collision/DynamicTreeCollisionBroadphase.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L183">Collision/DynamicTreeCollisionBroadphase.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -217,10 +218,37 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
+									<h5>pairs: <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
 									<h5>delta: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
 									<h5>strategy: <a href="../enums/_physics_.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="runcollisionstartend" class="tsd-anchor"></a>
+					<h3> run<wbr>Collision<wbr>Start<wbr>End</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">run<wbr>Collision<wbr>Start<wbr>End<span class="tsd-signature-symbol">(</span>pairs<span class="tsd-signature-symbol">: </span><a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html">ICollisionBroadphase</a>.<a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html#runcollisionstartend">runCollisionStartEnd</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L200">Collision/DynamicTreeCollisionBroadphase.ts:200</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pairs: <a href="_collision_pair_.pair.html" class="tsd-signature-type">Pair</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -238,7 +266,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html">ICollisionBroadphase</a>.<a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html#track">track</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L21">Collision/DynamicTreeCollisionBroadphase.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L24">Collision/DynamicTreeCollisionBroadphase.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -267,7 +295,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html">ICollisionBroadphase</a>.<a href="../interfaces/_collision_icollisionresolver_.icollisionbroadphase.html#untrack">untrack</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L32">Collision/DynamicTreeCollisionBroadphase.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L35">Collision/DynamicTreeCollisionBroadphase.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -289,13 +317,13 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3> update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>targets<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4ac682a/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L203">Collision/DynamicTreeCollisionBroadphase.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0101600/src/engine/Collision/DynamicTreeCollisionBroadphase.ts#L235">Collision/DynamicTreeCollisionBroadphase.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -306,7 +334,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>targets: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<h5>targets: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -344,6 +372,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#resolve" class="tsd-kind-icon">resolve</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#runcollisionstartend" class="tsd-kind-icon">run<wbr>Collision<wbr>Start<wbr>End</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_collision_dynamictreecollisionbroadphase_.dynamictreecollisionbroadphase.html#track" class="tsd-kind-icon">track</a>
