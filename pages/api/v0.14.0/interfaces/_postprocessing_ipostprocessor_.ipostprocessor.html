@@ -1,0 +1,289 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IPostProcessor | Excalibur.js v0.14.0 API Documentation</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Excalibur.js v0.14.0 API Documentation</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_postprocessing_ipostprocessor_.html">&quot;PostProcessing/IPostProcessor&quot;</a>
+				</li>
+				<li>
+					<a href="_postprocessing_ipostprocessor_.ipostprocessor.html">IPostProcessor</a>
+				</li>
+			</ul>
+			<h1>Interface IPostProcessor</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Adds post processing support for the engine, can process raw pixel data and manipulate canvas directly.</p>
+					</div>
+					<p>Sometimes it is necessary to apply an effect to the canvas after the engine has completed its drawing pass. A few reasons to do
+					this might be creating a blur effect, adding a lighting effect, or changing how colors and pixels look.</p>
+					<h2 id="basic-post-processors">Basic post processors</h2>
+					<p>To create and use a post processor you just need to implement a class that implements <a href="_postprocessing_ipostprocessor_.ipostprocessor.html">IPostProcessor</a>, which has one method
+					<a href="_postprocessing_ipostprocessor_.ipostprocessor.html#process">IPostProcessor.process</a>. Set the <code>out</code> canvas parameter to the final result, using the <code>image</code> pixel data.</p>
+					<p>Click to read more about <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData" class="external">ImageData</a> on MDN.</p>
+					<p>For example:</p>
+					<pre><code class="lang-typescript"><span class="hljs-comment">// simple way to grayscale, a faster way would be to implement using a webgl fragment shader</span>
+<span class="hljs-keyword">class</span> GrayscalePostProcessor <span class="hljs-keyword">implements</span> IPostProcessor {
+  process(image: ImageData, out: CanvasRenderingContext2D) {
+     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; (image.height * image.width), i+=<span class="hljs-number">4</span>){
+        <span class="hljs-comment">// for pixel "i""</span>
+        <span class="hljs-keyword">var</span> r = image.data[i+<span class="hljs-number">0</span>]; <span class="hljs-comment">//0-255</span>
+        <span class="hljs-keyword">var</span> g = image.data[i+<span class="hljs-number">1</span>]; <span class="hljs-comment">//g </span>
+        <span class="hljs-keyword">var</span> b = image.data[i+<span class="hljs-number">2</span>]; <span class="hljs-comment">//b</span>
+        image.data[i+<span class="hljs-number">3</span>]; <span class="hljs-comment">//a</span>
+        <span class="hljs-keyword">var</span> result = <span class="hljs-built_in">Math</span>.floor((r + g + b) / <span class="hljs-number">3.0</span>) | <span class="hljs-number">0</span>; <span class="hljs-comment">// only valid on 0-255 integers `| 0` forces int</span>
+        image.data[i+<span class="hljs-number">0</span>] = result; 
+        image.data[i+<span class="hljs-number">1</span>] = result; 
+        image.data[i+<span class="hljs-number">2</span>] = result; 
+     }
+     <span class="hljs-comment">// finish processing and write result</span>
+     out.putImageData(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+  }
+}
+</code></pre>
+					<h2 id="color-blind-corrector-post-processor">Color Blind Corrector Post Processor</h2>
+					<p>Choosing colors that are friendly to players with color blindness is an important consideration when making a game. </p>
+					<p>There is a significant portion of the population that has some form of color blindness,
+						and choosing bad colors can make your game unplayable. We have built
+						a post processors that can shift your colors into as more visible range for the 3 most common types of
+					<a href="https://en.wikipedia.org/wiki/Color_blindness" class="external">color blindness</a>. </p>
+					<ul>
+						<li><a href="../enums/_postprocessing_colorblindcorrector_.colorblindness.html#protanope">Protanope</a></li>
+						<li><a href="../enums/_postprocessing_colorblindcorrector_.colorblindness.html#deuteranope">Deuteranope</a></li>
+						<li><a href="../enums/_postprocessing_colorblindcorrector_.colorblindness.html#tritanope">Tritanope</a></li>
+					</ul>
+					<p>This post processor can correct colors, and simulate color blindness. </p>
+					<p>It is possible to use this on every game, but the game&#39;s performance
+					will suffer measurably. It&#39;s better to use it as a helpful tool while developing your game. </p>
+					<p>Remember, the best practice is to design with color blindness in mind.</p>
+					<p>Example:</p>
+					<pre><code class="lang-typescript">
+<span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+
+<span class="hljs-keyword">var</span> colorBlindPostProcessor = <span class="hljs-keyword">new</span> ex.ColorBlindCorrector(game, <span class="hljs-literal">false</span>, ColorBlindness.Protanope);
+
+<span class="hljs-comment">// post processors evaluate left to right</span>
+game.postProcessors.push(colorBlindPostProcessor);
+game.start();
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">IPostProcessor</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implemented by</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../classes/_postprocessing_colorblindcorrector_.colorblindcorrector.html" class="tsd-signature-type">ColorBlindCorrector</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_postprocessing_ipostprocessor_.ipostprocessor.html#process" class="tsd-kind-icon">process</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="process" class="tsd-anchor"></a>
+					<h3> process</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">process<span class="tsd-signature-symbol">(</span>image<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ImageData</span>, out<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fa2c84b/src/engine/PostProcessing/IPostProcessor.ts#L7">PostProcessing/IPostProcessor.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>image: <span class="tsd-signature-type">ImageData</span></h5>
+								</li>
+								<li>
+									<h5>out: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/_postprocessing_ipostprocessor_.html">"<wbr>Post<wbr>Processing/IPost<wbr>Processor"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_postprocessing_ipostprocessor_.ipostprocessor.html" class="tsd-kind-icon">IPost<wbr>Processor</a>
+						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="_postprocessing_ipostprocessor_.ipostprocessor.html#process" class="tsd-kind-icon">process</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
