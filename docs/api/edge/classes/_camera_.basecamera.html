@@ -77,26 +77,12 @@
 					<p><a href="_camera_.basecamera.html">BaseCamera</a> is the base class for all Excalibur cameras. Cameras are used
 						to move around your game and set focus. They are used to determine
 					what is &quot;off screen&quot; and can be used to scale the game.</p>
-					<p>Excalibur comes with a <a href="_camera_.lockedcamera.html">LockedCamera</a> and a <a href="_camera_.sidecamera.html">SideCamera</a>, depending on
-					your game needs.</p>
 					<p>Cameras are attached to <a href="_scene_.scene.html">Scenes</a> and can be changed by
 						setting <a href="_scene_.scene.html#camera">Scene.camera</a>. By default, a <a href="_scene_.scene.html">Scene</a> is initialized with a
 					<a href="_camera_.basecamera.html">BaseCamera</a> that doesn&#39;t move and is centered on the screen.</p>
 					<h2 id="focus">Focus</h2>
 					<p>Cameras have a position (<a href="_camera_.basecamera.html#x">x</a>, <a href="_camera_.basecamera.html#y">y</a>) which means they center around a specific
-						<a href="_algebra_.vector.html">point</a>. This can also be an <a href="_actor_.actor.html">Actor</a> (<a href="_camera_.lockedcamera.html#setactortofollow">LockedCamera.setActorToFollow</a>) which
-					the camera will follow as the actor moves on the x and y axis or <a href="_camera_.sidecamera.html#setactortofollow">SideCamera.setActorToFollow</a> which the camera will follow on the x axis.</p>
-					<p>In order to use these cameras replace the current scene&#39;s camera</p>
-					<pre><code class="lang-typescript">game.currentScene.camera = <span class="hljs-keyword">new</span> ex.LockedCamera();
-game.currentScene.camera.setActorToFollow(actor);
-
-<span class="hljs-comment">// or</span>
-
-game.currentScene.camera = <span class="hljs-keyword">new</span> ex.SideCamera();
-game.currentScene.camera.setActorToFollow(actor);
-</code></pre>
-					<p>These different cameras can be useful for cutscene scenarios (using
-					invisible actors).</p>
+					<a href="_algebra_.vector.html">point</a>. </p>
 					<p>If a camera is following an <a href="_actor_.actor.html">Actor</a>, it will ensure the <a href="_actor_.actor.html">Actor</a> is always at the
 						center of the screen. You can use <a href="_camera_.basecamera.html#x">x</a> and <a href="_camera_.basecamera.html#y">y</a> instead if you wish to
 					offset the focal point.</p>
@@ -154,14 +140,6 @@ game.currentScene.camera.setActorToFollow(actor);
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">BaseCamera</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<a href="_camera_.sidecamera.html" class="tsd-signature-type">SideCamera</a>
-							</li>
-							<li>
-								<a href="_camera_.lockedcamera.html" class="tsd-signature-type">LockedCamera</a>
-							</li>
-						</ul>
 					</li>
 				</ul>
 			</section>
@@ -223,7 +201,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">_follow<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L184">Camera.ts:184</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L184">Camera.ts:184</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +211,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Shaking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L214">Camera.ts:214</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L214">Camera.ts:214</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -243,7 +221,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Zooming<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L222">Camera.ts:222</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L222">Camera.ts:222</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -253,7 +231,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">ax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L197">Camera.ts:197</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L197">Camera.ts:197</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -263,7 +241,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">ay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L198">Camera.ts:198</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L198">Camera.ts:198</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +251,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">az<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L199">Camera.ts:199</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L199">Camera.ts:199</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -283,7 +261,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">dx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L193">Camera.ts:193</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L193">Camera.ts:193</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -293,7 +271,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">dy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L194">Camera.ts:194</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L194">Camera.ts:194</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +281,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">dz<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L195">Camera.ts:195</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L195">Camera.ts:195</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -313,7 +291,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L201">Camera.ts:201</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L201">Camera.ts:201</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -323,7 +301,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">rx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L202">Camera.ts:202</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L202">Camera.ts:202</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +311,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">strategy<span class="tsd-signature-symbol">:</span> <a href="_camera_.strategycontainer.html" class="tsd-signature-type">StrategyContainer</a><span class="tsd-signature-symbol"> =&nbsp;new StrategyContainer(this)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L188">Camera.ts:188</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L188">Camera.ts:188</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -343,7 +321,7 @@ game.currentScene.camera.setActorToFollow(actor);
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L191">Camera.ts:191</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L191">Camera.ts:191</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -361,7 +339,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L263">Camera.ts:263</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L263">Camera.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -374,7 +352,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L270">Camera.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L270">Camera.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -403,7 +381,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L278">Camera.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L278">Camera.ts:278</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -416,7 +394,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L285">Camera.ts:285</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L285">Camera.ts:285</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -445,7 +423,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L231">Camera.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L231">Camera.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -458,7 +436,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L238">Camera.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L238">Camera.ts:238</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -487,7 +465,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L247">Camera.ts:247</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L247">Camera.ts:247</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,7 +478,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L254">Camera.ts:254</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L254">Camera.ts:254</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -531,7 +509,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L380">Camera.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L380">Camera.ts:380</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -568,7 +546,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L395">Camera.ts:395</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L395">Camera.ts:395</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -590,7 +568,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L499">Camera.ts:499</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L499">Camera.ts:499</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -613,7 +591,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L485">Camera.ts:485</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L485">Camera.ts:485</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -644,7 +622,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L293">Camera.ts:293</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L293">Camera.ts:293</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -666,7 +644,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L372">Camera.ts:372</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L372">Camera.ts:372</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -688,7 +666,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L306">Camera.ts:306</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L306">Camera.ts:306</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -730,7 +708,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L388">Camera.ts:388</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L388">Camera.ts:388</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -767,7 +745,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L339">Camera.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L339">Camera.ts:339</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -810,7 +788,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L399">Camera.ts:399</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L399">Camera.ts:399</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -836,7 +814,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/58006c9/src/engine/Camera.ts#L352">Camera.ts:352</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/960a209/src/engine/Camera.ts#L352">Camera.ts:352</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -985,13 +963,7 @@ game.currentScene.camera.setActorToFollow(actor);
 						<a href="_camera_.lockcameratoactorstrategy.html" class="tsd-kind-icon">Lock<wbr>Camera<wbr>ToActor<wbr>Strategy</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_camera_.lockedcamera.html" class="tsd-kind-icon">Locked<wbr>Camera</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_camera_.radiusaroundactorstrategy.html" class="tsd-kind-icon">Radius<wbr>Around<wbr>Actor<wbr>Strategy</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_camera_.sidecamera.html" class="tsd-kind-icon">Side<wbr>Camera</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_camera_.strategycontainer.html" class="tsd-kind-icon">Strategy<wbr>Container</a>
