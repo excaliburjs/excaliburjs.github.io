@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MockedElement | Excalibur.js Edge API Documentation</title>
+	<title>GlobalCoordinates | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,35 +56,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_util_sortedlist_.html">&quot;Util/SortedList&quot;</a>
+					<a href="../modules/_algebra_.html">&quot;Algebra&quot;</a>
 				</li>
 				<li>
-					<a href="_util_sortedlist_.mockedelement.html">MockedElement</a>
+					<a href="_algebra_.globalcoordinates.html">GlobalCoordinates</a>
 				</li>
 			</ul>
-			<h1>Class MockedElement</h1>
+			<h1>Class GlobalCoordinates</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Mock element for testing</p>
-					</div>
-					<dl class="tsd-comment-tags">
-						<dt >internal</dt>
-						<dd ></dd>
-					</dl>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">MockedElement</span>
+						<span class="target">GlobalCoordinates</span>
 					</li>
 				</ul>
 			</section>
@@ -95,14 +84,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_util_sortedlist_.mockedelement.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_algebra_.globalcoordinates.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_algebra_.globalcoordinates.html#pagepos" class="tsd-kind-icon">page<wbr>Pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_algebra_.globalcoordinates.html#screenpos" class="tsd-kind-icon">screen<wbr>Pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_algebra_.globalcoordinates.html#worldpos" class="tsd-kind-icon">world<wbr>Pos</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_sortedlist_.mockedelement.html#getthekey" class="tsd-kind-icon">get<wbr>The<wbr>Key</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_util_sortedlist_.mockedelement.html#setkey" class="tsd-kind-icon">set<wbr>Key</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_algebra_.globalcoordinates.html#frompageposition" class="tsd-kind-icon">from<wbr>Page<wbr>Position</a></li>
 							</ul>
 						</section>
 					</div>
@@ -114,65 +110,111 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Mocked<wbr>Element<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_util_sortedlist_.mockedelement.html" class="tsd-signature-type">MockedElement</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Global<wbr>Coordinates<span class="tsd-signature-symbol">(</span>worldPos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, pagePos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, screenPos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Util/SortedList.ts#L242">Util/SortedList.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Algebra.ts#L531">Algebra.ts:531</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>key: <span class="tsd-signature-type">number</span></h5>
+									<h5>worldPos: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5>pagePos: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5>screenPos: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_util_sortedlist_.mockedelement.html" class="tsd-signature-type">MockedElement</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getthekey" class="tsd-anchor"></a>
-					<h3> get<wbr>The<wbr>Key</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>The<wbr>Key<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Util/SortedList.ts#L248">Util/SortedList.ts:248</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="pagepos" class="tsd-anchor"></a>
+					<h3> page<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">page<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Algebra.ts#L533">Algebra.ts:533</a></li>
+						</ul>
+					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="setkey" class="tsd-anchor"></a>
-					<h3> set<wbr>Key</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Key<span class="tsd-signature-symbol">(</span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="screenpos" class="tsd-anchor"></a>
+					<h3> screen<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">screen<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Algebra.ts#L533">Algebra.ts:533</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="worldpos" class="tsd-anchor"></a>
+					<h3> world<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">world<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Algebra.ts#L533">Algebra.ts:533</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="frompageposition" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Page<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Page<wbr>Position<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Page<wbr>Position<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Util/SortedList.ts#L252">Util/SortedList.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Algebra.ts#L505">Algebra.ts:505</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>key: <span class="tsd-signature-type">number</span></h5>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4548ae3/src/engine/Algebra.ts#L506">Algebra.ts:506</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pos: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -185,35 +227,47 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_util_sortedlist_.html">"<wbr>Util/<wbr>Sorted<wbr>List"</a>
+						<a href="../modules/_algebra_.html">"<wbr>Algebra"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_util_sortedlist_.binarytreenode.html" class="tsd-kind-icon">Binary<wbr>Tree<wbr>Node</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_util_sortedlist_.mockedelement.html" class="tsd-kind-icon">Mocked<wbr>Element</a>
+						<a href="_algebra_.globalcoordinates.html" class="tsd-kind-icon">Global<wbr>Coordinates</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_util_sortedlist_.mockedelement.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_algebra_.globalcoordinates.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_util_sortedlist_.mockedelement.html#getthekey" class="tsd-kind-icon">get<wbr>The<wbr>Key</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_algebra_.globalcoordinates.html#pagepos" class="tsd-kind-icon">page<wbr>Pos</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_util_sortedlist_.mockedelement.html#setkey" class="tsd-kind-icon">set<wbr>Key</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_algebra_.globalcoordinates.html#screenpos" class="tsd-kind-icon">screen<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_algebra_.globalcoordinates.html#worldpos" class="tsd-kind-icon">world<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_algebra_.globalcoordinates.html#frompageposition" class="tsd-kind-icon">from<wbr>Page<wbr>Position</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_util_sortedlist_.sortedlist.html" class="tsd-kind-icon">Sorted<wbr>List</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_algebra_.line.html" class="tsd-kind-icon">Line</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_algebra_.projection.html" class="tsd-kind-icon">Projection</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_algebra_.ray.html" class="tsd-kind-icon">Ray</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_algebra_.vector.html" class="tsd-kind-icon">Vector</a>
 					</li>
 				</ul>
 			</nav>
