@@ -167,6 +167,11 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/_interfaces_ievented_.ievented.html" class="tsd-signature-type">IEvented</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html" class="tsd-signature-type">ICanInitialize</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.icanactivate.html" class="tsd-signature-type">ICanActivate</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.icandeactivate.html" class="tsd-signature-type">ICanDeactivate</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html" class="tsd-signature-type">ICanUpdate</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html" class="tsd-signature-type">ICanDraw</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -201,8 +206,14 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_activate" class="tsd-kind-icon">_activate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_scene_.scene.html#_addchild" class="tsd-kind-icon">_add<wbr>Child</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_deactivate" class="tsd-kind-icon">_deactivate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_postdraw" class="tsd-kind-icon">_postdraw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_predraw" class="tsd-kind-icon">_predraw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="_scene_.scene.html#_removechild" class="tsd-kind-icon">_remove<wbr>Child</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#addtilemap" class="tsd-kind-icon">add<wbr>Tile<wbr>Map</a></li>
@@ -217,12 +228,16 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_scene_.scene.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#getgroup" class="tsd-kind-icon">get<wbr>Group</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#istimeractive" class="tsd-kind-icon">is<wbr>Timer<wbr>Active</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_scene_.scene.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_scene_.scene.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_scene_.scene.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#onactivate" class="tsd-kind-icon">on<wbr>Activate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#ondeactivate" class="tsd-kind-icon">on<wbr>Deactivate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_scene_.scene.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_scene_.scene.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#remove" class="tsd-kind-icon">remove</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#removegroup" class="tsd-kind-icon">remove<wbr>Group</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_scene_.scene.html#removetilemap" class="tsd-kind-icon">remove<wbr>Tile<wbr>Map</a></li>
@@ -249,7 +264,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L77">Scene.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L78">Scene.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -271,7 +286,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">actors<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L39">Scene.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L40">Scene.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -286,7 +301,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">camera<span class="tsd-signature-symbol">:</span> <a href="_camera_.basecamera.html" class="tsd-signature-type">BaseCamera</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L34">Scene.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L35">Scene.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -301,7 +316,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L59">Scene.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L60">Scene.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -317,7 +332,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Class.ts#L14">Class.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Class.ts#L14">Class.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -332,7 +347,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">groups<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L54">Scene.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L55">Scene.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -355,7 +370,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">tile<wbr>Maps<span class="tsd-signature-symbol">:</span> <a href="_tilemap_.tilemap.html" class="tsd-signature-type">TileMap</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L49">Scene.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L50">Scene.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -370,7 +385,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">triggers<span class="tsd-signature-symbol">:</span> <a href="_trigger_.trigger.html" class="tsd-signature-type">Trigger</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L44">Scene.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L45">Scene.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -385,7 +400,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<div class="tsd-signature tsd-kind-icon">ui<wbr>Actors<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L64">Scene.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L65">Scene.ts:65</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -407,7 +422,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L146">Scene.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L205">Scene.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,6 +437,42 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_activate" class="tsd-anchor"></a>
+					<h3> _activate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_activate<span class="tsd-signature-symbol">(</span>oldScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a>, newScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L239">Scene.ts:239</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Activates the scene with the base behavior, then calls the overridable <code>onActivate</code> implementation.</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>oldScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+								<li>
+									<h5>newScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 					<a name="_addchild" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _add<wbr>Child</h3>
@@ -432,7 +483,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L467">Scene.ts:467</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L606">Scene.ts:606</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -451,6 +502,42 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_deactivate" class="tsd-anchor"></a>
+					<h3> _deactivate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_deactivate<span class="tsd-signature-symbol">(</span>oldScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a>, newScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L251">Scene.ts:251</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Deactivates the scene with the base behavior, then calls the overridable <code>onDeactivate</code> implementation.</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>oldScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+								<li>
+									<h5>newScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="_initialize" class="tsd-anchor"></a>
 					<h3> _initialize</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -460,14 +547,15 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L155">Scene.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L216">Scene.ts:216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Initializes the scene before the first update, meant to be called by engine not by users of
-									Excalibur</p>
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
+								<p>Initializes the scene before the first update, meant to be called by engine not by users of
+								Excalibur</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -477,6 +565,150 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<ul class="tsd-parameters">
 								<li>
 									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_postdraw" class="tsd-anchor"></a>
+					<h3> _postdraw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_postdraw<span class="tsd-signature-symbol">(</span>_ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L297">Scene.ts:297</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Internal _postdraw handler for <a href="_scene_.scene.html#onpostdraw">onPostDraw</a> lifecycle event</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_postupdate" class="tsd-anchor"></a>
+					<h3> _postupdate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_postupdate<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L273">Scene.ts:273</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p> It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Internal _preupdate handler for <a href="_scene_.scene.html#onpostupdate">onPostUpdate</a> lifecycle event</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_predraw" class="tsd-anchor"></a>
+					<h3> _predraw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_predraw<span class="tsd-signature-symbol">(</span>_ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L285">Scene.ts:285</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Internal _predraw handler for <a href="_scene_.scene.html#onpredraw">onPreDraw</a> lifecycle event</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="_preupdate" class="tsd-anchor"></a>
+					<h3> _preupdate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">_preupdate<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L262">Scene.ts:262</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Internal _preupdate handler for <a href="_scene_.scene.html#onpreupdate">onPreUpdate</a> lifecycle event</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -493,7 +725,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L499">Scene.ts:499</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L638">Scene.ts:638</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -525,7 +757,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L348">Scene.ts:348</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L487">Scene.ts:487</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -547,7 +779,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L353">Scene.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L492">Scene.ts:492</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -566,7 +798,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L359">Scene.ts:359</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L498">Scene.ts:498</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -587,7 +819,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L365">Scene.ts:365</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L504">Scene.ts:504</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -609,7 +841,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L371">Scene.ts:371</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L510">Scene.ts:510</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -640,7 +872,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L482">Scene.ts:482</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L621">Scene.ts:621</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -668,7 +900,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L514">Scene.ts:514</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L653">Scene.ts:653</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -699,7 +931,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L449">Scene.ts:449</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L588">Scene.ts:588</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -733,7 +965,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L537">Scene.ts:537</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L676">Scene.ts:676</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -764,7 +996,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L585">Scene.ts:585</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L724">Scene.ts:724</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -792,7 +1024,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L340">Scene.ts:340</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L479">Scene.ts:479</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -820,7 +1052,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L552">Scene.ts:552</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L691">Scene.ts:691</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -848,7 +1080,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L314">Scene.ts:314</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L453">Scene.ts:453</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -879,7 +1111,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L264">Scene.ts:264</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L403">Scene.ts:403</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -918,7 +1150,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Class.ts#L47">Class.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Class.ts#L47">Class.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -955,7 +1187,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L559">Scene.ts:559</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L698">Scene.ts:698</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -983,7 +1215,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L545">Scene.ts:545</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L684">Scene.ts:684</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1001,40 +1233,360 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="off" class="tsd-anchor"></a>
 					<h3> off</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.initialize</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.activate</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.deactivate</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.preupdate</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postupdate</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.predraw</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postdraw</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.predebugdraw</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postdebugdraw</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Class.ts#L38">Class.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L117">Scene.ts:117</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Alias for <code>removeEventListener</code>. If only the eventName is specified
-										it will remove all handlers registered for that specific event. If the eventName
-									and the handler instance are specified only that handler will be removed.</p>
-								</div>
-							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.initialize</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L118">Scene.ts:118</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.activate</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.activateevent.html" class="tsd-signature-type">ActivateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.activateevent.html" class="tsd-signature-type">ActivateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L119">Scene.ts:119</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.deactivate</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.deactivateevent.html" class="tsd-signature-type">DeactivateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.deactivateevent.html" class="tsd-signature-type">DeactivateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L120">Scene.ts:120</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.preupdate</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L121">Scene.ts:121</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.postupdate</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L122">Scene.ts:122</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.predraw</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.predrawevent.html" class="tsd-signature-type">PreDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.predrawevent.html" class="tsd-signature-type">PreDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L123">Scene.ts:123</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.postdraw</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.postdrawevent.html" class="tsd-signature-type">PostDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.postdrawevent.html" class="tsd-signature-type">PostDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L124">Scene.ts:124</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.predebugdraw</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.predebugdrawevent.html" class="tsd-signature-type">PreDebugDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.predebugdrawevent.html" class="tsd-signature-type">PreDebugDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L125">Scene.ts:125</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.postdebugdraw</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.postdebugdrawevent.html" class="tsd-signature-type">PostDebugDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.postdebugdrawevent.html" class="tsd-signature-type">PostDebugDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L126">Scene.ts:126</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Name of the event to listen for</p>
-									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Event handler for the thrown event</p>
-									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -1079,7 +1631,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L88">Scene.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L89">Scene.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1115,7 +1667,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L89">Scene.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L90">Scene.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1151,7 +1703,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L90">Scene.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L91">Scene.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1187,7 +1739,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L91">Scene.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L92">Scene.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1223,7 +1775,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L92">Scene.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L93">Scene.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1259,7 +1811,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L93">Scene.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L94">Scene.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1295,7 +1847,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L94">Scene.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L95">Scene.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1331,7 +1883,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L95">Scene.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L96">Scene.ts:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1367,7 +1919,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L96">Scene.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L97">Scene.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1403,7 +1955,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L97">Scene.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L98">Scene.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1441,13 +1993,14 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<a name="onactivate" class="tsd-anchor"></a>
 					<h3> on<wbr>Activate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Activate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Activate<span class="tsd-signature-symbol">(</span>_oldScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a>, _newScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanactivate.html">ICanActivate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanactivate.html#onactivate">onActivate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L120">Scene.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L144">Scene.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1456,6 +2009,15 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 									this is where you should setup any DOM UI or event handlers needed for the scene.</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_oldScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+								<li>
+									<h5>_newScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -1464,13 +2026,14 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<a name="ondeactivate" class="tsd-anchor"></a>
 					<h3> on<wbr>Deactivate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Deactivate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Deactivate<span class="tsd-signature-symbol">(</span>_oldScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a>, _newScene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icandeactivate.html">ICanDeactivate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icandeactivate.html#ondeactivate">onDeactivate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L129">Scene.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L152">Scene.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1479,6 +2042,15 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 									this is where you should cleanup any DOM UI or event handlers needed for the scene.</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_oldScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+								<li>
+									<h5>_newScene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -1487,13 +2059,14 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 					<a name="oninitialize" class="tsd-anchor"></a>
 					<h3> on<wbr>Initialize</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">on<wbr>Initialize<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Initialize<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html">ICanInitialize</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html#oninitialize">onInitialize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L107">Scene.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L136">Scene.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1505,45 +2078,499 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+									<h5>_engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="onpostdraw" class="tsd-anchor"></a>
+					<h3> on<wbr>Post<wbr>Draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Draw<span class="tsd-signature-symbol">(</span>_ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html">ICanDraw</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html#onpostdraw">onPostDraw</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L188">Scene.ts:188</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Safe to override onPostDraw lifecycle event handler. Synonymous with <code>.on(&#39;preupdate&#39;, (evt) =&gt;{...})</code></p>
+								</div>
+								<p><code>onPostDraw</code> is called directly after a scene is drawn.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="onpostupdate" class="tsd-anchor"></a>
+					<h3> on<wbr>Post<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html">ICanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html#onpostupdate">onPostUpdate</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L170">Scene.ts:170</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Safe to override onPostUpdate lifecycle event handler. Synonymous with <code>.on(&#39;preupdate&#39;, (evt) =&gt;{...})</code></p>
+								</div>
+								<p><code>onPostUpdate</code> is called directly after a scene is updated.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="onpredraw" class="tsd-anchor"></a>
+					<h3> on<wbr>Pre<wbr>Draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Pre<wbr>Draw<span class="tsd-signature-symbol">(</span>_ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html">ICanDraw</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html#onpredraw">onPreDraw</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L179">Scene.ts:179</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Safe to override onPreDraw lifecycle event handler. Synonymous with <code>.on(&#39;preupdate&#39;, (evt) =&gt;{...})</code></p>
+								</div>
+								<p><code>onPreDraw</code> is called directly before a scene is drawn.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="onpreupdate" class="tsd-anchor"></a>
+					<h3> on<wbr>Pre<wbr>Update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Pre<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html">ICanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html#onpreupdate">onPreUpdate</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L161">Scene.ts:161</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Safe to override onPreUpdate lifecycle event handler. Synonymous with <code>.on(&#39;preupdate&#39;, (evt) =&gt;{...})</code></p>
+								</div>
+								<p><code>onPreUpdate</code> is called directly before a scene is updated.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="once" class="tsd-anchor"></a>
 					<h3> once</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.initialize</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.activate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.deactivate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.preupdate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postupdate</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.predraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postdraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.predebugdraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Events.postdebugdraw</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Class.ts#L57">Class.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L103">Scene.ts:103</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Once listens to an event one time, then unsubscribes from that event</p>
-								</div>
-							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.initialize</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L104">Scene.ts:104</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.activate</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.activateevent.html" class="tsd-signature-type">ActivateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.activateevent.html" class="tsd-signature-type">ActivateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L105">Scene.ts:105</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.deactivate</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.deactivateevent.html" class="tsd-signature-type">DeactivateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.deactivateevent.html" class="tsd-signature-type">DeactivateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L106">Scene.ts:106</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.preupdate</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L107">Scene.ts:107</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.postupdate</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L108">Scene.ts:108</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.predraw</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.predrawevent.html" class="tsd-signature-type">PreDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.predrawevent.html" class="tsd-signature-type">PreDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L109">Scene.ts:109</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.postdraw</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.postdrawevent.html" class="tsd-signature-type">PostDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.postdrawevent.html" class="tsd-signature-type">PostDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L110">Scene.ts:110</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.predebugdraw</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.predebugdrawevent.html" class="tsd-signature-type">PreDebugDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.predebugdrawevent.html" class="tsd-signature-type">PreDebugDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L111">Scene.ts:111</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventName: <span class="tsd-signature-type">Events.postdebugdraw</span></h5>
+								</li>
+								<li>
+									<h5>handler: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">?: </span><a href="_events_.postdebugdrawevent.html" class="tsd-signature-type">PostDebugDrawEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagOptional">Optional</span> event: <a href="_events_.postdebugdrawevent.html" class="tsd-signature-type">PostDebugDrawEvent</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L112">Scene.ts:112</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>eventName: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The name of the event to subscribe to once</p>
-									</div>
 								</li>
 								<li>
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The handler of the event that will be auto unsubscribed</p>
-									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -1581,7 +2608,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L406">Scene.ts:406</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L545">Scene.ts:545</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1603,7 +2630,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L412">Scene.ts:412</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L551">Scene.ts:551</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1624,7 +2651,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L418">Scene.ts:418</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L557">Scene.ts:557</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1646,7 +2673,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L424">Scene.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L563">Scene.ts:563</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1678,7 +2705,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L566">Scene.ts:566</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L705">Scene.ts:705</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1697,7 +2724,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L571">Scene.ts:571</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L710">Scene.ts:710</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1725,7 +2752,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L489">Scene.ts:489</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L628">Scene.ts:628</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1753,7 +2780,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L525">Scene.ts:525</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L664">Scene.ts:664</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1789,7 +2816,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L457">Scene.ts:457</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L596">Scene.ts:596</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1817,7 +2844,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L169">Scene.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L308">Scene.ts:308</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1854,7 +2881,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Scene.ts#L592">Scene.ts:592</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Scene.ts#L731">Scene.ts:731</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1883,7 +2910,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/98ddb29/src/engine/Class.ts#L93">Class.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/920b84d/src/engine/Class.ts#L93">Class.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1976,11 +3003,29 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="_scene_.scene.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#_activate" class="tsd-kind-icon">_activate</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_scene_.scene.html#_addchild" class="tsd-kind-icon">_add<wbr>Child</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#_deactivate" class="tsd-kind-icon">_deactivate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_scene_.scene.html#_initialize" class="tsd-kind-icon">_initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#_postdraw" class="tsd-kind-icon">_postdraw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#_predraw" class="tsd-kind-icon">_predraw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
 								<a href="_scene_.scene.html#_removechild" class="tsd-kind-icon">_remove<wbr>Child</a>
@@ -2024,7 +3069,7 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_scene_.scene.html#istimeractive" class="tsd-kind-icon">is<wbr>Timer<wbr>Active</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_scene_.scene.html#off" class="tsd-kind-icon">off</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
@@ -2039,7 +3084,19 @@ game.goToScene(<span class="hljs-string">"mainmenu"</span>);
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_scene_.scene.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_scene_.scene.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_scene_.scene.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
