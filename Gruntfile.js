@@ -20,8 +20,8 @@ module.exports = grunt => {
         pkg: grunt.file.readJSON('package.json'),
         release: {
           tag: process.env.GH_RELEASE_TAG,
-          size: (Number.parseInt(process.env.GH_RELEASE_SIZE, 10) / 1024) + 'kb',
-          gzip: (Number.parseInt(process.env.GH_RELEASE_GZIP, 10) / 1024) + 'kb'
+          size: Math.floor(Number.parseInt(process.env.GH_RELEASE_SIZE, 10) / 1024) + 'kb',
+          gzip: Math.floor(Number.parseInt(process.env.GH_RELEASE_GZIP, 10) / 1024) + 'kb'
         },
 
         // Register Swig extensions
