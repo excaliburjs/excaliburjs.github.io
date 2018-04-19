@@ -1,8 +1,8 @@
 /*globals module */
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-module.exports = function (grunt) {
+module.exports = grunt => {
   'use strict';
 
   grunt.initConfig({
@@ -20,8 +20,8 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         release: {
           tag: process.env.GH_RELEASE_TAG,
-          size: process.env.GH_RELEASE_SIZE,
-          gzip: process.env.GH_RELEASE_GZIP
+          size: (Number.parseInt(process.env.GH_RELEASE_SIZE, 10) / 1024) + 'kb',
+          gzip: (Number.parseInt(process.env.GH_RELEASE_GZIP, 10) / 1024) + 'kb'
         },
 
         // Register Swig extensions
