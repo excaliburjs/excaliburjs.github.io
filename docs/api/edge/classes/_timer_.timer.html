@@ -101,9 +101,16 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_timer_.timer.html#complete" class="tsd-kind-icon">complete</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_timer_.timer.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_timer_.timer.html#interval" class="tsd-kind-icon">interval</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_timer_.timer.html#maxnumberofrepeats" class="tsd-kind-icon">max<wbr>Number<wbr>OfRepeats</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_timer_.timer.html#repeats" class="tsd-kind-icon">repeats</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_timer_.timer.html#scene" class="tsd-kind-icon">scene</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="_timer_.timer.html#id-1" class="tsd-kind-icon">id</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_timer_.timer.html#timesrepeated" class="tsd-kind-icon">times<wbr>Repeated</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -127,13 +134,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, interval<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, repeats<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_timer_.timer.html" class="tsd-signature-type">Timer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, interval<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, repeats<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, numberOfRepeats<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_timer_.timer.html" class="tsd-signature-type">Timer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L17">Timer.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L19">Timer.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -176,6 +183,14 @@
 										</div>
 									</div>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> numberOfRepeats: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>Specifies a maximum number of times that this timer will execute.</p>
+										</div>
+									</div>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_timer_.timer.html" class="tsd-signature-type">Timer</a></h4>
 						</li>
@@ -190,7 +205,7 @@
 					<div class="tsd-signature tsd-kind-icon">complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L16">Timer.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L18">Timer.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L9">Timer.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L9">Timer.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +225,17 @@
 					<div class="tsd-signature tsd-kind-icon">interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L10">Timer.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L10">Timer.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="maxnumberofrepeats" class="tsd-anchor"></a>
+					<h3> max<wbr>Number<wbr>OfRepeats</h3>
+					<div class="tsd-signature tsd-kind-icon">max<wbr>Number<wbr>OfRepeats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L13">Timer.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">repeats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L12">Timer.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L12">Timer.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">scene<span class="tsd-signature-symbol">:</span> <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L17">Timer.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L19">Timer.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,9 +265,29 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L8">Timer.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L8">Timer.ts:8</a></li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="timesrepeated" class="tsd-anchor"></a>
+					<h3> times<wbr>Repeated</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> timesRepeated<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L87">Timer.ts:87</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -257,7 +302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L84">Timer.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L112">Timer.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -279,7 +324,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L11">Timer.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L11">Timer.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -296,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L63">Timer.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L91">Timer.ts:91</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -313,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L70">Timer.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L98">Timer.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -329,13 +374,13 @@
 					<a name="reset" class="tsd-anchor"></a>
 					<h3> reset</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">reset<span class="tsd-signature-symbol">(</span>newInterval<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">reset<span class="tsd-signature-symbol">(</span>newInterval<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, newNumberOfRepeats<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L54">Timer.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L70">Timer.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -349,6 +394,12 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> newInterval: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>If specified, sets a new non-negative interval in milliseconds to refire the callback</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> newNumberOfRepeats: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>If specified, sets a new non-negative upper limit to the number of time this timer executes</p>
 									</div>
 								</li>
 							</ul>
@@ -366,7 +417,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L77">Timer.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L105">Timer.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -388,7 +439,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/32d9c31/src/engine/Timer.ts#L35">Timer.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/578c78e/src/engine/Timer.ts#L44">Timer.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -442,6 +493,9 @@
 								<a href="_timer_.timer.html#interval" class="tsd-kind-icon">interval</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_timer_.timer.html#maxnumberofrepeats" class="tsd-kind-icon">max<wbr>Number<wbr>OfRepeats</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_timer_.timer.html#repeats" class="tsd-kind-icon">repeats</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -449,6 +503,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
 								<a href="_timer_.timer.html#id-1" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_timer_.timer.html#timesrepeated" class="tsd-kind-icon">times<wbr>Repeated</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_timer_.timer.html#cancel" class="tsd-kind-icon">cancel</a>
