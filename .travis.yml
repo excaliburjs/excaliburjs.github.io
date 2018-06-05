@@ -24,14 +24,17 @@ before_install:
 before_script:
 # Query Github for latest release tag
 - ! 'export GH_RELEASE_TAG=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/excaliburjs/Excalibur/releases/latest | jq -r ".tag_name")'
+- echo $GH_RELEASE_TAG
 # Download latest release (minified)
 - ! 'curl -o excalibur.min.js -H "Accept: application/vnd.github.v3.raw" -L "https://api.github.com/repos/excaliburjs/excalibur-dist/contents/dist/excalibur.min.js?ref=$GH_RELEASE_TAG"'
 # Export file size
 - export GH_RELEASE_SIZE="$(ls -la excalibur.min.js | awk '{ print $5}')"
+- echo $GH_RELEASE_SIZE
 # Gzip file
 - gzip excalibur.min.js
 # Export gzipped size
 - export GH_RELEASE_GZIP="$(ls -la excalibur.min.js.gz | awk '{ print $5}')"
+- echo $GH_RELEASE_GZIP
 script:
 - grunt travis
 after_success:
