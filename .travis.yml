@@ -2,6 +2,7 @@ sudo: false
 language: node_js
 node_js:
 - '6.12.2'
+- '8.11.1'
 branches:
   only:
   - site
@@ -21,7 +22,6 @@ addons:
     - jq
 before_install:
 - gem install sass -v 3.4.24
-- npm install npm -g
 before_script:
 # Query Github for latest release tag
 - ! 'export GH_RELEASE_TAG=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/excaliburjs/Excalibur/releases/latest | jq -r ".tag_name")'
