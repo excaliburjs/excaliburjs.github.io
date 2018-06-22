@@ -24,7 +24,6 @@ function build(version, title) {
 	child_process.execSync('git rev-parse HEAD', { cwd: exPath, stdio: [0,1,2] });
 
 	if (!fs.existsSync(path.join(exPath, 'node_modules'))) {
-		child_process.execSync('nvm use', { cwd: exPath, stdio: [0,1,2]});
 		child_process.execSync('npm install', { cwd: exPath, stdio: [0,1,2] });
 	}
 
