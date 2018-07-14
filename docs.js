@@ -1,9 +1,7 @@
 const path 			= require('path');
-const fs 			= require('fs');
+const fs 			= require('fs-extra');
 const child_process = require('child_process');
-const rimraf 		= require('rimraf');
 const request 		= require('sync-request');
-const wrench		= require('wrench');
 const BUILD_CMD 	= path.join('node_modules', '.bin', 'grunt');
 
 function build(version, title) {
@@ -30,7 +28,7 @@ function build(version, title) {
 	console.log('Removing existing docs...', destPath);
 
 	// Remove existing docs
-	rimraf.sync(destPath);
+	fs.removeSync(destPath);
 
 	console.log('Building docs...', BUILD_CMD + ' apidocs:' + title);
 
@@ -43,7 +41,7 @@ function build(version, title) {
 	console.log('Copying compiled docs...', destPath);
 
 	// Copy to destination docs folder
-	wrench.copyDirSyncRecursive(docsPath, destPath);
+	fs.copySync(docsPath, destPath);
 }
 
 if (process.argv.length === 3) {
