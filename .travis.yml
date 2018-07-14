@@ -13,8 +13,11 @@ env:
   global:
   - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
   - GH_RELEASE_TAG: master
-script:
+before_install:
+- gem install sass -v 3.4.24
 - npm run docs
+script:
+- npm run build
 after_success:
 - ! '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || npm run deploy'
 notifications:
