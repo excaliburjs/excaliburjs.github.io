@@ -11,7 +11,7 @@ function build(version, title) {
 	const themePath = path.join(exPath, 'typedoc-default-themes');	
 	const branch = version === 'edge' ? 'master' : version;
 	const docsPath = path.join(exPath, 'docs', 'api');
-	const destPath = path.join('static', 'api', version);
+	const destPath = path.join('static', 'docs', 'api', version);
 
 	console.log('Fetching Excalibur, version:', version, 'branch:', branch);
 
