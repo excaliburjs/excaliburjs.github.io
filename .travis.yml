@@ -14,8 +14,8 @@ env:
   - GH_RELEASE_TAG: master
 before_install:
 - gem install sass -v 3.4.24
-- npm run docs
 script:
+- npm run docs
 - npm run build
 after_success:
 - ! '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || npm run deploy'
