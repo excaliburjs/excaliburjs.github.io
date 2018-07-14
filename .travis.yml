@@ -5,9 +5,10 @@ node_js:
 branches:
   only:
   - site
-# Disable caching due to bringing in @types packages that
-# conflict with Typedoc builds for Excalibur
-cache: false
+cache:
+  directories:	
+  - node_modules	
+  - $HOME/.npm
 env:
   global:
   - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
@@ -15,6 +16,9 @@ env:
 before_install:
 - gem install sass -v 3.4.24
 script:
+# Remove @types packages that
+# conflict with Typedoc builds for Excalibur
+- rm -rf ./node_modules/@types/
 - npm run docs
 - npm run build
 after_success:
