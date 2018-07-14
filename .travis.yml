@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-- '6.12.2'
+- '8.11.3'
 branches:
   only:
   - site
@@ -13,33 +13,10 @@ env:
   global:
   - GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
   - GH_RELEASE_TAG: master
-  - GH_RELEASE_SIZE: 0
-  - GH_RELEASE_GZIP: 0
-addons:
-  apt:
-    packages:
-    - jq
-before_install:
-- gem install sass -v 3.4.24
-before_script:
-# Query Github for latest release tag
-- ! 'export GH_RELEASE_TAG=$(curl -s -H "Authorization: token $GH_TOKEN" https://api.github.com/repos/excaliburjs/Excalibur/releases/latest | jq -r ".tag_name")'
-- echo $GH_RELEASE_TAG
-# Download latest release (minified)
-- ! 'curl -o excalibur.min.js -H "Accept: application/vnd.github.v3.raw" -L "https://api.github.com/repos/excaliburjs/excalibur-dist/contents/dist/excalibur.min.js?ref=$GH_RELEASE_TAG"'
-# Export file size
-- export GH_RELEASE_SIZE="$(ls -la excalibur.min.js | awk '{ print $5}')"
-- echo $GH_RELEASE_SIZE
-# Gzip file
-- gzip excalibur.min.js
-# Export gzipped size
-- export GH_RELEASE_GZIP="$(ls -la excalibur.min.js.gz | awk '{ print $5}')"
-- echo $GH_RELEASE_GZIP
 script:
-- grunt travis
+- npm run docs
 after_success:
-- chmod ugo+x deploy.sh
-- ! '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || ./deploy.sh'
+- ! '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || npm run deploy'
 notifications:
   slack:
     secure: smD+hnNSy3lhrD9zuDabdItTErnVh465hoCJMovHN/+8+y0vVu41Z9UdaFcZga1QRhwf9fnqgs2UmeE52B76ptntvbg1YZfQ7u8RlAgy6Tp7nXrLOoso0TX05pvHgL27qXzmZyZQilj2bS0pUPI0OS2Nx19cUtNoDU89boRI1VU=
