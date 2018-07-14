@@ -10,7 +10,7 @@ User documentation can be contributed to in the core repository [excalibur](http
 
 ### Requirements
 
-- Node.js (6.x)
+- Node.js (8.11.x)
 - Ruby 2.2.x (ensure it's in PATH)
 - Ruby Gems 2.6.x ([fix SSL error on Windows x64](https://gist.github.com/luislavena/f064211759ee0f806c88#gistcomment-1916808))
 - Sass (`gem install sass`)
