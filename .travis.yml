@@ -5,6 +5,8 @@ node_js:
 branches:
   only:
   - site
+# Disable caching due to bringing in @types packages that
+# conflict with Typedoc builds for Excalibur
 cache: false
 env:
   global:
