@@ -26,10 +26,12 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.js'",
-    "docs": "node docs.js"
+    "docs": "node docs.js",
+    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "devDependencies": {
     "gatsby-source-github": "0.0.2",
+    "gh-pages": "1.2.0",
     "prettier": "^1.12.0"
   },
   "keywords": [],
