@@ -86,19 +86,20 @@
 					actions that get executed as part of an <a href="_actions_action_.actionqueue.html">ActionQueue</a>.</p>
 					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Enemy <span class="hljs-keyword">extends</span> ex.Actor {
   <span class="hljs-keyword">public</span> patrol() {
-     <span class="hljs-comment">// clear existing queue</span>
-     <span class="hljs-keyword">this</span>.actions.clearActions();
-     <span class="hljs-comment">// guard a choke point</span>
-     <span class="hljs-comment">// move to 100, 100 and take 1.2s</span>
-     <span class="hljs-comment">// wait for 3s</span>
-     <span class="hljs-comment">// move back to 0, 100 and take 1.2s</span>
-     <span class="hljs-comment">// wait for 3s</span>
-     <span class="hljs-comment">// repeat</span>
-     <span class="hljs-keyword">this</span>.actions.moveTo(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1200</span>)
-       .delay(<span class="hljs-number">3000</span>)
-       .moveTo(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1200</span>)
-       .delay(<span class="hljs-number">3000</span>)
-       .repeatForever();
+    <span class="hljs-comment">// clear existing queue</span>
+    <span class="hljs-keyword">this</span>.actions.clearActions();
+    <span class="hljs-comment">// guard a choke point</span>
+    <span class="hljs-comment">// move to 100, 100 and take 1.2s</span>
+    <span class="hljs-comment">// wait for 3s</span>
+    <span class="hljs-comment">// move back to 0, 100 and take 1.2s</span>
+    <span class="hljs-comment">// wait for 3s</span>
+    <span class="hljs-comment">// repeat</span>
+    <span class="hljs-keyword">this</span>.actions
+      .moveTo(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1200</span>)
+      .delay(<span class="hljs-number">3000</span>)
+      .moveTo(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>, <span class="hljs-number">1200</span>)
+      .delay(<span class="hljs-number">3000</span>)
+      .repeatForever();
   }
 }
 </code></pre>
@@ -139,7 +140,7 @@
 						<a href="http://mapeditor.org">Tiled Map Editor</a> you can create a map that
 						uses polylines to create paths, load in the JSON using a
 						<a href="_resources_resource_.resource.html">Generic Resource</a>, create a <a href="_tilemap_.tilemap.html">TileMap</a>,
-						and spawn ships programmatically  while utilizing the polylines
+						and spawn ships programmatically while utilizing the polylines
 					to automatically generate the actions needed to do pathing.</p>
 					<h2 id="custom-actions">Custom Actions</h2>
 					<p>The API does allow you to implement new actions by implementing the <a href="../interfaces/_actions_action_.iaction.html">IAction</a>
@@ -214,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L18">Actions/ActionContext.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L18">Actions/ActionContext.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_actions_actioncontext_.actioncontext.html" class="tsd-signature-type">ActionContext</a></h4>
@@ -222,7 +223,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L20">Actions/ActionContext.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L20">Actions/ActionContext.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -236,7 +237,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L21">Actions/ActionContext.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L21">Actions/ActionContext.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -262,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L42">Actions/ActionContext.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L43">Actions/ActionContext.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -285,7 +286,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L324">Actions/ActionContext.ts:324</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L336">Actions/ActionContext.ts:336</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -314,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L187">Actions/ActionContext.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L191">Actions/ActionContext.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L242">Actions/ActionContext.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L250">Actions/ActionContext.ts:250</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -402,7 +403,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L35">Actions/ActionContext.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L35">Actions/ActionContext.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -424,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L216">Actions/ActionContext.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L222">Actions/ActionContext.ts:222</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -457,7 +458,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L229">Actions/ActionContext.ts:229</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L236">Actions/ActionContext.ts:236</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -481,7 +482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L65">Actions/ActionContext.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L66">Actions/ActionContext.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -532,7 +533,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L202">Actions/ActionContext.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L207">Actions/ActionContext.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -571,7 +572,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L289">Actions/ActionContext.ts:289</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L300">Actions/ActionContext.ts:300</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,7 +609,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L307">Actions/ActionContext.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L319">Actions/ActionContext.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -646,7 +647,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L104">Actions/ActionContext.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L103">Actions/ActionContext.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -691,7 +692,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L87">Actions/ActionContext.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L85">Actions/ActionContext.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -736,7 +737,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L48">Actions/ActionContext.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L49">Actions/ActionContext.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -759,7 +760,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L258">Actions/ActionContext.ts:258</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L267">Actions/ActionContext.ts:267</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -794,7 +795,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L276">Actions/ActionContext.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L286">Actions/ActionContext.ts:286</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -818,7 +819,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L136">Actions/ActionContext.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L137">Actions/ActionContext.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -863,7 +864,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L120">Actions/ActionContext.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L120">Actions/ActionContext.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -908,7 +909,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L170">Actions/ActionContext.ts:170</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L173">Actions/ActionContext.ts:173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -953,7 +954,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/Actions/ActionContext.ts#L154">Actions/ActionContext.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/Actions/ActionContext.ts#L156">Actions/ActionContext.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

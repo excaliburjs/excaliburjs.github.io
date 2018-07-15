@@ -77,7 +77,6 @@
 						<p>For example instead of doing this:</p>
 						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
 actor.collisionType = ex.CollisionType.Active;
-
 </code></pre>
 						<p>This is possible:</p>
 						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> options: IActorArgs = {
@@ -92,8 +91,8 @@ actor.collisionType = ex.CollisionType.Active;
 </code></pre>
 						<p>In fact you can create a duplicate this way</p>
 						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
-   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)
-})
+  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+});
 <span class="hljs-keyword">var</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
 
 expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span>
@@ -102,9 +101,9 @@ expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</spa
 						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
 
 actor.assign({
-   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
-   width: <span class="hljs-number">1000</span>,
-   color: ex.Color.Red,
+  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
+  width: <span class="hljs-number">1000</span>,
+  color: ex.Color.Red
 });
 </code></pre>
 						<p>See:</p>
@@ -163,7 +162,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/TileMap.ts#L273">TileMap.ts:273</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/TileMap.ts#L262">TileMap.ts:262</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +172,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/TileMap.ts#L272">TileMap.ts:272</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/TileMap.ts#L261">TileMap.ts:261</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +182,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">cols<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/TileMap.ts#L275">TileMap.ts:275</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/TileMap.ts#L264">TileMap.ts:264</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +192,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">rows<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/TileMap.ts#L274">TileMap.ts:274</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/TileMap.ts#L263">TileMap.ts:263</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -203,7 +202,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/TileMap.ts#L270">TileMap.ts:270</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/TileMap.ts#L259">TileMap.ts:259</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,7 +212,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/TileMap.ts#L271">TileMap.ts:271</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/TileMap.ts#L260">TileMap.ts:260</a></li>
 						</ul>
 					</aside>
 				</section>

@@ -81,9 +81,7 @@
 					<p>Access <a href="../classes/_engine_.engine.html#input">Engine.input</a> to see if any input is being tracked during the current update frame.</p>
 					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Player <span class="hljs-keyword">extends</span> ex.Actor {
   <span class="hljs-keyword">public</span> update(engine, delta) {
-    <span class="hljs-keyword">if</span> (engine.input.keyboard.isKeyDown(ex.Input.Keys.W) ||
-        engine.input.gamepads.at(<span class="hljs-number">0</span>).getAxes(ex.Input.Axes.LeftStickY) &gt; <span class="hljs-number">0.5</span>) {
-
+    <span class="hljs-keyword">if</span> (engine.input.keyboard.isKeyDown(ex.Input.Keys.W) || engine.input.gamepads.at(<span class="hljs-number">0</span>).getAxes(ex.Input.Axes.LeftStickY) &gt; <span class="hljs-number">0.5</span>) {
       player._moveForward();
     }
   }

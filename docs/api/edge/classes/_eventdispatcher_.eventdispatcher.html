@@ -83,14 +83,14 @@
 						order. Events are best used for input events, tying together disparate objects,
 					or for UI updates.</p>
 					<p>Excalibur events follow the convention that the name of the thrown event for listening
-					will be the same as the Event object in all lower case with the &#39;Event&#39; suffix removed.    </p>
+					will be the same as the Event object in all lower case with the &#39;Event&#39; suffix removed.</p>
 					<p>For example:</p>
 					<ul>
 						<li>PreDrawEvent event object and &quot;predraw&quot; as the event name</li>
 					</ul>
 					<pre><code class="lang-typescript">actor.on(<span class="hljs-string">'predraw'</span>, <span class="hljs-function">(<span class="hljs-params">evtObj: PreDrawEvent</span>) =&gt;</span> {
-   <span class="hljs-comment">// do some pre drawing</span>
-})
+  <span class="hljs-comment">// do some pre drawing</span>
+});
 </code></pre>
 					<h2 id="example-actor-events">Example: Actor events</h2>
 					<p>Actors implement an EventDispatcher (<a href="_actor_.actor.html#eventdispatcher">Actor.eventDispatcher</a>) so they can
@@ -124,13 +124,13 @@ player.emit(<span class="hljs-string">"death"</span>, <span class="hljs-keyword"
 					<pre><code class="lang-js"><span class="hljs-comment">// create a publisher on an empty object</span>
 <span class="hljs-keyword">var</span> vent = <span class="hljs-keyword">new</span> ex.EventDispatcher({});
 <span class="hljs-comment">// handler for an event</span>
-<span class="hljs-keyword">var</span> subscription = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">event</span>) </span>{
+<span class="hljs-keyword">var</span> subscription = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{
   <span class="hljs-built_in">console</span>.log(event);
-}
+};
 <span class="hljs-comment">// add a subscription</span>
-vent.on(<span class="hljs-string">"someevent"</span>, subscription);
+vent.on(<span class="hljs-string">'someevent'</span>, subscription);
 <span class="hljs-comment">// publish an event somewhere in the game</span>
-vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keyword">new</span> ex.GameEvent());
+vent.emit(<span class="hljs-string">'someevent'</span>, <span class="hljs-keyword">new</span> ex.GameEvent());
 </code></pre>
 				</div>
 			</section>
@@ -184,7 +184,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L18">EventDispatcher.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L17">EventDispatcher.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -218,7 +218,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L32">EventDispatcher.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L31">EventDispatcher.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -255,7 +255,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L90">EventDispatcher.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L89">EventDispatcher.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -312,7 +312,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L68">EventDispatcher.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L67">EventDispatcher.ts:67</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -367,7 +367,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L115">EventDispatcher.ts:115</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L114">EventDispatcher.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +422,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L138">EventDispatcher.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L136">EventDispatcher.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -450,7 +450,7 @@ vent.emit(<span class="hljs-string">"someevent"</span>, <span class="hljs-keywor
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/cb05cbd/src/engine/EventDispatcher.ts#L131">EventDispatcher.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/50aab71/src/engine/EventDispatcher.ts#L129">EventDispatcher.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
