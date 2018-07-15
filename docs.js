@@ -83,7 +83,7 @@ console.info('Discovered', tags.length, 'releases:', tags);
 tags.forEach(function (tag) {
 
 	// Ignore releases that are already checked into source control
-	if (fs.existsSync(path.join('pages', 'api', tag))) {
+	if (fs.existsSync(path.join('static', 'docs', 'api', tag))) {
 		return;
 	}
 	
