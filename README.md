@@ -11,6 +11,7 @@ User documentation can be contributed to in the core repository [excalibur](http
 ### Requirements
 
 - Node.js (8.x)
+- `GH_TOKEN` defined with your GitHub Personal Access Token that has access to excaliburjs org
 
 For building Semantic UI (optional):
 
@@ -21,7 +22,7 @@ For building Semantic UI (optional):
 
 ### Packages we use
 
-- Gatsby for static site generation
+- [Gatsby](http://gatsbyjs.org) for static site generation
 - gh-pages for deployment
 - Semantic UI framework
 

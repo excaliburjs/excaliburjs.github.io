@@ -89,6 +89,7 @@ tags.forEach(function (tag) {
 
 	// Ignore releases that are already checked into source control
 	if (fs.existsSync(path.join('_current', 'docs', 'api', tag))) {
+		console.info(`Tagged version ${tag} exists already, skipping...`);
 		return;
 	}
 	
