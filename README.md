@@ -6,6 +6,11 @@
 
 User documentation can be contributed to in the core repository [excalibur](https://github.com/excaliburjs/Excalibur) under the `docs` folder.
 
+## Adding to Showcase
+
+Have a game you've made with Excalibur? Submit a PR! Edit the `src/data/showcase.js` file. Upload an image to `src/assets/images/showcase` as a PNG. Import it like the other images in
+the showcase module.
+
 ## Build Environment
 
 ### Requirements
@@ -56,10 +61,6 @@ To generate documentation locally, you can run the following command:
     npm run docs -- [version]
 
 If a `version` is passed, the documentation will build and output to that version's location (`static/docs/api/[version]`). Excalibur versions v0.10.0 and prior will not build locally and are already generated.
-
-## Adding to Showcase
-
-Edit the `src/pages/showcase.js` file. Upload an image to `src/assets/images/showcase` as a PNG.
 
 ### Git Submodules
 
