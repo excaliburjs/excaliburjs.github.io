@@ -80,10 +80,15 @@ const tags = releases.filter(r => !r.draft).map(r => r.tag_name);
 
 console.info('Discovered', tags.length, 'releases:', tags);
 
+// Pull latest site master with last docs built
+
+console.info('Getting latest site master');
+child_process.execSync('git clone https://github.com/excaliburjs/excaliburjs.github.io -b master _current', { stdio: [0,1,2] });
+
 tags.forEach(function (tag) {
 
 	// Ignore releases that are already checked into source control
-	if (fs.existsSync(path.join('static', 'docs', 'api', tag))) {
+	if (fs.existsSync(path.join('_current', 'docs', 'api', tag))) {
 		return;
 	}
 	
