@@ -1,6 +1,6 @@
 import React from 'react'
 
-import logoHalfSize from '../assets/images/icon@0.5x.png'
+import Logo from './logo'
 
 const Footer = ({ googleGroupsUrl }) => (
   <footer className="ui segment inverted gray square">
@@ -23,11 +23,7 @@ const Footer = ({ googleGroupsUrl }) => (
       </div>
 
       <div className="ui inverted section divider" />
-      <img
-        className="ui centered mini image"
-        src={logoHalfSize}
-        alt="Excalibur.js logo"
-      />
+      <Logo variant="medium" className="ui centered mini image" />
       <div className="ui horizontal small inverted divided link list">
         <a className="item" href="http://github.com/excaliburjs/Excalibur">
           Free &amp; Open Source (BSD 2-Clause)

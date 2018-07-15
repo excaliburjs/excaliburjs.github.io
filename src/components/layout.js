@@ -6,8 +6,9 @@ import { graphql, StaticQuery } from 'gatsby'
 import Footer from '../components/footer'
 import GoogleAnalytics from '../components/ga'
 
-import '../assets/ui/semantic.css'
 import favicon from './favicon.png'
+
+import '../assets/ui/semantic.css'
 
 const Layout = ({ children }) => (
   <StaticQuery

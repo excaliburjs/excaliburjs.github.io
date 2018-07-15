@@ -1,16 +1,15 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import filesize from 'filesize'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import Nav from '../components/nav'
+import Logo from '../components/logo'
 
-import heroLogo from '../assets/images/logo-hero.png'
 import heroKingdom from '../assets/images/hero.png'
 import heroTypeScript from '../assets/images/homepage-typescript.png'
 import heroDocs from '../assets/images/homepage-docs.png'
 import heroCrossPlatform from '../assets/images/homepage-xp.png'
-import logoHalfSize from '../assets/images/icon@0.5x.png'
 
 const selectReleaseSize = r => filesize(r.releaseAssets.edges[0].node.size)
 
@@ -24,12 +23,7 @@ const IndexPage = ({ data: { release } }) => (
       </div>
 
       <div className="ui segment basic padded">
-        <img
-          className="ui image centered"
-          src={heroLogo}
-          title="Excalibur.js"
-          alt="Logo"
-        />
+        <Logo variant="hero" className="ui image centered" />
       </div>
 
       <img className="ui centered image" src={heroKingdom} alt="Kingdom" />
@@ -193,17 +187,9 @@ const IndexPage = ({ data: { release } }) => (
             href="http://docs.excaliburjs.com"
             className="ui button massive primary"
           >
-            <img
-              className="ui mini middle aligned image"
-              src={logoHalfSize}
-              alt="Excalibur.js logo"
-            />
+            <Logo variant="medium" className="ui mini middle aligned image" />
             Go make a game!
-            <img
-              className="ui mini middle aligned image"
-              src={logoHalfSize}
-              alt="Excalibur.js logo"
-            />
+            <Logo variant="medium" className="ui mini middle aligned image" />
           </a>
         </p>
       </div>

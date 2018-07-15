@@ -1,0 +1,28 @@
+import sampleExcalibird from '../assets/images/showcase/excalibird.png'
+import sampleShmup from '../assets/images/showcase/shmup.png'
+import sampleBreakout from '../assets/images/showcase/breakout.png'
+
+export default [
+  {
+    title: 'Excalibird',
+    image: sampleExcalibird,
+    description:
+      'This is a sample clone of the popular mobile game flappy bird.',
+    url: 'http://excaliburjs.com/excalibird/',
+    source: 'https://github.com/excaliburjs/excalibird',
+  },
+  {
+    title: "Shoot 'Em Up",
+    image: sampleShmup,
+    description: "This is an example of how to create a Shoot 'Em Up game",
+    url: '/samples/shmup',
+    source: 'https://github.com/eonarheim/Excalibur-Shmup',
+  },
+  {
+    title: 'Breakout',
+    image: sampleBreakout,
+    description: 'This is a sample brick breaking game.',
+    url: 'http://jsfiddle.net/excaliburjs/6Ay9S/',
+    source: 'https://github.com/excaliburjs/ExcaliburBreakout',
+  },
+]
