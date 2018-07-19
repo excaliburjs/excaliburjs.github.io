@@ -21,6 +21,7 @@ script:
 - rm -rf ./node_modules/@types/
 - npm run docs
 - npm run build
+- touch ./public/.nojekyll
 after_success:
 - ! '[ "${TRAVIS_PULL_REQUEST}" != "false" ] || npm run deploy'
 notifications:
