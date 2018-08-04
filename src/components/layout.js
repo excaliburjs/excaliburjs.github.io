@@ -8,6 +8,7 @@ import GoogleAnalytics from '../components/ga'
 
 import favicon from './favicon.png'
 
+import 'prismjs/themes/prism-tomorrow.css'
 import '../assets/ui/semantic.css'
 
 const Layout = ({ children }) => (
@@ -29,8 +30,8 @@ const Layout = ({ children }) => (
             {
               rel: 'icon',
               type: 'image/x-icon',
-              href: favicon
-            }
+              href: favicon,
+            },
           ]}
           meta={[
             {
@@ -41,7 +42,7 @@ const Layout = ({ children }) => (
               name: 'keywords',
               content:
                 'javascript, typescript, html5, game engine, gaming, games, engine',
-            }
+            },
           ]}
         />
 
