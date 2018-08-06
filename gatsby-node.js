@@ -37,3 +37,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     })
   })
 }
+
+// 'slug' field for TOC
+// https://github.com/gatsbyjs/gatsby/issues/4038
+// https://github.com/lourd/descioli-design/commit/ee40a6df9b3db4bd7dc208da66875663cb64a341
