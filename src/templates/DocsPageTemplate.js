@@ -23,7 +23,7 @@ const TOC = ({ toc }) => (
         >
           {frontmatter.title}
         </Link>
-        {headings && (
+        {!!headings.length && (
           <div className="item">
             <div className="menu">
               {headings.map(heading => (
