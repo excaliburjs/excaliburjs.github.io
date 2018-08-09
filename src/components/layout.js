@@ -11,7 +11,7 @@ import favicon from './favicon.png'
 import 'prismjs/themes/prism-tomorrow.css'
 import '../assets/ui/semantic.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ pageTitle = "", children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -25,7 +25,7 @@ const Layout = ({ children }) => (
     render={data => (
       <>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={`${pageTitle ? pageTitle + " - " : ""}${data.site.siteMetadata.title}`}
           link={[
             {
               rel: 'icon',

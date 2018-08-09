@@ -32,9 +32,9 @@ module.exports = {
           Authorization: `Bearer ${GITHUB_TOKEN}`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
         },
         queries: [
-          `query { 
+          `{ 
             repository(owner: "excaliburjs", name: "excalibur-dist") {
-              releases(last: 1) {
+              latestRelease: releases(last: 1) {
                 edges {
                   node {
                     tag {
@@ -47,6 +47,21 @@ module.exports = {
                           size
                         }
                       }
+                    }
+                  }
+                }
+              }
+            }
+          }`,
+          `{ 
+            repository(owner: "excaliburjs", name: "excalibur-dist") {
+              releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
+                edges {
+                  node {
+                    publishedAt
+                    name
+                    tag {
+                      name
                     }
                   }
                 }
