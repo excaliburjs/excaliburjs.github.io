@@ -15,14 +15,14 @@ export default [
     title: "Shoot 'Em Up",
     image: sampleShmup,
     description: "This is an example of how to create a Shoot 'Em Up game",
-    url: '/samples/shmup',
-    source: 'https://github.com/eonarheim/Excalibur-Shmup',
+    url: 'https://excaliburjs.com/sample-shootemup/',
+    source: 'https://github.com/excaliburjs/sample-shootemup',
   },
   {
     title: 'Breakout',
     image: sampleBreakout,
     description: 'This is a sample brick breaking game.',
-    url: 'http://jsfiddle.net/excaliburjs/6Ay9S/',
+    url: 'http://jsfiddle.net/excaliburjs/s33mLjn3',
     source: 'https://github.com/excaliburjs/ExcaliburBreakout',
   },
 ]
