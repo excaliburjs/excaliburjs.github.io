@@ -3,7 +3,7 @@ const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 module.exports = {
   siteMetadata: {
     title: 'Excalibur.js HTML5 Game Engine',
-    googleGroup: '',
+    googleGroup: 'https://groups.google.com/forum/#!forum/excaliburjs',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
