@@ -71,27 +71,28 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A <a href="_loader_.loader.html">Loader</a> that pauses after loading to allow user
-							to proceed to play the game. Typically you will
-							want to use this loader for iOS to allow sounds
-							to play after loading (Apple Safari requires user
-						interaction to allow sounds, even for games)</p>
-					</div>
-					<p><strong>Note:</strong> Because Loader is not part of a Scene, you must
-					call <code>update</code> and <code>draw</code> manually on &quot;child&quot; objects.</p>
-					<h2 id="implementing-a-trigger">Implementing a Trigger</h2>
-					<p>The <code>PauseAfterLoader</code> requires an element to act as the trigger button
-					to start the game.</p>
-					<p>For example, let&#39;s create an <code>&lt;a&gt;</code> tag to be our trigger and call it <code>tap-to-play</code>.</p>
-					<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wrapper"</span>&gt;</span>
+					<dl class="tsd-comment-tags">
+						<dt class="ts-flagObsolete">obsolete</dt>
+						<dd class="ts-flagObsolete"><p>Use <a href="_loader_.loader.html">Loader</a> instead, this functionality has been made default</p>
+							<p>A <a href="_loader_.loader.html">Loader</a> that pauses after loading to allow user
+								to proceed to play the game. Typically you will
+								want to use this loader for iOS to allow sounds
+								to play after loading (Apple Safari requires user
+							interaction to allow sounds, even for games)</p>
+							<p><strong>Note:</strong> Because Loader is not part of a Scene, you must
+							call <code>update</code> and <code>draw</code> manually on &quot;child&quot; objects.</p>
+							<h2 id="implementing-a-trigger">Implementing a Trigger</h2>
+							<p>The <code>PauseAfterLoader</code> requires an element to act as the trigger button
+							to start the game.</p>
+							<p>For example, let&#39;s create an <code>&lt;a&gt;</code> tag to be our trigger and call it <code>tap-to-play</code>.</p>
+							<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wrapper"</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"game"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"tap-to-play"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'javascript:void(0);'</span>&gt;</span>Tap to Play<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-					<p>We&#39;ve put it inside a wrapper to position it properly over the game canvas.</p>
-					<p>Now let&#39;s add some CSS to style it (insert into <code>&lt;head&gt;</code>):</p>
-					<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+							<p>We&#39;ve put it inside a wrapper to position it properly over the game canvas.</p>
+							<p>Now let&#39;s add some CSS to style it (insert into <code>&lt;head&gt;</code>):</p>
+							<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
     <span class="hljs-selector-id">#wrapper</span> {
         <span class="hljs-attribute">position</span>: relative;
         <span class="hljs-attribute">width</span>: <span class="hljs-number">500px</span>;
@@ -114,21 +115,23 @@
     }
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
 </code></pre>
-					<p>Now we can create a <code>PauseAfterLoader</code> with a reference to our trigger button:</p>
-					<pre><code class="lang-ts"><span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.PauseAfterLoader(<span class="hljs-string">'tap-to-play'</span>, [...]);
+							<p>Now we can create a <code>PauseAfterLoader</code> with a reference to our trigger button:</p>
+							<pre><code class="lang-ts"><span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.PauseAfterLoader(<span class="hljs-string">'tap-to-play'</span>, [...]);
 </code></pre>
-					<h2 id="use-pauseafterloader-for-ios">Use PauseAfterLoader for iOS</h2>
-					<p>The primary use case for pausing before starting the game is to
-						pass Apple&#39;s requirement of user interaction. The Web Audio context
-					in Safari is disabled by default until user interaction.</p>
-					<p>Therefore, you can use this snippet to only use PauseAfterLoader when
-						iOS is detected (see <a href="http://stackoverflow.com/questions/9038625/detect-if-device-is-ios">this thread</a>
-					for more techniques).</p>
-					<pre><code class="lang-ts"><span class="hljs-keyword">var</span> iOS = <span class="hljs-regexp">/iPad|iPhone|iPod/</span>.test(navigator.userAgent) &amp;&amp; !(&lt;<span class="hljs-built_in">any</span>&gt;<span class="hljs-built_in">window</span>).MSStream;
+							<h2 id="use-pauseafterloader-for-ios">Use PauseAfterLoader for iOS</h2>
+							<p>The primary use case for pausing before starting the game is to
+								pass Apple&#39;s requirement of user interaction. The Web Audio context
+							in Safari is disabled by default until user interaction.</p>
+							<p>Therefore, you can use this snippet to only use PauseAfterLoader when
+								iOS is detected (see <a href="http://stackoverflow.com/questions/9038625/detect-if-device-is-ios">this thread</a>
+							for more techniques).</p>
+							<pre><code class="lang-ts"><span class="hljs-keyword">var</span> iOS = <span class="hljs-regexp">/iPad|iPhone|iPod/</span>.test(navigator.userAgent) &amp;&amp; !(&lt;<span class="hljs-built_in">any</span>&gt;<span class="hljs-built_in">window</span>).MSStream;
 <span class="hljs-keyword">var</span> loader: ex.Loader = iOS ? <span class="hljs-keyword">new</span> ex.PauseAfterLoader(<span class="hljs-string">'tap-to-play'</span>) : <span class="hljs-keyword">new</span> ex.Loader();
 
 loader.addResource(...);
 </code></pre>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -165,17 +168,24 @@ loader.addResource(...);
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_imageelement" class="tsd-kind-icon">_image<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_playbuttonelement" class="tsd-kind-icon">_play<wbr>Button<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_playbuttonrootelement" class="tsd-kind-icon">_play<wbr>Button<wbr>Root<wbr>Element</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_playbuttonstyles" class="tsd-kind-icon">_play<wbr>Button<wbr>Styles</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_styleblock" class="tsd-kind-icon">_style<wbr>Block</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#logo" class="tsd-kind-icon">logo</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#logoheight" class="tsd-kind-icon">logo<wbr>Height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#logowidth" class="tsd-kind-icon">logo<wbr>Width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#playbuttontext" class="tsd-kind-icon">play<wbr>Button<wbr>Text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#suppressplaybutton" class="tsd-kind-icon">suppress<wbr>Play<wbr>Button</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_image" class="tsd-kind-icon">_image</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_loader_.pauseafterloader.html#_playbutton" class="tsd-kind-icon">_play<wbr>Button</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -186,6 +196,7 @@ loader.addResource(...);
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#draw" class="tsd-kind-icon">draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#getdata" class="tsd-kind-icon">get<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#hideplaybutton" class="tsd-kind-icon">hide<wbr>Play<wbr>Button</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#isloaded" class="tsd-kind-icon">is<wbr>Loaded</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_loader_.pauseafterloader.html#load" class="tsd-kind-icon">load</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#off" class="tsd-kind-icon">off</a></li>
@@ -196,6 +207,8 @@ loader.addResource(...);
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#onprogress" class="tsd-kind-icon">onprogress</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#processdata" class="tsd-kind-icon">process<wbr>Data</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#setdata" class="tsd-kind-icon">set<wbr>Data</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#showplaybutton" class="tsd-kind-icon">show<wbr>Play<wbr>Button</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#startbuttonfactory" class="tsd-kind-icon">start<wbr>Button<wbr>Factory</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#update" class="tsd-kind-icon">update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_loader_.pauseafterloader.html#wireengine" class="tsd-kind-icon">wire<wbr>Engine</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_loader_.pauseafterloader.html#extend" class="tsd-kind-icon">extend</a></li>
@@ -217,7 +230,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L325">Loader.ts:325</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L456">Loader.ts:456</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -243,7 +256,56 @@ loader.addResource(...);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_imageelement">_imageElement</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L66">Loader.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L99">Loader.ts:99</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_playbuttonelement" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _play<wbr>Button<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">_play<wbr>Button<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLButtonElement</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_playbuttonelement">_playButtonElement</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L111">Loader.ts:111</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_playbuttonrootelement" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _play<wbr>Button<wbr>Root<wbr>Element</h3>
+					<div class="tsd-signature tsd-kind-icon">_play<wbr>Button<wbr>Root<wbr>Element<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLElement</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_playbuttonrootelement">_playButtonRootElement</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L110">Loader.ts:110</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_playbuttonstyles" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _play<wbr>Button<wbr>Styles</h3>
+					<div class="tsd-signature tsd-kind-icon">_play<wbr>Button<wbr>Styles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;loaderCss.toString()</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_playbuttonstyles">_playButtonStyles</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L114">Loader.ts:114</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Loads the css from Loader.css</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_styleblock" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _style<wbr>Block</h3>
+					<div class="tsd-signature tsd-kind-icon">_style<wbr>Block<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLStyleElement</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_styleblock">_styleBlock</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L112">Loader.ts:112</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -254,7 +316,7 @@ loader.addResource(...);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#backgroundcolor">backgroundColor</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L64">Loader.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L97">Loader.ts:97</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -265,7 +327,7 @@ loader.addResource(...);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Class.ts#L13">Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Class.ts#L13">Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -277,11 +339,11 @@ loader.addResource(...);
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="logo" class="tsd-anchor"></a>
 					<h3> logo</h3>
-					<div class="tsd-signature tsd-kind-icon">logo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;data:image/png;base64,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&#x3D;&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">logo<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;logoImg</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#logo">logo</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L59">Loader.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L94">Loader.ts:94</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +354,7 @@ loader.addResource(...);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#logoheight">logoHeight</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L63">Loader.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L96">Loader.ts:96</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -303,7 +365,35 @@ loader.addResource(...);
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#logowidth">logoWidth</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L62">Loader.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L95">Loader.ts:95</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="playbuttontext" class="tsd-anchor"></a>
+					<h3> play<wbr>Button<wbr>Text</h3>
+					<div class="tsd-signature tsd-kind-icon">play<wbr>Button<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;Play game&quot;</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#playbuttontext">playButtonText</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L136">Loader.ts:136</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Get/set play button text</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="suppressplaybutton" class="tsd-anchor"></a>
+					<h3> suppress<wbr>Play<wbr>Button</h3>
+					<div class="tsd-signature tsd-kind-icon">suppress<wbr>Play<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_interfaces_iloader_.iloader.html">ILoader</a>.<a href="../interfaces/_interfaces_iloader_.iloader.html#suppressplaybutton">suppressPlayButton</a></p>
+						<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#suppressplaybutton">suppressPlayButton</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L109">Loader.ts:109</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -321,10 +411,28 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_image">_image</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L67">Loader.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L100">Loader.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLImageElement</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_playbutton" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _play<wbr>Button</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> _playButton<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLButtonElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#_playbutton">_playButton</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L115">Loader.ts:115</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLButtonElement</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -342,7 +450,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#addresource">addResource</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L95">Loader.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L168">Loader.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -374,7 +482,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#addresources">addResources</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L107">Loader.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L180">Loader.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -406,7 +514,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#draw">draw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L183">Loader.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L299">Loader.ts:299</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -438,7 +546,7 @@ loader.addResource(...);
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Class.ts#L46">Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Class.ts#L46">Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +585,25 @@ loader.addResource(...);
 								<p>Implementation of <a href="../interfaces/_interfaces_iloader_.iloader.html">ILoader</a>.<a href="../interfaces/_interfaces_iloader_.iloader.html#getdata">getData</a></p>
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#getdata">getData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L219">Loader.ts:219</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L348">Loader.ts:348</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="hideplaybutton" class="tsd-anchor"></a>
+					<h3> hide<wbr>Play<wbr>Button</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">hide<wbr>Play<wbr>Button<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#hideplaybutton">hidePlayButton</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L215">Loader.ts:215</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -496,7 +622,7 @@ loader.addResource(...);
 								<p>Implementation of <a href="../interfaces/_interfaces_iloader_.iloader.html">ILoader</a>.<a href="../interfaces/_interfaces_iloader_.iloader.html#isloaded">isLoaded</a></p>
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#isloaded">isLoaded</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L119">Loader.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L192">Loader.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -520,7 +646,7 @@ loader.addResource(...);
 								<p>Implementation of <a href="../interfaces/_interfaces_iloader_.iloader.html">ILoader</a>.<a href="../interfaces/_interfaces_iloader_.iloader.html#load">load</a></p>
 								<p>Overrides <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#load">load</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L334">Loader.ts:334</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L466">Loader.ts:466</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_promises_.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -538,7 +664,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Class.ts#L37">Class.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Class.ts#L37">Class.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -596,7 +722,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Class.ts#L25">Class.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Class.ts#L25">Class.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -653,7 +779,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Class.ts#L56">Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Class.ts#L56">Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,7 +835,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#oncomplete">oncomplete</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L237">Loader.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L366">Loader.ts:366</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -727,7 +853,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#onerror">onerror</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L241">Loader.ts:241</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L370">Loader.ts:370</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -745,7 +871,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#onprogress">onprogress</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L231">Loader.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L360">Loader.ts:360</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -769,7 +895,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#processdata">processData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L227">Loader.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L356">Loader.ts:356</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -787,10 +913,56 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#setdata">setData</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L223">Loader.ts:223</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L352">Loader.ts:352</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="showplaybutton" class="tsd-anchor"></a>
+					<h3> show<wbr>Play<wbr>Button</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">show<wbr>Play<wbr>Button<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_promises_.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#showplaybutton">showPlayButton</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L199">Loader.ts:199</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Shows the play button and returns a promise that resolves when clicked</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_promises_.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="startbuttonfactory" class="tsd-anchor"></a>
+					<h3> start<wbr>Button<wbr>Factory</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">start<wbr>Button<wbr>Factory<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLButtonElement</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#startbuttonfactory">startButtonFactory</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L141">Loader.ts:141</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return a html button element for excalibur to use as a play button</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLButtonElement</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -806,7 +978,7 @@ loader.addResource(...);
 								<p>Implementation of <a href="../interfaces/_interfaces_iloader_.iloader.html">ILoader</a>.<a href="../interfaces/_interfaces_iloader_.iloader.html#update">update</a></p>
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L215">Loader.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L344">Loader.ts:344</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -840,7 +1012,7 @@ loader.addResource(...);
 								<p>Implementation of <a href="../interfaces/_interfaces_iloader_.iloader.html">ILoader</a>.<a href="../interfaces/_interfaces_iloader_.iloader.html#wireengine">wireEngine</a></p>
 								<p>Inherited from <a href="_loader_.loader.html">Loader</a>.<a href="_loader_.loader.html#wireengine">wireEngine</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Loader.ts#L87">Loader.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Loader.ts#L160">Loader.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -864,7 +1036,7 @@ loader.addResource(...);
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a0cc13a/src/engine/Class.ts#L91">Class.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/870cc2c/src/engine/Class.ts#L91">Class.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -936,6 +1108,18 @@ loader.addResource(...);
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_loader_.pauseafterloader.html#_imageelement" class="tsd-kind-icon">_image<wbr>Element</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_loader_.pauseafterloader.html#_playbuttonelement" class="tsd-kind-icon">_play<wbr>Button<wbr>Element</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_loader_.pauseafterloader.html#_playbuttonrootelement" class="tsd-kind-icon">_play<wbr>Button<wbr>Root<wbr>Element</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_loader_.pauseafterloader.html#_playbuttonstyles" class="tsd-kind-icon">_play<wbr>Button<wbr>Styles</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_loader_.pauseafterloader.html#_styleblock" class="tsd-kind-icon">_style<wbr>Block</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#backgroundcolor" class="tsd-kind-icon">background<wbr>Color</a>
 							</li>
@@ -951,8 +1135,17 @@ loader.addResource(...);
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#logowidth" class="tsd-kind-icon">logo<wbr>Width</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_loader_.pauseafterloader.html#playbuttontext" class="tsd-kind-icon">play<wbr>Button<wbr>Text</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_loader_.pauseafterloader.html#suppressplaybutton" class="tsd-kind-icon">suppress<wbr>Play<wbr>Button</a>
+							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
 								<a href="_loader_.pauseafterloader.html#_image" class="tsd-kind-icon">_image</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_loader_.pauseafterloader.html#_playbutton" class="tsd-kind-icon">_play<wbr>Button</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#addresource" class="tsd-kind-icon">add<wbr>Resource</a>
@@ -968,6 +1161,9 @@ loader.addResource(...);
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#getdata" class="tsd-kind-icon">get<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_loader_.pauseafterloader.html#hideplaybutton" class="tsd-kind-icon">hide<wbr>Play<wbr>Button</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#isloaded" class="tsd-kind-icon">is<wbr>Loaded</a>
@@ -998,6 +1194,12 @@ loader.addResource(...);
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#setdata" class="tsd-kind-icon">set<wbr>Data</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_loader_.pauseafterloader.html#showplaybutton" class="tsd-kind-icon">show<wbr>Play<wbr>Button</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_loader_.pauseafterloader.html#startbuttonfactory" class="tsd-kind-icon">start<wbr>Button<wbr>Factory</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_loader_.pauseafterloader.html#update" class="tsd-kind-icon">update</a>
