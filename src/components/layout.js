@@ -11,7 +11,7 @@ import favicon from './favicon.png'
 import '../assets/ui/prism.css'
 import '../assets/ui/semantic.css'
 
-const Layout = ({ pageTitle = "", children }) => (
+const Layout = ({ pageTitle = '', children }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -24,27 +24,26 @@ const Layout = ({ pageTitle = "", children }) => (
     `}
     render={data => (
       <>
-        <Helmet
-          title={`${pageTitle ? pageTitle + " - " : ""}${data.site.siteMetadata.title}`}
-          link={[
-            {
-              rel: 'icon',
-              type: 'image/x-icon',
-              href: favicon,
-            },
-          ]}
-          meta={[
-            {
-              name: 'description',
-              content: 'Excalibur.js TypeScript HTML5 web game engine',
-            },
-            {
-              name: 'keywords',
-              content:
-                'javascript, typescript, html5, game engine, gaming, games, engine',
-            },
-          ]}
-        />
+        <Helmet>
+          <title>{`${pageTitle ? pageTitle + ' - ' : ''}${
+            data.site.siteMetadata.title
+          }`}</title>
+
+          <meta
+            name="description"
+            content="Excalibur.js TypeScript HTML5 web game engine"
+          />
+          <meta
+            name="keywords"
+            content="javascript, typescript, html5, game engine, gaming, games, engine"
+          />
+
+          <link rel="icon" type="image/x-icon" href={favicon} />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,400italic"
+          />
+        </Helmet>
 
         {children}
 
