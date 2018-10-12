@@ -8,7 +8,7 @@ import GoogleAnalytics from '../components/ga'
 
 import favicon from './favicon.png'
 
-import 'prismjs/themes/prism-tomorrow.css'
+import '../assets/ui/prism.css'
 import '../assets/ui/semantic.css'
 
 const Layout = ({ pageTitle = "", children }) => (

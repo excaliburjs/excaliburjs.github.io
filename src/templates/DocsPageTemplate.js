@@ -1,6 +1,7 @@
 import React from 'react'
 import rehypeReact from 'rehype-react'
 import { graphql, Link } from 'gatsby'
+import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
@@ -78,6 +79,12 @@ export default function Template({ data }) {
   const { frontmatter, htmlAst } = page
   return (
     <Layout pageTitle={frontmatter.title}>
+      <Helmet>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
+        />
+      </Helmet>
       <Header />
 
       <div className="ui page relaxed grid">
