@@ -37,9 +37,9 @@ Once you've cloned the repository, run the following commands:
     npm install
 
     # Run site for local development
-    npm develop
+    npm run develop
 
-    # Compile documentation
+    # Compile API reference documentation for each Excalibur tag
     npm run docs
 
 We recommend using the free [Visual Studio Code](http://code.visualstudio.com) editor since it's easy to use and works on any platform.
