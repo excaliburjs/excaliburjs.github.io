@@ -3,9 +3,9 @@ import { Link } from 'gatsby'
 
 const Nav = () => (
   <>
-    <a className="item" href="http://docs.excaliburjs.com">
+    <Link className="item" to="/docs">
       Docs
-    </a>
+    </Link>
     <Link className="item" to="/samples">
       Samples
     </Link>

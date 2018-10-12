@@ -326,7 +326,7 @@ const IndexPage = ({ data: { release } }) => (
 
 export const query = graphql`
   query {
-    release: githubReleases {
+    release: githubLatestrelease {
       tag {
         name
       }
