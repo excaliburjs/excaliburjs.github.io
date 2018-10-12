@@ -1,19 +1,68 @@
-# Excalibur.js Site
+# Excalibur.js Site & Docs
 
 [![Build Status](https://travis-ci.org/excaliburjs/excaliburjs.github.io.svg?branch=site)](https://travis-ci.org/excaliburjs/excaliburjs.github.io)
 
-## Contributing and Editing Content
+# Contributing
 
-User documentation can be contributed to in the core repository [excalibur](https://github.com/excaliburjs/Excalibur) under the `docs` folder.
+## Running the Site
 
-## Adding to Showcase
+    # Install dependencies
+    npm install
+
+    # Run site for docs or development
+    npm run develop
+
+You will need some kind of `GH_TOKEN` environment variable but we're working on removing that restriction for contributors.
+
+## Writing Docs
+
+User documentation can be contributed to in the `/docs` folder in this repository! It's written in Markdown and follows a very simple format:
+
+**xx-cool-docs.md**
+
+```md
+title: "My Cool Documentation Page Title"
+url: /cool-docs
+---
+
+Just some neat docs that are super awesome and helpful, this is just Markdown-formatted.
+
+A relative-path image embed:
+
+![screenshot](xx-cool-docs/cool-screenshot.png)
+```
+
+The `xx` in the filename helps determine the sort order of the navigation (until we come up with a better structure).
+
+Everything else is taken care of--table of contents, image generation, code embedding, etc.
+
+## Linking to Images
+
+To embed an image, we recommend creating a corresponding folder next to your documentation file named the same and put images there. Then you can reference them like:
+
+    ![screenshot](xx-cool-docs/cool-screenshot.png)
+    
+This is just a relative path to your image, as simple as that!
+
+## Adding Notes
+
+You can embed a "note" block element like:
+
+```html
+<docs-note>An info variant note</docs-note>
+<docs-note variant="warning">A warning variant note</docs-note>
+<docs-note variant="error">A error variant note</docs-note>
+<docs-note variant="success">A success variant note</docs-note>
+```
+
+# Show Off a Game
 
 Have a game you've made with Excalibur? Submit a PR! Edit the `src/data/showcase.js` file. Upload an image to `src/assets/images/showcase` as a PNG. Import it like the other images in
 the showcase module.
 
-## Build Environment
+# Build Environment
 
-### Requirements
+## Requirements
 
 - Node.js (8.x)
 - `GH_TOKEN` defined with your GitHub Personal Access Token that has access to excaliburjs org
@@ -25,7 +74,7 @@ For building Semantic UI (optional):
 - Sass (`gem install sass`)
 - Windows or Unix-like
 
-### Packages we use
+## Packages we use
 
 - [Gatsby](http://gatsbyjs.org) for static site generation
 - gh-pages for deployment
@@ -44,7 +93,7 @@ Once you've cloned the repository, run the following commands:
 
 We recommend using the free [Visual Studio Code](http://code.visualstudio.com) editor since it's easy to use and works on any platform.
 
-### Compiling documentation
+## Compiling documentation
 
 Travis will automatically compile `master` (edge) and any tagged releases. If a release folder already exists, the GitHub release is ignored and the source controlled version is used.
 
