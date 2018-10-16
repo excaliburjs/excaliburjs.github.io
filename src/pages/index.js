@@ -35,7 +35,7 @@ const IndexPage = ({ data: { release } }) => (
       <div className="ui segment blue inverted center aligned">
         <p>
           <a
-            href="http://docs.excaliburjs.com/en/latest/installation.html"
+            href="https://excaliburjs.com/docs/installation"
             className="ui button massive download"
           >
             Download {release.tag.name}
