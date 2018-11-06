@@ -184,7 +184,7 @@ const IndexPage = ({ data: { release } }) => (
 
         <p className="ui basic center aligned very padded segment">
           <a
-            href="http://docs.excaliburjs.com"
+            href="https://excaliburjs.com/docs"
             className="ui button massive primary"
           >
             <Logo variant="medium" className="ui mini middle aligned image" />
@@ -259,7 +259,7 @@ const IndexPage = ({ data: { release } }) => (
 
               <p className="ui basic segment">
                 <a
-                  href="http://docs.excaliburjs.com"
+                  href="https://excaliburjs.com/docs"
                   target="_blank"
                   className="ui white inverted button"
                   rel="noopener noreferrer"

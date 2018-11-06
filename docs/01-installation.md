@@ -93,7 +93,7 @@ You can also download the raw Javascript files from the [Excalibur Distribution 
 
 #### Unstable Builds
 
-If you want to live on the edge and get unstable builds, you can add the Excalibur Appveyor Nuget feed to your project, see [Unstable Builds](http://docs.excaliburjs.com/en/latest/unstable.html).
+If you want to live on the edge and get unstable builds, you can add the Excalibur Appveyor Nuget feed to your project, see [Unstable Builds](https://excaliburjs.com/docs/api/edge/?no-cache=1).
 
 #### Example Project Templates
 
