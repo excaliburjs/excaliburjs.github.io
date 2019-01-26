@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>BaseCamera | Excalibur.js Edge API Documentation</title>
+	<title>Camera | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/_camera_.html">&quot;Camera&quot;</a>
 				</li>
 				<li>
-					<a href="_camera_.basecamera.html">BaseCamera</a>
+					<a href="_camera_.camera.html">Camera</a>
 				</li>
 			</ul>
-			<h1>Class BaseCamera</h1>
+			<h1>Class Camera</h1>
 		</div>
 	</div>
 </header>
@@ -71,21 +71,83 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
-					<dl class="tsd-comment-tags">
-						<dt class="ts-flagObsolete">obsolete</dt>
-						<dd class="ts-flagObsolete"><p><code>BaseCamera</code> renamed to <code>Camera</code>. Use <a href="_camera_.camera.html">Camera</a> instead</p>
-						</dd>
-					</dl>
+					<div class="lead">
+						<p>Cameras</p>
+					</div>
+					<p><a href="_camera_.camera.html">Camera</a> is the base class for all Excalibur cameras. Cameras are used
+						to move around your game and set focus. They are used to determine
+					what is &quot;off screen&quot; and can be used to scale the game.</p>
+					<p>Cameras are attached to <a href="_scene_.scene.html">Scenes</a> and can be changed by
+						setting <a href="_scene_.scene.html#camera">Scene.camera</a>. By default, a <a href="_scene_.scene.html">Scene</a> is initialized with a
+					<a href="_camera_.camera.html">Camera</a> that doesn&#39;t move and is centered on the screen.</p>
+					<h2 id="focus">Focus</h2>
+					<p>Cameras have a position (<a href="_camera_.camera.html#x">x</a>, <a href="_camera_.camera.html#y">y</a>) which means they center around a specific
+					<a href="_algebra_.vector.html">point</a>.</p>
+					<p>If a camera is following an <a href="_actor_.actor.html">Actor</a>, it will ensure the <a href="_actor_.actor.html">Actor</a> is always at the
+						center of the screen. You can use <a href="_camera_.camera.html#x">x</a> and <a href="_camera_.camera.html#y">y</a> instead if you wish to
+					offset the focal point.</p>
+					<h2 id="camera-strategies">Camera strategies</h2>
+					<p>Cameras can implement a number of strategies to track, follow, or exhibit custom behavior in relation to a target. A common reason to use a
+					strategy is to have the <a href="_camera_.camera.html">Camera</a> follow an <a href="_actor_.actor.html">Actor</a>.</p>
+					<p>In order to user the different built-in strategies, you can access <code>Camera.strategy</code></p>
+					<p>Lock the camera exactly to the center of the actor&#39;s bounding box</p>
+					<pre><code class="lang-typescript">game.currentScene.camera.strategy.lockToActor(actor);
+</code></pre>
+					<p>Lock the camera to one axis of the actor, in this case follow the actors x position</p>
+					<pre><code class="lang-typescript">game.currentScene.camera.strategy.lockToActorAxis(actor, ex.Axis.X);
+</code></pre>
+					<p>Elastically move the camera to an actor in a smooth motion see <a href="_camera_.elastictoactorstrategy.html">ElasticToActorStrategy</a> for details</p>
+					<pre><code class="lang-typescript">game.currentScene.camera.strategy.elasticToActor(actor, cameraElasticity, cameraFriction);
+</code></pre>
+					<p>Keep the actor within a circle around the focus</p>
+					<pre><code class="lang-typescript">game.currentScene.camera.strategy.radiusAroundActor(actor, radius);
+</code></pre>
+					<h2 id="custom-strategies">Custom strategies</h2>
+					<p>Custom strategies can be implemented by extending the ICameraStrategy interface and added to cameras to build novel behavior with <code>ex.Camera.addStrategy&lt;T&gt;(new MyCameraStrategy&lt;T&gt;())</code>.</p>
+					<p>As shown below a camera strategy calculates a new camera position (<code>ex.Vector</code>) every frame given a target type, camera, engine, and elapsed delta in milliseconds.</p>
+					<pre><code class="lang-typescript"><span class="hljs-comment">/**
+ * Interface that describes a custom camera strategy for tracking targets
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> ICameraStrategy&lt;T&gt; {
+  <span class="hljs-comment">/**
+   * Target of the camera strategy that will be passed to the action
+   */</span>
+  target: T;
+
+  <span class="hljs-comment">/**
+   * Camera strategies perform an action to calculate a new focus returned out of the strategy
+   */</span>
+  action: <span class="hljs-function">(<span class="hljs-params">target: T, camera: Camera, engine: Engine, delta: <span class="hljs-built_in">number</span></span>) =&gt;</span> Vector;
+}
+</code></pre>
+					<h2 id="camera-shake">Camera Shake</h2>
+					<p>To add some fun effects to your game, the <a href="_camera_.camera.html#shake">shake</a> method
+						will do a random shake. This is great for explosions, damage, and other
+					in-game effects.</p>
+					<h2 id="camera-lerp">Camera Lerp</h2>
+					<p>&quot;Lerp&quot; is short for <a href="http://en.wikipedia.org/wiki/Linear_interpolation">Linear Interpolation</a>
+						and it enables the camera focus to move smoothly between two points using timing functions.
+					Use <a href="_camera_.camera.html#move">move</a> to ease to a specific point using a provided <a href="../interfaces/_util_easingfunctions_.easingfunction.html">EasingFunction</a>.</p>
+					<h2 id="camera-zooming">Camera Zooming</h2>
+					<p>To adjust the zoom for your game, use <a href="_camera_.camera.html#zoom">zoom</a> which will scale the
+					game accordingly. You can pass a duration to transition between zoom levels.</p>
+					<h2 id="known-issues">Known Issues</h2>
+					<p><strong>Actors following a path will wobble when camera is moving</strong><br><a href="https://github.com/excaliburjs/Excalibur/issues/276">Issue #276</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_camera_.camera.html" class="tsd-signature-type">Camera</a>
+						<a href="_class_.class.html" class="tsd-signature-type">Class</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">BaseCamera</span>
+								<span class="target">Camera</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="_camera_.basecamera.html" class="tsd-signature-type">BaseCamera</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -103,188 +165,179 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_camera_.basecamera.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.camera.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_camera_.basecamera.html#_follow" class="tsd-kind-icon">_follow</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_camera_.basecamera.html#_isshaking" class="tsd-kind-icon">_is<wbr>Shaking</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_camera_.basecamera.html#_iszooming" class="tsd-kind-icon">_is<wbr>Zooming</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#ax" class="tsd-kind-icon">ax</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#ay" class="tsd-kind-icon">ay</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#az" class="tsd-kind-icon">az</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#dx" class="tsd-kind-icon">dx</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#dy" class="tsd-kind-icon">dy</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#dz" class="tsd-kind-icon">dz</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#rotation" class="tsd-kind-icon">rotation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#rx" class="tsd-kind-icon">rx</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#strategy" class="tsd-kind-icon">strategy</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#z" class="tsd-kind-icon">z</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_camera_.camera.html#_follow" class="tsd-kind-icon">_follow</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_camera_.camera.html#_isshaking" class="tsd-kind-icon">_is<wbr>Shaking</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_camera_.camera.html#_iszooming" class="tsd-kind-icon">_is<wbr>Zooming</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#ax" class="tsd-kind-icon">ax</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#ay" class="tsd-kind-icon">ay</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#az" class="tsd-kind-icon">az</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#dx" class="tsd-kind-icon">dx</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#dy" class="tsd-kind-icon">dy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#dz" class="tsd-kind-icon">dz</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.camera.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#rx" class="tsd-kind-icon">rx</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#strategy" class="tsd-kind-icon">strategy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.camera.html#z" class="tsd-kind-icon">z</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#pos" class="tsd-kind-icon">pos</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#vel" class="tsd-kind-icon">vel</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="_camera_.camera.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="_camera_.camera.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="_camera_.camera.html#vel" class="tsd-kind-icon">vel</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="_camera_.camera.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="_camera_.camera.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="_camera_.basecamera.html#addstrategy" class="tsd-kind-icon">add<wbr>Strategy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#clearallstrategies" class="tsd-kind-icon">clear<wbr>All<wbr>Strategies</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#draw" class="tsd-kind-icon">draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#emit" class="tsd-kind-icon">emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#getfocus" class="tsd-kind-icon">get<wbr>Focus</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#getzoom" class="tsd-kind-icon">get<wbr>Zoom</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#move" class="tsd-kind-icon">move</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_camera_.basecamera.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_camera_.basecamera.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_camera_.basecamera.html#once" class="tsd-kind-icon">once</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="_camera_.basecamera.html#removestrategy" class="tsd-kind-icon">remove<wbr>Strategy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#shake" class="tsd-kind-icon">shake</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#update" class="tsd-kind-icon">update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.basecamera.html#zoom" class="tsd-kind-icon">zoom</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_camera_.basecamera.html#extend" class="tsd-kind-icon">extend</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_camera_.camera.html#addstrategy" class="tsd-kind-icon">add<wbr>Strategy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#clearallstrategies" class="tsd-kind-icon">clear<wbr>All<wbr>Strategies</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#draw" class="tsd-kind-icon">draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_camera_.camera.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#getfocus" class="tsd-kind-icon">get<wbr>Focus</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#getzoom" class="tsd-kind-icon">get<wbr>Zoom</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#move" class="tsd-kind-icon">move</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_camera_.camera.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_camera_.camera.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_camera_.camera.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="_camera_.camera.html#removestrategy" class="tsd-kind-icon">remove<wbr>Strategy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#shake" class="tsd-kind-icon">shake</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.camera.html#zoom" class="tsd-kind-icon">zoom</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_camera_.camera.html#extend" class="tsd-kind-icon">extend</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Base<wbr>Camera<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_camera_.basecamera.html" class="tsd-signature-type">BaseCamera</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Camera<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_camera_.camera.html" class="tsd-signature-type">Camera</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
+								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L607">Camera.ts:607</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Class.ts#L13">Class.ts:13</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_camera_.basecamera.html" class="tsd-signature-type">BaseCamera</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_camera_.camera.html" class="tsd-signature-type">Camera</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_follow" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _follow</h3>
 					<div class="tsd-signature tsd-kind-icon">_follow<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#_follow">_follow</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L183">Camera.ts:183</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_isshaking" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _is<wbr>Shaking</h3>
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Shaking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#_isshaking">_isShaking</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L213">Camera.ts:213</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
 					<a name="_iszooming" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _is<wbr>Zooming</h3>
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Zooming<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#_iszooming">_isZooming</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L221">Camera.ts:221</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="ax" class="tsd-anchor"></a>
 					<h3> ax</h3>
 					<div class="tsd-signature tsd-kind-icon">ax<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#ax">ax</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L196">Camera.ts:196</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="ay" class="tsd-anchor"></a>
 					<h3> ay</h3>
 					<div class="tsd-signature tsd-kind-icon">ay<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#ay">ay</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L197">Camera.ts:197</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="az" class="tsd-anchor"></a>
 					<h3> az</h3>
 					<div class="tsd-signature tsd-kind-icon">az<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#az">az</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L198">Camera.ts:198</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="dx" class="tsd-anchor"></a>
 					<h3> dx</h3>
 					<div class="tsd-signature tsd-kind-icon">dx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#dx">dx</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L192">Camera.ts:192</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="dy" class="tsd-anchor"></a>
 					<h3> dy</h3>
 					<div class="tsd-signature tsd-kind-icon">dy<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#dy">dy</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L193">Camera.ts:193</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="dz" class="tsd-anchor"></a>
 					<h3> dz</h3>
 					<div class="tsd-signature tsd-kind-icon">dz<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#dz">dz</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L194">Camera.ts:194</a></li>
 						</ul>
@@ -306,63 +359,58 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="rotation" class="tsd-anchor"></a>
 					<h3> rotation</h3>
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#rotation">rotation</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L200">Camera.ts:200</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="rx" class="tsd-anchor"></a>
 					<h3> rx</h3>
 					<div class="tsd-signature tsd-kind-icon">rx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#rx">rx</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L201">Camera.ts:201</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="strategy" class="tsd-anchor"></a>
 					<h3> strategy</h3>
 					<div class="tsd-signature tsd-kind-icon">strategy<span class="tsd-signature-symbol">:</span> <a href="_camera_.strategycontainer.html" class="tsd-signature-type">StrategyContainer</a><span class="tsd-signature-symbol"> =&nbsp;new StrategyContainer(this)</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#strategy">strategy</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L187">Camera.ts:187</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="z" class="tsd-anchor"></a>
 					<h3> z</h3>
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#z">z</a></p>
 						<ul>
 							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L190">Camera.ts:190</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
 					<a name="isinitialized" class="tsd-anchor"></a>
 					<h3> is<wbr>Initialized</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isInitialized<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#isinitialized">isInitialized</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L444">Camera.ts:444</a></li>
 								</ul>
@@ -371,17 +419,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
 					<a name="pos" class="tsd-anchor"></a>
 					<h3> pos</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> pos<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></li>
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> pos<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#pos">pos</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L266">Camera.ts:266</a></li>
 								</ul>
@@ -395,7 +442,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#pos">pos</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L273">Camera.ts:273</a></li>
 								</ul>
@@ -415,17 +461,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
 					<a name="vel" class="tsd-anchor"></a>
 					<h3> vel</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> vel<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></li>
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> vel<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#vel">vel</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L281">Camera.ts:281</a></li>
 								</ul>
@@ -439,7 +484,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#vel">vel</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L288">Camera.ts:288</a></li>
 								</ul>
@@ -459,17 +503,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
 					<a name="x" class="tsd-anchor"></a>
 					<h3> x</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> x<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> x<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#x">x</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L234">Camera.ts:234</a></li>
 								</ul>
@@ -483,7 +526,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#x">x</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L241">Camera.ts:241</a></li>
 								</ul>
@@ -503,17 +545,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
 					<a name="y" class="tsd-anchor"></a>
 					<h3> y</h3>
-					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> y<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> y<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#y">y</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L250">Camera.ts:250</a></li>
 								</ul>
@@ -527,7 +568,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#y">y</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L257">Camera.ts:257</a></li>
 								</ul>
@@ -548,18 +588,17 @@
 					</ul>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="_initialize" class="tsd-anchor"></a>
 					<h3> _initialize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">_initialize<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#_initialize">_initialize</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L448">Camera.ts:448</a></li>
 								</ul>
@@ -574,16 +613,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="_postupdate" class="tsd-anchor"></a>
 					<h3> _postupdate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">_postupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#_postupdate">_postupdate</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L429">Camera.ts:429</a></li>
 								</ul>
@@ -592,7 +630,7 @@
 								<div class="lead">
 									<p> It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _preupdate handler for <a href="_camera_.basecamera.html#onpostupdate">onPostUpdate</a> lifecycle event</p>
+								<p>Internal _preupdate handler for <a href="_camera_.camera.html#onpostupdate">onPostUpdate</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -611,16 +649,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="_preupdate" class="tsd-anchor"></a>
 					<h3> _preupdate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">_preupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#_preupdate">_preupdate</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L409">Camera.ts:409</a></li>
 								</ul>
@@ -629,7 +666,7 @@
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _preupdate handler for <a href="_camera_.basecamera.html#onpreupdate">onPreUpdate</a> lifecycle event</p>
+								<p>Internal _preupdate handler for <a href="_camera_.camera.html#onpreupdate">onPreUpdate</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -648,16 +685,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="addstrategy" class="tsd-anchor"></a>
 					<h3> add<wbr>Strategy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">add<wbr>Strategy&lt;T&gt;<span class="tsd-signature-symbol">(</span>cameraStrategy<span class="tsd-signature-symbol">: </span><a href="../interfaces/_camera_.icamerastrategy.html" class="tsd-signature-type">ICameraStrategy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#addstrategy">addStrategy</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L384">Camera.ts:384</a></li>
 								</ul>
@@ -686,16 +722,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="clearallstrategies" class="tsd-anchor"></a>
 					<h3> clear<wbr>All<wbr>Strategies</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">clear<wbr>All<wbr>Strategies<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#clearallstrategies">clearAllStrategies</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L399">Camera.ts:399</a></li>
 								</ul>
@@ -709,16 +744,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="debugdraw" class="tsd-anchor"></a>
 					<h3> debug<wbr>Draw</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">debug<wbr>Draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#debugdraw">debugDraw</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L582">Camera.ts:582</a></li>
 								</ul>
@@ -733,16 +767,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="draw" class="tsd-anchor"></a>
 					<h3> draw</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#draw">draw</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L568">Camera.ts:568</a></li>
 								</ul>
@@ -804,16 +837,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getfocus" class="tsd-anchor"></a>
 					<h3> get<wbr>Focus</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Focus<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#getfocus">getFocus</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L296">Camera.ts:296</a></li>
 								</ul>
@@ -827,16 +859,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getzoom" class="tsd-anchor"></a>
 					<h3> get<wbr>Zoom</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Zoom<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#getzoom">getZoom</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L376">Camera.ts:376</a></li>
 								</ul>
@@ -850,16 +881,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="move" class="tsd-anchor"></a>
 					<h3> move</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">move<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, duration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, easingFn<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_util_easingfunctions_.easingfunction.html" class="tsd-signature-type">EasingFunction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_promises_.ipromise.html" class="tsd-signature-type">IPromise</a><span class="tsd-signature-symbol">&lt;</span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#move">move</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L309">Camera.ts:309</a></li>
 								</ul>
@@ -893,10 +923,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="off" class="tsd-anchor"></a>
 					<h3> off</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"initialize"</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"preupdate"</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"postupdate"</span>, handler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -905,7 +935,6 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#off">off</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L472">Camera.ts:472</a></li>
@@ -942,7 +971,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#off">off</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L473">Camera.ts:473</a></li>
@@ -979,7 +1007,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#off">off</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L474">Camera.ts:474</a></li>
@@ -1016,7 +1043,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#off">off</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L475">Camera.ts:475</a></li>
@@ -1053,10 +1079,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="on" class="tsd-anchor"></a>
 					<h3> on</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"initialize"</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"preupdate"</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"postupdate"</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -1064,7 +1090,6 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#on">on</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L465">Camera.ts:465</a></li>
@@ -1101,7 +1126,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#on">on</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L466">Camera.ts:466</a></li>
@@ -1138,7 +1162,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#on">on</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L467">Camera.ts:467</a></li>
@@ -1175,17 +1198,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="oninitialize" class="tsd-anchor"></a>
 					<h3> on<wbr>Initialize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Initialize<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html">ICanInitialize</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html#oninitialize">onInitialize</a></p>
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#oninitialize">onInitialize</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L461">Camera.ts:461</a></li>
 								</ul>
@@ -1206,17 +1228,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="onpostupdate" class="tsd-anchor"></a>
 					<h3> on<wbr>Post<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html">ICanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html#onpostupdate">onPostUpdate</a></p>
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#onpostupdate">onPostUpdate</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L439">Camera.ts:439</a></li>
 								</ul>
@@ -1240,17 +1261,16 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="onpreupdate" class="tsd-anchor"></a>
 					<h3> on<wbr>Pre<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Pre<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html">ICanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html#onpreupdate">onPreUpdate</a></p>
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#onpreupdate">onPreUpdate</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L419">Camera.ts:419</a></li>
 								</ul>
@@ -1274,10 +1294,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="once" class="tsd-anchor"></a>
 					<h3> once</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"initialize"</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"preupdate"</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 						<li class="tsd-signature tsd-kind-icon">once<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"postupdate"</span>, handler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
@@ -1286,7 +1306,6 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#once">once</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L480">Camera.ts:480</a></li>
@@ -1323,7 +1342,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#once">once</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L481">Camera.ts:481</a></li>
@@ -1360,7 +1378,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#once">once</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L482">Camera.ts:482</a></li>
@@ -1397,7 +1414,6 @@
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#once">once</a></p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L483">Camera.ts:483</a></li>
@@ -1434,16 +1450,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 					<a name="removestrategy" class="tsd-anchor"></a>
 					<h3> remove<wbr>Strategy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 						<li class="tsd-signature tsd-kind-icon">remove<wbr>Strategy&lt;T&gt;<span class="tsd-signature-symbol">(</span>cameraStrategy<span class="tsd-signature-symbol">: </span><a href="../interfaces/_camera_.icamerastrategy.html" class="tsd-signature-type">ICameraStrategy</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#removestrategy">removeStrategy</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L392">Camera.ts:392</a></li>
 								</ul>
@@ -1472,16 +1487,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="shake" class="tsd-anchor"></a>
 					<h3> shake</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">shake<span class="tsd-signature-symbol">(</span>magnitudeX<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, magnitudeY<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, duration<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#shake">shake</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L341">Camera.ts:341</a></li>
 								</ul>
@@ -1516,16 +1530,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="update" class="tsd-anchor"></a>
 					<h3> update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#update">update</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L488">Camera.ts:488</a></li>
 								</ul>
@@ -1543,16 +1556,15 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="zoom" class="tsd-anchor"></a>
 					<h3> zoom</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">zoom<span class="tsd-signature-symbol">(</span>scale<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, duration<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, easingFn<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_util_easingfunctions_.easingfunction.html" class="tsd-signature-type">EasingFunction</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_promises_.promise.html" class="tsd-signature-type">Promise</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#zoom">zoom</a></p>
 								<ul>
 									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/916a408/src/engine/Camera.ts#L354">Camera.ts:354</a></li>
 								</ul>
@@ -1657,144 +1669,144 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_camera_.axis.html" class="tsd-kind-icon">Axis</a>
 					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_camera_.basecamera.html" class="tsd-kind-icon">Base<wbr>Camera</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_camera_.basecamera.html" class="tsd-kind-icon">Base<wbr>Camera</a>
+						<a href="_camera_.camera.html" class="tsd-kind-icon">Camera</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_camera_.basecamera.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="_camera_.camera.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_camera_.basecamera.html#_follow" class="tsd-kind-icon">_follow</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_camera_.camera.html#_follow" class="tsd-kind-icon">_follow</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_camera_.basecamera.html#_isshaking" class="tsd-kind-icon">_is<wbr>Shaking</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_camera_.camera.html#_isshaking" class="tsd-kind-icon">_is<wbr>Shaking</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_camera_.basecamera.html#_iszooming" class="tsd-kind-icon">_is<wbr>Zooming</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="_camera_.camera.html#_iszooming" class="tsd-kind-icon">_is<wbr>Zooming</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#ax" class="tsd-kind-icon">ax</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#ax" class="tsd-kind-icon">ax</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#ay" class="tsd-kind-icon">ay</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#ay" class="tsd-kind-icon">ay</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#az" class="tsd-kind-icon">az</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#az" class="tsd-kind-icon">az</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#dx" class="tsd-kind-icon">dx</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#dx" class="tsd-kind-icon">dx</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#dy" class="tsd-kind-icon">dy</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#dy" class="tsd-kind-icon">dy</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#dz" class="tsd-kind-icon">dz</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#dz" class="tsd-kind-icon">dz</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#rotation" class="tsd-kind-icon">rotation</a>
+								<a href="_camera_.camera.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#rx" class="tsd-kind-icon">rx</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#rotation" class="tsd-kind-icon">rotation</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#strategy" class="tsd-kind-icon">strategy</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#rx" class="tsd-kind-icon">rx</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#z" class="tsd-kind-icon">z</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#strategy" class="tsd-kind-icon">strategy</a>
 							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.camera.html#z" class="tsd-kind-icon">z</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#pos" class="tsd-kind-icon">pos</a>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="_camera_.camera.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#vel" class="tsd-kind-icon">vel</a>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="_camera_.camera.html#pos" class="tsd-kind-icon">pos</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#x" class="tsd-kind-icon">x</a>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="_camera_.camera.html#vel" class="tsd-kind-icon">vel</a>
 							</li>
-							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#y" class="tsd-kind-icon">y</a>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="_camera_.camera.html#x" class="tsd-kind-icon">x</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#_initialize" class="tsd-kind-icon">_initialize</a>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="_camera_.camera.html#y" class="tsd-kind-icon">y</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#_initialize" class="tsd-kind-icon">_initialize</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-								<a href="_camera_.basecamera.html#addstrategy" class="tsd-kind-icon">add<wbr>Strategy</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#clearallstrategies" class="tsd-kind-icon">clear<wbr>All<wbr>Strategies</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="_camera_.camera.html#addstrategy" class="tsd-kind-icon">add<wbr>Strategy</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#clearallstrategies" class="tsd-kind-icon">clear<wbr>All<wbr>Strategies</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#draw" class="tsd-kind-icon">draw</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#emit" class="tsd-kind-icon">emit</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#getfocus" class="tsd-kind-icon">get<wbr>Focus</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#draw" class="tsd-kind-icon">draw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#getzoom" class="tsd-kind-icon">get<wbr>Zoom</a>
+								<a href="_camera_.camera.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#move" class="tsd-kind-icon">move</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#getfocus" class="tsd-kind-icon">get<wbr>Focus</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_camera_.basecamera.html#off" class="tsd-kind-icon">off</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#getzoom" class="tsd-kind-icon">get<wbr>Zoom</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_camera_.basecamera.html#on" class="tsd-kind-icon">on</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#move" class="tsd-kind-icon">move</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_camera_.camera.html#off" class="tsd-kind-icon">off</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_camera_.camera.html#on" class="tsd-kind-icon">on</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_camera_.basecamera.html#once" class="tsd-kind-icon">once</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-								<a href="_camera_.basecamera.html#removestrategy" class="tsd-kind-icon">remove<wbr>Strategy</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#shake" class="tsd-kind-icon">shake</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="_camera_.camera.html#once" class="tsd-kind-icon">once</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#update" class="tsd-kind-icon">update</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="_camera_.camera.html#removestrategy" class="tsd-kind-icon">remove<wbr>Strategy</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_camera_.basecamera.html#zoom" class="tsd-kind-icon">zoom</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#shake" class="tsd-kind-icon">shake</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.camera.html#zoom" class="tsd-kind-icon">zoom</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="_camera_.basecamera.html#extend" class="tsd-kind-icon">extend</a>
+								<a href="_camera_.camera.html#extend" class="tsd-kind-icon">extend</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_camera_.camera.html" class="tsd-kind-icon">Camera</a>
-					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_camera_.elastictoactorstrategy.html" class="tsd-kind-icon">Elastic<wbr>ToActor<wbr>Strategy</a>
 					</li>
