@@ -80,7 +80,7 @@
 					with <a href="_label_.label.html">Labels</a>.</p>
 					<h2 id="creating-a-spritesheet">Creating a SpriteSheet</h2>
 					<p>To create a <a href="_drawing_spritesheet_.spritesheet.html">SpriteSheet</a> you need a loaded <a href="_resources_texture_.texture.html">Texture</a> resource.</p>
-					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+					<pre><code class="language-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 <span class="hljs-keyword">var</span> txAnimPlayerIdle = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">'/assets/tx/anim-player-idle.png'</span>);
 <span class="hljs-comment">// load assets</span>
 <span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader(txAnimPlayerIdle);
@@ -99,8 +99,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
   player.addDrawing(<span class="hljs-string">'idle'</span>, playerIdleAnimation);
   <span class="hljs-comment">// add player to game</span>
   game.add(player);
-});
-</code></pre>
+});</code></pre>
 					<h2 id="creating-animations">Creating animations</h2>
 					<p><a href="_drawing_spritesheet_.spritesheet.html">SpriteSheets</a> provide a quick way to generate a new <a href="_drawing_animation_.animation.html">Animation</a> instance.</p>
 					<p>You can use <em>all</em> the frames of a <a href="_resources_texture_.texture.html">Texture</a>(<a href="_drawing_spritesheet_.spritesheet.html#getanimationforall">SpriteSheet.getAnimationForAll</a>)
@@ -111,7 +110,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 						event because the <a href="_engine_.engine.html">Engine</a> is passed to the initialization function. However, if your
 						<a href="_engine_.engine.html">Engine</a> instance is in the global scope, you can create an <a href="_drawing_animation_.animation.html">Animation</a> at any time
 					provided the <a href="_resources_texture_.texture.html">Texture</a> has been <a href="_loader_.loader.html">loaded</a>.</p>
-					<pre><code class="lang-js"><span class="hljs-comment">// create sprite sheet with 5 columns, 1 row, 80x80 frames</span>
+					<pre><code class="language-js"><span class="hljs-comment">// create sprite sheet with 5 columns, 1 row, 80x80 frames</span>
 <span class="hljs-keyword">var</span> playerIdleSheet = <span class="hljs-keyword">new</span> ex.SpriteSheet(txAnimPlayerIdle, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
 
 <span class="hljs-comment">// create animation for all frames (125ms frame speed)</span>
@@ -121,22 +120,19 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 <span class="hljs-comment">// create animation for specific frames 2, 4, 5 (125ms frame speed)</span>
 <span class="hljs-keyword">var</span> playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>], <span class="hljs-number">125</span>);
 <span class="hljs-comment">// create a repeating animation (ping-pong)</span>
-<span class="hljs-keyword">var</span> playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>], <span class="hljs-number">125</span>);
-</code></pre>
+<span class="hljs-keyword">var</span> playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>], <span class="hljs-number">125</span>);</code></pre>
 					<h2 id="multiple-rows">Multiple rows</h2>
 					<p>Sheets are organized in &quot;row major order&quot; which means left-to-right, top-to-bottom.
 						Indexes are zero-based, so while you might think to yourself the first column is
 						column &quot;1&quot;, to the engine it is column &quot;0&quot;. You can easily calculate an index
 					of a frame using this formula:</p>
-					<pre><code>Giv<span class="hljs-symbol">en:</span> col = <span class="hljs-number">5</span>, <span class="hljs-built_in">row</span> = <span class="hljs-number">3</span>, <span class="hljs-built_in">columns</span> = <span class="hljs-number">10</span>
-<span class="hljs-built_in">index</span> = col + <span class="hljs-built_in">row</span> * <span class="hljs-built_in">columns</span>
-<span class="hljs-built_in">index</span> = <span class="hljs-number">4</span> + <span class="hljs-number">2</span> * <span class="hljs-number">10</span> // zero-based, subtract <span class="hljs-number">1</span> from col &amp; <span class="hljs-built_in">row</span>
-<span class="hljs-built_in">index</span> = <span class="hljs-number">24</span>
-</code></pre><p>You can also simply count the frames of the image visually starting from the top left
+					<pre><code>Given: col = <span class="hljs-number">5</span>, <span class="hljs-keyword">row</span> = <span class="hljs-number">3</span>, <span class="hljs-keyword">columns</span> = <span class="hljs-number">10</span>
+<span class="hljs-keyword">index</span> = col + <span class="hljs-keyword">row</span> * <span class="hljs-keyword">columns</span>
+<span class="hljs-keyword">index</span> = <span class="hljs-number">4</span> + <span class="hljs-number">2</span> * <span class="hljs-number">10</span> // zero-based, subtract <span class="hljs-number">1</span> <span class="hljs-keyword">from</span> col &amp; <span class="hljs-keyword">row</span>
+<span class="hljs-keyword">index</span> = <span class="hljs-number">24</span></code></pre><p>You can also simply count the frames of the image visually starting from the top left
 					and beginning with zero.</p>
-					<pre><code class="lang-js"><span class="hljs-comment">// get a sprite for column 3, row 6</span>
-<span class="hljs-keyword">var</span> sprite = animation.getSprite(<span class="hljs-number">2</span> + <span class="hljs-number">5</span> * <span class="hljs-number">10</span>);
-</code></pre>
+					<pre><code class="language-js"><span class="hljs-comment">// get a sprite for column 3, row 6</span>
+<span class="hljs-keyword">var</span> sprite = animation.getSprite(<span class="hljs-number">2</span> + <span class="hljs-number">5</span> * <span class="hljs-number">10</span>);</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -207,7 +203,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Overrides SpriteSheetImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L189">Drawing/SpriteSheet.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L189">Drawing/SpriteSheet.ts:189</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -222,7 +218,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Overrides SpriteSheetImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L190">Drawing/SpriteSheet.ts:190</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L190">Drawing/SpriteSheet.ts:190</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -237,7 +233,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Overrides SpriteSheetImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L191">Drawing/SpriteSheet.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L191">Drawing/SpriteSheet.ts:191</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -272,7 +268,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.columns</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L18">Drawing/SpriteSheet.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L18">Drawing/SpriteSheet.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -283,7 +279,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.image</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L17">Drawing/SpriteSheet.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L17">Drawing/SpriteSheet.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -294,7 +290,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.rows</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L19">Drawing/SpriteSheet.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L19">Drawing/SpriteSheet.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -305,7 +301,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.spHeight</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L21">Drawing/SpriteSheet.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L21">Drawing/SpriteSheet.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -316,7 +312,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.spWidth</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L20">Drawing/SpriteSheet.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L20">Drawing/SpriteSheet.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -327,7 +323,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.spacing</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L22">Drawing/SpriteSheet.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L22">Drawing/SpriteSheet.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -338,7 +334,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteSheetImpl.sprites</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L16">Drawing/SpriteSheet.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L16">Drawing/SpriteSheet.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -356,7 +352,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteSheetImpl.getAnimationBetween</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L106">Drawing/SpriteSheet.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L106">Drawing/SpriteSheet.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,7 +404,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteSheetImpl.getAnimationByCoords</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L148">Drawing/SpriteSheet.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L148">Drawing/SpriteSheet.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -447,7 +443,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteSheetImpl.getAnimationByIndices</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L86">Drawing/SpriteSheet.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L86">Drawing/SpriteSheet.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -492,7 +488,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteSheetImpl.getAnimationForAll</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L120">Drawing/SpriteSheet.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L120">Drawing/SpriteSheet.ts:120</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -531,7 +527,7 @@ game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">f
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteSheetImpl.getSprite</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L132">Drawing/SpriteSheet.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L132">Drawing/SpriteSheet.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

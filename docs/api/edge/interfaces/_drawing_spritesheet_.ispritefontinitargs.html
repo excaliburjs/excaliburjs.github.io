@@ -75,11 +75,10 @@
 						<h2 id="constructor-arguments">Constructor Arguments</h2>
 						<p>In Excalibur there are option bag constructors available on most types. These support any public property or member, methods are not supported. The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.</p>
 						<p>For example instead of doing this:</p>
-						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
-actor.collisionType = ex.CollisionType.Active;
-</code></pre>
+						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
+actor.collisionType = ex.CollisionType.Active;</code></pre>
 						<p>This is possible:</p>
-						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> options: IActorArgs = {
+						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> options: IActorArgs = {
    pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
    width: <span class="hljs-number">100</span>,
    height: <span class="hljs-number">100</span>,
@@ -87,25 +86,22 @@ actor.collisionType = ex.CollisionType.Active;
    collisionType: ex.CollisionType.Active
 }
 
-<span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-</code></pre>
+<span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);</code></pre>
 						<p>In fact you can create a duplicate this way</p>
-						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
+						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
 });
 <span class="hljs-keyword">var</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
 
-expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span>
-</code></pre>
+expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span></code></pre>
 						<p>Types that support option bags can have their properties mass assigned using the assign method.</p>
-						<pre><code class="lang-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
+						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
 
 actor.assign({
   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
   width: <span class="hljs-number">1000</span>,
   color: ex.Color.Red
-});
-</code></pre>
+});</code></pre>
 						<p>See:</p>
 						<ul>
 							<li><a href="../classes/_actor_.actor.html">Actor</a></li>
@@ -165,7 +161,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">alphabet<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L420">Drawing/SpriteSheet.ts:420</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L420">Drawing/SpriteSheet.ts:420</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +171,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">case<wbr>Insensitive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L421">Drawing/SpriteSheet.ts:421</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L421">Drawing/SpriteSheet.ts:421</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -186,7 +182,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#columns">columns</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L416">Drawing/SpriteSheet.ts:416</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L416">Drawing/SpriteSheet.ts:416</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -197,7 +193,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#image">image</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L415">Drawing/SpriteSheet.ts:415</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L415">Drawing/SpriteSheet.ts:415</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +204,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#rows">rows</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L417">Drawing/SpriteSheet.ts:417</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L417">Drawing/SpriteSheet.ts:417</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -219,7 +215,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#spheight">spHeight</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L419">Drawing/SpriteSheet.ts:419</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L419">Drawing/SpriteSheet.ts:419</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +226,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#spwidth">spWidth</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L418">Drawing/SpriteSheet.ts:418</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L418">Drawing/SpriteSheet.ts:418</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -241,7 +237,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#spacing">spacing</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L179">Drawing/SpriteSheet.ts:179</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L179">Drawing/SpriteSheet.ts:179</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -252,7 +248,7 @@ actor.assign({
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_drawing_spritesheet_.ispritesheetargs.html">ISpriteSheetArgs</a>.<a href="_drawing_spritesheet_.ispritesheetargs.html#sprites">sprites</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Drawing/SpriteSheet.ts#L174">Drawing/SpriteSheet.ts:174</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Drawing/SpriteSheet.ts#L174">Drawing/SpriteSheet.ts:174</a></li>
 						</ul>
 					</aside>
 				</section>

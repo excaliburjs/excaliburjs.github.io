@@ -80,7 +80,7 @@
 						properties you need after creating an instance of the <a href="_label_.label.html">Label</a>.
 						Since labels are <a href="_actor_.actor.html">Actors</a>, they need to be added to a <a href="_scene_.scene.html">Scene</a>
 					to be drawn and updated on-screen.</p>
-					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+					<pre><code class="language-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 <span class="hljs-comment">// constructor</span>
 <span class="hljs-keyword">var</span> label = <span class="hljs-keyword">new</span> ex.Label(<span class="hljs-string">'Hello World'</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-string">'10px Arial'</span>);
 <span class="hljs-comment">// properties</span>
@@ -96,8 +96,7 @@ label.textAlign = ex.TextAlign.Center;
 <span class="hljs-comment">// add to current scene</span>
 game.add(label);
 <span class="hljs-comment">// start game</span>
-game.start();
-</code></pre>
+game.start();</code></pre>
 					<h2 id="adjusting-fonts">Adjusting Fonts</h2>
 					<p>You can use the <a href="_label_.label.html#fontfamily">fontFamily</a>, <a href="_label_.label.html#fontsize">fontSize</a>, <a href="_label_.label.html#fontunit">fontUnit</a>, <a href="_label_.label.html#textalign">textAlign</a>, and <a href="_label_.label.html#basealign">baseAlign</a>
 					properties to customize how the label is drawn.</p>
@@ -109,7 +108,7 @@ game.start();
 						for CSS. Then simply pass in the font string to the <a href="_label_.label.html">Label</a> constructor
 					or set <a href="_label_.label.html#fontfamily">Label.fontFamily</a>.</p>
 					<p><strong>index.html</strong></p>
-					<pre><code class="lang-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
+					<pre><code class="language-html"><span class="hljs-meta">&lt;!doctype html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
   <span class="hljs-comment">&lt;!-- Include the web font per usual --&gt;</span>
@@ -119,18 +118,16 @@ game.start();
   <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"game"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"game.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
 					<p><strong>game.js</strong></p>
-					<pre><code class="lang-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+					<pre><code class="language-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 <span class="hljs-keyword">var</span> label = <span class="hljs-keyword">new</span> ex.Label();
 label.fontFamily = <span class="hljs-string">'Foobar, Arial, Sans-Serif'</span>;
 label.fontSize = <span class="hljs-number">10</span>;
 label.fontUnit = ex.FontUnit.Em;
 label.text = <span class="hljs-string">'Hello World'</span>;
 game.add(label);
-game.start();
-</code></pre>
+game.start();</code></pre>
 					<h2 id="performance-implications">Performance Implications</h2>
 					<p>It is recommended to use a <a href="_drawing_spritesheet_.spritefont.html">SpriteFont</a> for labels as the raw Canvas
 						API for drawing text is slow (<code>fillText</code>). Too many labels that
@@ -339,7 +336,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overrides LabelImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L408">Label.ts:408</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L408">Label.ts:408</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_label_.label.html" class="tsd-signature-type">Label</a></h4>
@@ -348,7 +345,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overrides LabelImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L409">Label.ts:409</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L409">Label.ts:409</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -363,7 +360,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Overrides LabelImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L410">Label.ts:410</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L410">Label.ts:410</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -398,7 +395,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.actionQueue</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L385">Actor.ts:385</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L385">Actor.ts:385</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -415,7 +412,7 @@ game.start();
 						<p>Implementation of <a href="../interfaces/_actions_iactionable_.iactionable.html">IActionable</a>.<a href="../interfaces/_actions_iactionable_.iactionable.html#actions">actions</a></p>
 						<p>Inherited from ActorImpl.actions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L390">Actor.ts:390</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L390">Actor.ts:390</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -431,7 +428,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.anchor</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L343">Actor.ts:343</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L343">Actor.ts:343</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -453,7 +450,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.baseAlign</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L171">Label.ts:171</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L171">Label.ts:171</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -469,7 +466,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.body</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L110">Actor.ts:110</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L110">Actor.ts:110</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -486,7 +483,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.bold</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L135">Label.ts:135</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L135">Label.ts:135</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -502,7 +499,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.caseInsensitive</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L186">Label.ts:186</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L186">Label.ts:186</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -518,7 +515,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.children</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L410">Actor.ts:410</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L410">Actor.ts:410</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -534,7 +531,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.collisionGroups</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L416">Actor.ts:416</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L416">Actor.ts:416</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -545,7 +542,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.collisionType</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L415">Actor.ts:415</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L415">Actor.ts:415</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -562,7 +559,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.currentDrawing</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L434">Actor.ts:434</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L434">Actor.ts:434</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -580,7 +577,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.enableCapturePointer</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L459">Actor.ts:459</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L459">Actor.ts:459</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -597,7 +594,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L13">Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L13">Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -613,7 +610,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.fontFamily</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L146">Label.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L146">Label.ts:146</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -630,7 +627,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.fontSize</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L151">Label.ts:151</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L151">Label.ts:151</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -646,7 +643,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.fontStyle</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L156">Label.ts:156</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L156">Label.ts:156</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -662,7 +659,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.fontUnit</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L161">Label.ts:161</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L161">Label.ts:161</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -678,7 +675,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.frames</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L426">Actor.ts:426</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L426">Actor.ts:426</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -697,7 +694,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.id</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L104">Actor.ts:104</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L104">Actor.ts:104</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -713,7 +710,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.isOffScreen</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L370">Actor.ts:370</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L370">Actor.ts:370</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -729,7 +726,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.letterSpacing</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L181">Label.ts:181</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L181">Label.ts:181</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -745,7 +742,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.logger</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L395">Actor.ts:395</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L395">Actor.ts:395</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -761,7 +758,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.maxWidth</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L176">Label.ts:176</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L176">Label.ts:176</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -777,7 +774,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.oldAcc</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L215">Actor.ts:215</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L215">Actor.ts:215</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -793,7 +790,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.oldScale</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L356">Actor.ts:356</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L356">Actor.ts:356</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -809,7 +806,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.opacity</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L379">Actor.ts:379</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L379">Actor.ts:379</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -826,7 +823,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.parent</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L405">Actor.ts:405</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L405">Actor.ts:405</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -842,7 +839,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.previousOpacity</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L380">Actor.ts:380</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L380">Actor.ts:380</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -853,7 +850,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.scale</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L351">Actor.ts:351</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L351">Actor.ts:351</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -869,7 +866,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.scene</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L400">Actor.ts:400</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L400">Actor.ts:400</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -885,7 +882,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.spriteFont</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L140">Label.ts:140</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L140">Label.ts:140</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -901,7 +898,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.sx</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L361">Actor.ts:361</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L361">Actor.ts:361</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -917,7 +914,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.sy</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L365">Actor.ts:365</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L365">Actor.ts:365</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -933,7 +930,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.text</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L130">Label.ts:130</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L130">Label.ts:130</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -949,7 +946,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from LabelImpl.textAlign</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L166">Label.ts:166</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L166">Label.ts:166</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -965,7 +962,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.traits</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L439">Actor.ts:439</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L439">Actor.ts:439</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -981,7 +978,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.visible</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L374">Actor.ts:374</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L374">Actor.ts:374</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -997,7 +994,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.maxId</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L100">Actor.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L100">Actor.ts:100</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -1020,7 +1017,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from LabelImpl._fontString</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L393">Label.ts:393</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L393">Label.ts:393</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -1039,7 +1036,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.acc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L221">Actor.ts:221</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L221">Actor.ts:221</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1054,7 +1051,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.acc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L228">Actor.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L228">Actor.ts:228</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1084,7 +1081,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.collisionArea</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L116">Actor.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L116">Actor.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1099,7 +1096,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.collisionArea</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L124">Actor.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L124">Actor.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1130,7 +1127,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.color</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L447">Actor.ts:447</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L447">Actor.ts:447</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1146,7 +1143,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.color</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L450">Actor.ts:450</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L450">Actor.ts:450</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1178,7 +1175,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.friction</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L305">Actor.ts:305</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L305">Actor.ts:305</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1192,7 +1189,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.friction</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L312">Actor.ts:312</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L312">Actor.ts:312</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1221,7 +1218,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.isGeometryDirty</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1177">Actor.ts:1177</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1177">Actor.ts:1177</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1244,7 +1241,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.isInitialized</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L533">Actor.ts:533</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L533">Actor.ts:533</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1268,7 +1265,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.mass</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L277">Actor.ts:277</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L277">Actor.ts:277</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1282,7 +1279,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.mass</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L284">Actor.ts:284</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L284">Actor.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1312,7 +1309,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.moi</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L291">Actor.ts:291</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L291">Actor.ts:291</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1326,7 +1323,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.moi</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L298">Actor.ts:298</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L298">Actor.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1356,7 +1353,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldPos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L173">Actor.ts:173</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L173">Actor.ts:173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1370,7 +1367,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldPos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L180">Actor.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L180">Actor.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1400,7 +1397,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldVel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L201">Actor.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L201">Actor.ts:201</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1414,7 +1411,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldVel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L208">Actor.ts:208</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L208">Actor.ts:208</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1444,7 +1441,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.pos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L159">Actor.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L159">Actor.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1458,7 +1455,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.pos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L166">Actor.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L166">Actor.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1488,7 +1485,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.restitution</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L320">Actor.ts:320</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L320">Actor.ts:320</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1503,7 +1500,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.restitution</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L328">Actor.ts:328</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L328">Actor.ts:328</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1534,7 +1531,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rotation</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L235">Actor.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L235">Actor.ts:235</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1548,7 +1545,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rotation</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L242">Actor.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L242">Actor.ts:242</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1578,7 +1575,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rx</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L249">Actor.ts:249</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L249">Actor.ts:249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1592,7 +1589,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rx</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L256">Actor.ts:256</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L256">Actor.ts:256</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1622,7 +1619,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.torque</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L263">Actor.ts:263</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L263">Actor.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1636,7 +1633,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.torque</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L270">Actor.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L270">Actor.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1666,7 +1663,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.vel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L187">Actor.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L187">Actor.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1680,7 +1677,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.vel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L194">Actor.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L194">Actor.ts:194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1710,7 +1707,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.x</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L131">Actor.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L131">Actor.ts:131</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1724,7 +1721,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.x</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L138">Actor.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L138">Actor.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1754,7 +1751,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.y</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L145">Actor.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L145">Actor.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1768,7 +1765,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.y</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L152">Actor.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L152">Actor.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1798,7 +1795,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.z</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L954">Actor.ts:954</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L954">Actor.ts:954</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1807,7 +1804,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.z</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L958">Actor.ts:958</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L958">Actor.ts:958</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1834,7 +1831,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._initialize</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L544">Actor.ts:544</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L544">Actor.ts:544</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1868,14 +1865,14 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._postdraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1502">Actor.ts:1502</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1502">Actor.ts:1502</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _postdraw handler for <a href="_label_.label.html#onpostdraw">onPostDraw</a> lifecycle event</p>
+								<p>Internal <em>postdraw handler for &lt;a href=&quot;</em>label_.label.html#onpostdraw&quot;&gt;onPostDraw</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1905,14 +1902,14 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._postkill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L834">Actor.ts:834</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L834">Actor.ts:834</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _prekill handler for <a href="_label_.label.html#onpostkill">onPostKill</a> lifecycle event</p>
+								<p>Internal <em>prekill handler for &lt;a href=&quot;</em>label_.label.html#onpostkill&quot;&gt;onPostKill</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1939,14 +1936,14 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._postupdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1411">Actor.ts:1411</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1411">Actor.ts:1411</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _preupdate handler for <a href="_label_.label.html#onpostupdate">onPostUpdate</a> lifecycle event</p>
+								<p>Internal <em>preupdate handler for &lt;a href=&quot;</em>label_.label.html#onpostupdate&quot;&gt;onPostUpdate</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1976,14 +1973,14 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._predraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1491">Actor.ts:1491</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1491">Actor.ts:1491</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _predraw handler for <a href="_label_.label.html#onpredraw">onPreDraw</a> lifecycle event</p>
+								<p>Internal <em>predraw handler for &lt;a href=&quot;</em>label_.label.html#onpredraw&quot;&gt;onPreDraw</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -2013,14 +2010,14 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._prekill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L814">Actor.ts:814</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L814">Actor.ts:814</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _prekill handler for <a href="_label_.label.html#onprekill">onPreKill</a> lifecycle event</p>
+								<p>Internal <em>prekill handler for &lt;a href=&quot;</em>label_.label.html#onprekill&quot;&gt;onPreKill</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -2047,14 +2044,14 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._preupdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1400">Actor.ts:1400</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1400">Actor.ts:1400</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
 								</div>
-								<p>Internal _preupdate handler for <a href="_label_.label.html#onpreupdate">onPreUpdate</a> lifecycle event</p>
+								<p>Internal <em>preupdate handler for &lt;a href=&quot;</em>label_.label.html#onpreupdate&quot;&gt;onPreUpdate</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -2084,7 +2081,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._reapplyEffects</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1292">Actor.ts:1292</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1292">Actor.ts:1292</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2108,7 +2105,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.add</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L884">Actor.ts:884</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L884">Actor.ts:884</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2142,7 +2139,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addCollisionGroup</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L991">Actor.ts:991</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L991">Actor.ts:991</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2179,7 +2176,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L926">Actor.ts:926</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L926">Actor.ts:926</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2199,7 +2196,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L930">Actor.ts:930</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L930">Actor.ts:930</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2219,7 +2216,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L936">Actor.ts:936</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L936">Actor.ts:936</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2257,7 +2254,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from LabelImpl.clearTextShadow</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L333">Label.ts:333</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L333">Label.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2280,7 +2277,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.collides</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1250">Actor.ts:1250</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1250">Actor.ts:1250</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2313,7 +2310,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.collidesWithSide</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1226">Actor.ts:1226</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1226">Actor.ts:1226</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2345,7 +2342,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.contains</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1187">Actor.ts:1187</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1187">Actor.ts:1187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2390,7 +2387,7 @@ game.start();
 								<p>Inherited from LabelImpl.debugDraw</p>
 								<p>Overrides ActorImpl.debugDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L397">Label.ts:397</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L397">Label.ts:397</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2415,7 +2412,7 @@ game.start();
 								<p>Inherited from LabelImpl.draw</p>
 								<p>Overrides ActorImpl.draw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L343">Label.ts:343</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L343">Label.ts:343</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2443,7 +2440,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L46">Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L46">Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2481,7 +2478,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getAncestors</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1577">Actor.ts:1577</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1577">Actor.ts:1577</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2504,7 +2501,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getBottom</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1061">Actor.ts:1061</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1061">Actor.ts:1061</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2527,7 +2524,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getBounds</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1139">Actor.ts:1139</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1139">Actor.ts:1139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2556,7 +2553,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getCenter</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1008">Actor.ts:1008</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1008">Actor.ts:1008</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2579,7 +2576,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getCollisionHandlers</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1267">Actor.ts:1267</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1267">Actor.ts:1267</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
@@ -2602,7 +2599,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getGeometry</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1163">Actor.ts:1163</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1163">Actor.ts:1163</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2625,7 +2622,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getGlobalScale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1125">Actor.ts:1125</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1125">Actor.ts:1125</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2648,7 +2645,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getHeight</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1030">Actor.ts:1030</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1030">Actor.ts:1030</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2671,7 +2668,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getLeft</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1043">Actor.ts:1043</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1043">Actor.ts:1043</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2694,7 +2691,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getRelativeBounds</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1152">Actor.ts:1152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1152">Actor.ts:1152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2723,7 +2720,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getRelativeGeometry</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1170">Actor.ts:1170</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1170">Actor.ts:1170</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2746,7 +2743,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getRight</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1049">Actor.ts:1049</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1049">Actor.ts:1049</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2762,14 +2759,14 @@ game.start();
 					<a name="getsidefromintersect" class="tsd-anchor"></a>
 					<h3> get<wbr>Side<wbr>From<wbr>Intersect</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Side<wbr>From<wbr>Intersect<span class="tsd-signature-symbol">(</span>intersect<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_collision_side_.side.html" class="tsd-signature-type">Side</a></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Side<wbr>From<wbr>Intersect<span class="tsd-signature-symbol">(</span>intersect<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../enums/_collision_side_.side.html#none" class="tsd-signature-type">None</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_collision_side_.side.html#top" class="tsd-signature-type">Top</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_collision_side_.side.html#bottom" class="tsd-signature-type">Bottom</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_collision_side_.side.html#left" class="tsd-signature-type">Left</a><span class="tsd-signature-symbol"> | </span><a href="../enums/_collision_side_.side.html#right" class="tsd-signature-type">Right</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getSideFromIntersect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1206">Actor.ts:1206</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1206">Actor.ts:1206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2786,7 +2783,16 @@ game.start();
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../enums/_collision_side_.side.html" class="tsd-signature-type">Side</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../enums/_collision_side_.side.html#none" class="tsd-signature-type">None</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="../enums/_collision_side_.side.html#top" class="tsd-signature-type">Top</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="../enums/_collision_side_.side.html#bottom" class="tsd-signature-type">Bottom</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="../enums/_collision_side_.side.html#left" class="tsd-signature-type">Left</a>
+								<span class="tsd-signature-symbol"> | </span>
+								<a href="../enums/_collision_side_.side.html#right" class="tsd-signature-type">Right</a>
+							</h4>
 						</li>
 					</ul>
 				</section>
@@ -2801,7 +2807,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from LabelImpl.getTextWidth</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L237">Label.ts:237</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L237">Label.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2833,7 +2839,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getTop</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1055">Actor.ts:1055</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1055">Actor.ts:1055</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2856,7 +2862,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getWidth</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1017">Actor.ts:1017</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1017">Actor.ts:1017</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2879,7 +2885,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getWorldPos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1083">Actor.ts:1083</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1083">Actor.ts:1083</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2903,7 +2909,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getWorldRotation</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1070">Actor.ts:1070</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1070">Actor.ts:1070</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2927,7 +2933,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getZIndex</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L966">Actor.ts:966</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L966">Actor.ts:966</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2951,7 +2957,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.integrate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1301">Actor.ts:1301</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1301">Actor.ts:1301</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2980,7 +2986,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.isKilled</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L874">Actor.ts:874</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L874">Actor.ts:874</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3003,7 +3009,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.kill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L852">Actor.ts:852</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L852">Actor.ts:852</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3055,7 +3061,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L743">Actor.ts:743</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L743">Actor.ts:743</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3092,7 +3098,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L744">Actor.ts:744</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L744">Actor.ts:744</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3129,7 +3135,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L752">Actor.ts:752</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L752">Actor.ts:752</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3175,7 +3181,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L760">Actor.ts:760</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L760">Actor.ts:760</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3220,7 +3226,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L769">Actor.ts:769</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L769">Actor.ts:769</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3266,7 +3272,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L779">Actor.ts:779</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L779">Actor.ts:779</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3313,7 +3319,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L780">Actor.ts:780</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L780">Actor.ts:780</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3350,7 +3356,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L781">Actor.ts:781</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L781">Actor.ts:781</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3387,7 +3393,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L782">Actor.ts:782</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L782">Actor.ts:782</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3424,7 +3430,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L783">Actor.ts:783</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L783">Actor.ts:783</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3461,7 +3467,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L784">Actor.ts:784</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L784">Actor.ts:784</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3498,7 +3504,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L785">Actor.ts:785</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L785">Actor.ts:785</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3535,7 +3541,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L786">Actor.ts:786</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L786">Actor.ts:786</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3572,7 +3578,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L787">Actor.ts:787</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L787">Actor.ts:787</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3609,7 +3615,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L788">Actor.ts:788</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L788">Actor.ts:788</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3646,7 +3652,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L789">Actor.ts:789</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L789">Actor.ts:789</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3683,7 +3689,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L790">Actor.ts:790</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L790">Actor.ts:790</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3720,7 +3726,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L791">Actor.ts:791</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L791">Actor.ts:791</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3757,7 +3763,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L792">Actor.ts:792</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L792">Actor.ts:792</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3794,7 +3800,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L793">Actor.ts:793</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L793">Actor.ts:793</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3831,7 +3837,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L794">Actor.ts:794</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L794">Actor.ts:794</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3868,7 +3874,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L795">Actor.ts:795</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L795">Actor.ts:795</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3905,7 +3911,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L796">Actor.ts:796</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L796">Actor.ts:796</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3942,7 +3948,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L797">Actor.ts:797</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L797">Actor.ts:797</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3979,7 +3985,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L798">Actor.ts:798</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L798">Actor.ts:798</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4016,7 +4022,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L799">Actor.ts:799</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L799">Actor.ts:799</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4053,7 +4059,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L800">Actor.ts:800</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L800">Actor.ts:800</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4090,7 +4096,7 @@ game.start();
 								<p>Inherited from ActorImpl.off</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L801">Actor.ts:801</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L801">Actor.ts:801</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4166,7 +4172,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L609">Actor.ts:609</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L609">Actor.ts:609</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4203,7 +4209,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L610">Actor.ts:610</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L610">Actor.ts:610</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4240,7 +4246,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L618">Actor.ts:618</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L618">Actor.ts:618</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4286,7 +4292,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L626">Actor.ts:626</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L626">Actor.ts:626</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4331,7 +4337,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L635">Actor.ts:635</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L635">Actor.ts:635</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4377,7 +4383,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L645">Actor.ts:645</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L645">Actor.ts:645</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4424,7 +4430,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L646">Actor.ts:646</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L646">Actor.ts:646</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4461,7 +4467,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L647">Actor.ts:647</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L647">Actor.ts:647</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4498,7 +4504,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L648">Actor.ts:648</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L648">Actor.ts:648</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4535,7 +4541,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L649">Actor.ts:649</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L649">Actor.ts:649</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4572,7 +4578,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L650">Actor.ts:650</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L650">Actor.ts:650</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4609,7 +4615,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L651">Actor.ts:651</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L651">Actor.ts:651</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4646,7 +4652,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L652">Actor.ts:652</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L652">Actor.ts:652</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4683,7 +4689,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L653">Actor.ts:653</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L653">Actor.ts:653</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4720,7 +4726,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L654">Actor.ts:654</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L654">Actor.ts:654</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4757,7 +4763,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L655">Actor.ts:655</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L655">Actor.ts:655</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4794,7 +4800,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L656">Actor.ts:656</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L656">Actor.ts:656</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4831,7 +4837,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L657">Actor.ts:657</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L657">Actor.ts:657</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4868,7 +4874,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L658">Actor.ts:658</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L658">Actor.ts:658</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4905,7 +4911,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L659">Actor.ts:659</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L659">Actor.ts:659</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4942,7 +4948,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L660">Actor.ts:660</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L660">Actor.ts:660</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4979,7 +4985,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L661">Actor.ts:661</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L661">Actor.ts:661</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5016,7 +5022,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L662">Actor.ts:662</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L662">Actor.ts:662</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5053,7 +5059,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L663">Actor.ts:663</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L663">Actor.ts:663</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5090,7 +5096,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L664">Actor.ts:664</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L664">Actor.ts:664</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5127,7 +5133,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L665">Actor.ts:665</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L665">Actor.ts:665</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5164,7 +5170,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L666">Actor.ts:666</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L666">Actor.ts:666</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5201,7 +5207,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L667">Actor.ts:667</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L667">Actor.ts:667</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5238,7 +5244,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L668">Actor.ts:668</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L668">Actor.ts:668</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5275,7 +5281,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L669">Actor.ts:669</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L669">Actor.ts:669</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5312,7 +5318,7 @@ game.start();
 								<p>Inherited from ActorImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L670">Actor.ts:670</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L670">Actor.ts:670</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5357,7 +5363,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.onCollidesWith</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1261">Actor.ts:1261</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1261">Actor.ts:1261</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5414,7 +5420,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html">ICanInitialize</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icaninitialize.html#oninitialize">onInitialize</a></p>
 								<p>Inherited from ActorImpl.onInitialize</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L526">Actor.ts:526</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L526">Actor.ts:526</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5446,7 +5452,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html">ICanDraw</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html#onpostdraw">onPostDraw</a></p>
 								<p>Inherited from ActorImpl.onPostDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1481">Actor.ts:1481</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1481">Actor.ts:1481</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5480,7 +5486,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanbekilled.html">ICanBeKilled</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanbekilled.html#onpostkill">onPostKill</a></p>
 								<p>Inherited from ActorImpl.onPostKill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L844">Actor.ts:844</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L844">Actor.ts:844</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5511,7 +5517,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html">ICanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html#onpostupdate">onPostUpdate</a></p>
 								<p>Inherited from ActorImpl.onPostUpdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1390">Actor.ts:1390</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1390">Actor.ts:1390</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5545,7 +5551,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html">ICanDraw</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icandraw.html#onpredraw">onPreDraw</a></p>
 								<p>Inherited from ActorImpl.onPreDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1472">Actor.ts:1472</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1472">Actor.ts:1472</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5579,7 +5585,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanbekilled.html">ICanBeKilled</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanbekilled.html#onprekill">onPreKill</a></p>
 								<p>Inherited from ActorImpl.onPreKill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L824">Actor.ts:824</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L824">Actor.ts:824</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5610,7 +5616,7 @@ game.start();
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html">ICanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.icanupdate.html#onpreupdate">onPreUpdate</a></p>
 								<p>Inherited from ActorImpl.onPreUpdate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1381">Actor.ts:1381</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1381">Actor.ts:1381</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5674,7 +5680,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L676">Actor.ts:676</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L676">Actor.ts:676</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5711,7 +5717,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L677">Actor.ts:677</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L677">Actor.ts:677</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5748,7 +5754,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L685">Actor.ts:685</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L685">Actor.ts:685</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5794,7 +5800,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L693">Actor.ts:693</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L693">Actor.ts:693</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5839,7 +5845,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L702">Actor.ts:702</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L702">Actor.ts:702</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5885,7 +5891,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L712">Actor.ts:712</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L712">Actor.ts:712</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5932,7 +5938,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L713">Actor.ts:713</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L713">Actor.ts:713</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5969,7 +5975,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L714">Actor.ts:714</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L714">Actor.ts:714</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6006,7 +6012,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L715">Actor.ts:715</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L715">Actor.ts:715</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6043,7 +6049,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L716">Actor.ts:716</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L716">Actor.ts:716</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6080,7 +6086,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L717">Actor.ts:717</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L717">Actor.ts:717</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6117,7 +6123,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L718">Actor.ts:718</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L718">Actor.ts:718</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6154,7 +6160,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L719">Actor.ts:719</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L719">Actor.ts:719</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6191,7 +6197,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L720">Actor.ts:720</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L720">Actor.ts:720</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6228,7 +6234,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L721">Actor.ts:721</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L721">Actor.ts:721</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6265,7 +6271,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L722">Actor.ts:722</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L722">Actor.ts:722</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6302,7 +6308,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L723">Actor.ts:723</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L723">Actor.ts:723</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6339,7 +6345,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L724">Actor.ts:724</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L724">Actor.ts:724</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6376,7 +6382,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L725">Actor.ts:725</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L725">Actor.ts:725</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6413,7 +6419,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L726">Actor.ts:726</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L726">Actor.ts:726</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6450,7 +6456,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L727">Actor.ts:727</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L727">Actor.ts:727</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6487,7 +6493,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L728">Actor.ts:728</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L728">Actor.ts:728</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6524,7 +6530,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L729">Actor.ts:729</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L729">Actor.ts:729</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6561,7 +6567,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L730">Actor.ts:730</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L730">Actor.ts:730</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6598,7 +6604,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L731">Actor.ts:731</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L731">Actor.ts:731</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6635,7 +6641,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L732">Actor.ts:732</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L732">Actor.ts:732</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6672,7 +6678,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L733">Actor.ts:733</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L733">Actor.ts:733</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6709,7 +6715,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L734">Actor.ts:734</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L734">Actor.ts:734</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6746,7 +6752,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L735">Actor.ts:735</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L735">Actor.ts:735</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6783,7 +6789,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L736">Actor.ts:736</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L736">Actor.ts:736</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6820,7 +6826,7 @@ game.start();
 								<p>Inherited from ActorImpl.once</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L737">Actor.ts:737</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L737">Actor.ts:737</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -6865,7 +6871,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.remove</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L894">Actor.ts:894</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L894">Actor.ts:894</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6897,7 +6903,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.removeCollidesWith</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1274">Actor.ts:1274</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1274">Actor.ts:1274</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6929,7 +6935,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.removeCollisionGroup</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L998">Actor.ts:998</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L998">Actor.ts:998</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6962,7 +6968,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L904">Actor.ts:904</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L904">Actor.ts:904</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6986,7 +6992,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L910">Actor.ts:910</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L910">Actor.ts:910</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7019,7 +7025,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setHeight</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1036">Actor.ts:1036</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1036">Actor.ts:1036</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7048,7 +7054,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from LabelImpl.setTextShadow</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L319">Label.ts:319</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L319">Label.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7092,7 +7098,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setWidth</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1023">Actor.ts:1023</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1023">Actor.ts:1023</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7121,7 +7127,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setZIndex</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L976">Actor.ts:976</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L976">Actor.ts:976</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7155,7 +7161,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.unkill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L867">Actor.ts:867</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L867">Actor.ts:867</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7179,7 +7185,7 @@ game.start();
 								<p>Inherited from LabelImpl.update</p>
 								<p>Overrides ActorImpl.update</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L339">Label.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L339">Label.ts:339</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -7206,7 +7212,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from LabelImpl.useTextShadow</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Label.ts#L326">Label.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Label.ts#L326">Label.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7235,7 +7241,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.within</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L1282">Actor.ts:1282</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L1282">Actor.ts:1282</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7273,7 +7279,7 @@ game.start();
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L91">Class.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L91">Class.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -7282,7 +7288,7 @@ game.start();
 										Any method on a class inheriting <a href="_class_.class.html">Class</a> may be extended to support
 									additional functionality. In the example below we create a new type called <code>MyActor</code>.</p>
 								</div>
-								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
+								<pre><code class="language-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
    <span class="hljs-attr">constructor</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
@@ -7298,8 +7304,7 @@ game.start();
    }
 });
 
-<span class="hljs-keyword">var</span> myActor = <span class="hljs-keyword">new</span> MyActor(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, Color.Azure);
-</code></pre>
+<span class="hljs-keyword">var</span> myActor = <span class="hljs-keyword">new</span> MyActor(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, Color.Azure);</code></pre>
 								<p>In TypeScript, you only need to use the <code>extends</code> syntax, you do not need
 								to use this method of extension.</p>
 							</div>
@@ -7326,7 +7331,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.capturePointer</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L464">Actor.ts:464</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L464">Actor.ts:464</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -7340,7 +7345,7 @@ game.start();
 						<div class="tsd-signature tsd-kind-icon">capture<wbr>Drag<wbr>Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L466">Actor.ts:466</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L466">Actor.ts:466</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -7350,7 +7355,7 @@ game.start();
 						<div class="tsd-signature tsd-kind-icon">capture<wbr>Move<wbr>Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L465">Actor.ts:465</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L465">Actor.ts:465</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -7362,7 +7367,7 @@ game.start();
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.defaults</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L94">Actor.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L94">Actor.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -7376,7 +7381,7 @@ game.start();
 						<div class="tsd-signature tsd-kind-icon">anchor<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;Vector.Half</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Actor.ts#L95">Actor.ts:95</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Actor.ts#L95">Actor.ts:95</a></li>
 							</ul>
 						</aside>
 					</section>

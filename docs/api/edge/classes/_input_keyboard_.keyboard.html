@@ -86,7 +86,7 @@
 					<p>You can inspect <a href="_engine_.engine.html#input">Engine.input</a> to see what the state of the keyboard
 					is during an update.</p>
 					<p>It is recommended that keyboard actions that directly effect actors be handled like so to improve code quality:</p>
-					<pre><code class="lang-ts"><span class="hljs-keyword">class</span> Player <span class="hljs-keyword">extends</span> ex.Actor {
+					<pre><code class="language-ts"><span class="hljs-keyword">class</span> Player <span class="hljs-keyword">extends</span> ex.Actor {
   <span class="hljs-keyword">public</span> update(engine, delta) {
     <span class="hljs-keyword">if</span> (engine.input.keyboard.isHeld(ex.Input.Keys.W) || engine.input.keyboard.isHeld(ex.Input.Keys.Up)) {
       player._moveForward();
@@ -96,8 +96,7 @@
       player._fire();
     }
   }
-}
-</code></pre>
+}</code></pre>
 					<h2 id="events">Events</h2>
 					<p>You can subscribe to keyboard events through <code>engine.input.keyboard.on</code>. A <a href="_input_keyboard_.keyevent.html">KeyEvent</a> object is
 					passed to your handler which offers information about the key that was part of the event.</p>
@@ -106,10 +105,9 @@
 						<li><code>release</code> - When a key was just released this frame</li>
 						<li><code>hold</code> - Whenever a key is in the down position</li>
 					</ul>
-					<pre><code class="lang-ts">engine.input.keyboard.on(<span class="hljs-string">"press"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
+					<pre><code class="language-ts">engine.input.keyboard.on(<span class="hljs-string">"press"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
 engine.input.keyboard.on(<span class="hljs-string">"release"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
-engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});
-</code></pre>
+engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="hljs-function">(<span class="hljs-params">evt: KeyEvent</span>) =&gt;</span> {...});</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -179,7 +177,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L81">Input/Keyboard.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L81">Input/Keyboard.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_input_keyboard_.keyboard.html" class="tsd-signature-type">Keyboard</a></h4>
@@ -196,7 +194,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L13">Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L13">Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -220,7 +218,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 								<p>Implementation of <a href="../interfaces/_interfaces_ievented_.ievented.html">IEvented</a>.<a href="../interfaces/_interfaces_ievented_.ievented.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L46">Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L46">Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -257,7 +255,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L144">Input/Keyboard.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L144">Input/Keyboard.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -279,7 +277,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L98">Input/Keyboard.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L98">Input/Keyboard.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,7 +305,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L160">Input/Keyboard.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L160">Input/Keyboard.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -339,7 +337,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L37">Class.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L37">Class.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -400,7 +398,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L87">Input/Keyboard.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L87">Input/Keyboard.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -436,7 +434,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L88">Input/Keyboard.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L88">Input/Keyboard.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -472,7 +470,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L89">Input/Keyboard.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L89">Input/Keyboard.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -508,7 +506,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L90">Input/Keyboard.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L90">Input/Keyboard.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -553,7 +551,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L56">Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L56">Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -608,7 +606,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L130">Input/Keyboard.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L130">Input/Keyboard.ts:130</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -625,7 +623,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L152">Input/Keyboard.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L152">Input/Keyboard.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -656,7 +654,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Input/Keyboard.ts#L168">Input/Keyboard.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Input/Keyboard.ts#L168">Input/Keyboard.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -688,7 +686,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#extend">extend</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/646951f/src/engine/Class.ts#L91">Class.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ed6dacf/src/engine/Class.ts#L91">Class.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -697,7 +695,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
 										Any method on a class inheriting <a href="_class_.class.html">Class</a> may be extended to support
 									additional functionality. In the example below we create a new type called <code>MyActor</code>.</p>
 								</div>
-								<pre><code class="lang-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
+								<pre><code class="language-js"><span class="hljs-keyword">var</span> MyActor = Actor.extend({
 
    <span class="hljs-attr">constructor</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
       <span class="hljs-keyword">this</span>.newprop = <span class="hljs-string">'something'</span>;
@@ -713,8 +711,7 @@ engine.input.keyboard.on(<span class="hljs-string">"hold"</span>, <span class="h
    }
 });
 
-<span class="hljs-keyword">var</span> myActor = <span class="hljs-keyword">new</span> MyActor(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, Color.Azure);
-</code></pre>
+<span class="hljs-keyword">var</span> myActor = <span class="hljs-keyword">new</span> MyActor(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, Color.Azure);</code></pre>
 								<p>In TypeScript, you only need to use the <code>extends</code> syntax, you do not need
 								to use this method of extension.</p>
 							</div>
