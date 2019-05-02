@@ -77,12 +77,12 @@
 					<p>Sometimes it is necessary to apply an effect to the canvas after the engine has completed its drawing pass. A few reasons to do
 					this might be creating a blur effect, adding a lighting effect, or changing how colors and pixels look.</p>
 					<h2 id="basic-post-processors">Basic post processors</h2>
-					<p>To create and use a post processor you just need to implement a class that implements <a href="../modules/_deprecated_.html#ipostprocessor">IPostProcessor</a>, which has one method
-					[[IPostProcessor.process]]. Set the <code>out</code> canvas parameter to the final result, using the <code>image</code> pixel data.</p>
+					<p>To create and use a post processor you just need to implement a class that implements <a href="_postprocessing_postprocessor_.postprocessor.html">PostProcessor</a>, which has one method
+					<a href="_postprocessing_postprocessor_.postprocessor.html#process">PostProcessor.process</a>. Set the <code>out</code> canvas parameter to the final result, using the <code>image</code> pixel data.</p>
 					<p>Click to read more about <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData" class="external">ImageData</a> on MDN.</p>
 					<p>For example:</p>
 					<pre><code class="language-typescript"><span class="hljs-comment">// simple way to grayscale, a faster way would be to implement using a webgl fragment shader</span>
-<span class="hljs-keyword">class</span> GrayscalePostProcessor <span class="hljs-keyword">implements</span> IPostProcessor {
+<span class="hljs-keyword">class</span> GrayscalePostProcessor <span class="hljs-keyword">implements</span> PostProcessor {
   process(image: ImageData, out: CanvasRenderingContext2D) {
      <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; (image.height * image.width), i+=<span class="hljs-number">4</span>){
         <span class="hljs-comment">// for pixel "i""</span>
@@ -163,7 +163,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/6721400/src/engine/PostProcessing/PostProcessor.ts#L7">PostProcessing/PostProcessor.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3c0e62a/src/engine/PostProcessing/PostProcessor.ts#L7">PostProcessing/PostProcessor.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
