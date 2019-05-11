@@ -84,13 +84,13 @@
 					<pre><code class="language-typescript"><span class="hljs-comment">// simple way to grayscale, a faster way would be to implement using a webgl fragment shader</span>
 <span class="hljs-keyword">class</span> GrayscalePostProcessor <span class="hljs-keyword">implements</span> PostProcessor {
   process(image: ImageData, out: CanvasRenderingContext2D) {
-     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; (image.height * image.width), i+=<span class="hljs-number">4</span>){
+     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; (image.height * image.width), i+=<span class="hljs-number">4</span>){
         <span class="hljs-comment">// for pixel "i""</span>
-        <span class="hljs-keyword">var</span> r = image.data[i+<span class="hljs-number">0</span>]; <span class="hljs-comment">//0-255</span>
-        <span class="hljs-keyword">var</span> g = image.data[i+<span class="hljs-number">1</span>]; <span class="hljs-comment">//g</span>
-        <span class="hljs-keyword">var</span> b = image.data[i+<span class="hljs-number">2</span>]; <span class="hljs-comment">//b</span>
+        <span class="hljs-keyword">const</span> r = image.data[i+<span class="hljs-number">0</span>]; <span class="hljs-comment">//0-255</span>
+        <span class="hljs-keyword">const</span> g = image.data[i+<span class="hljs-number">1</span>]; <span class="hljs-comment">//g</span>
+        <span class="hljs-keyword">const</span> b = image.data[i+<span class="hljs-number">2</span>]; <span class="hljs-comment">//b</span>
         image.data[i+<span class="hljs-number">3</span>]; <span class="hljs-comment">//a</span>
-        <span class="hljs-keyword">var</span> result = <span class="hljs-built_in">Math</span>.floor((r + g + b) / <span class="hljs-number">3.0</span>) | <span class="hljs-number">0</span>; <span class="hljs-comment">// only valid on 0-255 integers `| 0` forces int</span>
+        <span class="hljs-keyword">const</span> result = <span class="hljs-built_in">Math</span>.floor((r + g + b) / <span class="hljs-number">3.0</span>) | <span class="hljs-number">0</span>; <span class="hljs-comment">// only valid on 0-255 integers `| 0` forces int</span>
         image.data[i+<span class="hljs-number">0</span>] = result;
         image.data[i+<span class="hljs-number">1</span>] = result;
         image.data[i+<span class="hljs-number">2</span>] = result;
@@ -115,9 +115,9 @@
 					will suffer measurably. It&#39;s better to use it as a helpful tool while developing your game.</p>
 					<p>Remember, the best practice is to design with color blindness in mind.</p>
 					<p>Example:</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
+					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> game = <span class="hljs-keyword">new</span> ex.Engine();
 
-<span class="hljs-keyword">var</span> colorBlindPostProcessor = <span class="hljs-keyword">new</span> ex.ColorBlindCorrector(game, <span class="hljs-literal">false</span>, ColorBlindness.Protanope);
+<span class="hljs-keyword">const</span> colorBlindPostProcessor = <span class="hljs-keyword">new</span> ex.ColorBlindCorrector(game, <span class="hljs-literal">false</span>, ColorBlindness.Protanope);
 
 <span class="hljs-comment">// post processors evaluate left to right</span>
 game.postProcessors.push(colorBlindPostProcessor);
@@ -163,7 +163,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/PostProcessing/PostProcessor.ts#L7">PostProcessing/PostProcessor.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/PostProcessing/PostProcessor.ts#L7">PostProcessing/PostProcessor.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

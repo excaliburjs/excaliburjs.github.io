@@ -75,10 +75,10 @@
 						<h2 id="constructor-arguments">Constructor Arguments</h2>
 						<p>In Excalibur there are option bag constructors available on most types. These support any public property or member, methods are not supported. The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.</p>
 						<p>For example instead of doing this:</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
+						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
 actor.collisionType = ex.CollisionType.Active;</code></pre>
 						<p>This is possible:</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> options: IActorArgs = {
+						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> options: IActorArgs = {
    pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
    width: <span class="hljs-number">100</span>,
    height: <span class="hljs-number">100</span>,
@@ -86,16 +86,16 @@ actor.collisionType = ex.CollisionType.Active;</code></pre>
    collisionType: ex.CollisionType.Active
 }
 
-<span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);</code></pre>
+<span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);</code></pre>
 						<p>In fact you can create a duplicate this way</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
+						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
 });
-<span class="hljs-keyword">var</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
+<span class="hljs-keyword">const</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
 
 expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span></code></pre>
 						<p>Types that support option bags can have their properties mass assigned using the assign method.</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">var</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
+						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
 
 actor.assign({
   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
@@ -158,7 +158,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/TileMap.ts#L262">TileMap.ts:262</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/TileMap.ts#L262">TileMap.ts:262</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -168,7 +168,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/TileMap.ts#L261">TileMap.ts:261</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/TileMap.ts#L261">TileMap.ts:261</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +178,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">cols<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/TileMap.ts#L264">TileMap.ts:264</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/TileMap.ts#L264">TileMap.ts:264</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +188,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">rows<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/TileMap.ts#L263">TileMap.ts:263</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/TileMap.ts#L263">TileMap.ts:263</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +198,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/TileMap.ts#L259">TileMap.ts:259</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/TileMap.ts#L259">TileMap.ts:259</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +208,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/faf8a54/src/engine/TileMap.ts#L260">TileMap.ts:260</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b0f85f6/src/engine/TileMap.ts#L260">TileMap.ts:260</a></li>
 						</ul>
 					</aside>
 				</section>
