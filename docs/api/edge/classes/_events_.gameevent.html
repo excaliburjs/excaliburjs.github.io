@@ -62,7 +62,7 @@
 					<a href="_events_.gameevent.html">GameEvent</a>
 				</li>
 			</ul>
-			<h1>Class GameEvent&lt;T&gt;</h1>
+			<h1>Class GameEvent&lt;T, U&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -83,6 +83,9 @@
 					<li>
 						<h4>T</h4>
 					</li>
+					<li>
+						<h4>U</h4>
+					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -96,6 +99,9 @@
 							</li>
 							<li>
 								<a href="_input_pointer_.wheelevent.html" class="tsd-signature-type">WheelEvent</a>
+							</li>
+							<li>
+								<a href="_events_mediaevents_.mediaevent.html" class="tsd-signature-type">MediaEvent</a>
 							</li>
 							<li>
 								<a href="_input_keyboard_.keyevent.html" class="tsd-signature-type">KeyEvent</a>
@@ -196,9 +202,6 @@
 							<li>
 								<a href="_events_.exittriggerevent.html" class="tsd-signature-type">ExitTriggerEvent</a>
 							</li>
-							<li>
-								<a href="_events_mediaevents_.mediaevent.html" class="tsd-signature-type">MediaEvent</a>
-							</li>
 						</ul>
 					</li>
 				</ul>
@@ -213,6 +216,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_events_.gameevent.html#_name" class="tsd-kind-icon">_name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_events_.gameevent.html#_path" class="tsd-kind-icon">_path</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.gameevent.html#bubbles" class="tsd-kind-icon">bubbles</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.gameevent.html#other" class="tsd-kind-icon">other</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_events_.gameevent.html#target" class="tsd-kind-icon">target</a></li>
 							</ul>
 						</section>
@@ -245,7 +249,7 @@
 					<div class="tsd-signature tsd-kind-icon">_name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L174">Events.ts:174</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L181">Events.ts:181</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -255,7 +259,7 @@
 					<div class="tsd-signature tsd-kind-icon">_path<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L173">Events.ts:173</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L180">Events.ts:180</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -270,7 +274,7 @@
 					<div class="tsd-signature tsd-kind-icon">bubbles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L169">Events.ts:169</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L176">Events.ts:176</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -280,12 +284,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="other" class="tsd-anchor"></a>
+					<h3> other</h3>
+					<div class="tsd-signature tsd-kind-icon">other<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">U</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L171">Events.ts:171</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Other target object for this event</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="target" class="tsd-anchor"></a>
 					<h3> target</h3>
 					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L165">Events.ts:165</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L166">Events.ts:166</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -307,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L179">Events.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L186">Events.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -329,7 +348,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L185">Events.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L192">Events.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -354,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L231">Events.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L238">Events.ts:238</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -377,7 +396,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L227">Events.ts:227</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L234">Events.ts:234</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -400,7 +419,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L198">Events.ts:198</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L205">Events.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -422,7 +441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L222">Events.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L229">Events.ts:229</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -445,7 +464,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L210">Events.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L217">Events.ts:217</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -467,7 +486,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Events.ts#L192">Events.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Events.ts#L199">Events.ts:199</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,6 +526,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_events_.gameevent.html#bubbles" class="tsd-kind-icon">bubbles</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_events_.gameevent.html#other" class="tsd-kind-icon">other</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_events_.gameevent.html#target" class="tsd-kind-icon">target</a>

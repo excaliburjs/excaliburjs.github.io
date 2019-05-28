@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Collision contacts are used internally by Excalibur to resolve collision between actors. This
+						<p>Collision contacts are used internally by Excalibur to resolve collision between colliders. This
 						Pair prevents collisions from being evaluated more than one time</p>
 					</div>
 				</div>
@@ -98,8 +98,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#bodya" class="tsd-kind-icon">bodyA</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#bodyb" class="tsd-kind-icon">bodyB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#collidera" class="tsd-kind-icon">colliderA</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#colliderb" class="tsd-kind-icon">colliderB</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#mtv" class="tsd-kind-icon">mtv</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_collision_collisioncontact_.collisioncontact.html#normal" class="tsd-kind-icon">normal</a></li>
@@ -121,22 +121,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Collision<wbr>Contact<span class="tsd-signature-symbol">(</span>bodyA<span class="tsd-signature-symbol">: </span><a href="../interfaces/_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a>, bodyB<span class="tsd-signature-symbol">: </span><a href="../interfaces/_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a>, mtv<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, point<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, normal<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_collisioncontact_.collisioncontact.html" class="tsd-signature-type">CollisionContact</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Collision<wbr>Contact<span class="tsd-signature-symbol">(</span>colliderA<span class="tsd-signature-symbol">: </span><a href="_collision_collider_.collider.html" class="tsd-signature-type">Collider</a>, colliderB<span class="tsd-signature-symbol">: </span><a href="_collision_collider_.collider.html" class="tsd-signature-type">Collider</a>, mtv<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, point<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a>, normal<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_collisioncontact_.collisioncontact.html" class="tsd-signature-type">CollisionContact</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L38">Collision/CollisionContact.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L37">Collision/CollisionContact.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>bodyA: <a href="../interfaces/_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a></h5>
+									<h5>colliderA: <a href="_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></h5>
 								</li>
 								<li>
-									<h5>bodyB: <a href="../interfaces/_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a></h5>
+									<h5>colliderB: <a href="_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></h5>
 								</li>
 								<li>
 									<h5>mtv: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
@@ -156,32 +156,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bodya" class="tsd-anchor"></a>
-					<h3> bodyA</h3>
-					<div class="tsd-signature tsd-kind-icon">bodyA<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a></div>
+					<a name="collidera" class="tsd-anchor"></a>
+					<h3> colliderA</h3>
+					<div class="tsd-signature tsd-kind-icon">colliderA<span class="tsd-signature-symbol">:</span> <a href="_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L22">Collision/CollisionContact.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L21">Collision/CollisionContact.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The first rigid body in the collision</p>
+							<p>The first collider in the collision</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bodyb" class="tsd-anchor"></a>
-					<h3> bodyB</h3>
-					<div class="tsd-signature tsd-kind-icon">bodyB<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a></div>
+					<a name="colliderb" class="tsd-anchor"></a>
+					<h3> colliderB</h3>
+					<div class="tsd-signature tsd-kind-icon">colliderB<span class="tsd-signature-symbol">:</span> <a href="_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L26">Collision/CollisionContact.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L25">Collision/CollisionContact.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The second rigid body in the collision</p>
+							<p>The second collider in the collision</p>
 						</div>
 					</div>
 				</section>
@@ -191,7 +191,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L18">Collision/CollisionContact.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L17">Collision/CollisionContact.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -206,12 +206,12 @@
 					<div class="tsd-signature tsd-kind-icon">mtv<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L30">Collision/CollisionContact.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L29">Collision/CollisionContact.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The minimum translation vector to resolve penetration, pointing away from bodyA</p>
+							<p>The minimum translation vector to resolve penetration, pointing away from colliderA</p>
 						</div>
 					</div>
 				</section>
@@ -221,12 +221,12 @@
 					<div class="tsd-signature tsd-kind-icon">normal<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L38">Collision/CollisionContact.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L37">Collision/CollisionContact.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The collision normal, pointing away from bodyA</p>
+							<p>The collision normal, pointing away from colliderA</p>
 						</div>
 					</div>
 				</section>
@@ -236,12 +236,12 @@
 					<div class="tsd-signature tsd-kind-icon">point<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L34">Collision/CollisionContact.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L33">Collision/CollisionContact.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The point of collision shared between bodyA and bodyB</p>
+							<p>The point of collision shared between colliderA and colliderB</p>
 						</div>
 					</div>
 				</section>
@@ -258,7 +258,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionContact.ts#L48">Collision/CollisionContact.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionContact.ts#L47">Collision/CollisionContact.ts:47</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -295,10 +295,10 @@
 								<a href="_collision_collisioncontact_.collisioncontact.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_collision_collisioncontact_.collisioncontact.html#bodya" class="tsd-kind-icon">bodyA</a>
+								<a href="_collision_collisioncontact_.collisioncontact.html#collidera" class="tsd-kind-icon">colliderA</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_collision_collisioncontact_.collisioncontact.html#bodyb" class="tsd-kind-icon">bodyB</a>
+								<a href="_collision_collisioncontact_.collisioncontact.html#colliderb" class="tsd-kind-icon">colliderB</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_collision_collisioncontact_.collisioncontact.html#id" class="tsd-kind-icon">id</a>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CollisionArea | Excalibur.js Edge API Documentation</title>
+	<title>CollisionShape | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_collision_collisionarea_.html">&quot;Collision/CollisionArea&quot;</a>
+					<a href="../modules/_collision_collisionshape_.html">&quot;Collision/CollisionShape&quot;</a>
 				</li>
 				<li>
-					<a href="_collision_collisionarea_.collisionarea.html">CollisionArea</a>
+					<a href="_collision_collisionshape_.collisionshape.html">CollisionShape</a>
 				</li>
 			</ul>
-			<h1>Interface CollisionArea</h1>
+			<h1>Interface CollisionShape</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A collision area is a region of space that can detect when other collision areas intersect
+						<p>A collision shape specifies the geometry that can detect when other collision shapes intersect
 						for the purposes of colliding 2 objects in excalibur.</p>
 					</div>
 				</div>
@@ -81,16 +81,29 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">CollisionArea</span>
+						<a href="_interfaces_clonable_.clonable.html" class="tsd-signature-type">Clonable</a><span class="tsd-signature-symbol">&lt;</span><a href="_collision_collisionshape_.collisionshape.html" class="tsd-signature-type">CollisionShape</a><span class="tsd-signature-symbol">&gt;</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">CollisionShape</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="_collision_collisionshape_.collisionarea.html" class="tsd-signature-type">CollisionArea</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_collision_circlearea_.circlearea.html" class="tsd-signature-type">CircleArea</a></li>
-					<li><a href="../classes/_collision_edgearea_.edgearea.html" class="tsd-signature-type">EdgeArea</a></li>
-					<li><a href="../classes/_collision_polygonarea_.polygonarea.html" class="tsd-signature-type">PolygonArea</a></li>
+					<li><a href="../classes/_collision_circle_.circle.html" class="tsd-signature-type">Circle</a></li>
+					<li><a href="../classes/_collision_circle_.circlearea.html" class="tsd-signature-type">CircleArea</a></li>
+					<li><a href="../classes/_collision_convexpolygon_.convexpolygon.html" class="tsd-signature-type">ConvexPolygon</a></li>
+					<li><a href="../classes/_collision_edge_.edge.html" class="tsd-signature-type">Edge</a></li>
+					<li><a href="../classes/_collision_edge_.edgearea.html" class="tsd-signature-type">EdgeArea</a></li>
+					<li><a href="../classes/_collision_convexpolygon_.polygonarea.html" class="tsd-signature-type">PolygonArea</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -100,24 +113,29 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#axes" class="tsd-kind-icon">axes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#bounds" class="tsd-kind-icon">bounds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#center" class="tsd-kind-icon">center</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#collider" class="tsd-kind-icon">collider</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#inertia" class="tsd-kind-icon">inertia</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#localbounds" class="tsd-kind-icon">local<wbr>Bounds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#worldpos" class="tsd-kind-icon">world<wbr>Pos</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#collide" class="tsd-kind-icon">collide</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#contains" class="tsd-kind-icon">contains</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#getaxes" class="tsd-kind-icon">get<wbr>Axes</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#getbounds" class="tsd-kind-icon">get<wbr>Bounds</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#getcenter" class="tsd-kind-icon">get<wbr>Center</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#getfurthestpoint" class="tsd-kind-icon">get<wbr>Furthest<wbr>Point</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#getmomentofinertia" class="tsd-kind-icon">get<wbr>Moment<wbr>OfInertia</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#project" class="tsd-kind-icon">project</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#raycast" class="tsd-kind-icon">ray<wbr>Cast</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionarea_.collisionarea.html#recalc" class="tsd-kind-icon">recalc</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="_collision_collisionshape_.collisionshape.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#collide" class="tsd-kind-icon">collide</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#contains" class="tsd-kind-icon">contains</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#draw" class="tsd-kind-icon">draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#getfurthestpoint" class="tsd-kind-icon">get<wbr>Furthest<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#project" class="tsd-kind-icon">project</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#raycast" class="tsd-kind-icon">ray<wbr>Cast</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_collision_collisionshape_.collisionshape.html#recalc" class="tsd-kind-icon">recalc</a></li>
 							</ul>
 						</section>
 					</div>
@@ -126,17 +144,112 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="axes" class="tsd-anchor"></a>
+					<h3> axes</h3>
+					<div class="tsd-signature tsd-kind-icon">axes<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L58">Collision/CollisionShape.ts:58</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Return the axes of this particular shape</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="body" class="tsd-anchor"></a>
 					<h3> body</h3>
 					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_body_.body.html" class="tsd-signature-type">Body</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L20">Collision/CollisionArea.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L28">Collision/CollisionShape.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Reference to the actor associated with this collision area</p>
+							<p>Reference to the actor associated with this collision shape</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt class="ts-flagObsolete">obsolete</dt>
+							<dd class="ts-flagObsolete"><p>Will be removed in v0.24.0 please use <a href="_collision_collisionshape_.collisionshape.html#collider">collider</a></p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="bounds" class="tsd-anchor"></a>
+					<h3> bounds</h3>
+					<div class="tsd-signature tsd-kind-icon">bounds<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L48">Collision/CollisionShape.ts:48</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Return the axis-aligned bounding box of the collision shape in world coordinates</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="center" class="tsd-anchor"></a>
+					<h3> center</h3>
+					<div class="tsd-signature tsd-kind-icon">center<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L38">Collision/CollisionShape.ts:38</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The center point of the collision shape, for example if the shape is a circle it would be the center.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="collider" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> collider</h3>
+					<div class="tsd-signature tsd-kind-icon">collider<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L33">Collision/CollisionShape.ts:33</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Reference to the collider associated with this collision shape geometry</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="inertia" class="tsd-anchor"></a>
+					<h3> inertia</h3>
+					<div class="tsd-signature tsd-kind-icon">inertia<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L63">Collision/CollisionShape.ts:63</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Return the calculated moment of intertia for this shape</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="localbounds" class="tsd-anchor"></a>
+					<h3> local<wbr>Bounds</h3>
+					<div class="tsd-signature tsd-kind-icon">local<wbr>Bounds<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L53">Collision/CollisionShape.ts:53</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Return the axis-aligned boudning box of the collision shape in local coordinates</p>
 						</div>
 					</div>
 				</section>
@@ -146,35 +259,68 @@
 					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L15">Collision/CollisionArea.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L17">Collision/CollisionShape.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Position of the collision area relative to the actor if it exists</p>
+							<p>Position of the collision shape relative to the collider, by default (0, 0) meaning the shape is positioned on top of the collider.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="worldpos" class="tsd-anchor"></a>
+					<h3> world<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">world<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L22">Collision/CollisionShape.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Postion of the collision shape in world coordinates</p>
 						</div>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+					<a name="clone" class="tsd-anchor"></a>
+					<h3> clone</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_collisionshape_.collisionshape.html" class="tsd-signature-type">CollisionShape</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_interfaces_clonable_.clonable.html">Clonable</a>.<a href="_interfaces_clonable_.clonable.html#clone">clone</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Interfaces/Clonable.ts#L2">Interfaces/Clonable.ts:2</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_collision_collisionshape_.collisionshape.html" class="tsd-signature-type">CollisionShape</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="collide" class="tsd-anchor"></a>
 					<h3> collide</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">collide<span class="tsd-signature-symbol">(</span>area<span class="tsd-signature-symbol">: </span><a href="_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_collision_collisioncontact_.collisioncontact.html" class="tsd-signature-type">CollisionContact</a></li>
+						<li class="tsd-signature tsd-kind-icon">collide<span class="tsd-signature-symbol">(</span>shape<span class="tsd-signature-symbol">: </span><a href="_collision_collisionshape_.collisionshape.html" class="tsd-signature-type">CollisionShape</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_collision_collisioncontact_.collisioncontact.html" class="tsd-signature-type">CollisionContact</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L50">Collision/CollisionArea.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L68">Collision/CollisionShape.ts:68</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>area: <a href="_collision_collisionarea_.collisionarea.html" class="tsd-signature-type">CollisionArea</a></h5>
+									<h5>shape: <a href="_collision_collisionshape_.collisionshape.html" class="tsd-signature-type">CollisionShape</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../classes/_collision_collisioncontact_.collisioncontact.html" class="tsd-signature-type">CollisionContact</a></h4>
@@ -191,12 +337,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L55">Collision/CollisionArea.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L73">Collision/CollisionShape.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return wether the area contains a point inclusive to it&#39;s border</p>
+									<p>Return wether the shape contains a point inclusive to it&#39;s border</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -219,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L75">Collision/CollisionArea.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L100">Collision/CollisionShape.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -241,68 +387,38 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getaxes" class="tsd-anchor"></a>
-					<h3> get<wbr>Axes</h3>
+					<a name="draw" class="tsd-anchor"></a>
+					<h3> draw</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Axes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon">draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, color<span class="tsd-signature-symbol">?: </span><a href="../classes/_drawing_color_.color.html" class="tsd-signature-type">Color</a>, pos<span class="tsd-signature-symbol">?: </span><a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L40">Collision/CollisionArea.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L95">Collision/CollisionShape.ts:95</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return the axes of this particular shape</p>
+									<p>Draw the shape</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getbounds" class="tsd-anchor"></a>
-					<h3> get<wbr>Bounds</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Bounds<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L35">Collision/CollisionArea.ts:35</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Return the axis-aligned bounding box of the collision area</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getcenter" class="tsd-anchor"></a>
-					<h3> get<wbr>Center</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Center<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L25">Collision/CollisionArea.ts:25</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The center point of the collision area, for example if the area is a circle it would be the center.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> color: <a href="../classes/_drawing_color_.color.html" class="tsd-signature-type">Color</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> pos: <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -316,12 +432,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L30">Collision/CollisionArea.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L43">Collision/CollisionShape.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Find the furthest point on the convex hull of this particular area in a certain direction.</p>
+									<p>Find the furthest point on the convex hull of this particular shape in a certain direction.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -335,28 +451,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="getmomentofinertia" class="tsd-anchor"></a>
-					<h3> get<wbr>Moment<wbr>OfInertia</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Moment<wbr>OfInertia<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L45">Collision/CollisionArea.ts:45</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Return the calculated moment of intertia for this area</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
 					<a name="project" class="tsd-anchor"></a>
 					<h3> project</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
@@ -366,12 +460,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L65">Collision/CollisionArea.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L83">Collision/CollisionShape.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Create a projection of this area along an axis. Think of this as casting a &quot;shadow&quot; along an axis</p>
+									<p>Create a projection of this shape along an axis. Think of this as casting a &quot;shadow&quot; along an axis</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -394,12 +488,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L60">Collision/CollisionArea.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L78">Collision/CollisionShape.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return the point on the border of the collision area that intersects with a ray (if any).</p>
+									<p>Return the point on the border of the collision shape that intersects with a ray (if any).</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -425,7 +519,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/CollisionArea.ts#L70">Collision/CollisionArea.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/CollisionShape.ts#L88">Collision/CollisionShape.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -446,55 +540,73 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_collision_collisionarea_.html">"<wbr>Collision/<wbr>Collision<wbr>Area"</a>
+						<a href="../modules/_collision_collisionshape_.html">"<wbr>Collision/<wbr>Collision<wbr>Shape"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_collision_collisionshape_.collisionarea.html" class="tsd-kind-icon">Collision<wbr>Area</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_collision_collisionarea_.collisionarea.html" class="tsd-kind-icon">Collision<wbr>Area</a>
+						<a href="_collision_collisionshape_.collisionshape.html" class="tsd-kind-icon">Collision<wbr>Shape</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#body" class="tsd-kind-icon">body</a>
+								<a href="_collision_collisionshape_.collisionshape.html#axes" class="tsd-kind-icon">axes</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#pos" class="tsd-kind-icon">pos</a>
+								<a href="_collision_collisionshape_.collisionshape.html#body" class="tsd-kind-icon">body</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#bounds" class="tsd-kind-icon">bounds</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#center" class="tsd-kind-icon">center</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#collider" class="tsd-kind-icon">collider</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#inertia" class="tsd-kind-icon">inertia</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#localbounds" class="tsd-kind-icon">local<wbr>Bounds</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#pos" class="tsd-kind-icon">pos</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collisionshape_.collisionshape.html#worldpos" class="tsd-kind-icon">world<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_collision_collisionshape_.collisionshape.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#collide" class="tsd-kind-icon">collide</a>
+								<a href="_collision_collisionshape_.collisionshape.html#collide" class="tsd-kind-icon">collide</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#contains" class="tsd-kind-icon">contains</a>
+								<a href="_collision_collisionshape_.collisionshape.html#contains" class="tsd-kind-icon">contains</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
+								<a href="_collision_collisionshape_.collisionshape.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#getaxes" class="tsd-kind-icon">get<wbr>Axes</a>
+								<a href="_collision_collisionshape_.collisionshape.html#draw" class="tsd-kind-icon">draw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#getbounds" class="tsd-kind-icon">get<wbr>Bounds</a>
+								<a href="_collision_collisionshape_.collisionshape.html#getfurthestpoint" class="tsd-kind-icon">get<wbr>Furthest<wbr>Point</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#getcenter" class="tsd-kind-icon">get<wbr>Center</a>
+								<a href="_collision_collisionshape_.collisionshape.html#project" class="tsd-kind-icon">project</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#getfurthestpoint" class="tsd-kind-icon">get<wbr>Furthest<wbr>Point</a>
+								<a href="_collision_collisionshape_.collisionshape.html#raycast" class="tsd-kind-icon">ray<wbr>Cast</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#getmomentofinertia" class="tsd-kind-icon">get<wbr>Moment<wbr>OfInertia</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#project" class="tsd-kind-icon">project</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#raycast" class="tsd-kind-icon">ray<wbr>Cast</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_collision_collisionarea_.collisionarea.html#recalc" class="tsd-kind-icon">recalc</a>
+								<a href="_collision_collisionshape_.collisionshape.html#recalc" class="tsd-kind-icon">recalc</a>
 							</li>
 						</ul>
 					</li>

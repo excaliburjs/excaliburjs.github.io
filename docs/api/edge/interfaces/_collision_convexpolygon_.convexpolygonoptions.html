@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;Collision/PolygonArea&quot; | Excalibur.js Edge API Documentation</title>
+	<title>ConvexPolygonOptions | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,32 +56,126 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_collision_polygonarea_.html">&quot;Collision/PolygonArea&quot;</a>
+					<a href="../modules/_collision_convexpolygon_.html">&quot;Collision/ConvexPolygon&quot;</a>
+				</li>
+				<li>
+					<a href="_collision_convexpolygon_.convexpolygonoptions.html">ConvexPolygonOptions</a>
 				</li>
 			</ul>
-			<h1>External module &quot;Collision/PolygonArea&quot;</h1>
+			<h1>Interface ConvexPolygonOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ConvexPolygonOptions</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_collision_convexpolygon_.polygonareaoptions.html" class="tsd-signature-type">PolygonAreaOptions</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Classes</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_collision_polygonarea_.polygonarea.html" class="tsd-kind-icon">Polygon<wbr>Area</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_convexpolygon_.convexpolygonoptions.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_convexpolygon_.convexpolygonoptions.html#clockwisewinding" class="tsd-kind-icon">clockwise<wbr>Winding</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_convexpolygon_.convexpolygonoptions.html#collider" class="tsd-kind-icon">collider</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_convexpolygon_.convexpolygonoptions.html#points" class="tsd-kind-icon">points</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_convexpolygon_.convexpolygonoptions.html#pos" class="tsd-kind-icon">pos</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_collision_polygonarea_.polygonareaoptions.html" class="tsd-kind-icon">Polygon<wbr>Area<wbr>Options</a></li>
-							</ul>
-						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="body" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> body</h3>
+					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_body_.body.html" class="tsd-signature-type">Body</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/ConvexPolygon.ts#L35">Collision/ConvexPolygon.ts:35</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt class="ts-flagObsolete">obsolete</dt>
+							<dd class="ts-flagObsolete"><p>Will be removed in v0.24.0 please use <a href="_collision_convexpolygon_.convexpolygonoptions.html#collider">collider</a> to set and retrieve body information</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="clockwisewinding" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> clockwise<wbr>Winding</h3>
+					<div class="tsd-signature tsd-kind-icon">clockwise<wbr>Winding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/ConvexPolygon.ts#L26">Collision/ConvexPolygon.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether points are specified in clockwise or counter clockwise order, default counter-clockwise</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="collider" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> collider</h3>
+					<div class="tsd-signature tsd-kind-icon">collider<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/ConvexPolygon.ts#L30">Collision/ConvexPolygon.ts:30</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Collider to associate optionally with this shape</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="points" class="tsd-anchor"></a>
+					<h3> points</h3>
+					<div class="tsd-signature tsd-kind-icon">points<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/ConvexPolygon.ts#L22">Collision/ConvexPolygon.ts:22</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Points in the polygon in order around the perimeter in local coordinates</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="pos" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> pos</h3>
+					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/ConvexPolygon.ts#L18">Collision/ConvexPolygon.ts:18</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Point relative to a collider&#39;s position</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -93,17 +187,44 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="_collision_polygonarea_.html">"<wbr>Collision/<wbr>Polygon<wbr>Area"</a>
+						<a href="../modules/_collision_convexpolygon_.html">"<wbr>Collision/<wbr>Convex<wbr>Polygon"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_collision_polygonarea_.polygonarea.html" class="tsd-kind-icon">Polygon<wbr>Area</a>
+						<a href="../classes/_collision_convexpolygon_.convexpolygon.html" class="tsd-kind-icon">Convex<wbr>Polygon</a>
 					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_collision_convexpolygon_.polygonarea.html" class="tsd-kind-icon">Polygon<wbr>Area</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_collision_convexpolygon_.convexpolygonoptions.html" class="tsd-kind-icon">Convex<wbr>Polygon<wbr>Options</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_convexpolygon_.convexpolygonoptions.html#body" class="tsd-kind-icon">body</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_convexpolygon_.convexpolygonoptions.html#clockwisewinding" class="tsd-kind-icon">clockwise<wbr>Winding</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_convexpolygon_.convexpolygonoptions.html#collider" class="tsd-kind-icon">collider</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_convexpolygon_.convexpolygonoptions.html#points" class="tsd-kind-icon">points</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_convexpolygon_.convexpolygonoptions.html#pos" class="tsd-kind-icon">pos</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_collision_polygonarea_.polygonareaoptions.html" class="tsd-kind-icon">Polygon<wbr>Area<wbr>Options</a>
+						<a href="_collision_convexpolygon_.polygonareaoptions.html" class="tsd-kind-icon">Polygon<wbr>Area<wbr>Options</a>
 					</li>
 				</ul>
 			</nav>

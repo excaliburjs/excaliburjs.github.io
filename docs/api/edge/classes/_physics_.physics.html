@@ -77,23 +77,63 @@
 					<p>Excalibur comes built in with two physics systems. The first system is <a href="../enums/_physics_.collisionresolutionstrategy.html#box">Box physics</a>, and is a
 						simple axis-aligned way of doing basic collision detection for non-rotated rectangular areas, defined by an actor&#39;s
 					<a href="_collision_boundingbox_.boundingbox.html">bounding box</a>.</p>
+					<h2 id="physics-hierarchy">Physics hierarchy</h2>
+					<p>Excalibur physics are organized into a hierarchy, each has a specific single role in the collision system.</p>
+					<pre><code>Actor <span class="hljs-function"><span class="hljs-params">(game entity)</span>
+  -&gt;</span> Body <span class="hljs-function"><span class="hljs-params">(transform infomation)</span>
+     -&gt;</span> Collider <span class="hljs-function"><span class="hljs-params">(collision related information)</span>
+        -&gt;</span> Shape (geometry <span class="hljs-keyword">for</span> collision)</code></pre><p>For example:</p>
+					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
+  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
+  body: <span class="hljs-keyword">new</span> ex.Body({
+    vel: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">20</span>, <span class="hljs-number">0</span>), <span class="hljs-comment">// velocity</span>
+    acc: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">0</span>, <span class="hljs-number">100</span>), <span class="hljs-comment">// acceleration</span>
+    collider: <span class="hljs-keyword">new</span> ex.Collider({
+      mass: <span class="hljs-number">100</span>, <span class="hljs-comment">// mass of 100</span>
+      <span class="hljs-keyword">type</span>: ex.CollisionType.Active, <span class="hljs-comment">// active collision type</span>
+      shape: ex.Shape.Circle(<span class="hljs-number">50</span>) <span class="hljs-comment">// circle geometry of radius 50</span>
+    })
+  })
+});</code></pre>
+					<h3 id="actor-body">Actor/Body</h3>
+					<p>Actor&#39;s have position, velocity, and acceleration in physical space, all of these positional physical attributes are contained inside the <a href="_collision_body_.body.html">Body</a>. Only 1 actor can be associated with a <a href="_collision_body_.body.html">Body</a>.</p>
+					<p><strong><a href="_collision_body_.body.html">Body</a></strong> is the container for all transform related information for physics and any associated colliders.</p>
+					<p>This looks like this:</p>
+					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
+    <span class="hljs-comment">// actor's position is stored on a default body</span>
+    pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">40</span>, <span class="hljs-number">40</span>);
+});
+
+<span class="hljs-comment">// actor position is stored on the body, actor.pos is a convenience</span>
+actor.pos === actor.body.pos
+
+<span class="hljs-comment">// actor velocity is stored on the body, actor.vel is a convenience</span>
+actor.vel === actor.body.vel
+
+<span class="hljs-comment">// actor acceleration is stored on the body, actor.acc is a convenience</span>
+actor.acc === actor.body.acc</code></pre>
+					<h3 id="collider">Collider</h3>
+					<p><a href="_collision_body_.body.html">Body</a>&#39;s have a default box collider that is derived from the width and height of the <a href="_actor_.actor.html">Actor</a> associated. Only 1 <a href="_collision_collider_.collider.html">Collider</a> can be associated with a <a href="_collision_body_.body.html">Body</a>, and by extension an <a href="_actor_.actor.html">Actor</a>. (Collision events are re-emitted onto <a href="_actor_.actor.html">Actor</a>)</p>
+					<p><strong><a href="_collision_collider_.collider.html">Collider</a></strong> is the container of all collision related information, collision type, collision events, mass, inertia, friction, bounciness, shape, etc.</p>
+					<h3 id="shape">Shape</h3>
+					<p><a href="_collision_collider_.collider.html">Collider</a>&#39;s have <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>&#39;s that represent physical geometry. The possible shapes in Excalibur are <a href="_collision_circle_.circle.html">Circle</a>, <a href="_collision_shape_.shape.html#edge">Edge</a>, and <a href="_collision_convexpolygon_.convexpolygon.html">ConvexPolygon</a>. A collider can only have 1 <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a> associated with them at a time.</p>
 					<h2 id="collision-types">Collision Types</h2>
-					<p>Actors have the default collision type of <a href="../enums/_actor_.collisiontype.html#preventcollision">CollisionType.PreventCollision</a>, this is so actors don&#39;t accidentally opt into something computationally expensive. <strong>In order for actors to participate in collisions</strong> and the global physics system, actors <strong>must</strong> have a collision type of <a href="../enums/_actor_.collisiontype.html#active">CollisionType.Active</a> or <a href="../enums/_actor_.collisiontype.html#fixed">CollisionType.Fixed</a>.</p>
+					<p>Colliders have the default collision type of <a href="../enums/_collision_collisiontype_.collisiontype.html#preventcollision">CollisionType.PreventCollision</a>, this is so colliders don&#39;t accidentally opt into something computationally expensive. <strong>In order for colliders to participate in collisions</strong> and the global physics system, colliders <strong>must</strong> have a collision type of <a href="../enums/_collision_collisiontype_.collisiontype.html#active">CollisionType.Active</a> or <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">CollisionType.Fixed</a>.</p>
 					<h3 id="prevent">Prevent</h3>
-					<p>Actors with the <a href="../enums/_actor_.collisiontype.html#preventcollision">CollisionType.PreventCollision</a> setting do not participate in any
+					<p>Actors with the <a href="../enums/_collision_collisiontype_.collisiontype.html#preventcollision">CollisionType.PreventCollision</a> setting do not participate in any
 					collisions and do not raise collision events.</p>
 					<h3 id="passive">Passive</h3>
-					<p>Actors with the <a href="../enums/_actor_.collisiontype.html#passive">CollisionType.Passive</a> setting only raise collision events, but are not
+					<p>Actors with the <a href="../enums/_collision_collisiontype_.collisiontype.html#passive">CollisionType.Passive</a> setting only raise collision events, but are not
 					influenced or moved by other actors and do not influence or move other actors.</p>
 					<h3 id="active">Active</h3>
-					<p>Actors with the <a href="../enums/_actor_.collisiontype.html#active">CollisionType.Active</a> setting raise collision events and participate
+					<p>Actors with the <a href="../enums/_collision_collisiontype_.collisiontype.html#active">CollisionType.Active</a> setting raise collision events and participate
 						in collisions with other actors and will be push or moved by actors sharing
-					the <a href="../enums/_actor_.collisiontype.html#active">CollisionType.Active</a> or <a href="../enums/_actor_.collisiontype.html#fixed">CollisionType.Fixed</a> setting.</p>
+					the <a href="../enums/_collision_collisiontype_.collisiontype.html#active">CollisionType.Active</a> or <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">CollisionType.Fixed</a> setting.</p>
 					<h3 id="fixed">Fixed</h3>
-					<p>Actors with the <a href="../enums/_actor_.collisiontype.html#fixed">CollisionType.Fixed</a> setting raise collision events and participate in
-						collisions with other actors. Actors with the <a href="../enums/_actor_.collisiontype.html#fixed">CollisionType.Fixed</a> setting will not be
-					pushed or moved by other actors sharing the <a href="../enums/_actor_.collisiontype.html#fixed">CollisionType.Fixed</a>.</p>
-					<p>Think of <code>Fixed</code> actors as &quot;immovable/onstoppable&quot; objects. If two <a href="../enums/_actor_.collisiontype.html#fixed">CollisionType.Fixed</a> actors
+					<p>Actors with the <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">CollisionType.Fixed</a> setting raise collision events and participate in
+						collisions with other actors. Actors with the <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">CollisionType.Fixed</a> setting will not be
+					pushed or moved by other actors sharing the <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">CollisionType.Fixed</a>.</p>
+					<p>Think of <code>Fixed</code> actors as &quot;immovable/onstoppable&quot; objects. If two <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">CollisionType.Fixed</a> actors
 						meet they will not be pushed or moved by each other, they will not interact except to throw
 					collision events.</p>
 					<h2 id="collision-type-behavior-matrix">Collision Type Behavior Matrix</h2>
@@ -145,28 +185,36 @@
 					<h2 id="enabling-excalibur-physics">Enabling Excalibur physics</h2>
 					<p>To enable physics in your game it is as simple as setting <a href="_physics_.physics.html#enabled">Physics.enabled</a> to true and picking your
 					<a href="../enums/_physics_.collisionresolutionstrategy.html">CollisionResolutionStrategy</a></p>
-					<p>Excalibur supports 3 different types of collision area shapes in its physics simulation: <a href="_collision_polygonarea_.polygonarea.html">polygons</a>,
-						<a href="_collision_circlearea_.circlearea.html">circles</a>, and <a href="_collision_edgearea_.edgearea.html">edges</a>. To use any one of these areas on an actor there are convenience methods off of
-						the <a href="_actor_.actor.html">actor</a> <a href="_collision_body_.body.html">physics body</a>: <a href="_collision_body_.body.html#useboxcollision">useBoxCollision</a>,
-					<a href="_collision_body_.body.html#usepolygoncollision">usePolygonCollision</a>, <a href="_collision_body_.body.html#usecirclecollision">useCircleCollision</a>, and <a href="_collision_body_.body.html#useedgecollision">Body.useEdgeCollision</a></p>
+					<p>Excalibur supports 3 different types of collision area shapes in its physics simulation: <a href="_collision_convexpolygon_.convexpolygon.html">polygons</a>,
+						<a href="_collision_circle_.circle.html">circles</a>, and <a href="_collision_shape_.shape.html#edge">edges</a>. To use any one of these areas on an actor there are convenience methods off of
+						the <a href="_actor_.actor.html">actor</a> <a href="_collision_body_.body.html">physics body</a>: <a href="_collision_body_.body.html#useboxcollider">useBoxCollider</a>,
+					<a href="_collision_body_.body.html#usepolygoncollider">usePolygonCollider</a>, <a href="_collision_body_.body.html#usecirclecollider">useCircleCollider</a>, and <a href="_collision_body_.body.html#useedgecollider">Body.useEdgeCollider</a></p>
 					<h2 id="collision-event-lifecycle">Collision Event Lifecycle</h2>
 					<p><img src="/assets/images/docs/collisioneventdiagram.png" alt="Collision Events Diagram"></p>
 					<h3 id="collision-start-collisionstart">Collision Start &quot;collisionstart&quot;</h3>
 					<p>The <strong>collisionstart</strong> event is fired when a <a href="_collision_body_.body.html">physics body</a>, usually attached to an actor, first starts colliding with another <a href="_collision_body_.body.html">body</a>, and will not fire again while in contact until the the pair separates and collides again.</p>
 					<p>Use cases for the <strong>collisionstart</strong> event may be detecting when an actor has touch a surface (like landing) or if a item has been touched and needs to be picked up.</p>
-					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'collisionstart'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
+					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'collisionstart'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})
+<span class="hljs-comment">// or</span>
+actor.body.collider.on(<span class="hljs-string">'collisionstart'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
 					<h3 id="collision-end-collisionend">Collision End &quot;collisionend&quot;</h3>
 					<p>The <strong>collisionend</strong> event is fired when two <a href="_collision_body_.body.html">physics bodies</a> are no longer in contact. This event will not fire again until another collision and separation.</p>
 					<p>Use cases for the <strong>collisionend</strong> event might be to detect when an actor has left a surface (like jumping) or has left an area.</p>
-					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'collisionend'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
+					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'collisionend'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})
+<span class="hljs-comment">// or</span>
+actor.body.collider.on(<span class="hljs-string">'collisionend'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
 					<h3 id="pre-collision-precollision">Pre Collision &quot;precollision&quot;</h3>
 					<p>The <strong>precollision</strong> event is fired <strong>every frame</strong> where a collision pair is found and two bodies are intersecting.</p>
-					<p>This event is useful for building in custom collision resolution logic in Passive-Passive or Active-Passive scenarios. For example in a breakout game you may want to tweak the angle of richochet of the ball depending on which side of the paddle you hit.</p>
-					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'precollision'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
+					<p>This event is useful for building in custom collision resolution logic in Passive-Passive or Active-Passive scenarios. For example in a breakout game you may want to tweak the angle of ricochet of the ball depending on which side of the paddle you hit.</p>
+					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'precollision'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})
+<span class="hljs-comment">// or</span>
+actor.body.collider.on(<span class="hljs-string">'precollision'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
 					<h3 id="post-collision-postcollision">Post Collision &quot;postcollision&quot;</h3>
 					<p>The <strong>postcollision</strong> event is fired for <strong>every frame</strong> where collision resolution was performed. Collision resolution is when two bodies influence each other and cause a response like bouncing off one another. It is only possible to have <em>postcollision</em> event in Active-Active and Active-Fixed type collision pairs.</p>
 					<p>Post collision would be useful if you need to know that collision resolution is happening or need to tweak the default resolution.</p>
-					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'postcollision'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
+					<pre><code class="language-typescript">actor.on(<span class="hljs-string">'postcollision'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})
+<span class="hljs-comment">// or</span>
+actor.body.collider.on(<span class="hljs-string">'postcollision'</span>, <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {...})</code></pre>
 					<h2 id="example-active-active-active-fixed-scenario">Example Active-Active/Active-Fixed scenario</h2>
 					<pre><code class="language-ts"><span class="hljs-comment">// setup game</span>
 <span class="hljs-keyword">const</span> game = <span class="hljs-keyword">new</span> ex.Engine({
@@ -179,37 +227,62 @@ ex.Physics.collisionResolutionStrategy = ex.CollisionResolutionStrategy.RigidBod
 ex.Physics.acc.setTo(<span class="hljs-number">0</span>, <span class="hljs-number">700</span>);
 
 <span class="hljs-keyword">const</span> block = <span class="hljs-keyword">new</span> ex.Actor({
-  x: <span class="hljs-number">300</span>,
-  y: <span class="hljs-number">0</span>,
+  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">300</span>, <span class="hljs-number">0</span>),
   width: <span class="hljs-number">20</span>,
   height: <span class="hljs-number">20</span>,
-  color: ex.Color.Blue.clone(),
-  collisionType: ex.CollisionType.Active
+  color: ex.Color.Blue
 });
-block.body.useBoxCollision(); <span class="hljs-comment">// useBoxCollision is the default, technically optional</span>
+block.body.useBoxCollider(); <span class="hljs-comment">// useBoxCollision is the default, technically optional</span>
+block.body.collider.type = ex.CollisionType.Active;
 game.add(block);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">const</span> block = <span class="hljs-keyword">new</span> ex.Actor({
+    pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">300</span>, <span class="hljs-number">0</span>),
+    color: ex.Color.Blue,
+    body: <span class="hljs-keyword">new</span> ex.Body({
+        collider: <span class="hljs-keyword">new</span> ex.Collider({
+            <span class="hljs-keyword">type</span>: ex.CollisionType.Active,
+            shape: ex.Shape.Box(<span class="hljs-number">20</span>, <span class="hljs-number">20</span>)
+        })
+    })
+});
 
 <span class="hljs-keyword">const</span> circle = <span class="hljs-keyword">new</span> ex.Actor({
   x: <span class="hljs-number">301</span>,
   y: <span class="hljs-number">100</span>,
   width: <span class="hljs-number">20</span>,
   height: <span class="hljs-number">20</span>,
-  color: ex.Color.Red.clone(),
-  collisionType: ex.CollisionType.Active
+  color: ex.Color.Red
 });
-circle.body.useCircleCollision(<span class="hljs-number">10</span>);
+circle.body.useCircleCollider(<span class="hljs-number">10</span>);
+circle.body.collider.type = ex.CollisionType.Active;
 game.add(circle);
+
+<span class="hljs-comment">// or</span>
+
+<span class="hljs-keyword">const</span> circle = <span class="hljs-keyword">new</span> ex.Actor({
+    pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">301</span>, <span class="hljs-number">100</span>),
+    color: ex.Color.Red,
+    body: <span class="hljs-keyword">new</span> ex.Body({
+        collider: <span class="hljs-keyword">new</span> ex.Collider({
+            shape: ex.Shape.Circle(<span class="hljs-number">10</span>),
+            <span class="hljs-keyword">type</span>: ex.CollisionType.Active
+        })
+    })
+});
 
 <span class="hljs-keyword">const</span> ground = <span class="hljs-keyword">new</span> ex.Actor({
   x: <span class="hljs-number">300</span>,
   y: <span class="hljs-number">380</span>,
   width: <span class="hljs-number">600</span>,
   height: <span class="hljs-number">10</span>,
-  color: ex.Color.Black.clone(),
-  collisionType: ex.CollisionType.Fixed
+  color: ex.Color.Black;
 });
 
-ground.body.useBoxCollision(); <span class="hljs-comment">// optional</span>
+ground.body.useBoxCollider(); <span class="hljs-comment">// optional</span>
+groundbody.collider.type = ex.CollisionType.Fixed;
 
 game.add(ground);
 <span class="hljs-comment">// start the game</span>
@@ -278,12 +351,12 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">acc<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;new Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L48">Physics.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L48">Physics.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Global acceleration that is applied to all vanilla actors that have a <a href="../enums/_actor_.collisiontype.html#active">active</a> collision type.
+							<p>Global acceleration that is applied to all vanilla actors that have a <a href="../enums/_collision_collisiontype_.collisiontype.html#active">active</a> collision type.
 							Global acceleration won&#39;t effect <a href="_label_.label.html">labels</a>, <a href="_uiactor_.uiactor.html">ui actors</a>, or <a href="_trigger_.trigger.html">triggers</a> in Excalibur.</p>
 						</div>
 						<p>This is a great way to globally simulate effects like gravity.</p>
@@ -295,7 +368,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">allow<wbr>Rigid<wbr>Body<wbr>Rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L132">Physics.ts:132</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L132">Physics.ts:132</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -310,7 +383,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">bounds<wbr>Padding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L162">Physics.ts:162</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L162">Physics.ts:162</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -325,7 +398,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">broadphase<wbr>Debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L82">Physics.ts:82</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L82">Physics.ts:82</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -340,7 +413,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">broadphase<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/_physics_.broadphasestrategy.html" class="tsd-signature-type">BroadphaseStrategy</a><span class="tsd-signature-symbol"> =&nbsp;BroadphaseStrategy.DynamicAABBTree</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L77">Physics.ts:77</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L77">Physics.ts:77</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -358,7 +431,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">check<wbr>For<wbr>Fast<wbr>Bodies<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L173">Physics.ts:173</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L173">Physics.ts:173</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -374,7 +447,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Passes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L68">Physics.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L68">Physics.ts:68</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -395,7 +468,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Resolution<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/_physics_.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a><span class="tsd-signature-symbol"> =&nbsp;CollisionResolutionStrategy.Box</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L115">Physics.ts:115</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L115">Physics.ts:115</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -413,7 +486,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Shift<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.001</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L152">Physics.ts:152</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L152">Physics.ts:152</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -428,7 +501,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Mass<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L119">Physics.ts:119</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L119">Physics.ts:119</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -443,7 +516,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">disable<wbr>Minimum<wbr>Speed<wbr>For<wbr>Fast<wbr>Body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L180">Physics.ts:180</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L180">Physics.ts:180</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -460,7 +533,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">dynamic<wbr>Tree<wbr>Velocity<wbr>Multiplyer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L157">Physics.ts:157</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L157">Physics.ts:157</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -475,7 +548,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L53">Physics.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L53">Physics.ts:53</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -490,7 +563,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">integration<wbr>Steps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L128">Physics.ts:128</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L128">Physics.ts:128</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -506,7 +579,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">integrator<span class="tsd-signature-symbol">:</span> <a href="../enums/_physics_.integrator.html" class="tsd-signature-type">Integrator</a><span class="tsd-signature-symbol"> =&nbsp;Integrator.Euler</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L123">Physics.ts:123</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L123">Physics.ts:123</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -521,7 +594,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L98">Physics.ts:98</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L98">Physics.ts:98</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -536,7 +609,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Bounds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L94">Physics.ts:94</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L94">Physics.ts:94</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -551,7 +624,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Collision<wbr>Normals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L86">Physics.ts:86</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L86">Physics.ts:86</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -566,7 +639,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Contacts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L102">Physics.ts:102</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L102">Physics.ts:102</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -581,7 +654,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Motion<wbr>Vectors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L90">Physics.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L90">Physics.ts:90</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -596,7 +669,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Normals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L106">Physics.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L106">Physics.ts:106</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -611,7 +684,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">surface<wbr>Epsilon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L167">Physics.ts:167</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L167">Physics.ts:167</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -633,7 +706,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L137">Physics.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L137">Physics.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,7 +728,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Physics.ts#L145">Physics.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Physics.ts#L145">Physics.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

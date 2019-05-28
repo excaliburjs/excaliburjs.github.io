@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EdgeAreaOptions | Excalibur.js Edge API Documentation</title>
+	<title>ColliderOptions | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_collision_edgearea_.html">&quot;Collision/EdgeArea&quot;</a>
+					<a href="../modules/_collision_collider_.html">&quot;Collision/Collider&quot;</a>
 				</li>
 				<li>
-					<a href="_collision_edgearea_.edgeareaoptions.html">EdgeAreaOptions</a>
+					<a href="_collision_collider_.collideroptions.html">ColliderOptions</a>
 				</li>
 			</ul>
-			<h1>Interface EdgeAreaOptions</h1>
+			<h1>Interface ColliderOptions</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">EdgeAreaOptions</span>
+						<span class="target">ColliderOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -84,9 +84,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_edgearea_.edgeareaoptions.html#begin" class="tsd-kind-icon">begin</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_edgearea_.edgeareaoptions.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_edgearea_.edgeareaoptions.html#end" class="tsd-kind-icon">end</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collider_.collideroptions.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collider_.collideroptions.html#localbounds" class="tsd-kind-icon">local<wbr>Bounds</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collider_.collideroptions.html#shape" class="tsd-kind-icon">shape</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collider_.collideroptions.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_collision_collider_.collideroptions.html#useshapeinertia" class="tsd-kind-icon">use<wbr>Shape<wbr>Inertia</a></li>
 							</ul>
 						</section>
 					</div>
@@ -95,34 +97,79 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="begin" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> begin</h3>
-					<div class="tsd-signature tsd-kind-icon">begin<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/EdgeArea.ts#L14">Collision/EdgeArea.ts:14</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="body" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> body</h3>
 					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_body_.body.html" class="tsd-signature-type">Body</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/EdgeArea.ts#L16">Collision/EdgeArea.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/Collider.ts#L32">Collision/Collider.ts:32</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional body to associate with this collider</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="end" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> end</h3>
-					<div class="tsd-signature tsd-kind-icon">end<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
+					<a name="localbounds" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> local<wbr>Bounds</h3>
+					<div class="tsd-signature tsd-kind-icon">local<wbr>Bounds<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Collision/EdgeArea.ts#L15">Collision/EdgeArea.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/Collider.ts#L40">Collision/Collider.ts:40</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional local bounds if other bounds are required instead of the bounding box from the shape. This overrides shape bounds.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="shape" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> shape</h3>
+					<div class="tsd-signature tsd-kind-icon">shape<span class="tsd-signature-symbol">:</span> <a href="_collision_collisionshape_.collisionshape.html" class="tsd-signature-type">CollisionShape</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/Collider.ts#L28">Collision/Collider.ts:28</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional <a href="_collision_collider_.collideroptions.html#shape">Shape</a> to use with this collider, the shape defines the collidable region along with the [[bounding box|BoundingBox]]</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="type" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <a href="../enums/_collision_collisiontype_.collisiontype.html" class="tsd-signature-type">CollisionType</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/Collider.ts#L36">Collision/Collider.ts:36</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional [[collision type|CollisionType]], if not specified the default is <a href="../enums/_collision_collisiontype_.collisiontype.html#preventcollision">CollisionType.PreventCollision</a></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="useshapeinertia" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> use<wbr>Shape<wbr>Inertia</h3>
+					<div class="tsd-signature tsd-kind-icon">use<wbr>Shape<wbr>Inertia<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/Collider.ts#L44">Collision/Collider.ts:44</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional flag to indicate moment of inertia from the shape should be used, by default it is true.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -133,33 +180,42 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_collision_edgearea_.html">"<wbr>Collision/<wbr>Edge<wbr>Area"</a>
+						<a href="../modules/_collision_collider_.html">"<wbr>Collision/<wbr>Collider"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_collision_edgearea_.edgearea.html" class="tsd-kind-icon">Edge<wbr>Area</a>
+						<a href="../classes/_collision_collider_.collider.html" class="tsd-kind-icon">Collider</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_collision_edgearea_.edgeareaoptions.html" class="tsd-kind-icon">Edge<wbr>Area<wbr>Options</a>
+						<a href="_collision_collider_.collideroptions.html" class="tsd-kind-icon">Collider<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_collision_edgearea_.edgeareaoptions.html#begin" class="tsd-kind-icon">begin</a>
+								<a href="_collision_collider_.collideroptions.html#body" class="tsd-kind-icon">body</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_collision_edgearea_.edgeareaoptions.html#body" class="tsd-kind-icon">body</a>
+								<a href="_collision_collider_.collideroptions.html#localbounds" class="tsd-kind-icon">local<wbr>Bounds</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_collision_edgearea_.edgeareaoptions.html#end" class="tsd-kind-icon">end</a>
+								<a href="_collision_collider_.collideroptions.html#shape" class="tsd-kind-icon">shape</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collider_.collideroptions.html#type" class="tsd-kind-icon">type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_collision_collider_.collideroptions.html#useshapeinertia" class="tsd-kind-icon">use<wbr>Shape<wbr>Inertia</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="../modules/_collision_collider_.html#iscollider" class="tsd-kind-icon">is<wbr>Collider</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

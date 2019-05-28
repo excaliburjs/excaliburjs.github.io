@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CollisionType | Excalibur.js Edge API Documentation</title>
+	<title>&quot;Collision/Collider&quot; | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,112 +56,70 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_actor_.html">&quot;Actor&quot;</a>
-				</li>
-				<li>
-					<a href="_actor_.collisiontype.html">CollisionType</a>
+					<a href="_collision_collider_.html">&quot;Collision/Collider&quot;</a>
 				</li>
 			</ul>
-			<h1>Enumeration CollisionType</h1>
+			<h1>External module &quot;Collision/Collider&quot;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>An enum that describes the types of collisions actors can participate in</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Classes</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_actor_.collisiontype.html#active" class="tsd-kind-icon">Active</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_actor_.collisiontype.html#fixed" class="tsd-kind-icon">Fixed</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_actor_.collisiontype.html#passive" class="tsd-kind-icon">Passive</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_actor_.collisiontype.html#preventcollision" class="tsd-kind-icon">Prevent<wbr>Collision</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-external-module"><a href="../classes/_collision_collider_.collider.html" class="tsd-kind-icon">Collider</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module"><a href="../interfaces/_collision_collider_.collideroptions.html" class="tsd-kind-icon">Collider<wbr>Options</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="_collision_collider_.html#iscollider" class="tsd-kind-icon">is<wbr>Collider</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="active" class="tsd-anchor"></a>
-					<h3> Active</h3>
-					<div class="tsd-signature tsd-kind-icon">Active<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Actor.ts#L1620">Actor.ts:1620</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Actors with the <code>Active</code> setting raise collision events and participate
-								in collisions with other actors and will be push or moved by actors sharing
-							the <code>Active</code> or <code>Fixed</code> setting.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="fixed" class="tsd-anchor"></a>
-					<h3> Fixed</h3>
-					<div class="tsd-signature tsd-kind-icon">Fixed<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Actor.ts#L1629">Actor.ts:1629</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Actors with the <code>Fixed</code> setting raise collision events and participate in
-								collisions with other actors. Actors with the <code>Fixed</code> setting will not be
-								pushed or moved by other actors sharing the <code>Fixed</code>. Think of Fixed
-								actors as &quot;immovable/onstoppable&quot; objects. If two <code>Fixed</code> actors meet they will
-								not be pushed or moved by each other, they will not interact except to throw
-							collision events.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="passive" class="tsd-anchor"></a>
-					<h3> Passive</h3>
-					<div class="tsd-signature tsd-kind-icon">Passive<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Actor.ts#L1614">Actor.ts:1614</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Actors with the <code>Passive</code> setting only raise collision events, but are not
-							influenced or moved by other actors and do not influence or move other actors.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="preventcollision" class="tsd-anchor"></a>
-					<h3> Prevent<wbr>Collision</h3>
-					<div class="tsd-signature tsd-kind-icon">Prevent<wbr>Collision<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/baaf0b9/src/engine/Actor.ts#L1609">Actor.ts:1609</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Actors with the <code>PreventCollision</code> setting do not participate in any
-							collisions and do not raise collision events.</p>
-						</div>
-					</div>
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
+					<a name="iscollider" class="tsd-anchor"></a>
+					<h3> is<wbr>Collider</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Collider<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><a href="../classes/_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_collision_collider_.collider.html" class="tsd-signature-type">Collider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ce1c19d/src/engine/Collision/Collider.ts#L20">Collision/Collider.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Type guard function to determine whether something is a Collider</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <a href="../classes/_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="../classes/_collision_collider_.collider.html" class="tsd-signature-type">Collider</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
@@ -172,41 +130,20 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_actor_.html">"<wbr>Actor"</a>
+						<a href="_collision_collider_.html">"<wbr>Collision/<wbr>Collider"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="_actor_.collisiontype.html" class="tsd-kind-icon">Collision<wbr>Type</a>
-						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_actor_.collisiontype.html#active" class="tsd-kind-icon">Active</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_actor_.collisiontype.html#fixed" class="tsd-kind-icon">Fixed</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_actor_.collisiontype.html#passive" class="tsd-kind-icon">Passive</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="_actor_.collisiontype.html#preventcollision" class="tsd-kind-icon">Prevent<wbr>Collision</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_actor_.actor.html" class="tsd-kind-icon">Actor</a>
+						<a href="../classes/_collision_collider_.collider.html" class="tsd-kind-icon">Collider</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_actor_.actorargs.html" class="tsd-kind-icon">Actor<wbr>Args</a>
+						<a href="../interfaces/_collision_collider_.collideroptions.html" class="tsd-kind-icon">Collider<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_actor_.actordefaults.html" class="tsd-kind-icon">Actor<wbr>Defaults</a>
+					<li class=" tsd-kind-function tsd-parent-kind-external-module">
+						<a href="_collision_collider_.html#iscollider" class="tsd-kind-icon">is<wbr>Collider</a>
 					</li>
 				</ul>
 			</nav>
