@@ -146,24 +146,29 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Bounding<wbr>Box<span class="tsd-signature-symbol">(</span>left<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, top<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, right<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, bottom<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bounding<wbr>Box<span class="tsd-signature-symbol">(</span>leftOrOptions<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_collision_boundingbox_.boundingboxoptions.html" class="tsd-signature-type">BoundingBoxOptions</a>, top<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, right<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, bottom<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L12">Collision/BoundingBox.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L23">Collision/BoundingBox.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Constructor allows passing of either an object with all coordinate components,
+									or the coordinate components passed separately.</p>
+								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> left: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> leftOrOptions: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_collision_boundingbox_.boundingboxoptions.html" class="tsd-signature-type">BoundingBoxOptions</a><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>x coordinate of the left edge</p>
+											<p>Either x coordinate of the left edge or an options object
+											containing the four coordinate components.</p>
 										</div>
 									</div>
 								</li>
@@ -205,14 +210,9 @@
 					<div class="tsd-signature tsd-kind-icon">bottom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L19">Collision/BoundingBox.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L22">Collision/BoundingBox.ts:22</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>y coordinate of the bottom edge</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="left" class="tsd-anchor"></a>
@@ -220,14 +220,9 @@
 					<div class="tsd-signature tsd-kind-icon">left<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L19">Collision/BoundingBox.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L23">Collision/BoundingBox.ts:23</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>x coordinate of the left edge</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="right" class="tsd-anchor"></a>
@@ -235,14 +230,9 @@
 					<div class="tsd-signature tsd-kind-icon">right<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L19">Collision/BoundingBox.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L21">Collision/BoundingBox.ts:21</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>x coordinate of the right edge</p>
-						</div>
-					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="top" class="tsd-anchor"></a>
@@ -250,14 +240,9 @@
 					<div class="tsd-signature tsd-kind-icon">top<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L19">Collision/BoundingBox.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L20">Collision/BoundingBox.ts:20</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>y coordinate of the top edge</p>
-						</div>
-					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -272,7 +257,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L117">Collision/BoundingBox.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L144">Collision/BoundingBox.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,7 +279,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L253">Collision/BoundingBox.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L280">Collision/BoundingBox.ts:280</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -311,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L102">Collision/BoundingBox.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L129">Collision/BoundingBox.ts:129</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -333,7 +318,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L87">Collision/BoundingBox.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L114">Collision/BoundingBox.ts:114</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,7 +343,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L406">Collision/BoundingBox.ts:406</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L433">Collision/BoundingBox.ts:433</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -397,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L243">Collision/BoundingBox.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L270">Collision/BoundingBox.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -429,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L220">Collision/BoundingBox.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L247">Collision/BoundingBox.ts:247</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -451,7 +436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L226">Collision/BoundingBox.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L253">Collision/BoundingBox.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -482,7 +467,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L411">Collision/BoundingBox.ts:411</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L438">Collision/BoundingBox.ts:438</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -508,7 +493,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L110">Collision/BoundingBox.ts:110</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L137">Collision/BoundingBox.ts:137</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -530,7 +515,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L95">Collision/BoundingBox.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L122">Collision/BoundingBox.ts:122</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -552,7 +537,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L142">Collision/BoundingBox.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L169">Collision/BoundingBox.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -574,7 +559,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L148">Collision/BoundingBox.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L175">Collision/BoundingBox.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -591,7 +576,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L80">Collision/BoundingBox.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L107">Collision/BoundingBox.ts:107</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,7 +598,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L265">Collision/BoundingBox.ts:265</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L292">Collision/BoundingBox.ts:292</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -647,7 +632,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L391">Collision/BoundingBox.ts:391</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L418">Collision/BoundingBox.ts:418</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -678,7 +663,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L171">Collision/BoundingBox.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L198">Collision/BoundingBox.ts:198</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -709,7 +694,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L192">Collision/BoundingBox.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L219">Collision/BoundingBox.ts:219</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -735,7 +720,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L129">Collision/BoundingBox.ts:129</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L156">Collision/BoundingBox.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -767,7 +752,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L134">Collision/BoundingBox.ts:134</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L161">Collision/BoundingBox.ts:161</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -793,7 +778,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L160">Collision/BoundingBox.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L187">Collision/BoundingBox.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -821,7 +806,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L121">Collision/BoundingBox.ts:121</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L148">Collision/BoundingBox.ts:148</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -844,7 +829,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L67">Collision/BoundingBox.ts:67</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L94">Collision/BoundingBox.ts:94</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -876,7 +861,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L45">Collision/BoundingBox.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L72">Collision/BoundingBox.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -899,7 +884,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/7acf982/src/engine/Collision/BoundingBox.ts#L25">Collision/BoundingBox.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/acb2ca1/src/engine/Collision/BoundingBox.ts#L52">Collision/BoundingBox.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1031,6 +1016,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_collision_boundingbox_.boundingboxoptions.html" class="tsd-kind-icon">Bounding<wbr>Box<wbr>Options</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
