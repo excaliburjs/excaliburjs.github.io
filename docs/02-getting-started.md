@@ -94,7 +94,7 @@ That’s neat, but this game is way more fun if things move around. Let’s make
 ```js
 // Add a mouse move listener
 game.input.pointers.primary.on('move', function(evt) {
-  paddle.pos.x = evt.worldPos.x
+  player.pos.x = evt.target.lastWorldPos.x
 })
 ```
 
@@ -145,19 +145,19 @@ The ball will now bounce off of the paddle, but does not bounce with the side of
 ball.on('postupdate', function() {
   // If the ball collides with the left side
   // of the screen reverse the x velocity
-  if (this.pos.x < this.getWidth() / 2) {
+  if (this.pos.x < this.width / 2) {
     this.vel.x *= -1
   }
 
   // If the ball collides with the right side
   // of the screen reverse the x velocity
-  if (this.pos.x + this.getWidth() / 2 > game.drawWidth) {
+  if (this.pos.x + this.width / 2 > game.drawWidth) {
     this.vel.x *= -1
   }
 
   // If the ball collides with the top
   // of the screen reverse the y velocity
-  if (this.pos.y < this.getHeight() / 2) {
+  if (this.pos.y < this.height / 2) {
     this.vel.y *= -1
   }
 })
