@@ -94,7 +94,7 @@ That’s neat, but this game is way more fun if things move around. Let’s make
 ```js
 // Add a mouse move listener
 game.input.pointers.primary.on('move', function(evt) {
-  player.pos.x = evt.target.lastWorldPos.x
+  paddle.pos.x = evt.target.lastWorldPos.x
 })
 ```
 
