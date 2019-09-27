@@ -51,9 +51,9 @@ const IndexPage = ({ data: { release } }) => (
     <div className="ui container">
       <div className="ui basic segment">
         <h1 className="ui centered header">
-          Feature Rich
+          Feature-Rich
           <span className="sub header">
-            Tons of features to help build your game quick
+            Tons of features to help build your game quickly
           </span>
         </h1>
 
@@ -207,7 +207,7 @@ const IndexPage = ({ data: { release } }) => (
                   Excalibur was built from the ground up for TypeScript, a typed
                   superset of JavaScript that feels familiar to C#, Java, and
                   other strongly-typed languages. This makes Excalibur code
-                  clean, easy to read, and maintain.
+                  clean, readable, and maintainable.
                 </p>
               </div>
 

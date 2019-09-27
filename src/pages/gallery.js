@@ -12,7 +12,7 @@ const GalleryPage = () => (
       <h1 className="ui header">Gallery</h1>
 
       <p className="ui grey small header">
-        These are games made using Excalibur, how cool is that?
+        These games were made using Excalibur, how cool is that?
       </p>
 
       <p>
