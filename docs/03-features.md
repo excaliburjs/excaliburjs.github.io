@@ -6,7 +6,7 @@ path: /docs/features
 We are still pre-1.0 but Excalibur has many powerful features built-in already that make it simple
 to build and design your games:
 
-- Built with [TypeScript](http://typescriptlang.org) first
+- Built with [TypeScript](https://www.typescriptlang.org) first
 - [Fully-documented API](https://excaliburjs.com/docs/api/edge)
 - Works in all major browsers (Chrome, Firefox, IE11) and most mobile browsers (Android Chrome, Apple Safari). We strive to support the last two major versions.
 - HTML Canvas-based rendering engine
