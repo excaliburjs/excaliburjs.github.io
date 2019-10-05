@@ -213,7 +213,7 @@ const IndexPage = ({ data: { release } }) => (
 
               <p className="ui basic segment">
                 <a
-                  href="http://typescriptlang.org"
+                  href="https://www.typescriptlang.org"
                   target="_blank"
                   className="ui button white inverted"
                   rel="noopener noreferrer"
