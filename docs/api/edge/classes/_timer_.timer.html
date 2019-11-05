@@ -117,8 +117,9 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#cancel" class="tsd-kind-icon">cancel</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#fcn" class="tsd-kind-icon">fcn</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#gettimerunning" class="tsd-kind-icon">get<wbr>Time<wbr>Running</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#pause" class="tsd-kind-icon">pause</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#reset" class="tsd-kind-icon">reset</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_timer_.timer.html#unpause" class="tsd-kind-icon">unpause</a></li>
@@ -134,13 +135,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span>, interval<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, repeats<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, numberOfRepeats<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_timer_.timer.html" class="tsd-signature-type">Timer</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Timer<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><a href="../interfaces/_timer_.timeroptions.html" class="tsd-signature-type">TimerOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_timer_.timer.html" class="tsd-signature-type">Timer</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L21">Timer.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L26">Timer.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -148,46 +149,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>fcn: <span class="tsd-signature-type">function</span></h5>
+									<h5>options: <a href="../interfaces/_timer_.timeroptions.html" class="tsd-signature-type">TimerOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>The callback to be fired after the interval is complete.</p>
-										</div>
-									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li>
-									<h5>interval: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Interval length</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> repeats: <span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Indicates whether this call back should be fired only once, or repeat after every interval as completed.</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> numberOfRepeats: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>Specifies a maximum number of times that this timer will execute.</p>
+											<p>Options - repeats, numberOfRepeats, fcn, interval</p>
 										</div>
 									</div>
 								</li>
@@ -205,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">complete<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L20">Timer.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L25">Timer.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -215,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L9">Timer.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L16">Timer.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -225,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L10">Timer.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L17">Timer.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -235,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">max<wbr>Number<wbr>OfRepeats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;-1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L15">Timer.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L19">Timer.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -245,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">repeats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L14">Timer.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L18">Timer.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -255,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">scene<span class="tsd-signature-symbol">:</span> <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L21">Timer.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L26">Timer.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -265,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L8">Timer.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L15">Timer.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +247,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L89">Timer.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L129">Timer.ts:129</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -302,7 +267,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L114">Timer.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L154">Timer.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -310,23 +275,6 @@
 									<p>Cancels the timer, preventing any further executions.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="fcn" class="tsd-anchor"></a>
-					<h3> fcn</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">fcn<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L11">Timer.ts:11</a></li>
-								</ul>
-							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -341,10 +289,96 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L93">Timer.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L133">Timer.ts:133</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="off" class="tsd-anchor"></a>
+					<h3> off</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L74">Timer.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a callback from the callback list to be fired after the interval is complete.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fcn: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to be removed from the callback list, to be fired after the interval is complete.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="on" class="tsd-anchor"></a>
+					<h3> on</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">on<span class="tsd-signature-symbol">(</span>fcn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L66">Timer.ts:66</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a new callback to be fired after the interval is complete</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fcn: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to be added to the callback list, to be fired after the interval is complete.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -358,7 +392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L100">Timer.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L140">Timer.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -380,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L72">Timer.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L112">Timer.ts:112</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -417,7 +451,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L107">Timer.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L147">Timer.ts:147</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -439,7 +473,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fc991ca/src/engine/Timer.ts#L46">Timer.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b24ed90/src/engine/Timer.ts#L83">Timer.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -511,10 +545,13 @@
 								<a href="_timer_.timer.html#cancel" class="tsd-kind-icon">cancel</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_timer_.timer.html#fcn" class="tsd-kind-icon">fcn</a>
+								<a href="_timer_.timer.html#gettimerunning" class="tsd-kind-icon">get<wbr>Time<wbr>Running</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_timer_.timer.html#gettimerunning" class="tsd-kind-icon">get<wbr>Time<wbr>Running</a>
+								<a href="_timer_.timer.html#off" class="tsd-kind-icon">off</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_timer_.timer.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_timer_.timer.html#pause" class="tsd-kind-icon">pause</a>
@@ -532,6 +569,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/_timer_.timeroptions.html" class="tsd-kind-icon">Timer<wbr>Options</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
