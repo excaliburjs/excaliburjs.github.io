@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Actor | Excalibur.js Edge API Documentation</title>
+	<title>UIActor | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_actor_.html">&quot;Actor&quot;</a>
+					<a href="../modules/_screenelement_.html">&quot;ScreenElement&quot;</a>
 				</li>
 				<li>
-					<a href="_actor_.actor.html">Actor</a>
+					<a href="_screenelement_.uiactor.html">UIActor</a>
 				</li>
 			</ul>
-			<h1>Class Actor</h1>
+			<h1>Class UIActor</h1>
 		</div>
 	</div>
 </header>
@@ -72,277 +72,23 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The most important primitive in Excalibur is an <code>Actor</code>. Anything that
-							can move on the screen, collide with another <code>Actor</code>, respond to events,
-							or interact with the current scene, must be an actor. An <code>Actor</code> <strong>must</strong>
-						be part of a <a href="_scene_.scene.html">Scene</a> for it to be drawn to the screen.</p>
+						<p>Legacy UIActor constructor</p>
 					</div>
-					<a href="#basic-actors" id="basic-actors" style="color: inherit; text-decoration: none;">
-						<h2>Basic actors</h2>
-					</a>
-					<p>For quick and dirty games, you can just create an instance of an <code>Actor</code>
-					and manipulate it directly.</p>
-					<p>Actors (and other entities) must be added to a <a href="_scene_.scene.html">Scene</a> to be drawn
-					and updated on-screen.</p>
-					<pre><code class="language-ts"><span class="hljs-keyword">const</span> player = <span class="hljs-keyword">new</span> ex.Actor();
-
-<span class="hljs-comment">// move the player</span>
-player.vel.x = <span class="hljs-number">5</span>;
-
-<span class="hljs-comment">// add player to the current scene</span>
-game.add(player);</code></pre>
-					<p><code>game.add</code> is a convenience method for adding an <code>Actor</code> to the current scene. The equivalent verbose call is <code>game.currentScene.add</code>.</p>
-					<a href="#actor-lifecycle" id="actor-lifecycle" style="color: inherit; text-decoration: none;">
-						<h2>Actor Lifecycle</h2>
-					</a>
-					<p>An <a href="_actor_.actor.html">actor</a> has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
-					<a href="_scene_.scene.html">scene</a>, it will follow this lifecycle.</p>
-					<p><img src="/assets/images/docs/ActorLifecycle.png" alt="Actor Lifecycle"></p>
-					<a href="#extending-actors" id="extending-actors" style="color: inherit; text-decoration: none;">
-						<h2>Extending actors</h2>
-					</a>
-					<p>For &quot;real-world&quot; games, you&#39;ll want to <code>extend</code> the <code>Actor</code> class.
-						This gives you much greater control and encapsulates logic for that
-					actor.</p>
-					<p>You can override the <a href="_actor_.actor.html#oninitialize">onInitialize</a> method to perform any startup logic
-						for an actor (such as configuring state). <a href="_actor_.actor.html#oninitialize">onInitialize</a> gets called
-						<strong>once</strong> before the first frame an actor is drawn/updated. It is passed
-					an instance of <a href="_engine_.engine.html">Engine</a> to access global state or perform coordinate math.</p>
-					<p><strong>TypeScript</strong></p>
-					<pre><code class="language-ts"><span class="hljs-keyword">class</span> Player <span class="hljs-keyword">extends</span> ex.Actor {
-  <span class="hljs-keyword">public</span> level = <span class="hljs-number">1</span>;
-  <span class="hljs-keyword">public</span> endurance = <span class="hljs-number">0</span>;
-  <span class="hljs-keyword">public</span> fortitude = <span class="hljs-number">0</span>;
-
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
-    <span class="hljs-keyword">super</span>();
-  }
-
-  <span class="hljs-keyword">public</span> onInitialize(engine: ex.Engine) {
-    <span class="hljs-keyword">this</span>.endurance = <span class="hljs-number">20</span>;
-    <span class="hljs-keyword">this</span>.fortitude = <span class="hljs-number">16</span>;
-  }
-
-  <span class="hljs-keyword">public</span> getMaxHealth() {
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0.4</span> * <span class="hljs-keyword">this</span>.endurance + <span class="hljs-number">0.9</span> * <span class="hljs-keyword">this</span>.fortitude + <span class="hljs-keyword">this</span>.level * <span class="hljs-number">1.2</span>;
-  }
-}</code></pre>
-					<p><strong>Javascript</strong></p>
-					<p>In Javascript you can use the <a href="../modules/_util_util_.html#extend">extend</a> method to override or add
-					methods to an <code>Actor</code>.</p>
-					<pre><code class="language-js"><span class="hljs-keyword">var</span> Player = ex.Actor.extend({
-  <span class="hljs-attr">level</span>: <span class="hljs-number">1</span>,
-  <span class="hljs-attr">endurance</span>: <span class="hljs-number">0</span>,
-  <span class="hljs-attr">fortitude</span>: <span class="hljs-number">0</span>,
-
-  <span class="hljs-attr">onInitialize</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine</span>) </span>{
-    <span class="hljs-keyword">this</span>.endurance = <span class="hljs-number">20</span>;
-    <span class="hljs-keyword">this</span>.fortitude = <span class="hljs-number">16</span>;
-  },
-
-  <span class="hljs-attr">getMaxHealth</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-    <span class="hljs-keyword">return</span> <span class="hljs-number">0.4</span> * <span class="hljs-keyword">this</span>.endurance + <span class="hljs-number">0.9</span> * <span class="hljs-keyword">this</span>.fortitude + <span class="hljs-keyword">this</span>.level * <span class="hljs-number">1.2</span>;
-  }
-});</code></pre>
-					<a href="#updating-actors" id="updating-actors" style="color: inherit; text-decoration: none;">
-						<h2>Updating actors</h2>
-					</a>
-					<p>Override the <a href="_actor_.actor.html#update">update</a> method to update the state of your actor each frame.
-					Typically things that need to be updated include state, drawing, or position.</p>
-					<p>Remember to call <code>super.update</code> to ensure the base update logic is performed.
-					You can then write your own logic for what happens after that.</p>
-					<p>The <a href="_actor_.actor.html#update">update</a> method is passed an instance of the Excalibur engine, which
-						can be used to perform coordinate math or access global state. It is also
-						passed <code>delta</code> which is the time in milliseconds since the last frame, which can be used
-					to perform time-based movement or time-based math (such as a timer).</p>
-					<p><strong>TypeScript</strong></p>
-					<pre><code class="language-ts"><span class="hljs-keyword">class</span> Player <span class="hljs-keyword">extends</span> Actor {
-  <span class="hljs-keyword">public</span> update(engine: ex.Engine, delta: <span class="hljs-built_in">number</span>) {
-    <span class="hljs-keyword">super</span>.update(engine, delta); <span class="hljs-comment">// call base update logic</span>
-
-    <span class="hljs-comment">// check if player died</span>
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.health &lt;= <span class="hljs-number">0</span>) {
-      <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'death'</span>);
-      <span class="hljs-keyword">this</span>.onDeath();
-      <span class="hljs-keyword">return</span>;
-    }
-  }
-}</code></pre>
-					<p><strong>Javascript</strong></p>
-					<pre><code class="language-js"><span class="hljs-keyword">var</span> Player = ex.Actor.extend({
-  <span class="hljs-attr">update</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">engine, delta</span>) </span>{
-    ex.Actor.prototype.update.call(<span class="hljs-keyword">this</span>, engine, delta); <span class="hljs-comment">// call base update logic</span>
-
-    <span class="hljs-comment">// check if player died</span>
-    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.health &lt;= <span class="hljs-number">0</span>) {
-      <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'death'</span>);
-      <span class="hljs-keyword">this</span>.onDeath();
-      <span class="hljs-keyword">return</span>;
-    }
-  }
-});</code></pre>
-					<a href="#drawing-actors" id="drawing-actors" style="color: inherit; text-decoration: none;">
-						<h2>Drawing actors</h2>
-					</a>
-					<p>Override the <a href="_actor_.actor.html#draw">draw</a> method to perform any custom drawing. For simple games,
-						you don&#39;t need to override <code>draw</code>, instead you can use <a href="_actor_.actor.html#adddrawing">addDrawing</a> and <a href="_actor_.actor.html#setdrawing">setDrawing</a>
-					to manipulate the <a href="_drawing_sprite_.sprite.html">sprites</a>/<a href="_drawing_animation_.animation.html">animations</a> that the actor is using.</p>
-					<a href="#working-with-textures-amp-sprites" id="working-with-textures-amp-sprites" style="color: inherit; text-decoration: none;">
-						<h3>Working with Textures &amp; Sprites</h3>
-					</a>
-					<p>Think of a <a href="_resources_texture_.texture.html">texture</a> as the raw image file that will be loaded into Excalibur. In order for it to be drawn
-					it must be converted to a <a href="_drawing_sprite_.sprite.html">Sprite</a>.</p>
-					<p>A common usage is to load a <a href="_resources_texture_.texture.html">Texture</a> and convert it to a <a href="_drawing_sprite_.sprite.html">Sprite</a> for an actor. If you are using the <a href="_loader_.loader.html">Loader</a> to
-						pre-load assets, you can simply assign an actor a <a href="_drawing_sprite_.sprite.html">Sprite</a> to draw. You can also create a
-					<a href="_resources_texture_.texture.html#assprite">sprite from a Texture</a> to quickly create a <a href="_drawing_sprite_.sprite.html">Sprite</a> instance.</p>
-					<pre><code class="language-ts"><span class="hljs-comment">// assume Resources.TxPlayer is a 80x80 png image</span>
-
-<span class="hljs-keyword">public</span> onInitialize(engine: ex.Engine) {
-
-   <span class="hljs-comment">// set as the "default" drawing</span>
-   <span class="hljs-keyword">this</span>.addDrawing(Resources.TxPlayer);
-
-   <span class="hljs-comment">// you can also set a Sprite instance to draw</span>
-   <span class="hljs-keyword">this</span>.addDrawing(Resources.TxPlayer.asSprite());
-}</code></pre>
-					<a href="#working-with-animations" id="working-with-animations" style="color: inherit; text-decoration: none;">
-						<h3>Working with Animations</h3>
-					</a>
-					<p>A <a href="_drawing_spritesheet_.spritesheet.html">SpriteSheet</a> holds a collection of sprites from a single <a href="_resources_texture_.texture.html">Texture</a>.
-					Use <a href="_drawing_spritesheet_.spritesheet.html#getanimationforall">SpriteSheet.getAnimationForAll</a> to easily generate an <a href="_drawing_animation_.animation.html">Animation</a>.</p>
-					<pre><code class="language-ts"><span class="hljs-comment">// assume Resources.TxPlayerIdle is a texture containing several frames of an animation</span>
-
-<span class="hljs-keyword">public</span> onInitialize(engine: ex.Engine) {
-
-   <span class="hljs-comment">// create a SpriteSheet for the animation</span>
-   <span class="hljs-keyword">const</span> playerIdleSheet = <span class="hljs-keyword">new</span> ex.SpriteSheet(Resources.TxPlayerIdle, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
-
-   <span class="hljs-comment">// create an animation</span>
-   <span class="hljs-keyword">const</span> playerIdleAnimation = playerIdleSheet.getAnimationForAll(engine, <span class="hljs-number">120</span>);
-
-   <span class="hljs-comment">// the first drawing is always the current</span>
-   <span class="hljs-keyword">this</span>.addDrawing(<span class="hljs-string">"idle"</span>, playerIdleAnimation);
-}</code></pre>
-					<a href="#custom-drawing" id="custom-drawing" style="color: inherit; text-decoration: none;">
-						<h3>Custom drawing</h3>
-					</a>
-					<p>You can always override the default drawing logic for an actor in the <a href="_actor_.actor.html#draw">draw</a> method,
-						for example, to draw complex shapes or to use the raw
-					<a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D" class="external">Canvas API</a>.</p>
-					<p>Usually you should call <code>super.draw</code> to perform the base drawing logic, but other times
-					you may want to take over the drawing completely.</p>
-					<pre><code class="language-ts"><span class="hljs-keyword">public</span> draw(ctx: CanvasRenderingContext2D, delta: <span class="hljs-built_in">number</span>) {
-
-   <span class="hljs-keyword">super</span>.draw(ctx, delta); <span class="hljs-comment">// perform base drawing logic</span>
-
-   <span class="hljs-comment">// custom drawing</span>
-   ctx.lineTo(...);
-}</code></pre>
-					<a href="#actions" id="actions" style="color: inherit; text-decoration: none;">
-						<h2>Actions</h2>
-					</a>
-					<p>You can use the <a href="_actions_actioncontext_.actioncontext.html">Action API</a> to create chains of
-					actions and script actors into doing your bidding for your game.</p>
-					<p>Actions can be simple or can be chained together to create complex
-						AI routines. In the future, it will be easier to create timelines or
-						scripts to run depending on the state of your actor, such as an
-						enemy ship that is Guarding a path and then is Alerted when a Player
-					draws near.</p>
-					<p>Learn more about the <a href="_actions_actioncontext_.actioncontext.html">Action API</a>.</p>
-					<a href="#collision-detection" id="collision-detection" style="color: inherit; text-decoration: none;">
-						<h2>Collision Detection</h2>
-					</a>
-					<p>By default Actors do not participate in collisions. If you wish to make
-						an actor participate, you need to switch from the default <a href="../enums/_collision_collisiontype_.collisiontype.html#preventcollision">prevent collision</a>
-					to <a href="../enums/_collision_collisiontype_.collisiontype.html#active">active</a>, <a href="../enums/_collision_collisiontype_.collisiontype.html#fixed">fixed</a>, or <a href="../enums/_collision_collisiontype_.collisiontype.html#passive">passive</a> collision type.</p>
-					<p>For more information on collisions, please read about <a href="_physics_.physics.html">rigid body physics</a>.</p>
-					<pre><code class="language-ts"><span class="hljs-keyword">public</span> Player <span class="hljs-keyword">extends</span> ex.Actor {
-   <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>) {
-      <span class="hljs-keyword">super</span>();
-      <span class="hljs-comment">// set preferred CollisionType</span>
-      <span class="hljs-keyword">this</span>.body.collider.type = ex.CollisionType.Active;
-   }
-}
-
-<span class="hljs-comment">// or set the collisionType</span>
-
-<span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor();
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-					<a href="#traits" id="traits" style="color: inherit; text-decoration: none;">
-						<h2>Traits</h2>
-					</a>
-					<p>Traits describe actor behavior that occurs every update. If you wish to build a generic behavior
-						without needing to extend every actor you can do it with a trait, a good example of this may be
-						plugging in an external collision detection library like <a href="https://github.com/kripken/box2d.js/" class="external">Box2D</a> or
-						<a href="http://wellcaffeinated.net/PhysicsJS/" class="external">PhysicsJS</a> by wrapping it in a trait. Removing traits can also make your
-					actors more efficient.</p>
-					<p>Default traits provided by Excalibur are <a href="../modules/_traits_capturepointer_.html">pointer capture</a>,
-						<a href="../modules/_traits_tilemapcollisiondetection_.html">tile map collision</a>,
-					and <a href="../modules/_traits_offscreenculling_.html">offscreen culling</a>.</p>
-					<a href="#constructor-arguments" id="constructor-arguments" style="color: inherit; text-decoration: none;">
-						<h2>Constructor Arguments</h2>
-					</a>
-					<p>In Excalibur there are option bag constructors available on most types. These support any public property or member, methods are not supported. The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.</p>
-					<p>For example instead of doing this:</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-					<p>This is possible:</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> options: IActorArgs = {
-   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
-   width: <span class="hljs-number">100</span>,
-   height: <span class="hljs-number">100</span>,
-   color: ex.Color.Red,
-}
-
-<span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-					<p>In fact you can create a duplicate this way</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
-  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
-});
-<span class="hljs-keyword">const</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
-
-expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span></code></pre>
-					<p>Types that support option bags can have their properties mass assigned using the assign method.</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-
-actor.assign({
-  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
-  width: <span class="hljs-number">1000</span>,
-  color: ex.Color.Red
-});</code></pre>
-					<p>See:</p>
-					<ul>
-						<li><a href="_actor_.actor.html">Actor</a></li>
-						<li><a href="_drawing_animation_.animation.html">Animation</a></li>
-						<li><a href="_label_.label.html">Label</a></li>
-						<li><a href="_drawing_sprite_.sprite.html">Sprite</a></li>
-						<li><a href="_drawing_spritesheet_.spritesheet.html">SpriteSheet</a></li>
-						<li><a href="_drawing_spritesheet_.spritefont.html">SpriteFont</a></li>
-						<li><a href="_screenelement_.uiactor.html">UIActor</a></li>
-						<li><a href="_particles_.particle.html">Particle</a></li>
-						<li><a href="_particles_.particleemitter.html">ParticleEmitter</a></li>
-						<li><a href="_tilemap_.tilemap.html">TileMap</a></li>
-						<li><a href="_tilemap_.cell.html">Cell</a></li>
-					</ul>
+					<dl class="tsd-comment-tags">
+						<dt class="ts-flagObsolete">obsolete</dt>
+						<dd class="ts-flagObsolete"><p>UIActor constructor will be removed in v0.25.0 use <a href="_screenelement_.screenelement.html">ScreenElement</a> instead</p>
+						</dd>
+					</dl>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">ActorImpl</span>
+						<a href="_screenelement_.screenelement.html" class="tsd-signature-type">ScreenElement</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Actor</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_trigger_.trigger.html" class="tsd-signature-type">Trigger</a>
-									</li>
-									<li>
-										<a href="_screenelement_.screenelement.html" class="tsd-signature-type">ScreenElement</a>
-									</li>
-								</ul>
+								<span class="target">UIActor</span>
 							</li>
 						</ul>
 					</li>
@@ -365,137 +111,180 @@ actor.assign({
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_actor_.actor.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.uiactor.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#actionqueue" class="tsd-kind-icon">action<wbr>Queue</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#actions" class="tsd-kind-icon">actions</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#anchor" class="tsd-kind-icon">anchor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#children" class="tsd-kind-icon">children</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#currentdrawing" class="tsd-kind-icon">current<wbr>Drawing</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#enablecapturepointer" class="tsd-kind-icon">enable<wbr>Capture<wbr>Pointer</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#frames" class="tsd-kind-icon">frames</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#isoffscreen" class="tsd-kind-icon">is<wbr>Off<wbr>Screen</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#logger" class="tsd-kind-icon">logger</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#opacity" class="tsd-kind-icon">opacity</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#parent" class="tsd-kind-icon">parent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#scene" class="tsd-kind-icon">scene</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#traits" class="tsd-kind-icon">traits</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#visible" class="tsd-kind-icon">visible</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_actor_.actor.html#maxid" class="tsd-kind-icon">max<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_screenelement_.uiactor.html#_engine" class="tsd-kind-icon">_engine</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#actionqueue" class="tsd-kind-icon">action<wbr>Queue</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#actions" class="tsd-kind-icon">actions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#anchor" class="tsd-kind-icon">anchor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#children" class="tsd-kind-icon">children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#currentdrawing" class="tsd-kind-icon">current<wbr>Drawing</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#enablecapturepointer" class="tsd-kind-icon">enable<wbr>Capture<wbr>Pointer</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#frames" class="tsd-kind-icon">frames</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#isoffscreen" class="tsd-kind-icon">is<wbr>Off<wbr>Screen</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#logger" class="tsd-kind-icon">logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#opacity" class="tsd-kind-icon">opacity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#parent" class="tsd-kind-icon">parent</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#scene" class="tsd-kind-icon">scene</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#traits" class="tsd-kind-icon">traits</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#visible" class="tsd-kind-icon">visible</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_screenelement_.uiactor.html#maxid" class="tsd-kind-icon">max<wbr>Id</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#acc" class="tsd-kind-icon">acc</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#center" class="tsd-kind-icon">center</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#color" class="tsd-kind-icon">color</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#draggable" class="tsd-kind-icon">draggable</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#oldacc" class="tsd-kind-icon">old<wbr>Acc</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#oldpos" class="tsd-kind-icon">old<wbr>Pos</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#oldscale" class="tsd-kind-icon">old<wbr>Scale</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#oldvel" class="tsd-kind-icon">old<wbr>Vel</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#pos" class="tsd-kind-icon">pos</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#rotation" class="tsd-kind-icon">rotation</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#rx" class="tsd-kind-icon">rx</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#scale" class="tsd-kind-icon">scale</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#sx" class="tsd-kind-icon">sx</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#sy" class="tsd-kind-icon">sy</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#vel" class="tsd-kind-icon">vel</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#width" class="tsd-kind-icon">width</a></li>
-								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#z" class="tsd-kind-icon">z</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#acc" class="tsd-kind-icon">acc</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#center" class="tsd-kind-icon">center</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#color" class="tsd-kind-icon">color</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#draggable" class="tsd-kind-icon">draggable</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#height" class="tsd-kind-icon">height</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#oldacc" class="tsd-kind-icon">old<wbr>Acc</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#oldpos" class="tsd-kind-icon">old<wbr>Pos</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#oldscale" class="tsd-kind-icon">old<wbr>Scale</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#oldvel" class="tsd-kind-icon">old<wbr>Vel</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#rx" class="tsd-kind-icon">rx</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#scale" class="tsd-kind-icon">scale</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#sx" class="tsd-kind-icon">sx</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#sy" class="tsd-kind-icon">sy</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#vel" class="tsd-kind-icon">vel</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#width" class="tsd-kind-icon">width</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#z" class="tsd-kind-icon">z</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_postdraw" class="tsd-kind-icon">_postdraw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_postkill" class="tsd-kind-icon">_postkill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_predraw" class="tsd-kind-icon">_predraw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_prekill" class="tsd-kind-icon">_prekill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_actor_.actor.html#_reapplyeffects" class="tsd-kind-icon">_reapply<wbr>Effects</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#add" class="tsd-kind-icon">add</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#adddrawing" class="tsd-kind-icon">add<wbr>Drawing</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#contains" class="tsd-kind-icon">contains</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#draw" class="tsd-kind-icon">draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#emit" class="tsd-kind-icon">emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#getancestors" class="tsd-kind-icon">get<wbr>Ancestors</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#getglobalscale" class="tsd-kind-icon">get<wbr>Global<wbr>Scale</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#getworldpos" class="tsd-kind-icon">get<wbr>World<wbr>Pos</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#getworldrotation" class="tsd-kind-icon">get<wbr>World<wbr>Rotation</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#getzindex" class="tsd-kind-icon">getZIndex</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#kill" class="tsd-kind-icon">kill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_actor_.actor.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_actor_.actor.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#onpostkill" class="tsd-kind-icon">on<wbr>Post<wbr>Kill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#onprekill" class="tsd-kind-icon">on<wbr>Pre<wbr>Kill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_actor_.actor.html#once" class="tsd-kind-icon">once</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#remove" class="tsd-kind-icon">remove</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#setdrawing" class="tsd-kind-icon">set<wbr>Drawing</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#setzindex" class="tsd-kind-icon">setZIndex</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#unkill" class="tsd-kind-icon">unkill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#update" class="tsd-kind-icon">update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#within" class="tsd-kind-icon">within</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.uiactor.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#_postdraw" class="tsd-kind-icon">_postdraw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#_postkill" class="tsd-kind-icon">_postkill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#_predraw" class="tsd-kind-icon">_predraw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#_prekill" class="tsd-kind-icon">_prekill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="_screenelement_.uiactor.html#_reapplyeffects" class="tsd-kind-icon">_reapply<wbr>Effects</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#adddrawing" class="tsd-kind-icon">add<wbr>Drawing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.uiactor.html#contains" class="tsd-kind-icon">contains</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#draw" class="tsd-kind-icon">draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#getancestors" class="tsd-kind-icon">get<wbr>Ancestors</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#getglobalscale" class="tsd-kind-icon">get<wbr>Global<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#getworldpos" class="tsd-kind-icon">get<wbr>World<wbr>Pos</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#getworldrotation" class="tsd-kind-icon">get<wbr>World<wbr>Rotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#getzindex" class="tsd-kind-icon">getZIndex</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#kill" class="tsd-kind-icon">kill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.uiactor.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.uiactor.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#onpostkill" class="tsd-kind-icon">on<wbr>Post<wbr>Kill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#onprekill" class="tsd-kind-icon">on<wbr>Pre<wbr>Kill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.uiactor.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#setdrawing" class="tsd-kind-icon">set<wbr>Drawing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#setzindex" class="tsd-kind-icon">setZIndex</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#unkill" class="tsd-kind-icon">unkill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#within" class="tsd-kind-icon">within</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited"><a href="_actor_.actor.html#capturepointer" class="tsd-kind-icon">capture<wbr>Pointer</a></li>
-								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_actor_.actor.html#defaults" class="tsd-kind-icon">defaults</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.uiactor.html#capturepointer" class="tsd-kind-icon">capture<wbr>Pointer</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="_screenelement_.uiactor.html#defaults" class="tsd-kind-icon">defaults</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Actor<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></li>
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Actor<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_actor_.actorargs.html" class="tsd-signature-type">ActorArgs</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></li>
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Actor<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, color<span class="tsd-signature-symbol">?: </span><a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new UIActor<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_screenelement_.uiactor.html" class="tsd-signature-type">UIActor</a></li>
+						<li class="tsd-signature tsd-kind-icon">new UIActor<span class="tsd-signature-symbol">(</span>xOrConfig<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_screenelement_.uiactor.html" class="tsd-signature-type">UIActor</a></li>
+						<li class="tsd-signature tsd-kind-icon">new UIActor<span class="tsd-signature-symbol">(</span>config<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_actor_.actorargs.html" class="tsd-signature-type">ActorArgs</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_screenelement_.uiactor.html" class="tsd-signature-type">UIActor</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides ActorImpl.__constructor</p>
+								<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_actor_.actor.html">Actor</a>.<a href="_actor_.actor.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/Actor.ts#L1407">Actor.ts:1407</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/ScreenElement.ts#L14">ScreenElement.ts:14</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_screenelement_.uiactor.html" class="tsd-signature-type">UIActor</a></h4>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides ActorImpl.__constructor</p>
+								<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_actor_.actor.html">Actor</a>.<a href="_actor_.actor.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/Actor.ts#L1408">Actor.ts:1408</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/ScreenElement.ts#L16">ScreenElement.ts:16</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> xOrConfig: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> y: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The starting y coordinate of the actor</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> width: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The starting width of the actor</p>
+										</div>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> height: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The starting height of the actor</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_screenelement_.uiactor.html" class="tsd-signature-type">UIActor</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_actor_.actor.html">Actor</a>.<a href="_actor_.actor.html#constructor">constructor</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/ScreenElement.ts#L17">ScreenElement.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -504,40 +293,24 @@ actor.assign({
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> config: <a href="../interfaces/_actor_.actorargs.html" class="tsd-signature-type">ActorArgs</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h4>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Overrides ActorImpl.__constructor</p>
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/Actor.ts#L1409">Actor.ts:1409</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> x: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> y: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> width: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> height: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> color: <a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_screenelement_.uiactor.html" class="tsd-signature-type">UIActor</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_engine" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _engine</h3>
+					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#_engine">_engine</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/ScreenElement.ts#L14">ScreenElement.ts:14</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="actionqueue" class="tsd-anchor"></a>
 					<h3> action<wbr>Queue</h3>
@@ -623,7 +396,7 @@ actor.assign({
 						<div class="lead">
 							<p>Access to the current drawing for the actor, this can be
 								an <a href="_drawing_animation_.animation.html">Animation</a>, <a href="_drawing_sprite_.sprite.html">Sprite</a>, or <a href="_collision_shape_.shape.html#polygon">Polygon</a>.
-							Set drawings with <a href="_actor_.actor.html#setdrawing">setDrawing</a>.</p>
+							Set drawings with <a href="_screenelement_.uiactor.html#setdrawing">setDrawing</a>.</p>
 						</div>
 					</div>
 				</section>
@@ -739,7 +512,7 @@ actor.assign({
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The opacity of an actor. Passing in a color in the <a href="_actor_.actor.html#constructor">constructor</a> will use the
+							<p>The opacity of an actor. Passing in a color in the <a href="_screenelement_.uiactor.html#constructor">constructor</a> will use the
 							color&#39;s opacity.</p>
 						</div>
 					</div>
@@ -1686,30 +1459,21 @@ actor.assign({
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="_initialize" class="tsd-anchor"></a>
 					<h3> _initialize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">_initialize<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from ActorImpl._initialize</p>
+								<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#_initialize">_initialize</a></p>
+								<p>Overrides ActorImpl._initialize</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/Actor.ts#L555">Actor.ts:555</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/ScreenElement.ts#L39">ScreenElement.ts:39</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Initializes this actor and all it&#39;s child actors, meant to be called by the Scene before first update not by users of Excalibur.</p>
-								</div>
-								<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
-								<dl class="tsd-comment-tags">
-									<dt >internal</dt>
-									<dd ></dd>
-								</dl>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1738,7 +1502,7 @@ actor.assign({
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
 								</div>
-								<p>Internal <em>postdraw handler for &lt;a href=&quot;_actor</em>.actor.html#onpostdraw&quot;&gt;onPostDraw</a> lifecycle event</p>
+								<p>Internal <em>postdraw handler for &lt;a href=&quot;_screenelement</em>.uiactor.html#onpostdraw&quot;&gt;onPostDraw</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1775,7 +1539,7 @@ actor.assign({
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
 								</div>
-								<p>Internal <em>prekill handler for &lt;a href=&quot;_actor</em>.actor.html#onpostkill&quot;&gt;onPostKill</a> lifecycle event</p>
+								<p>Internal <em>prekill handler for &lt;a href=&quot;_screenelement</em>.uiactor.html#onpostkill&quot;&gt;onPostKill</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1809,7 +1573,7 @@ actor.assign({
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
 								</div>
-								<p>Internal <em>preupdate handler for &lt;a href=&quot;_actor</em>.actor.html#onpostupdate&quot;&gt;onPostUpdate</a> lifecycle event</p>
+								<p>Internal <em>preupdate handler for &lt;a href=&quot;_screenelement</em>.uiactor.html#onpostupdate&quot;&gt;onPostUpdate</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1846,7 +1610,7 @@ actor.assign({
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
 								</div>
-								<p>Internal <em>predraw handler for &lt;a href=&quot;_actor</em>.actor.html#onpredraw&quot;&gt;onPreDraw</a> lifecycle event</p>
+								<p>Internal <em>predraw handler for &lt;a href=&quot;_screenelement</em>.uiactor.html#onpredraw&quot;&gt;onPreDraw</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1883,7 +1647,7 @@ actor.assign({
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
 								</div>
-								<p>Internal <em>prekill handler for &lt;a href=&quot;_actor</em>.actor.html#onprekill&quot;&gt;onPreKill</a> lifecycle event</p>
+								<p>Internal <em>prekill handler for &lt;a href=&quot;_screenelement</em>.uiactor.html#onprekill&quot;&gt;onPreKill</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -1917,7 +1681,7 @@ actor.assign({
 								<div class="lead">
 									<p>It is not recommended that internal excalibur methods be overridden, do so at your own risk.</p>
 								</div>
-								<p>Internal <em>preupdate handler for &lt;a href=&quot;_actor</em>.actor.html#onpreupdate&quot;&gt;onPreUpdate</a> lifecycle event</p>
+								<p>Internal <em>preupdate handler for &lt;a href=&quot;_screenelement</em>.uiactor.html#onpreupdate&quot;&gt;onPreUpdate</a> lifecycle event</p>
 								<dl class="tsd-comment-tags">
 									<dt >internal</dt>
 									<dd ></dd>
@@ -2012,7 +1776,7 @@ actor.assign({
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a whole texture as the &quot;default&quot; drawing. Set a drawing using <a href="_actor_.actor.html#setdrawing">setDrawing</a>.</p>
+									<p>Adds a whole texture as the &quot;default&quot; drawing. Set a drawing using <a href="_screenelement_.uiactor.html#setdrawing">setDrawing</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2032,7 +1796,7 @@ actor.assign({
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a whole sprite as the &quot;default&quot; drawing. Set a drawing using <a href="_actor_.actor.html#setdrawing">setDrawing</a>.</p>
+									<p>Adds a whole sprite as the &quot;default&quot; drawing. Set a drawing using <a href="_screenelement_.uiactor.html#setdrawing">setDrawing</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2052,7 +1816,7 @@ actor.assign({
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Adds a drawing to the list of available drawings for an actor. Set a drawing using <a href="_actor_.actor.html#setdrawing">setDrawing</a>.</p>
+									<p>Adds a drawing to the list of available drawings for an actor. Set a drawing using <a href="_screenelement_.uiactor.html#setdrawing">setDrawing</a>.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2074,44 +1838,31 @@ actor.assign({
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="contains" class="tsd-anchor"></a>
 					<h3> contains</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">contains<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, recurse<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">contains<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, useWorld<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from ActorImpl.contains</p>
+								<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#contains">contains</a></p>
+								<p>Overrides ActorImpl.contains</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/Actor.ts#L1097">Actor.ts:1097</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/9b84a25/src/engine/ScreenElement.ts#L44">ScreenElement.ts:44</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Tests whether the x/y specified are contained in the actor</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>x: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>X coordinate to test (in world coordinates)</p>
-									</div>
 								</li>
 								<li>
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Y coordinate to test (in world coordinates)</p>
-									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> recurse: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>checks whether the x/y are contained in any child actors (if they exist).</p>
-									</div>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> useWorld: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -6471,264 +6222,261 @@ actor.assign({
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_actor_.html">"<wbr>Actor"</a>
+						<a href="../modules/_screenelement_.html">"<wbr>Screen<wbr>Element"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="_screenelement_.screenelement.html" class="tsd-kind-icon">Screen<wbr>Element</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_actor_.actor.html" class="tsd-kind-icon">Actor</a>
+						<a href="_screenelement_.uiactor.html" class="tsd-kind-icon">UIActor</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_actor_.actor.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="_screenelement_.uiactor.html#_engine" class="tsd-kind-icon">_engine</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#actionqueue" class="tsd-kind-icon">action<wbr>Queue</a>
+								<a href="_screenelement_.uiactor.html#actionqueue" class="tsd-kind-icon">action<wbr>Queue</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#actions" class="tsd-kind-icon">actions</a>
+								<a href="_screenelement_.uiactor.html#actions" class="tsd-kind-icon">actions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#anchor" class="tsd-kind-icon">anchor</a>
+								<a href="_screenelement_.uiactor.html#anchor" class="tsd-kind-icon">anchor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#children" class="tsd-kind-icon">children</a>
+								<a href="_screenelement_.uiactor.html#children" class="tsd-kind-icon">children</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#currentdrawing" class="tsd-kind-icon">current<wbr>Drawing</a>
+								<a href="_screenelement_.uiactor.html#currentdrawing" class="tsd-kind-icon">current<wbr>Drawing</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#enablecapturepointer" class="tsd-kind-icon">enable<wbr>Capture<wbr>Pointer</a>
+								<a href="_screenelement_.uiactor.html#enablecapturepointer" class="tsd-kind-icon">enable<wbr>Capture<wbr>Pointer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
+								<a href="_screenelement_.uiactor.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#frames" class="tsd-kind-icon">frames</a>
+								<a href="_screenelement_.uiactor.html#frames" class="tsd-kind-icon">frames</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#id" class="tsd-kind-icon">id</a>
+								<a href="_screenelement_.uiactor.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#isoffscreen" class="tsd-kind-icon">is<wbr>Off<wbr>Screen</a>
+								<a href="_screenelement_.uiactor.html#isoffscreen" class="tsd-kind-icon">is<wbr>Off<wbr>Screen</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#logger" class="tsd-kind-icon">logger</a>
+								<a href="_screenelement_.uiactor.html#logger" class="tsd-kind-icon">logger</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#opacity" class="tsd-kind-icon">opacity</a>
+								<a href="_screenelement_.uiactor.html#opacity" class="tsd-kind-icon">opacity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#parent" class="tsd-kind-icon">parent</a>
+								<a href="_screenelement_.uiactor.html#parent" class="tsd-kind-icon">parent</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a>
+								<a href="_screenelement_.uiactor.html#previousopacity" class="tsd-kind-icon">previous<wbr>Opacity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#scene" class="tsd-kind-icon">scene</a>
+								<a href="_screenelement_.uiactor.html#scene" class="tsd-kind-icon">scene</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#traits" class="tsd-kind-icon">traits</a>
+								<a href="_screenelement_.uiactor.html#traits" class="tsd-kind-icon">traits</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#visible" class="tsd-kind-icon">visible</a>
+								<a href="_screenelement_.uiactor.html#visible" class="tsd-kind-icon">visible</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="_actor_.actor.html#maxid" class="tsd-kind-icon">max<wbr>Id</a>
+								<a href="_screenelement_.uiactor.html#maxid" class="tsd-kind-icon">max<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#acc" class="tsd-kind-icon">acc</a>
+								<a href="_screenelement_.uiactor.html#acc" class="tsd-kind-icon">acc</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#body" class="tsd-kind-icon">body</a>
+								<a href="_screenelement_.uiactor.html#body" class="tsd-kind-icon">body</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#center" class="tsd-kind-icon">center</a>
+								<a href="_screenelement_.uiactor.html#center" class="tsd-kind-icon">center</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#color" class="tsd-kind-icon">color</a>
+								<a href="_screenelement_.uiactor.html#color" class="tsd-kind-icon">color</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#draggable" class="tsd-kind-icon">draggable</a>
+								<a href="_screenelement_.uiactor.html#draggable" class="tsd-kind-icon">draggable</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#height" class="tsd-kind-icon">height</a>
+								<a href="_screenelement_.uiactor.html#height" class="tsd-kind-icon">height</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
+								<a href="_screenelement_.uiactor.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#oldacc" class="tsd-kind-icon">old<wbr>Acc</a>
+								<a href="_screenelement_.uiactor.html#oldacc" class="tsd-kind-icon">old<wbr>Acc</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#oldpos" class="tsd-kind-icon">old<wbr>Pos</a>
+								<a href="_screenelement_.uiactor.html#oldpos" class="tsd-kind-icon">old<wbr>Pos</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#oldscale" class="tsd-kind-icon">old<wbr>Scale</a>
+								<a href="_screenelement_.uiactor.html#oldscale" class="tsd-kind-icon">old<wbr>Scale</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#oldvel" class="tsd-kind-icon">old<wbr>Vel</a>
+								<a href="_screenelement_.uiactor.html#oldvel" class="tsd-kind-icon">old<wbr>Vel</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#pos" class="tsd-kind-icon">pos</a>
+								<a href="_screenelement_.uiactor.html#pos" class="tsd-kind-icon">pos</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#rotation" class="tsd-kind-icon">rotation</a>
+								<a href="_screenelement_.uiactor.html#rotation" class="tsd-kind-icon">rotation</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#rx" class="tsd-kind-icon">rx</a>
+								<a href="_screenelement_.uiactor.html#rx" class="tsd-kind-icon">rx</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#scale" class="tsd-kind-icon">scale</a>
+								<a href="_screenelement_.uiactor.html#scale" class="tsd-kind-icon">scale</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#sx" class="tsd-kind-icon">sx</a>
+								<a href="_screenelement_.uiactor.html#sx" class="tsd-kind-icon">sx</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#sy" class="tsd-kind-icon">sy</a>
+								<a href="_screenelement_.uiactor.html#sy" class="tsd-kind-icon">sy</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#vel" class="tsd-kind-icon">vel</a>
+								<a href="_screenelement_.uiactor.html#vel" class="tsd-kind-icon">vel</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#width" class="tsd-kind-icon">width</a>
+								<a href="_screenelement_.uiactor.html#width" class="tsd-kind-icon">width</a>
 							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#z" class="tsd-kind-icon">z</a>
+								<a href="_screenelement_.uiactor.html#z" class="tsd-kind-icon">z</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#_initialize" class="tsd-kind-icon">_initialize</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_initialize" class="tsd-kind-icon">_initialize</a>
+								<a href="_screenelement_.uiactor.html#_postdraw" class="tsd-kind-icon">_postdraw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_postdraw" class="tsd-kind-icon">_postdraw</a>
+								<a href="_screenelement_.uiactor.html#_postkill" class="tsd-kind-icon">_postkill</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_postkill" class="tsd-kind-icon">_postkill</a>
+								<a href="_screenelement_.uiactor.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
+								<a href="_screenelement_.uiactor.html#_predraw" class="tsd-kind-icon">_predraw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_predraw" class="tsd-kind-icon">_predraw</a>
+								<a href="_screenelement_.uiactor.html#_prekill" class="tsd-kind-icon">_prekill</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_prekill" class="tsd-kind-icon">_prekill</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
+								<a href="_screenelement_.uiactor.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-								<a href="_actor_.actor.html#_reapplyeffects" class="tsd-kind-icon">_reapply<wbr>Effects</a>
+								<a href="_screenelement_.uiactor.html#_reapplyeffects" class="tsd-kind-icon">_reapply<wbr>Effects</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#add" class="tsd-kind-icon">add</a>
+								<a href="_screenelement_.uiactor.html#add" class="tsd-kind-icon">add</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#adddrawing" class="tsd-kind-icon">add<wbr>Drawing</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#contains" class="tsd-kind-icon">contains</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#draw" class="tsd-kind-icon">draw</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#emit" class="tsd-kind-icon">emit</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#getancestors" class="tsd-kind-icon">get<wbr>Ancestors</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#getglobalscale" class="tsd-kind-icon">get<wbr>Global<wbr>Scale</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#getworldpos" class="tsd-kind-icon">get<wbr>World<wbr>Pos</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#getworldrotation" class="tsd-kind-icon">get<wbr>World<wbr>Rotation</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#getzindex" class="tsd-kind-icon">getZIndex</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#kill" class="tsd-kind-icon">kill</a>
+								<a href="_screenelement_.uiactor.html#adddrawing" class="tsd-kind-icon">add<wbr>Drawing</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_actor_.actor.html#off" class="tsd-kind-icon">off</a>
+								<a href="_screenelement_.uiactor.html#contains" class="tsd-kind-icon">contains</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#draw" class="tsd-kind-icon">draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#emit" class="tsd-kind-icon">emit</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#getancestors" class="tsd-kind-icon">get<wbr>Ancestors</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#getglobalscale" class="tsd-kind-icon">get<wbr>Global<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#getworldpos" class="tsd-kind-icon">get<wbr>World<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#getworldrotation" class="tsd-kind-icon">get<wbr>World<wbr>Rotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#getzindex" class="tsd-kind-icon">getZIndex</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#kill" class="tsd-kind-icon">kill</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_actor_.actor.html#on" class="tsd-kind-icon">on</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#onpostkill" class="tsd-kind-icon">on<wbr>Post<wbr>Kill</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#onprekill" class="tsd-kind-icon">on<wbr>Pre<wbr>Kill</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
+								<a href="_screenelement_.uiactor.html#off" class="tsd-kind-icon">off</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
-								<a href="_actor_.actor.html#once" class="tsd-kind-icon">once</a>
+								<a href="_screenelement_.uiactor.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#remove" class="tsd-kind-icon">remove</a>
+								<a href="_screenelement_.uiactor.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#setdrawing" class="tsd-kind-icon">set<wbr>Drawing</a>
+								<a href="_screenelement_.uiactor.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#setzindex" class="tsd-kind-icon">setZIndex</a>
+								<a href="_screenelement_.uiactor.html#onpostkill" class="tsd-kind-icon">on<wbr>Post<wbr>Kill</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#unkill" class="tsd-kind-icon">unkill</a>
+								<a href="_screenelement_.uiactor.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#update" class="tsd-kind-icon">update</a>
+								<a href="_screenelement_.uiactor.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#within" class="tsd-kind-icon">within</a>
+								<a href="_screenelement_.uiactor.html#onprekill" class="tsd-kind-icon">on<wbr>Pre<wbr>Kill</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#once" class="tsd-kind-icon">once</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#remove" class="tsd-kind-icon">remove</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#setdrawing" class="tsd-kind-icon">set<wbr>Drawing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#setzindex" class="tsd-kind-icon">setZIndex</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#unkill" class="tsd-kind-icon">unkill</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.uiactor.html#within" class="tsd-kind-icon">within</a>
 							</li>
 							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited">
-								<a href="_actor_.actor.html#capturepointer" class="tsd-kind-icon">capture<wbr>Pointer</a>
+								<a href="_screenelement_.uiactor.html#capturepointer" class="tsd-kind-icon">capture<wbr>Pointer</a>
 							</li>
 							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-inherited tsd-is-static">
-								<a href="_actor_.actor.html#defaults" class="tsd-kind-icon">defaults</a>
+								<a href="_screenelement_.uiactor.html#defaults" class="tsd-kind-icon">defaults</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_actor_.actorargs.html" class="tsd-kind-icon">Actor<wbr>Args</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_actor_.actordefaults.html" class="tsd-kind-icon">Actor<wbr>Defaults</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_actor_.html#isactor" class="tsd-kind-icon">is<wbr>Actor</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
