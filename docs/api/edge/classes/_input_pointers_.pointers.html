@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_input_pointer_.html">&quot;Input/Pointer&quot;</a>
+					<a href="../modules/_input_pointers_.html">&quot;Input/Pointers&quot;</a>
 				</li>
 				<li>
-					<a href="_input_pointer_.pointers.html">Pointers</a>
+					<a href="_input_pointers_.pointers.html">Pointers</a>
 				</li>
 			</ul>
 			<h1>Class Pointers</h1>
@@ -75,18 +75,18 @@
 						<p>Handles pointer events (mouse, touch, stylus, etc.) and normalizes to
 						<a href="http://www.w3.org/TR/pointerevents/">W3C Pointer Events</a>.</p>
 					</div>
-					<p>There is always at least one <a href="_input_pointer_.pointer.html">Pointer</a> available (<a href="_input_pointer_.pointers.html#primary">Pointers.primary</a>) and
+					<p>There is always at least one <a href="_input_pointer_.pointer.html">Pointer</a> available (<a href="_input_pointers_.pointers.html#primary">Pointers.primary</a>) and
 					you can request multiple pointers to support multi-touch scenarios.</p>
-					<p>Since <a href="_input_pointer_.pointers.html#primary">Pointers.primary</a> normalizes both mouse and touch events, your game
+					<p>Since <a href="_input_pointers_.pointers.html#primary">Pointers.primary</a> normalizes both mouse and touch events, your game
 						automatically supports touch for the primary pointer by default. When
 						you handle the events, you can customize what your game does based on the type
 					of pointer, if applicable.</p>
-					<p>Excalibur handles mouse/touch events and normalizes them to a <a href="_input_pointer_.pointerevent.html">PointerEvent</a>
+					<p>Excalibur handles mouse/touch events and normalizes them to a <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>
 					that your game can subscribe to and handle (<code>engine.input.pointers</code>).</p>
 					<a href="#events" id="events" style="color: inherit; text-decoration: none;">
 						<h2>Events</h2>
 					</a>
-					<p>You can subscribe to pointer events through <code>engine.input.pointers.on</code>. A <a href="_input_pointer_.pointerevent.html">PointerEvent</a> object is
+					<p>You can subscribe to pointer events through <code>engine.input.pointers.on</code>. A <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a> object is
 					passed to your handler which offers information about the pointer input being received.</p>
 					<ul>
 						<li><code>down</code> - When a pointer is pressed down (any mouse button or finger press)</li>
@@ -101,7 +101,7 @@ engine.input.pointers.primary.on(<span class="hljs-string">'cancel'</span>, <spa
 					<a href="#wheel-event" id="wheel-event" style="color: inherit; text-decoration: none;">
 						<h3>Wheel Event</h3>
 					</a>
-					<p>You can also subscribe to the mouse wheel event through <code>engine.input.pointers.on</code>. A <a href="_input_pointer_.wheelevent.html">WheelEvent</a>
+					<p>You can also subscribe to the mouse wheel event through <code>engine.input.pointers.on</code>. A <a href="_input_pointerevents_.wheelevent.html">WheelEvent</a>
 					object is passed to your handler which offers information about the wheel event being received.</p>
 					<ul>
 						<li><code>wheel</code> - When a mousewheel is activated (trackpad scroll or mouse wheel)</li>
@@ -133,7 +133,7 @@ engine.input.pointers.primary.lastWorldPos;</code></pre>
 						<h2>Responding to input</h2>
 					</a>
 					<p>The primary pointer can be a mouse, stylus, or single finger touch event. You
-					can inspect what type of pointer it is from the <a href="_input_pointer_.pointerevent.html">PointerEvent</a> handled.</p>
+					can inspect what type of pointer it is from the <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a> handled.</p>
 					<pre><code class="language-js">engine.input.pointers.primary.on(<span class="hljs-string">'down'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">pe</span>) </span>{
   <span class="hljs-keyword">if</span> (pe.pointerType === ex.Input.PointerType.Mouse) {
     ex.Logger.getInstance().info(<span class="hljs-string">'Mouse event:'</span>, pe);
@@ -219,29 +219,30 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_input_pointer_.pointers.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="_input_pointers_.pointers.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointers.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#primary" class="tsd-kind-icon">primary</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointers_.pointers.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#primary" class="tsd-kind-icon">primary</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#at" class="tsd-kind-icon">at</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#count" class="tsd-kind-icon">count</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointers.html#emit" class="tsd-kind-icon">emit</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#init" class="tsd-kind-icon">init</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointers.html#off" class="tsd-kind-icon">off</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_input_pointer_.pointers.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointers.html#once" class="tsd-kind-icon">once</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#triggerevent" class="tsd-kind-icon">trigger<wbr>Event</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#update" class="tsd-kind-icon">update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointers.html#updateactorsunderpointer" class="tsd-kind-icon">update<wbr>Actors<wbr>Under<wbr>Pointer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#at" class="tsd-kind-icon">at</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#checkandupdateactorunderpointer" class="tsd-kind-icon">check<wbr>And<wbr>Update<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#count" class="tsd-kind-icon">count</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#dispatchpointerevents" class="tsd-kind-icon">dispatch<wbr>Pointer<wbr>Events</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointers_.pointers.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#init" class="tsd-kind-icon">init</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointers_.pointers.html#off" class="tsd-kind-icon">off</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_input_pointers_.pointers.html#on" class="tsd-kind-icon">on</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointers_.pointers.html#once" class="tsd-kind-icon">once</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#triggerevent" class="tsd-kind-icon">trigger<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointers_.pointers.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -253,14 +254,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pointers<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointers.html" class="tsd-signature-type">Pointers</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Pointers<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_input_pointers_.pointers.html" class="tsd-signature-type">Pointers</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L402">Input/Pointer.ts:402</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L71">Input/Pointers.ts:71</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -269,7 +270,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_input_pointer_.pointers.html" class="tsd-signature-type">Pointers</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_input_pointers_.pointers.html" class="tsd-signature-type">Pointers</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -283,7 +284,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L13">Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L13">Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -298,7 +299,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 					<div class="tsd-signature tsd-kind-icon">primary<span class="tsd-signature-symbol">:</span> <a href="_input_pointer_.pointer.html" class="tsd-signature-type">Pointer</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L428">Input/Pointer.ts:428</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L97">Input/Pointers.ts:97</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -320,7 +321,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L559">Input/Pointer.ts:559</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L232">Input/Pointers.ts:232</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -342,6 +343,29 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="checkandupdateactorunderpointer" class="tsd-anchor"></a>
+					<h3> check<wbr>And<wbr>Update<wbr>Actor<wbr>Under<wbr>Pointer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">check<wbr>And<wbr>Update<wbr>Actor<wbr>Under<wbr>Pointer<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L251">Input/Pointers.ts:251</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>actor: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="count" class="tsd-anchor"></a>
 					<h3> count</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -351,7 +375,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L574">Input/Pointer.ts:574</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L247">Input/Pointers.ts:247</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -360,6 +384,23 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="dispatchpointerevents" class="tsd-anchor"></a>
+					<h3> dispatch<wbr>Pointer<wbr>Events</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">dispatch<wbr>Pointer<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L338">Input/Pointers.ts:338</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -375,7 +416,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 								<p>Implementation of <a href="../interfaces/_interfaces_evented_.eventable.html">Eventable</a>.<a href="../interfaces/_interfaces_evented_.eventable.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L46">Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L46">Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -412,7 +453,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L433">Input/Pointer.ts:433</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L102">Input/Pointers.ts:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -441,7 +482,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L37">Class.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L37">Class.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -506,7 +547,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L413">Input/Pointer.ts:413</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L82">Input/Pointers.ts:82</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -519,14 +560,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -542,7 +583,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L414">Input/Pointer.ts:414</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L83">Input/Pointers.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -555,14 +596,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -578,7 +619,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L415">Input/Pointer.ts:415</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L84">Input/Pointers.ts:84</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -591,14 +632,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -614,7 +655,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L416">Input/Pointer.ts:416</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L85">Input/Pointers.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -627,14 +668,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -650,7 +691,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L417">Input/Pointer.ts:417</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L86">Input/Pointers.ts:86</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -663,14 +704,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -686,7 +727,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L418">Input/Pointer.ts:418</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L87">Input/Pointers.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -699,14 +740,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.pointerevent.html" class="tsd-signature-type">PointerEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -722,7 +763,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L419">Input/Pointer.ts:419</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L88">Input/Pointers.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -735,14 +776,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointer_.wheelevent.html" class="tsd-signature-type">WheelEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_input_pointerevents_.wheelevent.html" class="tsd-signature-type">WheelEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_input_pointer_.wheelevent.html" class="tsd-signature-type">WheelEvent</a></h5>
+															<h5>event: <a href="_input_pointerevents_.wheelevent.html" class="tsd-signature-type">WheelEvent</a></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -758,7 +799,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L420">Input/Pointer.ts:420</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L89">Input/Pointers.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -803,7 +844,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L56">Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L56">Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -852,13 +893,13 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 					<a name="triggerevent" class="tsd-anchor"></a>
 					<h3> trigger<wbr>Event</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">trigger<wbr>Event<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"up"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"down"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"move"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cancel"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"wheel"</span>, pos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a>, button<span class="tsd-signature-symbol">?: </span><a href="../enums/_input_pointer_.nativepointerbutton.html" class="tsd-signature-type">NativePointerButton</a>, pointerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"mouse"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"touch"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pen"</span>, pointerId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">trigger<wbr>Event<span class="tsd-signature-symbol">(</span>eventName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">"up"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"down"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"move"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"cancel"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"wheel"</span>, pos<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> | </span><a href="_algebra_.globalcoordinates.html" class="tsd-signature-type">GlobalCoordinates</a>, button<span class="tsd-signature-symbol">?: </span><a href="../enums/_input_pointerevents_.nativepointerbutton.html" class="tsd-signature-type">NativePointerButton</a>, pointerType<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">"mouse"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"touch"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pen"</span>, pointerId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L489">Input/Pointer.ts:489</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L158">Input/Pointers.ts:158</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -877,7 +918,7 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> button: <a href="../enums/_input_pointer_.nativepointerbutton.html" class="tsd-signature-type">NativePointerButton</a><span class="tsd-signature-symbol"> =&nbsp;NativePointerButton.Left</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> button: <a href="../enums/_input_pointerevents_.nativepointerbutton.html" class="tsd-signature-type">NativePointerButton</a><span class="tsd-signature-symbol"> =&nbsp;NativePointerButton.Left</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> pointerType: <span class="tsd-signature-type">"mouse"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"touch"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"pen"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;mouse&quot;</span></h5>
@@ -900,32 +941,14 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L543">Input/Pointer.ts:543</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointers.ts#L216">Input/Pointers.ts:216</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="updateactorsunderpointer" class="tsd-anchor"></a>
-					<h3> update<wbr>Actors<wbr>Under<wbr>Pointer</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<wbr>Actors<wbr>Under<wbr>Pointer<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L578">Input/Pointer.ts:578</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>actor: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
-								</li>
-							</ul>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update all pointer events and pointers, meant to be called at the end of frame</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -939,125 +962,71 @@ player.on(<span class="hljs-string">'pointerup'</span>, <span class="hljs-functi
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_input_pointer_.html">"<wbr>Input/<wbr>Pointer"</a>
+						<a href="../modules/_input_pointers_.html">"<wbr>Input/<wbr>Pointers"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.nativepointerbutton.html" class="tsd-kind-icon">Native<wbr>Pointer<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.pointerbutton.html" class="tsd-kind-icon">Pointer<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.pointerscope.html" class="tsd-kind-icon">Pointer<wbr>Scope</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.pointertype.html" class="tsd-kind-icon">Pointer<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.wheeldeltamode.html" class="tsd-kind-icon">Wheel<wbr>Delta<wbr>Mode</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_input_pointer_.pointer.html" class="tsd-kind-icon">Pointer</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointercancelevent.html" class="tsd-kind-icon">Pointer<wbr>Cancel<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerdownevent.html" class="tsd-kind-icon">Pointer<wbr>Down<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerdragevent.html" class="tsd-kind-icon">Pointer<wbr>Drag<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerenterevent.html" class="tsd-kind-icon">Pointer<wbr>Enter<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerevent.html" class="tsd-kind-icon">Pointer<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointereventfactory.html" class="tsd-kind-icon">Pointer<wbr>Event<wbr>Factory</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerleaveevent.html" class="tsd-kind-icon">Pointer<wbr>Leave<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointermoveevent.html" class="tsd-kind-icon">Pointer<wbr>Move<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerupevent.html" class="tsd-kind-icon">Pointer<wbr>UpEvent</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_input_pointer_.pointers.html" class="tsd-kind-icon">Pointers</a>
+						<a href="_input_pointers_.pointers.html" class="tsd-kind-icon">Pointers</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_input_pointer_.pointers.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_input_pointers_.pointers.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_input_pointer_.pointers.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
+								<a href="_input_pointers_.pointers.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#primary" class="tsd-kind-icon">primary</a>
+								<a href="_input_pointers_.pointers.html#primary" class="tsd-kind-icon">primary</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#at" class="tsd-kind-icon">at</a>
+								<a href="_input_pointers_.pointers.html#at" class="tsd-kind-icon">at</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#count" class="tsd-kind-icon">count</a>
+								<a href="_input_pointers_.pointers.html#checkandupdateactorunderpointer" class="tsd-kind-icon">check<wbr>And<wbr>Update<wbr>Actor<wbr>Under<wbr>Pointer</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_input_pointers_.pointers.html#count" class="tsd-kind-icon">count</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_input_pointers_.pointers.html#dispatchpointerevents" class="tsd-kind-icon">dispatch<wbr>Pointer<wbr>Events</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_input_pointer_.pointers.html#emit" class="tsd-kind-icon">emit</a>
+								<a href="_input_pointers_.pointers.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#init" class="tsd-kind-icon">init</a>
+								<a href="_input_pointers_.pointers.html#init" class="tsd-kind-icon">init</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_input_pointer_.pointers.html#off" class="tsd-kind-icon">off</a>
+								<a href="_input_pointers_.pointers.html#off" class="tsd-kind-icon">off</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_input_pointer_.pointers.html#on" class="tsd-kind-icon">on</a>
+								<a href="_input_pointers_.pointers.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_input_pointer_.pointers.html#once" class="tsd-kind-icon">once</a>
+								<a href="_input_pointers_.pointers.html#once" class="tsd-kind-icon">once</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#triggerevent" class="tsd-kind-icon">trigger<wbr>Event</a>
+								<a href="_input_pointers_.pointers.html#triggerevent" class="tsd-kind-icon">trigger<wbr>Event</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#update" class="tsd-kind-icon">update</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointers.html#updateactorsunderpointer" class="tsd-kind-icon">update<wbr>Actors<wbr>Under<wbr>Pointer</a>
+								<a href="_input_pointers_.pointers.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.wheelevent.html" class="tsd-kind-icon">Wheel<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="../interfaces/_input_pointer_.actorsunderpointer.html" class="tsd-kind-icon">Actors<wbr>Under<wbr>Pointer</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/_input_pointers_.touch.html" class="tsd-kind-icon">Touch</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../interfaces/_input_pointer_.touch.html" class="tsd-kind-icon">Touch</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../interfaces/_input_pointer_.touchevent.html" class="tsd-kind-icon">Touch<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_input_pointer_.html#pointereventname" class="tsd-kind-icon">Pointer<wbr>Event<wbr>Name</a>
+						<a href="../interfaces/_input_pointers_.touchevent.html" class="tsd-kind-icon">Touch<wbr>Event</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/_input_pointer_.html#scrollwheelnormalizationfactor" class="tsd-kind-icon">Scroll<wbr>Wheel<wbr>Normalization<wbr>Factor</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/_input_pointer_.html#createpointereventbyname" class="tsd-kind-icon">create<wbr>Pointer<wbr>Event<wbr>ByName</a>
+						<a href="../modules/_input_pointers_.html#scrollwheelnormalizationfactor" class="tsd-kind-icon">Scroll<wbr>Wheel<wbr>Normalization<wbr>Factor</a>
 					</li>
 				</ul>
 			</nav>

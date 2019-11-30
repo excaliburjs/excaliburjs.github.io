@@ -110,6 +110,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#dragtarget" class="tsd-kind-icon">drag<wbr>Target</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#lastpagepos" class="tsd-kind-icon">last<wbr>Page<wbr>Pos</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#lastscreenpos" class="tsd-kind-icon">last<wbr>Screen<wbr>Pos</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#lastworldpos" class="tsd-kind-icon">last<wbr>World<wbr>Pos</a></li>
@@ -128,17 +129,18 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#addactorunderpointer" class="tsd-kind-icon">add<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#captureoldactorunderpointer" class="tsd-kind-icon">capture<wbr>Old<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#checkactorunderpointer" class="tsd-kind-icon">check<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#emit" class="tsd-kind-icon">emit</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#getactorsforevents" class="tsd-kind-icon">get<wbr>Actors<wbr>For<wbr>Events</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#getactorsunderpointer" class="tsd-kind-icon">get<wbr>Actors<wbr>Under<wbr>Pointer</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#hasactorunderpointerinlist" class="tsd-kind-icon">has<wbr>Actor<wbr>Under<wbr>Pointer<wbr>InList</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#getactorsunderpointerlastframe" class="tsd-kind-icon">get<wbr>Actors<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#isactorunderpointer" class="tsd-kind-icon">is<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_input_pointer_.pointer.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#removeactorunderpointer" class="tsd-kind-icon">remove<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#update" class="tsd-kind-icon">update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#wasactorunderpointerlastframe" class="tsd-kind-icon">was<wbr>Actor<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_input_pointer_.pointer.html#wasactorunderpointer" class="tsd-kind-icon">was<wbr>Actor<wbr>Under<wbr>Pointer</a></li>
 							</ul>
 						</section>
 					</div>
@@ -157,7 +159,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L863">Input/Pointer.ts:863</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L100">Input/Pointer.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_input_pointer_.pointer.html" class="tsd-signature-type">Pointer</a></h4>
@@ -173,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">drag<wbr>Target<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L863">Input/Pointer.ts:863</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L100">Input/Pointer.ts:100</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -189,7 +191,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L13">Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L13">Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -199,12 +201,22 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="id" class="tsd-anchor"></a>
+					<h3> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;Pointer._MAX_ID++</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L44">Input/Pointer.ts:44</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="lastpagepos" class="tsd-anchor"></a>
 					<h3> last<wbr>Page<wbr>Pos</h3>
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Page<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L848">Input/Pointer.ts:848</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L85">Input/Pointer.ts:85</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -219,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Screen<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L853">Input/Pointer.ts:853</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L90">Input/Pointer.ts:90</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -234,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>World<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L858">Input/Pointer.ts:858</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L95">Input/Pointer.ts:95</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -256,7 +268,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L841">Input/Pointer.ts:841</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L78">Input/Pointer.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -278,7 +290,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L834">Input/Pointer.ts:834</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L71">Input/Pointer.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,7 +312,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L827">Input/Pointer.ts:827</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L64">Input/Pointer.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -322,7 +334,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L820">Input/Pointer.ts:820</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L57">Input/Pointer.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -347,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L886">Input/Pointer.ts:886</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L127">Input/Pointer.ts:127</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -369,19 +381,33 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="captureoldactorunderpointer" class="tsd-anchor"></a>
-					<h3> capture<wbr>Old<wbr>Actor<wbr>Under<wbr>Pointer</h3>
+					<a name="checkactorunderpointer" class="tsd-anchor"></a>
+					<h3> check<wbr>Actor<wbr>Under<wbr>Pointer</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">capture<wbr>Old<wbr>Actor<wbr>Under<wbr>Pointer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">check<wbr>Actor<wbr>Under<wbr>Pointer<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L945">Input/Pointer.ts:945</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L183">Input/Pointer.ts:183</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if Pointer has a specific Actor under.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>actor: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An Actor for check;</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -397,7 +423,7 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_evented_.eventable.html">Eventable</a>.<a href="../interfaces/_interfaces_evented_.eventable.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L46">Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L46">Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,6 +451,28 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getactorsforevents" class="tsd-anchor"></a>
+					<h3> get<wbr>Actors<wbr>For<wbr>Events</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Actors<wbr>For<wbr>Events<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L173">Input/Pointer.ts:173</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns all actors relevant for events to pointer this frame</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getactorsunderpointer" class="tsd-anchor"></a>
 					<h3> get<wbr>Actors<wbr>Under<wbr>Pointer</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -434,12 +482,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L908">Input/Pointer.ts:908</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L159">Input/Pointer.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an Actor from actorsUnderPointer object.</p>
+									<p>Returns all actors under this pointer this frame</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h4>
@@ -447,33 +495,24 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="hasactorunderpointerinlist" class="tsd-anchor"></a>
-					<h3> has<wbr>Actor<wbr>Under<wbr>Pointer<wbr>InList</h3>
+					<a name="getactorsunderpointerlastframe" class="tsd-anchor"></a>
+					<h3> get<wbr>Actors<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>Actor<wbr>Under<wbr>Pointer<wbr>InList<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Actors<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L941">Input/Pointer.ts:941</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L166">Input/Pointer.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if Pointer has a specific Actor in ActorsUnderPointer list.</p>
+									<p>Returns all actors that are no longer under the pointer this frame</p>
 								</div>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>actor: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>An Actor for check;</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -487,12 +526,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L926">Input/Pointer.ts:926</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L202">Input/Pointer.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Checks if Pointer has a specific Actor under.</p>
+									<p>Checks if Pointer has a specific Actor in ActorsUnderPointer list.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -519,7 +558,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L37">Class.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L37">Class.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -577,7 +616,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L25">Class.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L25">Class.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -634,7 +673,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Class.ts#L56">Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Class.ts#L56">Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -689,7 +728,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L897">Input/Pointer.ts:897</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L147">Input/Pointer.ts:147</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -720,30 +759,42 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L873">Input/Pointer.ts:873</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L113">Input/Pointer.ts:113</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update the state of current pointer, meant to be called a the end of frame</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="wasactorunderpointerlastframe" class="tsd-anchor"></a>
-					<h3> was<wbr>Actor<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame</h3>
+					<a name="wasactorunderpointer" class="tsd-anchor"></a>
+					<h3> was<wbr>Actor<wbr>Under<wbr>Pointer</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">was<wbr>Actor<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">was<wbr>Actor<wbr>Under<wbr>Pointer<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ab2968d/src/engine/Input/Pointer.ts#L933">Input/Pointer.ts:933</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/dd54e82/src/engine/Input/Pointer.ts#L194">Input/Pointer.ts:194</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if an actor was under the pointer last frame</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>actor: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -766,19 +817,10 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.nativepointerbutton.html" class="tsd-kind-icon">Native<wbr>Pointer<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.pointerbutton.html" class="tsd-kind-icon">Pointer<wbr>Button</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_input_pointer_.pointerscope.html" class="tsd-kind-icon">Pointer<wbr>Scope</a>
 					</li>
 					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_input_pointer_.pointertype.html" class="tsd-kind-icon">Pointer<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_input_pointer_.wheeldeltamode.html" class="tsd-kind-icon">Wheel<wbr>Delta<wbr>Mode</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -793,6 +835,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_input_pointer_.pointer.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_input_pointer_.pointer.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_input_pointer_.pointer.html#lastpagepos" class="tsd-kind-icon">last<wbr>Page<wbr>Pos</a>
@@ -819,16 +864,19 @@
 								<a href="_input_pointer_.pointer.html#addactorunderpointer" class="tsd-kind-icon">add<wbr>Actor<wbr>Under<wbr>Pointer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointer.html#captureoldactorunderpointer" class="tsd-kind-icon">capture<wbr>Old<wbr>Actor<wbr>Under<wbr>Pointer</a>
+								<a href="_input_pointer_.pointer.html#checkactorunderpointer" class="tsd-kind-icon">check<wbr>Actor<wbr>Under<wbr>Pointer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_input_pointer_.pointer.html#emit" class="tsd-kind-icon">emit</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_input_pointer_.pointer.html#getactorsforevents" class="tsd-kind-icon">get<wbr>Actors<wbr>For<wbr>Events</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_input_pointer_.pointer.html#getactorsunderpointer" class="tsd-kind-icon">get<wbr>Actors<wbr>Under<wbr>Pointer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointer.html#hasactorunderpointerinlist" class="tsd-kind-icon">has<wbr>Actor<wbr>Under<wbr>Pointer<wbr>InList</a>
+								<a href="_input_pointer_.pointer.html#getactorsunderpointerlastframe" class="tsd-kind-icon">get<wbr>Actors<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_input_pointer_.pointer.html#isactorunderpointer" class="tsd-kind-icon">is<wbr>Actor<wbr>Under<wbr>Pointer</a>
@@ -849,62 +897,14 @@
 								<a href="_input_pointer_.pointer.html#update" class="tsd-kind-icon">update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_input_pointer_.pointer.html#wasactorunderpointerlastframe" class="tsd-kind-icon">was<wbr>Actor<wbr>Under<wbr>Pointer<wbr>Last<wbr>Frame</a>
+								<a href="_input_pointer_.pointer.html#wasactorunderpointer" class="tsd-kind-icon">was<wbr>Actor<wbr>Under<wbr>Pointer</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointercancelevent.html" class="tsd-kind-icon">Pointer<wbr>Cancel<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerdownevent.html" class="tsd-kind-icon">Pointer<wbr>Down<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerdragevent.html" class="tsd-kind-icon">Pointer<wbr>Drag<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerenterevent.html" class="tsd-kind-icon">Pointer<wbr>Enter<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerevent.html" class="tsd-kind-icon">Pointer<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointereventfactory.html" class="tsd-kind-icon">Pointer<wbr>Event<wbr>Factory</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerleaveevent.html" class="tsd-kind-icon">Pointer<wbr>Leave<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointermoveevent.html" class="tsd-kind-icon">Pointer<wbr>Move<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.pointerupevent.html" class="tsd-kind-icon">Pointer<wbr>UpEvent</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="_input_pointer_.pointers.html" class="tsd-kind-icon">Pointers</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_input_pointer_.wheelevent.html" class="tsd-kind-icon">Wheel<wbr>Event</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_input_pointer_.actorsunderpointer.html" class="tsd-kind-icon">Actors<wbr>Under<wbr>Pointer</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../interfaces/_input_pointer_.touch.html" class="tsd-kind-icon">Touch</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../interfaces/_input_pointer_.touchevent.html" class="tsd-kind-icon">Touch<wbr>Event</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_input_pointer_.html#pointereventname" class="tsd-kind-icon">Pointer<wbr>Event<wbr>Name</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/_input_pointer_.html#scrollwheelnormalizationfactor" class="tsd-kind-icon">Scroll<wbr>Wheel<wbr>Normalization<wbr>Factor</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/_input_pointer_.html#createpointereventbyname" class="tsd-kind-icon">create<wbr>Pointer<wbr>Event<wbr>ByName</a>
 					</li>
 				</ul>
 			</nav>
