@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SpriteArgs | Excalibur.js Edge API Documentation</title>
+	<title>DrawOptions | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,81 +56,24 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_drawing_sprite_.html">&quot;Drawing/Sprite&quot;</a>
+					<a href="../modules/_interfaces_drawable_.html">&quot;Interfaces/Drawable&quot;</a>
 				</li>
 				<li>
-					<a href="_drawing_sprite_.spriteargs.html">SpriteArgs</a>
+					<a href="_interfaces_drawable_.drawoptions.html">DrawOptions</a>
 				</li>
 			</ul>
-			<h1>Interface SpriteArgs</h1>
+			<h1>Interface DrawOptions</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<a href="#constructor-arguments" id="constructor-arguments" style="color: inherit; text-decoration: none;">
-							<h2>Constructor Arguments</h2>
-						</a>
-						<p>In Excalibur there are option bag constructors available on most types. These support any public property or member, methods are not supported. The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.</p>
-						<p>For example instead of doing this:</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-						<p>This is possible:</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> options: IActorArgs = {
-   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
-   width: <span class="hljs-number">100</span>,
-   height: <span class="hljs-number">100</span>,
-   color: ex.Color.Red,
-}
-
-<span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-						<p>In fact you can create a duplicate this way</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
-  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
-});
-<span class="hljs-keyword">const</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
-
-expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span></code></pre>
-						<p>Types that support option bags can have their properties mass assigned using the assign method.</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-
-actor.assign({
-  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
-  width: <span class="hljs-number">1000</span>,
-  color: ex.Color.Red
-});</code></pre>
-						<p>See:</p>
-						<ul>
-							<li><a href="../classes/_actor_.actor.html">Actor</a></li>
-							<li><a href="../classes/_drawing_animation_.animation.html">Animation</a></li>
-							<li><a href="../classes/_label_.label.html">Label</a></li>
-							<li><a href="../classes/_drawing_sprite_.sprite.html">Sprite</a></li>
-							<li><a href="../classes/_drawing_spritesheet_.spritesheet.html">SpriteSheet</a></li>
-							<li><a href="../classes/_drawing_spritesheet_.spritefont.html">SpriteFont</a></li>
-							<li><a href="../classes/_screenelement_.uiactor.html">UIActor</a></li>
-							<li><a href="../classes/_particles_.particle.html">Particle</a></li>
-							<li><a href="../classes/_particles_.particleemitter.html">ParticleEmitter</a></li>
-							<li><a href="../classes/_tilemap_.tilemap.html">TileMap</a></li>
-							<li><a href="../classes/_tilemap_.cell.html">Cell</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="tsd-signature-type">object</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">SpriteArgs</span>
-							</li>
-						</ul>
+						<span class="target">DrawOptions</span>
 					</li>
 				</ul>
 			</section>
@@ -141,15 +84,17 @@ actor.assign({
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#anchor" class="tsd-kind-icon">anchor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#fliphorizontal" class="tsd-kind-icon">flip<wbr>Horizontal</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#flipvertical" class="tsd-kind-icon">flip<wbr>Vertical</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#height" class="tsd-kind-icon">height</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#image" class="tsd-kind-icon">image</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#rotation" class="tsd-kind-icon">rotation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#scale" class="tsd-kind-icon">scale</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#width" class="tsd-kind-icon">width</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_drawing_sprite_.spriteargs.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#anchor" class="tsd-kind-icon">anchor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#ctx" class="tsd-kind-icon">ctx</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#drawheight" class="tsd-kind-icon">draw<wbr>Height</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#drawwidth" class="tsd-kind-icon">draw<wbr>Width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#fliphorizontal" class="tsd-kind-icon">flip<wbr>Horizontal</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#flipvertical" class="tsd-kind-icon">flip<wbr>Vertical</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#offset" class="tsd-kind-icon">offset</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#opacity" class="tsd-kind-icon">opacity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_interfaces_drawable_.drawoptions.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
 					</div>
@@ -163,7 +108,37 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">anchor<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L410">Drawing/Sprite.ts:410</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L13">Interfaces/Drawable.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ctx" class="tsd-anchor"></a>
+					<h3> ctx</h3>
+					<div class="tsd-signature tsd-kind-icon">ctx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CanvasRenderingContext2D</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L5">Interfaces/Drawable.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="drawheight" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> draw<wbr>Height</h3>
+					<div class="tsd-signature tsd-kind-icon">draw<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L9">Interfaces/Drawable.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="drawwidth" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> draw<wbr>Width</h3>
+					<div class="tsd-signature tsd-kind-icon">draw<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L8">Interfaces/Drawable.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -173,7 +148,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">flip<wbr>Horizontal<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L413">Drawing/Sprite.ts:413</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L11">Interfaces/Drawable.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,27 +158,27 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">flip<wbr>Vertical<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L412">Drawing/Sprite.ts:412</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L12">Interfaces/Drawable.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="height" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> height</h3>
-					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="offset" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> offset</h3>
+					<div class="tsd-signature tsd-kind-icon">offset<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L408">Drawing/Sprite.ts:408</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L14">Interfaces/Drawable.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="image" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> image</h3>
-					<div class="tsd-signature tsd-kind-icon">image<span class="tsd-signature-symbol">:</span> <a href="../classes/_resources_texture_.texture.html" class="tsd-signature-type">Texture</a></div>
+					<a name="opacity" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> opacity</h3>
+					<div class="tsd-signature tsd-kind-icon">opacity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L405">Drawing/Sprite.ts:405</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L15">Interfaces/Drawable.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -213,37 +188,27 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L409">Drawing/Sprite.ts:409</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="scale" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> scale</h3>
-					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L411">Drawing/Sprite.ts:411</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="width" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> width</h3>
-					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L407">Drawing/Sprite.ts:407</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L10">Interfaces/Drawable.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="x" class="tsd-anchor"></a>
-					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> x</h3>
+					<h3> x</h3>
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Drawing/Sprite.ts#L406">Drawing/Sprite.ts:406</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L6">Interfaces/Drawable.ts:6</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="y" class="tsd-anchor"></a>
+					<h3> y</h3>
+					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3739643/src/engine/Interfaces/Drawable.ts#L7">Interfaces/Drawable.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -256,51 +221,57 @@ actor.assign({
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_drawing_sprite_.html">"<wbr>Drawing/<wbr>Sprite"</a>
+						<a href="../modules/_interfaces_drawable_.html">"<wbr>Interfaces/<wbr>Drawable"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/_drawing_sprite_.sprite.html" class="tsd-kind-icon">Sprite</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_drawing_sprite_.spriteargs.html" class="tsd-kind-icon">Sprite<wbr>Args</a>
+						<a href="_interfaces_drawable_.drawoptions.html" class="tsd-kind-icon">Draw<wbr>Options</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#anchor" class="tsd-kind-icon">anchor</a>
+								<a href="_interfaces_drawable_.drawoptions.html#anchor" class="tsd-kind-icon">anchor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#fliphorizontal" class="tsd-kind-icon">flip<wbr>Horizontal</a>
+								<a href="_interfaces_drawable_.drawoptions.html#ctx" class="tsd-kind-icon">ctx</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#flipvertical" class="tsd-kind-icon">flip<wbr>Vertical</a>
+								<a href="_interfaces_drawable_.drawoptions.html#drawheight" class="tsd-kind-icon">draw<wbr>Height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#height" class="tsd-kind-icon">height</a>
+								<a href="_interfaces_drawable_.drawoptions.html#drawwidth" class="tsd-kind-icon">draw<wbr>Width</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#image" class="tsd-kind-icon">image</a>
+								<a href="_interfaces_drawable_.drawoptions.html#fliphorizontal" class="tsd-kind-icon">flip<wbr>Horizontal</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#rotation" class="tsd-kind-icon">rotation</a>
+								<a href="_interfaces_drawable_.drawoptions.html#flipvertical" class="tsd-kind-icon">flip<wbr>Vertical</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#scale" class="tsd-kind-icon">scale</a>
+								<a href="_interfaces_drawable_.drawoptions.html#offset" class="tsd-kind-icon">offset</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#width" class="tsd-kind-icon">width</a>
+								<a href="_interfaces_drawable_.drawoptions.html#opacity" class="tsd-kind-icon">opacity</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_drawing_sprite_.spriteargs.html#x" class="tsd-kind-icon">x</a>
+								<a href="_interfaces_drawable_.drawoptions.html#rotation" class="tsd-kind-icon">rotation</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_drawable_.drawoptions.html#x" class="tsd-kind-icon">x</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_interfaces_drawable_.drawoptions.html#y" class="tsd-kind-icon">y</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_interfaces_drawable_.drawable.html" class="tsd-kind-icon">Drawable</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
