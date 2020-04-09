@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const child_process = require('child_process')
 const request = require('sync-request')
-const BUILD_CMD = path.join('node_modules', '.bin', 'grunt')
+const BUILD_CMD = 'node apidocs.js '; // leave space at end for specifying title as argument
 
 function build(version, title) {
   const exPath = path.join('./ex', version)
@@ -42,10 +42,10 @@ function build(version, title) {
   // Remove existing docs
   fs.removeSync(destPath)
 
-  console.log('Building docs...', BUILD_CMD + ' apidocs:' + title)
+  console.log('Building docs...', BUILD_CMD + title)
 
   // Execute docs build step
-  child_process.execSync(BUILD_CMD + ' apidocs:' + title, {
+  child_process.execSync(BUILD_CMD + title, {
     cwd: exPath,
     stdio: [0, 1, 2],
   })
