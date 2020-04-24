@@ -1,0 +1,570 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Excalibur.js v0.24.0 API Documentation</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Excalibur.js v0.24.0 API Documentation</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>Excalibur.js v0.24.0 API Documentation</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#excaliburjs-public-api" id="excaliburjs-public-api" style="color: inherit; text-decoration: none;">
+					<h1>Excalibur.js Public API</h1>
+				</a>
+				<p>This documentation is automatically generated from the Excalibur
+				source code on <a href="http://github.com/excaliburjs/Excalibur">GitHub</a>.</p>
+				<p>If you&#39;re just starting out, we recommend reading the tutorials and guides
+					on <a href="https://excaliburjs.com/docs">excaliburjs.com/docs</a>. If you have questions,
+					feel free to get help on the <a href="https://groups.google.com/forum/#!forum/excaliburjs">Excalibur.js mailing list</a>.
+					If you&#39;re looking for a specific method or property, you can search the documentation
+				using the search icon at the top or just start typing.</p>
+				<a href="#where-to-start" id="where-to-start" style="color: inherit; text-decoration: none;">
+					<h2>Where to Start</h2>
+				</a>
+				<p>These are the core concepts of Excalibur that you should become
+				familiar with.</p>
+				<ul>
+					<li><a href="modules/_index_.html#engine">Intro to the Engine</a><ul>
+							<li><a href="classes/_eventdispatcher_.eventdispatcher.html">Eventing</a></li>
+						</ul>
+					</li>
+					<li><a href="modules/_index_.html#scene">Working with Scenes</a><ul>
+							<li><a href="classes/_camera_.camera.html">Working with Cameras</a></li>
+						</ul>
+					</li>
+					<li><a href="modules/_index_.html#actor">Working with Actors</a><ul>
+							<li><a href="classes/_label_.label.html">Labels</a></li>
+							<li><a href="classes/_trigger_.trigger.html">Triggers</a></li>
+							<li><a href="modules/_index_.html#uiactor">UI Actors (HUD)</a></li>
+							<li><a href="classes/_actions_actioncontext_.actioncontext.html">Action API</a></li>
+							<li><a href="classes/_collision_collisiongroup_.collisiongroup.html">Collision Groups</a></li>
+						</ul>
+					</li>
+					<li><a href="classes/_physics_.physics.html">Working with Physics</a></li>
+				</ul>
+				<a href="#working-with-resources" id="working-with-resources" style="color: inherit; text-decoration: none;">
+					<h2>Working with Resources</h2>
+				</a>
+				<p>Excalibur provides easy ways of loading assets, from images to JSON files.</p>
+				<ul>
+					<li><a href="classes/_loader_.loader.html">Working with the Loader</a></li>
+					<li><a href="classes/_resources_texture_.texture.html">Loading Textures</a></li>
+					<li><a href="classes/_resources_sound_sound_.sound.html">Loading Sounds</a></li>
+					<li><a href="classes/_resources_resource_.resource.html">Loading Generic Resources</a></li>
+				</ul>
+				<a href="#working-with-input" id="working-with-input" style="color: inherit; text-decoration: none;">
+					<h2>Working with Input</h2>
+				</a>
+				<p>Excalibur comes built-in with support for mouse, keyboard, touch, and controllers.</p>
+				<ul>
+					<li><a href="modules/_input_index_.html">Using Input in Excalibur</a></li>
+					<li><a href="classes/_input_pointers_.pointers.html">Mouse and Touch</a></li>
+					<li><a href="classes/_input_keyboard_.keyboard.html">Keyboard</a></li>
+					<li><a href="classes/_input_gamepad_.gamepads.html">Controller Support</a></li>
+				</ul>
+				<a href="#working-with-media" id="working-with-media" style="color: inherit; text-decoration: none;">
+					<h2>Working with Media</h2>
+				</a>
+				<p>Add sounds, images, and animations to your game.</p>
+				<ul>
+					<li><a href="classes/_drawing_sprite_.sprite.html">Working with Sprites</a></li>
+					<li><a href="classes/_resources_sound_sound_.sound.html">Working with Sounds</a></li>
+					<li><a href="classes/_drawing_spritesheet_.spritesheet.html">Working with SpriteSheets</a></li>
+					<li><a href="classes/_drawing_animation_.animation.html">Working with Animations</a></li>
+					<li><a href="classes/_tilemap_.tilemap.html">Working with TileMaps</a></li>
+				</ul>
+				<a href="#effects-and-particles" id="effects-and-particles" style="color: inherit; text-decoration: none;">
+					<h2>Effects and Particles</h2>
+				</a>
+				<p>Every game needs an explosion or two. Add sprite effects such as lighten,
+				darken, and colorize.</p>
+				<ul>
+					<li><a href="modules/_drawing_spriteeffects_.html">Sprite Effects</a></li>
+					<li><a href="classes/_particles_.particleemitter.html">Particle Emitters</a></li>
+					<li><a href="interfaces/_postprocessing_postprocessor_.postprocessor.html">Post Processors</a></li>
+				</ul>
+				<a href="#math" id="math" style="color: inherit; text-decoration: none;">
+					<h2>Math</h2>
+				</a>
+				<p>These classes provide the basics for math &amp; algebra operations.</p>
+				<ul>
+					<li><a href="modules/_index_.html#vector">Vector</a></li>
+					<li><a href="modules/_index_.html#ray">Ray</a></li>
+					<li><a href="enums/_input_pointerevents_.wheeldeltamode.html#line">Line</a></li>
+					<li><a href="modules/_index_.html#projection">Projection</a></li>
+					<li><a href="modules/_math_random_.html">Random</a></li>
+				</ul>
+				<a href="#utilities" id="utilities" style="color: inherit; text-decoration: none;">
+					<h2>Utilities</h2>
+				</a>
+				<ul>
+					<li><a href="modules/_util_util_.html">Utility Functions</a></li>
+					<li><a href="classes/_promises_.promise.html">Promises and Async</a></li>
+					<li><a href="classes/_util_log_.logger.html">Logging</a></li>
+					<li><a href="classes/_drawing_color_.color.html">Colors</a></li>
+					<li><a href="classes/_timer_.timer.html">Timers</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_actions_action_.html">&quot;<wbr>Actions/<wbr>Action&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_actions_actioncontext_.html">&quot;<wbr>Actions/<wbr>Action<wbr>Context&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_actions_actionable_.html">&quot;<wbr>Actions/<wbr>Actionable&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_actions_index_.html">&quot;<wbr>Actions/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_actions_rotationtype_.html">&quot;<wbr>Actions/<wbr>Rotation<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_actor_.html">&quot;<wbr>Actor&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_algebra_.html">&quot;<wbr>Algebra&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_camera_.html">&quot;<wbr>Camera&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_class_.html">&quot;<wbr>Class&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_body_.html">&quot;<wbr>Collision/<wbr>Body&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_boundingbox_.html">&quot;<wbr>Collision/<wbr>Bounding<wbr>Box&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_circle_.html">&quot;<wbr>Collision/<wbr>Circle&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_closestlinejumptable_.html">&quot;<wbr>Collision/<wbr>Closest<wbr>Line<wbr>Jump<wbr>Table&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collider_.html">&quot;<wbr>Collision/<wbr>Collider&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisioncontact_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Contact&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisiongroup_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Group&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisiongroupmanager_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Group<wbr>Manager&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisionjumptable_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Jump<wbr>Table&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisionresolver_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Resolver&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisionshape_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_collisiontype_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Type&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_convexpolygon_.html">&quot;<wbr>Collision/<wbr>Convex<wbr>Polygon&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_dynamictree_.html">&quot;<wbr>Collision/<wbr>Dynamic<wbr>Tree&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_dynamictreecollisionbroadphase_.html">&quot;<wbr>Collision/<wbr>Dynamic<wbr>Tree<wbr>Collision<wbr>Broadphase&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_edge_.html">&quot;<wbr>Collision/<wbr>Edge&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_index_.html">&quot;<wbr>Collision/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_pair_.html">&quot;<wbr>Collision/<wbr>Pair&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_physics_.html">&quot;<wbr>Collision/<wbr>Physics&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_shape_.html">&quot;<wbr>Collision/<wbr>Shape&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_collision_side_.html">&quot;<wbr>Collision/<wbr>Side&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_configurable_.html">&quot;<wbr>Configurable&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_debug_.html">&quot;<wbr>Debug&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_debugflags_.html">&quot;<wbr>Debug<wbr>Flags&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_deprecated_.html">&quot;<wbr>Deprecated&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_animation_.html">&quot;<wbr>Drawing/<wbr>Animation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_color_.html">&quot;<wbr>Drawing/<wbr>Color&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_index_.html">&quot;<wbr>Drawing/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_polygon_.html">&quot;<wbr>Drawing/<wbr>Polygon&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_sprite_.html">&quot;<wbr>Drawing/<wbr>Sprite&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_spriteeffects_.html">&quot;<wbr>Drawing/<wbr>Sprite<wbr>Effects&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_drawing_spritesheet_.html">&quot;<wbr>Drawing/<wbr>Sprite<wbr>Sheet&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_engine_.html">&quot;<wbr>Engine&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_eventdispatcher_.html">&quot;<wbr>Event<wbr>Dispatcher&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_events_.html">&quot;<wbr>Events&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_events_mediaevents_.html">&quot;<wbr>Events/<wbr>Media<wbr>Events&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_engineinput_.html">&quot;<wbr>Input/<wbr>Engine<wbr>Input&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_gamepad_.html">&quot;<wbr>Input/<wbr>Gamepad&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_index_.html">&quot;<wbr>Input/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_keyboard_.html">&quot;<wbr>Input/<wbr>Keyboard&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_pointer_.html">&quot;<wbr>Input/<wbr>Pointer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_pointerevents_.html">&quot;<wbr>Input/<wbr>Pointer<wbr>Events&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_input_pointers_.html">&quot;<wbr>Input/<wbr>Pointers&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_audio_.html">&quot;<wbr>Interfaces/<wbr>Audio&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_audioimplementation_.html">&quot;<wbr>Interfaces/<wbr>Audio<wbr>Implementation&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_clonable_.html">&quot;<wbr>Interfaces/<wbr>Clonable&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_drawable_.html">&quot;<wbr>Interfaces/<wbr>Drawable&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_evented_.html">&quot;<wbr>Interfaces/<wbr>Evented&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_index_.html">&quot;<wbr>Interfaces/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_lifecycleevents_.html">&quot;<wbr>Interfaces/<wbr>Lifecycle<wbr>Events&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_loadable_.html">&quot;<wbr>Interfaces/<wbr>Loadable&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_loader_.html">&quot;<wbr>Interfaces/<wbr>Loader&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_pointereventhandlers_.html">&quot;<wbr>Interfaces/<wbr>Pointer<wbr>Event<wbr>Handlers&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_interfaces_trait_.html">&quot;<wbr>Interfaces/<wbr>Trait&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_label_.html">&quot;<wbr>Label&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_loader_.html">&quot;<wbr>Loader&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_math_index_.html">&quot;<wbr>Math/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_math_perlinnoise_.html">&quot;<wbr>Math/<wbr>Perlin<wbr>Noise&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_math_random_.html">&quot;<wbr>Math/<wbr>Random&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_particles_.html">&quot;<wbr>Particles&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_physics_.html">&quot;<wbr>Physics&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_polyfill_.html">&quot;<wbr>Polyfill&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_postprocessing_colorblindcorrector_.html">&quot;<wbr>Post<wbr>Processing/<wbr>Color<wbr>Blind<wbr>Corrector&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_postprocessing_index_.html">&quot;<wbr>Post<wbr>Processing/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_postprocessing_postprocessor_.html">&quot;<wbr>Post<wbr>Processing/<wbr>Post<wbr>Processor&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_promises_.html">&quot;<wbr>Promises&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_gif_.html">&quot;<wbr>Resources/<wbr>Gif&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_index_.html">&quot;<wbr>Resources/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_resource_.html">&quot;<wbr>Resources/<wbr>Resource&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_sound_audiocontext_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Audio<wbr>Context&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_sound_audioinstance_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Audio<wbr>Instance&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_sound_index_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_sound_sound_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Sound&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_resources_texture_.html">&quot;<wbr>Resources/<wbr>Texture&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_scene_.html">&quot;<wbr>Scene&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_screenelement_.html">&quot;<wbr>Screen<wbr>Element&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_tilemap_.html">&quot;<wbr>Tile<wbr>Map&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_timer_.html">&quot;<wbr>Timer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_traits_capturepointer_.html">&quot;<wbr>Traits/<wbr>Capture<wbr>Pointer&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_traits_index_.html">&quot;<wbr>Traits/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_traits_offscreenculling_.html">&quot;<wbr>Traits/<wbr>Offscreen<wbr>Culling&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_traits_tilemapcollisiondetection_.html">&quot;<wbr>Traits/<wbr>Tile<wbr>Map<wbr>Collision<wbr>Detection&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_trigger_.html">&quot;<wbr>Trigger&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_actors_.html">&quot;<wbr>Util/<wbr>Actors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_browser_.html">&quot;<wbr>Util/<wbr>Browser&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_cullingbox_.html">&quot;<wbr>Util/<wbr>Culling<wbr>Box&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_decorators_.html">&quot;<wbr>Util/<wbr>Decorators&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_detector_.html">&quot;<wbr>Util/<wbr>Detector&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_drawutil_.html">&quot;<wbr>Util/<wbr>Draw<wbr>Util&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_easingfunctions_.html">&quot;<wbr>Util/<wbr>Easing<wbr>Functions&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_index_.html">&quot;<wbr>Util/<wbr>Index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_log_.html">&quot;<wbr>Util/<wbr>Log&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_sortedlist_.html">&quot;<wbr>Util/<wbr>Sorted<wbr>List&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_sound_.html">&quot;<wbr>Util/<wbr>Sound&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_util_.html">&quot;<wbr>Util/<wbr>Util&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_util_webaudio_.html">&quot;<wbr>Util/<wbr>Web<wbr>Audio&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/_index_.html">&quot;index&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
