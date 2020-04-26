@@ -96,13 +96,13 @@ engine.input.gamepads.setMinimumGamepadConfiguration({
 						<h2>Events</h2>
 					</a>
 					<p>You can subscribe to gamepad connect and disconnect events through <code>engine.input.gamepads.on</code>.</p>
-					<p>A <a href="../modules/_index_.html#gamepadconnectevent">GamepadConnectEvent</a> or <a href="../modules/_index_.html#gamepaddisconnectevent">GamepadDisconnectEvent</a> will be passed to you.</p>
+					<p>A <a href="_events_.gamepadconnectevent.html">GamepadConnectEvent</a> or <a href="_events_.gamepaddisconnectevent.html">GamepadDisconnectEvent</a> will be passed to you.</p>
 					<ul>
-						<li><code>connect</code> - When a gamepad connects it will fire this event and pass a <a href="../modules/_index_.html#gamepadconnectevent">GamepadConnectEvent</a> with a reference to the gamepad.</li>
-						<li><code>disconnect</code> - When a gamepad disconnects it will fire this event and pass a <a href="../modules/_index_.html#gamepaddisconnectevent">GamepadDisconnectEvent</a></li>
+						<li><code>connect</code> - When a gamepad connects it will fire this event and pass a <a href="_events_.gamepadconnectevent.html">GamepadConnectEvent</a> with a reference to the gamepad.</li>
+						<li><code>disconnect</code> - When a gamepad disconnects it will fire this event and pass a <a href="_events_.gamepaddisconnectevent.html">GamepadDisconnectEvent</a></li>
 					</ul>
-					<p>Once you have a reference to a gamepad you may listen to changes on that gamepad with <code>.on</code>. A <a href="../modules/_index_.html#gamepadbuttonevent">GamepadButtonEvent</a> or
-					<a href="../modules/_index_.html#gamepadaxisevent">GamepadAxisEvent</a> will be passed to you.</p>
+					<p>Once you have a reference to a gamepad you may listen to changes on that gamepad with <code>.on</code>. A <a href="_events_.gamepadbuttonevent.html">GamepadButtonEvent</a> or
+					<a href="_events_.gamepadaxisevent.html">GamepadAxisEvent</a> will be passed to you.</p>
 					<ul>
 						<li><code>button</code> - Whenever a button is pressed on the game</li>
 						<li><code>axis</code> - Whenever an axis</li>
@@ -131,7 +131,7 @@ engine.input.gamepads.setMinimumGamepadConfiguration({
 					methods to customize how sensitive you want to be in detecting button presses.</p>
 					<p>You can inspect any connected <a href="_input_gamepad_.gamepad.html">Gamepad</a> using <a href="_input_gamepad_.gamepad.html#isbuttonpressed">Gamepad.isButtonPressed</a>, <a href="_input_gamepad_.gamepad.html#getbutton">Gamepad.getButton</a>,
 						or you can subscribe to the <code>button</code> event published on the <a href="_input_gamepad_.gamepad.html">Gamepad</a> which passes
-					a <a href="../modules/_index_.html#gamepadbuttonevent">GamepadButtonEvent</a> to your handler.</p>
+					a <a href="_events_.gamepadbuttonevent.html">GamepadButtonEvent</a> to your handler.</p>
 					<pre><code class="language-js"><span class="hljs-comment">// enable gamepad support</span>
 engine.input.gamepads.enabled = <span class="hljs-literal">true</span>;
 <span class="hljs-comment">// query gamepad on update</span>
@@ -158,7 +158,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						to set the (absolute) threshold after which Excalibur will start publishing <code>axis</code> events.
 						By default it is set to a value that normally will not throw events if a stick is idle.
 						You can query axes via <a href="_input_gamepad_.gamepad.html#getaxes">Gamepad.getAxes</a> or by subscribing to the <code>axis</code> event on <a href="_input_gamepad_.gamepad.html">Gamepad</a>
-					which passes a <a href="../modules/_index_.html#gamepadaxisevent">GamepadAxisEvent</a> to your handler.</p>
+					which passes a <a href="_events_.gamepadaxisevent.html">GamepadAxisEvent</a> to your handler.</p>
 					<pre><code class="language-js"><span class="hljs-comment">// enable gamepad support</span>
 engine.input.gamepads.enabled = <span class="hljs-literal">true</span>;
 <span class="hljs-comment">// query gamepad on update</span>
@@ -242,9 +242,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_camera_.camera.html">Camera</a>.<a href="_camera_.camera.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L32">src/engine/Input/Gamepad.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L32">src/engine/Input/Gamepad.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_input_gamepad_.gamepads.html" class="tsd-signature-type">Gamepads</a></h4>
@@ -257,10 +257,10 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="enabled" class="tsd-anchor"></a>
 					<h3> enabled</h3>
-					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L15">src/engine/Input/Gamepad.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L15">src/engine/Input/Gamepad.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -274,9 +274,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					<h3> event<wbr>Dispatcher</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Dispatcher<span class="tsd-signature-symbol">:</span> <a href="_eventdispatcher_.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#eventdispatcher">eventDispatcher</a></p>
+						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -288,10 +288,10 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="supported" class="tsd-anchor"></a>
 					<h3> supported</h3>
-					<div class="tsd-signature tsd-kind-icon">supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = !!(&lt;any&gt;navigator).getGamepads</span></div>
+					<div class="tsd-signature tsd-kind-icon">supported<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;!!(&lt;any&gt;navigator).getGamepads</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L20">src/engine/Input/Gamepad.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L20">src/engine/Input/Gamepad.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -303,10 +303,10 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="minaxismovethreshold" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagStatic">Static</span> Min<wbr>Axis<wbr>Move<wbr>Threshold</h3>
-					<div class="tsd-signature tsd-kind-icon">Min<wbr>Axis<wbr>Move<wbr>Threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0.05</span></div>
+					<div class="tsd-signature tsd-kind-icon">Min<wbr>Axis<wbr>Move<wbr>Threshold<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0.05</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L25">src/engine/Input/Gamepad.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L25">src/engine/Input/Gamepad.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -328,7 +328,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L188">src/engine/Input/Gamepad.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L188">src/engine/Input/Gamepad.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -356,7 +356,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L218">src/engine/Input/Gamepad.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L218">src/engine/Input/Gamepad.ts:218</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -378,9 +378,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_evented_.eventable.html">Eventable</a>.<a href="../interfaces/_interfaces_evented_.eventable.html#emit">emit</a></p>
-								<p>Inherited from <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#emit">emit</a></p>
+								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -417,7 +417,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L204">src/engine/Input/Gamepad.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L204">src/engine/Input/Gamepad.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -439,7 +439,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L38">src/engine/Input/Gamepad.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L38">src/engine/Input/Gamepad.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -455,9 +455,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L105">src/engine/Input/Gamepad.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L105">src/engine/Input/Gamepad.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -469,7 +469,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> handler: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -504,9 +504,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L95">src/engine/Input/Gamepad.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L95">src/engine/Input/Gamepad.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -518,7 +518,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gamepadconnectevent.html" class="tsd-signature-type">GamepadConnectEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -540,9 +540,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L96">src/engine/Input/Gamepad.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L96">src/engine/Input/Gamepad.ts:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -554,7 +554,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gamepaddisconnectevent.html" class="tsd-signature-type">GamepadDisconnectEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -576,9 +576,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L97">src/engine/Input/Gamepad.ts:97</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L97">src/engine/Input/Gamepad.ts:97</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -590,7 +590,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gamepadbuttonevent.html" class="tsd-signature-type">GamepadButtonEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -612,9 +612,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L98">src/engine/Input/Gamepad.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L98">src/engine/Input/Gamepad.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -626,7 +626,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gamepadaxisevent.html" class="tsd-signature-type">GamepadAxisEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -648,9 +648,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L99">src/engine/Input/Gamepad.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L99">src/engine/Input/Gamepad.ts:99</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -662,7 +662,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									<h5>handler: <span class="tsd-signature-type">function</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -693,9 +693,9 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Class.ts#L56">src/engine/Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Class.ts#L56">src/engine/Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -718,7 +718,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
-											<ul class="tsd-signatures tsd-kind-type-literal">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
 												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
@@ -750,7 +750,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L60">src/engine/Input/Gamepad.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L60">src/engine/Input/Gamepad.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -781,7 +781,7 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Input/Gamepad.ts#L113">src/engine/Input/Gamepad.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Input/Gamepad.ts#L113">src/engine/Input/Gamepad.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -801,25 +801,25 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_input_gamepad_.html">&quot;<wbr>Input/<wbr>Gamepad&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_input_gamepad_.axes.html" class="tsd-kind-icon">Axes</a>
 					</li>
-					<li class=" tsd-kind-enum tsd-parent-kind-module">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
 						<a href="../enums/_input_gamepad_.buttons.html" class="tsd-kind-icon">Buttons</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_input_gamepad_.gamepad.html" class="tsd-kind-icon">Gamepad</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_input_gamepad_.gamepads.html" class="tsd-kind-icon">Gamepads</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
@@ -871,19 +871,19 @@ engine.input.gamepads.at(<span class="hljs-number">0</span>).on(<span class="hlj
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_input_gamepad_.gamepadconfiguration.html" class="tsd-kind-icon">Gamepad<wbr>Configuration</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_input_gamepad_.navigatorgamepad.html" class="tsd-kind-icon">Navigator<wbr>Gamepad</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_input_gamepad_.navigatorgamepadbutton.html" class="tsd-kind-icon">Navigator<wbr>Gamepad<wbr>Button</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_input_gamepad_.navigatorgamepadevent.html" class="tsd-kind-icon">Navigator<wbr>Gamepad<wbr>Event</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_input_gamepad_.navigatorgamepads.html" class="tsd-kind-icon">Navigator<wbr>Gamepads</a>
 					</li>
 				</ul>

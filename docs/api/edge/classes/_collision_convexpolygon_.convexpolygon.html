@@ -79,7 +79,7 @@
 						<h2>Box and ConvexPolygon Collision Shapes</h2>
 					</a>
 					<p>Excalibur has a <a href="../interfaces/_collision_collisionshape_.collisionshape.html">Shape</a> static helper to create boxes and <a href="_collision_convexpolygon_.convexpolygon.html">polygons</a> for collisions in your game.</p>
-					<p>The default shape for a collider is a box, a custom box shape and <a href="_collision_convexpolygon_.convexpolygon.html#collider">Collider</a> can be created for an <a href="../modules/_index_.html#actor">actor</a> <a href="_collision_body_.body.html">body</a>. The <code>ex.Shape.Box</code> helper actually creates a <a href="_collision_convexpolygon_.convexpolygon.html">ConvexPolygon</a> shape in Excalibur.</p>
+					<p>The default shape for a collider is a box, a custom box shape and <a href="_collision_convexpolygon_.convexpolygon.html#collider">Collider</a> can be created for an <a href="_actor_.actor.html">actor</a> <a href="_collision_body_.body.html">body</a>. The <code>ex.Shape.Box</code> helper actually creates a <a href="_collision_convexpolygon_.convexpolygon.html">ConvexPolygon</a> shape in Excalibur.</p>
 					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> block = <span class="hljs-keyword">new</span> ex.Actor({
   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>),
   color: ex.Color.Red,
@@ -92,7 +92,7 @@
 });</code></pre>
 					<p>Creating a custom <a href="_collision_convexpolygon_.convexpolygon.html">convex polygon</a> shape is just as simple. Excalibur only supports arbitrary convex shapes as a ConvexPolygon, this means no &quot;cavities&quot; in the shape, for example &quot;pac-man&quot; is not a convex shape.</p>
 					<p>The <code>points</code> in a <a href="_collision_convexpolygon_.convexpolygon.html">convex polygon</a> have counter-clockwise winding by default, this means the points must be listed in counter-clockwise order around the shape to work. This can be switched by supplying <code>true</code> or <code>false</code> to the winding argument <code>ex.Shape.Polygon([...], true)</code> for clockwise winding.</p>
-					<p><strong>Keep in mind</strong>, points are defined local to the <a href="_collision_body_.body.html">body</a> or <a href="../modules/_index_.html#actor">actor</a>. Meaning that the triangle defined below is centered around <code>ex.Vector(400, 400)</code> in world space.</p>
+					<p><strong>Keep in mind</strong>, points are defined local to the <a href="_collision_body_.body.html">body</a> or <a href="_actor_.actor.html">actor</a>. Meaning that the triangle defined below is centered around <code>ex.Vector(400, 400)</code> in world space.</p>
 					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> triangle = <span class="hljs-keyword">new</span> ex.Actor({
   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">400</span>, <span class="hljs-number">400</span>),
   color: ex.Color.Red,
@@ -182,7 +182,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L50">src/engine/Collision/ConvexPolygon.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L50">src/engine/Collision/ConvexPolygon.ts:50</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -205,7 +205,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#collider">collider</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L46">src/engine/Collision/ConvexPolygon.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L46">src/engine/Collision/ConvexPolygon.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -221,7 +221,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#offset">offset</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L40">src/engine/Collision/ConvexPolygon.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L40">src/engine/Collision/ConvexPolygon.ts:40</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -231,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">points<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L41">src/engine/Collision/ConvexPolygon.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L41">src/engine/Collision/ConvexPolygon.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -248,7 +248,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L313">src/engine/Collision/ConvexPolygon.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L313">src/engine/Collision/ConvexPolygon.ts:313</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,7 +270,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L251">src/engine/Collision/ConvexPolygon.ts:251</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L251">src/engine/Collision/ConvexPolygon.ts:251</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -292,7 +292,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L83">src/engine/Collision/ConvexPolygon.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L83">src/engine/Collision/ConvexPolygon.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -314,7 +314,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L268">src/engine/Collision/ConvexPolygon.ts:268</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L268">src/engine/Collision/ConvexPolygon.ts:268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L260">src/engine/Collision/ConvexPolygon.ts:260</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L260">src/engine/Collision/ConvexPolygon.ts:260</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,7 +359,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L73">src/engine/Collision/ConvexPolygon.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L73">src/engine/Collision/ConvexPolygon.ts:73</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -380,7 +380,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L65">src/engine/Collision/ConvexPolygon.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L65">src/engine/Collision/ConvexPolygon.ts:65</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -403,7 +403,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#collide">collide</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L191">src/engine/Collision/ConvexPolygon.ts:191</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L191">src/engine/Collision/ConvexPolygon.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,7 +435,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#contains">contains</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L157">src/engine/Collision/ConvexPolygon.ts:157</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L157">src/engine/Collision/ConvexPolygon.ts:157</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -464,7 +464,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#debugdraw">debugDraw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L398">src/engine/Collision/ConvexPolygon.ts:398</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L398">src/engine/Collision/ConvexPolygon.ts:398</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -473,7 +473,7 @@
 									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> color: <a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> = Color.Red</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> color: <a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;Color.Red</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -491,7 +491,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#draw">draw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L380">src/engine/Collision/ConvexPolygon.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L380">src/engine/Collision/ConvexPolygon.ts:380</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -500,10 +500,10 @@
 									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> color: <a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> = Color.Green</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> color: <a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a><span class="tsd-signature-symbol"> =&nbsp;Color.Green</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> pos: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = Vector.Zero</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> pos: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> =&nbsp;Vector.Zero</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -520,7 +520,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L224">src/engine/Collision/ConvexPolygon.ts:224</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L224">src/engine/Collision/ConvexPolygon.ts:224</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -560,7 +560,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#getclosestlinebetween">getClosestLineBetween</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L174">src/engine/Collision/ConvexPolygon.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L174">src/engine/Collision/ConvexPolygon.ts:174</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -584,7 +584,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#getfurthestpoint">getFurthestPoint</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L206">src/engine/Collision/ConvexPolygon.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L206">src/engine/Collision/ConvexPolygon.ts:206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -612,7 +612,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L132">src/engine/Collision/ConvexPolygon.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L132">src/engine/Collision/ConvexPolygon.ts:132</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -634,7 +634,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L113">src/engine/Collision/ConvexPolygon.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L113">src/engine/Collision/ConvexPolygon.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -657,7 +657,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#project">project</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L366">src/engine/Collision/ConvexPolygon.ts:366</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L366">src/engine/Collision/ConvexPolygon.ts:366</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -686,7 +686,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#raycast">rayCast</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L286">src/engine/Collision/ConvexPolygon.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L286">src/engine/Collision/ConvexPolygon.ts:286</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -700,7 +700,7 @@
 									<h5>ray: <a href="_algebra_.ray.html" class="tsd-signature-type">Ray</a></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = Infinity</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;Infinity</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h4>
@@ -718,7 +718,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>.<a href="../interfaces/_collision_collisionshape_.collisionshape.html#recalc">recalc</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L146">src/engine/Collision/ConvexPolygon.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L146">src/engine/Collision/ConvexPolygon.ts:146</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -735,7 +735,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bdfcaf9/src/engine/Collision/ConvexPolygon.ts#L332">src/engine/Collision/ConvexPolygon.ts:332</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/c497cf7/src/engine/Collision/ConvexPolygon.ts#L332">src/engine/Collision/ConvexPolygon.ts:332</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -762,7 +762,7 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_collision_convexpolygon_.html">&quot;<wbr>Collision/<wbr>Convex<wbr>Polygon&quot;</a>
 					</li>
 				</ul>
@@ -771,7 +771,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_collision_convexpolygon_.convexpolygon.html" class="tsd-kind-icon">Convex<wbr>Polygon</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
@@ -850,7 +850,7 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_collision_convexpolygon_.convexpolygonoptions.html" class="tsd-kind-icon">Convex<wbr>Polygon<wbr>Options</a>
 					</li>
 				</ul>
