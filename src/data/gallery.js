@@ -1,4 +1,6 @@
 
+import showMustGoOnImage from '../assets/images/showcase/show.png'
+import officeDaydreamImage from '../assets/images/showcase/office.png'
 import groceriesImage from '../assets/images/showcase/groceries.png'
 import hexshaperImage from '../assets/images/showcase/hexshaper.png'
 import minotaurImage from '../assets/images/showcase/minotaur.png'
@@ -6,6 +8,22 @@ import sweepstacksImage from '../assets/images/showcase/sweepstacks.png'
 import krakenImage from '../assets/images/showcase/kraken.png'
 
 export default [
+  {
+    "title": "The Show Must Go On",
+    "image": showMustGoOnImage,
+    "description":
+      "This game was created for Ludum Dare 46. Keep the theater production going as the only actor!",
+    "url": "http://excaliburjs.com/ludum-46/",
+    "source": "https://github.com/excaliburjs/ludum-46"
+  },
+  {
+    "title": "Office Daydream",
+    "image": officeDaydreamImage,
+    "description":
+      "This game was created for Ludum Dare 41. Balance the needs of your job with the needs of your dream!",
+    "url": "http://excaliburjs.com/ludum-41/",
+    "source": "https://github.com/excaliburjs/ludum-41"
+  },
   {
     "title": "I Just Wanted Groceries",
     "image": groceriesImage,
