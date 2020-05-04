@@ -13,6 +13,24 @@ module.exports = {
         name: 'markdown-pages',
       },
     },
+    {
+      resolve: 'gatsby-source-typedoc',
+      options: {
+        src: [
+          `${__dirname}/ex/edge/src/engine/index.ts`,
+          `${__dirname}/ex/edge/src/engine/globals.d.ts`,
+          `${__dirname}/ex/edge/src/engine/files.d.ts`,
+          `${__dirname}/ex/edge/src/engine/excalibur.d.ts`,
+        ],
+        typedoc: {
+          target: 'es5',
+          mode: 'modules',
+          experimentalDecorators: true,
+          excludePrivate: true,
+          tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
