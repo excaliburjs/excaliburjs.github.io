@@ -52,6 +52,10 @@ const TOC = ({ toc, releases }) => (
         )}
       </React.Fragment>
     ))}
+    
+    <a className="item" href="/examples">
+      Examples
+    </a>
 
     <div className="header item">API Reference</div>
 
