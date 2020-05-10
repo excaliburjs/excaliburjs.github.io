@@ -28,11 +28,16 @@
     "styles": "cd ui && gulp build",
     "format": "prettier --write 'src/**/*.js'",
     "docs": "node docs.js",
-    "deploy": "gh-pages -t -d public -b master --repo https://$GH_TOKEN@github.com/excaliburjs/excaliburjs.github.io.git"
+    "deploy": "gh-pages -t -d public -b master --repo https://$GH_TOKEN@github.com/excaliburjs/excaliburjs.github.io.git",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "babel-jest": "25.5.1",
     "gatsby-cli": "2.4.3",
     "gh-pages": "1.2.0",
+    "jest": "25.5.4",
     "prettier": "1.14.3",
     "semantic-ui": "2.3.3",
     "typedoc": "0.14.2",
@@ -62,5 +67,8 @@
     "react-helmet": "5.2.0",
     "rehype-react": "3.0.3",
     "sync-request": "6.0.0"
+  },
+  "jest": {
+    "rootDir": "./src"
   }
 }
