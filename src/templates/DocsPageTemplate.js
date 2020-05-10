@@ -89,7 +89,7 @@ export default function Template({ data }) {
   } = typedoc
 
   const docsProcessor = unified()
-    .use(rehypeTypedoc, { typedoc: JSON.parse(typedocRaw) })
+    .use(rehypeTypedoc, { basePath: '/docs/api/edge/', typedoc: JSON.parse(typedocRaw) })
     .use(rehype2React, {
       createElement: React.createElement,
       components: { 'docs-note': Note },
