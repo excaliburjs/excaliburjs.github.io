@@ -81,6 +81,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-sharp`,
-    'gatsby-plugin-catch-links',
+    {
+      resolve: 'gatsby-plugin-catch-links',
+      options: {
+        excludePattern: /^\/(examples|docs\/api)/i,
+      },
+    },
   ],
 }
