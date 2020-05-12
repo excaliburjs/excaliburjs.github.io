@@ -1,7 +1,7 @@
  /*
- * # Semantic UI - 2.3.3
- * https://github.com/Semantic-Org/Semantic-UI
- * http://www.semantic-ui.com/
+ * # Fomantic UI - 2.8.4
+ * https://github.com/fomantic/Fomantic-UI
+ * http://fomantic-ui.com/
  *
  * Copyright 2014 Contributors
  * Released under the MIT license
@@ -9,8 +9,8 @@
  *
  */
 /*!
- * # Semantic UI 2.3.3 - Site
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Site
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -19,6 +19,10 @@
  */
 
 ;(function ($, window, document, undefined) {
+
+$.isFunction = $.isFunction || function(obj) {
+    return typeof obj === "function" && typeof obj.nodeType !== "number";
+};
 
 $.site = $.fn.site = function(parameters) {
   var
@@ -36,7 +40,6 @@ $.site = $.fn.site = function(parameters) {
     namespace       = settings.namespace,
     error           = settings.error,
 
-    eventNamespace  = '.' + namespace,
     moduleNamespace = 'module-' + namespace,
 
     $document       = $(document),
@@ -401,7 +404,7 @@ $.site = $.fn.site = function(parameters) {
       else if(found !== undefined) {
         response = found;
       }
-      if($.isArray(returnedValue)) {
+      if(Array.isArray(returnedValue)) {
         returnedValue.push(response);
       }
       else if(returnedValue !== undefined) {
@@ -449,6 +452,7 @@ $.site.settings = {
   modules: [
     'accordion',
     'api',
+    'calendar',
     'checkbox',
     'dimmer',
     'dropdown',
@@ -457,15 +461,17 @@ $.site.settings = {
     'modal',
     'nag',
     'popup',
+    'slider',
     'rating',
     'shape',
     'sidebar',
     'state',
     'sticky',
     'tab',
+    'toast',
     'transition',
-    'visit',
-    'visibility'
+    'visibility',
+    'visit'
   ],
 
   siteNamespace   : 'site',
@@ -497,8 +503,8 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.3.3 - Transition
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Transition
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -509,6 +515,10 @@ $.extend($.expr[ ":" ], {
 ;(function ($, window, document, undefined) {
 
 'use strict';
+
+$.isFunction = $.isFunction || function(obj) {
+  return typeof obj === "function" && typeof obj.nodeType !== "number";
+};
 
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
@@ -530,12 +540,6 @@ $.fn.transition = function() {
     queryArguments  = [].slice.call(arguments, 1),
     methodInvoked   = (typeof query === 'string'),
 
-    requestAnimationFrame = window.requestAnimationFrame
-      || window.mozRequestAnimationFrame
-      || window.webkitRequestAnimationFrame
-      || window.msRequestAnimationFrame
-      || function(callback) { setTimeout(callback, 0); },
-
     returnedValue
   ;
   $allModules
@@ -552,9 +556,7 @@ $.fn.transition = function() {
         className,
         metadata,
         animationEnd,
-        animationName,
 
-        namespace,
         moduleNamespace,
         eventNamespace,
         module
@@ -717,6 +719,9 @@ $.fn.transition = function() {
         },
 
         complete: function (event) {
+          if(event && event.target === element) {
+              event.stopPropagation();
+          }
           module.debug('Animation complete', settings.animation);
           module.remove.completeCallback();
           module.remove.failSafe();
@@ -743,21 +748,21 @@ $.fn.transition = function() {
           visible: function() {
             var
               style          = $module.attr('style'),
-              userStyle      = module.get.userStyle(),
+              userStyle      = module.get.userStyle(style),
               displayType    = module.get.displayType(),
               overrideStyle  = userStyle + 'display: ' + displayType + ' !important;',
-              currentDisplay = $module.css('display'),
-              emptyStyle     = (style === undefined || style === '')
+              inlineDisplay  = $module[0].style.display,
+              mustStayHidden = !displayType || (inlineDisplay === 'none' && settings.skipInlineHidden) || $module[0].tagName.match(/(script|link|style)/i)
             ;
-            if(currentDisplay !== displayType) {
-              module.verbose('Overriding default display to show element', displayType);
-              $module
-                .attr('style', overrideStyle)
-              ;
+            if (mustStayHidden){
+              module.remove.transition();
+              return false;
             }
-            else if(emptyStyle) {
-              $module.removeAttr('style');
-            }
+            module.verbose('Overriding default display to show element', displayType);
+            $module
+              .attr('style', overrideStyle)
+            ;
+            return true;
           },
           hidden: function() {
             var
@@ -799,34 +804,28 @@ $.fn.transition = function() {
             var
               style = $module.attr('style') || ''
             ;
-            return $.isArray(style.match(/display.*?;/, ''));
+            return Array.isArray(style.match(/display.*?;/, ''));
           }
         },
 
         set: {
           animating: function(animation) {
-            var
-              animationClass,
-              direction
-            ;
             // remove previous callbacks
             module.remove.completeCallback();
 
             // determine exact animation
-            animation      = animation || settings.animation;
-            animationClass = module.get.animationClass(animation);
+            animation = animation || settings.animation;
+            var animationClass = module.get.animationClass(animation);
 
-            // save animation class in cache to restore class names
+              // save animation class in cache to restore class names
             module.save.animation(animationClass);
 
-            // override display if necessary so animation appears visibly
-            module.force.visible();
+            if(module.force.visible()) {
+              module.remove.hidden();
+              module.remove.direction();
 
-            module.remove.hidden();
-            module.remove.direction();
-
-            module.start.animation(animationClass);
-
+              module.start.animation(animationClass);
+            }
           },
           duration: function(animationName, duration) {
             duration = duration || settings.duration;
@@ -998,6 +997,7 @@ $.fn.transition = function() {
           },
           transition: function() {
             $module
+              .removeClass(className.transition)
               .removeClass(className.visible)
               .removeClass(className.hidden)
             ;
@@ -1119,8 +1119,13 @@ $.fn.transition = function() {
               return settings.displayType;
             }
             if(shouldDetermine && $module.data(metadata.displayType) === undefined) {
+              var currentDisplay = $module.css('display');
+              if(currentDisplay === '' || currentDisplay === 'none'){
               // create fake element to determine display state
-              module.can.transition(true);
+                module.can.transition(true);
+              } else {
+                module.save.displayType(currentDisplay);
+              }
             }
             return $module.data(metadata.displayType);
           },
@@ -1277,21 +1282,33 @@ $.fn.transition = function() {
           element.blur(); // IE will trigger focus change if element is not blurred before hiding
           module.remove.display();
           module.remove.visible();
-          module.set.hidden();
-          module.force.hidden();
-          settings.onHide.call(element);
-          settings.onComplete.call(element);
-          // module.repaint();
+          if($.isFunction(settings.onBeforeHide)){
+            settings.onBeforeHide.call(element,function(){
+                module.hideNow();
+            });
+          } else {
+              module.hideNow();
+          }
+
+        },
+
+        hideNow: function() {
+            module.set.hidden();
+            module.force.hidden();
+            settings.onHide.call(element);
+            settings.onComplete.call(element);
+            // module.repaint();
         },
 
         show: function(display) {
           module.verbose('Showing element', display);
-          module.remove.hidden();
-          module.set.visible();
-          module.force.visible();
-          settings.onShow.call(element);
-          settings.onComplete.call(element);
-          // module.repaint();
+          if(module.force.visible()) {
+            module.remove.hidden();
+            module.set.visible();
+            settings.onShow.call(element);
+            settings.onComplete.call(element);
+            // module.repaint();
+          }
         },
 
         toggle: function() {
@@ -1485,7 +1502,7 @@ $.fn.transition = function() {
             response = found;
           }
 
-          if($.isArray(returnedValue)) {
+          if(Array.isArray(returnedValue)) {
             returnedValue.push(response);
           }
           else if(returnedValue !== undefined) {
@@ -1563,6 +1580,9 @@ $.fn.transition.settings = {
   // new animations will occur after previous ones
   queue         : true,
 
+// whether initially inline hidden objects should be skipped for transition
+  skipInlineHidden: false,
+
   metadata : {
     displayType: 'display'
   },
@@ -1593,8 +1613,8 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.7 - State
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - State
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -1605,6 +1625,10 @@ $.fn.transition.settings = {
 ;(function ($, window, document, undefined) {
 
 "use strict";
+
+$.isFunction = $.isFunction || function(obj) {
+  return typeof obj === "function" && typeof obj.nodeType !== "number";
+};
 
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
@@ -1619,7 +1643,6 @@ $.fn.state = function(parameters) {
 
     moduleSelector  = $allModules.selector || '',
 
-    hasTouch        = ('ontouchstart' in document.documentElement),
     time            = new Date().getTime(),
     performance     = [],
 
@@ -2153,7 +2176,7 @@ $.fn.state = function(parameters) {
           else if(found !== undefined) {
             response = found;
           }
-          if($.isArray(returnedValue)) {
+          if(Array.isArray(returnedValue)) {
             returnedValue.push(response);
           }
           else if(returnedValue !== undefined) {
@@ -2302,8 +2325,8 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.3.3 - Visibility
- * http://github.com/semantic-org/semantic-ui/
+ * # Fomantic-UI - Visibility
+ * http://github.com/fomantic/Fomantic-UI/
  *
  *
  * Released under the MIT license
@@ -2314,6 +2337,10 @@ $.fn.state.settings = {
 ;(function ($, window, document, undefined) {
 
 'use strict';
+
+$.isFunction = $.isFunction || function(obj) {
+  return typeof obj === "function" && typeof obj.nodeType !== "number";
+};
 
 window = (typeof window != 'undefined' && window.Math == Math)
   ? window
@@ -2361,7 +2388,6 @@ $.fn.visibility = function(parameters) {
 
         $placeholder,
 
-        selector        = $module.selector || '',
         instance        = $module.data(moduleNamespace),
 
         requestAnimationFrame = window.requestAnimationFrame
@@ -2809,8 +2835,7 @@ $.fn.visibility = function(parameters) {
 
         passed: function(amount, newCallback) {
           var
-            calculations   = module.get.elementCalculations(),
-            amountInPixels
+            calculations   = module.get.elementCalculations()
           ;
           // assign callback
           if(amount && newCallback) {
@@ -3475,7 +3500,7 @@ $.fn.visibility = function(parameters) {
           else if(found !== undefined) {
             response = found;
           }
-          if($.isArray(returnedValue)) {
+          if(Array.isArray(returnedValue)) {
             returnedValue.push(response);
           }
           else if(returnedValue !== undefined) {
@@ -3600,7 +3625,7 @@ $.fn.visibility.settings = {
 
   className: {
     fixed       : 'fixed',
-    placeholder : 'placeholder',
+    placeholder : 'constraint',
     visible     : 'visible'
   },
 
