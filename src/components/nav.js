@@ -9,7 +9,10 @@ const Nav = () => (
     <Link className="item" to="/samples">
       Samples
     </Link>
-    <a className="item" href="https://groups.google.com/forum/#!forum/excaliburjs">
+    <a
+      className="item"
+      href="https://groups.google.com/forum/#!forum/excaliburjs"
+    >
       Community
     </a>
     <Link className="item" to="/gallery">

@@ -28,7 +28,7 @@ const GalleryPage = () => (
       <div className="ui section divider" />
 
       <CardList items={gallery} />
-      
+
       <div className="ui hidden divider" />
     </div>
   </>
