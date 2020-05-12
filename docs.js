@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const child_process = require('child_process')
 const request = require('sync-request')
-const BUILD_CMD = 'node apidocs.js '; // leave space at end for specifying title as argument
+const BUILD_CMD = 'node apidocs.js ' // leave space at end for specifying title as argument
 
 function build(version, title) {
   const exPath = path.join('./ex', version)
@@ -41,6 +41,10 @@ function build(version, title) {
 
   // Remove existing docs
   fs.removeSync(destPath)
+
+  console.log('cleaning @types that conflict with ts:themeDefault step')
+
+  fs.removeSync(path.join(exPath, 'node_modules', '@types'))
 
   console.log('Building docs...', BUILD_CMD + title)
 
@@ -93,7 +97,7 @@ const res = request(
 const releases = JSON.parse(res.getBody())
 
 // Ignore drafts
-const tags = releases.filter(r => !r.draft).map(r => r.tag_name)
+const tags = releases.filter((r) => !r.draft).map((r) => r.tag_name)
 
 console.info('Discovered', tags.length, 'releases:', tags)
 
@@ -105,7 +109,7 @@ child_process.execSync(
   { stdio: [0, 1, 2] }
 )
 
-tags.forEach(function(tag) {
+tags.forEach(function (tag) {
   // Ignore releases that are already checked into source control
   if (fs.existsSync(path.join('_current', 'docs', 'api', tag))) {
     console.info(`Tagged version ${tag} exists already`)
