@@ -11,7 +11,7 @@ import heroTypeScript from '../assets/images/homepage-typescript.png'
 import heroDocs from '../assets/images/homepage-docs.png'
 import heroCrossPlatform from '../assets/images/homepage-xp.png'
 
-const selectReleaseSize = r => filesize(r.releaseAssets.edges[0].node.size)
+const selectReleaseSize = (r) => filesize(r.releaseAssets.edges[0].node.size)
 
 const IndexPage = ({ data: { release } }) => (
   <Layout>
@@ -122,9 +122,11 @@ const IndexPage = ({ data: { release } }) => (
                 <span role="img" aria-label="world icon">
                   🌎
                 </span>{' '}
-                Tile Maps (w/<a href="https://github.com/excaliburjs/excalibur-tiled">
+                Tile Maps (w/
+                <a href="https://github.com/excaliburjs/excalibur-tiled">
                   Tiled support
-                </a>)
+                </a>
+                )
               </td>
               <td>
                 <span role="img" aria-label="math icon">
@@ -291,14 +293,16 @@ const IndexPage = ({ data: { release } }) => (
                     rel="noopener noreferrer"
                   >
                     Cordova
-                  </a>,
+                  </a>
+                  ,
                   <a
                     href="https://developer.microsoft.com/en-us/windows"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Universal Windows Apps
-                  </a>, or
+                  </a>
+                  , or
                   <a
                     href="http://electron.atom.io/"
                     target="_blank"
