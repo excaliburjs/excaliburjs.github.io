@@ -42,10 +42,6 @@ function build(version, title) {
   // Remove existing docs
   fs.removeSync(destPath)
 
-  console.log('cleaning @types that conflict with ts:themeDefault step')
-
-  fs.removeSync(path.join(exPath, 'node_modules', '@types'))
-
   console.log('Building docs...', BUILD_CMD + title)
 
   // Execute docs build step
