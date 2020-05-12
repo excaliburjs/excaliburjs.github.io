@@ -14,7 +14,7 @@ const renderAst = new rehypeReact({
 /*
  * https://gist.github.com/mathewbyrne/1280286
  */
-const slugify = text => {
+const slugify = (text) => {
   return text
     .toString()
     .toLowerCase()
@@ -41,7 +41,7 @@ const TOC = ({ toc, releases }) => (
         {!!headings.length && (
           <div className="sub item">
             <div className="menu">
-              {headings.map(heading => (
+              {headings.map((heading) => (
                 <Link
                   key={heading.value}
                   className="item"
@@ -55,7 +55,7 @@ const TOC = ({ toc, releases }) => (
         )}
       </React.Fragment>
     ))}
-    
+
     <a className="item" href="/examples">
       Examples
     </a>
@@ -66,7 +66,7 @@ const TOC = ({ toc, releases }) => (
       Edge (latest)
     </a>
 
-    {releases.map(release => (
+    {releases.map((release) => (
       <a
         key={release.name}
         className="item"
@@ -94,8 +94,8 @@ export default function Template({ data }) {
       <div className="ui page relaxed grid">
         <div className="four wide column">
           <TOC
-            toc={toc.edges.map(e => e.node)}
-            releases={releases.edges.map(r => r.node)}
+            toc={toc.edges.map((e) => e.node)}
+            releases={releases.edges.map((r) => r.node)}
           />
         </div>
 

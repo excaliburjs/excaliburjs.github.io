@@ -23,7 +23,7 @@ const Layout = ({ pageTitle = '', children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet>
           <title>{`${pageTitle ? pageTitle + ' - ' : ''}${
