@@ -1,7 +1,7 @@
 import React from 'react'
 import rehypeReact from 'rehype-react'
 import { graphql, Link } from 'gatsby'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
