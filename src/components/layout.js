@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { graphql, StaticQuery } from 'gatsby'
 
 import Footer from '../components/footer'
@@ -23,7 +23,7 @@ const Layout = ({ pageTitle = '', children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet>
           <title>{`${pageTitle ? pageTitle + ' - ' : ''}${
