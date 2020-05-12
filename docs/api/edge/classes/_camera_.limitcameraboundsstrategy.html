@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>HiddenEvent | Excalibur.js Edge API Documentation</title>
+	<title>LimitCameraBoundsStrategy | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_events_.html">&quot;Events&quot;</a>
+					<a href="../modules/_camera_.html">&quot;Camera&quot;</a>
 				</li>
 				<li>
-					<a href="_events_.hiddenevent.html">HiddenEvent</a>
+					<a href="_camera_.limitcameraboundsstrategy.html">LimitCameraBoundsStrategy</a>
 				</li>
 			</ul>
-			<h1>Class HiddenEvent&lt;U&gt;</h1>
+			<h1>Class LimitCameraBoundsStrategy</h1>
 		</div>
 	</div>
 </header>
@@ -72,29 +72,22 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Event received by the <a href="../modules/_index_.html#engine">Engine</a> when the browser window is hidden from all screens.</p>
+						<p>Prevent a camera from going beyond the given camera dimensions.</p>
 					</div>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>U</h4>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">&gt;</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">HiddenEvent</span>
-							</li>
-						</ul>
+						<span class="target">LimitCameraBoundsStrategy</span>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/_camera_.camerastrategy.html" class="tsd-signature-type">CameraStrategy</a><span class="tsd-signature-symbol">&lt;</span><a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -104,21 +97,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_events_.hiddenevent.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_camera_.limitcameraboundsstrategy.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_events_.hiddenevent.html#bubbles" class="tsd-kind-icon">bubbles</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_events_.hiddenevent.html#other" class="tsd-kind-icon">other</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_events_.hiddenevent.html#target" class="tsd-kind-icon">target</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.limitcameraboundsstrategy.html#boundsizechecked" class="tsd-kind-icon">bound<wbr>Size<wbr>Checked</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_camera_.limitcameraboundsstrategy.html#target" class="tsd-kind-icon">target</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_events_.hiddenevent.html#stoppropagation" class="tsd-kind-icon">stop<wbr>Propagation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_camera_.limitcameraboundsstrategy.html#action" class="tsd-kind-icon">action</a></li>
 							</ul>
 						</section>
 					</div>
@@ -130,95 +122,95 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Hidden<wbr>Event<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_events_.hiddenevent.html" class="tsd-signature-type">HiddenEvent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Limit<wbr>Camera<wbr>Bounds<wbr>Strategy<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_camera_.limitcameraboundsstrategy.html" class="tsd-signature-type">LimitCameraBoundsStrategy</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Events.ts#L388">src/engine/Events.ts:388</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Camera.ts#L198">src/engine/Camera.ts:198</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>target: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+									<h5>target: <a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_events_.hiddenevent.html" class="tsd-signature-type">HiddenEvent</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_camera_.limitcameraboundsstrategy.html" class="tsd-signature-type">LimitCameraBoundsStrategy</a></h4>
 						</li>
 					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="bubbles" class="tsd-anchor"></a>
-					<h3> bubbles</h3>
-					<div class="tsd-signature tsd-kind-icon">bubbles<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="boundsizechecked" class="tsd-anchor"></a>
+					<h3> bound<wbr>Size<wbr>Checked</h3>
+					<div class="tsd-signature tsd-kind-icon">bound<wbr>Size<wbr>Checked<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#bubbles">bubbles</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Events.ts#L177">src/engine/Events.ts:177</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Camera.ts#L198">src/engine/Camera.ts:198</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>If set to false, prevents event from propagating to other actors. If true it will be propagated
-							to all actors that apply.</p>
+							<p>Useful for limiting the camera to a <a href="_tilemap_.tilemap.html">TileMap</a>&#39;s dimensions, or a specific area inside the map.</p>
 						</div>
+						<p>Note that this strategy does not perform any movement by itself.
+							It only sets the camera position to within the given bounds when the camera has gone beyond them.
+						Thus, it is a good idea to combine it with other camera strategies and set this strategy as the last one.</p>
+						<p>Make sure that the camera bounds are at least as large as the viewport size.</p>
+						<dl class="tsd-comment-tags">
+							<dt >param</dt>
+							<dd ><p>The bounding box to limit the camera to</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="other" class="tsd-anchor"></a>
-					<h3> other</h3>
-					<div class="tsd-signature tsd-kind-icon">other<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">U</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#other">other</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Events.ts#L171">src/engine/Events.ts:171</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Other target object for this event</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="target" class="tsd-anchor"></a>
 					<h3> target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></div>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#target">target</a></p>
+						<p>Implementation of <a href="../interfaces/_camera_.camerastrategy.html">CameraStrategy</a>.<a href="../interfaces/_camera_.camerastrategy.html#target">target</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Events.ts#L389">src/engine/Events.ts:389</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Camera.ts#L200">src/engine/Camera.ts:200</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="stoppropagation" class="tsd-anchor"></a>
-					<h3> stop<wbr>Propagation</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">stop<wbr>Propagation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="action" class="tsd-anchor"></a>
+					<h3> action</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">action<span class="tsd-signature-symbol">(</span>target<span class="tsd-signature-symbol">: </span><a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a>, cam<span class="tsd-signature-symbol">: </span><a href="_camera_.camera.html" class="tsd-signature-type">Camera</a>, _eng<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#stoppropagation">stopPropagation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Events.ts#L182">src/engine/Events.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/57e03f4d/src/engine/Camera.ts#L202">src/engine/Camera.ts:202</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Prevents event from bubbling</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>target: <a href="_collision_boundingbox_.boundingbox.html" class="tsd-signature-type">BoundingBox</a></h5>
+								</li>
+								<li>
+									<h5>cam: <a href="_camera_.camera.html" class="tsd-signature-type">Camera</a></h5>
+								</li>
+								<li>
+									<h5>_eng: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>_delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -231,36 +223,57 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/_events_.html">&quot;<wbr>Events&quot;</a>
+						<a href="../modules/_camera_.html">&quot;<wbr>Camera&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/_camera_.axis.html" class="tsd-kind-icon">Axis</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.camera.html" class="tsd-kind-icon">Camera</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.elastictoactorstrategy.html" class="tsd-kind-icon">Elastic<wbr>ToActor<wbr>Strategy</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_events_.hiddenevent.html" class="tsd-kind-icon">Hidden<wbr>Event</a>
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.limitcameraboundsstrategy.html" class="tsd-kind-icon">Limit<wbr>Camera<wbr>Bounds<wbr>Strategy</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_events_.hiddenevent.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_camera_.limitcameraboundsstrategy.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_events_.hiddenevent.html#bubbles" class="tsd-kind-icon">bubbles</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.limitcameraboundsstrategy.html#boundsizechecked" class="tsd-kind-icon">bound<wbr>Size<wbr>Checked</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_events_.hiddenevent.html#other" class="tsd-kind-icon">other</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="_camera_.limitcameraboundsstrategy.html#target" class="tsd-kind-icon">target</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
-								<a href="_events_.hiddenevent.html#target" class="tsd-kind-icon">target</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_events_.hiddenevent.html#stoppropagation" class="tsd-kind-icon">stop<wbr>Propagation</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_camera_.limitcameraboundsstrategy.html#action" class="tsd-kind-icon">action</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.lockcameratoactoraxisstrategy.html" class="tsd-kind-icon">Lock<wbr>Camera<wbr>ToActor<wbr>Axis<wbr>Strategy</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.lockcameratoactorstrategy.html" class="tsd-kind-icon">Lock<wbr>Camera<wbr>ToActor<wbr>Strategy</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.radiusaroundactorstrategy.html" class="tsd-kind-icon">Radius<wbr>Around<wbr>Actor<wbr>Strategy</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="_camera_.strategycontainer.html" class="tsd-kind-icon">Strategy<wbr>Container</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../interfaces/_camera_.camerastrategy.html" class="tsd-kind-icon">Camera<wbr>Strategy</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
