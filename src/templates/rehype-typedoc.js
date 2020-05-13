@@ -1,4 +1,4 @@
-import { ReflectionKind } from 'typedoc'
+import { ReflectionKind } from 'typedoc/dist/lib/models/reflections/abstract'
 
 const TYPEDOC_SYMBOL_LINK_REGEXP = /\[\[([^\]]+)\]\]/gi
 
@@ -79,7 +79,10 @@ export function generateLinkFromSymbol(symbolPath, basePath, symbolLinkIndex) {
     const [, containerKind] = symbolMatches
       .concat([])
       .reverse()
-      .find(([, kind]) => SYMBOL_CONTAINERS.includes(kind)) || [,]
+      .find(([, kind]) => SYMBOL_CONTAINERS.includes(kind)) || [
+      undefined,
+      undefined,
+    ]
 
     let containerPath
 
