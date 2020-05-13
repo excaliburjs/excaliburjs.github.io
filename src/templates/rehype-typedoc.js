@@ -5,11 +5,15 @@ const TYPEDOC_SYMBOL_LINK_REGEXP = /\[\[([^\]]+)\]\]/gi
 const SYMBOL_CONTAINERS = [
   ReflectionKind.Class,
   ReflectionKind.Interface,
+  ReflectionKind.Enum,
   ReflectionKind.Module,
+  ReflectionKind.SomeModule,
+  ReflectionKind.ExternalModule,
 ]
 
 const SYMBOL_LINK_KINDS = [
   ReflectionKind.Enum,
+  ReflectionKind.EnumMember,
   ReflectionKind.Class,
   ReflectionKind.Interface,
   ReflectionKind.Constructor,
@@ -17,6 +21,8 @@ const SYMBOL_LINK_KINDS = [
   ReflectionKind.Method,
   ReflectionKind.Accessor,
   ReflectionKind.Function,
+  ReflectionKind.TypeAlias,
+  ReflectionKind.ObjectLiteral,
 ]
 
 /**
@@ -25,9 +31,15 @@ const SYMBOL_LINK_KINDS = [
  */
 export function buildSymbolLinkIndex(node, parents = [], lookup = new Map()) {
   if (node.children && node.children.length) {
-    node.children.forEach((n) =>
+    node.children.forEach((n) => {
+      if (
+        !SYMBOL_LINK_KINDS.includes(n.kind) &&
+        !SYMBOL_CONTAINERS.includes(n.kind)
+      ) {
+        return
+      }
       buildSymbolLinkIndex(n, [...parents, node], lookup)
-    )
+    })
   }
 
   const symbolExpression = [...parents, node].reduce((expr, n) => {
@@ -47,14 +59,81 @@ export function buildSymbolLinkIndex(node, parents = [], lookup = new Map()) {
     }
   }, '')
 
+  const symbolPath = [...parents, node].map((n) => [n.name, n.kind])
+
   if (symbolExpression.length && !lookup.has(symbolExpression)) {
-    lookup.set(
-      symbolExpression,
-      [...parents, node].map((n) => [n.name, n.kind])
-    )
+    lookup.set(symbolExpression, symbolPath)
   }
 
   return lookup
+}
+
+export function generateLinkFromSymbol(symbolPath, basePath, symbolLinkIndex) {
+  let symbolLink = undefined
+
+  const symbolMatches = symbolLinkIndex.has(symbolPath)
+    ? symbolLinkIndex.get(symbolPath)
+    : []
+
+  if (symbolMatches && symbolMatches.length) {
+    const [, containerKind] = symbolMatches
+      .concat([])
+      .reverse()
+      .find(([, kind]) => SYMBOL_CONTAINERS.includes(kind)) || [,]
+
+    let containerPath
+
+    switch (containerKind) {
+      case ReflectionKind.Class:
+        containerPath = 'classes/'
+        break
+      case ReflectionKind.Interface:
+        containerPath = 'interfaces/'
+        break
+      case ReflectionKind.SomeModule:
+      case ReflectionKind.ExternalModule:
+      case ReflectionKind.Module:
+        containerPath = 'modules/'
+        break
+      case ReflectionKind.Enum:
+        containerPath = 'enums/'
+        break
+      default:
+        containerPath = ''
+    }
+
+    // assemble file url
+    symbolLink = symbolMatches.reduce(
+      (path, [matchSymbolName, matchSymbolKind]) => {
+        switch (matchSymbolKind) {
+          case 0:
+            break
+          case ReflectionKind.SomeModule:
+          case ReflectionKind.ExternalModule:
+          case ReflectionKind.Module:
+            path += matchSymbolName.replace(/[^a-z0-9]/gi, '_') + '.'
+            break
+          case ReflectionKind.Class:
+          case ReflectionKind.Interface:
+          case ReflectionKind.Enum:
+            path += matchSymbolName
+            break
+          default:
+            path += '#' + matchSymbolName
+            break
+        }
+
+        if (matchSymbolKind === containerKind) {
+          path += (path.endsWith('.') ? '' : '.') + 'html'
+        }
+
+        return path.toLowerCase()
+      },
+      basePath + containerPath
+    )
+  }
+
+  return symbolLink
 }
 
 export default function rehypeTypedoc(options) {
@@ -87,63 +166,11 @@ export default function rehypeTypedoc(options) {
         // does it have an alias display value? e.g. [[Symbol.method|display text]]
         const [symbolPath, ...alias] = symbol.split('|')
         const displayValue = alias.length ? alias.join('') : symbol
-
-        let symbolLink = undefined
-
-        const symbolMatches = symbolLinkIndex.has(symbolPath)
-          ? symbolLinkIndex.get(symbolPath)
-          : []
-
-        if (symbolMatches && symbolMatches.length) {
-          const [, containerKind] = symbolMatches
-            .concat([])
-            .reverse()
-            .find(([, kind]) => SYMBOL_CONTAINERS.includes(kind)) || [,]
-
-          let containerPath
-
-          switch (containerKind) {
-            case ReflectionKind.Class:
-              containerPath = 'classes/'
-              break
-            case ReflectionKind.Interface:
-              containerPath = 'interfaces/'
-              break
-            case ReflectionKind.Module:
-              containerPath = 'modules/'
-              break
-            default:
-              containerPath = ''
-          }
-          // assemble file url
-          symbolLink = symbolMatches.reduce(
-            (path, [matchSymbolName, matchSymbolKind]) => {
-              switch (matchSymbolKind) {
-                case 0:
-                  break
-                case ReflectionKind.SomeModule:
-                case ReflectionKind.ExternalModule:
-                case ReflectionKind.Module:
-                  path += matchSymbolName.replace(/[^a-z0-9]/gi, '_') + '.'
-                  break
-                case ReflectionKind.Class:
-                case ReflectionKind.Interface:
-                  path += matchSymbolName
-                  break
-                default:
-                  path += '#' + matchSymbolName
-                  break
-              }
-
-              if (matchSymbolKind === containerKind) {
-                path += '.html'
-              }
-
-              return path.toLowerCase()
-            },
-            basePath + containerPath
-          )
-        }
+        const symbolLink = generateLinkFromSymbol(
+          symbolPath,
+          basePath,
+          symbolLinkIndex
+        )
 
         // append lhs + anchor tag
         newChildren.push(
