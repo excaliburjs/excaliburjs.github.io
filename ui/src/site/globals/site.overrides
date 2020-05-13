@@ -3,26 +3,38 @@
 *******************************/
 
 .ui.segment.homepage-hero {
-    a { color: @white; }
+  a {
+    color: @white;
+  }
 }
 
 /* Docs */
 .ui.docs.menu {
-    .item.sub {
-        display: none;
-    }
-    .item.active + .item.sub {
-        display: inherit;
-        padding: 0 0 0 2em;
-    }
+  .item.sub {
+    display: none;
+  }
+  .item.active + .item.sub {
+    display: inherit;
+    padding: 0 0 0 2em;
+  }
 }
 
 .docs-content {
-    font-family: "Libre Baskerville";
-    line-height: 1.6;
+  font-family: 'Libre Baskerville';
+  line-height: 1.6;
 }
 
-.docs-content :not(pre) > code[class*="language-"] {
-    background: #fff1f1;
-    color: #ec4f4f;
+.docs-content :not(pre) > code[class*='language-'] {
+  background: #fff1f1;
+  color: #ec4f4f;
+}
+
+.docs-content a.symbol {
+  font-family: 'Consolas', 'Courier New', Courier, monospace;
+  background: #fff1f1;
+  
+  &[data-missing] {
+    cursor: help;
+    border-bottom: 1px dashed #ec4f4f;
+  }
 }
