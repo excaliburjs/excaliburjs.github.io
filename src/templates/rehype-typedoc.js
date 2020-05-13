@@ -187,7 +187,11 @@ export default function rehypeTypedoc(options) {
             properties: {
               className: 'symbol',
               'data-missing': symbolLink ? undefined : true,
+              title: symbolLink
+                ? `View '${symbolPath}' in API reference docs`
+                : "Missing link to symbol in API docs, we're happy to accept a PR to fix this!",
               href: symbolLink,
+              target: '_blank',
             },
             children: [
               {
