@@ -676,13 +676,23 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 .docs-content {
-  font-family: "Libre Baskerville";
+  font-family: 'Libre Baskerville';
   line-height: 1.6;
 }
 
-.docs-content :not(pre) > code[class*="language-"] {
+.docs-content :not(pre) > code[class*='language-'] {
   background: #fff1f1;
   color: #ec4f4f;
+}
+
+.docs-content a.symbol {
+  font-family: 'Consolas', 'Courier New', Courier, monospace;
+  background: #fff1f1;
+}
+
+.docs-content a.symbol[data-missing] {
+  cursor: help;
+  border-bottom: 1px dashed #ec4f4f;
 }
 /*!
  * # Fomantic-UI - Button
