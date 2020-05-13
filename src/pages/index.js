@@ -284,25 +284,23 @@ const IndexPage = ({ data: { release } }) => (
                 <h2 className="ui header">Designed for Cross-Platform</h2>
 
                 <p>
-                  Exalibur is built to target EcmaScript 5 and therefore works
+                  Excalibur is built to target ECMAScript 5 and therefore works
                   in the majority of browsers, including mobile. Use app
-                  packaging wrappers like
+                  packaging wrappers like 
                   <a
                     href="https://cordova.apache.org/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Cordova
-                  </a>
-                  ,
+                  </a>, 
                   <a
                     href="https://developer.microsoft.com/en-us/windows"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Universal Windows Apps
-                  </a>
-                  , or
+                  </a>, or 
                   <a
                     href="http://electron.atom.io/"
                     target="_blank"

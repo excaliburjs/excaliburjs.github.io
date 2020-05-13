@@ -53,13 +53,13 @@ const TOC = ({ toc, releases }) => (
       </React.Fragment>
     ))}
 
-    <a className="item" href="/examples">
+    <a className="item" href="/examples/">
       Examples
     </a>
 
     <div className="header item">API Reference</div>
 
-    <a className="item" href="/docs/api/edge">
+    <a className="item" href="/docs/api/edge/">
       Edge (latest)
     </a>
 
@@ -67,7 +67,7 @@ const TOC = ({ toc, releases }) => (
       <a
         key={release.name}
         className="item"
-        href={`/docs/api/${release.tag.name}`}
+        href={`/docs/api/${release.tag.name}/`}
       >
         {release.name}
       </a>
