@@ -16,9 +16,6 @@ env:
 before_install:
 - gem install sass -v 3.4.24
 script:
-# Remove @types packages that
-# conflict with Typedoc builds for Excalibur
-- rm -rf ./node_modules/@types/
 - npm run docs
 - npm run build
 after_success:
