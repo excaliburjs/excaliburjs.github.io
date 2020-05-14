@@ -28,7 +28,6 @@ const TOC = ({ toc, releases }) => (
     {toc.map(({ id, headings, frontmatter }) => (
       <React.Fragment key={id}>
         <Link
-          exact
           activeClassName="active"
           className="item"
           to={frontmatter.path}
@@ -38,9 +37,9 @@ const TOC = ({ toc, releases }) => (
         {!!headings.length && (
           <div className="sub item">
             <div className="menu">
-              {headings.map((heading) => (
+              {headings.map((heading, index) => (
                 <Link
-                  key={heading.value}
+                  key={`${frontmatter.path}-${index}`}
                   data-heading-level={heading.depth}
                   className="item"
                   to={`${frontmatter.path}#${slugify(heading.value)}`}
