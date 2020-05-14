@@ -149,11 +149,11 @@ Actors by default have no associated [drawings](/docs/drawings), meaning that th
 ### Working with textures & sprites
 
 Think of a [[Texture|texture]] as the raw image file that will be loaded into Excalibur. In order for it to be drawn
-it must be converted to a [[Sprite]].
+it must be converted to a [Sprite](/docs/drawings#sprites).
 
-A common usage is to load a [[Texture]] and convert it to a [[Sprite]] for an actor. If you are using the [[Loader]] to
-pre-load assets, you can simply assign an actor a [[Sprite]] to draw. You can also create a
-[[Texture.asSprite|sprite from a Texture]] to quickly create a [[Sprite]] instance.
+A common usage is to load a [[Texture]] and convert it to a sprite for an actor. If you are using the [asset loader](http://localhost:8000/docs/assets) to
+pre-load assets, you can use [[Actor.addDrawing]] to add a texture directly, which will internally convert it to a sprite on your behalf. You can also create a
+[[Texture.asSprite|sprite from a Texture]] to create a sprite instance to pass to `addDrawing`.
 
 ```ts
 // assume Resources.TxPlayer is a 80x80 png image
@@ -170,8 +170,8 @@ public onInitialize(engine: ex.Engine) {
 
 ### Working with animations
 
-A [[SpriteSheet]] holds a collection of sprites from a single [[Texture]].
-Use [[SpriteSheet.getAnimationForAll]] to easily generate an [[Animation]].
+A [sprite sheet](/docs/drawings#sprite-sheets) holds a collection of sprites from a single [[Texture]].
+Use [[SpriteSheet.getAnimationForAll]] to quickly generate an [Animation](/docs/drawings#animations).
 
 ```ts
 // assume Resources.TxPlayerIdle is a texture containing several frames of an animation
@@ -289,7 +289,7 @@ By default Actors do not participate in collisions. If you wish to make
 an actor participate, you need to switch from the default [[CollisionType.PreventCollision|prevent collision]]
 to [[CollisionType.Active|active]], [[CollisionType.Fixed|fixed]], or [[CollisionType.Passive|passive]] collision type.
 
-For more information on collisions, please read about [[Physics|rigid body physics]].
+<docs-note>For more information on collisions, see [Physics](/docs/physics).</docs-note>
 
 ```ts
 public Player extends ex.Actor {
