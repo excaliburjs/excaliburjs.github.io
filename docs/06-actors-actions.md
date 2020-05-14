@@ -66,6 +66,14 @@ class Player extends ex.Actor {
 
 In most games, things are happening on screen: the background is parallaxing, your hero responds to input, or enemies shoot bullets. In Excalibur, the logic that updates game state is run during the [update loop](/docs/engine#engine-lifecycle). Actors are a way to encapsulate that logic, such as a `Player` or `Enemy` or `MenuButton`. Actors can be pretty much anything!
 
+### Managing game state
+
+Excalibur does not provide any out-of-the-box way to manage game state but typically you can either use class properties or introduce something more sophisticated like a [state machine](https://github.com/davidkpiano/xstate).
+
+The benefit of something like a state machine is that state can be separated from the actions an actor may take and you can then _save_ and _load_ state more easily to enable save game management. You could choose for example to have a global game state that you can serialize and deserialize.
+
+<docs-note>Have you implemented state management in your Excalibur game? [Let us know](https://github.com/excaliburjs/Excalibur#questions)!</docs-note>
+
 ## Update hooks
 
 There are three ways to hook into the update loop of an actor: [[Actor.onPreUpdate]], [[Actor.update]] and [[Actor.onPostUpdate]]. Actors (and other entities in Excalibur) all have "core" logic that runs in the update or draw loop. The pre- and post-method hooks allow you to choose when you want to run logic in each phase. _Normally_ you will run logic in the "pre" hook but sometimes you may want to completely override the core logic or run logic that uses state that was updated _after_ the core logic runs.
