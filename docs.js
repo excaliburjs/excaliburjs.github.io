@@ -66,7 +66,7 @@ if (process.argv.length === 3) {
   build('edge', 'Edge')
 }
 
-if (process.env.TRAVIS_CI && !process.env.GH_TOKEN) {
+if (process.env.SKIP_DOCS_RELEASES || (process.env.TRAVIS_CI && !process.env.GH_TOKEN)) {
   console.info(
     'Missing GH_TOKEN environment variable, skipping building release tags'
   )
