@@ -28,26 +28,30 @@ game.start(loader).then(function() {
 You can then assign an [[Actor]] a sprite through [[Actor.addDrawing]] and
 [[Actor.setDrawing]].
 
-
 ## Sprite Sheets
+
+You can also use a [[SpriteFont]] which is special kind of [[SpriteSheet]] for use
+with [[Label|Labels]].
+
+### Creating a SpriteSheet
 
 To create a [[SpriteSheet]] you need a loaded [[Texture]] resource.
 
 ```js
-var game = new ex.Engine();
-var txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png');
+const game = new ex.Engine();
+const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png');
 // load assets
-var loader = new ex.Loader(txAnimPlayerIdle);
+const loader = new ex.Loader([txAnimPlayerIdle]);
 
 // start game
 game.start(loader).then(function() {
-  var player = new ex.Actor();
+  const player = new ex.Actor();
 
   // create sprite sheet with 5 columns, 1 row, 80x80 frames
-  var playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
+  const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
 
   // create animation (125ms frame speed)
-  var playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
+  const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
 
   // add drawing to player as "idle"
   player.addDrawing('idle', playerIdleAnimation);
@@ -72,16 +76,16 @@ provided the [[Texture]] has been [[Loader|loaded]].
 
 ```js
 // create sprite sheet with 5 columns, 1 row, 80x80 frames
-var playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
+const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
 
 // create animation for all frames (125ms frame speed)
-var playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
 // create animation for a range of frames (2-4) (125ms frame speed)
-var playerIdleAnimation = playerIdleSheet.getAnimationBetween(game, 1, 3, 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationBetween(game, 1, 3, 125);
 // create animation for specific frames 2, 4, 5 (125ms frame speed)
-var playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [1, 3, 4], 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [1, 3, 4], 125);
 // create a repeating animation (ping-pong)
-var playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [1, 3, 4, 3, 1], 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [1, 3, 4, 3, 1], 125);
 ```
 
 ### Multiple rows
@@ -101,7 +105,7 @@ and beginning with zero.
 
 ```js
 // get a sprite for column 3, row 6
-var sprite = animation.getSprite(2 + 5 * 10);
+const sprite = animation.getSprite(2 + 5 * 10);
 ```
 
 ## Animations
@@ -205,7 +209,7 @@ a new [[SpriteFont]] instance per [[Label]].
 If you apply any custom effects to the sprites in a SpriteFont, including trying to
 use [[Label.color]], they will be removed when modifying [[Label.opacity]].
 
-
+## Tile Maps
 
 Tile maps are made up of [[Cell|Cells]] which can draw [[TileSprite|TileSprites]]. Tile
 maps support multiple layers and work well for building tile-based games such as RPGs,
@@ -217,7 +221,7 @@ and export them to JSON. You can then load them using a [[Resource|Generic Resou
 and process them to create your levels. A [[TileMap]] can then be used as part of a
 level or map class that adds enemies and builds game objects from the Tiled map.
 
-## Tile Maps
+### Creating a tile map
 
 A [[TileMap]] is meant to be used in conjunction with a map editor. Creating
 a tile map is fairly straightforward.
@@ -238,8 +242,8 @@ based on the exported structure of a JSON file).
 
 ```typescript
 // define TypeScript interfaces to make our life easier
-public interface IMapDefinition {
-  cells: IMapCellDefinition[];
+public interface MapDefinition {
+  cells: MapCellDefinition[];
   tileSheets: IMapTileSheet[];
   width: number;
   height: number;
@@ -247,14 +251,14 @@ public interface IMapDefinition {
   tileHeight: number;
 }
 
-public interface IMapCellDefinition {
+public interface MapCellDefinition {
   x: number;
   y: number;
   tileId: number;
   sheetId: number;
 }
 
-public interface IMapTileSheet {
+public interface MapTileSheet {
   id: number;
   path: string;
   columns: number;
@@ -290,7 +294,7 @@ public class Map extends ex.Scene {
     this._mapDefinition.cells.forEach(cell => {
       // create a TileSprite
       // assume tileId is the index of the frame in the sprite sheet
-      var ts = new ex.TileSprite(cell.sheetId.toString(), cell.spriteId);
+      const ts = new ex.TileSprite(cell.sheetId.toString(), cell.spriteId);
       // add to cell
       this._tileMap.getCell(cell.x, cell.y).pushSprite(ts);
     }
@@ -298,10 +302,10 @@ public class Map extends ex.Scene {
 }
 
 // create a game
-var game = new ex.Engine();
+const game = new ex.Engine();
 
 // add our level (JSON from external source)
-var map1 = new Map({ ... });
+const map1 = new Map({ ... });
 game.add("map1", map1);
 game.start();
 ```

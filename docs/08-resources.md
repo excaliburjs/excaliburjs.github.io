@@ -21,13 +21,14 @@ is loaded, you can generate a [[Sprite]] with it.
 
 ```js
 var txPlayer = new ex.Texture('/assets/tx/player.png');
-var loader = new ex.Loader(txPlayer);
+var loader = new ex.Loader([txPlayer]);
 game.start(loader).then(function() {
   var player = new ex.Actor();
   player.addDrawing(txPlayer);
   game.add(player);
 });
 ```
+
 
 ## Sounds
 
@@ -43,6 +44,7 @@ game.start(loader).then(function() {
   sndPlayerDeath.play();
 });
 ```
+
 
 ## Generic Resources
 
@@ -61,7 +63,7 @@ resLevel1.processData = function(data) {
 game.start(loader);
 ```
 
-## Advanced: Custom loadables
+## Advanced: Custom Loadables
 
 You can implement the [[ILoadable]] interface to create your own custom loadables.
 

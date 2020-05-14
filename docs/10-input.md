@@ -3,8 +3,6 @@ title: Input
 path: /docs/input
 ---
 
-# Working with Input
-
 Excalibur offers several modes of input for your games.
 
 The [[Engine.input]] property that can be inspected during [[Actor.update]]
@@ -13,7 +11,7 @@ of user input without writing complex input event code.
 
 Learn more about [[Pointers|Mouse and Touch]], [[Keyboard]], and [[Gamepads|Controller]] support.
 
-## Inspecting engine input
+### Inspecting engine input
 
 Access [[Engine.input]] to see if any input is being tracked during the current update frame.
 
@@ -29,7 +27,6 @@ class Player extends ex.Actor {
 
 ## Keyboard
 
-
 Working with the keyboard is easy in Excalibur. You can inspect
 whether a button was just [[Keyboard.wasPressed|pressed]] or [[Keyboard.wasReleased|released]] this frame, or
 if the key is currently being [[Keyboard.isHeld|held]] down. Common keys are held in the [[Keys]]
@@ -40,7 +37,7 @@ what keys are currently held, released, or pressed. A key can be held
 for multiple frames, but a key cannot be pressed or released for more than one subsequent
 update frame.
 
-## Inspecting the keyboard
+### Inspecting the keyboard
 
 You can inspect [[Engine.input]] to see what the state of the keyboard
 is during an update.
@@ -61,7 +58,7 @@ class Player extends ex.Actor {
 }
 ```
 
-## Events
+### Events
 
 You can subscribe to keyboard events through `engine.input.keyboard.on`. A [[KeyEvent]] object is
 passed to your handler which offers information about the key that was part of the event.
@@ -78,7 +75,6 @@ engine.input.keyboard.on("hold", (evt: KeyEvent) => {...});
 
 ## Mouse and Touch
 
-
 There is always at least one [[Pointer]] available ([[Pointers.primary]]) and
 you can request multiple pointers to support multi-touch scenarios.
 
@@ -90,7 +86,7 @@ of pointer, if applicable.
 Excalibur handles mouse/touch events and normalizes them to a [[PointerEvent]]
 that your game can subscribe to and handle (`engine.input.pointers`).
 
-## Events
+### Events
 
 You can subscribe to pointer events through `engine.input.pointers.on`. A [[PointerEvent]] object is
 passed to your handler which offers information about the pointer input being received.
@@ -107,7 +103,7 @@ engine.input.pointers.primary.on('move', function(evt) {});
 engine.input.pointers.primary.on('cancel', function(evt) {});
 ```
 
-### Wheel Event
+#### Wheel Event
 
 You can also subscribe to the mouse wheel event through `engine.input.pointers.on`. A [[WheelEvent]]
 object is passed to your handler which offers information about the wheel event being received.
@@ -118,7 +114,7 @@ object is passed to your handler which offers information about the wheel event 
 engine.input.pointers.on('wheel', function(evt) {});
 ```
 
-## Last position querying
+### Last position querying
 
 If you don't wish to subscribe to events, you can also access the [[Pointer.lastPagePos]], [[Pointer.lastScreenPos]]
 or [[Pointer.lastWorldPos]] coordinates ([[Vector]]) on the pointer you're targeting.
@@ -131,10 +127,10 @@ engine.input.pointers.primary.lastWorldPos;
 
 Note that the value may be `null` if the Pointer was not active the last frame.
 
-## Pointer scope (window vs. canvas)
+### Pointer scope (window vs. canvas)
 
 You have the option to handle _all_ pointer events in the browser by setting
-[[IEngineOptions.pointerScope]] to [[PointerScope.Document]]. If this is enabled,
+[[EngineOptions.pointerScope]] to [[PointerScope.Document]]. If this is enabled,
 
 Excalibur will handle every pointer event in the browser. This is useful for handling
 complex input and having control over every interaction.
@@ -147,7 +143,7 @@ finger outside your game and then into it, expecting it to work. If [[PointerSco
 is set to [[PointerScope.Canvas|Canvas]] this will not work. If it is set to
 [[PointerScope.Document|Document]], it will.
 
-## Responding to input
+### Responding to input
 
 The primary pointer can be a mouse, stylus, or single finger touch event. You
 can inspect what type of pointer it is from the [[PointerEvent]] handled.
@@ -162,7 +158,7 @@ engine.input.pointers.primary.on('down', function(pe) {
 });
 ```
 
-## Multiple Pointers (Multi-Touch)
+### Multiple Pointers (Multi-Touch)
 
 When there is more than one pointer detected on the screen,
 this is considered multi-touch. For example, pressing one finger,
@@ -172,7 +168,7 @@ the first one remains and the second one disappears.
 You can handle multi-touch by subscribing to however many pointers
 you would like to support. If a pointer doesn't yet exist, it will
 be created. You do not need to check if a pointer exists. If it does
-exist, it will propogate events, otherwise it will remain idle.
+exist, it will propagate events, otherwise it will remain idle.
 
 Excalibur does not impose a limit to the amount of pointers you can
 subscribe to, so by all means, support all 10 fingers.
@@ -195,7 +191,7 @@ engine.input.pointers.at(1).on('move', paint('red')); // 2nd finger
 engine.input.pointers.at(2).on('move', paint('green')); // 3rd finger
 ```
 
-## Actor pointer events
+### Actor pointer events
 
 By default, [[Actor|Actors]] do not participate in pointer events. In other
 words, when you "click" an Actor, it will not throw an event **for that Actor**,
@@ -206,7 +202,7 @@ opt-in if a pointer related event handler is set on them `actor.on("pointerdown"
 To opt-in manually, set [[Actor.enableCapturePointer]] to `true` and the [[Actor]] will
 start publishing `pointerup` and `pointerdown` events. `pointermove` events
 will not be published by default due to performance implications. If you want
-an actor to receive move events, set [[ICapturePointerConfig.captureMoveEvents]] to
+an actor to receive move events, set [[CapturePointerConfig.captureMoveEvents]] to
 `true`.
 
 Actor pointer events will be prefixed with `pointer`.
@@ -223,8 +219,8 @@ player.on('pointerup', function(ev) {
 });
 ```
 
-## Gamepads and Controllers
 
+## Gamepads and Controllers
 
 You can query any [[Gamepad|Gamepads]] that are connected or listen to events ("button" and "axis").
 
@@ -235,7 +231,7 @@ automatically opt-in to controller polling.
 HTML5 Gamepad API only supports a maximum of 4 gamepads. You can access them using the [[Gamepads.at]] method. If a [[Gamepad]] is
 not connected, it will simply not throw events.
 
-## Gamepad Filtering
+### Gamepad Filtering
 
 Different browsers/devices are sometimes loose about the devices they consider Gamepads, you can set minimum device requirements with
 `engine.input.gamepads.setMinimumGamepadConfiguration` so that undesired devices are not reported to you (Touchpads, Mice, Web
@@ -249,7 +245,7 @@ engine.input.gamepads.setMinimumGamepadConfiguration({
 });
 ```
 
-## Events
+### Events
 
 You can subscribe to gamepad connect and disconnect events through `engine.input.gamepads.on`.
 
@@ -266,7 +262,7 @@ Once you have a reference to a gamepad you may listen to changes on that gamepad
 
 ```ts
 engine.input.gamepads.on('connect', (ce: ex.Input.GamepadConnectEvent) => {
-  var newPlayer = CreateNewPlayer(); // pseudo-code for new player logic on gamepad connection
+  const newPlayer = CreateNewPlayer(); // pseudo-code for new player logic on gamepad connection
   console.log('Gamepad connected', ce);
   ce.gamepad.on('button', (be: ex.GamepadButtonEvent) => {
     if (be.button === ex.Input.Buttons.Face1) {
@@ -282,7 +278,7 @@ engine.input.gamepads.on('connect', (ce: ex.Input.GamepadConnectEvent) => {
 });
 ```
 
-## Responding to button input
+### Responding to button input
 
 [[Buttons|Gamepad buttons]] typically have values between 0 and 1, however depending on
 the sensitivity of the controller, even if a button is idle it could have a
@@ -313,10 +309,10 @@ engine.input.gamepads.at(0).on('button', function(ev) {
 });
 ```
 
-## Responding to axis input
+### Responding to axis input
 
 [[Axes|Gamepad axes]] typically have values between -1 and 1, but even idle
-sticks can still propogate very small values depending on the quality and age
+sticks can still propagate very small values depending on the quality and age
 of a controller. For this reason, you can set [[Gamepads.MinAxisMoveThreshold]]
 to set the (absolute) threshold after which Excalibur will start publishing `axis` events.
 By default it is set to a value that normally will not throw events if a stick is idle.

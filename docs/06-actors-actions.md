@@ -2,8 +2,7 @@
 title: Actors
 path: /docs/actors
 ---
-
-## Actors
+## Basic actors
 
 For quick and dirty games, you can just create an instance of an `Actor`
 and manipulate it directly.
@@ -12,7 +11,7 @@ Actors (and other entities) must be added to a [[Scene]] to be drawn
 and updated on-screen.
 
 ```ts
-var player = new ex.Actor();
+const player = new ex.Actor();
 
 // move the player
 player.vel.x = 5;
@@ -23,14 +22,14 @@ game.add(player);
 
 `game.add` is a convenience method for adding an `Actor` to the current scene. The equivalent verbose call is `game.currentScene.add`.
 
-### Actor Lifecycle
+## Actor Lifecycle
 
 An [[Actor|actor]] has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
 [[Scene|scene]], it will follow this lifecycle.
 
 ![Actor Lifecycle](/assets/images/docs/ActorLifecycle.png)
 
-### Extending actors
+## Extending actors
 
 For "real-world" games, you'll want to `extend` the `Actor` class.
 This gives you much greater control and encapsulates logic for that
@@ -86,7 +85,7 @@ var Player = ex.Actor.extend({
 });
 ```
 
-### Updating actors
+## Updating actors
 
 Override the [[update]] method to update the state of your actor each frame.
 Typically things that need to be updated include state, drawing, or position.
@@ -133,7 +132,7 @@ var Player = ex.Actor.extend({
 });
 ```
 
-### Drawing actors
+## Drawing actors
 
 Override the [[draw]] method to perform any custom drawing. For simple games,
 you don't need to override `draw`, instead you can use [[addDrawing]] and [[setDrawing]]
@@ -172,10 +171,10 @@ Use [[SpriteSheet.getAnimationForAll]] to easily generate an [[Animation]].
 public onInitialize(engine: ex.Engine) {
 
    // create a SpriteSheet for the animation
-   var playerIdleSheet = new ex.SpriteSheet(Resources.TxPlayerIdle, 5, 1, 80, 80);
+   const playerIdleSheet = new ex.SpriteSheet(Resources.TxPlayerIdle, 5, 1, 80, 80);
 
    // create an animation
-   var playerIdleAnimation = playerIdleSheet.getAnimationForAll(engine, 120);
+   const playerIdleAnimation = playerIdleSheet.getAnimationForAll(engine, 120);
 
    // the first drawing is always the current
    this.addDrawing("idle", playerIdleAnimation);
@@ -200,60 +199,6 @@ public draw(ctx: CanvasRenderingContext2D, delta: number) {
    ctx.lineTo(...);
 }
 ```
-
-
-### Collision Detection
-
-By default Actors do not participate in collisions. If you wish to make
-an actor participate, you need to switch from the default [[CollisionType.PreventCollision|prevent collision]]
-to [[CollisionType.Active|active]], [[CollisionType.Fixed|fixed]], or [[CollisionType.Passive|passive]] collision type.
-
-```ts
-public Player extends ex.Actor {
-   constructor() {
-      super();
-      // set preferred CollisionType
-      this.collisionType = ex.CollisionType.Active;
-   }
-}
-
-// or set the collisionType
-
-var actor = new ex.Actor();
-actor.collisionType = ex.CollisionType.Active;
-```
-
-### Traits
-
-Traits describe actor behavior that occurs every update. If you wish to build a generic behavior
-without needing to extend every actor you can do it with a trait, a good example of this may be
-plugging in an external collision detection library like [[https://github.com/kripken/box2d.js/|Box2D]] or
-[[http://wellcaffeinated.net/PhysicsJS/|PhysicsJS]] by wrapping it in a trait. Removing traits can also make your
-actors more efficient.
-
-Default traits provided by Excalibur are [["Traits/CapturePointer"|pointer capture]],
-[["Traits/TileMapCollisionDetection"|tile map collision]],
-and [["Traits/OffscreenCulling"|offscreen culling]].
-
-### Using Groups
-
-Groups can be used to detect collisions across a large number of actors. For example
-perhaps a large group of "enemy" actors.
-
-```typescript
-var enemyShips = engine.currentScene.createGroup("enemy");
-var enemies = [...]; // Large array of enemies;
-enemyShips.add(enemies);
-var player = new Actor();
-engine.currentScene.add(player);
-enemyShips.on('precollision', function(ev: CollisionEvent){
-  if (e.other === player) {
-      //console.log("collision with player!");
-  }
-});
-```
-
-
 
 ### Adding actors to the scene
 
@@ -290,6 +235,41 @@ game.start();
 game.goToScene('level1');
 ```
 
+## Collision Detection
+
+By default Actors do not participate in collisions. If you wish to make
+an actor participate, you need to switch from the default [[CollisionType.PreventCollision|prevent collision]]
+to [[CollisionType.Active|active]], [[CollisionType.Fixed|fixed]], or [[CollisionType.Passive|passive]] collision type.
+
+For more information on collisions, please read about [[Physics|rigid body physics]].
+
+```ts
+public Player extends ex.Actor {
+   constructor() {
+      super();
+      // set preferred CollisionType
+      this.body.collider.type = ex.CollisionType.Active;
+   }
+}
+
+// or set the collisionType
+
+const actor = new ex.Actor();
+actor.body.collider.type = ex.CollisionType.Active;
+```
+
+## Traits
+
+Traits describe actor behavior that occurs every update. If you wish to build a generic behavior
+without needing to extend every actor you can do it with a trait, a good example of this may be
+plugging in an external collision detection library like [[https://github.com/kripken/box2d.js/|Box2D]] or
+[[http://wellcaffeinated.net/PhysicsJS/|PhysicsJS]] by wrapping it in a trait. Removing traits can also make your
+actors more efficient.
+
+Default traits provided by Excalibur are [["Traits/CapturePointer"|pointer capture]],
+[["Traits/TileMapCollisionDetection"|tile map collision]],
+and [["Traits/OffscreenCulling"|offscreen culling]].
+
 ## Actions
 
 Actions can be chained together and can be set to repeat,
@@ -297,7 +277,7 @@ or can be interrupted to change.
 
 Actor actions are available off of [[Actor.actions]].
 
-### Chaining Actions
+## Chaining Actions
 
 You can chain actions to create a script because the action
 methods return the context, allowing you to build a queue of
@@ -324,7 +304,7 @@ class Enemy extends ex.Actor {
 }
 ```
 
-### Example: Follow a Path
+## Example: Follow a Path
 
 You can use [[ActionContext.moveTo|Actor.actions.moveTo]] to move to a specific point,
 allowing you to chain together actions to form a path.
@@ -336,7 +316,7 @@ itself and repeating that forever.
 ```ts
 public Ship extends ex.Actor {
   public onInitialize() {
-    var path = [
+    const path = [
       new ex.Vector(20, 20),
       new ex.Vector(50, 40),
       new ex.Vector(25, 30),
@@ -347,13 +327,13 @@ public Ship extends ex.Actor {
     this.y = path[0].y;
     // create action queue
     // forward path (skip first spawn point)
-    for (var i = 1; i < path.length; i++) {
+    for (let i = 1; i < path.length; i++) {
       this.actions.moveTo(path[i].x, path[i].y, 300);
     }
 
     // reverse path (skip last point)
-    for (var j = path.length - 2; j >= 0; j--) {
-      this.actions.moveTo(path[j].x, path[j].y, 300);
+    for (let i = path.length - 2; i >= 0; i--) {
+      this.actions.moveTo(path[i].x, path[i].y, 300);
     }
     // repeat
     this.actions.repeatForever();
@@ -369,9 +349,9 @@ uses polylines to create paths, load in the JSON using a
 and spawn ships programmatically while utilizing the polylines
 to automatically generate the actions needed to do pathing.
 
-### Custom Actions
+## Custom Actions
 
-The API does allow you to implement new actions by implementing the [[IAction]]
+The API does allow you to implement new actions by implementing the [[Action]]
 interface, but this will be improved in future versions as right now it
 is meant for the Excalibur team and can be advanced to implement.
 
@@ -379,49 +359,8 @@ You can manually manipulate an Actor's [[ActionQueue]] using
 [[Actor.actionQueue]]. For example, using [[ActionQueue.add]] for
 custom actions.
 
-### Future Plans
+## Future Plans
 
 The Excalibur team is working on extending and rebuilding the Action API
 in future versions to support multiple timelines/scripts, better eventing,
 and a more robust API to allow for complex and customized actions.
-
-
-## Triggers
-
-```js
-// Start the engine
-var game = new ex.Engine({ width: 800, height: 600, displayMode: ex.DisplayMode.FullScreen });
-
-// Uncomment next line to make the trigger box visible
-// game.isDebug = true;
-
-// create a handler
-function onTrigger() {
-  // `this` will be the Trigger instance
-  ex.Logger.getInstance().info('Trigger was triggered!', this);
-}
-
-// set a trigger at (100, 100) that is 40x40px that can only be fired once
-var trigger = new ex.Trigger({
-  width: 40,
-  height: 40,
-  pos: new ex.Vector(100, 100),
-  repeat: 1,
-  target: actor,
-  action: onTrigger
-});
-
-// create an actor above the trigger
-var actor = new ex.Actor(100, 0, 40, 40, ex.Color.Red);
-
-// Enable collision on actor (else trigger won't fire)
-actor.collisionType = ex.CollisionType.Active;
-
-// tell the actor to move across the trigger with a velocity of 100
-actor.actions.moveTo(100, 200, 100);
-
-// Add trigger and actor to our scene and start the scene
-game.add(trigger);
-game.add(actor);
-game.start();
-```

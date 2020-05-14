@@ -3,6 +3,54 @@ title: Utilities
 path: /docs/utilities
 ---
 
+## Constructor Arguments
+
+In Excalibur there are option bag constructors available on most types. These support any public property or member, methods are not supported. The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.
+
+For example instead of doing this:
+
+```typescript
+const actor = new ex.Actor(1, 2, 100, 100, ex.Color.Red);
+actor.body.collider.type = ex.CollisionType.Active;
+```
+
+This is possible:
+
+```typescript
+const options: IActorArgs = {
+   pos: new ex.Vector(1,2);
+   width: 100,
+   height: 100,
+   color: ex.Color.Red,
+}
+
+const actor = new ex.Actor(options);
+actor.body.collider.type = ex.CollisionType.Active;
+```
+
+In fact you can create a duplicate this way
+
+```typescript
+const actor = new ex.Actor({
+  pos: new ex.Vector(1, 2)
+});
+const actorClone = new ex.Actor(actor);
+
+expect(actor.pos).toBe(actorClone.pos); // true;
+```
+
+Types that support option bags can have their properties mass assigned using the assign method.
+
+```typescript
+const actor = new ex.Actor(options);
+
+actor.assign({
+  pos: new ex.Vector(100, 100),
+  width: 1000,
+  color: ex.Color.Red
+});
+```
+
 ## Colors
 
 Excalibur provides some color static helpers you can use to work with Hex, RGBA and HSL colors. Colors expose different operations that allow you to change them such as lighten and darken.
@@ -25,7 +73,7 @@ ex.Color.fromHex('#000000FF')
 ex.Color.toString('rgb')
 ```
 
-### Working with colors
+## Working with colors
 
 Since Javascript does not support structs, if you change a color "constant" like [[Color.Black]]
 it will change it across the entire game. You can safely use the color operations
@@ -85,12 +133,17 @@ which resolves when the game has finished loading.
 ```js
 var game = new ex.Engine()
 // perform start-up logic once game is ready
-game.start().then(function() {
+game.start().then(function () {
   // start-up & initialization logic
 })
 ```
 
-## Handling errors
+### Differences from Native Promises
+
+We are working on rewriting Excalibur to use native ES2015 Promises but until then, 
+you may notice inconsistencies. You should still be able to use `async` / `await`.
+
+### Handling errors
 
 You can optionally pass an error handler to [[Promise.then]] which will handle
 any errors that occur during Promise execution.
@@ -99,9 +152,9 @@ any errors that occur during Promise execution.
 var game = new ex.Engine()
 game.start().then(
   // success handler
-  function() {},
+  function () {},
   // error handler
-  function(err) {}
+  function (err) {}
 )
 ```
 

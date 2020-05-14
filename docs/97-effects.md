@@ -102,27 +102,22 @@ game.postProcessors.push(colorBlindPostProcessor);
 game.start();
 ```
 
-## Sprite effects
-
-You can add [["Drawing/SpriteEffects"|sprite effects]] to an animation through methods
-like [[Animation.invert]] or [[Animation.lighten]]. Keep in mind, since this
-manipulates the raw pixel values of a [[Sprite]], it can have a performance impact.
-"Animations will loop by default. You can use [[Animation.loop]] to change this behavior.
+## Sprite Effects
 
 Excalibur offers many sprite effects such as [[Colorize]] to let you manipulate
 sprites. Keep in mind, more effects requires more power and can lead to memory or CPU
 constraints and hurt performance. Each effect must be reprocessed every frame for each sprite.
 
 It's still recommended to create an [[Animation]] or build in your effects to the sprites
-for optimal performance. Because these manipulate raw pixels, there is a performance impact to applying
-too many effects. Excalibur tries its best to by using caching to mitigate
-performance issues.
+for optimal performance.
 
 There are a number of convenience methods available to perform sprite effects. Sprite effects are
 side-effecting.
 
+To implement custom effects, create a `class` that implements [[Effects.SpriteEffect]].
+
 ```typescript
-var playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80);
+const playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80);
 
 // darken a sprite by a percentage
 playerSprite.darken(0.2); // 20%
@@ -132,14 +127,10 @@ playerSprite.lighten(0.2); // 20%
 // saturate a sprite by a percentage
 playerSprite.saturate(0.2); // 20%
 // implement a custom effect
-class CustomEffect implements ex.EffectsISpriteEffect {
+class CustomEffect implements ex.Effects.SpriteEffect {
   updatePixel(x: number, y: number, imageData: ImageData) {
     // modify ImageData
   }
 }
 playerSprite.addEffect(new CustomEffect());
 ```
-
-### Custom Effects
-
-Create your own effects by implementing [[ISpriteEffect]].
