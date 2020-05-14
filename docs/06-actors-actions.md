@@ -5,7 +5,7 @@ path: /docs/actors
 
 ## Basic actors
 
-For quick and dirty games, you can just create an instance of an `Actor`
+For quick and dirty games, you can just create an instance of an [[Actor]]
 and manipulate it directly.
 
 Actors (and other entities) must be added to a [Scene](/docs/scene) to be drawn
@@ -21,7 +21,7 @@ player.vel.x = 5
 game.add(player)
 ```
 
-`game.add` is a convenience method for adding an `Actor` to the current scene. The equivalent verbose call is `game.currentScene.add`.
+[[Engine.add|game.add]] is a convenience method for adding an actor to the current scene. The equivalent verbose call is [[Scene.add|game.currentScene.add]].
 
 ## Actor Lifecycle
 
@@ -32,7 +32,7 @@ An actor has a basic lifecycle that dictates how it is initialized, updated, and
 
 ## Extending actors
 
-For "real-world" games, you'll want to `extend` the `Actor` class.
+For "real-world" games, you'll want to extend the `Actor` class.
 This gives you much greater control and encapsulates logic for that
 actor.
 
@@ -64,12 +64,18 @@ class Player extends ex.Actor {
 
 ## Updating actors
 
+In most games, things are happening on screen: the background is parallaxing, your hero responds to input, or enemies shoot bullets. In Excalibur, the logic that updates game state is run during the [update loop](/docs/engine#engine-lifecycle). Actors are a way to encapsulate that logic, such as a `Player` or `Enemy` or `MenuButton`. Actors can be pretty much anything!
+
+## Update hooks
+
 There are three ways to hook into the update loop of an actor: [[Actor.onPreUpdate]], [[Actor.update]] and [[Actor.onPostUpdate]]. Actors (and other entities in Excalibur) all have "core" logic that runs in the update or draw loop. The pre- and post-method hooks allow you to choose when you want to run logic in each phase. _Normally_ you will run logic in the "pre" hook but sometimes you may want to completely override the core logic or run logic that uses state that was updated _after_ the core logic runs.
 
 All update methods are passed an instance of the Excalibur engine, which
 can be used to perform coordinate math or access global state. It is also
 passed `delta` which is the time in milliseconds since the last frame, which can be used
-to perform time-based movement or time-based math (such as a timer).
+to perform time-based movement or time-based math (such as a [timer](/docs/utilities)).
+
+<docs-note>Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and when things are executed.</docs-note>
 
 ### Pre-update
 
@@ -88,7 +94,7 @@ class Player extends Actor {
 }
 ```
 
-#### Core update
+### Core update
 
 [[Actor.update]] is the core update logic to prepare the frame. **This is an advanced method override.** You can take over the whole update loop by overriding this method. Use `super.update(engine, delta)` to invoke the core logic or leave it out to completely customize the update logic.
 
@@ -132,7 +138,7 @@ class Player extends Actor {
 
 Actors by default have no associated [drawings](/docs/drawings), meaning that they will be rendered without any graphics unless you've assigned a default [[Actor.color]] or attached a drawing. If an actor has a color set, it will draw a box in that color. This is useful only at the beginning of development when you're just tinkering but for most games you'll need to add sprites, animations, and other drawings.
 
-### Working with Textures & Sprites
+### Working with textures & sprites
 
 Think of a [[Texture|texture]] as the raw image file that will be loaded into Excalibur. In order for it to be drawn
 it must be converted to a [[Sprite]].
@@ -154,7 +160,7 @@ public onInitialize(engine: ex.Engine) {
 }
 ```
 
-### Working with Animations
+### Working with animations
 
 A [[SpriteSheet]] holds a collection of sprites from a single [[Texture]].
 Use [[SpriteSheet.getAnimationForAll]] to easily generate an [[Animation]].
@@ -175,14 +181,16 @@ public onInitialize(engine: ex.Engine) {
 }
 ```
 
-### Custom drawing
+## Drawing hooks
 
 Like [the update loop](#updating-actors), the draw loop has hooks you can override to perform custom drawing. Override the [[Actor.onPreDraw]], [[Actor.draw]], or [[Actor.onPostDraw]] methods to customize the draw logic at different points in the loop.
+
+<docs-note>Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and when things are executed.</docs-note>
 
 When using the drawing hooks you can draw complex shapes or to use the raw
 [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
 
-#### Pre-draw
+### Pre-draw
 
 [[Actor.onPreDraw]] is run _before_ the core draw logic to prepare the frame. **This is the typical hook to use.** You can use the canvas context to draw custom shapes.
 
@@ -196,7 +204,7 @@ public onPreDraw(ctx: CanvasRenderingContext2D, delta: number) {
 }
 ```
 
-#### Core draw
+### Core draw
 
 [[Actor.draw]] is the core draw logic to prepare the frame. **This is an advanced method override.** You can take over the whole draw loop by overriding this method. Use `super.draw(ctx, delta)` to invoke the core logic or leave it out to completely customize the draw logic.
 
@@ -215,7 +223,7 @@ public draw(ctx: CanvasRenderingContext2D, delta: number) {
 }
 ```
 
-#### Post-draw
+### Post-draw
 
 [[Actor.onPostDraw]] is run _after_ [[Actor.draw]] to prepare the _next_ frame.
 
