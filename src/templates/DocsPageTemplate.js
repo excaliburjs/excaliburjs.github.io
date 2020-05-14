@@ -41,6 +41,7 @@ const TOC = ({ toc, releases }) => (
               {headings.map((heading) => (
                 <Link
                   key={heading.value}
+                  data-heading-level={heading.depth}
                   className="item"
                   to={`${frontmatter.path}#${slugify(heading.value)}`}
                 >
@@ -89,7 +90,10 @@ export default function Template({ data }) {
   } = typedoc
 
   const docsProcessor = unified()
-    .use(rehypeTypedoc, { basePath: '/docs/api/edge/', typedoc: JSON.parse(typedocRaw) })
+    .use(rehypeTypedoc, {
+      basePath: '/docs/api/edge/',
+      typedoc: JSON.parse(typedocRaw),
+    })
     .use(rehype2React, {
       createElement: React.createElement,
       components: { 'docs-note': Note },
