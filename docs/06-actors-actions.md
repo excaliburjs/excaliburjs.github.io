@@ -2,30 +2,31 @@
 title: Actors
 path: /docs/actors
 ---
+
 ## Basic actors
 
 For quick and dirty games, you can just create an instance of an `Actor`
 and manipulate it directly.
 
-Actors (and other entities) must be added to a [[Scene]] to be drawn
+Actors (and other entities) must be added to a [Scene](/docs/scene) to be drawn
 and updated on-screen.
 
 ```ts
-const player = new ex.Actor();
+const player = new ex.Actor()
 
 // move the player
-player.vel.x = 5;
+player.vel.x = 5
 
 // add player to the current scene
-game.add(player);
+game.add(player)
 ```
 
 `game.add` is a convenience method for adding an `Actor` to the current scene. The equivalent verbose call is `game.currentScene.add`.
 
 ## Actor Lifecycle
 
-An [[Actor|actor]] has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
-[[Scene|scene]], it will follow this lifecycle.
+An actor has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
+[scene](/docs/scene), it will follow this lifecycle.
 
 ![Actor Lifecycle](/assets/images/docs/ActorLifecycle.png)
 
@@ -35,108 +36,101 @@ For "real-world" games, you'll want to `extend` the `Actor` class.
 This gives you much greater control and encapsulates logic for that
 actor.
 
-You can override the [[onInitialize]] method to perform any startup logic
-for an actor (such as configuring state). [[onInitialize]] gets called
+You can override the [[Actor.onInitialize]] method to perform any startup logic
+for an actor (such as configuring state). `onInitialize` gets called
 **once** before the first frame an actor is drawn/updated. It is passed
-an instance of [[Engine]] to access global state or perform coordinate math.
-
-**TypeScript**
+an instance of [Engine](/docs/engine) to access global state or perform coordinate math.
 
 ```ts
 class Player extends ex.Actor {
-  public level = 1;
-  public endurance = 0;
-  public fortitude = 0;
+  public level = 1
+  public endurance = 0
+  public fortitude = 0
 
   constructor() {
-    super();
+    super({ x: 50, y: 50 })
   }
 
   public onInitialize(engine: ex.Engine) {
-    this.endurance = 20;
-    this.fortitude = 16;
+    this.endurance = 20
+    this.fortitude = 16
   }
 
   public getMaxHealth() {
-    return 0.4 * this.endurance + 0.9 * this.fortitude + this.level * 1.2;
+    return 0.4 * this.endurance + 0.9 * this.fortitude + this.level * 1.2
   }
 }
-```
-
-**Javascript**
-
-In Javascript you can use the [[extend]] method to override or add
-methods to an `Actor`.
-
-```js
-var Player = ex.Actor.extend({
-  level: 1,
-  endurance: 0,
-  fortitude: 0,
-
-  onInitialize: function(engine) {
-    this.endurance = 20;
-    this.fortitude = 16;
-  },
-
-  getMaxHealth: function() {
-    return 0.4 * this.endurance + 0.9 * this.fortitude + this.level * 1.2;
-  }
-});
 ```
 
 ## Updating actors
 
-Override the [[update]] method to update the state of your actor each frame.
-Typically things that need to be updated include state, drawing, or position.
+There are three ways to hook into the update loop of an actor: [[Actor.onPreUpdate]], [[Actor.update]] and [[Actor.onPostUpdate]]. Actors (and other entities in Excalibur) all have "core" logic that runs in the update or draw loop. The pre- and post-method hooks allow you to choose when you want to run logic in each phase. _Normally_ you will run logic in the "pre" hook but sometimes you may want to completely override the core logic or run logic that uses state that was updated _after_ the core logic runs.
 
-Remember to call `super.update` to ensure the base update logic is performed.
-You can then write your own logic for what happens after that.
-
-The [[update]] method is passed an instance of the Excalibur engine, which
+All update methods are passed an instance of the Excalibur engine, which
 can be used to perform coordinate math or access global state. It is also
 passed `delta` which is the time in milliseconds since the last frame, which can be used
 to perform time-based movement or time-based math (such as a timer).
 
-**TypeScript**
+### Pre-update
+
+Override the [[Actor.onPreUpdate]] method to update the state of your actor before [[Actor.update]].
+**This is the typical method to override.** Things that need to be updated include state, drawing, or position.
 
 ```ts
 class Player extends Actor {
-  public update(engine: ex.Engine, delta: number) {
-    super.update(engine, delta); // call base update logic
+  /**
+   * Runs before "core" update logic, before this frame is updated
+   */
+  public onPreUpdate(engine: ex.Engine, delta: number) {
+    // update velocity
+    this.vel.setTo(-1, 0)
+  }
+}
+```
 
+#### Core update
+
+[[Actor.update]] is the core update logic to prepare the frame. **This is an advanced method override.** You can take over the whole update loop by overriding this method. Use `super.update(engine, delta)` to invoke the core logic or leave it out to completely customize the update logic.
+
+```ts
+/**
+ * DANGER: This is for advanced users to totally override draw logic.
+ */
+public update(ctx: CanvasRenderingContext2D, delta: number) {
+
+  // Invoke the core logic
+  // Or leave it out to completely override
+  super.update(engine, delta);
+
+  // Perform custom update logic
+  // ...
+}
+```
+
+### Post-update
+
+[[Actor.onPostUpdate]] is called after [[Actor.update]] to prepare state for the _next_ frame.
+
+<docs-note>**Important:** At this time, the frame hasn't been drawn yet so state updated in this method will be reflected during the draw loop but will **not** be reflected in the scene graph until the _next_ frame.</docs-note>
+
+```ts
+class Player extends Actor {
+  /**
+   * Runs after "core" update logic, before the next frame
+   */
+  public onPostUpdate(engine: ex.Engine, delta: number) {
     // check if player died
     if (this.health <= 0) {
-      this.emit('death');
-      this.onDeath();
-      return;
+      this.kill()
+      return
     }
   }
 }
 ```
 
-**Javascript**
-
-```js
-var Player = ex.Actor.extend({
-  update: function(engine, delta) {
-    ex.Actor.prototype.update.call(this, engine, delta); // call base update logic
-
-    // check if player died
-    if (this.health <= 0) {
-      this.emit('death');
-      this.onDeath();
-      return;
-    }
-  }
-});
-```
-
 ## Drawing actors
 
-Override the [[draw]] method to perform any custom drawing. For simple games,
-you don't need to override `draw`, instead you can use [[addDrawing]] and [[setDrawing]]
-to manipulate the [[Sprite|sprites]]/[[Animation|animations]] that the actor is using.
+Actors by default have no associated [drawings](/docs/drawings), meaning that they will be rendered without any graphics unless you've assigned a default [[Actor.color]] or attached a drawing. If an actor has a color set, it will draw a box in that color. This is useful only at the beginning of development when you're just tinkering but for most games you'll need to add sprites, animations, and other drawings.
 
 ### Working with Textures & Sprites
 
@@ -183,20 +177,58 @@ public onInitialize(engine: ex.Engine) {
 
 ### Custom drawing
 
-You can always override the default drawing logic for an actor in the [[draw]] method,
-for example, to draw complex shapes or to use the raw
-[[https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D|Canvas API]].
+Like [the update loop](#updating-actors), the draw loop has hooks you can override to perform custom drawing. Override the [[Actor.onPreDraw]], [[Actor.draw]], or [[Actor.onPostDraw]] methods to customize the draw logic at different points in the loop.
 
-Usually you should call `super.draw` to perform the base drawing logic, but other times
-you may want to take over the drawing completely.
+When using the drawing hooks you can draw complex shapes or to use the raw
+[Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
+
+#### Pre-draw
+
+[[Actor.onPreDraw]] is run _before_ the core draw logic to prepare the frame. **This is the typical hook to use.** You can use the canvas context to draw custom shapes.
 
 ```ts
-public draw(ctx: CanvasRenderingContext2D, delta: number) {
-
-   super.draw(ctx, delta); // perform base drawing logic
-
+/**
+ * This is run before Actor.draw and should be used under most circumstances.
+ */
+public onPreDraw(ctx: CanvasRenderingContext2D, delta: number) {
    // custom drawing
    ctx.lineTo(...);
+}
+```
+
+#### Core draw
+
+[[Actor.draw]] is the core draw logic to prepare the frame. **This is an advanced method override.** You can take over the whole draw loop by overriding this method. Use `super.draw(ctx, delta)` to invoke the core logic or leave it out to completely customize the draw logic.
+
+```ts
+/**
+ * DANGER: This is for advanced users to totally override draw logic.
+ */
+public draw(ctx: CanvasRenderingContext2D, delta: number) {
+
+  // Invoke the core logic
+  // Or leave it out to completely override
+  super.draw(ctx, delta);
+
+  // custom drawing
+  ctx.lineTo(...);
+}
+```
+
+#### Post-draw
+
+[[Actor.onPostDraw]] is run _after_ [[Actor.draw]] to prepare the _next_ frame.
+
+<docs-note>**Important:** At this time, the frame has been drawn. Drawing in this method is reflected on the _next frame_ not during the current frame.</docs-note>
+
+```ts
+/**
+ * This is run at the end of the draw loop
+ */
+public onPostDraw(ctx: CanvasRenderingContext2D, delta: number) {
+   if (ctx.measureText()) {
+
+   }
 }
 ```
 
@@ -220,19 +252,19 @@ game.start();
 You can also add actors to a [[Scene]] instance specifically.
 
 ```js
-var game = new ex.Engine();
-var level1 = new ex.Scene();
-var player = new ex.Actor();
-var enemy = new ex.Actor();
+var game = new ex.Engine()
+var level1 = new ex.Scene()
+var player = new ex.Actor()
+var enemy = new ex.Actor()
 // add actors to level1
-level1.add(player);
-level1.add(enemy);
+level1.add(player)
+level1.add(enemy)
 // add level1 to the game
-game.add('level1', level1);
+game.add('level1', level1)
 // start the game
-game.start();
+game.start()
 // after player clicks start game, for example
-game.goToScene('level1');
+game.goToScene('level1')
 ```
 
 ## Collision Detection
@@ -287,7 +319,7 @@ actions that get executed as part of an [[ActionQueue]].
 class Enemy extends ex.Actor {
   public patrol() {
     // clear existing queue
-    this.actions.clearActions();
+    this.actions.clearActions()
     // guard a choke point
     // move to 100, 100 and take 1.2s
     // wait for 3s
@@ -299,7 +331,7 @@ class Enemy extends ex.Actor {
       .delay(3000)
       .moveTo(0, 100, 1200)
       .delay(3000)
-      .repeatForever();
+      .repeatForever()
   }
 }
 ```

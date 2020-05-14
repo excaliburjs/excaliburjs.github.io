@@ -38,7 +38,7 @@ game.start();
 game.goToScene('level1');
 ```
 
-## Scene Lifecycle
+## Scene lifecycle
 
 A [[Scene|scene]] has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once a [[Scene|scene]] is added to
 the [[Engine|engine]] it will follow this lifecycle.
@@ -87,21 +87,13 @@ game.add('mainmenu', new MainMenu());
 game.goToScene('mainmenu');
 ```
 
-## Scene camera
-
-By default, a [[Scene]] is initialized with a [[Camera]] which
-does not move and centers the game world.
-
-Learn more about [[Camera|Cameras]] and how to modify them to suit
-your game.
-
 ## Cameras
 
 Cameras are attached to [[Scene|Scenes]] and can be changed by
 setting [[Scene.camera]]. By default, a [[Scene]] is initialized with a
 [[Camera]] that doesn't move and is centered on the screen.
 
-## Focus
+### Focus
 
 Cameras have a position ([[x]], [[y]]) which means they center around a specific
 [[Vector|point]].
@@ -110,7 +102,7 @@ If a camera is following an [[Actor]], it will ensure the [[Actor]] is always at
 center of the screen. You can use [[x]] and [[y]] instead if you wish to
 offset the focal point.
 
-## Camera strategies
+### Camera strategies
 
 Cameras can implement a number of strategies to track, follow, or exhibit custom behavior in relation to a target. A common reason to use a
 strategy is to have the [[Camera]] follow an [[Actor]].
@@ -149,7 +141,7 @@ let boundingBox = new BoundingBox(leftBorder, topBorder, rightBorder, bottomBord
 game.currentScene.camera.strategy.limitCameraBounds(boundingBox);
 ```
 
-## Custom strategies
+### Custom strategies
 
 Custom strategies can be implemented by extending the [[CameraStrategy]] interface and added to cameras to build novel behavior with `ex.Camera.addStrategy<T>(new MyCameraStrategy<T>())`.
 
@@ -172,19 +164,19 @@ export interface CameraStrategy<T> {
 }
 ```
 
-## Camera Shake
+### Camera shake
 
 To add some fun effects to your game, the [[shake]] method
 will do a random shake. This is great for explosions, damage, and other
 in-game effects.
 
-## Camera Lerp
+### Camera lerp
 
 "Lerp" is short for [Linear Interpolation](http://en.wikipedia.org/wiki/Linear_interpolation)
 and it enables the camera focus to move smoothly between two points using timing functions.
 Use [[move]] to ease to a specific point using a provided [[EasingFunction]].
 
-## Camera Zooming
+### Camera zooming
 
 To adjust the zoom for your game, use [[zoom]] which will scale the
 game accordingly. You can pass a duration to transition between zoom levels.

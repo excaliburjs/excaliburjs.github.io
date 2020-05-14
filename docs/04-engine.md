@@ -8,7 +8,7 @@ The canvas is available to all `draw` functions for raw manipulation,
 but Excalibur is meant to simplify or completely remove the need to use
 the canvas directly.
 
-## Creating a Game
+## Creating a game
 
 To create a new game, create a new instance of [[Engine]] and pass in
 the configuration ([[EngineOptions]]). Excalibur only supports a single
@@ -30,7 +30,7 @@ game.start().then(function () {
 })
 ```
 
-## The Main Loop
+## The main loop
 
 The Excalibur engine uses a simple main loop. The engine updates and renders
 the "scene graph" which is the [[Scene|scenes]] and the tree of [[Actor|actors]] within that
@@ -54,27 +54,27 @@ The engine splits the game into two primary responsibilities: updating and drawi
 to keep your game smart about splitting duties so that you aren't drawing when doing
 logic or performing logic as you draw.
 
-### Update Loop
+### Update loop
 
-The first operation run is the **Update** loop. [[Actor]] and [[Scene]] both implement
-an overridable/extendable `update` method. Use it to perform any logic-based operations
+The first operation run is the **Update** loop. Actors and scenes both implement
+an overridable/extendable `onPreUpdate` and `onPostUpdate` methods. Use them to perform any logic-based operations
 in your game for a particular class.
 
-### Draw Loop
+### Draw loop
 
-The next step is the **Draw** loop. A [[Scene]] loops through its child [[Actor|actors]] and
-draws each one. You can override the `draw` method on an actor to customize its drawing.
+The next step is the **Draw** loop. A scene loops through its child actors and
+draws each one. You can override the `onPreDraw` and `onPostDraw` methods on an actor or scene to customize their drawing.
 You should **not** perform any logic in a draw call, it should only relate to drawing.
 
 ## Working with Scenes
 
-The engine automatically creates a "root" [[Scene]]. You can use this for whatever you want.
+The engine automatically creates a "root" [Scene](/docs/scenes). You can use this for whatever you want.
 You can manipulate scenes using [[Engine.add|add]], [[Engine.remove|remove]],
 and [[Engine.goToScene|goToScene]]. You can overwrite or remove the `root` scene if
 you want. There always has to be at least one scene and only **one** scene can be
 active at any one time.
 
-Learn more about the [[Scene|scene lifecycle]].
+Learn more about the [scene lifecycle](/docs/scenes#scene-lifecycle).
 
 ### Adding a scene
 
@@ -92,10 +92,10 @@ game.goToScene('root')
 
 ### Accessing the current scene
 
-To add actors and other entities to the current [[Scene]], you can use [[Engine.add|add]]. Alternatively,
+To add actors and other entities to the current scene, you can use [[Engine.add|add]]. Alternatively,
 you can use [[Engine.currentScene]] to directly access the current scene.
 
-## Managing the Viewport
+## Managing the viewport
 
 Excalibur supports multiple display modes for a game. Pass in a [[EngineOptions.displayMode|displayMode]]
 option when creating a game to customize the viewport.
@@ -118,7 +118,7 @@ alignment.
 Valid String examples: "top left", "top", "bottom", "middle", "middle center", "bottom right"
 Valid AbsolutePosition examples: {top: 5, right: 10%}, {bottom: 49em, left: 10px}, {left: 10, bottom: 40}
 
-## Extending the Engine
+## Extending the engine
 
 For complex games, any entity that inherits [[Class]] can be extended to override built-in
 functionality. This is recommended for [[Actor|actors]] and [[Scene|scenes]], especially.
