@@ -126,7 +126,7 @@ setting [[Scene.camera]]. By default, a [[Scene]] is initialized with a
 ### Focus
 
 Cameras have a position ([[Camera.x|x]], [[Camera.y|y]]) which means they center around a specific
-[[Vector|point]].
+[point](/docs/math#vectors).
 
 If a camera is following an [Actor](/docs/actors), it will ensure the actor is always at the
 center of the screen. You can use [[Camera.x]] and [[Camera.y]] instead if you wish to

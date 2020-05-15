@@ -5,9 +5,9 @@ path: /docs/math
 
 ## Vectors
 
-Excalibur uses the [[Vector]] structure to represent points. The [[Vector]] class has many different static methods available for doing vector math.
+Excalibur uses the [[Vector]] structure to represent points. The [[Vector]] class has many different static methods available for doing vector math as well as instance methods to combine vectors together in different ways.
 
-### `vec` shorthand
+### Creating vectors
 
 To quickly create a vector, use the [[vec]] global:
 
@@ -15,6 +15,22 @@ To quickly create a vector, use the [[vec]] global:
 import { vec } from 'excalibur'
 
 const point = vec(0, 10)
+```
+
+Alternatively, you may see examples of using the more verbose `new Vector(x, y)` format:
+
+```ts
+import { Vector } from 'excalibur'
+
+const point = new Vector(0, 10)
+```
+
+To set the value of an existing vector, use [[Vector.setTo]]:
+
+```ts
+import { vec } from 'excalibur'
+
+const point = vec(0, 10).setTo(10, 10)
 ```
 
 ### Cloning vectors
@@ -25,12 +41,19 @@ Vectors are objects, so mutating them will change the state for all references. 
 import { vec } from 'excalibur'
 
 const point = vec(0, 10)
-const anotherPoint = point.clone()
+const samePoint = point.setTo(8, 8)
+const anotherPoint = point.clone().setTo(50, 50)
+
+console.log(point.toString()) // "(8, 8)"
+console.log(samePoint.toString()) // "(8, 8)"
+console.log(anotherPoint.toString()) // "(50, 50)"
 ```
+
+Notice how both `point` and `samePoint` share the same vector reference, so using `setTo` mutates the vector. Use `clone` to ensure you are not changing vectors unexpectedly!
 
 ## Random
 
-You can instantiate the `ex.Random` class with an optional seed number. You can
+You can instantiate the [[Random]] class with an optional seed number. You can
 reuse this seed anytime to get the exact sequence of random numbers back. If no
 seed is provided, it uses `Date.now()` ticks as the seed.
 
