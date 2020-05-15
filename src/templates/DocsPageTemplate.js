@@ -26,11 +26,7 @@ const TOC = ({ toc, releases }) => (
 
     {toc.map(({ id, headings, frontmatter }) => (
       <React.Fragment key={id}>
-        <Link
-          activeClassName="active"
-          className="item"
-          to={frontmatter.path}
-        >
+        <Link activeClassName="active" className="item" to={frontmatter.path}>
           {frontmatter.title}
         </Link>
         {!!headings.length && (
@@ -64,11 +60,11 @@ const TOC = ({ toc, releases }) => (
 
     {releases.map((release) => (
       <a
-        key={release.name}
+        key={release.tag.name}
         className="item"
         href={`/docs/api/${release.tag.name}/`}
       >
-        {release.name}
+        {release.tag.name}
       </a>
     ))}
   </div>
