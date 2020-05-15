@@ -14,7 +14,7 @@ To create a new game, create a new instance of [[Engine]] and pass in
 the configuration ([[EngineOptions]]). Excalibur only supports a single
 instance of a game at a time, so it is safe to use globally.
 You can then call [[start]] which starts the game and optionally accepts
-a [[Loader]] which you can use to pre-load assets.
+a [[Loader]] which you can use to [load assets](/docs/assets) like sprites and sounds.
 
 ```js
 var game = new ex.Engine({
@@ -29,6 +29,22 @@ game.start().then(function () {
   // ready, set, go!
 })
 ```
+
+You would include your script (or [bundle it](/docs/installation#module-loaders-and-bundlers)) on an HTML page and that page does _not need anything else_.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Cool Game!</title>
+  </head>
+  <body>
+    <script src="game.js"></script>
+  </body>
+</html>
+```
+
+Excalibur can automatically generate a `<canvas>` element for you or you can provide your own using [[EngineOptions.canvasElementId]].
 
 ## The main loop
 
