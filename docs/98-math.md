@@ -33,6 +33,16 @@ import { vec } from 'excalibur'
 const point = vec(0, 10).setTo(10, 10)
 ```
 
+There are some built-in vector constants you can use:
+
+- [[Vector.Zero]]
+- [[Vector.One]]
+- [[Vector.Half]]
+- [[Vector.Left]]
+- [[Vector.Right]]
+- [[Vector.Up]]
+- [[Vector.Down]]
+
 ### Cloning vectors
 
 Vectors are objects, so mutating them will change the state for all references. Use the [[Vector.clone]] method to clone a vector to mutate it:
@@ -50,6 +60,12 @@ console.log(anotherPoint.toString()) // "(50, 50)"
 ```
 
 Notice how both `point` and `samePoint` share the same vector reference, so using `setTo` mutates the vector. Use `clone` to ensure you are not changing vectors unexpectedly!
+
+## Rays
+
+## Projections
+
+## Lines
 
 ## Random
 
@@ -103,3 +119,5 @@ rand.d20()
 A seeded random is very useful in games to do things like terrain generation, procedural
 content generation, etc. It allows you easily debug your algorithms by reusing
 the same seed, as well as to ensure your algorithms are deterministic.
+
+## Perlin Noise
