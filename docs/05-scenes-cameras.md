@@ -33,9 +33,10 @@ level1.add(enemy)
 // add level1 to the game
 game.add('level1', level1)
 // start the game
-game.start()
-// after player clicks start game, for example
-game.goToScene('level1')
+game.start().then(() => {
+  // after player clicks start game, for example
+  game.goToScene('level1')
+})
 ```
 
 ## Scene lifecycle
@@ -137,7 +138,7 @@ offset the focal point.
 Cameras can implement a number of strategies to track, follow, or exhibit custom behavior in relation to a target. A common reason to use a
 strategy is to have the [[Camera]] follow an [[Actor]].
 
-In order to user the different built-in strategies, you can access `Camera.strategy`
+In order to user the different built-in strategies, you can access [[Camera.strategy]]
 
 Lock the camera exactly to the center of the actor's bounding box
 
@@ -180,11 +181,11 @@ let boundingBox = new BoundingBox(
 game.currentScene.camera.strategy.limitCameraBounds(boundingBox)
 ```
 
-### Custom strategies
+#### Custom strategies
 
 Custom strategies can be implemented by extending the [[CameraStrategy]] interface and added to cameras to build novel behavior with `ex.Camera.addStrategy<T>(new MyCameraStrategy<T>())`.
 
-As shown below a camera strategy calculates a new camera position (`ex.Vector`) every frame given a target type, camera, engine, and elapsed delta in milliseconds.
+As shown below a camera strategy calculates a new camera position vector every frame given a target type, camera, engine, and elapsed delta in milliseconds.
 
 ```typescript
 /**
@@ -205,7 +206,7 @@ export interface CameraStrategy<T> {
 
 ### Camera shake
 
-To add some fun effects to your game, the [[shake]] method
+To add some fun effects to your game, the [[Camera.shake]] method
 will do a random shake. This is great for explosions, damage, and other
 in-game effects.
 
@@ -213,11 +214,11 @@ in-game effects.
 
 "Lerp" is short for [Linear Interpolation](http://en.wikipedia.org/wiki/Linear_interpolation)
 and it enables the camera focus to move smoothly between two points using timing functions.
-Use [[move]] to ease to a specific point using a provided [[EasingFunction]].
+Use [[Camera.move]] to ease to a specific point using a provided [[EasingFunction]].
 
 ### Camera zooming
 
-To adjust the zoom for your game, use [[zoom]] which will scale the
+To adjust the zoom for your game, use [[Camera.zoom]] which will scale the
 game accordingly. You can pass a duration to transition between zoom levels.
 
 ## Known Issues
