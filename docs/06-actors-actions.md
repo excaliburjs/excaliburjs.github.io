@@ -39,7 +39,7 @@ actor.
 You can override the [[Actor.onInitialize]] method to perform any startup logic
 for an actor (such as configuring state). `onInitialize` gets called
 **once** before the first frame an actor is drawn/updated. It is passed
-an instance of [Engine](/docs/engine) to access global state or perform coordinate math.
+an instance of [Engine](/docs/intro) to access global state or perform coordinate math.
 
 ```ts
 class Player extends ex.Actor {
@@ -64,7 +64,7 @@ class Player extends ex.Actor {
 
 ## Updating actors
 
-In most games, things are happening on screen: the background is parallaxing, your hero responds to input, or enemies shoot bullets. In Excalibur, the logic that updates game state is run during the [update loop](/docs/engine#engine-lifecycle). Actors are a way to encapsulate that logic, such as a `Player` or `Enemy` or `MenuButton`. Actors can be pretty much anything!
+In most games, things are happening on screen: the background is parallaxing, your hero responds to input, or enemies shoot bullets. In Excalibur, the logic that updates game state is run during the [update loop](/docs/intro#engine-lifecycle). Actors are a way to encapsulate that logic, such as a `Player` or `Enemy` or `MenuButton`. Actors can be pretty much anything!
 
 ### Managing game state
 

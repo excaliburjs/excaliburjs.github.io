@@ -1,6 +1,6 @@
 ---
-title: Engine
-path: /docs/engine
+title: Introduction
+path: /docs/intro
 ---
 
 Excalibur uses the HTML5 Canvas API for drawing your game to the screen.

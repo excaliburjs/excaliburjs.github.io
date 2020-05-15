@@ -6,7 +6,7 @@ path: /docs/scenes
 ## Adding actors to the scene
 
 For an [Actor](/docs/actors) to be drawn and updated, it needs to be part of the "scene graph".
-The [Engine](/docs/engine) provides several easy ways to quickly add/remove actors from the
+The [Engine](/docs/intro) provides several easy ways to quickly add/remove actors from the
 current scene.
 
 ```js
