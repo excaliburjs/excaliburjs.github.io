@@ -175,6 +175,10 @@ export default function rehypeTypedoc(options) {
           symbolLinkIndex
         )
 
+        if (process.env.NODE_ENV === 'development' && !symbolLink) {
+          console.warn('rehype-typedoc: Missing symbol link detected:', symbol)
+        }
+
         // append lhs + anchor tag
         newChildren.push(
           {

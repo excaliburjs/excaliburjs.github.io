@@ -310,13 +310,13 @@ actor.body.collider.type = ex.CollisionType.Active;
 
 Traits describe actor behavior that occurs every update. If you wish to build a generic behavior
 without needing to extend every actor you can do it with a trait, a good example of this may be
-plugging in an external collision detection library like [[https://github.com/kripken/box2d.js/|Box2D]] or
-[[http://wellcaffeinated.net/PhysicsJS/|PhysicsJS]] by wrapping it in a trait. Removing traits can also make your
+plugging in an external collision detection library like [Box2D](https://github.com/kripken/box2d.js/) or
+[PhysicsJS](http://wellcaffeinated.net/PhysicsJS/) by wrapping it in a trait. Removing traits can also make your
 actors more efficient.
 
-Default traits provided by Excalibur are [["Traits/CapturePointer"|pointer capture]],
-[["Traits/TileMapCollisionDetection"|tile map collision]],
-and [["Traits/OffscreenCulling"|offscreen culling]].
+Default traits provided by Excalibur are [[CapturePointer|pointer capture]],
+[[TileMapCollisionDetection|tile map collision]],
+and [[OffscreenCulling|offscreen culling]].
 
 ## Actions
 
