@@ -62,7 +62,7 @@ game.add('mainmenu', new MainMenu())
 game.goToScene('mainmenu')
 ```
 
-### onInitialize
+### Initialization
 
 <docs-note>This is the recommended hook for setting up scene state</docs-note>
 
@@ -70,19 +70,38 @@ game.goToScene('mainmenu')
 
 ```ts
 class MainMenu extends Scene {
-  private startButton: StartButton
+  private _startButton: StartButton
 
   /**
    * Start-up logic, called once
    */
   public onInitialize(engine: Engine) {
-    this.startButton = new StartButton()
-    this.add(this.startButton)
+    // initialize scene actors
+    this._startButton = new StartButton()
+    this.add(this._startButton)
   }
 }
 ```
 
-### onActivate
+You can even call [[Engine.start]] to preload assets for your scene, to avoid having to load them at game initialization time:
+
+```ts
+class MainMenu extends Scene {
+  private _loaded: boolean = false
+
+  /**
+   * Start-up logic, called once
+   */
+  public onInitialize(engine: Engine) {
+    // load scene-specific assets
+    engine.start(sceneLoader).then(() => {
+      this._loaded = true
+    })
+  }
+}
+```
+
+### Activation
 
 [[Scene.onActivate]] is called when the engine switches to the scene. It may be called more than once during the lifetime of a game, if you switch back and forth between scenes. It is useful for taking action before showing the scene. You may use this hook over `onInitialize` for anything specific to the context in which the scene was activated.
 
@@ -103,7 +122,7 @@ class MainMenu extends Scene {
 }
 ```
 
-### onDeactivate
+### Deactivation
 
 [[Scene.onDeactivate]] is called when the engine exits a scene and is typically used for cleanup, exit tasks, and garbage collection.
 
