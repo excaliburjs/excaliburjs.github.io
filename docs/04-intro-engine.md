@@ -183,3 +183,15 @@ var Game = ex.Engine.extend({
 var game = new Game();
 game.start();
 ```
+
+## Managing game state
+
+Excalibur does not provide any out-of-the-box way to manage game state but typically you can either use class properties or introduce something more sophisticated like a [state machine](https://github.com/davidkpiano/xstate).
+
+The benefit of something like a state machine is that state can be separated from the actions an actor may take and you can then _save_ and _load_ state more easily to enable save game management. You could choose for example to have a global game state that you can serialize and deserialize.
+
+<docs-note>Have you implemented state management in your Excalibur game? [Let us know](https://github.com/excaliburjs/Excalibur#questions)!</docs-note>
+
+## Enabling debug mode
+
+Set [[Engine.isDebug]] to `true` to enable Excalibur's debug feature. This will enable [actor debug drawing](/docs/actors#debug-draw) to help diagnose drawing issues.

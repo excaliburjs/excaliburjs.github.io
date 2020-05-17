@@ -23,23 +23,53 @@ game.add(player)
 
 [[Engine.add|game.add]] is a convenience method for adding an actor to the current scene. The equivalent verbose call is [[Scene.add|game.currentScene.add]].
 
-## Actor Lifecycle
+## Custom actors
+
+For "real-world" games, you'll want to extend the `Actor` class.
+This gives you much greater control and encapsulates logic for that
+actor.
+
+```ts
+class Player extends ex.Actor {
+  public health: number = 100
+  public ammo: number = 20
+
+  constructor() {
+    super({ x: 10, y: 10 })
+  }
+
+  shoot() {
+    if (this.ammo < 1) {
+      return
+    }
+
+    this.ammo -= 1
+  }
+}
+```
+
+Custom actors make it easier to hook into the actor lifecycle and encapsulate the actor's state better than a basic actor.
+
+## Actor lifecycle
 
 An actor has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
 [scene](/docs/scene), it will follow this lifecycle.
 
 ![Actor Lifecycle](/assets/images/docs/ActorLifecycle.png)
 
-## Extending actors
+## Updating actors
 
-For "real-world" games, you'll want to extend the `Actor` class.
-This gives you much greater control and encapsulates logic for that
-actor.
+In most games, things are happening on screen: the background is parallaxing, your hero responds to input, or enemies shoot bullets. In Excalibur, the logic that updates game state is run during the [update loop](/docs/intro#engine-lifecycle). Actors are a way to encapsulate that logic, such as a `Player` or `Enemy` or `MenuButton`. Actors can be pretty much anything!
 
-You can override the [[Actor.onInitialize]] method to perform any startup logic
+### Initialization
+
+You should override the [[Actor.onInitialize]] method to perform any startup logic
 for an actor (such as configuring state). `onInitialize` gets called
 **once** before the first frame an actor is drawn/updated. It is passed
 an instance of [Engine](/docs/intro) to access global state or perform coordinate math.
+
+<docs-note>This is the recommended way to manage startup logic for actor, _not_ the constructor since
+you don't incur the cost of initialization until an actor is ready to be updated in the game.</docs-note>
 
 ```ts
 class Player extends ex.Actor {
@@ -61,20 +91,6 @@ class Player extends ex.Actor {
   }
 }
 ```
-
-## Updating actors
-
-In most games, things are happening on screen: the background is parallaxing, your hero responds to input, or enemies shoot bullets. In Excalibur, the logic that updates game state is run during the [update loop](/docs/intro#engine-lifecycle). Actors are a way to encapsulate that logic, such as a `Player` or `Enemy` or `MenuButton`. Actors can be pretty much anything!
-
-### Managing game state
-
-Excalibur does not provide any out-of-the-box way to manage game state but typically you can either use class properties or introduce something more sophisticated like a [state machine](https://github.com/davidkpiano/xstate).
-
-The benefit of something like a state machine is that state can be separated from the actions an actor may take and you can then _save_ and _load_ state more easily to enable save game management. You could choose for example to have a global game state that you can serialize and deserialize.
-
-<docs-note>Have you implemented state management in your Excalibur game? [Let us know](https://github.com/excaliburjs/Excalibur#questions)!</docs-note>
-
-## Update hooks
 
 There are three ways to hook into the update loop of an actor: [[Actor.onPreUpdate]], [[Actor.update]] and [[Actor.onPostUpdate]]. Actors (and other entities in Excalibur) all have "core" logic that runs in the update or draw loop. The pre- and post-method hooks allow you to choose when you want to run logic in each phase. _Normally_ you will run logic in the "pre" hook but sometimes you may want to completely override the core logic or run logic that uses state that was updated _after_ the core logic runs.
 
@@ -242,9 +258,28 @@ public draw(ctx: CanvasRenderingContext2D, delta: number) {
  * This is run at the end of the draw loop
  */
 public onPostDraw(ctx: CanvasRenderingContext2D, delta: number) {
-   if (ctx.measureText()) {
 
-   }
+  // capture the drawn image data for the frame
+  // to use later
+  const imageData = ctx.getImageData(0, 0, this._engine.canvasWidth, this._engine.canvasHeight);
+}
+```
+
+### Debug draw
+
+[[Actor.debugDraw]] provides a way to customize the way Excalibur shows actors when [debugging is enabled](/docs/intro#enabling-debug-mode). Override it to add or replace any draw logic with your own:
+
+```ts
+/**
+ * This is run at the end of the draw loop
+ */
+public debugDraw(ctx: CanvasRenderingContext2D) {
+
+   // Call core logic
+   super.debugDraw(ctx, delta);
+
+   // Add custom debug drawing logic
+   ctx.lineTo(...);
 }
 ```
 
@@ -325,7 +360,7 @@ or can be interrupted to change.
 
 Actor actions are available off of [[Actor.actions]].
 
-## Chaining Actions
+### Chaining Actions
 
 You can chain actions to create a script because the action
 methods return the context, allowing you to build a queue of
@@ -352,7 +387,7 @@ class Enemy extends ex.Actor {
 }
 ```
 
-## Example: Follow a Path
+### Example: Follow a Path
 
 You can use [[ActionContext.moveTo|Actor.actions.moveTo]] to move to a specific point,
 allowing you to chain together actions to form a path.
@@ -397,7 +432,7 @@ uses polylines to create paths, load in the JSON using a
 and spawn ships programmatically while utilizing the polylines
 to automatically generate the actions needed to do pathing.
 
-## Custom Actions
+### Custom Actions
 
 The API does allow you to implement new actions by implementing the [[Action]]
 interface, but this will be improved in future versions as right now it
@@ -407,7 +442,7 @@ You can manually manipulate an Actor's [[ActionQueue]] using
 [[Actor.actionQueue]]. For example, using [[ActionQueue.add]] for
 custom actions.
 
-## Future Plans
+### Future Plans
 
 The Excalibur team is working on extending and rebuilding the Action API
 in future versions to support multiple timelines/scripts, better eventing,

@@ -17,12 +17,12 @@
     display: inherit;
     padding: 0 0 0 0.5em;
 
-    .menu > .item[data-heading-level="3"] {
+    .menu > .item[data-heading-level='3'] {
       padding-left: 0.5em;
       color: rgba(0, 0, 0, 0.4);
     }
 
-    .menu > .item[data-heading-level="4"] {
+    .menu > .item[data-heading-level='4'] {
       padding-left: 1em;
       color: rgba(0, 0, 0, 0.4);
     }
@@ -55,5 +55,34 @@
   img {
     /* responsive images */
     max-width: 100%;
+  }
+
+  //
+  // Tables
+  //
+  table {
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0.5em;
+    }
+
+    thead {
+      tr {
+        background: #eee;
+      }
+      th {
+        font-weight: bold;
+        border-bottom: 2px solid #c0c0c0;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #eee;
+        font-size: 0.9em;
+      }
+    }
   }
 }
