@@ -140,12 +140,15 @@ public update(ctx: CanvasRenderingContext2D, delta: number) {
 
 ### Post-update
 
-[[Actor.onPostUpdate]] is called after [[Actor.update]] to prepare state for the _next_ frame. **This is the typical method to override.**
+[[Actor.onPostUpdate]] is called after [[Actor.update]] to prepare state for the _next_ frame. Things that need to be updated include state, drawing, or position.
+
+<docs-note>This is the recommended method to override for adding update logic to your actors since it runs after Excalibur has done all the update logic for the frame and before things get drawn to the screen.</docs-note>
 
 ```ts
 class Player extends Actor {
   /**
-   * Runs after "core" update logic, before the next frame
+   * RECOMMENDED: Runs after "core" update logic, before the next frame.
+   * Usually this is what you want!
    */
   public onPostUpdate(engine: ex.Engine, delta: number) {
     // check if player died
@@ -215,11 +218,13 @@ When using the drawing hooks you can draw complex shapes or to use the raw
 
 ### Pre-draw
 
-[[Actor.onPreDraw]] is run _before_ the core draw logic to prepare the frame. **This is the typical hook to use.** You can use the canvas context to draw custom shapes.
+[[Actor.onPreDraw]] is run _before_ the core draw logic to prepare the frame.
+
+<docs-note>**Important:** This runs _before_ Excalibur has run all its draw logic to apply effects, transform information, etc. so you essentially are working with the _last frame's draw state_.</docs-note>
 
 ```ts
 /**
- * This is run before Actor.draw and should be used under most circumstances.
+ * ADVANCED: This is run before Actor.draw core logic.
  */
 public onPreDraw(ctx: CanvasRenderingContext2D, delta: number) {
    // custom drawing
@@ -248,19 +253,19 @@ public draw(ctx: CanvasRenderingContext2D, delta: number) {
 
 ### Post-draw
 
-[[Actor.onPostDraw]] is run _after_ [[Actor.draw]] to prepare the _next_ frame.
+[[Actor.onPostDraw]] is run _after_ [[Actor.draw]] and will draw in the current frame.
 
-<docs-note>**Important:** At this time, the frame has been drawn. Drawing in this method is reflected on the _next frame_ not during the current frame.</docs-note>
+<docs-note>This is the recommended method to override since Excalibur has run its core draw logic and you can now customize what gets drawn during the current frame.</docs-note>
 
 ```ts
 /**
- * This is run at the end of the draw loop
+ * RECOMMENDED: This is run at the end of the draw loop. Usually
+ * this is what you want!
  */
 public onPostDraw(ctx: CanvasRenderingContext2D, delta: number) {
 
-  // capture the drawn image data for the frame
-  // to use later
-  const imageData = ctx.getImageData(0, 0, this._engine.canvasWidth, this._engine.canvasHeight);
+  /* perform custom draw */
+  ctx.lineTo(...);
 }
 ```
 
