@@ -124,7 +124,7 @@ class Player extends Actor {
 
 ```ts
 /**
- * DANGER: This is for advanced users to totally override draw logic.
+ * DANGER: This is for advanced users to totally override update logic.
  */
 public update(ctx: CanvasRenderingContext2D, delta: number) {
 
