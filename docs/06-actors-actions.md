@@ -92,7 +92,7 @@ class Player extends ex.Actor {
 }
 ```
 
-There are three ways to hook into the update loop of an actor: [[Actor.onPreUpdate]], [[Actor.update]] and [[Actor.onPostUpdate]]. Actors (and other entities in Excalibur) all have "core" logic that runs in the update or draw loop. The pre- and post-method hooks allow you to choose when you want to run logic in each phase. _Normally_ you will run logic in the "pre" hook but sometimes you may want to completely override the core logic or run logic that uses state that was updated _after_ the core logic runs.
+There are three ways to hook into the update loop of an actor: [[Actor.onPreUpdate]], [[Actor.update]] and [[Actor.onPostUpdate]]. Actors (and other entities in Excalibur) all have "core" logic that runs in the update or draw loop. The pre- and post-method hooks allow you to choose when you want to run logic in each phase. _Normally_ you will run logic in the "post" hook but sometimes you may want to completely override the core logic or run logic that uses state that was updated _before_ the core logic runs.
 
 All update methods are passed an instance of the Excalibur engine, which
 can be used to perform coordinate math or access global state. It is also
@@ -104,7 +104,8 @@ to perform time-based movement or time-based math (such as a [timer](/docs/utili
 ### Pre-update
 
 Override the [[Actor.onPreUpdate]] method to update the state of your actor before [[Actor.update]].
-**This is the typical method to override.** Things that need to be updated include state, drawing, or position.
+
+<docs-note>**Important:** This logic will run _before_ the core Excalibur update logic runs, so you may not have the latest transform matrix applied or other positional information updated. Essentially you will be working with the _last frame's state_.</docs-note>
 
 ```ts
 class Player extends Actor {
@@ -139,9 +140,7 @@ public update(ctx: CanvasRenderingContext2D, delta: number) {
 
 ### Post-update
 
-[[Actor.onPostUpdate]] is called after [[Actor.update]] to prepare state for the _next_ frame.
-
-<docs-note>**Important:** At this time, the frame hasn't been drawn yet so state updated in this method will be reflected during the draw loop but will **not** be reflected in the scene graph until the _next_ frame.</docs-note>
+[[Actor.onPostUpdate]] is called after [[Actor.update]] to prepare state for the _next_ frame. **This is the typical method to override.**
 
 ```ts
 class Player extends Actor {
