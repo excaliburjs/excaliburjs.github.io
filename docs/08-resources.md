@@ -111,7 +111,7 @@ game.start(loader).then(function () {
 
 See the [examples](https://excaliburjs.com/examples/?path=/docs/audio) or API documentation for [[Sound]] for additional features available such as looping, volume setting, and more.
 
-<docs-example story="audio" />
+<docs-example story="audio"></docs-example>
 
 ### Generic resources
 
