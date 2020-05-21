@@ -26,7 +26,7 @@ function build(version, title) {
       stdio: [0, 1, 2],
     })
   } else {
-    child_process.execSync('git restore', { cwd: exPath, stdio: [0, 1, 2] })
+    child_process.execSync('git restore .', { cwd: exPath, stdio: [0, 1, 2] })
     child_process.execSync('git pull', { cwd: exPath, stdio: [0, 1, 2] })
   }
   child_process.execSync('git rev-parse HEAD', {
