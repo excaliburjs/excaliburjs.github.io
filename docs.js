@@ -26,6 +26,7 @@ function build(version, title) {
       stdio: [0, 1, 2],
     })
   } else {
+    child_process.execSync('git restore', { cwd: exPath, stdio: [0, 1, 2] })
     child_process.execSync('git pull', { cwd: exPath, stdio: [0, 1, 2] })
   }
   child_process.execSync('git rev-parse HEAD', {
@@ -66,7 +67,10 @@ if (process.argv.length === 3) {
   build('edge', 'Edge')
 }
 
-if (process.env.SKIP_DOCS_RELEASES || (process.env.TRAVIS_CI && !process.env.GH_TOKEN)) {
+if (
+  process.env.SKIP_DOCS_RELEASES ||
+  (process.env.TRAVIS_CI && !process.env.GH_TOKEN)
+) {
   console.info(
     'Missing GH_TOKEN environment variable, skipping building release tags'
   )
