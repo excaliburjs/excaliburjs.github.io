@@ -6,6 +6,7 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
+import Example from '../components/docs/Example'
 import rehypeTypedoc from './rehype-typedoc'
 
 /*
@@ -90,7 +91,7 @@ export default function Template({ data }) {
     })
     .use(rehype2React, {
       createElement: React.createElement,
-      components: { 'docs-note': Note },
+      components: { 'docs-note': Note, 'docs-example': Example },
     })
 
   return (
