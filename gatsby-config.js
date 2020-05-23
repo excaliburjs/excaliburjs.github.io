@@ -1,3 +1,4 @@
+const remarkTypedocSymbolLinks = require('./lib/remark-typedoc-symbol-links')
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
 module.exports = {
@@ -6,7 +7,34 @@ module.exports = {
     googleGroup: 'https://groups.google.com/forum/#!forum/excaliburjs',
   },
   plugins: [
-    `gatsby-plugin-mdx`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-catch-links',
+      options: {
+        excludePattern: /^\/(examples|docs\/api)/i,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        remarkPlugins: [remarkTypedocSymbolLinks],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 750,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,26 +58,6 @@ module.exports = {
           excludePrivate: true,
           tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
         },
-      },
-    },
-    'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
-              maxWidth: 750,
-            },
-          },
-          `gatsby-remark-prismjs`,
-          'gatsby-remark-autolink-headers',
-          'gatsby-remark-copy-linked-files',
-        ],
       },
     },
     'gatsby-plugin-react-helmet',
@@ -97,13 +105,6 @@ module.exports = {
             }
           }`,
         ],
-      },
-    },
-    `gatsby-plugin-sharp`,
-    {
-      resolve: 'gatsby-plugin-catch-links',
-      options: {
-        excludePattern: /^\/(examples|docs\/api)/i,
       },
     },
   ],

@@ -1,6 +1,5 @@
 import React from 'react'
 import unified from 'unified'
-import rehype2React from 'rehype-react'
 import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -9,7 +8,6 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
 import Example from '../components/docs/Example'
-import rehypeTypedoc from './rehype-typedoc'
 
 /**
  * Common shared template components to expose automatically
@@ -80,22 +78,8 @@ const TOC = ({ toc, releases }) => (
 )
 
 export default function Template({ data }) {
-  const { page, toc, releases, typedoc } = data
+  const { page, toc, releases } = data
   const { frontmatter, body } = page
-  const {
-    edges: [
-      {
-        node: {
-          internal: { content: typedocRaw },
-        },
-      },
-    ],
-  } = typedoc
-
-  const docsProcessor = unified().use(rehypeTypedoc, {
-    basePath: '/docs/api/edge/',
-    typedoc: JSON.parse(typedocRaw),
-  })
 
   return (
     <Layout pageTitle={frontmatter.title}>
@@ -165,16 +149,6 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
-      }
-    }
-
-    typedoc: allTypedoc {
-      edges {
-        node {
-          internal {
-            content
-          }
-        }
       }
     }
   }
