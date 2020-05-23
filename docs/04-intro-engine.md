@@ -111,13 +111,21 @@ game.goToScene('root')
 To add actors and other entities to the current scene, you can use [[Engine.add|add]]. Alternatively,
 you can use [[Engine.currentScene]] to directly access the current scene.
 
-## Native vs. scaled resolution
+## Game resolution
 
 An HTML canvas element has a "native" resolution which is specified using the `width` and `height` HTML attributes. In Excalibur, these can be set using [[Engine.canvasWidth|canvasWidth]] and [[Engine.canvasHeight|canvasHeight]] respectively.
 
+### Native Resolution
+
 If you don't explicitly set `canvasWidth` or `canvasHeight` Excalibur will manage the values for you, meaning that the "native" resolution will be the physical screen width/height so there is no "scaling" happening. This means your game logic must be responsive if the resolution of the game changes and you cannot depend on a "fixed" width/height coordinate system. Games which can be played on mobile devices _and_ desktop will work, since your game logic can detect what screen size the game is being played on and respond accordingly.
 
+### Scaled Resolution
+
 Alternatively, if a native resolution is set and then CSS is used to change the _styled_ `width` and `height`, this makes your game _scale_ to whatever the CSS dimensions are. You would want to explicitly set a native resolution if your game depends on having a specific width/height of the "draw area". For example, you may want to design a game that depends on a fixed size of 1280x720 but you want to allow the user to view it at higher resolutions on their browser, so you may scale the canvas to a 16:9 ratio. Your game logic and positioning logic will still work since the game world is still 720px wide even though it may be displaying at 1080px wide on a high-res screen.
+
+### HiDPI Displays
+
+HiDPI displays scale device pixels. For example, on a normal monitor, a 1280x720 game canvas will return `1280` and `720` for the `width` and `height` respectively. However, on a 2X HiDPI display _what's actually drawn_ is multiplied by a device pixel ratio of `2` so, `2560` and `1440`. Any time you need to get this "actual" width and height of what's being drawn to the canvas, the engine exposes [[Engine.drawWidth]] and [[Engine.drawHeight]] that takes into account the device pixel ratio. In this HiDPI scenario, [[Engine.canvasWidth]] and [[Engine.canvasHeight]] would still return the native `1280x720` resolution.
 
 <!-- TODO: Embed example -->
 
@@ -127,11 +135,11 @@ In Excalibur, due to HTML canvas native and scaled resolution, there are essenti
 
 ### Screen coordinates
 
-A screen coordinate is a point on a user's physical screen. Often, mouse events will be in screen coordinates as this is how the browser presents point data. If you are manipulating CSS or HTML UI, you will be operating in screen coordinates.
+A screen coordinate is a point on a user's physical screen. `(0, 0)` in screen coordinates is the top-left of the canvas. Excalibur translates mouse event positions into screen coordinates for you. Screen coordinates ignore the game camera, think of it like where the user is physically pointing on top of your game.
 
 ### World coordinates
 
-A world coordinate is a point _in the game world_ (i.e. in native coordinates). When your game is _not scaled_ you may expect screen and world coordinates to match but in reality, Hi-DPI display devices change the pixel ratios of the canvas. Excalibur handles Hi-DPI displays and can translate screen coordinates to the game world. This is why all positioning and coordinate math within Excalibur games primarily are in terms of world coordinates.
+A world coordinate is a point _in the game world_ relative to a [scene's camera](/docs/scenes#camera). The world space is the default place where actors operate. `(0, 0)` in the game world may be _displayed_ at the center of your game because that may be the camera's focal point.
 
 ### Converting between coordinates
 
