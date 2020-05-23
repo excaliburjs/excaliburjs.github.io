@@ -3,26 +3,22 @@ title: Features
 path: /docs/features
 ---
 
-We are still pre-1.0 but Excalibur has many powerful features built-in already that make it simple
-to build and design your games:
+We are still pre-1.0 but Excalibur has many powerful features built-in already that let you focus on building and designing your games:
 
 - Built with [TypeScript](https://www.typescriptlang.org) first
 - [Fully-documented API](https://excaliburjs.com/docs/api/edge)
-- Works in all major browsers (Chrome, Firefox, IE11) and most mobile browsers (Android Chrome, Apple Safari). We strive to support the last two major versions.
-- HTML Canvas-based rendering engine
-- Full Web Audio support and fallback HTML5 audio support
-- Full HTML5 Gamepad API support
-- Full keyboard, mouse, and touch support using a unified Pointers API
-- Support for basic collisions
-- Support for [rigid body physics system](https://excaliburjs.com/docs/api/edge/classes/_physics_.physics.html)
-- Cross-platform support using [Electron](http://electron.atom.io/) or [Apache Cordova](https://cordova.apache.org/)
-- Simple `update`/`draw` pattern to keep logic and drawing separated
-- Simple `Actor` model with `Scenes`, Actions API, cameras, and more
-- Preloader API supporting resources like images, sounds, video, and generic resources
-- Basic primitives like sprites, spritesheets, animations, and textures
-- Sprite effects, particle emitters and post processor support
+- Works in all major browsers (Chrome, Firefox, Edge) and most mobile browsers (Android Chrome, Apple Safari). We strive to support the last two major versions.
+- HTML Canvas-based rendering engine (WebGL is coming in 1.0!)
+- [Actor model](/docs/actors) with [Scenes](/docs/scenes), cameras, and more
+- Designed to keep [logic and drawing separated](/docs/intro)
+- Asset loading for [images, sounds, video, and generic resources](/docs/assets)
+- Basic [drawing primitives](/docs/drawings) like sprites, spritesheets, animations, and textures
+- Support for [rigid body physics](/docs/physics)
+- Game input with [keyboard, mouse, and gamepads support](/docs/input)
 - Support for tile-based maps (with [Tiled support](https://github.com/excaliburjs/excalibur-tiled))
-- Logging API for debugging
-- Promises-based async API
-- Math API with `Vectors`, `Rays`, `Lines`, `Projections`, and more
+- [Sprite effects, particle emitters and post processor support](/docs/fx)
+- [Math API](/docs/math) with `Vectors`, `Rays`, `Lines`, `Projections`, and more
+- Publish games using [Electron](http://electron.atom.io/), [Apache Cordova](https://cordova.apache.org/), Ionic or anything else that supports a `WebView`
+- [Utilities](/docs/utilities) such as logging API for debugging
+- Promise-based async API
 - and much more!
