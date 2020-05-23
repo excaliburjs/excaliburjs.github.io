@@ -65,7 +65,7 @@ The [[Collider]] class is the container of all collision related information, co
 
 ### Shape
 
-A colldier has a [[CollisionShape]] that represent physical geometry. The possible shapes in Excalibur are [[Circle]], [[Edge]], and [[ConvexPolygon]]. A collider can only have one [[CollisionShape]] associated with them at a time.
+A collider has a [[CollisionShape]] that represent physical geometry. The possible shapes in Excalibur are [[Circle]], [[Edge]], and [[ConvexPolygon]]. A collider can only have one [[CollisionShape]] associated with them at a time.
 
 #### Box and ConvexPolygon Shapes
 
