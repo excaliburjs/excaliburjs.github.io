@@ -10,9 +10,9 @@ The [Engine](/docs/intro) provides several easy ways to quickly add/remove actor
 current scene.
 
 ```js
-var game   = new ex.Engine(...);
-var player = new ex.Actor();
-var enemy  = new ex.Actor();
+const game   = new ex.Engine(...);
+const player = new ex.Actor();
+const enemy  = new ex.Actor();
 // add them to the "root" scene
 game.add(player);
 game.add(enemy);
@@ -23,10 +23,10 @@ game.start();
 You can also add actors to a scene instance specifically using [[Scene.add]]:
 
 ```js
-var game = new ex.Engine()
-var level1 = new ex.Scene()
-var player = new ex.Actor()
-var enemy = new ex.Actor()
+const game = new ex.Engine()
+const level1 = new ex.Scene()
+const player = new ex.Actor()
+const enemy = new ex.Actor()
 // add actors to level1
 level1.add(player)
 level1.add(enemy)

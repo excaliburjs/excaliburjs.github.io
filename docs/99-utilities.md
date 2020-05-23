@@ -10,8 +10,8 @@ In Excalibur there are option bag constructors available on most types. These su
 For example instead of doing this:
 
 ```typescript
-const actor = new ex.Actor(1, 2, 100, 100, ex.Color.Red);
-actor.body.collider.type = ex.CollisionType.Active;
+const actor = new ex.Actor(1, 2, 100, 100, ex.Color.Red)
+actor.body.collider.type = ex.CollisionType.Active
 ```
 
 This is possible:
@@ -32,23 +32,23 @@ In fact you can create a duplicate this way
 
 ```typescript
 const actor = new ex.Actor({
-  pos: new ex.Vector(1, 2)
-});
-const actorClone = new ex.Actor(actor);
+  pos: new ex.Vector(1, 2),
+})
+const actorClone = new ex.Actor(actor)
 
-expect(actor.pos).toBe(actorClone.pos); // true;
+expect(actor.pos).toBe(actorClone.pos) // true;
 ```
 
 Types that support option bags can have their properties mass assigned using the assign method.
 
 ```typescript
-const actor = new ex.Actor(options);
+const actor = new ex.Actor(options)
 
 actor.assign({
   pos: new ex.Vector(100, 100),
   width: 1000,
-  color: ex.Color.Red
-});
+  color: ex.Color.Red,
+})
 ```
 
 ## Colors
@@ -131,7 +131,7 @@ The first [[Promise]] you will encounter is probably [[Engine.start]]
 which resolves when the game has finished loading.
 
 ```js
-var game = new ex.Engine()
+const game = new ex.Engine()
 // perform start-up logic once game is ready
 game.start().then(function () {
   // start-up & initialization logic
@@ -140,7 +140,7 @@ game.start().then(function () {
 
 ### Differences from Native Promises
 
-We are working on rewriting Excalibur to use native ES2015 Promises but until then, 
+We are working on rewriting Excalibur to use native ES2015 Promises but until then,
 you may notice inconsistencies. You should still be able to use `async` / `await`.
 
 ### Handling errors
@@ -149,7 +149,7 @@ You can optionally pass an error handler to [[Promise.then]] which will handle
 any errors that occur during Promise execution.
 
 ```js
-var game = new ex.Engine()
+const game = new ex.Engine()
 game.start().then(
   // success handler
   function () {},

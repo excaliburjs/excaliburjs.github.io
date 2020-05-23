@@ -80,10 +80,10 @@ Pass an instance of [[Texture]] to a [[Loader]] to preload it. Once a texture
 is loaded, you can generate a sprite with it:
 
 ```js
-var txPlayer = new ex.Texture('/assets/tx/player.png')
-var loader = new ex.Loader([txPlayer])
+const txPlayer = new ex.Texture('/assets/tx/player.png')
+const loader = new ex.Loader([txPlayer])
 game.start(loader).then(function () {
-  var player = new ex.Actor()
+  const player = new ex.Actor()
   player.addDrawing(txPlayer)
   game.add(player)
 })
@@ -99,11 +99,11 @@ into [[Sound.play|play]] in order to play the sound at that volume.
 
 ```js
 // define multiple sources (such as mp3/wav/ogg) as a browser fallback
-var sndPlayerDeath = new ex.Sound(
+const sndPlayerDeath = new ex.Sound(
   '/assets/snd/player-death.mp3',
   '/assets/snd/player-death.wav'
 )
-var loader = new ex.Loader(sndPlayerDeath)
+const loader = new ex.Loader(sndPlayerDeath)
 game.start(loader).then(function () {
   sndPlayerDeath.play()
 })
@@ -118,14 +118,14 @@ See the [examples](https://excaliburjs.com/examples/?path=/docs/audio) or API do
 [[Resource]] is a generic [[Loadable]] like JSON files, compressed files, or binary files. It passes the raw data interpreted by browser based on the MIME type. See [XHLHttpRequest.response](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/response) for the different kinds of data to expect when loading. This response is passed to a [[Resource.processData]] method you need to implement:
 
 ```js
-var resLevel1 = new ex.Resource('/assets/levels/1.json', 'application/json')
-var loader = new ex.Loader(resLevel1)
+const resLevel1 = new ex.Resource('/assets/levels/1.json', 'application/json')
+const loader = new ex.Loader(resLevel1)
 // attach a handler to process once loaded
 resLevel1.processData = function (data) {
   // process JSON
-  var json = JSON.parse(data)
+  const json = JSON.parse(data)
   // create a new level (inherits Scene) with the JSON configuration
-  var level = new Level(json)
+  const level = new Level(json)
   // add a new scene
   game.add(level.name, level)
 }

@@ -18,8 +18,11 @@ Access [[Engine.input]] to see if any input is being tracked during the current 
 ```ts
 class Player extends ex.Actor {
   public update(engine, delta) {
-    if (engine.input.keyboard.isKeyDown(ex.Input.Keys.W) || engine.input.gamepads.at(0).getAxes(ex.Input.Axes.LeftStickY) > 0.5) {
-      player._moveForward();
+    if (
+      engine.input.keyboard.isKeyDown(ex.Input.Keys.W) ||
+      engine.input.gamepads.at(0).getAxes(ex.Input.Axes.LeftStickY) > 0.5
+    ) {
+      player._moveForward()
     }
   }
 }
@@ -47,12 +50,15 @@ It is recommended that keyboard actions that directly effect actors be handled l
 ```ts
 class Player extends ex.Actor {
   public update(engine, delta) {
-    if (engine.input.keyboard.isHeld(ex.Input.Keys.W) || engine.input.keyboard.isHeld(ex.Input.Keys.Up)) {
-      player._moveForward();
+    if (
+      engine.input.keyboard.isHeld(ex.Input.Keys.W) ||
+      engine.input.keyboard.isHeld(ex.Input.Keys.Up)
+    ) {
+      player._moveForward()
     }
 
     if (engine.input.keyboard.wasPressed(ex.Input.Keys.Right)) {
-      player._fire();
+      player._fire()
     }
   }
 }
@@ -97,10 +103,10 @@ passed to your handler which offers information about the pointer input being re
 - `cancel` - When a pointer event is canceled for some reason
 
 ```js
-engine.input.pointers.primary.on('down', function(evt) {});
-engine.input.pointers.primary.on('up', function(evt) {});
-engine.input.pointers.primary.on('move', function(evt) {});
-engine.input.pointers.primary.on('cancel', function(evt) {});
+engine.input.pointers.primary.on('down', function (evt) {})
+engine.input.pointers.primary.on('up', function (evt) {})
+engine.input.pointers.primary.on('move', function (evt) {})
+engine.input.pointers.primary.on('cancel', function (evt) {})
 ```
 
 #### Wheel Event
@@ -111,7 +117,7 @@ object is passed to your handler which offers information about the wheel event 
 - `wheel` - When a mousewheel is activated (trackpad scroll or mouse wheel)
 
 ```js
-engine.input.pointers.on('wheel', function(evt) {});
+engine.input.pointers.on('wheel', function (evt) {})
 ```
 
 ### Last position querying
@@ -120,9 +126,9 @@ If you don't wish to subscribe to events, you can also access the [[Pointer.last
 or [[Pointer.lastWorldPos]] coordinates ([[Vector]]) on the pointer you're targeting.
 
 ```js
-engine.input.pointers.primary.lastPagePos;
-engine.input.pointers.primary.lastScreenPos;
-engine.input.pointers.primary.lastWorldPos;
+engine.input.pointers.primary.lastPagePos
+engine.input.pointers.primary.lastScreenPos
+engine.input.pointers.primary.lastWorldPos
 ```
 
 Note that the value may be `null` if the Pointer was not active the last frame.
@@ -149,13 +155,13 @@ The primary pointer can be a mouse, stylus, or single finger touch event. You
 can inspect what type of pointer it is from the [[PointerEvent]] handled.
 
 ```js
-engine.input.pointers.primary.on('down', function(pe) {
+engine.input.pointers.primary.on('down', function (pe) {
   if (pe.pointerType === ex.Input.PointerType.Mouse) {
-    ex.Logger.getInstance().info('Mouse event:', pe);
+    ex.Logger.getInstance().info('Mouse event:', pe)
   } else if (pe.pointerType === ex.Input.PointerType.Touch) {
-    ex.Logger.getInstance().info('Touch event:', pe);
+    ex.Logger.getInstance().info('Touch event:', pe)
   }
-});
+})
 ```
 
 ### Multiple Pointers (Multi-Touch)
@@ -179,16 +185,16 @@ know that there are _n_ touches on the screen at once.
 ```js
 function paint(color) {
   // create a handler for the event
-  return function(pe) {
+  return function (pe) {
     if (pe.pointerType === ex.Input.PointerType.Touch) {
-      engine.canvas.fillStyle = color;
-      engine.canvas.fillRect(pe.x, pe.y, 5, 5);
+      engine.canvas.fillStyle = color
+      engine.canvas.fillRect(pe.x, pe.y, 5, 5)
     }
-  };
+  }
 }
-engine.input.pointers.at(0).on('move', paint('blue')); // 1st finger
-engine.input.pointers.at(1).on('move', paint('red')); // 2nd finger
-engine.input.pointers.at(2).on('move', paint('green')); // 3rd finger
+engine.input.pointers.at(0).on('move', paint('blue')) // 1st finger
+engine.input.pointers.at(1).on('move', paint('red')) // 2nd finger
+engine.input.pointers.at(2).on('move', paint('green')) // 3rd finger
 ```
 
 ### Actor pointer events
@@ -208,17 +214,16 @@ an actor to receive move events, set [[CapturePointerConfig.captureMoveEvents]] 
 Actor pointer events will be prefixed with `pointer`.
 
 ```js
-var player = new ex.Actor();
+const player = new ex.Actor()
 // enable propagating pointer events
-player.enableCapturePointer = true;
+player.enableCapturePointer = true
 // enable move events, warning: performance intensive!
-player.capturePointer.captureMoveEvents = true;
+player.capturePointer.captureMoveEvents = true
 // subscribe to input
-player.on('pointerup', function(ev) {
-  player.logger.info('Player selected!', ev);
-});
+player.on('pointerup', function (ev) {
+  player.logger.info('Player selected!', ev)
+})
 ```
-
 
 ## Gamepads and Controllers
 
@@ -241,8 +246,8 @@ Cameras, etc.).
 // ensures that only gamepads with at least 4 axis and 8 buttons are reported for events
 engine.input.gamepads.setMinimumGamepadConfiguration({
   axis: 4,
-  buttons: 8
-});
+  buttons: 8,
+})
 ```
 
 ### Events
@@ -262,20 +267,20 @@ Once you have a reference to a gamepad you may listen to changes on that gamepad
 
 ```ts
 engine.input.gamepads.on('connect', (ce: ex.Input.GamepadConnectEvent) => {
-  const newPlayer = CreateNewPlayer(); // pseudo-code for new player logic on gamepad connection
-  console.log('Gamepad connected', ce);
+  const newPlayer = CreateNewPlayer() // pseudo-code for new player logic on gamepad connection
+  console.log('Gamepad connected', ce)
   ce.gamepad.on('button', (be: ex.GamepadButtonEvent) => {
     if (be.button === ex.Input.Buttons.Face1) {
-      newPlayer.jump();
+      newPlayer.jump()
     }
-  });
+  })
 
   ce.gamepad.on('axis', (ae: ex.GamepadAxisEvent) => {
     if (ae.axis === ex.Input.Axis.LeftStickX && ae.value > 0.5) {
-      newPlayer.moveRight();
+      newPlayer.moveRight()
     }
-  });
-});
+  })
+})
 ```
 
 ### Responding to button input
@@ -291,22 +296,22 @@ a [[GamepadButtonEvent]] to your handler.
 
 ```js
 // enable gamepad support
-engine.input.gamepads.enabled = true;
+engine.input.gamepads.enabled = true
 // query gamepad on update
-engine.on('update', function(ev) {
+engine.on('update', function (ev) {
   // access any gamepad by index
   if (engine.input.gamepads.at(0).isButtonPressed(ex.Input.Buttons.Face1)) {
-    ex.Logger.getInstance().info('Controller A button pressed');
+    ex.Logger.getInstance().info('Controller A button pressed')
   }
   // query individual button
   if (engine.input.gamepads.at(0).getButton(ex.Input.Buttons.DpadLeft) > 0.2) {
-    ex.Logger.getInstance().info('Controller D-pad left value is > 0.2');
+    ex.Logger.getInstance().info('Controller D-pad left value is > 0.2')
   }
-});
+})
 // subscribe to button events
-engine.input.gamepads.at(0).on('button', function(ev) {
-  ex.Logger.getInstance().info(ev.button, ev.value);
-});
+engine.input.gamepads.at(0).on('button', function (ev) {
+  ex.Logger.getInstance().info(ev.button, ev.value)
+})
 ```
 
 ### Responding to axis input
@@ -325,8 +330,8 @@ engine.input.gamepads.enabled = true;
 // query gamepad on update
 engine.on('update', function(ev) {
   // access any gamepad by index
-  var axisValue;
-  if ((axisValue = engine.input.gamepads.at(0).getAxes(ex.Input.Axes.LeftStickX)) > 0.5) {
+  const axisValue =  = engine.input.gamepads.at(0).getAxes(ex.Input.Axes.LeftStickX));
+  if (axisValue > 0.5) {
     ex.Logger.getInstance().info('Move right', axisValue);
   }
 });

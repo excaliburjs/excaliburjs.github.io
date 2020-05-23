@@ -11,18 +11,18 @@ a new instance of [[Sprite]] using the constructor. This is useful if you
 want to "slice" out a portion of an image or if you want to change the dimensions.
 
 ```js
-var game = new ex.Engine();
-var txPlayer = new ex.Texture('/assets/tx/player.png');
+const game = new ex.Engine()
+const txPlayer = new ex.Texture('/assets/tx/player.png')
 // load assets
-var loader = new ex.Loader([txPlayer]);
+const loader = new ex.Loader([txPlayer])
 
 // start game
-game.start(loader).then(function() {
+game.start(loader).then(function () {
   // create a sprite (quick)
-  var playerSprite = txPlayer.asSprite();
+  const playerSprite = txPlayer.asSprite()
   // create a sprite (custom)
-  var playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80);
-});
+  const playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80)
+})
 ```
 
 You can then assign an [[Actor]] a sprite through [[Actor.addDrawing]] and
@@ -38,26 +38,26 @@ with [[Label|Labels]].
 To create a [[SpriteSheet]] you need a loaded [[Texture]] resource.
 
 ```js
-const game = new ex.Engine();
-const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png');
+const game = new ex.Engine()
+const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png')
 // load assets
-const loader = new ex.Loader([txAnimPlayerIdle]);
+const loader = new ex.Loader([txAnimPlayerIdle])
 
 // start game
-game.start(loader).then(function() {
-  const player = new ex.Actor();
+game.start(loader).then(function () {
+  const player = new ex.Actor()
 
   // create sprite sheet with 5 columns, 1 row, 80x80 frames
-  const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
+  const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80)
 
   // create animation (125ms frame speed)
-  const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
+  const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125)
 
   // add drawing to player as "idle"
-  player.addDrawing('idle', playerIdleAnimation);
+  player.addDrawing('idle', playerIdleAnimation)
   // add player to game
-  game.add(player);
-});
+  game.add(player)
+})
 ```
 
 ### Creating animations
@@ -76,16 +76,24 @@ provided the [[Texture]] has been [[Loader|loaded]].
 
 ```js
 // create sprite sheet with 5 columns, 1 row, 80x80 frames
-const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
+const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80)
 
 // create animation for all frames (125ms frame speed)
-const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125)
 // create animation for a range of frames (2-4) (125ms frame speed)
-const playerIdleAnimation = playerIdleSheet.getAnimationBetween(game, 1, 3, 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationBetween(game, 1, 3, 125)
 // create animation for specific frames 2, 4, 5 (125ms frame speed)
-const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [1, 3, 4], 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(
+  game,
+  [1, 3, 4],
+  125
+)
 // create a repeating animation (ping-pong)
-const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(game, [1, 3, 4, 3, 1], 125);
+const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(
+  game,
+  [1, 3, 4, 3, 1],
+  125
+)
 ```
 
 ### Multiple rows
@@ -105,7 +113,7 @@ and beginning with zero.
 
 ```js
 // get a sprite for column 3, row 6
-const sprite = animation.getSprite(2 + 5 * 10);
+const sprite = animation.getSprite(2 + 5 * 10)
 ```
 
 ## Animations
@@ -117,25 +125,25 @@ is [[Loader|loaded]], you can then generate an [[Animation]] by creating a [[Spr
 and using [[SpriteSheet.getAnimationForAll]].
 
 ```js
-var game = new ex.Engine();
-var txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png');
+const game = new ex.Engine()
+const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png')
 // load assets
-var loader = new ex.Loader(txAnimPlayerIdle);
+const loader = new ex.Loader(txAnimPlayerIdle)
 // start game
-game.start(loader).then(function() {
-  var player = new ex.Actor();
+game.start(loader).then(function () {
+  const player = new ex.Actor()
 
   // create sprite sheet with 5 columns, 1 row, 80x80 frames
-  var playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80);
+  const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80)
 
   // create animation (125ms frame speed)
-  var playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125);
+  const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125)
 
   // add drawing to player as "idle"
-  player.addDrawing('idle', playerIdleAnimation);
+  player.addDrawing('idle', playerIdleAnimation)
   // add player to game
-  game.add(player);
-});
+  game.add(player)
+})
 ```
 
 ## Sprite Fonts
@@ -170,20 +178,28 @@ Each letter is 30x30 and after Z is a blank one to represent a space.
 Then to create the [[SpriteFont]]:
 
 ```js
-var game = new ex.Engine();
-var txFont = new ex.Texture('/assets/tx/font.png');
+const game = new ex.Engine()
+const txFont = new ex.Texture('/assets/tx/font.png')
 // load assets
-var loader = new ex.Loader(txFont);
+const loader = new ex.Loader(txFont)
 
 // start game
-game.start(loader).then(function() {
+game.start(loader).then(function () {
   // create a font
-  var font = new ex.SpriteFont(txFont, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ', true, 4, 7, 30, 30);
+  const font = new ex.SpriteFont(
+    txFont,
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ ',
+    true,
+    4,
+    7,
+    30,
+    30
+  )
   // create a label using this font
-  var label = new ex.Label('Hello World', 0, 0, null, font);
+  const label = new ex.Label('Hello World', 0, 0, null, font)
   // display in-game
-  game.add(label);
-});
+  game.add(label)
+})
 ```
 
 If you want to use a lowercase representation in the font, you can pass `false` for `caseInsensitive`

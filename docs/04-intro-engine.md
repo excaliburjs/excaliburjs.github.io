@@ -17,7 +17,7 @@ You can then call [[start]] which starts the game and optionally accepts
 a [[Loader]] which you can use to [load assets](/docs/assets) like sprites and sounds.
 
 ```js
-var game = new ex.Engine({
+const game = new ex.Engine({
   width: 800, // the width of the canvas
   height: 600, // the height of the canvas
   canvasElementId: '', // the DOM canvas element ID, if you are providing your own
@@ -95,9 +95,9 @@ Learn more about the [scene lifecycle](/docs/scenes#scene-lifecycle).
 ### Adding a scene
 
 ```js
-var game = new ex.Engine()
+const game = new ex.Engine()
 // create a new level
-var level1 = new ex.Scene()
+const level1 = new ex.Scene()
 // add level 1 to the game
 game.add('level1', level1)
 // in response to user input, go to level 1
@@ -157,14 +157,14 @@ class Game extends ex.Engine {
     })
   }
 }
-var game = new Game()
+const game = new Game()
 game.start()
 ```
 
 **Javascript**
 
 ```js
-var Game = ex.Engine.extend({
+const Game = ex.Engine.extend({
 
   constructor: function () {
     Engine.call(this, { width: 800, height: 600, displayMode: DisplayMode.FullScreen });
@@ -173,14 +173,14 @@ var Game = ex.Engine.extend({
   start: function() {
     // add custom scenes
     this.add("mainmenu", new MainMenu());
-    var _this = this;
+    const _this = this;
     return Engine.prototype.start.call(this, myLoader).then(function() {
       _this.goToScene("mainmenu");
       // custom start-up
     });
   }
 });
-var game = new Game();
+const game = new Game();
 game.start();
 ```
 

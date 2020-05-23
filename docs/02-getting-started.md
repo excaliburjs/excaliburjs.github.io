@@ -29,7 +29,7 @@ Create a script in your project, here I’ve named it `game.js`. Excalibur games
 // Create an instance of the engine.
 // I'm specifying that the game be 800 pixels wide by 600 pixels tall.
 // If no dimensions are specified the game will be fullscreen.
-var game = new ex.Engine({
+const game = new ex.Engine({
   width: 800,
   height: 600,
 })
@@ -69,7 +69,7 @@ To do this Excalibur uses a primitive called an [Actor][docs-actor], and places 
 // game.js
 
 // Create an instance of the engine.
-var game = new ex.Engine({
+const game = new ex.Engine({
   width: 800,
   height: 600,
 })
@@ -77,7 +77,7 @@ var game = new ex.Engine({
 // Create an actor with x position of 150px,
 // y position of 40px from the bottom of the screen,
 // width of 200px, height and a height of 20px
-var paddle = new ex.Actor(150, game.drawHeight - 40, 200, 20)
+const paddle = new ex.Actor(150, game.drawHeight - 40, 200, 20)
 
 // Let's give it some color with one of the predefined
 // color constants
@@ -111,7 +111,7 @@ What’s breakout without the ball? To make the ball bounce, Excalibur comes pre
 
 ```js
 // Create a ball
-var ball = new ex.Actor(100, 300, 20, 20)
+const ball = new ex.Actor(100, 300, 20, 20)
 
 // Set the color
 ball.color = ex.Color.Red
@@ -133,7 +133,7 @@ ball.on('precollision', function (ev) {
   // intersections are the direction body A has to move to not be clipping body B
   // `ev.intersection` is a vector `normalize()` will make the length of it 1
   // `negate()` flips the direction of the vector
-  var intersection = ev.intersection.normalize()
+  const intersection = ev.intersection.normalize()
 
   // The largest component of intersection is our axis to flip
   if (Math.abs(intersection.x) > Math.abs(intersection.y)) {
@@ -197,20 +197,20 @@ Breakout needs some bricks to break. To do this we calculate our brick layout an
 // Build Bricks
 
 // Padding between bricks
-var padding = 20 // px
-var xoffset = 65 // x-offset
-var yoffset = 20 // y-offset
-var columns = 5
-var rows = 3
+const padding = 20 // px
+const xoffset = 65 // x-offset
+const yoffset = 20 // y-offset
+const columns = 5
+const rows = 3
 
-var brickColor = [ex.Color.Violet, ex.Color.Orange, ex.Color.Yellow]
+const brickColor = [ex.Color.Violet, ex.Color.Orange, ex.Color.Yellow]
 
 // Individual brick width with padding factored in
-var brickWidth = game.drawWidth / columns - padding - padding / columns // px
-var brickHeight = 30 // px
-var bricks = []
-for (var j = 0; j < rows; j++) {
-  for (var i = 0; i < columns; i++) {
+const brickWidth = game.drawWidth / columns - padding - padding / columns // px
+const brickHeight = 30 // px
+const bricks = []
+for (let j = 0; j < rows; j++) {
+  for (let i = 0; i < columns; i++) {
     bricks.push(
       new ex.Actor(
         xoffset + i * (brickWidth + padding) + padding,
@@ -247,7 +247,7 @@ ball.on('precollision', function (ev) {
   // intersections are the direction body A has to move to not be clipping body B
   // `ev.intersection` is a vector `normalize()` will make the length of it 1
   // `negate()` flips the direction of the vector
-  var intersection = ev.intersection.normalize()
+  const intersection = ev.intersection.normalize()
 
   // The largest component of intersection is our axis to flip
   if (Math.abs(intersection.x) > Math.abs(intersection.y)) {

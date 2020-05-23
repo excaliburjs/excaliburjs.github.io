@@ -11,8 +11,8 @@ The easiest way to create a `ParticleEmitter` is to use the
 ### Example: Adding an emitter
 
 ```js
-var actor = new ex.Actor(...);
-var emitter = new ex.ParticleEmitter(...);
+const actor = new ex.Actor(...);
+const emitter = new ex.ParticleEmitter(...);
 emitter.emitterType = ex.EmitterType.Circle; // Shape of emitter nozzle
 emitter.radius = 5;
 emitter.minVel = 100;
@@ -53,13 +53,13 @@ For example:
 // simple way to grayscale, a faster way would be to implement using a webgl fragment shader
 class GrayscalePostProcessor implements IPostProcessor {
   process(image: ImageData, out: CanvasRenderingContext2D) {
-     for(var i = 0; i < (image.height * image.width), i+=4){
+     for(let i = 0; i < (image.height * image.width), i+=4){
         // for pixel "i""
-        var r = image.data[i+0]; //0-255
-        var g = image.data[i+1]; //g
-        var b = image.data[i+2]; //b
+        const r = image.data[i+0]; //0-255
+        const g = image.data[i+1]; //g
+        const b = image.data[i+2]; //b
         image.data[i+3]; //a
-        var result = Math.floor((r + g + b) / 3.0) | 0; // only valid on 0-255 integers `| 0` forces int
+        const result = Math.floor((r + g + b) / 3.0) | 0; // only valid on 0-255 integers `| 0` forces int
         image.data[i+0] = result;
         image.data[i+1] = result;
         image.data[i+2] = result;
@@ -93,13 +93,17 @@ Remember, the best practice is to design with color blindness in mind.
 Example:
 
 ```typescript
-var game = new ex.Engine();
+const game = new ex.Engine()
 
-var colorBlindPostProcessor = new ex.ColorBlindCorrector(game, false, ColorBlindness.Protanope);
+const colorBlindPostProcessor = new ex.ColorBlindCorrector(
+  game,
+  false,
+  ColorBlindness.Protanope
+)
 
 // post processors evaluate left to right
-game.postProcessors.push(colorBlindPostProcessor);
-game.start();
+game.postProcessors.push(colorBlindPostProcessor)
+game.start()
 ```
 
 ## Sprite Effects
@@ -117,20 +121,20 @@ side-effecting.
 To implement custom effects, create a `class` that implements [[Effects.SpriteEffect]].
 
 ```typescript
-const playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80);
+const playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80)
 
 // darken a sprite by a percentage
-playerSprite.darken(0.2); // 20%
+playerSprite.darken(0.2) // 20%
 
 // lighten a sprite by a percentage
-playerSprite.lighten(0.2); // 20%
+playerSprite.lighten(0.2) // 20%
 // saturate a sprite by a percentage
-playerSprite.saturate(0.2); // 20%
+playerSprite.saturate(0.2) // 20%
 // implement a custom effect
 class CustomEffect implements ex.Effects.SpriteEffect {
   updatePixel(x: number, y: number, imageData: ImageData) {
     // modify ImageData
   }
 }
-playerSprite.addEffect(new CustomEffect());
+playerSprite.addEffect(new CustomEffect())
 ```
