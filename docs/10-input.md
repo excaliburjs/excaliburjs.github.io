@@ -5,11 +5,11 @@ path: /docs/input
 
 Excalibur offers several modes of input for your games.
 
-The [[Engine.input]] property that can be inspected during [[Actor.update]]
-or other areas of the game. This makes it easy to respond to any type
-of user input without writing complex input event code.
+The [[Engine.input]] property can be inspected during [[Actor.update]]
+or other areas of the game. This allows you to respond to any type
+of user input without writing complex input event code yourself.
 
-Learn more about [[Pointers|Mouse and Touch]], [[Keyboard]], and [[Gamepads|Controller]] support.
+Learn more about [Keyboard](#keyboard), [Mouse and Touch](#mouse-and-touch), and [Controller](#gamepads-and-controllers) support.
 
 ### Inspecting engine input
 
@@ -30,7 +30,7 @@ class Player extends ex.Actor {
 
 ## Keyboard
 
-Working with the keyboard is easy in Excalibur. You can inspect
+Keyboard input is accessible through [[Keyboard|engine.input.keyboard]]. You can inspect
 whether a button was just [[Keyboard.wasPressed|pressed]] or [[Keyboard.wasReleased|released]] this frame, or
 if the key is currently being [[Keyboard.isHeld|held]] down. Common keys are held in the [[Keys]]
 enumeration but you can pass any character code to the methods.
@@ -42,10 +42,10 @@ update frame.
 
 ### Inspecting the keyboard
 
-You can inspect [[Engine.input]] to see what the state of the keyboard
+You can inspect[[Keyboard|engine.input.keyboard]] to see what the state of the keyboard
 is during an update.
 
-It is recommended that keyboard actions that directly effect actors be handled like so to improve code quality:
+It is recommended that keyboard actions that directly effect actors be queried, instead of subscribed to:
 
 ```ts
 class Player extends ex.Actor {
@@ -64,9 +64,11 @@ class Player extends ex.Actor {
 }
 ```
 
+Checking whether keys are pressed or released during the update frame makes your game logic easier to follow and is less prone to tracking bugs since Excalibur tracks keyboard input on your behalf.
+
 ### Events
 
-You can subscribe to keyboard events through `engine.input.keyboard.on`. A [[KeyEvent]] object is
+If you need more complex logic or if you need to be notified when input was processed, you can subscribe to keyboard events through `engine.input.keyboard.on`. A [[KeyEvent]] object is
 passed to your handler which offers information about the key that was part of the event.
 
 - `press` - When a key was just pressed this frame
@@ -81,6 +83,9 @@ engine.input.keyboard.on("hold", (evt: KeyEvent) => {...});
 
 ## Mouse and Touch
 
+Excalibur handles mouse and touch input using a [[Pointers]] API that closely follows the [W3C Pointer Events](https://developer.mozilla.org/en-US/docs/Web/API/Pointer_events) spec. Excalibur normalizes mouse and touch events to a [[PointerEvent]]
+that your game can subscribe to and handle ([[Engine.input|engine.input.pointers]]`).
+
 There is always at least one [[Pointer]] available ([[Pointers.primary]]) and
 you can request multiple pointers to support multi-touch scenarios.
 
@@ -89,8 +94,9 @@ automatically supports touch for the primary pointer by default. When
 you handle the events, you can customize what your game does based on the type
 of pointer, if applicable.
 
-Excalibur handles mouse/touch events and normalizes them to a [[PointerEvent]]
-that your game can subscribe to and handle (`engine.input.pointers`).
+<docs-note>
+For performance reasons, <em>actors do not automatically capture pointer events <a href="#actor-pointer-events">until they are opted-in</a>.</em>
+</docs-note>
 
 ### Events
 
@@ -199,7 +205,7 @@ engine.input.pointers.at(2).on('move', paint('green')) // 3rd finger
 
 ### Actor pointer events
 
-By default, [[Actor|Actors]] do not participate in pointer events. In other
+By default, [actors](/docs/actors) do not participate in pointer events. In other
 words, when you "click" an Actor, it will not throw an event **for that Actor**,
 only a generic pointer event for the game. This is to keep performance
 high and allow actors to "opt-in" to handling pointer events. Actors will automatically
@@ -224,6 +230,16 @@ player.on('pointerup', function (ev) {
   player.logger.info('Player selected!', ev)
 })
 ```
+
+#### Events
+
+Actors have the following **extra** events you can subscribe to:
+
+- `pointerenter` - When a pointer enters the bounds of an actor
+- `pointerleave` - When a pointer leaves the bounds of an actor
+- `pointerdragstart` - When a pointer starts a drag on an actor
+- `pointerdragmove` - When a pointer drags an actor
+- `pointerdragend` - When a pointer ends a drag on an actor
 
 ## Gamepads and Controllers
 
