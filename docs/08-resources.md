@@ -158,7 +158,7 @@ For a more complex example of using generic resources, see the [Excalibur Tiled]
 
 ## Custom loadables
 
-You can implement the [[Loadable]] interface to create your own custom loadables.
+You can implement the [[Loadable]] interface to create your own custom loadables. One example of a custom loadable is the [excalibur-tiled](https://github.com/excaliburjs/excalibur-tiled) plugin which can load [Tiled](https://www.mapeditor.org/) map editor files.
 
 This is an advanced feature, as the [Resource](#generic-resources) class already wraps logic around
 blob/plain data for usages like JSON, configuration, levels, etc through XHR (Ajax).
