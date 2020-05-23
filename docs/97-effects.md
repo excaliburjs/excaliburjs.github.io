@@ -5,8 +5,8 @@ path: /docs/fx
 
 ## Particle Emission
 
-The easiest way to create a `ParticleEmitter` is to use the
-[Particle Tester](http://excaliburjs.com/particle-tester/) to generate code for emitters.
+The easiest way to create a [[ParticleEmitter]] is to use the
+[Particle Tester](https://excaliburjs.com/particle-tester/) to generate code for emitters.
 
 ### Example: Adding an emitter
 
@@ -42,16 +42,14 @@ this might be creating a blur effect, adding a lighting effect, or changing how 
 
 ### Basic post processors
 
-To create and use a post processor you just need to implement a class that implements [[IPostProcessor]], which has one method
-[[IPostProcessor.process]]. Set the `out` canvas parameter to the final result, using the `image` pixel data.
-
-Click to read more about [[https://developer.mozilla.org/en-US/docs/Web/API/ImageData|ImageData]] on MDN.
+To create and use a post processor you just need to implement a class that implements [[PostProcessor]], which has one method
+[[PostProcessor.process]]. Set the `out` canvas parameter to the final result, using the `image` pixel data. Read more about how to work with [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) on MDN.
 
 For example:
 
 ```typescript
 // simple way to grayscale, a faster way would be to implement using a webgl fragment shader
-class GrayscalePostProcessor implements IPostProcessor {
+class GrayscalePostProcessor implements PostProcessor {
   process(image: ImageData, out: CanvasRenderingContext2D) {
      for(let i = 0; i < (image.height * image.width), i+=4){
         // for pixel "i""
@@ -77,7 +75,7 @@ Choosing colors that are friendly to players with color blindness is an importan
 There is a significant portion of the population that has some form of color blindness,
 and choosing bad colors can make your game unplayable. We have built
 a post processors that can shift your colors into as more visible range for the 3 most common types of
-[[https://en.wikipedia.org/wiki/Color_blindness|color blindness]].
+[color blindness](https://en.wikipedia.org/wiki/Color_blindness):
 
 - [[ColorBlindness.Protanope|Protanope]]
 - [[ColorBlindness.Deuteranope|Deuteranope]]
@@ -118,7 +116,7 @@ for optimal performance.
 There are a number of convenience methods available to perform sprite effects. Sprite effects are
 side-effecting.
 
-To implement custom effects, create a `class` that implements [[Effects.SpriteEffect]].
+To implement custom effects, create a `class` that implements [[SpriteEffect]].
 
 ```typescript
 const playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80)
@@ -138,3 +136,7 @@ class CustomEffect implements ex.Effects.SpriteEffect {
 }
 playerSprite.addEffect(new CustomEffect())
 ```
+
+See the [[SpriteEffect|full list of effects available]].
+
+<!-- TODO: Examples -->
