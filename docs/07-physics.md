@@ -69,6 +69,8 @@ A collider has a [[CollisionShape]] that represent physical geometry. The possib
 
 #### Box and ConvexPolygon Shapes
 
+<!-- TODO: Example -->
+
 The default shape for a collider is a box. A custom box shape and [[Collider|collider]] can be created for an [[Actor|actor]] [[Body|body]]. The `ex.Shape.Box` helper actually creates a [[ConvexPolygon]] shape in Excalibur.
 
 ```typescript
@@ -105,6 +107,8 @@ const triangle = new ex.Actor({
 
 #### Edge Shape
 
+<!-- TODO: Example -->
+
 The default shape for a collider is a box, however a custom [[Edge|edge]] shape and [[collider|Collider]] can be created for an [[Actor|actor]] [[Body|body]].
 
 [[Edge|Edges]] are useful for creating walls, barriers, or platforms in your game.
@@ -124,6 +128,8 @@ const wall = new ex.Actor({
 ```
 
 #### Circle Shape
+
+<!-- TODO: Example -->
 
 Excalibur has a [[CollisionShape|Shape]] static helper to create [[Circle|circles]] for collisions in your game.
 

@@ -21,7 +21,7 @@ const loader = new ex.Loader([
 
 ## Using a web server
 
-The asset loader **only works with a web server** since it loads assets with [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). That means you cannot use the loader when double-clicking and running an HTML file in the browser. The browser throws errors that will prevent you from loading assets.
+The asset loader **only works with a web server** since it loads assets with [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). That means you cannot use the loader whenrunning an HTML file locally from the file-system (e.g. a `file://` protocol URL will not work). The browser throws errors that will prevent you from loading assets.
 
 The fastest way to serve a folder of files is by using the [serve](https://npmjs.org/package/serve) NPM package.
 
@@ -33,7 +33,7 @@ npx serve .
 npx serve ./dist
 ```
 
-If you are developing a game using Excalibur with Webpack, Parcel, or another bundler, these typically already come with dev servers for running your game.
+If you are developing a game using Excalibur with Webpack, Parcel, or another bundler, these typically already come with dev servers for running your game. See [Excalibur project templates](/docs/installation#example-project-templates) for templates you can start from that use these tools.
 
 ### Relative vs. absolute paths
 
