@@ -2,12 +2,20 @@ import React from 'react'
 import unified from 'unified'
 import rehype2React from 'rehype-react'
 import { graphql, Link } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
 import Example from '../components/docs/Example'
 import rehypeTypedoc from './rehype-typedoc'
+
+/**
+ * Common shared template components to expose automatically
+ * within the MDX files
+ */
+const shortcodes = { Link, Note, Example }
 
 /*
  * https://gist.github.com/mathewbyrne/1280286
@@ -73,7 +81,7 @@ const TOC = ({ toc, releases }) => (
 
 export default function Template({ data }) {
   const { page, toc, releases, typedoc } = data
-  const { frontmatter, htmlAst } = page
+  const { frontmatter, body } = page
   const {
     edges: [
       {
@@ -84,15 +92,10 @@ export default function Template({ data }) {
     ],
   } = typedoc
 
-  const docsProcessor = unified()
-    .use(rehypeTypedoc, {
-      basePath: '/docs/api/edge/',
-      typedoc: JSON.parse(typedocRaw),
-    })
-    .use(rehype2React, {
-      createElement: React.createElement,
-      components: { 'docs-note': Note, 'docs-example': Example },
-    })
+  const docsProcessor = unified().use(rehypeTypedoc, {
+    basePath: '/docs/api/edge/',
+    typedoc: JSON.parse(typedocRaw),
+  })
 
   return (
     <Layout pageTitle={frontmatter.title}>
@@ -116,7 +119,9 @@ export default function Template({ data }) {
           <div className="ui left aligned container">
             <h1>{frontmatter.title}</h1>
             <div className="docs-content">
-              {docsProcessor.stringify(docsProcessor.runSync(htmlAst))}
+              <MDXProvider components={shortcodes}>
+                <MDXRenderer>{body}</MDXRenderer>
+              </MDXProvider>
             </div>
           </div>
         </div>
@@ -139,7 +144,7 @@ export const pageQuery = graphql`
       }
     }
 
-    toc: allMarkdownRemark(sort: { fields: [fileAbsolutePath], order: ASC }) {
+    toc: allMdx(sort: { fields: [fileAbsolutePath], order: ASC }) {
       edges {
         node {
           id
@@ -155,8 +160,8 @@ export const pageQuery = graphql`
       }
     }
 
-    page: markdownRemark(frontmatter: { path: { eq: $path } }) {
-      htmlAst
+    page: mdx(frontmatter: { path: { eq: $path } }) {
+      body
       frontmatter {
         path
         title

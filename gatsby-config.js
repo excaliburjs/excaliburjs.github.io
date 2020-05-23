@@ -6,6 +6,7 @@ module.exports = {
     googleGroup: 'https://groups.google.com/forum/#!forum/excaliburjs',
   },
   plugins: [
+    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
