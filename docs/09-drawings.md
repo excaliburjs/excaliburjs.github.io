@@ -64,15 +64,14 @@ game.start(loader).then(function () {
 
 [[SpriteSheet|SpriteSheets]] provide a quick way to generate a new [[Animation]] instance.
 
-You can use _all_ the frames of a [[Texture]]([[SpriteSheet.getAnimationForAll]])
+You can use _all_ the frames of a texture using [[SpriteSheet.getAnimationForAll]]
 or you can use a range of frames ([[SpriteSheet.getAnimationBetween]]) or you
 can use specific frames ([[SpriteSheet.getAnimationByIndices]]).
 
-To create an [[Animation]] these methods must be passed an instance of [[Engine]].
-It's recommended to generate animations for an [[Actor]] in their [[Actor.onInitialize]]
-event because the [[Engine]] is passed to the initialization function. However, if your
-[[Engine]] instance is in the global scope, you can create an [[Animation]] at any time
-provided the [[Texture]] has been [[Loader|loaded]].
+To create an animation these methods must be passed an instance of [[Engine]].
+It's recommended to generate animations for an actor [during initialization](/docs/actors#initialization) because the engine is passed to the initialization function. However, if your
+engine instance is in the global scope, you can create an animation at any time
+provided the texture has been [loaded](/docs/assets).
 
 ```js
 // create sprite sheet with 5 columns, 1 row, 80x80 frames
