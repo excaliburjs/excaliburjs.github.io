@@ -66,7 +66,7 @@ class Player extends ex.Actor {
 
 Checking whether keys are pressed or released during the update frame makes your game logic easier to follow and is less prone to tracking bugs since Excalibur tracks keyboard input on your behalf.
 
-### Events
+### Keyboard Events
 
 If you need more complex logic or if you need to be notified when input was processed, you can subscribe to keyboard events through `engine.input.keyboard.on`. A [[KeyEvent]] object is
 passed to your handler which offers information about the key that was part of the event.
@@ -98,7 +98,7 @@ of pointer, if applicable.
 For performance reasons, <em>actors do not automatically capture pointer events <a href="#actor-pointer-events">until they are opted-in</a>.</em>
 </docs-note>
 
-### Events
+### Pointer Events
 
 You can subscribe to pointer events through `engine.input.pointers.on`. A [[PointerEvent]] object is
 passed to your handler which offers information about the pointer input being received.
@@ -231,7 +231,7 @@ player.on('pointerup', function (ev) {
 })
 ```
 
-#### Events
+#### Actor Events
 
 Actors have the following **extra** events you can subscribe to:
 
@@ -266,7 +266,7 @@ engine.input.gamepads.setMinimumGamepadConfiguration({
 })
 ```
 
-### Events
+### Gamepad Events
 
 You can subscribe to gamepad connect and disconnect events through `engine.input.gamepads.on`.
 
