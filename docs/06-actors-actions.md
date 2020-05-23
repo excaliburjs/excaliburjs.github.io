@@ -162,16 +162,16 @@ class Player extends Actor {
 
 ## Drawing actors
 
-Actors by default have no associated [drawings](/docs/drawings), meaning that they will be rendered without any graphics unless you've assigned a default [[Actor.color]] or attached a drawing. If an actor has a color set, it will draw a box in that color. This is useful only at the beginning of development when you're just tinkering but for most games you'll need to add sprites, animations, and other drawings.
+Actors by default have no associated [drawings](/docs/drawings), meaning that they will be rendered without any graphics unless you've assigned a default [[Actor.color]] or added a drawing. If an actor has a color set, it will draw a box in that color. This is useful only at the beginning of development when you're just tinkering but for most games you'll need to add sprites, animations, and other drawings.
 
 ### Working with textures & sprites
 
 Think of a [[Texture|texture]] as the raw image file that will be loaded into Excalibur. In order for it to be drawn
 it must be converted to a [Sprite](/docs/drawings#sprites).
 
-A common usage is to load a [[Texture]] and convert it to a sprite for an actor. If you are using the [asset loader](http://localhost:8000/docs/assets) to
+A common usage is to load a [[Texture]] and convert it to a sprite for an actor. If you are using the [asset loader](/docs/assets) to
 pre-load assets, you can use [[Actor.addDrawing]] to add a texture directly, which will internally convert it to a sprite on your behalf. You can also create a
-[[Texture.asSprite|sprite from a Texture]] to create a sprite instance to pass to `addDrawing`.
+[sprite from a Texture](/docs/drawings#sprites) to create a sprite instance to pass to `addDrawing`.
 
 ```ts
 // assume Resources.TxPlayer is a 80x80 png image
@@ -180,9 +180,6 @@ public onInitialize(engine: ex.Engine) {
 
    // set as the "default" drawing
    this.addDrawing(Resources.TxPlayer);
-
-   // you can also set a Sprite instance to draw
-   this.addDrawing(Resources.TxPlayer.asSprite());
 }
 ```
 
@@ -206,6 +203,8 @@ public onInitialize(engine: ex.Engine) {
    this.addDrawing("idle", playerIdleAnimation);
 }
 ```
+
+When adding an animation, you may want to have an "idle" or static animation added first (or you can explicitly set the current drawing using [[Actor.setDrawing]] during initialization).
 
 ## Drawing hooks
 
