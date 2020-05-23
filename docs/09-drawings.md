@@ -95,6 +95,8 @@ const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(
 )
 ```
 
+<!-- TODO: Examples -->
+
 ### Multiple rows
 
 Sheets are organized in "row major order" which means left-to-right, top-to-bottom.
