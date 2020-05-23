@@ -61,11 +61,13 @@ console.log(anotherPoint.toString()) // "(50, 50)"
 
 Notice how both `point` and `samePoint` share the same vector reference, so using `setTo` mutates the vector. Use `clone` to ensure you are not changing vectors unexpectedly!
 
+<!-- TODO:
 ## Rays
 
 ## Projections
 
 ## Lines
+-->
 
 ## Random
 
@@ -120,4 +122,4 @@ A seeded random is very useful in games to do things like terrain generation, pr
 content generation, etc. It allows you easily debug your algorithms by reusing
 the same seed, as well as to ensure your algorithms are deterministic.
 
-## Perlin Noise
+<!-- TODO: Perlin Noise -->
