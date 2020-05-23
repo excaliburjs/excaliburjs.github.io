@@ -117,30 +117,39 @@ Excalibur supports multiple display modes for a game. Pass in a [[EngineOptions.
 option when creating a game to customize the viewport.
 
 The [[Engine.canvasWidth|canvasWidth]] and [[Engine.canvasHeight|canvasHeight]] are still used to represent the native width and height
-of the canvas, but you can leave them at 0 or `undefined` to ignore them. If width and height
+of the canvas, but you can leave them at `0` or `undefined` to ignore them. If width and height
 are not specified, the game won't be scaled and native resolution will be the physical screen
 width/height.
+
+### Container Display Mode
 
 If you use [[DisplayMode.Container]], the canvas will automatically resize to fit inside of
 it's parent DOM element. This allows you maximum control over the game viewport, e.g. in case
 you want to provide HTML UI on top or as part of your game.
 
-You can use [[DisplayMode.Position]] to specify where the game window will be displayed on screen. if
+### Position Display Mode
+
+You can use [[DisplayMode.Position]] to specify where the game window will be displayed on screen. If
 this DisplayMode is selected, then a [[EngineOptions.position|position]] option _must_ be provided to the Engine constructor.
-The [[EngineOptions.position|position]] option can be a String or an [[AbsolutePosition]]. The first word in a String _must_
+The [[EngineOptions.position|position]] option can be a `string` or an [[AbsolutePosition]].
+
+The first word in a `string` _must_
 be the desired vertical alignment of the window. The second (optional) word is the desired horizontal
 alignment.
 
-Valid String examples: "top left", "top", "bottom", "middle", "middle center", "bottom right"
-Valid AbsolutePosition examples: {top: 5, right: 10%}, {bottom: 49em, left: 10px}, {left: 10, bottom: 40}
+- **Valid `string` examples**: `"top left"`, `"top"`, `"bottom"`, `"middle"`, `"middle center"`, `"bottom right"`
+
+For an [[AbsolutePosition]], the value for each property is interpreted similar to CSS, where a `number` value is in pixels and a string is whatever valid CSS unit you want to pass.
+
+- **Valid `AbsolutePosition` examples**: `{top: 5, right: "10%"}`, `{bottom: "49em", left: "10px"}`, `{left: 10, bottom: 40}`
+
+The `<canvas>` element will be positioned using CSS with the values you pass in.
 
 ## Extending the engine
 
 For complex games, any entity that inherits [[Class]] can be extended to override built-in
 functionality. This is recommended for [[Actor|actors]] and [[Scene|scenes]], especially.
 You can customize the options or provide more for your game by extending [[Engine]].
-
-**TypeScript**
 
 ```ts
 class Game extends ex.Engine {
@@ -159,29 +168,6 @@ class Game extends ex.Engine {
 }
 const game = new Game()
 game.start()
-```
-
-**Javascript**
-
-```js
-const Game = ex.Engine.extend({
-
-  constructor: function () {
-    Engine.call(this, { width: 800, height: 600, displayMode: DisplayMode.FullScreen });
-  }
-
-  start: function() {
-    // add custom scenes
-    this.add("mainmenu", new MainMenu());
-    const _this = this;
-    return Engine.prototype.start.call(this, myLoader).then(function() {
-      _this.goToScene("mainmenu");
-      // custom start-up
-    });
-  }
-});
-const game = new Game();
-game.start();
 ```
 
 ## Managing game state
