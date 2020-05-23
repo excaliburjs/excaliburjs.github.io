@@ -17,7 +17,7 @@ actor.body.collider.type = ex.CollisionType.Active
 This is possible:
 
 ```typescript
-const options: IActorArgs = {
+const options: ActorArgs = {
    pos: new ex.Vector(1,2);
    width: 100,
    height: 100,
