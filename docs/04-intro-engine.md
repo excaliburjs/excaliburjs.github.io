@@ -129,7 +129,7 @@ HiDPI displays scale device pixels. For example, on a normal monitor, a 1280x720
 
 <!-- TODO: Embed example -->
 
-## Coordinate systems and HiDPI displays
+## Coordinate systems
 
 In Excalibur, due to HTML canvas native and scaled resolution, there are essentially _two_ kinds of coordinates: a **screen** coordinate and a **world** coordinate.
 
