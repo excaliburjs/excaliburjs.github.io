@@ -272,7 +272,7 @@ Congratulations! You have just created your first game in Excalibur!
 
 It's time to [get introduced][docs-intro] to the engine for more examples or advanced users can browse the [API Reference][docs-api].
 
-<script async src="//jsfiddle.net/excaliburjs/s33mLjn3/embed/js,result/"></script>
+<iframe width="100%" height="700" src="//jsfiddle.net/excaliburjs/s33mLjn3/embedded/js,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 [docs-install]: /docs/installation
 [docs-intro]: /docs/intro
