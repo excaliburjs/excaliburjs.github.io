@@ -70,6 +70,28 @@ But if you are serving under a sub-directory, like `http://localhost:3000/root/i
 
 The first path will fail to load as the absolute asset path would now be `/root/assets` and not `/assets`. Use a relative path to load assets _relative_ to the HTML file serving your game.
 
+### Setting the base for a page
+
+In your HTML file(s), to set the base for any absolute paths like the example above, you can use the [base](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base) tag:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Set the base for all absolute URLs -->
+    <base href="/root" />
+  </head>
+  <body>
+    <!-- The browser will now properly resolve /root/game.js -->
+    <script src="/game.js"></script>
+  </body>
+</html>
+```
+
+This can be accessed programmatically using [document.baseUri](https://developer.mozilla.org/en-US/docs/Web/API/Node/baseURI) to resolve absolute paths in JavaScript.
+
+This is a good approach to use when hosting your game at a sub-directory, such as publishing to [GitHub Pages](https://pages.github.com/).
+
 ## Asset types
 
 ### Images and textures
