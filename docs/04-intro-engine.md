@@ -111,21 +111,52 @@ game.goToScene('root')
 To add actors and other entities to the current scene, you can use [[Engine.add|add]]. Alternatively,
 you can use [[Engine.currentScene]] to directly access the current scene.
 
+## Native vs. scaled resolution
+
+An HTML canvas element has a "native" resolution which is specified using the `width` and `height` HTML attributes. In Excalibur, these can be set using [[Engine.canvasWidth|canvasWidth]] and [[Engine.canvasHeight|canvasHeight]] respectively.
+
+If you don't explicitly set `canvasWidth` or `canvasHeight` Excalibur will manage the values for you, meaning that the "native" resolution will be the physical screen width/height so there is no "scaling" happening. This means your game logic must be responsive if the resolution of the game changes and you cannot depend on a "fixed" width/height coordinate system. Games which can be played on mobile devices _and_ desktop will work, since your game logic can detect what screen size the game is being played on and respond accordingly.
+
+Alternatively, if a native resolution is set and then CSS is used to change the _styled_ `width` and `height`, this makes your game _scale_ to whatever the CSS dimensions are. You would want to explicitly set a native resolution if your game depends on having a specific width/height of the "draw area". For example, you may want to design a game that depends on a fixed size of 1280x720 but you want to allow the user to view it at higher resolutions on their browser, so you may scale the canvas to a 16:9 ratio. Your game logic and positioning logic will still work since the game world is still 720px wide even though it may be displaying at 1080px wide on a high-res screen.
+
+<!-- TODO: Embed example -->
+
+## Coordinate systems and HiDPI displays
+
+In Excalibur, due to HTML canvas native and scaled resolution, there are essentially _two_ kinds of coordinates: a **screen** coordinate and a **world** coordinate.
+
+### Screen coordinates
+
+A screen coordinate is a point on a user's physical screen. Often, mouse events will be in screen coordinates as this is how the browser presents point data. If you are manipulating CSS or HTML UI, you will be operating in screen coordinates.
+
+### World coordinates
+
+A world coordinate is a point _in the game world_ (i.e. in native coordinates). When your game is _not scaled_ you may expect screen and world coordinates to match but in reality, Hi-DPI display devices change the pixel ratios of the canvas. Excalibur handles Hi-DPI displays and can translate screen coordinates to the game world. This is why all positioning and coordinate math within Excalibur games primarily are in terms of world coordinates.
+
+### Converting between coordinates
+
+Usually, your game logic should only deal in terms of world coordinates because this is the coordinate system you're positioning actors in or drawing in. Sometimes though, you need to convert between systems when interfacing with input.
+
+Excalibur provides two methods to convert between systems, [[Engine.screenToWorldCoordinates]] and [[Engine.worldToScreenCoordinates]]. Use these methods to convert between coordinate systems as they take into account all the information Excalibur collects to appropriately do the math for you including scaling, device pixel ratio, and more.
+
 ## Managing the viewport
 
 Excalibur supports multiple display modes for a game. Pass in a [[EngineOptions.displayMode|displayMode]]
 option when creating a game to customize the viewport.
 
-The [[Engine.canvasWidth|canvasWidth]] and [[Engine.canvasHeight|canvasHeight]] are still used to represent the native width and height
-of the canvas, but you can leave them at `0` or `undefined` to ignore them. If width and height
-are not specified, the game won't be scaled and native resolution will be the physical screen
-width/height.
+### Fullscreen Display Mode
+
+[[DisplayMode.FullScreen]] will style the canvas with CSS to take up the entire window viewport. If `canvasWidth` and `canvasHeight` are not set explicitly, the native resolution will be the same as the viewport size.
+
+<!-- TODO: Embed example -->
 
 ### Container Display Mode
 
 If you use [[DisplayMode.Container]], the canvas will automatically resize to fit inside of
 it's parent DOM element. This allows you maximum control over the game viewport, e.g. in case
 you want to provide HTML UI on top or as part of your game.
+
+<!-- TODO: Embed example -->
 
 ### Position Display Mode
 
@@ -144,6 +175,8 @@ For an [[AbsolutePosition]], the value for each property is interpreted similar 
 - **Valid `AbsolutePosition` examples**: `{top: 5, right: "10%"}`, `{bottom: "49em", left: "10px"}`, `{left: 10, bottom: 40}`
 
 The `<canvas>` element will be positioned using CSS with the values you pass in.
+
+<!-- TODO: Embed example -->
 
 ## Extending the engine
 
