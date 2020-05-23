@@ -88,19 +88,28 @@ for all the code that uses that instance of Color.
 Timers in Excalibur hook into the main loop so they should be used instead of `setTimeout` as they will
 start and stop accordingly with the loop.
 
+<docs-note>Timers must be added to the game so they are updated!</docs-note>
+
 ```js
+const game = new ex.Engine()
 const timer = new ex.Timer(() => {
   // do something every 1000ms
 }, 1000)
 
-// start the timer
-timer.start()
+// Add the timer to the current scene
+game.add(timer)
 
-// reset the timer
-timer.reset()
+// start the game and the timer
+game.start().then(() => {
+  // start the timer
+  timer.start()
 
-// stop the timer
-timer.stop()
+  // reset the timer
+  timer.reset()
+
+  // stop the timer
+  timer.stop()
+})
 ```
 
 ## Logging
