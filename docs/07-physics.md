@@ -29,19 +29,17 @@ const actor = new ex.Actor({
     collider: new ex.Collider({
       mass: 100, // mass of 100
       type: ex.CollisionType.Active, // active collision type
-      shape: ex.Shape.Circle(50) // circle geometry of radius 50
-    })
-  })
-});
+      shape: ex.Shape.Circle(50), // circle geometry of radius 50
+    }),
+  }),
+})
 ```
 
 ### Actor/Body
 
-Actor's have position, velocity, and acceleration in physical space, all of these positional physical attributes are contained inside the [[Body]]. Only 1 actor can be associated with a [[Body]].
+An actor has a position, velocity, and acceleration in physical space, but actors are just containers. All of these positional physical attributes are stored and managed inside a physics [[Body]]. An actor can only have one associated [[Body]] (like us!).
 
-**[[Body]]** is the container for all transform related information for physics and any associated colliders.
-
-This looks like this:
+[[Actor.body]] is the container for all transform related information for physics and any associated colliders. There are several convenience properties on an actor that delegate to the underlying physics body:
 
 ```typescript
 const actor = new ex.Actor({
@@ -61,17 +59,17 @@ actor.acc === actor.body.acc
 
 ### Collider
 
-[[Body]]'s have a default box collider that is derived from the width and height of the [[Actor]] associated. Only 1 [[Collider]] can be associated with a [[Body]], and by extension an [[Actor]]. (Collision events are re-emitted onto [[Actor]])
+A body has a default box collider that is derived from the width and height of the associated actor. Only one collider can be associated with a body, and by extension an actor. (Collision events are re-emitted onto actors)
 
-**[[Collider]]** is the container of all collision related information, collision type, collision events, mass, inertia, friction, bounciness, shape, etc.
+The [[Collider]] class is the container of all collision related information, collision type, collision events, mass, inertia, friction, bounciness, shape, etc.
 
 ### Shape
 
-[[Collider]]'s have [[CollisionShape]]'s that represent physical geometry. The possible shapes in Excalibur are [[Circle]], [[Edge]], and [[ConvexPolygon]]. A collider can only have 1 [[CollisionShape]] associated with them at a time.
+A colldier has a [[CollisionShape]] that represent physical geometry. The possible shapes in Excalibur are [[Circle]], [[Edge]], and [[ConvexPolygon]]. A collider can only have one [[CollisionShape]] associated with them at a time.
 
 #### Box and ConvexPolygon Shapes
 
-The default shape for a collider is a box, a custom box shape and [[collider|Collider]] can be created for an [[Actor|actor]] [[Body|body]]. The `ex.Shape.Box` helper actually creates a [[ConvexPolygon]] shape in Excalibur.
+The default shape for a collider is a box. A custom box shape and [[Collider|collider]] can be created for an [[Actor|actor]] [[Body|body]]. The `ex.Shape.Box` helper actually creates a [[ConvexPolygon]] shape in Excalibur.
 
 ```typescript
 const block = new ex.Actor({
@@ -105,7 +103,6 @@ const triangle = new ex.Actor({
 });
 ```
 
-
 #### Edge Shape
 
 The default shape for a collider is a box, however a custom [[Edge|edge]] shape and [[collider|Collider]] can be created for an [[Actor|actor]] [[Body|body]].
@@ -120,10 +117,10 @@ const wall = new ex.Actor({
   color: ex.Color.Blue,
   body: new ex.Body({
     collider: new ex.Collider({
-      shape: ex.Shape.Edge(new ex.Vector.Zero(), new ex.Vector(30, 100))
-    })
-  })
-});
+      shape: ex.Shape.Edge(new ex.Vector.Zero(), new ex.Vector(30, 100)),
+    }),
+  }),
+})
 ```
 
 #### Circle Shape
@@ -146,7 +143,6 @@ const circle = new ex.Actor({
   })
 });
 ```
-
 
 ## Collision Types
 
