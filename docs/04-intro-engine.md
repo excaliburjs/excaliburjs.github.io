@@ -1,0 +1,224 @@
+---
+title: Introduction
+path: /docs/intro
+---
+
+Excalibur uses the HTML5 Canvas API for drawing your game to the screen.
+The canvas is available to all `draw` functions for raw manipulation,
+but Excalibur is meant to simplify or completely remove the need to use
+the canvas directly.
+
+## Creating a game
+
+To create a new game, create a new instance of [[Engine]] and pass in
+the configuration ([[EngineOptions]]). Excalibur only supports a single
+instance of a game at a time, so it is safe to use globally.
+You can then call [[start]] which starts the game and optionally accepts
+a [[Loader]] which you can use to [load assets](/docs/assets) like sprites and sounds.
+
+```js
+const game = new ex.Engine({
+  width: 800, // the width of the canvas
+  height: 600, // the height of the canvas
+  canvasElementId: '', // the DOM canvas element ID, if you are providing your own
+  displayMode: ex.DisplayMode.FullScreen, // the display mode
+  pointerScope: ex.Input.PointerScope.Document, // the scope of capturing pointer (mouse/touch) events
+})
+// call game.start, which is a Promise
+game.start().then(function () {
+  // ready, set, go!
+})
+```
+
+You would include your script (or [bundle it](/docs/installation#module-loaders-and-bundlers)) on an HTML page and that page does _not need anything else_.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Cool Game!</title>
+  </head>
+  <body>
+    <script src="game.js"></script>
+  </body>
+</html>
+```
+
+Excalibur can automatically generate a `<canvas>` element for you or you can provide your own using [[EngineOptions.canvasElementId]].
+
+## The main loop
+
+The Excalibur engine uses a simple main loop. The engine updates and renders
+the "scene graph" which is the [[Scene|scenes]] and the tree of [[Actor|actors]] within that
+scene. Only one [[Scene]] can be active at a time. The engine does not update/draw any other
+scene, which means any actors will not be updated/drawn if they are part of a deactivated scene.
+![Engine Lifecycle](/assets/images/docs/EngineLifecycle.png)
+
+**Scene Graph**
+
+```
+Engine
+  |_ Scene 1 (activated)
+    |_ Actor 1
+      |_ Child Actor 1
+    |_ Actor 2
+  |_ Scene 2 (deactivated)
+  |_ Scene 3 (deactivated)
+```
+
+The engine splits the game into two primary responsibilities: updating and drawing. This is
+to keep your game smart about splitting duties so that you aren't drawing when doing
+logic or performing logic as you draw.
+
+### Update loop
+
+The first operation run is the **Update** loop. Actors and scenes both implement
+an overridable/extendable `onPreUpdate` and `onPostUpdate` methods. Use them to perform any logic-based operations
+in your game for a particular class.
+
+### Draw loop
+
+The next step is the **Draw** loop. A scene loops through its child actors and
+draws each one. You can override the `onPreDraw` and `onPostDraw` methods on an actor or scene to customize their drawing.
+You should **not** perform any logic in a draw call, it should only relate to drawing.
+
+## Working with Scenes
+
+The engine automatically creates a "root" [Scene](/docs/scenes). You can use this for whatever you want.
+You can manipulate scenes using [[Engine.add|add]], [[Engine.remove|remove]],
+and [[Engine.goToScene|goToScene]]. You can overwrite or remove the `root` scene if
+you want. There always has to be at least one scene and only **one** scene can be
+active at any one time.
+
+Learn more about the [scene lifecycle](/docs/scenes#scene-lifecycle).
+
+### Adding a scene
+
+```js
+const game = new ex.Engine()
+// create a new level
+const level1 = new ex.Scene()
+// add level 1 to the game
+game.add('level1', level1)
+// in response to user input, go to level 1
+game.goToScene('level1')
+// go back to main menu
+game.goToScene('root')
+```
+
+### Accessing the current scene
+
+To add actors and other entities to the current scene, you can use [[Engine.add|add]]. Alternatively,
+you can use [[Engine.currentScene]] to directly access the current scene.
+
+## Game resolution
+
+An HTML canvas element has a "native" resolution which is specified using the `width` and `height` HTML attributes. In Excalibur, these can be set using [[Engine.canvasWidth|canvasWidth]] and [[Engine.canvasHeight|canvasHeight]] respectively.
+
+### Native Resolution
+
+If you don't explicitly set `canvasWidth` or `canvasHeight` Excalibur will manage the values for you, meaning that the "native" resolution will be the physical screen width/height so there is no "scaling" happening. This means your game logic must be responsive if the resolution of the game changes and you cannot depend on a "fixed" width/height coordinate system. Games which can be played on mobile devices _and_ desktop will work, since your game logic can detect what screen size the game is being played on and respond accordingly.
+
+### Scaled Resolution
+
+Alternatively, if a native resolution is set and then CSS is used to change the _styled_ `width` and `height`, this makes your game _scale_ to whatever the CSS dimensions are. You would want to explicitly set a native resolution if your game depends on having a specific width/height of the "draw area". For example, you may want to design a game that depends on a fixed size of 1280x720 but you want to allow the user to view it at higher resolutions on their browser, so you may scale the canvas to a 16:9 ratio. Your game logic and positioning logic will still work since the game world is still 720px wide even though it may be displaying at 1080px wide on a high-res screen.
+
+### HiDPI Displays
+
+HiDPI displays scale device pixels. For example, on a normal monitor, a 1280x720 game canvas will return `1280` and `720` for the `width` and `height` respectively. However, on a 2X HiDPI display _what's actually drawn_ is multiplied by a device pixel ratio of `2` so, `2560` and `1440`. Any time you need to get this "actual" width and height of what's being drawn to the canvas, the engine exposes [[Engine.drawWidth]] and [[Engine.drawHeight]] that takes into account the device pixel ratio. In this HiDPI scenario, [[Engine.canvasWidth]] and [[Engine.canvasHeight]] would still return the native `1280x720` resolution.
+
+<!-- TODO: Embed example -->
+
+## Coordinate systems
+
+In Excalibur, due to HTML canvas native and scaled resolution, there are essentially _two_ kinds of coordinates: a **screen** coordinate and a **world** coordinate.
+
+### Screen coordinates
+
+A screen coordinate is a point on a user's physical screen. `(0, 0)` in screen coordinates is the top-left of the canvas. Excalibur translates mouse event positions into screen coordinates for you. Screen coordinates ignore the game camera, think of it like where the user is physically pointing on top of your game.
+
+### World coordinates
+
+A world coordinate is a point _in the game world_ relative to a [scene's camera](/docs/scenes#camera). The world space is the default place where actors operate. `(0, 0)` in the game world may be _displayed_ at the center of your game because that may be the camera's focal point.
+
+### Converting between coordinates
+
+Usually, your game logic should only deal in terms of world coordinates because this is the coordinate system you're positioning actors in or drawing in. Sometimes though, you need to convert between systems when interfacing with input.
+
+Excalibur provides two methods to convert between systems, [[Engine.screenToWorldCoordinates]] and [[Engine.worldToScreenCoordinates]]. Use these methods to convert between coordinate systems as they take into account all the information Excalibur collects to appropriately do the math for you including scaling, device pixel ratio, and more.
+
+## Managing the viewport
+
+Excalibur supports multiple display modes for a game. Pass in a [[EngineOptions.displayMode|displayMode]]
+option when creating a game to customize the viewport.
+
+### Fullscreen Display Mode
+
+[[DisplayMode.FullScreen]] will style the canvas with CSS to take up the entire window viewport. If `canvasWidth` and `canvasHeight` are not set explicitly, the native resolution will be the same as the viewport size.
+
+<!-- TODO: Embed example -->
+
+### Container Display Mode
+
+If you use [[DisplayMode.Container]], the canvas will automatically resize to fit inside of
+it's parent DOM element. This allows you maximum control over the game viewport, e.g. in case
+you want to provide HTML UI on top or as part of your game.
+
+<!-- TODO: Embed example -->
+
+### Position Display Mode
+
+You can use [[DisplayMode.Position]] to specify where the game window will be displayed on screen. If
+this DisplayMode is selected, then a [[EngineOptions.position|position]] option _must_ be provided to the Engine constructor.
+The [[EngineOptions.position|position]] option can be a `string` or an [[AbsolutePosition]].
+
+The first word in a `string` _must_
+be the desired vertical alignment of the window. The second (optional) word is the desired horizontal
+alignment.
+
+- **Valid `string` examples**: `"top left"`, `"top"`, `"bottom"`, `"middle"`, `"middle center"`, `"bottom right"`
+
+For an [[AbsolutePosition]], the value for each property is interpreted similar to CSS, where a `number` value is in pixels and a string is whatever valid CSS unit you want to pass.
+
+- **Valid `AbsolutePosition` examples**: `{top: 5, right: "10%"}`, `{bottom: "49em", left: "10px"}`, `{left: 10, bottom: 40}`
+
+The `<canvas>` element will be positioned using CSS with the values you pass in.
+
+<!-- TODO: Embed example -->
+
+## Extending the engine
+
+For complex games, any entity that inherits [[Class]] can be extended to override built-in
+functionality. This is recommended for [[Actor|actors]] and [[Scene|scenes]], especially.
+You can customize the options or provide more for your game by extending [[Engine]].
+
+```ts
+class Game extends ex.Engine {
+  constructor() {
+    super({ width: 800, height: 600, displayMode: DisplayMode.FullScreen })
+  }
+
+  public start() {
+    // add custom scenes
+    this.add('mainmenu', new MainMenu())
+    return super.start(myLoader).then(() => {
+      this.goToScene('mainmenu')
+      // custom start-up
+    })
+  }
+}
+const game = new Game()
+game.start()
+```
+
+## Managing game state
+
+Excalibur does not provide any out-of-the-box way to manage game state but typically you can either use class properties or introduce something more sophisticated like a [state machine](https://github.com/davidkpiano/xstate).
+
+The benefit of something like a state machine is that state can be separated from the actions an actor may take and you can then _save_ and _load_ state more easily to enable save game management. You could choose for example to have a global game state that you can serialize and deserialize.
+
+<docs-note>Have you implemented state management in your Excalibur game? [Let us know](https://github.com/excaliburjs/Excalibur#questions)!</docs-note>
+
+## Enabling debug mode
+
+Set [[Engine.isDebug]] to `true` to enable Excalibur's debug feature. This will enable [actor debug drawing](/docs/actors#debug-draw) to help diagnose drawing issues.

@@ -116,11 +116,10 @@ Just include the `excalibur.min.js` file on your page and you’ll be set.
 ```html
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-    </head>
-    <body>
-        <script src="excalibur.min.js"></script>
-    </body>
+  <head> </head>
+  <body>
+    <script src="excalibur.min.js"></script>
+  </body>
 </html>
 ```
 
@@ -135,7 +134,7 @@ For a simple TypeScript-based game, using triple-slash references works great. I
 ```js
 /// <reference path="node_modules/excalibur/dist/excalibur.d.ts" />
 
-var game = new ex.Engine({ ... });
+const game = new ex.Engine({ ... });
 ```
 
 Make sure the path is relative to the current TS file. You only need to include the reference on your “entrypoint” file. Then simply include `excalibur.min.js` as mentioned above in your HTML page.
@@ -169,7 +168,7 @@ import * as ex from 'excalibur'
 
 In a module loader system, such as Webpack, it will automatically bundle Excalibur. See the [webpack example repo][example-webpack]
 
-To support tree-shaking, you should use *named imports*:
+To support tree-shaking, you should use _named imports_:
 
 ```js
 import { Actor } from 'excalibur'

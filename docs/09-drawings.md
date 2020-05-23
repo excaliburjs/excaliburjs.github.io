@@ -1,0 +1,345 @@
+---
+title: Drawings
+path: /docs/drawings
+---
+
+## Sprites
+
+To create a [[Sprite]] you need to have a loaded [[Texture]] resource. You can
+then use [[Texture.asSprite]] to quickly create a [[Sprite]] or you can create
+a new instance of [[Sprite]] using the constructor. This is useful if you
+want to "slice" out a portion of an image or if you want to change the dimensions.
+
+```js
+const game = new ex.Engine()
+const txPlayer = new ex.Texture('/assets/tx/player.png')
+// load assets
+const loader = new ex.Loader([txPlayer])
+
+// start game
+game.start(loader).then(function () {
+  // create a sprite (quick)
+  const playerSprite = txPlayer.asSprite()
+  // create a sprite (custom)
+  const playerSprite = new ex.Sprite(txPlayer, 0, 0, 80, 80)
+})
+```
+
+You can then assign an [[Actor]] a sprite through [[Actor.addDrawing]] and
+[[Actor.setDrawing]].
+
+## Sprite Sheets
+
+You can also use a [[SpriteFont]] which is special kind of [[SpriteSheet]] for use
+with [[Label|Labels]].
+
+### Creating a SpriteSheet
+
+To create a [[SpriteSheet]] you need a loaded [[Texture]] resource.
+
+```js
+const game = new ex.Engine()
+const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png')
+// load assets
+const loader = new ex.Loader([txAnimPlayerIdle])
+
+// start game
+game.start(loader).then(function () {
+  const player = new ex.Actor()
+
+  // create sprite sheet with 5 columns, 1 row, 80x80 frames
+  const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80)
+
+  // create animation (125ms frame speed)
+  const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125)
+
+  // add drawing to player as "idle"
+  player.addDrawing('idle', playerIdleAnimation)
+  // add player to game
+  game.add(player)
+})
+```
+
+### Creating animations
+
+[[SpriteSheet|SpriteSheets]] provide a quick way to generate a new [[Animation]] instance.
+
+You can use _all_ the frames of a texture using [[SpriteSheet.getAnimationForAll]]
+or you can use a range of frames ([[SpriteSheet.getAnimationBetween]]) or you
+can use specific frames ([[SpriteSheet.getAnimationByIndices]]).
+
+To create an animation these methods must be passed an instance of [[Engine]].
+It's recommended to generate animations for an actor [during initialization](/docs/actors#initialization) because the engine is passed to the initialization function. However, if your
+engine instance is in the global scope, you can create an animation at any time
+provided the texture has been [loaded](/docs/assets).
+
+```js
+// create sprite sheet with 5 columns, 1 row, 80x80 frames
+const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80)
+
+// create animation for all frames (125ms frame speed)
+const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125)
+// create animation for a range of frames (2-4) (125ms frame speed)
+const playerIdleAnimation = playerIdleSheet.getAnimationBetween(game, 1, 3, 125)
+// create animation for specific frames 2, 4, 5 (125ms frame speed)
+const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(
+  game,
+  [1, 3, 4],
+  125
+)
+// create a repeating animation (ping-pong)
+const playerIdleAnimation = playerIdleSheet.getAnimationByIndices(
+  game,
+  [1, 3, 4, 3, 1],
+  125
+)
+```
+
+<!-- TODO: Examples -->
+
+### Multiple rows
+
+Sheets are organized in "row major order" which means left-to-right, top-to-bottom.
+Indexes are zero-based, so while you might think to yourself the first column is
+column "1", to the engine it is column "0". You can easily calculate an index
+of a frame using this formula:
+
+    Given: col = 5, row = 3, columns = 10
+    index = col + row * columns
+    index = 4 + 2 * 10 // zero-based, subtract 1 from col & row
+    index = 24
+
+You can also simply count the frames of the image visually starting from the top left
+and beginning with zero.
+
+```js
+// get a sprite for column 3, row 6
+const sprite = animation.getSprite(2 + 5 * 10)
+```
+
+## Animations
+
+### Creating an animation
+
+Create a [[Texture]] that contains the frames of your animation. Once the texture
+is [[Loader|loaded]], you can then generate an [[Animation]] by creating a [[SpriteSheet]]
+and using [[SpriteSheet.getAnimationForAll]].
+
+```js
+const game = new ex.Engine()
+const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png')
+// load assets
+const loader = new ex.Loader(txAnimPlayerIdle)
+// start game
+game.start(loader).then(function () {
+  const player = new ex.Actor()
+
+  // create sprite sheet with 5 columns, 1 row, 80x80 frames
+  const playerIdleSheet = new ex.SpriteSheet(txAnimPlayerIdle, 5, 1, 80, 80)
+
+  // create animation (125ms frame speed)
+  const playerIdleAnimation = playerIdleSheet.getAnimationForAll(game, 125)
+
+  // add drawing to player as "idle"
+  player.addDrawing('idle', playerIdleAnimation)
+  // add player to game
+  game.add(player)
+})
+```
+
+## Sprite Fonts
+
+### Generating the font sheet
+
+You can use tools such as [Bitmap Font Builder](http://www.lmnopc.com/bitmapfontbuilder/) to
+generate a sprite sheet for you to load into Excalibur.
+
+### Creating a sprite font
+
+Start with an image with a grid containing all the letters you want to support.
+
+Once you load it into Excalibur using a [[Texture]] resource, you can create
+a [[SpriteFont]] using the constructor.
+
+For example, here is a representation of a font sprite sheet for an uppercase alphabet
+with 4 columns and 7 rows:
+
+```
+ABCD
+EFGH
+IJKL
+MNOP
+QRST
+UVWX
+YZ
+```
+
+Each letter is 30x30 and after Z is a blank one to represent a space.
+
+Then to create the [[SpriteFont]]:
+
+```js
+const game = new ex.Engine()
+const txFont = new ex.Texture('/assets/tx/font.png')
+// load assets
+const loader = new ex.Loader(txFont)
+
+// start game
+game.start(loader).then(function () {
+  // create a font
+  const font = new ex.SpriteFont(
+    txFont,
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ ',
+    true,
+    4,
+    7,
+    30,
+    30
+  )
+  // create a label using this font
+  const label = new ex.Label('Hello World', 0, 0, null, font)
+  // display in-game
+  game.add(label)
+})
+```
+
+If you want to use a lowercase representation in the font, you can pass `false` for `caseInsensitive`
+and the matching will be case-sensitive. In our example, you would need another 7 rows of
+lowercase characters.
+
+### Font colors
+
+When using sprite fonts with a [[Label]], you can set the [[Label.color]] property
+to use different colors.
+
+### Known Issues
+
+**One font per Label**  
+[Issue #172](https://github.com/excaliburjs/Excalibur/issues/172)
+
+If you intend on changing colors or applying opacity effects, you have to use
+a new [[SpriteFont]] instance per [[Label]].
+
+**Using opacity removes other effects**  
+[Issue #148](https://github.com/excaliburjs/Excalibur/issues/148)
+
+If you apply any custom effects to the sprites in a SpriteFont, including trying to
+use [[Label.color]], they will be removed when modifying [[Label.opacity]].
+
+## Tile Maps
+
+Tile maps are made up of [[Cell|Cells]] which can draw [[TileSprite|TileSprites]]. Tile
+maps support multiple layers and work well for building tile-based games such as RPGs,
+adventure games, strategy games, and others. Cells can be [[Cell.solid|solid]] so
+that Actors can't pass through them.
+
+We recommend using the [Tiled map editor](http://www.mapeditor.org/) to build your maps
+and export them to JSON. You can then load them using a [[Resource|Generic Resource]]
+and process them to create your levels. A [[TileMap]] can then be used as part of a
+level or map class that adds enemies and builds game objects from the Tiled map.
+
+### Creating a tile map
+
+A [[TileMap]] is meant to be used in conjunction with a map editor. Creating
+a tile map is fairly straightforward.
+
+You need a tile sheet (see [[SpriteSheet]]) that holds all the available tiles to
+draw. [[TileMap]] supports multiple sprite sheets, letting you organize tile sheets
+to your liking.
+
+Next, you need to populate each [[Cell]] with one or more [[TileSprite|TileSprites]]
+using [[Cell.pushSprite]].
+
+Once the [[TileMap]] is added to a [[Scene]], it will be drawn and updated.
+
+You can then add [[Actor|Actors]] to the [[Scene]] and interact with the [[TileMap]].
+
+In this example, we take in a map configuration that we designed (for example,
+based on the exported structure of a JSON file).
+
+```typescript
+// define TypeScript interfaces to make our life easier
+public interface MapDefinition {
+  cells: MapCellDefinition[];
+  tileSheets: IMapTileSheet[];
+  width: number;
+  height: number;
+  tileWidth: number;
+  tileHeight: number;
+}
+
+public interface MapCellDefinition {
+  x: number;
+  y: number;
+  tileId: number;
+  sheetId: number;
+}
+
+public interface MapTileSheet {
+  id: number;
+  path: string;
+  columns: number;
+  rows: number;
+}
+
+// create a Map class that creates a game map
+// based on JSON configuration
+public class Map extends ex.Scene {
+  private _mapDefinition: IMapDefinition;
+  private _tileMap: ex.TileMap;
+  constructor(mapDef: IMapDefinition) {
+    // store reference to definition
+    this._mapDefinition = mapDef;
+    // create a tile map
+    this._tileMap = new ex.TileMap(0, 0, mapDef.tileWidth, mapDef.tileHeight,
+      mapDef.width / mapDef.tileWidth, mapDef.height / mapDef.tileHeight);
+  }
+  public onInitialize() {
+    // build our map based on JSON config
+    // build sprite sheets
+    this._mapDefinition.tileSheets.forEach(sheet => {
+
+      // register sprite sheet with the tile map
+      // normally, you will want to ensure you load the Texture before
+      // creating the SpriteSheet
+      // this can be done outside the Map class, in a Loader
+      this._tileMap.registerSpriteSheet(sheet.id.toString(),
+        new ex.SpriteSheet(new ex.Texture(sheet.path), sheet.columns, sheet.rows,
+          this._mapDefinition.tileWidth, this._mapDefinition.tileHeight));
+    });
+    // fill cells with sprites
+    this._mapDefinition.cells.forEach(cell => {
+      // create a TileSprite
+      // assume tileId is the index of the frame in the sprite sheet
+      const ts = new ex.TileSprite(cell.sheetId.toString(), cell.spriteId);
+      // add to cell
+      this._tileMap.getCell(cell.x, cell.y).pushSprite(ts);
+    }
+  }
+}
+
+// create a game
+const game = new ex.Engine();
+
+// add our level (JSON from external source)
+const map1 = new Map({ ... });
+game.add("map1", map1);
+game.start();
+```
+
+In a real game, you will want to ensure all the textures for the sprite sheets
+have been loaded. You could do this in the [[Resource.processData]] function
+of the generic resource when loading your JSON, before creating your `Map` object.
+
+### Off-screen culling
+
+The [[TileMap]] takes care of only drawing the portion of the map that is on-screen.
+This significantly improves performance and essentially means Excalibur can support
+huge maps. Since Actors off-screen are not drawn, this also means maps can support
+many actors.
+
+### Collision checks
+
+You can use [[TileMap.collides]] to check if a given [[Actor]] is colliding with a
+solid [[Cell]]. This method returns an intersection [[Vector]] that represents
+the smallest overlap with colliding cells.

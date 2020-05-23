@@ -25,18 +25,27 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "styles": "cd ui && gulp build",
+    "styles": "cd ui && gulp watch",
     "format": "prettier --write \"src/**/*.js\"",
     "docs": "node docs.js",
-    "deploy": "gh-pages -t -d public -b master --repo https://$GH_TOKEN@github.com/excaliburjs/excaliburjs.github.io.git"
+    "deploy": "gh-pages -t -d public -b master --repo https://$GH_TOKEN@github.com/excaliburjs/excaliburjs.github.io.git",
+    "test": "jest --watch"
   },
   "devDependencies": {
+    "babel-jest": "26.0.1",
+    "babel-preset-gatsby": "0.4.1",
     "fomantic-ui": "2.8.4",
     "gatsby-cli": "2.12.16",
     "gh-pages": "2.2.0",
     "husky": "4.2.5",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "26.0.1",
     "lint-staged": "10.2.2",
-    "prettier": "2.0.5"
+    "prettier": "2.0.5",
+    "react-test-renderer": "16.13.1",
+    "typedoc": "0.17.6",
+    "typescript": "3.9.2",
+    "unified": "9.0.0"
   },
   "keywords": [],
   "dependencies": {
@@ -45,16 +54,17 @@
     "gatsby": "2.21.22",
     "gatsby-link": "2.4.2",
     "gatsby-plugin-catch-links": "2.3.1",
+    "gatsby-plugin-react-helmet": "3.3.1",
     "gatsby-plugin-sharp": "2.6.2",
+    "gatsby-remark-autolink-headers": "2.3.1",
     "gatsby-remark-copy-linked-files": "2.3.2",
     "gatsby-remark-images": "3.3.2",
-    "gatsby-source-github": "0.0.2",
-    "gatsby-transformer-sharp": "2.5.2",
-    "gatsby-plugin-react-helmet": "3.3.1",
-    "gatsby-remark-autolink-headers": "2.3.1",
     "gatsby-remark-prismjs": "3.5.1",
     "gatsby-source-filesystem": "2.3.1",
+    "gatsby-source-github": "0.0.2",
+    "gatsby-source-typedoc": "1.0.6",
     "gatsby-transformer-remark": "2.8.7",
+    "gatsby-transformer-sharp": "2.5.2",
     "prismjs": "1.20.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -68,6 +78,6 @@
     }
   },
   "lint-staged": {
-    "*.js": "prettier --write"
+    "*.{js,md}": "prettier --write"
   }
 }

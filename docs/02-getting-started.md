@@ -7,9 +7,19 @@ path: /docs/getting-started
 
 Review the [Installing Excalibur.js][docs-install] for instructions.
 
+## Global Namespace vs. Imports
+
+In this tutorial, we are using the global `ex.` namespace, which works within a browser environment. If you are using ES2015 modules, you would replace `ex.` with an import statement at the top of the file:
+
+```ts
+import * as ex from 'excalibur'
+```
+
+<docs-note>See [notes about ES2015 imports](/docs/installation#module-loaders-and-bundlers) with module loaders and bundlers.</docs-note>
+
 ## Build Your Game Script
 
-Create a script in your project, here I’ve named it `game.js`. Excalibur games are built off of the `ex.Engine` container. It is important to start the engine once you are done building your game.
+Create a script in your project, here I’ve named it `game.js`. Excalibur games are built off of the [ex.Engine](/docs/intro) container. It is important to start the engine once you are done building your game.
 
 <docs-note>Call `game.start()` right away so you don’t forget</docs-note>
 
@@ -19,7 +29,7 @@ Create a script in your project, here I’ve named it `game.js`. Excalibur games
 // Create an instance of the engine.
 // I'm specifying that the game be 800 pixels wide by 600 pixels tall.
 // If no dimensions are specified the game will be fullscreen.
-var game = new ex.Engine({
+const game = new ex.Engine({
   width: 800,
   height: 600,
 })
@@ -33,13 +43,12 @@ Include your game script after the excalibur script.
 
 ```html
 <html>
-<head>
-</head>
-<body>
+  <head> </head>
+  <body>
     <!-- Include your script at the end of the body tag -->
     <script src="excalibur-version.js"></script>
     <script src="game.js"></script>
-</body>
+  </body>
 </html>
 ...
 ```
@@ -60,7 +69,7 @@ To do this Excalibur uses a primitive called an [Actor][docs-actor], and places 
 // game.js
 
 // Create an instance of the engine.
-var game = new ex.Engine({
+const game = new ex.Engine({
   width: 800,
   height: 600,
 })
@@ -68,7 +77,7 @@ var game = new ex.Engine({
 // Create an actor with x position of 150px,
 // y position of 40px from the bottom of the screen,
 // width of 200px, height and a height of 20px
-var paddle = new ex.Actor(150, game.drawHeight - 40, 200, 20)
+const paddle = new ex.Actor(150, game.drawHeight - 40, 200, 20)
 
 // Let's give it some color with one of the predefined
 // color constants
@@ -93,7 +102,7 @@ That’s neat, but this game is way more fun if things move around. Let’s make
 
 ```js
 // Add a mouse move listener
-game.input.pointers.primary.on('move', function(evt) {
+game.input.pointers.primary.on('move', function (evt) {
   paddle.pos.x = evt.target.lastWorldPos.x
 })
 ```
@@ -102,7 +111,7 @@ What’s breakout without the ball? To make the ball bounce, Excalibur comes pre
 
 ```js
 // Create a ball
-var ball = new ex.Actor(100, 300, 20, 20)
+const ball = new ex.Actor(100, 300, 20, 20)
 
 // Set the color
 ball.color = ex.Color.Red
@@ -119,12 +128,12 @@ ball.collisionType = ex.CollisionType.Passive
 // "ex.CollisionType.Fixed - this means participate, but this object is unmovable"
 
 // On collision bounce the ball
-ball.on('precollision', function(ev) {
+ball.on('precollision', function (ev) {
   // reverse course after any collision
   // intersections are the direction body A has to move to not be clipping body B
   // `ev.intersection` is a vector `normalize()` will make the length of it 1
   // `negate()` flips the direction of the vector
-  var intersection = ev.intersection.normalize()
+  const intersection = ev.intersection.normalize()
 
   // The largest component of intersection is our axis to flip
   if (Math.abs(intersection.x) > Math.abs(intersection.y)) {
@@ -142,7 +151,7 @@ The ball will now bounce off of the paddle, but does not bounce with the side of
 
 ```js
 // Wire up to the postupdate event
-ball.on('postupdate', function() {
+ball.on('postupdate', function () {
   // If the ball collides with the left side
   // of the screen reverse the x velocity
   if (this.pos.x < this.width / 2) {
@@ -167,7 +176,7 @@ Don’t like square balls? Neither do we. You can create your own custom drawing
 
 ```js
 // Draw is passed a rendering context and a delta in milliseconds since the last frame
-ball.draw = function(ctx, delta) {
+ball.draw = function (ctx, delta) {
   // Optionally call original 'base' method
   // ex.Actor.prototype.draw.call(this, ctx, delta)
 
@@ -188,20 +197,20 @@ Breakout needs some bricks to break. To do this we calculate our brick layout an
 // Build Bricks
 
 // Padding between bricks
-var padding = 20 // px
-var xoffset = 65 // x-offset
-var yoffset = 20 // y-offset
-var columns = 5
-var rows = 3
+const padding = 20 // px
+const xoffset = 65 // x-offset
+const yoffset = 20 // y-offset
+const columns = 5
+const rows = 3
 
-var brickColor = [ex.Color.Violet, ex.Color.Orange, ex.Color.Yellow]
+const brickColor = [ex.Color.Violet, ex.Color.Orange, ex.Color.Yellow]
 
 // Individual brick width with padding factored in
-var brickWidth = game.drawWidth / columns - padding - padding / columns // px
-var brickHeight = 30 // px
-var bricks = []
-for (var j = 0; j < rows; j++) {
-  for (var i = 0; i < columns; i++) {
+const brickWidth = game.drawWidth / columns - padding - padding / columns // px
+const brickHeight = 30 // px
+const bricks = []
+for (let j = 0; j < rows; j++) {
+  for (let i = 0; i < columns; i++) {
     bricks.push(
       new ex.Actor(
         xoffset + i * (brickWidth + padding) + padding,
@@ -214,7 +223,7 @@ for (var j = 0; j < rows; j++) {
   }
 }
 
-bricks.forEach(function(brick) {
+bricks.forEach(function (brick) {
   // Make sure that bricks can participate in collisions
   brick.collisionType = ex.CollisionType.Active
 
@@ -227,7 +236,7 @@ When the ball collides with bricks, we want to remove them from the scene. Updat
 
 ```js
 // On collision remove the brick, bounce the ball
-ball.on('precollision', function(ev) {
+ball.on('precollision', function (ev) {
   if (bricks.indexOf(ev.other) > -1) {
     // kill removes an actor from the current scene
     // therefore it will no longer be drawn or updated
@@ -238,7 +247,7 @@ ball.on('precollision', function(ev) {
   // intersections are the direction body A has to move to not be clipping body B
   // `ev.intersection` is a vector `normalize()` will make the length of it 1
   // `negate()` flips the direction of the vector
-  var intersection = ev.intersection.normalize()
+  const intersection = ev.intersection.normalize()
 
   // The largest component of intersection is our axis to flip
   if (Math.abs(intersection.x) > Math.abs(intersection.y)) {
@@ -252,18 +261,21 @@ ball.on('precollision', function(ev) {
 Finally, if the ball leaves the screen, the player loses!
 
 ```js
-ball.on('exitviewport', function() {
+ball.on('exitviewport', function () {
   alert('You lose!')
 })
 ```
 
 ![Final Breakout screenshot](02-getting-started/breakout-final.png)
 
-Congratulations! You have just created your first game in Excalibur! Please review the documentation for more examples and an [API Reference][docs-api].
+Congratulations! You have just created your first game in Excalibur!
 
-<script async src="//jsfiddle.net/excaliburjs/s33mLjn3/embed/js,result/"></script>
+It's time to [get introduced][docs-intro] to the engine for more examples or advanced users can browse the [API Reference][docs-api].
+
+<iframe width="100%" height="700" src="//jsfiddle.net/excaliburjs/s33mLjn3/embedded/js,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
 [docs-install]: /docs/installation
-[docs-actor]: /docs/api/edge/classes/_actor_.actor.html
-[docs-scene]: /docs/api/edge/classes/_scene_.scene.html
+[docs-intro]: /docs/intro
+[docs-actor]: /docs/actors
+[docs-scene]: /docs/scenes
 [docs-api]: /docs/api/edge

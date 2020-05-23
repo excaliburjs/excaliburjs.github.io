@@ -1,15 +1,13 @@
 import React from 'react'
-import rehypeReact from 'rehype-react'
+import unified from 'unified'
+import rehype2React from 'rehype-react'
 import { graphql, Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
-
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: { 'docs-note': Note },
-}).Compiler
+import Example from '../components/docs/Example'
+import rehypeTypedoc from './rehype-typedoc'
 
 /*
  * https://gist.github.com/mathewbyrne/1280286
@@ -20,7 +18,6 @@ const slugify = (text) => {
     .toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
     .replace(/[^\w-]+/g, '') // Remove all non-word chars
-    .replace(/--+/g, '-') // Replace multiple - with single -
     .trim() // Trim
 }
 
@@ -30,20 +27,16 @@ const TOC = ({ toc, releases }) => (
 
     {toc.map(({ id, headings, frontmatter }) => (
       <React.Fragment key={id}>
-        <Link
-          exact
-          activeClassName="active"
-          className="item"
-          to={frontmatter.path}
-        >
+        <Link activeClassName="active" className="item" to={frontmatter.path}>
           {frontmatter.title}
         </Link>
         {!!headings.length && (
           <div className="sub item">
             <div className="menu">
-              {headings.map((heading) => (
+              {headings.map((heading, index) => (
                 <Link
-                  key={heading.value}
+                  key={`${frontmatter.path}-${index}`}
+                  data-heading-level={heading.depth}
                   className="item"
                   to={`${frontmatter.path}#${slugify(heading.value)}`}
                 >
@@ -68,19 +61,39 @@ const TOC = ({ toc, releases }) => (
 
     {releases.map((release) => (
       <a
-        key={release.name}
+        key={release.tag.name}
         className="item"
         href={`/docs/api/${release.tag.name}/`}
       >
-        {release.name}
+        {release.tag.name}
       </a>
     ))}
   </div>
 )
 
 export default function Template({ data }) {
-  const { page, toc, releases } = data
+  const { page, toc, releases, typedoc } = data
   const { frontmatter, htmlAst } = page
+  const {
+    edges: [
+      {
+        node: {
+          internal: { content: typedocRaw },
+        },
+      },
+    ],
+  } = typedoc
+
+  const docsProcessor = unified()
+    .use(rehypeTypedoc, {
+      basePath: '/docs/api/edge/',
+      typedoc: JSON.parse(typedocRaw),
+    })
+    .use(rehype2React, {
+      createElement: React.createElement,
+      components: { 'docs-note': Note, 'docs-example': Example },
+    })
+
   return (
     <Layout pageTitle={frontmatter.title}>
       <Helmet>
@@ -102,7 +115,9 @@ export default function Template({ data }) {
         <div className="twelve wide column">
           <div className="ui left aligned container">
             <h1>{frontmatter.title}</h1>
-            <div className="docs-content">{renderAst(htmlAst)}</div>
+            <div className="docs-content">
+              {docsProcessor.stringify(docsProcessor.runSync(htmlAst))}
+            </div>
           </div>
         </div>
       </div>
@@ -145,6 +160,16 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+      }
+    }
+
+    typedoc: allTypedoc {
+      edges {
+        node {
+          internal {
+            content
+          }
+        }
       }
     }
   }
