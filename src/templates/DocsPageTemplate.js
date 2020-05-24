@@ -1,5 +1,4 @@
 import React from 'react'
-import unified from 'unified'
 import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'

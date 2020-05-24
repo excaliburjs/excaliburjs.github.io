@@ -1,4 +1,3 @@
-const remarkTypedocSymbolLinks = require('./lib/remark-typedoc-symbol-links')
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
 module.exports = {
@@ -7,6 +6,24 @@ module.exports = {
     googleGroup: 'https://groups.google.com/forum/#!forum/excaliburjs',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-typedoc',
+      options: {
+        src: [
+          `${__dirname}/ex/edge/src/engine/index.ts`,
+          `${__dirname}/ex/edge/src/engine/globals.d.ts`,
+          `${__dirname}/ex/edge/src/engine/files.d.ts`,
+          `${__dirname}/ex/edge/src/engine/excalibur.d.ts`,
+        ],
+        typedoc: {
+          target: 'es5',
+          mode: 'modules',
+          experimentalDecorators: true,
+          excludePrivate: true,
+          tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -18,8 +35,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        remarkPlugins: [remarkTypedocSymbolLinks],
         gatsbyRemarkPlugins: [
+          {
+            resolve: require.resolve(
+              './lib/gatsby-remark-typedoc-symbol-links'
+            ),
+            options: {
+              basePath: '/docs/api/edge/',
+            },
+          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -40,24 +64,6 @@ module.exports = {
       options: {
         path: `${__dirname}/docs`,
         name: 'markdown-pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-typedoc',
-      options: {
-        src: [
-          `${__dirname}/ex/edge/src/engine/index.ts`,
-          `${__dirname}/ex/edge/src/engine/globals.d.ts`,
-          `${__dirname}/ex/edge/src/engine/files.d.ts`,
-          `${__dirname}/ex/edge/src/engine/excalibur.d.ts`,
-        ],
-        typedoc: {
-          target: 'es5',
-          mode: 'modules',
-          experimentalDecorators: true,
-          excludePrivate: true,
-          tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
-        },
       },
     },
     'gatsby-plugin-react-helmet',
