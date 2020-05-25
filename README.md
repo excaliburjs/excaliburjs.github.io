@@ -68,6 +68,16 @@ You can embed a "note" block element like:
 
 ## Embedding Examples
 
+To embed an iframe pointing to our [Storybook-based examples](https://excaliburjs.com/examples), use the `<Example />` component:
+
+```html
+<Example story="id_of_story" />
+```
+
+The `story` prop takes the Storybook ID to navigate to.
+
+_TODO:_ Allow embedding just the canvas.
+
 # Show Off a Game
 
 Have a game you've made with Excalibur? Submit a PR! Edit the `src/data/showcase.js` file. Upload an image to `src/assets/images/showcase` as a PNG. Import it like the other images in
