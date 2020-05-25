@@ -23,6 +23,7 @@ User documentation can be contributed to in the `/docs` folder in this repositor
 ```md
 title: "My Cool Documentation Page Title"
 url: /cool-docs
+
 ---
 
 Just some neat docs that are super awesome and helpful, this is just Markdown-formatted.
@@ -41,7 +42,7 @@ Everything else is taken care of--table of contents, image generation, code embe
 To embed an image, we recommend creating a corresponding folder next to your documentation file named the same and put images there. Then you can reference them like:
 
     ![screenshot](xx-cool-docs/cool-screenshot.png)
-    
+
 This is just a relative path to your image, as simple as that!
 
 ## Adding Notes
@@ -49,11 +50,23 @@ This is just a relative path to your image, as simple as that!
 You can embed a "note" block element like:
 
 ```html
-<docs-note>An info variant note</docs-note>
-<docs-note variant="warning">A warning variant note</docs-note>
-<docs-note variant="error">A error variant note</docs-note>
-<docs-note variant="success">A success variant note</docs-note>
+<Note>
+  An info variant note
+</Note>
+<Note variant="warning">
+  A warning variant note
+</Note>
+<Note variant="error">
+  A error variant note
+</Note>
+<Note variant="success">
+  A success variant note
+</Note>
 ```
+
+> **Note:** The blank line after `<Note>` is important to format the body as Markdown. Prettier will handle this for you, if you forget.
+
+## Embedding Examples
 
 # Show Off a Game
 
@@ -117,9 +130,9 @@ If the showcase is in Git and can be run in a sub-directory, you can initialize
 a submodule in the `showcase` directory.
 
     git submodule add {clone url} showcase/{showcase name}
-    
+
 Example:
 
     git submodule add https://github.com/eonarheim/Excalibur-Shmup showcase/shmup
-    
+
 This is how we can include the Shoot 'Em Up demo without maintaining two versions.
