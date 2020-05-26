@@ -5,15 +5,33 @@
  */
 
 const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  // you only want to operate on `Mdx` nodes. If you had content from a
+  // remote CMS you could also check to see if the parent node was a
+  // `File` node here
+  if (node.internal.type === 'Mdx') {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      // Name of the field you are adding
+      name: 'slug',
+      // Individual MDX node
+      node,
+      value,
+    })
+  }
+}
+
+exports.createPages = ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
 
   const docsPageTemplate = path.resolve(`src/templates/DocsPageTemplate.js`)
 
   return graphql(`
     {
-      allMarkdownRemark {
+      allMdx {
         edges {
           node {
             frontmatter {
@@ -23,16 +41,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       }
     }
-  `).then(result => {
+  `).then((result) => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
     }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    result.data.allMdx.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
         component: docsPageTemplate,
-        context: {}, // additional data can be passed via context
+        context: { id: node.id }, // additional data can be passed via context
       })
     })
   })

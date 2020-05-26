@@ -68,8 +68,12 @@ for an actor (such as configuring state). `onInitialize` gets called
 **once** before the first frame an actor is drawn/updated. It is passed
 an instance of [Engine](/docs/intro) to access global state or perform coordinate math.
 
-<docs-note>This is the recommended way to manage startup logic for actor, _not_ the constructor since
-you don't incur the cost of initialization until an actor is ready to be updated in the game.</docs-note>
+<Note>
+
+This is the recommended way to manage startup logic for actor, _not_ the constructor since
+you don't incur the cost of initialization until an actor is ready to be updated in the game.
+
+</Note>
 
 ```ts
 class Player extends ex.Actor {
@@ -99,13 +103,21 @@ can be used to perform coordinate math or access global state. It is also
 passed `delta` which is the time in milliseconds since the last frame, which can be used
 to perform time-based movement or time-based math (such as a [timer](/docs/utilities)).
 
-<docs-note>Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and when things are executed.</docs-note>
+<Note>
+
+Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and when things are executed.
+
+</Note>
 
 ### Pre-update
 
 Override the [[Actor.onPreUpdate]] method to update the state of your actor before [[Actor.update]].
 
-<docs-note>**Important:** This logic will run _before_ the core Excalibur update logic runs, so you may not have the latest transform matrix applied or other positional information updated. Essentially you will be working with the _last frame's state_.</docs-note>
+<Note>
+
+**Important:** This logic will run _before_ the core Excalibur update logic runs, so you may not have the latest transform matrix applied or other positional information updated. Essentially you will be working with the _last frame's state_.
+
+</Note>
 
 ```ts
 class Player extends Actor {
@@ -142,7 +154,11 @@ public update(ctx: CanvasRenderingContext2D, delta: number) {
 
 [[Actor.onPostUpdate]] is called after [[Actor.update]] to prepare state for the _next_ frame. Things that need to be updated include state, drawing, or position.
 
-<docs-note>This is the recommended method to override for adding update logic to your actors since it runs after Excalibur has done all the update logic for the frame and before things get drawn to the screen.</docs-note>
+<Note>
+
+This is the recommended method to override for adding update logic to your actors since it runs after Excalibur has done all the update logic for the frame and before things get drawn to the screen.
+
+</Note>
 
 ```ts
 class Player extends Actor {
@@ -210,7 +226,11 @@ When adding an animation, you may want to have an "idle" or static animation add
 
 Like [the update loop](#updating-actors), the draw loop has hooks you can override to perform custom drawing. Override the [[Actor.onPreDraw]], [[Actor.draw]], or [[Actor.onPostDraw]] methods to customize the draw logic at different points in the loop.
 
-<docs-note>Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and when things are executed.</docs-note>
+<Note>
+
+Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and when things are executed.
+
+</Note>
 
 When using the drawing hooks you can draw complex shapes or to use the raw
 [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
@@ -219,7 +239,11 @@ When using the drawing hooks you can draw complex shapes or to use the raw
 
 [[Actor.onPreDraw]] is run _before_ the core draw logic to prepare the frame.
 
-<docs-note>**Important:** This runs _before_ Excalibur has run all its draw logic to apply effects, transform information, etc. so you essentially are working with the _last frame's draw state_.</docs-note>
+<Note>
+
+**Important:** This runs _before_ Excalibur has run all its draw logic to apply effects, transform information, etc. so you essentially are working with the _last frame's draw state_.
+
+</Note>
 
 ```ts
 /**
@@ -254,7 +278,11 @@ public draw(ctx: CanvasRenderingContext2D, delta: number) {
 
 [[Actor.onPostDraw]] is run _after_ [[Actor.draw]] and will draw in the current frame.
 
-<docs-note>This is the recommended method to override since Excalibur has run its core draw logic and you can now customize what gets drawn during the current frame.</docs-note>
+<Note>
+
+This is the recommended method to override since Excalibur has run its core draw logic and you can now customize what gets drawn during the current frame.
+
+</Note>
 
 ```ts
 /**
@@ -327,7 +355,11 @@ By default Actors do not participate in collisions. If you wish to make
 an actor participate, you need to switch from the default [[CollisionType.PreventCollision|prevent collision]]
 to [[CollisionType.Active|active]], [[CollisionType.Fixed|fixed]], or [[CollisionType.Passive|passive]] collision type.
 
-<docs-note>For more information on collisions, see [Physics](/docs/physics).</docs-note>
+<Note>
+
+For more information on collisions, see [Physics](/docs/physics).
+
+</Note>
 
 ```ts
 public Player extends ex.Actor {

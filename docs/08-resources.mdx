@@ -17,7 +17,11 @@ const loader = new ex.Loader([
 
 [[Loadable|Loadables]] are different kinds of assets such as textures, sounds, and generic resources.
 
-<docs-note>**Anytime** you call `game.start(loader)`, the game will pause and the engine will load assets. This means that you _do not have to load every asset at once_! Instead you may want to call `game.start(loader)` initially with core assets and then again when [initializing a Scene](/docs/scenes#initialization).</docs-note>
+<Note>
+
+**Anytime** you call `game.start(loader)`, the game will pause and the engine will load assets. This means that you _do not have to load every asset at once_! Instead you may want to call `game.start(loader)` initially with core assets and then again when [initializing a Scene](/docs/scenes#initialization).
+
+</Note>
 
 ## Using a web server
 
@@ -133,7 +137,7 @@ game.start(loader).then(function () {
 
 See the [examples](https://excaliburjs.com/examples/?path=/docs/audio) or API documentation for [[Sound]] for additional features available such as looping, volume setting, and more.
 
-<docs-example story="audio"></docs-example>
+<Example story="audio" />
 
 ### Generic resources
 

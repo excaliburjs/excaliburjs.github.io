@@ -7,13 +7,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/docs`,
-        name: 'markdown-pages',
-      },
-    },
-    {
       resolve: 'gatsby-source-typedoc',
       options: {
         src: [
@@ -31,9 +24,47 @@ module.exports = {
         },
       },
     },
-    'gatsby-transformer-sharp',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: 'gatsby-plugin-catch-links',
+      options: {
+        excludePattern: /^\/(examples|docs\/api)/i,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: require.resolve(
+              './lib/gatsby-remark-typedoc-symbol-links'
+            ),
+            options: {
+              basePath: '/docs/api/edge/',
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 750,
+            },
+          },
+          'gatsby-remark-autolink-headers',
+          `gatsby-remark-prismjs`,
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
+    //
+    // We need this "duplicate" config here, due to
+    // https://github.com/gatsbyjs/gatsby/issues/19859
+    //
+    {
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
@@ -45,10 +76,18 @@ module.exports = {
               maxWidth: 750,
             },
           },
-          `gatsby-remark-prismjs`,
           'gatsby-remark-autolink-headers',
+          `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
         ],
+      },
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/docs`,
+        name: 'markdown-pages',
       },
     },
     'gatsby-plugin-react-helmet',
@@ -96,13 +135,6 @@ module.exports = {
             }
           }`,
         ],
-      },
-    },
-    `gatsby-plugin-sharp`,
-    {
-      resolve: 'gatsby-plugin-catch-links',
-      options: {
-        excludePattern: /^\/(examples|docs\/api)/i,
       },
     },
   ],

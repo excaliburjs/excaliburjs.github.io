@@ -15,13 +15,21 @@ In this tutorial, we are using the global `ex.` namespace, which works within a 
 import * as ex from 'excalibur'
 ```
 
-<docs-note>See [notes about ES2015 imports](/docs/installation#module-loaders-and-bundlers) with module loaders and bundlers.</docs-note>
+<Note>
+
+See [notes about ES2015 imports](/docs/installation#module-loaders-and-bundlers) with module loaders and bundlers.
+
+</Note>
 
 ## Build Your Game Script
 
 Create a script in your project, here I’ve named it `game.js`. Excalibur games are built off of the [ex.Engine](/docs/intro) container. It is important to start the engine once you are done building your game.
 
-<docs-note>Call `game.start()` right away so you don’t forget</docs-note>
+<Note>
+
+Call `game.start()` right away so you don’t forget
+
+</Note>
 
 ```js
 // game.js
@@ -61,9 +69,17 @@ That’s cool, but let’s make something more interesting on the screen.
 
 To do this Excalibur uses a primitive called an [Actor][docs-actor], and places actors into a [Scene][docs-scene]. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.
 
-<docs-note>Actors must be added to a scene to be drawn or updated! `game.add(actor)` Will add an actor to the current scene.</docs-note>
+<Note>
 
-<docs-note>**Important!** Actors have a default anchor of (0.5, 0.5) which means their position is centered (not top-left) by default.</docs-note>
+Actors must be added to a scene to be drawn or updated! `game.add(actor)` Will add an actor to the current scene.
+
+</Note>
+
+<Note>
+
+**Important!** Actors have a default anchor of (0.5, 0.5) which means their position is centered (not top-left) by default.
+
+</Note>
 
 ```js
 // game.js
@@ -189,7 +205,11 @@ ball.draw = function (ctx, delta) {
 }
 ```
 
-<docs-note>Overriding a method like this will remove any built-in Excalibur functionality. If you would like to call the original draw for example `ex.Actor.prototype.draw.call(this, ctx, delta)`</docs-note>
+<Note>
+
+Overriding a method like this will remove any built-in Excalibur functionality. If you would like to call the original draw for example `ex.Actor.prototype.draw.call(this, ctx, delta)`
+
+</Note>
 
 Breakout needs some bricks to break. To do this we calculate our brick layout and add them to the current scene.
 
@@ -272,7 +292,9 @@ Congratulations! You have just created your first game in Excalibur!
 
 It's time to [get introduced][docs-intro] to the engine for more examples or advanced users can browse the [API Reference][docs-api].
 
-<iframe width="100%" height="700" src="//jsfiddle.net/excaliburjs/s33mLjn3/embedded/js,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+<iframe width="100%" height="700" src="//jsfiddle.net/excaliburjs/s33mLjn3/embedded/js,result/" allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0">
+
+</iframe>
 
 [docs-install]: /docs/installation
 [docs-intro]: /docs/intro
