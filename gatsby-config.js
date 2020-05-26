@@ -59,6 +59,30 @@ module.exports = {
         ],
       },
     },
+    //
+    // We need this "duplicate" config here, due to
+    // https://github.com/gatsbyjs/gatsby/issues/19859
+    //
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 750,
+            },
+          },
+          'gatsby-remark-autolink-headers',
+          `gatsby-remark-prismjs`,
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
