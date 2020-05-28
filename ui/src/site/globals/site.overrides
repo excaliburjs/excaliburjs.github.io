@@ -42,11 +42,14 @@
     color: #ec4f4f;
   }
 
-  a.symbol {
-    font-family: 'Consolas', 'Courier New', Courier, monospace;
-    background: #fff1f1;
+  a.tsdoc-link {
 
-    &[data-missing] {
+    &:not(.tsdoc-link--aliased) {
+      font-family: 'Consolas', 'Courier New', Courier, monospace;
+      background: #fff1f1;
+    }
+
+    &.tsdoc-link--missing {
       cursor: help;
       border-bottom: 1px dashed #ec4f4f;
     }

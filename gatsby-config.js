@@ -42,6 +42,11 @@ module.exports = {
             ),
             options: {
               basePath: '/docs/api/edge/',
+              linkTitleMessage(symbolPath, missing) {
+                return missing
+                  ? `Missing link to '${symbolPath}' docs. We will happily accept a PR to fix this! 🙏`
+                  : `View '${symbolPath}' in Excalibur.js Edge API docs`
+              },
             },
           },
           {
