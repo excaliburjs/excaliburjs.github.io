@@ -37,9 +37,7 @@ module.exports = {
       options: {
         gatsbyRemarkPlugins: [
           {
-            resolve: require.resolve(
-              './lib/gatsby-remark-typedoc-symbol-links'
-            ),
+            resolve: 'gatsby-remark-typedoc-symbol-links',
             options: {
               basePath: '/docs/api/edge/',
               linkTitleMessage(symbolPath, missing) {
