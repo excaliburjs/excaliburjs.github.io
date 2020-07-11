@@ -314,6 +314,16 @@ const IndexPage = ({ data: { release } }) => (
                   to create cross-platform games.
                 </p>
               </div>
+              <p className="ui basic segment">
+                <a
+                  href="https://excaliburjs.com/docs/installation#example-project-templates"
+                  target="_blank"
+                  className="ui primary inverted button"
+                  rel="noopener noreferrer"
+                >
+                  View starter templates
+                </a>
+              </p>
             </div>
             <div className="center align column">
               <img
