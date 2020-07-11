@@ -284,25 +284,28 @@ const IndexPage = ({ data: { release } }) => (
                 <h2 className="ui header">Designed for Cross-Platform</h2>
 
                 <p>
-                  Excalibur is built to target ECMAScript 5 and therefore works
-                  in the majority of browsers, including mobile. Use app
-                  packaging wrappers like 
+                  Excalibur games compile to modern JavaScript and therefore
+                  work in the majority of browsers, including mobile. Since
+                  Excalibur games are "just JavaScript", you can use native app
+                  packaging wrappers like{' '}
                   <a
                     href="https://cordova.apache.org/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Cordova
-                  </a>, 
+                    Apache Cordova
+                  </a>
+                  ,{' '}
                   <a
-                    href="https://developer.microsoft.com/en-us/windows"
+                    href="https://docs.microsoft.com/en-us/windows/uwp/get-started/create-a-hello-world-app-js-uwp"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     Universal Windows Apps
-                  </a>, or 
+                  </a>
+                  , or{' '}
                   <a
-                    href="http://electron.atom.io/"
+                    href="https://www.electronjs.org/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
