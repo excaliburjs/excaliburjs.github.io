@@ -109,6 +109,7 @@ module.exports = {
                     tag {
                       name
                     }
+                    publishedAt
                     url
                     releaseAssets(first: 1, name: "excalibur.min.js") {
                       edges {

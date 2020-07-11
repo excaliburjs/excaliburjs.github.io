@@ -1,6 +1,7 @@
 import React from 'react'
 import filesize from 'filesize'
 import { graphql } from 'gatsby'
+import { format } from 'date-fns'
 
 import Layout from '../components/layout'
 import Nav from '../components/nav'
@@ -42,7 +43,11 @@ const IndexPage = ({ data: { release } }) => (
           </a>
         </p>
         <p>
-          <a href={release.url}>Release Notes</a> &bull;{' '}
+          <a href={release.url}>
+            View Release Notes (
+            {format(new Date(release.publishedAt), 'MMM d, yyyy')})
+          </a>{' '}
+          &bull;{' '}
           <span className="size">{selectReleaseSize(release)} minified</span>
         </p>
       </div>
@@ -346,6 +351,7 @@ export const query = graphql`
         name
       }
       url
+      publishedAt
       releaseAssets {
         edges {
           node {
