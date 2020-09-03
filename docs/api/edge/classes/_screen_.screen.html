@@ -74,6 +74,64 @@
 					<div class="lead">
 						<p>The Screen handles all aspects of interacting with the screen for Excalibur.</p>
 					</div>
+					<a href="#handling-screens" id="handling-screens" style="color: inherit; text-decoration: none;">
+						<h2>Handling Screens</h2>
+					</a>
+					<p>Excalibur has a screen abstraction for dealing with <a href="_screen_.screen.html#viewport">Screen.viewport</a> size, and <a href="_screen_.screen.html#resolution">Screen.resolution</a>. It also handles HiDPI scaling, the browser fullscreen API, and translation of screen coordinates into game world coordinates.</p>
+					<p>The <a href="_screen_.screen.html#viewport">Screen.viewport</a> represents the size of the window into the game work in CSS pixels on the screen. </p>
+					<p>The <a href="_screen_.screen.html#resolution">Screen.resolution</a> represents the number of logical pixels stretched across that viewport.</p>
+					<p>The screen abstraction can be accessed most easily off of a constructed engine.</p>
+					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> game = <span class="hljs-keyword">new</span> ex.Engine({
+  <span class="hljs-comment">// sets the viewport as it did before</span>
+  <span class="hljs-comment">// width and height are provided for backwards compatibilty</span>
+  width: <span class="hljs-number">800</span>,
+  height: <span class="hljs-number">600</span>,
+  <span class="hljs-comment">// or optionally use the viewport option</span>
+  viewport: { width: <span class="hljs-number">800</span>, height: <span class="hljs-number">600</span> },
+
+  <span class="hljs-comment">// sets the resolution</span>
+  resolution: ex.Resolution.GameBoy
+});
+
+<span class="hljs-keyword">const</span> screen = game.screen
+</code></pre>
+					<a href="#viewport-and-resolution" id="viewport-and-resolution" style="color: inherit; text-decoration: none;">
+						<h2>Viewport and Resolution</h2>
+					</a>
+					<p>The best way to change the viewport and resolution is in the <a href="../modules/_index_.html#engine">Engine</a> constructor arguments. If the viewport or resolution is changed after constructor time, <a href="_screen_.screen.html#applyresolutionandviewport">Screen.applyResolutionAndViewport</a> must be called to have the changes take effect.</p>
+					<pre><code class="language-typescript">
+<span class="hljs-comment">// get or set the viewport</span>
+<span class="hljs-keyword">const</span> viewport = game.screen.viewport;
+game.screen.viewport = { width: <span class="hljs-number">400</span>, height: <span class="hljs-number">300</span> };
+
+<span class="hljs-comment">// get or set the resolution</span>
+<span class="hljs-keyword">const</span> resolution = game.screen.resolution;
+game.screen.resolution = { width: <span class="hljs-number">100</span>, height: <span class="hljs-number">100</span> };
+
+<span class="hljs-comment">// Apply changes to viewport and resolution to the canvas and graphics context</span>
+game.screen.applyResolutionAndViewport();</code></pre>
+					<p>Sometimes you might want to switch between 2 different resolutions and viewports, perhaps for different scenes, or for some in game animation. This can be done with <a href="_screen_.screen.html#pushresolutionandviewport">Screen.pushResolutionAndViewport</a> and <a href="_screen_.screen.html#popresolutionandviewport">Screen.popResolutionAndViewport</a>.</p>
+					<pre><code class="language-typescript"><span class="hljs-comment">// Save the current resolution and viewport</span>
+game.screen.pushResolutionAndViewport();
+<span class="hljs-comment">// Change and apply</span>
+game.screen.resolution = ex.Resolution.NES;
+game.screen.applyResolutionAndViewport();
+
+<span class="hljs-comment">// Show some animation or do something at NES resolution</span>
+
+<span class="hljs-comment">// Restore the old resolution and viewport, then apply</span>
+game.screen.popResolutionAndViewport();
+game.screen.applyResolutionAndViewport();
+</code></pre>
+					<a href="#fullscreen-api" id="fullscreen-api" style="color: inherit; text-decoration: none;">
+						<h2>Fullscreen API</h2>
+					</a>
+					<p>The screen abstraction now supports the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API">browser fullscreen api</a>. This will cause the game to be displayed fullscreen until the user exits (usually with the escape key or by gesturing to the exit button at the top of the browser window).</p>
+					<pre><code class="language-typescript">
+<span class="hljs-keyword">await</span> game.screen.goFullScreen();
+
+<span class="hljs-keyword">await</span> game.screen.exitFullScreen();
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -147,7 +205,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L164">src/engine/Screen.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L164">src/engine/Screen.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -174,7 +232,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L288">src/engine/Screen.ts:288</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L288">src/engine/Screen.ts:288</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -182,7 +240,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L292">src/engine/Screen.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L292">src/engine/Screen.ts:292</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -205,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L226">src/engine/Screen.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L226">src/engine/Screen.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">HTMLCanvasElement</span></h4>
@@ -222,7 +280,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L400">src/engine/Screen.ts:400</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L400">src/engine/Screen.ts:400</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L385">src/engine/Screen.ts:385</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L385">src/engine/Screen.ts:385</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L222">src/engine/Screen.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L222">src/engine/Screen.ts:222</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../enums/_screen_.displaymode.html" class="tsd-signature-type">DisplayMode</a></h4>
@@ -285,7 +343,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L431">src/engine/Screen.ts:431</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L431">src/engine/Screen.ts:431</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -307,7 +365,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L414">src/engine/Screen.ts:414</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L414">src/engine/Screen.ts:414</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -329,7 +387,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L407">src/engine/Screen.ts:407</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L407">src/engine/Screen.ts:407</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,7 +409,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L392">src/engine/Screen.ts:392</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L392">src/engine/Screen.ts:392</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -373,7 +431,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L441">src/engine/Screen.ts:441</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L441">src/engine/Screen.ts:441</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -395,7 +453,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L424">src/engine/Screen.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L424">src/engine/Screen.ts:424</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -417,7 +475,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L300">src/engine/Screen.ts:300</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L300">src/engine/Screen.ts:300</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -439,7 +497,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L218">src/engine/Screen.ts:218</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L218">src/engine/Screen.ts:218</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -456,7 +514,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L204">src/engine/Screen.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L204">src/engine/Screen.ts:204</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -474,7 +532,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L230">src/engine/Screen.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L230">src/engine/Screen.ts:230</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_screen_.screendimension.html" class="tsd-signature-type">ScreenDimension</a></h4>
@@ -482,7 +540,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L234">src/engine/Screen.ts:234</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L234">src/engine/Screen.ts:234</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -505,7 +563,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L253">src/engine/Screen.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L253">src/engine/Screen.ts:253</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -522,7 +580,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L249">src/engine/Screen.ts:249</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L249">src/engine/Screen.ts:249</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -540,7 +598,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L238">src/engine/Screen.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L238">src/engine/Screen.ts:238</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_screen_.screendimension.html" class="tsd-signature-type">ScreenDimension</a></h4>
@@ -548,7 +606,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L245">src/engine/Screen.ts:245</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L245">src/engine/Screen.ts:245</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -574,7 +632,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L274">src/engine/Screen.ts:274</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L274">src/engine/Screen.ts:274</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -591,7 +649,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L182">src/engine/Screen.ts:182</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L182">src/engine/Screen.ts:182</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -608,7 +666,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L316">src/engine/Screen.ts:316</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L316">src/engine/Screen.ts:316</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -630,7 +688,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L372">src/engine/Screen.ts:372</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L372">src/engine/Screen.ts:372</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -653,7 +711,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L307">src/engine/Screen.ts:307</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L307">src/engine/Screen.ts:307</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -675,7 +733,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L269">src/engine/Screen.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L269">src/engine/Screen.ts:269</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -692,7 +750,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L261">src/engine/Screen.ts:261</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L261">src/engine/Screen.ts:261</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -709,7 +767,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L326">src/engine/Screen.ts:326</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L326">src/engine/Screen.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -740,7 +798,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L257">src/engine/Screen.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L257">src/engine/Screen.ts:257</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -763,7 +821,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a72c0580/src/engine/Screen.ts#L349">src/engine/Screen.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Screen.ts#L349">src/engine/Screen.ts:349</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
