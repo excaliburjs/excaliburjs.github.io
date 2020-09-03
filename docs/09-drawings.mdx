@@ -129,7 +129,7 @@ and using [[SpriteSheet.getAnimationForAll]].
 const game = new ex.Engine()
 const txAnimPlayerIdle = new ex.Texture('/assets/tx/anim-player-idle.png')
 // load assets
-const loader = new ex.Loader(txAnimPlayerIdle)
+const loader = new ex.Loader([txAnimPlayerIdle])
 // start game
 game.start(loader).then(function () {
   const player = new ex.Actor()
@@ -182,7 +182,7 @@ Then to create the [[SpriteFont]]:
 const game = new ex.Engine()
 const txFont = new ex.Texture('/assets/tx/font.png')
 // load assets
-const loader = new ex.Loader(txFont)
+const loader = new ex.Loader([txFont])
 
 // start game
 game.start(loader).then(function () {
