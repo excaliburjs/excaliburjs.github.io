@@ -125,7 +125,7 @@ actor.acc === actor.body.acc</code></pre>
 					<a href="#shape" id="shape" style="color: inherit; text-decoration: none;">
 						<h3>Shape</h3>
 					</a>
-					<p><a href="_collision_collider_.collider.html">Collider</a>&#39;s have <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>&#39;s that represent physical geometry. The possible shapes in Excalibur are <a href="_collision_circle_.circle.html">Circle</a>, <a href="_collision_shape_.shape.html#edge">Edge</a>, and <a href="_collision_convexpolygon_.convexpolygon.html">ConvexPolygon</a>. A collider can only have 1 <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a> associated with them at a time.</p>
+					<p><a href="_collision_collider_.collider.html">Collider</a>&#39;s have <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a>&#39;s that represent physical geometry. The possible shapes in Excalibur are <a href="_collision_circle_.circle.html">Circle</a>, <a href="_collision_edge_.edge.html">Edge</a>, and <a href="_collision_convexpolygon_.convexpolygon.html">ConvexPolygon</a>. A collider can only have 1 <a href="../interfaces/_collision_collisionshape_.collisionshape.html">CollisionShape</a> associated with them at a time.</p>
 					<a href="#collision-types" id="collision-types" style="color: inherit; text-decoration: none;">
 						<h2>Collision Types</h2>
 					</a>
@@ -209,7 +209,7 @@ actor.acc === actor.body.acc</code></pre>
 					<p>To enable physics in your game it is as simple as setting <a href="_physics_.physics.html#enabled">Physics.enabled</a> to true and picking your
 					<a href="../enums/_physics_.collisionresolutionstrategy.html">CollisionResolutionStrategy</a></p>
 					<p>Excalibur supports 3 different types of collision area shapes in its physics simulation: <a href="_collision_convexpolygon_.convexpolygon.html">polygons</a>,
-						<a href="_collision_circle_.circle.html">circles</a>, and <a href="_collision_shape_.shape.html#edge">edges</a>. To use any one of these areas on an actor there are convenience methods off of
+						<a href="_collision_circle_.circle.html">circles</a>, and <a href="_collision_edge_.edge.html">edges</a>. To use any one of these areas on an actor there are convenience methods off of
 						the <a href="../modules/_index_.html#actor">actor</a> <a href="_collision_body_.body.html">physics body</a>: <a href="_collision_body_.body.html#useboxcollider">useBoxCollider</a>,
 					<a href="_collision_body_.body.html#usepolygoncollider">usePolygonCollider</a>, <a href="_collision_body_.body.html#usecirclecollider">useCircleCollider</a>, and <a href="_collision_body_.body.html#useedgecollider">Body.useEdgeCollider</a></p>
 					<a href="#collision-event-lifecycle" id="collision-event-lifecycle" style="color: inherit; text-decoration: none;">
@@ -394,13 +394,13 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">acc<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = new Vector(0, 0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L49">src/engine/Physics.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L49">src/engine/Physics.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Global acceleration that is applied to all vanilla actors that have a <a href="../enums/_collision_collisiontype_.collisiontype.html#active">active</a> collision type.
-							Global acceleration won&#39;t effect <a href="_label_.label.html">labels</a>, <a href="../modules/_index_.html#screenelement">ui actors</a>, or <a href="_trigger_.trigger.html">triggers</a> in Excalibur.</p>
+							Global acceleration won&#39;t effect <a href="_label_.label.html">labels</a>, <a href="_screenelement_.screenelement.html">ui actors</a>, or <a href="_trigger_.trigger.html">triggers</a> in Excalibur.</p>
 						</div>
 						<p>This is a great way to globally simulate effects like gravity.</p>
 					</div>
@@ -411,7 +411,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">allow<wbr>Rigid<wbr>Body<wbr>Rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L133">src/engine/Physics.ts:133</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L133">src/engine/Physics.ts:133</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -426,7 +426,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">bounds<wbr>Padding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L175">src/engine/Physics.ts:175</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L175">src/engine/Physics.ts:175</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -441,7 +441,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">broadphase<wbr>Debug<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L83">src/engine/Physics.ts:83</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L83">src/engine/Physics.ts:83</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -456,7 +456,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">broadphase<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/_physics_.broadphasestrategy.html" class="tsd-signature-type">BroadphaseStrategy</a><span class="tsd-signature-symbol"> = BroadphaseStrategy.DynamicAABBTree</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L78">src/engine/Physics.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L78">src/engine/Physics.ts:78</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -474,7 +474,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">check<wbr>For<wbr>Fast<wbr>Bodies<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L186">src/engine/Physics.ts:186</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L186">src/engine/Physics.ts:186</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -490,7 +490,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Passes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L69">src/engine/Physics.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L69">src/engine/Physics.ts:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -511,7 +511,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Resolution<wbr>Strategy<span class="tsd-signature-symbol">:</span> <a href="../enums/_physics_.collisionresolutionstrategy.html" class="tsd-signature-type">CollisionResolutionStrategy</a><span class="tsd-signature-symbol"> = CollisionResolutionStrategy.Box</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L116">src/engine/Physics.ts:116</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L116">src/engine/Physics.ts:116</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -529,7 +529,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Shift<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0.001</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L153">src/engine/Physics.ts:153</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L153">src/engine/Physics.ts:153</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -544,7 +544,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Mass<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L120">src/engine/Physics.ts:120</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L120">src/engine/Physics.ts:120</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -559,7 +559,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">disable<wbr>Minimum<wbr>Speed<wbr>For<wbr>Fast<wbr>Body<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L193">src/engine/Physics.ts:193</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L193">src/engine/Physics.ts:193</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -576,7 +576,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">dynamic<wbr>Tree<wbr>Velocity<wbr>Multiplier<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L158">src/engine/Physics.ts:158</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L158">src/engine/Physics.ts:158</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -591,7 +591,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">enabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L54">src/engine/Physics.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L54">src/engine/Physics.ts:54</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -606,7 +606,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">integration<wbr>Steps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L129">src/engine/Physics.ts:129</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L129">src/engine/Physics.ts:129</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -622,7 +622,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">integrator<span class="tsd-signature-symbol">:</span> <a href="../enums/_physics_.integrator.html" class="tsd-signature-type">Integrator</a><span class="tsd-signature-symbol"> = Integrator.Euler</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L124">src/engine/Physics.ts:124</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L124">src/engine/Physics.ts:124</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -637,7 +637,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Area<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L99">src/engine/Physics.ts:99</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L99">src/engine/Physics.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -652,7 +652,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Bounds<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L95">src/engine/Physics.ts:95</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L95">src/engine/Physics.ts:95</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -667,7 +667,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Collision<wbr>Normals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L87">src/engine/Physics.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L87">src/engine/Physics.ts:87</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -682,7 +682,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Contacts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L103">src/engine/Physics.ts:103</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L103">src/engine/Physics.ts:103</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -697,7 +697,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Motion<wbr>Vectors<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L91">src/engine/Physics.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L91">src/engine/Physics.ts:91</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -712,7 +712,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">show<wbr>Normals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L107">src/engine/Physics.ts:107</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L107">src/engine/Physics.ts:107</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -727,7 +727,7 @@ game.start();</code></pre>
 					<div class="tsd-signature tsd-kind-icon">surface<wbr>Epsilon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0.1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L180">src/engine/Physics.ts:180</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L180">src/engine/Physics.ts:180</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -750,7 +750,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L164">src/engine/Physics.ts:164</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L164">src/engine/Physics.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -758,7 +758,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L168">src/engine/Physics.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L168">src/engine/Physics.ts:168</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -784,7 +784,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L138">src/engine/Physics.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L138">src/engine/Physics.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -806,7 +806,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Physics.ts#L146">src/engine/Physics.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Physics.ts#L146">src/engine/Physics.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

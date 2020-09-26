@@ -99,6 +99,9 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/_interfaces_evented_.eventable.html" class="tsd-signature-type">Eventable</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.oninitialize.html" class="tsd-signature-type">OnInitialize</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.onpreupdate.html" class="tsd-signature-type">OnPreUpdate</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.onpostupdate.html" class="tsd-signature-type">OnPostUpdate</a></li>
 					<li><a href="../interfaces/_actions_actionable_.actionable.html" class="tsd-signature-type">Actionable</a></li>
 					<li><a href="../interfaces/_interfaces_evented_.eventable.html" class="tsd-signature-type">Eventable</a></li>
 					<li><a href="../interfaces/_interfaces_pointereventhandlers_.pointerevents.html" class="tsd-signature-type">PointerEvents</a></li>
@@ -124,13 +127,16 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="_screenelement_.screenelement.html#_engine" class="tsd-kind-icon">_engine</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#actionqueue" class="tsd-kind-icon">action<wbr>Queue</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#actions" class="tsd-kind-icon">actions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#active" class="tsd-kind-icon">active</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#anchor" class="tsd-kind-icon">anchor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#changes" class="tsd-kind-icon">changes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#children" class="tsd-kind-icon">children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#components" class="tsd-kind-icon">components</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#currentdrawing" class="tsd-kind-icon">current<wbr>Drawing</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#enablecapturepointer" class="tsd-kind-icon">enable<wbr>Capture<wbr>Pointer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#frames" class="tsd-kind-icon">frames</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#id" class="tsd-kind-icon">id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#isoffscreen" class="tsd-kind-icon">is<wbr>Off<wbr>Screen</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#logger" class="tsd-kind-icon">logger</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#opacity" class="tsd-kind-icon">opacity</a></li>
@@ -162,6 +168,7 @@
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#scale" class="tsd-kind-icon">scale</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#sx" class="tsd-kind-icon">sx</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#sy" class="tsd-kind-icon">sy</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#types" class="tsd-kind-icon">types</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#vel" class="tsd-kind-icon">vel</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#width" class="tsd-kind-icon">width</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#z" class="tsd-kind-icon">z</a></li>
@@ -173,12 +180,14 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_screenelement_.screenelement.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#_postdraw" class="tsd-kind-icon">_postdraw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#_postkill" class="tsd-kind-icon">_postkill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#_predraw" class="tsd-kind-icon">_predraw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#_prekill" class="tsd-kind-icon">_prekill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="_screenelement_.screenelement.html#addcomponent" class="tsd-kind-icon">add<wbr>Component</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#adddrawing" class="tsd-kind-icon">add<wbr>Drawing</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="_screenelement_.screenelement.html#contains" class="tsd-kind-icon">contains</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#draw" class="tsd-kind-icon">draw</a></li>
@@ -188,19 +197,21 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#getworldpos" class="tsd-kind-icon">get<wbr>World<wbr>Pos</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#getworldrotation" class="tsd-kind-icon">get<wbr>World<wbr>Rotation</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#getzindex" class="tsd-kind-icon">getZIndex</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#kill" class="tsd-kind-icon">kill</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#kill" class="tsd-kind-icon">kill</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpostdraw" class="tsd-kind-icon">on<wbr>Post<wbr>Draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpostkill" class="tsd-kind-icon">on<wbr>Post<wbr>Kill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpredraw" class="tsd-kind-icon">on<wbr>Pre<wbr>Draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#onprekill" class="tsd-kind-icon">on<wbr>Pre<wbr>Kill</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_screenelement_.screenelement.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="_screenelement_.screenelement.html#removecomponent" class="tsd-kind-icon">remove<wbr>Component</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#setdrawing" class="tsd-kind-icon">set<wbr>Drawing</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#setzindex" class="tsd-kind-icon">setZIndex</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_screenelement_.screenelement.html#unkill" class="tsd-kind-icon">unkill</a></li>
@@ -233,7 +244,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_actor_.actor.html">Actor</a>.<a href="_actor_.actor.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/ScreenElement.ts#L14">src/engine/ScreenElement.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/ScreenElement.ts#L14">src/engine/ScreenElement.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,7 +255,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_actor_.actor.html">Actor</a>.<a href="_actor_.actor.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/ScreenElement.ts#L16">src/engine/ScreenElement.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/ScreenElement.ts#L16">src/engine/ScreenElement.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -270,7 +281,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_actor_.actor.html">Actor</a>.<a href="_actor_.actor.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/ScreenElement.ts#L17">src/engine/ScreenElement.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/ScreenElement.ts#L17">src/engine/ScreenElement.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,7 +305,7 @@
 					<div class="tsd-signature tsd-kind-icon">_engine<span class="tsd-signature-symbol">:</span> <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/ScreenElement.ts#L14">src/engine/ScreenElement.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/ScreenElement.ts#L14">src/engine/ScreenElement.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -305,7 +316,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.actionQueue</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L327">src/engine/Actor.ts:327</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L329">src/engine/Actor.ts:329</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -322,12 +333,28 @@
 						<p>Implementation of <a href="../interfaces/_actions_actionable_.actionable.html">Actionable</a>.<a href="../interfaces/_actions_actionable_.actionable.html#actions">actions</a></p>
 						<p>Inherited from ActorImpl.actions</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L332">src/engine/Actor.ts:332</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L334">src/engine/Actor.ts:334</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p><a href="_actions_actioncontext_.actioncontext.html">Action context</a> of the actor. Useful for scripting actor behavior.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="active" class="tsd-anchor"></a>
+					<h3> active</h3>
+					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.active</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L59">src/engine/EntityComponentSystem/Entity.ts:59</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether this entity is active, if set to false it will be reclaimed</p>
 						</div>
 					</div>
 				</section>
@@ -338,7 +365,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.anchor</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L238">src/engine/Actor.ts:238</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L240">src/engine/Actor.ts:240</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -354,13 +381,24 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="changes" class="tsd-anchor"></a>
+					<h3> changes</h3>
+					<div class="tsd-signature tsd-kind-icon">changes<span class="tsd-signature-symbol">:</span> <a href="_util_observable_.observable.html" class="tsd-signature-type">Observable</a><span class="tsd-signature-symbol">&lt;</span><a href="_entitycomponentsystem_entity_.addedcomponent.html" class="tsd-signature-type">AddedComponent</a><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_entity_.removedcomponent.html" class="tsd-signature-type">RemovedComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Observable&lt;AddedComponent | RemovedComponent&gt;()</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.changes</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L108">src/engine/EntityComponentSystem/Entity.ts:108</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="children" class="tsd-anchor"></a>
 					<h3> children</h3>
 					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.children</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L352">src/engine/Actor.ts:352</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L354">src/engine/Actor.ts:354</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -370,13 +408,24 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="components" class="tsd-anchor"></a>
+					<h3> components</h3>
+					<div class="tsd-signature tsd-kind-icon">components<span class="tsd-signature-symbol">:</span> <a href="../modules/_entitycomponentsystem_entity_.html#componentmapper" class="tsd-signature-type">ComponentMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">KnownComponents</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Proxy&lt;ComponentMapper&lt;KnownComponents&gt;&gt;({} as any, this._handleChanges)</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.components</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L106">src/engine/EntityComponentSystem/Entity.ts:106</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="currentdrawing" class="tsd-anchor"></a>
 					<h3> current<wbr>Drawing</h3>
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Drawing<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_interfaces_drawable_.drawable.html" class="tsd-signature-type">Drawable</a><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.currentDrawing</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L362">src/engine/Actor.ts:362</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L363">src/engine/Actor.ts:363</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -394,7 +443,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.enableCapturePointer</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L436">src/engine/Actor.ts:436</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L437">src/engine/Actor.ts:437</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -409,9 +458,9 @@
 					<h3> event<wbr>Dispatcher</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Dispatcher<span class="tsd-signature-symbol">:</span> <a href="_eventdispatcher_.eventdispatcher.html" class="tsd-signature-type">EventDispatcher</a></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#eventdispatcher">eventDispatcher</a></p>
+						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -427,7 +476,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.frames</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L355">src/engine/Actor.ts:355</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L356">src/engine/Actor.ts:356</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -439,14 +488,15 @@
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="id" class="tsd-anchor"></a>
 					<h3> id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ActorImpl.maxId++</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.id</p>
+						<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#id">id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L97">src/engine/Actor.ts:97</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L99">src/engine/Actor.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -462,7 +512,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.isOffScreen</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L312">src/engine/Actor.ts:312</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L314">src/engine/Actor.ts:314</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -478,7 +528,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.logger</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L337">src/engine/Actor.ts:337</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L339">src/engine/Actor.ts:339</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -494,7 +544,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.opacity</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L321">src/engine/Actor.ts:321</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L323">src/engine/Actor.ts:323</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -511,7 +561,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.parent</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L347">src/engine/Actor.ts:347</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L349">src/engine/Actor.ts:349</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -527,7 +577,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.previousOpacity</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L322">src/engine/Actor.ts:322</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L324">src/engine/Actor.ts:324</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -538,7 +588,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.scene</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L342">src/engine/Actor.ts:342</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L344">src/engine/Actor.ts:344</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -554,7 +604,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.traits</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L416">src/engine/Actor.ts:416</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L417">src/engine/Actor.ts:417</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -570,7 +620,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.visible</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L316">src/engine/Actor.ts:316</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L318">src/engine/Actor.ts:318</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -586,7 +636,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.maxId</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L93">src/engine/Actor.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L95">src/engine/Actor.ts:95</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -610,7 +660,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.acc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L174">src/engine/Actor.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L176">src/engine/Actor.ts:176</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -625,7 +675,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.acc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L181">src/engine/Actor.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L183">src/engine/Actor.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,7 +705,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.body</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L103">src/engine/Actor.ts:103</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L105">src/engine/Actor.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -670,7 +720,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.body</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L107">src/engine/Actor.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L109">src/engine/Actor.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -700,7 +750,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.center</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L991">src/engine/Actor.ts:991</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L981">src/engine/Actor.ts:981</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -724,7 +774,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.color</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L424">src/engine/Actor.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L425">src/engine/Actor.ts:425</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -740,7 +790,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.color</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L427">src/engine/Actor.ts:427</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L428">src/engine/Actor.ts:428</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -772,7 +822,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.draggable</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L391">src/engine/Actor.ts:391</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L392">src/engine/Actor.ts:392</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -781,7 +831,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.draggable</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L395">src/engine/Actor.ts:395</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L396">src/engine/Actor.ts:396</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -806,7 +856,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.height</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1005">src/engine/Actor.ts:1005</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L995">src/engine/Actor.ts:995</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -815,7 +865,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.height</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1009">src/engine/Actor.ts:1009</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L999">src/engine/Actor.ts:999</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -837,9 +887,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from ActorImpl.isInitialized</p>
+								<p>Inherited from Entity.isInitialized</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L540">src/engine/Actor.ts:540</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L213">src/engine/EntityComponentSystem/Entity.ts:213</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -863,7 +913,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldAcc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L195">src/engine/Actor.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L197">src/engine/Actor.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -877,7 +927,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldAcc</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L188">src/engine/Actor.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L190">src/engine/Actor.ts:190</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -907,7 +957,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldPos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L131">src/engine/Actor.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L133">src/engine/Actor.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -921,7 +971,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldPos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L138">src/engine/Actor.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L140">src/engine/Actor.ts:140</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -951,7 +1001,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldScale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L263">src/engine/Actor.ts:263</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L265">src/engine/Actor.ts:265</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -970,7 +1020,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldScale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L271">src/engine/Actor.ts:271</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L273">src/engine/Actor.ts:273</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1005,7 +1055,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldVel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L159">src/engine/Actor.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L161">src/engine/Actor.ts:161</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1019,7 +1069,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.oldVel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L166">src/engine/Actor.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L168">src/engine/Actor.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1049,7 +1099,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.pos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L117">src/engine/Actor.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L119">src/engine/Actor.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1063,7 +1113,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.pos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L124">src/engine/Actor.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L126">src/engine/Actor.ts:126</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1093,7 +1143,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rotation</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L202">src/engine/Actor.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L204">src/engine/Actor.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1107,7 +1157,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rotation</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L209">src/engine/Actor.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L211">src/engine/Actor.ts:211</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1137,7 +1187,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rx</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L216">src/engine/Actor.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L218">src/engine/Actor.ts:218</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1151,7 +1201,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.rx</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L223">src/engine/Actor.ts:223</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L225">src/engine/Actor.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1181,7 +1231,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.scale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L247">src/engine/Actor.ts:247</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L249">src/engine/Actor.ts:249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1200,7 +1250,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.scale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L255">src/engine/Actor.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L257">src/engine/Actor.ts:257</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1235,7 +1285,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.sx</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L279">src/engine/Actor.ts:279</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L281">src/engine/Actor.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1254,7 +1304,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.sx</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L288">src/engine/Actor.ts:288</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L290">src/engine/Actor.ts:290</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1289,7 +1339,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.sy</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L296">src/engine/Actor.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L298">src/engine/Actor.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1308,7 +1358,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.sy</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L305">src/engine/Actor.ts:305</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L307">src/engine/Actor.ts:307</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1331,6 +1381,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="types" class="tsd-anchor"></a>
+					<h3> types</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> types<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.types</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L74">src/engine/EntityComponentSystem/Entity.ts:74</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The types of the components on the Entity</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
 					<a name="vel" class="tsd-anchor"></a>
 					<h3> vel</h3>
@@ -1343,7 +1416,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.vel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L145">src/engine/Actor.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L147">src/engine/Actor.ts:147</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1357,7 +1430,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.vel</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L152">src/engine/Actor.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L154">src/engine/Actor.ts:154</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1387,7 +1460,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.width</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L995">src/engine/Actor.ts:995</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L985">src/engine/Actor.ts:985</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1396,7 +1469,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.width</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L999">src/engine/Actor.ts:999</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L989">src/engine/Actor.ts:989</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1421,7 +1494,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.z</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L960">src/engine/Actor.ts:960</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L950">src/engine/Actor.ts:950</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -1430,7 +1503,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.z</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L964">src/engine/Actor.ts:964</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L954">src/engine/Actor.ts:954</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1457,7 +1530,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides ActorImpl._initialize</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/ScreenElement.ts#L39">src/engine/ScreenElement.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/ScreenElement.ts#L39">src/engine/ScreenElement.ts:39</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1481,7 +1554,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._postdraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1283">src/engine/Actor.ts:1283</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1279">src/engine/Actor.ts:1279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1518,7 +1591,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._postkill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L841">src/engine/Actor.ts:841</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L831">src/engine/Actor.ts:831</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1541,18 +1614,19 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="_postupdate" class="tsd-anchor"></a>
 					<h3> _postupdate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">_postupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._postupdate</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#_postupdate">_postupdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1198">src/engine/Actor.ts:1198</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1194">src/engine/Actor.ts:1194</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1589,7 +1663,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._predraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1272">src/engine/Actor.ts:1272</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1268">src/engine/Actor.ts:1268</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1626,7 +1700,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._prekill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L821">src/engine/Actor.ts:821</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L811">src/engine/Actor.ts:811</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1649,18 +1723,19 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="_preupdate" class="tsd-anchor"></a>
 					<h3> _preupdate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">_preupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl._preupdate</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#_preupdate">_preupdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1187">src/engine/Actor.ts:1187</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1183">src/engine/Actor.ts:1183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1697,7 +1772,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.add</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L891">src/engine/Actor.ts:891</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L881">src/engine/Actor.ts:881</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1720,6 +1795,39 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="addcomponent" class="tsd-anchor"></a>
+					<h3> add<wbr>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Component&lt;T&gt;<span class="tsd-signature-symbol">(</span>componentOrEntity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.addComponent</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L121">src/engine/EntityComponentSystem/Entity.ts:121</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_component_.component.html" class="tsd-signature-type">Component</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>componentOrEntity: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> force: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="adddrawing" class="tsd-anchor"></a>
 					<h3> add<wbr>Drawing</h3>
@@ -1733,7 +1841,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L933">src/engine/Actor.ts:933</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L923">src/engine/Actor.ts:923</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1753,7 +1861,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L937">src/engine/Actor.ts:937</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L927">src/engine/Actor.ts:927</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1773,7 +1881,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.addDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L943">src/engine/Actor.ts:943</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L933">src/engine/Actor.ts:933</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1800,6 +1908,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="clone" class="tsd-anchor"></a>
+					<h3> clone</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.clone</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L113">src/engine/EntityComponentSystem/Entity.ts:113</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a deep copy of the entity and a copy of all its components</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="contains" class="tsd-anchor"></a>
 					<h3> contains</h3>
@@ -1811,7 +1942,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides ActorImpl.contains</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/ScreenElement.ts#L44">src/engine/ScreenElement.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/ScreenElement.ts#L44">src/engine/ScreenElement.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1841,7 +1972,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_screenelement_.screenelement.html">ScreenElement</a>.<a href="_screenelement_.screenelement.html#debugdraw">debugDraw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1293">src/engine/Actor.ts:1293</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1289">src/engine/Actor.ts:1289</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1873,7 +2004,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_trigger_.trigger.html">Trigger</a>.<a href="_trigger_.trigger.html#draw">draw</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1211">src/engine/Actor.ts:1211</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1207">src/engine/Actor.ts:1207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1910,9 +2041,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_evented_.eventable.html">Eventable</a>.<a href="../interfaces/_interfaces_evented_.eventable.html#emit">emit</a></p>
-								<p>Inherited from <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#emit">emit</a></p>
+								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1950,7 +2081,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getAncestors</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1358">src/engine/Actor.ts:1358</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1354">src/engine/Actor.ts:1354</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1973,7 +2104,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getGlobalScale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1075">src/engine/Actor.ts:1075</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1065">src/engine/Actor.ts:1065</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1996,7 +2127,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getWorldPos</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1033">src/engine/Actor.ts:1033</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1023">src/engine/Actor.ts:1023</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2020,7 +2151,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getWorldRotation</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1020">src/engine/Actor.ts:1020</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1010">src/engine/Actor.ts:1010</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2044,7 +2175,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.getZIndex</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L972">src/engine/Actor.ts:972</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L962">src/engine/Actor.ts:962</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2058,17 +2189,42 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="has" class="tsd-anchor"></a>
+					<h3> has</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.has</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L204">src/engine/EntityComponentSystem/Entity.ts:204</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="iskilled" class="tsd-anchor"></a>
 					<h3> is<wbr>Killed</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Killed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.isKilled</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#iskilled">isKilled</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L881">src/engine/Actor.ts:881</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L871">src/engine/Actor.ts:871</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2080,18 +2236,19 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="kill" class="tsd-anchor"></a>
 					<h3> kill</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">kill<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.kill</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#kill">kill</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L859">src/engine/Actor.ts:859</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L849">src/engine/Actor.ts:849</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2141,9 +2298,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L750">src/engine/Actor.ts:750</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L740">src/engine/Actor.ts:740</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2178,9 +2335,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L751">src/engine/Actor.ts:751</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L741">src/engine/Actor.ts:741</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2215,9 +2372,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L759">src/engine/Actor.ts:759</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L749">src/engine/Actor.ts:749</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2261,9 +2418,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L767">src/engine/Actor.ts:767</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L757">src/engine/Actor.ts:757</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2306,9 +2463,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L776">src/engine/Actor.ts:776</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L766">src/engine/Actor.ts:766</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2352,9 +2509,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L786">src/engine/Actor.ts:786</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L776">src/engine/Actor.ts:776</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -2399,9 +2556,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L787">src/engine/Actor.ts:787</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L777">src/engine/Actor.ts:777</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2436,9 +2593,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L788">src/engine/Actor.ts:788</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L778">src/engine/Actor.ts:778</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2473,9 +2630,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L789">src/engine/Actor.ts:789</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L779">src/engine/Actor.ts:779</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2510,9 +2667,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L790">src/engine/Actor.ts:790</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L780">src/engine/Actor.ts:780</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2547,9 +2704,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L791">src/engine/Actor.ts:791</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L781">src/engine/Actor.ts:781</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2584,9 +2741,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L792">src/engine/Actor.ts:792</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L782">src/engine/Actor.ts:782</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2621,9 +2778,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L793">src/engine/Actor.ts:793</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L783">src/engine/Actor.ts:783</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2658,9 +2815,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L794">src/engine/Actor.ts:794</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L784">src/engine/Actor.ts:784</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2695,9 +2852,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L795">src/engine/Actor.ts:795</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L785">src/engine/Actor.ts:785</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2732,9 +2889,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L796">src/engine/Actor.ts:796</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L786">src/engine/Actor.ts:786</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2769,9 +2926,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L797">src/engine/Actor.ts:797</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L787">src/engine/Actor.ts:787</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2806,9 +2963,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L798">src/engine/Actor.ts:798</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L788">src/engine/Actor.ts:788</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2843,9 +3000,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L799">src/engine/Actor.ts:799</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L789">src/engine/Actor.ts:789</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2880,9 +3037,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L800">src/engine/Actor.ts:800</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L790">src/engine/Actor.ts:790</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2917,9 +3074,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L801">src/engine/Actor.ts:801</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L791">src/engine/Actor.ts:791</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2932,14 +3089,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></h5>
+															<h5>event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2954,9 +3111,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L802">src/engine/Actor.ts:802</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L792">src/engine/Actor.ts:792</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2969,14 +3126,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></h5>
+															<h5>event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -2991,9 +3148,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L803">src/engine/Actor.ts:803</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L793">src/engine/Actor.ts:793</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3006,14 +3163,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></h5>
+															<h5>event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -3028,9 +3185,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L804">src/engine/Actor.ts:804</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L794">src/engine/Actor.ts:794</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3065,9 +3222,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L805">src/engine/Actor.ts:805</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L795">src/engine/Actor.ts:795</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3102,9 +3259,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L806">src/engine/Actor.ts:806</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L796">src/engine/Actor.ts:796</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3139,9 +3296,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L807">src/engine/Actor.ts:807</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L797">src/engine/Actor.ts:797</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3176,9 +3333,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.off</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#off">off</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L808">src/engine/Actor.ts:808</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L798">src/engine/Actor.ts:798</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3252,9 +3409,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L616">src/engine/Actor.ts:616</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L606">src/engine/Actor.ts:606</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3289,9 +3446,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L617">src/engine/Actor.ts:617</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L607">src/engine/Actor.ts:607</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3326,9 +3483,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L625">src/engine/Actor.ts:625</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L615">src/engine/Actor.ts:615</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3372,9 +3529,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L633">src/engine/Actor.ts:633</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L623">src/engine/Actor.ts:623</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3417,9 +3574,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L642">src/engine/Actor.ts:642</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L632">src/engine/Actor.ts:632</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3463,9 +3620,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L652">src/engine/Actor.ts:652</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L642">src/engine/Actor.ts:642</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -3510,9 +3667,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L653">src/engine/Actor.ts:653</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L643">src/engine/Actor.ts:643</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3547,9 +3704,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L654">src/engine/Actor.ts:654</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L644">src/engine/Actor.ts:644</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3584,9 +3741,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L655">src/engine/Actor.ts:655</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L645">src/engine/Actor.ts:645</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3621,9 +3778,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L656">src/engine/Actor.ts:656</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L646">src/engine/Actor.ts:646</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3636,14 +3793,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></h5>
+															<h5>event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -3658,9 +3815,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L657">src/engine/Actor.ts:657</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L647">src/engine/Actor.ts:647</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3673,14 +3830,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></h5>
+															<h5>event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -3695,9 +3852,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L658">src/engine/Actor.ts:658</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L648">src/engine/Actor.ts:648</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3710,14 +3867,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></h5>
+															<h5>event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -3732,9 +3889,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L659">src/engine/Actor.ts:659</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L649">src/engine/Actor.ts:649</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3769,9 +3926,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L660">src/engine/Actor.ts:660</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L650">src/engine/Actor.ts:650</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3806,9 +3963,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L661">src/engine/Actor.ts:661</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L651">src/engine/Actor.ts:651</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3843,9 +4000,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L662">src/engine/Actor.ts:662</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L652">src/engine/Actor.ts:652</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3880,9 +4037,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L663">src/engine/Actor.ts:663</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L653">src/engine/Actor.ts:653</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3917,9 +4074,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L664">src/engine/Actor.ts:664</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L654">src/engine/Actor.ts:654</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3954,9 +4111,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L665">src/engine/Actor.ts:665</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L655">src/engine/Actor.ts:655</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -3991,9 +4148,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L666">src/engine/Actor.ts:666</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L656">src/engine/Actor.ts:656</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4028,9 +4185,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L667">src/engine/Actor.ts:667</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L657">src/engine/Actor.ts:657</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4065,9 +4222,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L668">src/engine/Actor.ts:668</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L658">src/engine/Actor.ts:658</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4102,9 +4259,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L669">src/engine/Actor.ts:669</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L659">src/engine/Actor.ts:659</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4139,9 +4296,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L670">src/engine/Actor.ts:670</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L660">src/engine/Actor.ts:660</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4176,9 +4333,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L671">src/engine/Actor.ts:671</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L661">src/engine/Actor.ts:661</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4213,9 +4370,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L672">src/engine/Actor.ts:672</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L662">src/engine/Actor.ts:662</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4250,9 +4407,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L673">src/engine/Actor.ts:673</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L663">src/engine/Actor.ts:663</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4287,9 +4444,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L674">src/engine/Actor.ts:674</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L664">src/engine/Actor.ts:664</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4324,9 +4481,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L675">src/engine/Actor.ts:675</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L665">src/engine/Actor.ts:665</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4361,9 +4518,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L676">src/engine/Actor.ts:676</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L666">src/engine/Actor.ts:666</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4398,9 +4555,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.on</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#on">on</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L677">src/engine/Actor.ts:677</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L667">src/engine/Actor.ts:667</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4434,10 +4591,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="oninitialize" class="tsd-anchor"></a>
 					<h3> on<wbr>Initialize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Initialize<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -4445,8 +4602,9 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.caninitialize.html">CanInitialize</a>.<a href="../interfaces/_interfaces_lifecycleevents_.caninitialize.html#oninitialize">onInitialize</a></p>
 								<p>Inherited from ActorImpl.onInitialize</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#oninitialize">onInitialize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L533">src/engine/Actor.ts:533</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L534">src/engine/Actor.ts:534</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4478,7 +4636,7 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.candraw.html">CanDraw</a>.<a href="../interfaces/_interfaces_lifecycleevents_.candraw.html#onpostdraw">onPostDraw</a></p>
 								<p>Inherited from ActorImpl.onPostDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1262">src/engine/Actor.ts:1262</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1258">src/engine/Actor.ts:1258</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4512,14 +4670,14 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.canbekilled.html">CanBeKilled</a>.<a href="../interfaces/_interfaces_lifecycleevents_.canbekilled.html#onpostkill">onPostKill</a></p>
 								<p>Inherited from ActorImpl.onPostKill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L851">src/engine/Actor.ts:851</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L841">src/engine/Actor.ts:841</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Safe to override onPostKill lifecycle event handler. Synonymous with <code>.on(&#39;postkill&#39;, (evt) =&gt; {...})</code></p>
 								</div>
-								<p><code>onPostKill</code> is called directly after an actor is killed and remove from its current <a href="../modules/_index_.html#scene">Scene</a>.</p>
+								<p><code>onPostKill</code> is called directly after an actor is killed and remove from its current <a href="_scene_.scene.html">Scene</a>.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -4531,10 +4689,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="onpostupdate" class="tsd-anchor"></a>
 					<h3> on<wbr>Post<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -4542,8 +4700,9 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html">CanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html#onpostupdate">onPostUpdate</a></p>
 								<p>Inherited from ActorImpl.onPostUpdate</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#onpostupdate">onPostUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1177">src/engine/Actor.ts:1177</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1173">src/engine/Actor.ts:1173</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4577,7 +4736,7 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.candraw.html">CanDraw</a>.<a href="../interfaces/_interfaces_lifecycleevents_.candraw.html#onpredraw">onPreDraw</a></p>
 								<p>Inherited from ActorImpl.onPreDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1253">src/engine/Actor.ts:1253</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1249">src/engine/Actor.ts:1249</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4611,14 +4770,14 @@
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.canbekilled.html">CanBeKilled</a>.<a href="../interfaces/_interfaces_lifecycleevents_.canbekilled.html#onprekill">onPreKill</a></p>
 								<p>Inherited from ActorImpl.onPreKill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L831">src/engine/Actor.ts:831</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L821">src/engine/Actor.ts:821</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Safe to override onPreKill lifecycle event handler. Synonymous with <code>.on(&#39;prekill&#39;, (evt) =&gt;{...})</code></p>
 								</div>
-								<p><code>onPreKill</code> is called directly before an actor is killed and removed from its current <a href="../modules/_index_.html#scene">Scene</a>.</p>
+								<p><code>onPreKill</code> is called directly before an actor is killed and removed from its current <a href="_scene_.scene.html">Scene</a>.</p>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -4630,10 +4789,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="onpreupdate" class="tsd-anchor"></a>
 					<h3> on<wbr>Pre<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Pre<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -4641,8 +4800,9 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html">CanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html#onpreupdate">onPreUpdate</a></p>
 								<p>Inherited from ActorImpl.onPreUpdate</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#onpreupdate">onPreUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1168">src/engine/Actor.ts:1168</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1164">src/engine/Actor.ts:1164</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4704,9 +4864,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L683">src/engine/Actor.ts:683</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L673">src/engine/Actor.ts:673</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4741,9 +4901,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L684">src/engine/Actor.ts:684</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L674">src/engine/Actor.ts:674</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4778,9 +4938,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L692">src/engine/Actor.ts:692</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L682">src/engine/Actor.ts:682</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4824,9 +4984,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L700">src/engine/Actor.ts:700</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L690">src/engine/Actor.ts:690</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4869,9 +5029,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L709">src/engine/Actor.ts:709</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L699">src/engine/Actor.ts:699</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4915,9 +5075,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L719">src/engine/Actor.ts:719</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L709">src/engine/Actor.ts:709</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -4962,9 +5122,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L720">src/engine/Actor.ts:720</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L710">src/engine/Actor.ts:710</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -4999,9 +5159,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L721">src/engine/Actor.ts:721</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L711">src/engine/Actor.ts:711</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5036,9 +5196,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L722">src/engine/Actor.ts:722</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L712">src/engine/Actor.ts:712</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5073,9 +5233,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L723">src/engine/Actor.ts:723</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L713">src/engine/Actor.ts:713</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5088,14 +5248,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></h5>
+															<h5>event: <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -5110,9 +5270,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L724">src/engine/Actor.ts:724</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L714">src/engine/Actor.ts:714</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5125,14 +5285,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a></h5>
+															<h5>event: <a href="_events_.preupdateevent.html" class="tsd-signature-type">PreUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -5147,9 +5307,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L725">src/engine/Actor.ts:725</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L715">src/engine/Actor.ts:715</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5162,14 +5322,14 @@
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 											</ul>
 											<ul class="tsd-descriptions">
 												<li class="tsd-description">
 													<h4 class="tsd-parameters-title">Parameters</h4>
 													<ul class="tsd-parameters">
 														<li>
-															<h5>event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a></h5>
+															<h5>event: <a href="_events_.postupdateevent.html" class="tsd-signature-type">PostUpdateEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">&gt;</span></h5>
 														</li>
 													</ul>
 													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -5184,9 +5344,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L726">src/engine/Actor.ts:726</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L716">src/engine/Actor.ts:716</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5221,9 +5381,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L727">src/engine/Actor.ts:727</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L717">src/engine/Actor.ts:717</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5258,9 +5418,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L728">src/engine/Actor.ts:728</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L718">src/engine/Actor.ts:718</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5295,9 +5455,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L729">src/engine/Actor.ts:729</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L719">src/engine/Actor.ts:719</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5332,9 +5492,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L730">src/engine/Actor.ts:730</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L720">src/engine/Actor.ts:720</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5369,9 +5529,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L731">src/engine/Actor.ts:731</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L721">src/engine/Actor.ts:721</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5406,9 +5566,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L732">src/engine/Actor.ts:732</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L722">src/engine/Actor.ts:722</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5443,9 +5603,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L733">src/engine/Actor.ts:733</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L723">src/engine/Actor.ts:723</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5480,9 +5640,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L734">src/engine/Actor.ts:734</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L724">src/engine/Actor.ts:724</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5517,9 +5677,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L735">src/engine/Actor.ts:735</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L725">src/engine/Actor.ts:725</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5554,9 +5714,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L736">src/engine/Actor.ts:736</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L726">src/engine/Actor.ts:726</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5591,9 +5751,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L737">src/engine/Actor.ts:737</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L727">src/engine/Actor.ts:727</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5628,9 +5788,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L738">src/engine/Actor.ts:738</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L728">src/engine/Actor.ts:728</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5665,9 +5825,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L739">src/engine/Actor.ts:739</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L729">src/engine/Actor.ts:729</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5702,9 +5862,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L740">src/engine/Actor.ts:740</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L730">src/engine/Actor.ts:730</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5739,9 +5899,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L741">src/engine/Actor.ts:741</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L731">src/engine/Actor.ts:731</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5776,9 +5936,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L742">src/engine/Actor.ts:742</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L732">src/engine/Actor.ts:732</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5813,9 +5973,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L743">src/engine/Actor.ts:743</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L733">src/engine/Actor.ts:733</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5850,9 +6010,9 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.once</p>
-								<p>Overrides <a href="_resources_resource_.resource.html">Resource</a>.<a href="_resources_resource_.resource.html#once">once</a></p>
+								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L744">src/engine/Actor.ts:744</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L734">src/engine/Actor.ts:734</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -5897,7 +6057,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.remove</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L901">src/engine/Actor.ts:901</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L891">src/engine/Actor.ts:891</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5918,6 +6078,47 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="removecomponent" class="tsd-anchor"></a>
+					<h3> remove<wbr>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Component&lt;ComponentOrType&gt;<span class="tsd-signature-symbol">(</span>componentOrType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ComponentOrType</span>, force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_entitycomponentsystem_entity_.html#excludetype" class="tsd-signature-type">ExcludeType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ComponentOrType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.removeComponent</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/Entity.ts#L164">src/engine/EntityComponentSystem/Entity.ts:164</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a component from the entity, by default removals are deferred to the end of entity processing to avoid consistency issues</p>
+								</div>
+								<p>Components can be force removed with the <code>force</code> flag, the removal is not deferred and happens immediately</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>ComponentOrType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_component_.component.html" class="tsd-signature-type">Component</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>componentOrType: <span class="tsd-signature-type">ComponentOrType</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> force: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_entitycomponentsystem_entity_.html#excludetype" class="tsd-signature-type">ExcludeType</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ComponentOrType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="setdrawing" class="tsd-anchor"></a>
 					<h3> set<wbr>Drawing</h3>
@@ -5930,7 +6131,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L911">src/engine/Actor.ts:911</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L901">src/engine/Actor.ts:901</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5954,7 +6155,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setDrawing</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L917">src/engine/Actor.ts:917</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L907">src/engine/Actor.ts:907</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -5987,7 +6188,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.setZIndex</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L982">src/engine/Actor.ts:982</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L972">src/engine/Actor.ts:972</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6021,7 +6222,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.unkill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L874">src/engine/Actor.ts:874</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L864">src/engine/Actor.ts:864</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6044,7 +6245,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_trigger_.trigger.html">Trigger</a>.<a href="_trigger_.trigger.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1128">src/engine/Actor.ts:1128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1118">src/engine/Actor.ts:1118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6082,7 +6283,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from ActorImpl.within</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L1115">src/engine/Actor.ts:1115</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L1105">src/engine/Actor.ts:1105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -6119,7 +6320,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.capturePointer</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L441">src/engine/Actor.ts:441</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L442">src/engine/Actor.ts:442</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -6133,7 +6334,7 @@
 						<div class="tsd-signature tsd-kind-icon">capture<wbr>Drag<wbr>Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> = false</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L443">src/engine/Actor.ts:443</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L444">src/engine/Actor.ts:444</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -6143,7 +6344,7 @@
 						<div class="tsd-signature tsd-kind-icon">capture<wbr>Move<wbr>Events<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> = false</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L442">src/engine/Actor.ts:442</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L443">src/engine/Actor.ts:443</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -6155,7 +6356,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from ActorImpl.defaults</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L87">src/engine/Actor.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L89">src/engine/Actor.ts:89</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -6169,7 +6370,7 @@
 						<div class="tsd-signature tsd-kind-icon">anchor<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = Vector.Half</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Actor.ts#L88">src/engine/Actor.ts:88</a></li>
+								<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L90">src/engine/Actor.ts:90</a></li>
 							</ul>
 						</aside>
 					</section>
@@ -6207,10 +6408,19 @@
 								<a href="_screenelement_.screenelement.html#actions" class="tsd-kind-icon">actions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#active" class="tsd-kind-icon">active</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#anchor" class="tsd-kind-icon">anchor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#changes" class="tsd-kind-icon">changes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#children" class="tsd-kind-icon">children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#components" class="tsd-kind-icon">components</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#currentdrawing" class="tsd-kind-icon">current<wbr>Drawing</a>
@@ -6224,7 +6434,7 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#frames" class="tsd-kind-icon">frames</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
@@ -6305,6 +6515,9 @@
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#sy" class="tsd-kind-icon">sy</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#types" class="tsd-kind-icon">types</a>
+							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#vel" class="tsd-kind-icon">vel</a>
 							</li>
@@ -6323,7 +6536,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#_postkill" class="tsd-kind-icon">_postkill</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -6332,14 +6545,20 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#_prekill" class="tsd-kind-icon">_prekill</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#add" class="tsd-kind-icon">add</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#addcomponent" class="tsd-kind-icon">add<wbr>Component</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#adddrawing" class="tsd-kind-icon">add<wbr>Drawing</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_screenelement_.screenelement.html#contains" class="tsd-kind-icon">contains</a>
@@ -6369,9 +6588,12 @@
 								<a href="_screenelement_.screenelement.html#getzindex" class="tsd-kind-icon">getZIndex</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#has" class="tsd-kind-icon">has</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#kill" class="tsd-kind-icon">kill</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -6380,7 +6602,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#on" class="tsd-kind-icon">on</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -6389,7 +6611,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#onpostkill" class="tsd-kind-icon">on<wbr>Post<wbr>Kill</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -6398,7 +6620,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#onprekill" class="tsd-kind-icon">on<wbr>Pre<wbr>Kill</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -6406,6 +6628,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#remove" class="tsd-kind-icon">remove</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="_screenelement_.screenelement.html#removecomponent" class="tsd-kind-icon">remove<wbr>Component</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_screenelement_.screenelement.html#setdrawing" class="tsd-kind-icon">set<wbr>Drawing</a>

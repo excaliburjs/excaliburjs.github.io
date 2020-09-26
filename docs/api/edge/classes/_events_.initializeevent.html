@@ -62,7 +62,7 @@
 					<a href="_events_.initializeevent.html">InitializeEvent</a>
 				</li>
 			</ul>
-			<h1>Class InitializeEvent</h1>
+			<h1>Class InitializeEvent&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -72,15 +72,23 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Event thrown on an <a href="../modules/_index_.html#actor">Actor</a> and a <a href="../modules/_index_.html#scene">Scene</a> only once before the first update call</p>
+						<p>Event thrown on an <a href="../modules/_index_.html#actor">Actor</a> and a <a href="_scene_.scene.html">Scene</a> only once before the first update call</p>
 					</div>
 				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interfaces_lifecycleevents_.oninitialize.html" class="tsd-signature-type">OnInitialize</a></h4>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_camera_.camera.html" class="tsd-signature-type">Camera</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_events_.gameevent.html" class="tsd-signature-type">GameEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">InitializeEvent</span>
@@ -128,13 +136,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Initialize<wbr>Event<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, target<span class="tsd-signature-symbol">: </span><a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_camera_.camera.html" class="tsd-signature-type">Camera</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Initialize<wbr>Event<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, target<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L497">src/engine/Events.ts:497</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L499">src/engine/Events.ts:499</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,7 +158,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>target: <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_camera_.camera.html" class="tsd-signature-type">Camera</a></h5>
+									<h5>target: <span class="tsd-signature-type">T</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_events_.initializeevent.html" class="tsd-signature-type">InitializeEvent</a></h4>
@@ -166,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">engine<span class="tsd-signature-symbol">:</span> <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L501">src/engine/Events.ts:501</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L503">src/engine/Events.ts:503</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -182,7 +190,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#other">other</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L171">src/engine/Events.ts:171</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L173">src/engine/Events.ts:173</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -194,11 +202,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="target" class="tsd-anchor"></a>
 					<h3> target</h3>
-					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol"> | </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol"> | </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol"> | </span><a href="_camera_.camera.html" class="tsd-signature-type">Camera</a></div>
+					<div class="tsd-signature tsd-kind-icon">target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<p>Overrides <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#target">target</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L501">src/engine/Events.ts:501</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L503">src/engine/Events.ts:503</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -217,7 +225,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#bubbles">bubbles</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L177">src/engine/Events.ts:177</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L179">src/engine/Events.ts:179</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -232,7 +240,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#bubbles">bubbles</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L181">src/engine/Events.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L183">src/engine/Events.ts:183</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -265,7 +273,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_input_pointerevents_.pointerevent.html">PointerEvent</a>.<a href="_input_pointerevents_.pointerevent.html#stoppropagation">stopPropagation</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/bda5f089/src/engine/Events.ts#L189">src/engine/Events.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Events.ts#L191">src/engine/Events.ts:191</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,7 +302,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-parent-kind-module">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="_events_.initializeevent.html" class="tsd-kind-icon">Initialize<wbr>Event</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
