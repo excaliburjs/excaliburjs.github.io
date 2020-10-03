@@ -116,6 +116,58 @@ game.start().then(() => {
 })
 ```
 
+## Triggers
+
+[[Trigger|Triggers]] are a special kind of [Actor](/docs/actors) that allow you to run logic when another actor collides with its bounding box. Think of how traps work in an RPG: they are invisible but let you do custom logic whenever your character steps on one. This is one case where you can use triggers instead of trying to implement a special actor yourself.
+
+### Infinite vs. run once
+
+Triggers run infinitely by default whenever an actor collides with them. To run a trigger **once**, you can pass [[Trigger.repeat|`repeat: 1`]].
+
+### Creating a trigger
+
+```js
+// Start the engine
+var game = new ex.Engine({
+  width: 800,
+  height: 600,
+  displayMode: ex.DisplayMode.FullScreen,
+})
+
+// Uncomment next line to make the trigger box visible
+// game.showDebug(true);
+
+// create a handler
+function onTrigger() {
+  // `this` will be the Trigger instance
+  ex.Logger.getInstance().info('Trigger was triggered!', this)
+}
+
+// set a trigger at (100, 100) that is 40x40px that can only be fired once
+var trigger = new ex.Trigger({
+  width: 40,
+  height: 40,
+  pos: new ex.Vector(100, 100),
+  repeat: 1,
+  target: actor,
+  action: onTrigger,
+})
+
+// create an actor above the trigger
+var actor = new ex.Actor(100, 0, 40, 40, ex.Color.Red)
+
+// Enable collision on actor (else trigger won't fire)
+actor.body.collider.type = ex.CollisionType.Active
+
+// tell the actor to move across the trigger with a velocity of 100
+actor.actions.moveTo(100, 200, 100)
+
+// Add trigger and actor to our scene and start the scene
+game.add(trigger)
+game.add(actor)
+game.start()
+```
+
 ## Logging
 
 Rather than using `console.log` you can use Excalibur's native logging provider which can be controlled
