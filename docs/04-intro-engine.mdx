@@ -111,80 +111,53 @@ game.goToScene('root')
 To add actors and other entities to the current scene, you can use [[Engine.add|add]]. Alternatively,
 you can use [[Engine.currentScene]] to directly access the current scene.
 
-## Game resolution
+## Constructor arguments
 
-An HTML canvas element has a "native" resolution which is specified using the `width` and `height` HTML attributes. In Excalibur, these can be set using [[Engine.canvasWidth|canvasWidth]] and [[Engine.canvasHeight|canvasHeight]] respectively.
+In Excalibur there are option bag constructors available on most types. These support any public property or member, **methods are not supported.** The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.
 
-### Native Resolution
+For example instead of doing this:
 
-If you don't explicitly set `canvasWidth` or `canvasHeight` Excalibur will manage the values for you, meaning that the "native" resolution will be the physical screen width/height so there is no "scaling" happening. This means your game logic must be responsive if the resolution of the game changes and you cannot depend on a "fixed" width/height coordinate system. Games which can be played on mobile devices _and_ desktop will work, since your game logic can detect what screen size the game is being played on and respond accordingly.
+```typescript
+const actor = new ex.Actor(1, 2, 100, 100, ex.Color.Red)
+actor.body.collider.type = ex.CollisionType.Active
+```
 
-### Scaled Resolution
+This is possible:
 
-Alternatively, if a native resolution is set and then CSS is used to change the _styled_ `width` and `height`, this makes your game _scale_ to whatever the CSS dimensions are. You would want to explicitly set a native resolution if your game depends on having a specific width/height of the "draw area". For example, you may want to design a game that depends on a fixed size of 1280x720 but you want to allow the user to view it at higher resolutions on their browser, so you may scale the canvas to a 16:9 ratio. Your game logic and positioning logic will still work since the game world is still 720px wide even though it may be displaying at 1080px wide on a high-res screen.
+```typescript
+const options: ActorArgs = {
+   pos: new ex.Vector(1,2);
+   width: 100,
+   height: 100,
+   color: ex.Color.Red,
+}
 
-### HiDPI Displays
+const actor = new ex.Actor(options);
+actor.body.collider.type = ex.CollisionType.Active;
+```
 
-HiDPI displays scale device pixels. For example, on a normal monitor, a 1280x720 game canvas will return `1280` and `720` for the `width` and `height` respectively. However, on a 2X HiDPI display _what's actually drawn_ is multiplied by a device pixel ratio of `2` so, `2560` and `1440`. Any time you need to get this "actual" width and height of what's being drawn to the canvas, the engine exposes [[Engine.drawWidth]] and [[Engine.drawHeight]] that takes into account the device pixel ratio. In this HiDPI scenario, [[Engine.canvasWidth]] and [[Engine.canvasHeight]] would still return the native `1280x720` resolution.
+In fact you can create a duplicate this way
 
-<!-- TODO: Embed example -->
+```typescript
+const actor = new ex.Actor({
+  pos: new ex.Vector(1, 2),
+})
+const actorClone = new ex.Actor(actor)
 
-## Coordinate systems
+expect(actor.pos).toBe(actorClone.pos) // true;
+```
 
-In Excalibur, due to HTML canvas native and scaled resolution, there are essentially _two_ kinds of coordinates: a **screen** coordinate and a **world** coordinate.
+Types that support option bags can have their properties mass assigned using the assign method.
 
-### Screen coordinates
+```typescript
+const actor = new ex.Actor(options)
 
-A screen coordinate is a point on a user's physical screen. `(0, 0)` in screen coordinates is the top-left of the canvas. Excalibur translates mouse event positions into screen coordinates for you. Screen coordinates ignore the game camera, think of it like where the user is physically pointing on top of your game.
-
-### World coordinates
-
-A world coordinate is a point _in the game world_ relative to a [scene's camera](/docs/scenes#camera). The world space is the default place where actors operate. `(0, 0)` in the game world may be _displayed_ at the center of your game because that may be the camera's focal point.
-
-### Converting between coordinates
-
-Usually, your game logic should only deal in terms of world coordinates because this is the coordinate system you're positioning actors in or drawing in. Sometimes though, you need to convert between systems when interfacing with input.
-
-Excalibur provides two methods to convert between systems, [[Engine.screenToWorldCoordinates]] and [[Engine.worldToScreenCoordinates]]. Use these methods to convert between coordinate systems as they take into account all the information Excalibur collects to appropriately do the math for you including scaling, device pixel ratio, and more.
-
-## Managing the viewport
-
-Excalibur supports multiple display modes for a game. Pass in a [[EngineOptions.displayMode|displayMode]]
-option when creating a game to customize the viewport.
-
-### Fullscreen Display Mode
-
-[[DisplayMode.FullScreen]] will style the canvas with CSS to take up the entire window viewport. If `canvasWidth` and `canvasHeight` are not set explicitly, the native resolution will be the same as the viewport size.
-
-<!-- TODO: Embed example -->
-
-### Container Display Mode
-
-If you use [[DisplayMode.Container]], the canvas will automatically resize to fit inside of
-it's parent DOM element. This allows you maximum control over the game viewport, e.g. in case
-you want to provide HTML UI on top or as part of your game.
-
-<!-- TODO: Embed example -->
-
-### Position Display Mode
-
-You can use [[DisplayMode.Position]] to specify where the game window will be displayed on screen. If
-this DisplayMode is selected, then a [[EngineOptions.position|position]] option _must_ be provided to the Engine constructor.
-The [[EngineOptions.position|position]] option can be a `string` or an [[AbsolutePosition]].
-
-The first word in a `string` _must_
-be the desired vertical alignment of the window. The second (optional) word is the desired horizontal
-alignment.
-
-- **Valid `string` examples**: `"top left"`, `"top"`, `"bottom"`, `"middle"`, `"middle center"`, `"bottom right"`
-
-For an [[AbsolutePosition]], the value for each property is interpreted similar to CSS, where a `number` value is in pixels and a string is whatever valid CSS unit you want to pass.
-
-- **Valid `AbsolutePosition` examples**: `{top: 5, right: "10%"}`, `{bottom: "49em", left: "10px"}`, `{left: 10, bottom: 40}`
-
-The `<canvas>` element will be positioned using CSS with the values you pass in.
-
-<!-- TODO: Embed example -->
+actor.assign({
+  pos: new ex.Vector(100, 100),
+  width: 1000,
+  color: ex.Color.Red,
+})
+```
 
 ## Extending the engine
 
@@ -209,6 +182,74 @@ class Game extends ex.Engine {
 }
 const game = new Game()
 game.start()
+```
+
+## Event handling
+
+When working with events, be sure to keep in mind the order of subscriptions
+and try not to create a situation that requires specific things to happen in
+order. Events are best used for input events, tying together disparate objects,
+or for UI updates.
+
+Excalibur events follow the convention that the name of the thrown event for listening
+will be the same as the Event object in all lower case with the 'Event' suffix removed.
+
+For example:
+
+- PreDrawEvent event object and "predraw" as the event name
+
+```typescript
+actor.on('predraw', (evtObj: PreDrawEvent) => {
+  // do some pre drawing
+})
+```
+
+### Example: Actor events
+
+Actors implement an EventDispatcher ([[Actor.eventDispatcher]]) so they can
+send and receive events. For example, they can enable Pointer events (mouse/touch)
+and you can respond to them by subscribing to the event names.
+You can also emit any other kind of event for your game just by using a custom
+`string` value and implementing a class that inherits from [[GameEvent]].
+
+```js
+var player = new ex.Actor(...);
+
+// Enable pointer events for this actor
+player.enableCapturePointer = true;
+// subscribe to pointerdown event
+player.on("pointerdown", function (evt: ex.Input.PointerEvent) {
+  console.log("Player was clicked!");
+});
+// turn off subscription
+player.off("pointerdown");
+// subscribe to custom event
+player.on("death", function (evt) {
+  console.log("Player died:", evt);
+});
+// trigger custom event
+player.emit("death", new DeathEvent());
+```
+
+### Example: Pub/Sub with Excalibur
+
+You can also create an EventDispatcher for any arbitrary object, for example
+a global game event aggregator (shown below as `vent`). Anything in your game can subscribe to
+it, if the event aggregator is in the global scope.
+_Warning:_ This can easily get out of hand. Avoid this usage, it just serves as
+an example.
+
+```js
+// create a publisher on an empty object
+var vent = new ex.EventDispatcher({})
+// handler for an event
+var subscription = function (event) {
+  console.log(event)
+}
+// add a subscription
+vent.on('someevent', subscription)
+// publish an event somewhere in the game
+vent.emit('someevent', new ex.GameEvent())
 ```
 
 ## Managing game state
