@@ -11,7 +11,7 @@ const Nav = () => (
     </Link>
     <a
       className="item"
-      href="https://groups.google.com/forum/#!forum/excaliburjs"
+      href="https://github.com/excaliburjs/Excalibur/discussions"
     >
       Community
     </a>
