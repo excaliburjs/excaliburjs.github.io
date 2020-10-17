@@ -2,7 +2,7 @@ import React from 'react'
 
 import Logo from './logo'
 
-const Footer = ({ googleGroupsUrl }) => (
+const Footer = ({ discussionBoardUrl }) => (
   <footer className="ui segment inverted gray square">
     <div className="ui center aligned container">
       <h5 className="ui header inverted">Get Involved</h5>
@@ -17,7 +17,7 @@ const Footer = ({ googleGroupsUrl }) => (
         >
           Open an Issue
         </a>
-        <a className="item" href={googleGroupsUrl}>
+        <a className="item" href={discussionBoardUrl}>
           Ask a Question
         </a>
       </div>

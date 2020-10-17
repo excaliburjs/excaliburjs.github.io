@@ -18,7 +18,7 @@ const Layout = ({ pageTitle = '', children }) => (
         site {
           siteMetadata {
             title
-            googleGroup
+            discussionBoard
           }
         }
       }
@@ -48,7 +48,7 @@ const Layout = ({ pageTitle = '', children }) => (
 
         {children}
 
-        <Footer googleGroupsUrl={data.site.siteMetadata.googleGroup} />
+        <Footer discussionBoardUrl={data.site.siteMetadata.discussionBoard} />
         <GoogleAnalytics />
       </>
     )}
