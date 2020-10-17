@@ -102,7 +102,7 @@ module.exports = {
         },
         queries: [
           `{ 
-            repository(owner: "excaliburjs", name: "excalibur-dist") {
+            repository(owner: "excaliburjs", name: "excalibur") {
               latestRelease: releases(last: 1) {
                 edges {
                   node {
@@ -124,7 +124,7 @@ module.exports = {
             }
           }`,
           `{ 
-            repository(owner: "excaliburjs", name: "excalibur-dist") {
+            repository(owner: "excaliburjs", name: "excalibur") {
               releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
                 edges {
                   node {
