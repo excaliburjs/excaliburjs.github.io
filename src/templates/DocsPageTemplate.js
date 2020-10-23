@@ -1,8 +1,12 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
+import { DocSearch } from '@docsearch/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Helmet } from 'react-helmet'
+
+import '@docsearch/react/style'
+
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
@@ -77,14 +81,10 @@ const TOC = ({ toc, releases }) => (
 )
 
 const Search = () => (
-  <div className="ui input">
-    <input
-      type="text"
-      id="docs-search"
-      name="docs-search"
-      placeholder="Search docs..."
-    />
-  </div>
+  <DocSearch
+    apiKey="bbb7679ce1b7e6f26980984d864045d3"
+    indexName="excaliburjs"
+  />
 )
 
 export default function Template({ data }) {
