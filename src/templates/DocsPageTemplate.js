@@ -100,7 +100,7 @@ export default function Template({ data }) {
         />
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+          href="https://cdn.jsdelivr.net/npm/@docsearch/css@1.0.0-alpha.28"
         />
       </Helmet>
       <Header />
