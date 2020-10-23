@@ -1,3 +1,6 @@
+require('dotenv').config({
+  path: `.env`,
+})
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
 module.exports = {
@@ -6,6 +9,20 @@ module.exports = {
     discussionBoard: 'https://github.com/excaliburjs/Excalibur/discussions',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src:
+          'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js',
+        crossorigin: 'anonymous',
+        onLoad: `() => docsearch({
+          apiKey: 'bbb7679ce1b7e6f26980984d864045d3',
+          indexName: 'excaliburjs',
+          inputSelector: '#docs-search',
+          debug: true // Set debug to true if you want to inspect the dropdown
+          })`,
+      },
+    },
     {
       resolve: 'gatsby-source-typedoc',
       options: {

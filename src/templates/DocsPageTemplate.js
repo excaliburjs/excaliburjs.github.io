@@ -76,6 +76,17 @@ const TOC = ({ toc, releases }) => (
   </div>
 )
 
+const Search = () => (
+  <div className="ui input">
+    <input
+      type="text"
+      id="docs-search"
+      name="docs-search"
+      placeholder="Search docs..."
+    />
+  </div>
+)
+
 export default function Template({ data }) {
   const { page, toc, releases } = data
   const { frontmatter, body } = page
@@ -87,11 +98,16 @@ export default function Template({ data }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+        />
       </Helmet>
       <Header />
 
       <div className="ui page relaxed grid">
         <div className="four wide column">
+          <Search />
           <TOC
             toc={toc.edges.map((e) => e.node)}
             releases={releases.edges.map((r) => r.node)}
