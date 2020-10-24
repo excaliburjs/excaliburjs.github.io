@@ -1,5 +1,5 @@
 ---
-title: Entity Component System (ECS)
+title: ECS
 path: /docs/entity-component-system
 ---
 
@@ -22,7 +22,6 @@ existing excalibur systems.
 
 In addition to the familiar [[Entity]], [[Component]], and [[System]], Excalibur also implements an ECS [[World]] where all of these
 pieces live and can interact together. Each [[Scene]] in Excalibur conatins an ECS world, they are not shared between scenes.
-TODO need to have multi-scene recommendation
 
 Inside an ECS [[World]] there is an [[EntityManager]], [[QueryManager]], and [[SystemManager]] that handle all the details.
 
@@ -36,13 +35,35 @@ Excalibur [[Actor]]'s are in fact [[Entity]]'s in this ECS implementation. Actor
 
 ### [[TagComponent]]
 
+Tag components are useful when you want to flag an entity with something, for example "offscreen". A good way to think about it is to use a flag for a non-default state.
+
 ### [[TransformComponent]]
 
+The Excalibur TransformComponent component primarily keeps track of the [[TransformComponent.z|z-index]] [[TransformComponent.pos|position]], [[TransformComponent.rotation|rotation]], and [[TransformComponent.scale|scale]] of an entity.
+
+Additionally it keeps track of the [[TransformComponent.coordPlane|coordinate plane]] which is whether its draw sticky to the [[CoordPlane.Screen]] or part of the [[CoordPlane.World]].
+
 ### [[CanvasDrawComponent]]
+
+The Excalibur CanvasDrawComponent component tells [[CanvasDrawSystem]] how to draw to a HTML 2D Canvas.
+
+```ts
+const entity = new ex.Entity()
+entity.addComponent(new TransformComponent())
+entity.addComponent(
+  new CanvasDrawComponent((ctx, delta) => {
+    // draw stuff
+    ctx.fillStyle = 'black'
+    ctx.fillRect(0, 0, 200, 200)
+  })
+)
+```
 
 ## Built in Excalibur Systems
 
 ### [[CanvasDrawSystem]]
+
+The Excalibur CanvasDrawSystem takes any entity with a [[TransformComponent]] and a [[CanvasDrawComponent]] and draws it to the canvas using the 2D canvas api.
 
 ## Implementing your own Components & Systems
 
