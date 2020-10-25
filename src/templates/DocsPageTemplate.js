@@ -81,10 +81,12 @@ const TOC = ({ toc, releases }) => (
 )
 
 const Search = () => (
-  <DocSearch
-    apiKey="bbb7679ce1b7e6f26980984d864045d3"
-    indexName="excaliburjs"
-  />
+  <div className="docs-search">
+    <DocSearch
+      apiKey="bbb7679ce1b7e6f26980984d864045d3"
+      indexName="excaliburjs"
+    />
+  </div>
 )
 
 export default function Template({ data }) {
