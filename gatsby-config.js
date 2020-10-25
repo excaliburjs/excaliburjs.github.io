@@ -1,3 +1,6 @@
+require('dotenv').config({
+  path: `.env`,
+})
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
 module.exports = {

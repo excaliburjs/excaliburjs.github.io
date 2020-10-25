@@ -1,8 +1,12 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
+import { DocSearch } from '@docsearch/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { Helmet } from 'react-helmet'
+
+import '@docsearch/react/style'
+
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
@@ -76,6 +80,15 @@ const TOC = ({ toc, releases }) => (
   </div>
 )
 
+const Search = () => (
+  <div className="docs-search">
+    <DocSearch
+      apiKey="bbb7679ce1b7e6f26980984d864045d3"
+      indexName="excaliburjs"
+    />
+  </div>
+)
+
 export default function Template({ data }) {
   const { page, toc, releases } = data
   const { frontmatter, body } = page
@@ -87,11 +100,16 @@ export default function Template({ data }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
         />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@docsearch/css@1.0.0-alpha.28"
+        />
       </Helmet>
       <Header />
 
       <div className="ui page relaxed grid">
         <div className="four wide column">
+          <Search />
           <TOC
             toc={toc.edges.map((e) => e.node)}
             releases={releases.edges.map((r) => r.node)}
