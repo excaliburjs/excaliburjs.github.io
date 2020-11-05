@@ -4,12 +4,12 @@ path: /docs/entity-component-system
 ---
 
 Excalibur has a built in Entity Component System (ECS for short), which is a popular software technique in the video game industry
-for managing behavior in a game in a composable and resuable way. Many ECS implementations also focus on memory cache optimization
+for managing behavior in a game in a composable and reusable way. Many ECS implementations also focus on memory cache optimization
 techniques, that is not a goal of the current Excalibur implemenation.
 
 ## What is an Entity-Component-System
 
-The [wikipedia](https://en.wikipedia.org/wiki/Entity_component_system) article does a pretty good job of explaining the.
+The [wikipedia](https://en.wikipedia.org/wiki/Entity_component_system) article does a pretty good job of explaining the design pattern, but here is the gist:
 
 - [[Entity]] - Any "thing" in the game that has behavior, it has an id place to to put components.
 - [[Component]] - Any state for a particular entity, generally these are state only, but can contain small amounts of logic
@@ -21,7 +21,7 @@ existing excalibur systems.
 ## Excalibur ECS Implementation
 
 In addition to the familiar [[Entity]], [[Component]], and [[System]], Excalibur also implements an ECS [[World]] where all of these
-pieces live and can interact together. Each [[Scene]] in Excalibur conatins an ECS world, they are not shared between scenes.
+pieces live and can interact together. Each [[Scene]] in Excalibur contains an ECS world, they are not shared between scenes.
 
 Inside an ECS [[World]] there is an [[EntityManager]], [[QueryManager]], and [[SystemManager]] that handle all the details.
 
@@ -48,7 +48,9 @@ console.log(entity.tags) // ['offscreen']
 
 The Excalibur TransformComponent component primarily keeps track of the [[TransformComponent.z|z-index]] [[TransformComponent.pos|position]], [[TransformComponent.rotation|rotation]], and [[TransformComponent.scale|scale]] of an entity.
 
-Additionally it keeps track of the [[TransformComponent.coordPlane|coordinate plane]] which is whether its draw sticky to the [[CoordPlane.Screen]] or part of the [[CoordPlane.World]].
+Additionally it keeps track of the [[TransformComponent.coordPlane|coordinate plane]] which is whether it draws to the [[CoordPlane.Screen]] or part of the [[CoordPlane.World]].
+The default is drawing in [[CoordPlane.World]] which shifts the entities in "world space" by the position of the current [[Camera]]
+If you are drawing in [[CoordPlane.Screen]] the entity is not influenced by the camera, for example an entity at (0, 0) will always be at the top left of the screen regardless of what happens to the current [[Camera]].
 
 ### [[CanvasDrawComponent]]
 
@@ -75,6 +77,8 @@ The Excalibur CanvasDrawSystem takes any entity with a [[TransformComponent]] an
 ## Implementing your own Components & Systems
 
 To build your own component, extend the Excalibur [[Component]] abstract class and pick a unique type name (duplicate type names will cause problems).
+
+For custom component types it is recommended you prefix your types, like `type = 'myCustomPrefixTransform'`
 
 In this example, we create a "search" type component, that searches for a target position. Notice how this component implementation is mostly data.
 
