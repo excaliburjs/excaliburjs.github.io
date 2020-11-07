@@ -7,7 +7,7 @@ const BUILD_CMD = 'node apidocs.js ' // leave space at end for specifying title 
 function build(version, title) {
   const exPath = path.join('./ex', version)
   const themePath = path.join(exPath, 'typedoc-default-themes')
-  const branch = version === 'edge' ? 'master' : version
+  const branch = version === 'edge' ? 'main' : version
   const docsPath = path.join(exPath, 'docs', 'api')
   const destPath = path.join('static', 'docs', 'api', version)
 
