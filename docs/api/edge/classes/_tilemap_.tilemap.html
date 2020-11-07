@@ -75,111 +75,6 @@
 						<p>The <a href="_tilemap_.tilemap.html">TileMap</a> class provides a lightweight way to do large complex scenes with collision
 						without the overhead of actors.</p>
 					</div>
-					<p>Tile maps are made up of <a href="_tilemap_.cell.html">Cells</a> which can draw <a href="_tilemap_.tilesprite.html">TileSprites</a>. Tile
-						maps support multiple layers and work well for building tile-based games such as RPGs,
-						adventure games, strategy games, and others. Cells can be <a href="_tilemap_.cell.html#solid">solid</a> so
-					that Actors can&#39;t pass through them.</p>
-					<p>We recommend using the <a href="http://www.mapeditor.org/">Tiled map editor</a> to build your maps
-						and export them to JSON. You can then load them using a <a href="../modules/_resources_index_.html#resource">Generic Resource</a>
-						and process them to create your levels. A <a href="_tilemap_.tilemap.html">TileMap</a> can then be used as part of a
-					level or map class that adds enemies and builds game objects from the Tiled map.</p>
-					<a href="#creating-a-tile-map" id="creating-a-tile-map" style="color: inherit; text-decoration: none;">
-						<h2>Creating a tile map</h2>
-					</a>
-					<p>A <a href="_tilemap_.tilemap.html">TileMap</a> is meant to be used in conjunction with a map editor. Creating
-					a tile map is fairly straightforward.</p>
-					<p>You need a tile sheet (see <a href="_drawing_spritesheet_.spritesheet.html">SpriteSheet</a>) that holds all the available tiles to
-						draw. <a href="_tilemap_.tilemap.html">TileMap</a> supports multiple sprite sheets, letting you organize tile sheets
-					to your liking.</p>
-					<p>Next, you need to populate each <a href="_tilemap_.cell.html">Cell</a> with one or more <a href="_tilemap_.tilesprite.html">TileSprites</a>
-					using <a href="_tilemap_.cell.html#pushsprite">Cell.pushSprite</a>.</p>
-					<p>Once the <a href="_tilemap_.tilemap.html">TileMap</a> is added to a <a href="_scene_.scene.html">Scene</a>, it will be drawn and updated.</p>
-					<p>You can then add <a href="../modules/_index_.html#actor">Actors</a> to the <a href="_scene_.scene.html">Scene</a> and interact with the <a href="_tilemap_.tilemap.html">TileMap</a>.</p>
-					<p>In this example, we take in a map configuration that we designed (for example,
-					based on the exported structure of a JSON file).</p>
-					<pre><code class="language-typescript"><span class="hljs-comment">// define TypeScript interfaces to make our life easier</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> MapDefinition {
-  cells: MapCellDefinition[];
-  tileSheets: IMapTileSheet[];
-  width: <span class="hljs-built_in">number</span>;
-  height: <span class="hljs-built_in">number</span>;
-  tileWidth: <span class="hljs-built_in">number</span>;
-  tileHeight: <span class="hljs-built_in">number</span>;
-}
-
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> MapCellDefinition {
-  x: <span class="hljs-built_in">number</span>;
-  y: <span class="hljs-built_in">number</span>;
-  tileId: <span class="hljs-built_in">number</span>;
-  sheetId: <span class="hljs-built_in">number</span>;
-}
-
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> MapTileSheet {
-  id: <span class="hljs-built_in">number</span>;
-  path: <span class="hljs-built_in">string</span>;
-  columns: <span class="hljs-built_in">number</span>;
-  rows: <span class="hljs-built_in">number</span>;
-}
-
-<span class="hljs-comment">// create a Map class that creates a game map</span>
-<span class="hljs-comment">// based on JSON configuration</span>
-<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-built_in">Map</span> <span class="hljs-keyword">extends</span> ex.Scene {
-  <span class="hljs-keyword">private</span> _mapDefinition: IMapDefinition;
-  <span class="hljs-keyword">private</span> _tileMap: ex.TileMap;
-  <span class="hljs-keyword">constructor</span>(<span class="hljs-params">mapDef: IMapDefinition</span>) {
-    <span class="hljs-comment">// store reference to definition</span>
-    <span class="hljs-built_in">this</span>._mapDefinition = mapDef;
-    <span class="hljs-comment">// create a tile map</span>
-    <span class="hljs-built_in">this</span>._tileMap = <span class="hljs-keyword">new</span> ex.TileMap(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, mapDef.tileWidth, mapDef.tileHeight,
-      mapDef.width / mapDef.tileWidth, mapDef.height / mapDef.tileHeight);
-  }
-  <span class="hljs-keyword">public</span> onInitialize() {
-    <span class="hljs-comment">// build our map based on JSON config</span>
-    <span class="hljs-comment">// build sprite sheets</span>
-    <span class="hljs-built_in">this</span>._mapDefinition.tileSheets.forEach(<span class="hljs-function"><span class="hljs-params">sheet</span> =&gt;</span> {
-
-      <span class="hljs-comment">// register sprite sheet with the tile map</span>
-      <span class="hljs-comment">// normally, you will want to ensure you load the Texture before</span>
-      <span class="hljs-comment">// creating the SpriteSheet</span>
-      <span class="hljs-comment">// this can be done outside the Map class, in a Loader</span>
-      <span class="hljs-built_in">this</span>._tileMap.registerSpriteSheet(sheet.id.toString(),
-        <span class="hljs-keyword">new</span> ex.SpriteSheet(<span class="hljs-keyword">new</span> ex.Texture(sheet.path), sheet.columns, sheet.rows,
-          <span class="hljs-built_in">this</span>._mapDefinition.tileWidth, <span class="hljs-built_in">this</span>._mapDefinition.tileHeight));
-    });
-    <span class="hljs-comment">// fill cells with sprites</span>
-    <span class="hljs-built_in">this</span>._mapDefinition.cells.forEach(<span class="hljs-function"><span class="hljs-params">cell</span> =&gt;</span> {
-      <span class="hljs-comment">// create a TileSprite</span>
-      <span class="hljs-comment">// assume tileId is the index of the frame in the sprite sheet</span>
-      <span class="hljs-keyword">const</span> ts = <span class="hljs-keyword">new</span> ex.TileSprite(cell.sheetId.toString(), cell.spriteId);
-      <span class="hljs-comment">// add to cell</span>
-      <span class="hljs-built_in">this</span>._tileMap.getCell(cell.x, cell.y).pushSprite(ts);
-    }
-  }
-}
-
-<span class="hljs-comment">// create a game</span>
-<span class="hljs-keyword">const</span> game = <span class="hljs-keyword">new</span> ex.Engine();
-
-<span class="hljs-comment">// add our level (JSON from external source)</span>
-<span class="hljs-keyword">const</span> map1 = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>({ ... });
-game.add(<span class="hljs-string">&quot;map1&quot;</span>, map1);
-game.start();</code></pre>
-					<p>In a real game, you will want to ensure all the textures for the sprite sheets
-						have been loaded. You could do this in the <a href="_resources_resource_.resource.html#processdata">Resource.processData</a> function
-					of the generic resource when loading your JSON, before creating your <code>Map</code> object.</p>
-					<a href="#off-screen-culling" id="off-screen-culling" style="color: inherit; text-decoration: none;">
-						<h2>Off-screen culling</h2>
-					</a>
-					<p>The <a href="_tilemap_.tilemap.html">TileMap</a> takes care of only drawing the portion of the map that is on-screen.
-						This significantly improves performance and essentially means Excalibur can support
-						huge maps. Since Actors off-screen are not drawn, this also means maps can support
-					many actors.</p>
-					<a href="#collision-checks" id="collision-checks" style="color: inherit; text-decoration: none;">
-						<h2>Collision checks</h2>
-					</a>
-					<p>You can use <a href="_tilemap_.tilemap.html#collides">TileMap.collides</a> to check if a given <a href="../modules/_index_.html#actor">Actor</a> is colliding with a
-						solid <a href="_tilemap_.cell.html">Cell</a>. This method returns an intersection <a href="_algebra_.vector.html">Vector</a> that represents
-					the smallest overlap with colliding cells.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -199,6 +94,9 @@ game.start();</code></pre>
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><a href="../interfaces/_interfaces_evented_.eventable.html" class="tsd-signature-type">Eventable</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.oninitialize.html" class="tsd-signature-type">OnInitialize</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.onpreupdate.html" class="tsd-signature-type">OnPreUpdate</a></li>
+					<li><a href="../interfaces/_interfaces_lifecycleevents_.onpostupdate.html" class="tsd-signature-type">OnPostUpdate</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -214,20 +112,43 @@ game.start();</code></pre>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#active" class="tsd-kind-icon">active</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#cellheight" class="tsd-kind-icon">cell<wbr>Height</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#cellwidth" class="tsd-kind-icon">cell<wbr>Width</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#changes" class="tsd-kind-icon">changes</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#cols" class="tsd-kind-icon">cols</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#components" class="tsd-kind-icon">components</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#data" class="tsd-kind-icon">data</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#isoffscreen" class="tsd-kind-icon">is<wbr>Offscreen</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#logger" class="tsd-kind-icon">logger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#rotation" class="tsd-kind-icon">rotation</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#rows" class="tsd-kind-icon">rows</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#scale" class="tsd-kind-icon">scale</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#visible" class="tsd-kind-icon">visible</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#x" class="tsd-kind-icon">x</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#y" class="tsd-kind-icon">y</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#z" class="tsd-kind-icon">z</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#tags" class="tsd-kind-icon">tags</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#types" class="tsd-kind-icon">types</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="_tilemap_.tilemap.html#addcomponent" class="tsd-kind-icon">add<wbr>Component</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#clone" class="tsd-kind-icon">clone</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#collides" class="tsd-kind-icon">collides</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#draw" class="tsd-kind-icon">draw</a></li>
@@ -235,12 +156,18 @@ game.start();</code></pre>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#getcell" class="tsd-kind-icon">get<wbr>Cell</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#getcellbyindex" class="tsd-kind-icon">get<wbr>Cell<wbr>ByIndex</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#getcellbypoint" class="tsd-kind-icon">get<wbr>Cell<wbr>ByPoint</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#hastag" class="tsd-kind-icon">has<wbr>Tag</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#kill" class="tsd-kind-icon">kill</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_tilemap_.tilemap.html#on" class="tsd-kind-icon">on</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_tilemap_.tilemap.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="_tilemap_.tilemap.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#registerspritesheet" class="tsd-kind-icon">register<wbr>Sprite<wbr>Sheet</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="_tilemap_.tilemap.html#removecomponent" class="tsd-kind-icon">remove<wbr>Component</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_tilemap_.tilemap.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
@@ -261,7 +188,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides TileMapImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L286">src/engine/TileMap.ts:286</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L296">src/engine/TileMap.ts:296</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -276,7 +203,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides TileMapImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L287">src/engine/TileMap.ts:287</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L297">src/engine/TileMap.ts:297</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -308,13 +235,29 @@ game.start();</code></pre>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="active" class="tsd-anchor"></a>
+					<h3> active</h3>
+					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.active</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L86">src/engine/EntityComponentSystem/Entity.ts:86</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Whether this entity is active, if set to false it will be reclaimed</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cellheight" class="tsd-anchor"></a>
 					<h3> cell<wbr>Height</h3>
 					<div class="tsd-signature tsd-kind-icon">cell<wbr>Height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.cellHeight</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L28">src/engine/TileMap.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L35">src/engine/TileMap.ts:35</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -325,9 +268,25 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.cellWidth</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L27">src/engine/TileMap.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L34">src/engine/TileMap.ts:34</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="changes" class="tsd-anchor"></a>
+					<h3> changes</h3>
+					<div class="tsd-signature tsd-kind-icon">changes<span class="tsd-signature-symbol">:</span> <a href="_util_observable_.observable.html" class="tsd-signature-type">Observable</a><span class="tsd-signature-symbol">&lt;</span><a href="_entitycomponentsystem_entity_.addedcomponent.html" class="tsd-signature-type">AddedComponent</a><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_entity_.removedcomponent.html" class="tsd-signature-type">RemovedComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Observable&lt;AddedComponent | RemovedComponent&gt;()</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.changes</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L174">src/engine/EntityComponentSystem/Entity.ts:174</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Observable that keeps track of component add or remove changes on the entity</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="cols" class="tsd-anchor"></a>
@@ -336,9 +295,25 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.cols</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L30">src/engine/TileMap.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L37">src/engine/TileMap.ts:37</a></li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="components" class="tsd-anchor"></a>
+					<h3> components</h3>
+					<div class="tsd-signature tsd-kind-icon">components<span class="tsd-signature-symbol">:</span> <a href="../modules/_entitycomponentsystem_entity_.html#componentmapper" class="tsd-signature-type">ComponentMapper</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">KnownComponents</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Proxy&lt;ComponentMapper&lt;KnownComponents&gt;&gt;({} as any, this._handleChanges)</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.components</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L169">src/engine/EntityComponentSystem/Entity.ts:169</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Dictionary that holds entity components</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="data" class="tsd-anchor"></a>
@@ -347,7 +322,7 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.data</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L24">src/engine/TileMap.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L26">src/engine/TileMap.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -358,7 +333,7 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -368,13 +343,51 @@ game.start();</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="id" class="tsd-anchor"></a>
+					<h3> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = Entity._ID++</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Entity.id</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L81">src/engine/EntityComponentSystem/Entity.ts:81</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The unique identifier for the entity</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="isoffscreen" class="tsd-anchor"></a>
+					<h3> is<wbr>Offscreen</h3>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Offscreen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from TileMapImpl.isOffscreen</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L31">src/engine/TileMap.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="logger" class="tsd-anchor"></a>
 					<h3> logger</h3>
 					<div class="tsd-signature tsd-kind-icon">logger<span class="tsd-signature-symbol">:</span> <a href="_util_log_.logger.html" class="tsd-signature-type">Logger</a><span class="tsd-signature-symbol"> = Logger.getInstance()</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.logger</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L23">src/engine/TileMap.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L25">src/engine/TileMap.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="rotation" class="tsd-anchor"></a>
+					<h3> rotation</h3>
+					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from TileMapImpl.rotation</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L32">src/engine/TileMap.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -385,7 +398,29 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.rows</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L29">src/engine/TileMap.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L36">src/engine/TileMap.ts:36</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="scale" class="tsd-anchor"></a>
+					<h3> scale</h3>
+					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = Vector.One</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from TileMapImpl.scale</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L33">src/engine/TileMap.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="visible" class="tsd-anchor"></a>
+					<h3> visible</h3>
+					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from TileMapImpl.visible</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L30">src/engine/TileMap.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -396,7 +431,7 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.x</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L25">src/engine/TileMap.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L27">src/engine/TileMap.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -407,13 +442,305 @@ game.start();</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from TileMapImpl.y</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L26">src/engine/TileMap.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L28">src/engine/TileMap.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="z" class="tsd-anchor"></a>
+					<h3> z</h3>
+					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from TileMapImpl.z</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L29">src/engine/TileMap.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="isinitialized" class="tsd-anchor"></a>
+					<h3> is<wbr>Initialized</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> isInitialized<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.isInitialized</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L285">src/engine/EntityComponentSystem/Entity.ts:285</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Gets whether the actor is Initialized</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+					<a name="pos" class="tsd-anchor"></a>
+					<h3> pos</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> pos<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> pos<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from TileMapImpl.pos</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L39">src/engine/TileMap.ts:39</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from TileMapImpl.pos</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L43">src/engine/TileMap.ts:43</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="tags" class="tsd-anchor"></a>
+					<h3> tags</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> tags<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.tags</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L102">src/engine/EntityComponentSystem/Entity.ts:102</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Specifically get the tags on the entity from <a href="_entitycomponentsystem_component_.tagcomponent.html">TagComponent</a></p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+					<a name="types" class="tsd-anchor"></a>
+					<h3> types</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> types<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.types</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L117">src/engine/EntityComponentSystem/Entity.ts:117</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The types of the components on the Entity</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="_initialize" class="tsd-anchor"></a>
+					<h3> _initialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">_initialize<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#_initialize">_initialize</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L296">src/engine/EntityComponentSystem/Entity.ts:296</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializes this entity, meant to be called by the Scene before first update not by users of Excalibur.</p>
+								</div>
+								<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="_postupdate" class="tsd-anchor"></a>
+					<h3> _postupdate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">_postupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#_postupdate">_postupdate</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L321">src/engine/EntityComponentSystem/Entity.ts:321</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Internal _preupdate handler for <a href="_tilemap_.tilemap.html#onpostupdate">onPostUpdate</a> lifecycle event</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="_preupdate" class="tsd-anchor"></a>
+					<h3> _preupdate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">_preupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#_preupdate">_preupdate</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L310">src/engine/EntityComponentSystem/Entity.ts:310</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>It is not recommended that internal excalibur methods be overriden, do so at your own risk.</p>
+								</div>
+								<p>Internal _preupdate handler for <a href="_tilemap_.tilemap.html#onpreupdate">onPreUpdate</a> lifecycle event</p>
+								<dl class="tsd-comment-tags">
+									<dt >internal</dt>
+									<dd ></dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="addcomponent" class="tsd-anchor"></a>
+					<h3> add<wbr>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Component&lt;T&gt;<span class="tsd-signature-symbol">(</span>componentOrEntity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><a href="_entitycomponentsystem_components_transformcomponent_.transformcomponent.html" class="tsd-signature-type">TransformComponent</a><span class="tsd-signature-symbol"> | </span><a href="_drawing_canvasdrawcomponent_.canvasdrawcomponent.html" class="tsd-signature-type">CanvasDrawComponent</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.addComponent</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L192">src/engine/EntityComponentSystem/Entity.ts:192</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Adds a component to the entity, or adds a copy of all the components from another entity as a &quot;prefab&quot;</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_component_.component.html" class="tsd-signature-type">Component</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>componentOrEntity: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Component or Entity to add copy of components from</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> force: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optionally overwrite any existing components of the same type</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><a href="_entitycomponentsystem_components_transformcomponent_.transformcomponent.html" class="tsd-signature-type">TransformComponent</a><span class="tsd-signature-symbol"> | </span><a href="_drawing_canvasdrawcomponent_.canvasdrawcomponent.html" class="tsd-signature-type">CanvasDrawComponent</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="clone" class="tsd-anchor"></a>
+					<h3> clone</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">clone<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.clone</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L179">src/engine/EntityComponentSystem/Entity.ts:179</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a deep copy of the entity and a copy of all its components</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="collides" class="tsd-anchor"></a>
 					<h3> collides</h3>
@@ -425,7 +752,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.collides</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L84">src/engine/TileMap.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L103">src/engine/TileMap.ts:103</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -455,7 +782,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.debugDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L228">src/engine/TileMap.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L243">src/engine/TileMap.ts:243</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -487,7 +814,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.draw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L181">src/engine/TileMap.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L200">src/engine/TileMap.ts:200</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -526,7 +853,7 @@ game.start();</code></pre>
 								<p>Implementation of <a href="../interfaces/_interfaces_evented_.eventable.html">Eventable</a>.<a href="../interfaces/_interfaces_evented_.eventable.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +891,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.getCell</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L132">src/engine/TileMap.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L151">src/engine/TileMap.ts:151</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -596,7 +923,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.getCellByIndex</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L126">src/engine/TileMap.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L145">src/engine/TileMap.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -625,7 +952,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.getCellByPoint</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L142">src/engine/TileMap.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L161">src/engine/TileMap.ts:161</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -648,6 +975,110 @@ game.start();</code></pre>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="has" class="tsd-anchor"></a>
+					<h3> has</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">has<span class="tsd-signature-symbol">(</span>type<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.has</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L276">src/engine/EntityComponentSystem/Entity.ts:276</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a component type exists</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>type: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="hastag" class="tsd-anchor"></a>
+					<h3> has<wbr>Tag</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Tag<span class="tsd-signature-symbol">(</span>tag<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.hasTag</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L110">src/engine/EntityComponentSystem/Entity.ts:110</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if a tag exists on the entity</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>tag: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>name to check for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="iskilled" class="tsd-anchor"></a>
+					<h3> is<wbr>Killed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Killed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#iskilled">isKilled</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L95">src/engine/EntityComponentSystem/Entity.ts:95</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="kill" class="tsd-anchor"></a>
+					<h3> kill</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">kill<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#kill">kill</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L91">src/engine/EntityComponentSystem/Entity.ts:91</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Kill the entity, means it will no longer be updated. Kills are deferred to the end of the update.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="off" class="tsd-anchor"></a>
 					<h3> off</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -658,7 +1089,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L37">src/engine/Class.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L37">src/engine/Class.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -721,7 +1152,7 @@ game.start();</code></pre>
 								<p>Inherited from TileMapImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L32">src/engine/TileMap.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L48">src/engine/TileMap.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -758,7 +1189,7 @@ game.start();</code></pre>
 								<p>Inherited from TileMapImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L33">src/engine/TileMap.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L49">src/engine/TileMap.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -795,7 +1226,7 @@ game.start();</code></pre>
 								<p>Inherited from TileMapImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L34">src/engine/TileMap.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L50">src/engine/TileMap.ts:50</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -832,7 +1263,7 @@ game.start();</code></pre>
 								<p>Inherited from TileMapImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L35">src/engine/TileMap.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L51">src/engine/TileMap.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -869,7 +1300,7 @@ game.start();</code></pre>
 								<p>Inherited from TileMapImpl.on</p>
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L36">src/engine/TileMap.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L52">src/engine/TileMap.ts:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -904,17 +1335,51 @@ game.start();</code></pre>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="oninitialize" class="tsd-anchor"></a>
+					<h3> on<wbr>Initialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Initialize<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.oninitialize.html">OnInitialize</a>.<a href="../interfaces/_interfaces_lifecycleevents_.oninitialize.html#oninitialize">onInitialize</a></p>
+								<p>Inherited from <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#oninitialize">onInitialize</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L332">src/engine/EntityComponentSystem/Entity.ts:332</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><code>onInitialize</code> is called before the first update of the entity. This method is meant to be
+									overridden.</p>
+								</div>
+								<p>Synonymous with the event handler <code>.on(&#39;initialize&#39;, (evt) =&gt; {...})</code></p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_engine: <a href="_engine_.engine.html" class="tsd-signature-type">Engine</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="onpostupdate" class="tsd-anchor"></a>
 					<h3> on<wbr>Post<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Post<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.onpostupdate.html">OnPostUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.onpostupdate.html#onpostupdate">onPostUpdate</a></p>
 								<p>Inherited from TileMapImpl.onPostUpdate</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#onpostupdate">onPostUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L156">src/engine/TileMap.ts:156</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L175">src/engine/TileMap.ts:175</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -930,18 +1395,20 @@ game.start();</code></pre>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="onpreupdate" class="tsd-anchor"></a>
 					<h3> on<wbr>Pre<wbr>Update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">on<wbr>Pre<wbr>Update<span class="tsd-signature-symbol">(</span>_engine<span class="tsd-signature-symbol">: </span><a href="_engine_.engine.html" class="tsd-signature-type">Engine</a>, _delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.onpreupdate.html">OnPreUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.onpreupdate.html#onpreupdate">onPreUpdate</a></p>
 								<p>Inherited from TileMapImpl.onPreUpdate</p>
+								<p>Overrides <a href="_entitycomponentsystem_entity_.entity.html">Entity</a>.<a href="_entitycomponentsystem_entity_.entity.html#onpreupdate">onPreUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L152">src/engine/TileMap.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L171">src/engine/TileMap.ts:171</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -968,7 +1435,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L56">src/engine/Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L56">src/engine/Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1024,7 +1491,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.registerSpriteSheet</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L77">src/engine/TileMap.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L96">src/engine/TileMap.ts:96</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1040,6 +1507,47 @@ game.start();</code></pre>
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+					<a name="removecomponent" class="tsd-anchor"></a>
+					<h3> remove<wbr>Component</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">remove<wbr>Component&lt;ComponentOrType&gt;<span class="tsd-signature-symbol">(</span>componentOrType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ComponentOrType</span>, force<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_entitycomponentsystem_entity_.html#excludetype" class="tsd-signature-type">ExcludeType</a><span class="tsd-signature-symbol">&lt;</span><a href="_entitycomponentsystem_components_transformcomponent_.transformcomponent.html" class="tsd-signature-type">TransformComponent</a><span class="tsd-signature-symbol"> | </span><a href="_drawing_canvasdrawcomponent_.canvasdrawcomponent.html" class="tsd-signature-type">CanvasDrawComponent</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ComponentOrType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Entity.removeComponent</p>
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/Entity.ts#L233">src/engine/EntityComponentSystem/Entity.ts:233</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a component from the entity, by default removals are deferred to the end of entity processing to avoid consistency issues</p>
+								</div>
+								<p>Components can be force removed with the <code>force</code> flag, the removal is not deferred and happens immediately</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>ComponentOrType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="_entitycomponentsystem_component_.component.html" class="tsd-signature-type">Component</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>componentOrType: <span class="tsd-signature-type">ComponentOrType</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> force: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_entitycomponentsystem_entity_.html#excludetype" class="tsd-signature-type">ExcludeType</a><span class="tsd-signature-symbol">&lt;</span><a href="_entitycomponentsystem_components_transformcomponent_.transformcomponent.html" class="tsd-signature-type">TransformComponent</a><span class="tsd-signature-symbol"> | </span><a href="_drawing_canvasdrawcomponent_.canvasdrawcomponent.html" class="tsd-signature-type">CanvasDrawComponent</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ComponentOrType</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="update" class="tsd-anchor"></a>
 					<h3> update</h3>
@@ -1051,7 +1559,7 @@ game.start();</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from TileMapImpl.update</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/TileMap.ts#L160">src/engine/TileMap.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/TileMap.ts#L179">src/engine/TileMap.ts:179</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1094,13 +1602,22 @@ game.start();</code></pre>
 								<a href="_tilemap_.tilemap.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#active" class="tsd-kind-icon">active</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#cellheight" class="tsd-kind-icon">cell<wbr>Height</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#cellwidth" class="tsd-kind-icon">cell<wbr>Width</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#changes" class="tsd-kind-icon">changes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#cols" class="tsd-kind-icon">cols</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#components" class="tsd-kind-icon">components</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#data" class="tsd-kind-icon">data</a>
@@ -1109,16 +1626,61 @@ game.start();</code></pre>
 								<a href="_tilemap_.tilemap.html#eventdispatcher" class="tsd-kind-icon">event<wbr>Dispatcher</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#id" class="tsd-kind-icon">id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#isoffscreen" class="tsd-kind-icon">is<wbr>Offscreen</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#logger" class="tsd-kind-icon">logger</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#rotation" class="tsd-kind-icon">rotation</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#rows" class="tsd-kind-icon">rows</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#scale" class="tsd-kind-icon">scale</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#visible" class="tsd-kind-icon">visible</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#x" class="tsd-kind-icon">x</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#y" class="tsd-kind-icon">y</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#z" class="tsd-kind-icon">z</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#isinitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#pos" class="tsd-kind-icon">pos</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#tags" class="tsd-kind-icon">tags</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#types" class="tsd-kind-icon">types</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#_initialize" class="tsd-kind-icon">_initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#_postupdate" class="tsd-kind-icon">_postupdate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#addcomponent" class="tsd-kind-icon">add<wbr>Component</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#collides" class="tsd-kind-icon">collides</a>
@@ -1142,15 +1704,30 @@ game.start();</code></pre>
 								<a href="_tilemap_.tilemap.html#getcellbypoint" class="tsd-kind-icon">get<wbr>Cell<wbr>ByPoint</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#has" class="tsd-kind-icon">has</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#hastag" class="tsd-kind-icon">has<wbr>Tag</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#iskilled" class="tsd-kind-icon">is<wbr>Killed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#kill" class="tsd-kind-icon">kill</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#off" class="tsd-kind-icon">off</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#oninitialize" class="tsd-kind-icon">on<wbr>Initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#onpostupdate" class="tsd-kind-icon">on<wbr>Post<wbr>Update</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#onpreupdate" class="tsd-kind-icon">on<wbr>Pre<wbr>Update</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
@@ -1158,6 +1735,9 @@ game.start();</code></pre>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#registerspritesheet" class="tsd-kind-icon">register<wbr>Sprite<wbr>Sheet</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
+								<a href="_tilemap_.tilemap.html#removecomponent" class="tsd-kind-icon">remove<wbr>Component</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_tilemap_.tilemap.html#update" class="tsd-kind-icon">update</a>

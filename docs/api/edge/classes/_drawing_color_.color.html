@@ -76,31 +76,6 @@
 							but you can also create custom colors using RGB, HSL, or Hex. Also provides
 						useful color operations like <a href="_drawing_color_.color.html#lighten">Color.lighten</a>, <a href="_drawing_color_.color.html#darken">Color.darken</a>, and more.</p>
 					</div>
-					<a href="#creating-colors" id="creating-colors" style="color: inherit; text-decoration: none;">
-						<h2>Creating colors</h2>
-					</a>
-					<pre><code class="language-js"><span class="hljs-comment">// RGBA</span>
-<span class="hljs-keyword">new</span> ex.Color(r, g, b, a);
-ex.Color.fromRGB(r, g, b, a);
-
-<span class="hljs-comment">// HSLA</span>
-ex.Color.fromHSL(h, s, l, a);
-<span class="hljs-comment">// Hex, alpha optional</span>
-ex.Color.fromHex(<span class="hljs-string">&#x27;#000000&#x27;</span>);
-ex.Color.fromHex(<span class="hljs-string">&#x27;#000000FF&#x27;</span>);
-
-<span class="hljs-comment">// String representation of a color with rgb as default</span>
-<span class="hljs-comment">// Options include rgb,hsl,hex</span>
-ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre>
-					<a href="#working-with-colors" id="working-with-colors" style="color: inherit; text-decoration: none;">
-						<h2>Working with colors</h2>
-					</a>
-					<p>Since Javascript does not support structs, if you change a color &quot;constant&quot; like <a href="_drawing_color_.color.html#black">Color.Black</a>
-						it will change it across the entire game. You can safely use the color operations
-						like <a href="_drawing_color_.color.html#lighten">Color.lighten</a> and <a href="_drawing_color_.color.html#darken">Color.darken</a> because they <code>clone</code> the color to
-					return a new color. However, be aware that this can use up memory if used excessively.</p>
-					<p>Just be aware that if you directly alter properties (i.e. <a href="_drawing_color_.color.html#r">Color.r</a>, etc.) , this will change it
-					for all the code that uses that instance of Color.</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -179,6 +154,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_drawing_color_.color.html#fromhsl" class="tsd-kind-icon">fromHSL</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_drawing_color_.color.html#fromhex" class="tsd-kind-icon">from<wbr>Hex</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_drawing_color_.color.html#fromrgb" class="tsd-kind-icon">fromRGB</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_drawing_color_.color.html#fromrgbstring" class="tsd-kind-icon">fromRGBString</a></li>
 							</ul>
 						</section>
 					</div>
@@ -196,7 +172,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L39">src/engine/Drawing/Color.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L37">src/engine/Drawing/Color.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,7 +228,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">a<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L26">src/engine/Drawing/Color.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L24">src/engine/Drawing/Color.ts:24</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -267,7 +243,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">b<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L22">src/engine/Drawing/Color.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L20">src/engine/Drawing/Color.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -282,7 +258,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">g<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L18">src/engine/Drawing/Color.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L16">src/engine/Drawing/Color.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -297,7 +273,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">h<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L31">src/engine/Drawing/Color.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L29">src/engine/Drawing/Color.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -312,7 +288,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">l<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L39">src/engine/Drawing/Color.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L37">src/engine/Drawing/Color.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -327,7 +303,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">r<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L14">src/engine/Drawing/Color.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L12">src/engine/Drawing/Color.ts:12</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -342,7 +318,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 					<div class="tsd-signature tsd-kind-icon">s<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L35">src/engine/Drawing/Color.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L33">src/engine/Drawing/Color.ts:33</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -364,7 +340,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L374">src/engine/Drawing/Color.ts:374</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L394">src/engine/Drawing/Color.ts:394</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -386,7 +362,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L271">src/engine/Drawing/Color.ts:271</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L291">src/engine/Drawing/Color.ts:291</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,7 +384,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L367">src/engine/Drawing/Color.ts:367</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L387">src/engine/Drawing/Color.ts:387</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -430,7 +406,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L402">src/engine/Drawing/Color.ts:402</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L422">src/engine/Drawing/Color.ts:422</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -452,7 +428,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L381">src/engine/Drawing/Color.ts:381</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L401">src/engine/Drawing/Color.ts:401</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -474,7 +450,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L299">src/engine/Drawing/Color.ts:299</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L319">src/engine/Drawing/Color.ts:319</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -496,7 +472,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L285">src/engine/Drawing/Color.ts:285</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L305">src/engine/Drawing/Color.ts:305</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -518,7 +494,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L395">src/engine/Drawing/Color.ts:395</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L415">src/engine/Drawing/Color.ts:415</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -540,7 +516,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L292">src/engine/Drawing/Color.ts:292</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L312">src/engine/Drawing/Color.ts:312</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -562,7 +538,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L353">src/engine/Drawing/Color.ts:353</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L373">src/engine/Drawing/Color.ts:373</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -584,7 +560,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L313">src/engine/Drawing/Color.ts:313</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L333">src/engine/Drawing/Color.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -606,7 +582,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L320">src/engine/Drawing/Color.ts:320</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L340">src/engine/Drawing/Color.ts:340</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -628,7 +604,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L346">src/engine/Drawing/Color.ts:346</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L366">src/engine/Drawing/Color.ts:366</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -650,7 +626,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L409">src/engine/Drawing/Color.ts:409</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L429">src/engine/Drawing/Color.ts:429</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -672,7 +648,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L327">src/engine/Drawing/Color.ts:327</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L347">src/engine/Drawing/Color.ts:347</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -694,7 +670,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L339">src/engine/Drawing/Color.ts:339</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L359">src/engine/Drawing/Color.ts:359</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -721,7 +697,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L360">src/engine/Drawing/Color.ts:360</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L380">src/engine/Drawing/Color.ts:380</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -743,7 +719,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L388">src/engine/Drawing/Color.ts:388</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L408">src/engine/Drawing/Color.ts:408</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -765,7 +741,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L278">src/engine/Drawing/Color.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L298">src/engine/Drawing/Color.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -787,7 +763,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L306">src/engine/Drawing/Color.ts:306</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L326">src/engine/Drawing/Color.ts:326</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -812,7 +788,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L193">src/engine/Drawing/Color.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L213">src/engine/Drawing/Color.ts:213</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -843,7 +819,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L264">src/engine/Drawing/Color.ts:264</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L284">src/engine/Drawing/Color.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -865,7 +841,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L119">src/engine/Drawing/Color.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L139">src/engine/Drawing/Color.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -896,7 +872,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L141">src/engine/Drawing/Color.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L161">src/engine/Drawing/Color.ts:161</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -927,7 +903,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L257">src/engine/Drawing/Color.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L277">src/engine/Drawing/Color.ts:277</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -949,7 +925,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L184">src/engine/Drawing/Color.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L204">src/engine/Drawing/Color.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -971,7 +947,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L108">src/engine/Drawing/Color.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L128">src/engine/Drawing/Color.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1002,7 +978,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L166">src/engine/Drawing/Color.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L186">src/engine/Drawing/Color.ts:186</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1035,7 +1011,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L152">src/engine/Drawing/Color.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L172">src/engine/Drawing/Color.ts:172</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1066,7 +1042,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L130">src/engine/Drawing/Color.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L150">src/engine/Drawing/Color.ts:150</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1097,7 +1073,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L175">src/engine/Drawing/Color.ts:175</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L195">src/engine/Drawing/Color.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1128,7 +1104,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L250">src/engine/Drawing/Color.ts:250</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L270">src/engine/Drawing/Color.ts:270</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1150,7 +1126,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L232">src/engine/Drawing/Color.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L252">src/engine/Drawing/Color.ts:252</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1172,7 +1148,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L239">src/engine/Drawing/Color.ts:239</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L259">src/engine/Drawing/Color.ts:259</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1194,7 +1170,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L206">src/engine/Drawing/Color.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L226">src/engine/Drawing/Color.ts:226</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1225,7 +1201,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L98">src/engine/Drawing/Color.ts:98</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L118">src/engine/Drawing/Color.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1274,7 +1250,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L73">src/engine/Drawing/Color.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L93">src/engine/Drawing/Color.ts:93</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1305,7 +1281,7 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Color.ts#L64">src/engine/Drawing/Color.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L62">src/engine/Drawing/Color.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1337,6 +1313,37 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> a: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The alpha component of color (0-1.0)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromrgbstring" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> fromRGBString</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">fromRGBString<span class="tsd-signature-symbol">(</span>string<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_drawing_color_.color.html" class="tsd-signature-type">Color</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Color.ts#L71">src/engine/Drawing/Color.ts:71</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance of Color from a rgb string</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>string: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>CSS color string of the form rgba(255, 255, 255, 1) or rgb(255, 255, 255)</p>
 									</div>
 								</li>
 							</ul>
@@ -1501,6 +1508,9 @@ ex.Color.toString(<span class="hljs-string">&#x27;rgb&#x27;</span>);</code></pre
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_drawing_color_.color.html#fromrgb" class="tsd-kind-icon">fromRGB</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_drawing_color_.color.html#fromrgbstring" class="tsd-kind-icon">fromRGBString</a>
 							</li>
 						</ul>
 					</li>

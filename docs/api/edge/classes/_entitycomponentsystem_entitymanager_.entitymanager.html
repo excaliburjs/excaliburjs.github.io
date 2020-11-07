@@ -104,9 +104,10 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#clear" class="tsd-kind-icon">clear</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#getbyid" class="tsd-kind-icon">get<wbr>ById</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#notify" class="tsd-kind-icon">notify</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#processremovals" class="tsd-kind-icon">process<wbr>Removals</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#processcomponentremovals" class="tsd-kind-icon">process<wbr>Component<wbr>Removals</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_entitycomponentsystem_entitymanager_.entitymanager.html#removeentity" class="tsd-kind-icon">remove<wbr>Entity</a></li>
 							</ul>
 						</section>
@@ -119,19 +120,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Entity<wbr>Manager<span class="tsd-signature-symbol">(</span>_scene<span class="tsd-signature-symbol">: </span><a href="_scene_.scene.html" class="tsd-signature-type">Scene</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entitymanager_.entitymanager.html" class="tsd-signature-type">EntityManager</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Entity<wbr>Manager<span class="tsd-signature-symbol">(</span>_world<span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_world_.world.html" class="tsd-signature-type">World</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_entitycomponentsystem_entitymanager_.entitymanager.html" class="tsd-signature-type">EntityManager</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L10">src/engine/EntityComponentSystem/EntityManager.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L10">src/engine/EntityComponentSystem/EntityManager.ts:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>_scene: <a href="_scene_.scene.html" class="tsd-signature-type">Scene</a></h5>
+									<h5>_world: <a href="_entitycomponentsystem_world_.world.html" class="tsd-signature-type">World</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_entitycomponentsystem_entitymanager_.entitymanager.html" class="tsd-signature-type">EntityManager</a></h4>
@@ -147,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">_entity<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L10">src/engine/EntityComponentSystem/EntityManager.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L10">src/engine/EntityComponentSystem/EntityManager.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -165,7 +166,7 @@
 					<div class="tsd-signature tsd-kind-icon">entities<span class="tsd-signature-symbol">:</span> <a href="_entitycomponentsystem_entity_.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L9">src/engine/EntityComponentSystem/EntityManager.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L9">src/engine/EntityComponentSystem/EntityManager.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -182,7 +183,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L33">src/engine/EntityComponentSystem/EntityManager.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L33">src/engine/EntityComponentSystem/EntityManager.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -203,6 +204,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="clear" class="tsd-anchor"></a>
+					<h3> clear</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L70">src/engine/EntityComponentSystem/EntityManager.ts:70</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getbyid" class="tsd-anchor"></a>
 					<h3> get<wbr>ById</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -212,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L66">src/engine/EntityComponentSystem/EntityManager.ts:66</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L66">src/engine/EntityComponentSystem/EntityManager.ts:66</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -235,7 +253,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L18">src/engine/EntityComponentSystem/EntityManager.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L18">src/engine/EntityComponentSystem/EntityManager.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -256,16 +274,16 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="processremovals" class="tsd-anchor"></a>
-					<h3> process<wbr>Removals</h3>
+					<a name="processcomponentremovals" class="tsd-anchor"></a>
+					<h3> process<wbr>Component<wbr>Removals</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">process<wbr>Removals<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">process<wbr>Component<wbr>Removals<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L60">src/engine/EntityComponentSystem/EntityManager.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L60">src/engine/EntityComponentSystem/EntityManager.ts:60</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -283,7 +301,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L42">src/engine/EntityComponentSystem/EntityManager.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L42">src/engine/EntityComponentSystem/EntityManager.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -297,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/EntityComponentSystem/EntityManager.ts#L43">src/engine/EntityComponentSystem/EntityManager.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/EntityComponentSystem/EntityManager.ts#L43">src/engine/EntityComponentSystem/EntityManager.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -343,13 +361,16 @@
 								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#clear" class="tsd-kind-icon">clear</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#getbyid" class="tsd-kind-icon">get<wbr>ById</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#notify" class="tsd-kind-icon">notify</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#processremovals" class="tsd-kind-icon">process<wbr>Removals</a>
+								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#processcomponentremovals" class="tsd-kind-icon">process<wbr>Component<wbr>Removals</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_entitycomponentsystem_entitymanager_.entitymanager.html#removeentity" class="tsd-kind-icon">remove<wbr>Entity</a>

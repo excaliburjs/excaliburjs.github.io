@@ -75,53 +75,6 @@
 						<p>A <a href="_drawing_sprite_.sprite.html">Sprite</a> is one of the main drawing primitives. It is responsible for drawing
 						images or parts of images from a <a href="../modules/_resources_index_.html#texture">Texture</a> resource to the screen.</p>
 					</div>
-					<a href="#creating-a-sprite" id="creating-a-sprite" style="color: inherit; text-decoration: none;">
-						<h2>Creating a sprite</h2>
-					</a>
-					<p>To create a <a href="_drawing_sprite_.sprite.html">Sprite</a> you need to have a loaded <a href="../modules/_resources_index_.html#texture">Texture</a> resource. You can
-						then use <a href="_resources_texture_.texture.html#assprite">Texture.asSprite</a> to quickly create a <a href="_drawing_sprite_.sprite.html">Sprite</a> or you can create
-						a new instance of <a href="_drawing_sprite_.sprite.html">Sprite</a> using the constructor. This is useful if you
-					want to &quot;slice&quot; out a portion of an image or if you want to change the dimensions.</p>
-					<pre><code class="language-js"><span class="hljs-keyword">var</span> game = <span class="hljs-keyword">new</span> ex.Engine();
-<span class="hljs-keyword">var</span> txPlayer = <span class="hljs-keyword">new</span> ex.Texture(<span class="hljs-string">&#x27;/assets/tx/player.png&#x27;</span>);
-<span class="hljs-comment">// load assets</span>
-<span class="hljs-keyword">var</span> loader = <span class="hljs-keyword">new</span> ex.Loader([txPlayer]);
-
-<span class="hljs-comment">// start game</span>
-game.start(loader).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-  <span class="hljs-comment">// create a sprite (quick)</span>
-  <span class="hljs-keyword">var</span> playerSprite = txPlayer.asSprite();
-  <span class="hljs-comment">// create a sprite (custom)</span>
-  <span class="hljs-keyword">var</span> playerSprite = <span class="hljs-keyword">new</span> ex.Sprite(txPlayer, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
-});</code></pre>
-					<p>You can then assign an <a href="../modules/_index_.html#actor">Actor</a> a sprite through <a href="_actor_.actor.html#adddrawing">Actor.addDrawing</a> and
-					<a href="_actor_.actor.html#setdrawing">Actor.setDrawing</a>.</p>
-					<a href="#sprite-effects" id="sprite-effects" style="color: inherit; text-decoration: none;">
-						<h2>Sprite Effects</h2>
-					</a>
-					<p>Excalibur offers many sprite effects such as <a href="_drawing_spriteeffects_.colorize.html">Colorize</a> to let you manipulate
-						sprites. Keep in mind, more effects requires more power and can lead to memory or CPU
-					constraints and hurt performance. Each effect must be reprocessed every frame for each sprite.</p>
-					<p>It&#39;s still recommended to create an <a href="_drawing_animation_.animation.html">Animation</a> or build in your effects to the sprites
-					for optimal performance.</p>
-					<p>There are a number of convenience methods available to perform sprite effects. Sprite effects are
-					side-effecting.</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> playerSprite = <span class="hljs-keyword">new</span> ex.Sprite(txPlayer, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">80</span>, <span class="hljs-number">80</span>);
-
-<span class="hljs-comment">// darken a sprite by a percentage</span>
-playerSprite.darken(<span class="hljs-number">0.2</span>); <span class="hljs-comment">// 20%</span>
-
-<span class="hljs-comment">// lighten a sprite by a percentage</span>
-playerSprite.lighten(<span class="hljs-number">0.2</span>); <span class="hljs-comment">// 20%</span>
-<span class="hljs-comment">// saturate a sprite by a percentage</span>
-playerSprite.saturate(<span class="hljs-number">0.2</span>); <span class="hljs-comment">// 20%</span>
-<span class="hljs-comment">// implement a custom effect</span>
-<span class="hljs-keyword">class</span> CustomEffect <span class="hljs-keyword">implements</span> ex.EffectsISpriteEffect {
-  updatePixel(x: <span class="hljs-built_in">number</span>, y: <span class="hljs-built_in">number</span>, imageData: ImageData) {
-    <span class="hljs-comment">// modify ImageData</span>
-  }
-}
-playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -215,7 +168,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Overrides SpriteImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L424">src/engine/Drawing/Sprite.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L419">src/engine/Drawing/Sprite.ts:419</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -230,7 +183,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Overrides SpriteImpl.__constructor</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L425">src/engine/Drawing/Sprite.ts:425</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L420">src/engine/Drawing/Sprite.ts:420</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -266,7 +219,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#anchor">anchor</a></p>
 						<p>Inherited from SpriteImpl.anchor</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L29">src/engine/Drawing/Sprite.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L29">src/engine/Drawing/Sprite.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -277,7 +230,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteImpl.effects</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L45">src/engine/Drawing/Sprite.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L45">src/engine/Drawing/Sprite.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -289,7 +242,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#fliphorizontal">flipHorizontal</a></p>
 						<p>Inherited from SpriteImpl.flipHorizontal</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L43">src/engine/Drawing/Sprite.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L43">src/engine/Drawing/Sprite.ts:43</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -306,7 +259,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#flipvertical">flipVertical</a></p>
 						<p>Inherited from SpriteImpl.flipVertical</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L38">src/engine/Drawing/Sprite.ts:38</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L38">src/engine/Drawing/Sprite.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -323,7 +276,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#height">height</a></p>
 						<p>Inherited from SpriteImpl.height</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L48">src/engine/Drawing/Sprite.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L48">src/engine/Drawing/Sprite.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -334,7 +287,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteImpl.logger</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L33">src/engine/Drawing/Sprite.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L33">src/engine/Drawing/Sprite.ts:33</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -345,7 +298,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteImpl.offset</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L30">src/engine/Drawing/Sprite.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L30">src/engine/Drawing/Sprite.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -357,7 +310,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#rotation">rotation</a></p>
 						<p>Inherited from SpriteImpl.rotation</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L28">src/engine/Drawing/Sprite.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L28">src/engine/Drawing/Sprite.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -369,7 +322,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#scale">scale</a></p>
 						<p>Inherited from SpriteImpl.scale</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L31">src/engine/Drawing/Sprite.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L31">src/engine/Drawing/Sprite.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -381,7 +334,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 						<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#width">width</a></p>
 						<p>Inherited from SpriteImpl.width</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L47">src/engine/Drawing/Sprite.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L47">src/engine/Drawing/Sprite.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -392,7 +345,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteImpl.x</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L17">src/engine/Drawing/Sprite.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L17">src/engine/Drawing/Sprite.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -403,7 +356,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 					<aside class="tsd-sources">
 						<p>Inherited from SpriteImpl.y</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L18">src/engine/Drawing/Sprite.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L18">src/engine/Drawing/Sprite.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -421,7 +374,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.drawHeight</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L24">src/engine/Drawing/Sprite.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L24">src/engine/Drawing/Sprite.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -439,7 +392,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.drawWidth</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L20">src/engine/Drawing/Sprite.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L20">src/engine/Drawing/Sprite.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -461,7 +414,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#addeffect">addEffect</a></p>
 								<p>Inherited from SpriteImpl.addEffect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L210">src/engine/Drawing/Sprite.ts:210</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L210">src/engine/Drawing/Sprite.ts:210</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +447,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#cleareffects">clearEffects</a></p>
 								<p>Inherited from SpriteImpl.clearEffects</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L294">src/engine/Drawing/Sprite.ts:294</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L294">src/engine/Drawing/Sprite.ts:294</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,7 +470,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.clone</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L388">src/engine/Drawing/Sprite.ts:388</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L388">src/engine/Drawing/Sprite.ts:388</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -540,7 +493,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.colorize</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L174">src/engine/Drawing/Sprite.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L174">src/engine/Drawing/Sprite.ts:174</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -570,7 +523,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.darken</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L188">src/engine/Drawing/Sprite.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L188">src/engine/Drawing/Sprite.ts:188</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -599,7 +552,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.debugDraw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L306">src/engine/Drawing/Sprite.ts:306</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L306">src/engine/Drawing/Sprite.ts:306</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -629,7 +582,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.desaturate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L202">src/engine/Drawing/Sprite.ts:202</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L202">src/engine/Drawing/Sprite.ts:202</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -660,7 +613,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#draw">draw</a></p>
 								<p>Inherited from SpriteImpl.draw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L324">src/engine/Drawing/Sprite.ts:324</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L324">src/engine/Drawing/Sprite.ts:324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -696,7 +649,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#draw">draw</a></p>
 								<p>Inherited from SpriteImpl.draw</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L329">src/engine/Drawing/Sprite.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L329">src/engine/Drawing/Sprite.ts:329</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -727,7 +680,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.fill</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L166">src/engine/Drawing/Sprite.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L166">src/engine/Drawing/Sprite.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -756,7 +709,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.grayscale</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L152">src/engine/Drawing/Sprite.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L152">src/engine/Drawing/Sprite.ts:152</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -779,7 +732,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.invert</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L159">src/engine/Drawing/Sprite.ts:159</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L159">src/engine/Drawing/Sprite.ts:159</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -802,7 +755,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.lighten</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L181">src/engine/Drawing/Sprite.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L181">src/engine/Drawing/Sprite.ts:181</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -831,7 +784,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.opacity</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L145">src/engine/Drawing/Sprite.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L145">src/engine/Drawing/Sprite.ts:145</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -862,7 +815,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#removeeffect">removeEffect</a></p>
 								<p>Inherited from SpriteImpl.removeEffect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L225">src/engine/Drawing/Sprite.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L225">src/engine/Drawing/Sprite.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -886,7 +839,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#removeeffect">removeEffect</a></p>
 								<p>Inherited from SpriteImpl.removeEffect</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L231">src/engine/Drawing/Sprite.ts:231</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L231">src/engine/Drawing/Sprite.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -919,7 +872,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 								<p>Implementation of <a href="../interfaces/_interfaces_drawable_.drawable.html">Drawable</a>.<a href="../interfaces/_interfaces_drawable_.drawable.html#reset">reset</a></p>
 								<p>Inherited from SpriteImpl.reset</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L302">src/engine/Drawing/Sprite.ts:302</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L302">src/engine/Drawing/Sprite.ts:302</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -942,7 +895,7 @@ playerSprite.addEffect(<span class="hljs-keyword">new</span> CustomEffect());</c
 							<aside class="tsd-sources">
 								<p>Inherited from SpriteImpl.saturate</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Drawing/Sprite.ts#L195">src/engine/Drawing/Sprite.ts:195</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Drawing/Sprite.ts#L195">src/engine/Drawing/Sprite.ts:195</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

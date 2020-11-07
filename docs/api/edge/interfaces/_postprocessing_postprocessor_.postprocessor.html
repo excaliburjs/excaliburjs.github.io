@@ -74,56 +74,6 @@
 					<div class="lead">
 						<p>Adds post processing support for the engine, can process raw pixel data and manipulate canvas directly.</p>
 					</div>
-					<p>Sometimes it is necessary to apply an effect to the canvas after the engine has completed its drawing pass. A few reasons to do
-					this might be creating a blur effect, adding a lighting effect, or changing how colors and pixels look.</p>
-					<a href="#basic-post-processors" id="basic-post-processors" style="color: inherit; text-decoration: none;">
-						<h2>Basic post processors</h2>
-					</a>
-					<p>To create and use a post processor you just need to implement a class that implements <a href="_postprocessing_postprocessor_.postprocessor.html">PostProcessor</a>, which has one method
-					<a href="_postprocessing_postprocessor_.postprocessor.html#process">PostProcessor.process</a>. Set the <code>out</code> canvas parameter to the final result, using the <code>image</code> pixel data.</p>
-					<p>Click to read more about <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData" class="external">ImageData</a> on MDN.</p>
-					<p>For example:</p>
-					<pre><code class="language-typescript"><span class="hljs-comment">// simple way to grayscale, a faster way would be to implement using a webgl fragment shader</span>
-<span class="hljs-keyword">class</span> GrayscalePostProcessor <span class="hljs-keyword">implements</span> PostProcessor {
-  process(image: ImageData, out: CanvasRenderingContext2D) {
-     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; (image.height * image.width), i+=<span class="hljs-number">4</span>){
-        <span class="hljs-comment">// for pixel &quot;i&quot;&quot;</span>
-        <span class="hljs-keyword">const</span> r = image.data[i+<span class="hljs-number">0</span>]; <span class="hljs-comment">//0-255</span>
-        <span class="hljs-keyword">const</span> g = image.data[i+<span class="hljs-number">1</span>]; <span class="hljs-comment">//g</span>
-        <span class="hljs-keyword">const</span> b = image.data[i+<span class="hljs-number">2</span>]; <span class="hljs-comment">//b</span>
-        image.data[i+<span class="hljs-number">3</span>]; <span class="hljs-comment">//a</span>
-        <span class="hljs-keyword">const</span> result = <span class="hljs-built_in">Math</span>.floor((r + g + b) / <span class="hljs-number">3.0</span>) | <span class="hljs-number">0</span>; <span class="hljs-comment">// only valid on 0-255 integers `| 0` forces int</span>
-        image.data[i+<span class="hljs-number">0</span>] = result;
-        image.data[i+<span class="hljs-number">1</span>] = result;
-        image.data[i+<span class="hljs-number">2</span>] = result;
-     }
-     <span class="hljs-comment">// finish processing and write result</span>
-     out.putImageData(image, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
-  }
-}</code></pre>
-					<a href="#color-blind-corrector-post-processor" id="color-blind-corrector-post-processor" style="color: inherit; text-decoration: none;">
-						<h2>Color Blind Corrector Post Processor</h2>
-					</a>
-					<p>Choosing colors that are friendly to players with color blindness is an important consideration when making a game.</p>
-					<p>There is a significant portion of the population that has some form of color blindness,
-						and choosing bad colors can make your game unplayable. We have built
-						a post processors that can shift your colors into as more visible range for the 3 most common types of
-					<a href="https://en.wikipedia.org/wiki/Color_blindness" class="external">color blindness</a>.</p>
-					<ul>
-						<li><a href="../enums/_postprocessing_colorblindcorrector_.colorblindness.html#protanope">Protanope</a></li>
-						<li><a href="../enums/_postprocessing_colorblindcorrector_.colorblindness.html#deuteranope">Deuteranope</a></li>
-						<li><a href="../enums/_postprocessing_colorblindcorrector_.colorblindness.html#tritanope">Tritanope</a></li>
-					</ul>
-					<p>This post processor can correct colors, and simulate color blindness.</p>
-					<p>It is possible to use this on every game, but the game&#39;s performance
-					will suffer measurably. It&#39;s better to use it as a helpful tool while developing your game.</p>
-					<p>Remember, the best practice is to design with color blindness in mind.</p>
-					<p>Example:</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">const</span> game = <span class="hljs-keyword">new</span> ex.Engine();
-
-game.debug.colorBlindMode.correct(ColorBlindness.Protanope);
-
-game.start();</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -165,7 +115,7 @@ game.start();</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/PostProcessing/PostProcessor.ts#L7">src/engine/PostProcessing/PostProcessor.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/PostProcessing/PostProcessor.ts#L5">src/engine/PostProcessing/PostProcessor.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>

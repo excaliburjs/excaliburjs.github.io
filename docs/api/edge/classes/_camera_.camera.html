@@ -77,74 +77,6 @@
 					<p><a href="_camera_.camera.html">Camera</a> is the base class for all Excalibur cameras. Cameras are used
 						to move around your game and set focus. They are used to determine
 					what is &quot;off screen&quot; and can be used to scale the game.</p>
-					<p>Cameras are attached to <a href="_scene_.scene.html">Scenes</a> and can be changed by
-						setting <a href="_scene_.scene.html#camera">Scene.camera</a>. By default, a <a href="_scene_.scene.html">Scene</a> is initialized with a
-					<a href="_camera_.camera.html">Camera</a> that doesn&#39;t move and is centered on the screen.</p>
-					<a href="#focus" id="focus" style="color: inherit; text-decoration: none;">
-						<h2>Focus</h2>
-					</a>
-					<p>Cameras have a position (<a href="_camera_.camera.html#x">x</a>, <a href="_camera_.camera.html#y">y</a>) which means they center around a specific
-					<a href="_algebra_.vector.html">point</a>.</p>
-					<p>If a camera is following an <a href="../modules/_index_.html#actor">Actor</a>, it will ensure the <a href="../modules/_index_.html#actor">Actor</a> is always at the
-						center of the screen. You can use <a href="_camera_.camera.html#x">x</a> and <a href="_camera_.camera.html#y">y</a> instead if you wish to
-					offset the focal point.</p>
-					<a href="#camera-strategies" id="camera-strategies" style="color: inherit; text-decoration: none;">
-						<h2>Camera strategies</h2>
-					</a>
-					<p>Cameras can implement a number of strategies to track, follow, or exhibit custom behavior in relation to a target. A common reason to use a
-					strategy is to have the <a href="_camera_.camera.html">Camera</a> follow an <a href="../modules/_index_.html#actor">Actor</a>.</p>
-					<p>In order to user the different built-in strategies, you can access <code>Camera.strategy</code></p>
-					<p>Lock the camera exactly to the center of the actor&#39;s bounding box</p>
-					<pre><code class="language-typescript">game.currentScene.camera.strategy.lockToActor(actor);</code></pre>
-					<p>Lock the camera to one axis of the actor, in this case follow the actors x position</p>
-					<pre><code class="language-typescript">game.currentScene.camera.strategy.lockToActorAxis(actor, ex.Axis.X);</code></pre>
-					<p>Elastically move the camera to an actor in a smooth motion see <a href="_camera_.elastictoactorstrategy.html">ElasticToActorStrategy</a> for details</p>
-					<pre><code class="language-typescript">game.currentScene.camera.strategy.elasticToActor(actor, cameraElasticity, cameraFriction);</code></pre>
-					<p>Keep the actor within a circle around the focus</p>
-					<pre><code class="language-typescript">game.currentScene.camera.strategy.radiusAroundActor(actor, radius);</code></pre>
-					<p>Keep the camera limited within camera constraints.<br>Make sure that the camera bounds are at least as large as the viewport size.</p>
-					<pre><code class="language-typescript"><span class="hljs-keyword">let</span> boundingBox = <span class="hljs-keyword">new</span> BoundingBox(leftBorder, topBorder, rightBorder, bottomBorder);
-game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
-					<a href="#custom-strategies" id="custom-strategies" style="color: inherit; text-decoration: none;">
-						<h2>Custom strategies</h2>
-					</a>
-					<p>Custom strategies can be implemented by extending the <a href="../interfaces/_camera_.camerastrategy.html">CameraStrategy</a> interface and added to cameras to build novel behavior with <code>ex.Camera.addStrategy&lt;T&gt;(new MyCameraStrategy&lt;T&gt;())</code>.</p>
-					<p>As shown below a camera strategy calculates a new camera position (<code>ex.Vector</code>) every frame given a target type, camera, engine, and elapsed delta in milliseconds.</p>
-					<pre><code class="language-typescript"><span class="hljs-comment">/**
- * Interface that describes a custom camera strategy for tracking targets
- */</span>
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">interface</span> CameraStrategy&lt;T&gt; {
-  <span class="hljs-comment">/**
-   * Target of the camera strategy that will be passed to the action
-   */</span>
-  target: T;
-
-  <span class="hljs-comment">/**
-   * Camera strategies perform an action to calculate a new focus returned out of the strategy
-   */</span>
-  action: <span class="hljs-function">(<span class="hljs-params">target: T, camera: Camera, engine: Engine, delta: <span class="hljs-built_in">number</span></span>) =&gt;</span> Vector;
-}</code></pre>
-					<a href="#camera-shake" id="camera-shake" style="color: inherit; text-decoration: none;">
-						<h2>Camera Shake</h2>
-					</a>
-					<p>To add some fun effects to your game, the <a href="_camera_.camera.html#shake">shake</a> method
-						will do a random shake. This is great for explosions, damage, and other
-					in-game effects.</p>
-					<a href="#camera-lerp" id="camera-lerp" style="color: inherit; text-decoration: none;">
-						<h2>Camera Lerp</h2>
-					</a>
-					<p>&quot;Lerp&quot; is short for <a href="http://en.wikipedia.org/wiki/Linear_interpolation">Linear Interpolation</a>
-						and it enables the camera focus to move smoothly between two points using timing functions.
-					Use <a href="_camera_.camera.html#move">move</a> to ease to a specific point using a provided <a href="../interfaces/_util_easingfunctions_.easingfunction.html">EasingFunction</a>.</p>
-					<a href="#camera-zooming" id="camera-zooming" style="color: inherit; text-decoration: none;">
-						<h2>Camera Zooming</h2>
-					</a>
-					<p>To adjust the zoom for your game, use <a href="_camera_.camera.html#zoom">zoom</a> which will scale the
-					game accordingly. You can pass a duration to transition between zoom levels.</p>
-					<a href="#known-issues" id="known-issues" style="color: inherit; text-decoration: none;">
-						<h2>Known Issues</h2>
-					</a>
-					<p><strong>Actors following a path will wobble when camera is moving</strong><br><a href="https://github.com/excaliburjs/Excalibur/issues/276">Issue #276</a></p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -252,7 +184,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="_camera_.camera.html" class="tsd-signature-type">Camera</a></h4>
@@ -268,7 +200,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">_follow<span class="tsd-signature-symbol">:</span> <a href="_actor_.actor.html" class="tsd-signature-type">Actor</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L238">src/engine/Camera.ts:238</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L237">src/engine/Camera.ts:237</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -278,7 +210,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Shaking<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L301">src/engine/Camera.ts:301</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L300">src/engine/Camera.ts:300</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -288,7 +220,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">_is<wbr>Zooming<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L309">src/engine/Camera.ts:309</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L308">src/engine/Camera.ts:308</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -298,7 +230,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">acc<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = Vector.Zero</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L291">src/engine/Camera.ts:291</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L290">src/engine/Camera.ts:290</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -313,7 +245,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">az<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L255">src/engine/Camera.ts:255</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L254">src/engine/Camera.ts:254</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -328,7 +260,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">dz<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L251">src/engine/Camera.ts:251</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L250">src/engine/Camera.ts:250</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -344,7 +276,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#eventdispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -359,7 +291,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = Vector.Zero</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L281">src/engine/Camera.ts:281</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L280">src/engine/Camera.ts:280</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -374,7 +306,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L260">src/engine/Camera.ts:260</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L259">src/engine/Camera.ts:259</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -389,7 +321,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">rx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L265">src/engine/Camera.ts:265</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L264">src/engine/Camera.ts:264</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -404,7 +336,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">strategy<span class="tsd-signature-symbol">:</span> <a href="_camera_.strategycontainer.html" class="tsd-signature-type">StrategyContainer</a><span class="tsd-signature-symbol"> = new StrategyContainer(this)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L242">src/engine/Camera.ts:242</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L241">src/engine/Camera.ts:241</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -414,7 +346,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">vel<span class="tsd-signature-symbol">:</span> <a href="_algebra_.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = Vector.Zero</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L286">src/engine/Camera.ts:286</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L285">src/engine/Camera.ts:285</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -429,7 +361,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L247">src/engine/Camera.ts:247</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L246">src/engine/Camera.ts:246</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -452,7 +384,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L270">src/engine/Camera.ts:270</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L269">src/engine/Camera.ts:269</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -465,7 +397,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L274">src/engine/Camera.ts:274</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L273">src/engine/Camera.ts:273</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -494,7 +426,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L376">src/engine/Camera.ts:376</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L375">src/engine/Camera.ts:375</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,7 +439,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L380">src/engine/Camera.ts:380</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L379">src/engine/Camera.ts:379</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -536,7 +468,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L387">src/engine/Camera.ts:387</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L386">src/engine/Camera.ts:386</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -549,7 +481,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L391">src/engine/Camera.ts:391</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L390">src/engine/Camera.ts:390</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -578,7 +510,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L354">src/engine/Camera.ts:354</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L353">src/engine/Camera.ts:353</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -591,7 +523,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L358">src/engine/Camera.ts:358</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L357">src/engine/Camera.ts:357</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -620,7 +552,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L365">src/engine/Camera.ts:365</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L364">src/engine/Camera.ts:364</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -633,7 +565,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L369">src/engine/Camera.ts:369</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L368">src/engine/Camera.ts:368</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -661,7 +593,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L560">src/engine/Camera.ts:560</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L559">src/engine/Camera.ts:559</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -678,7 +610,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L485">src/engine/Camera.ts:485</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L484">src/engine/Camera.ts:484</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -701,7 +633,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L322">src/engine/Camera.ts:322</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L321">src/engine/Camera.ts:321</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -714,7 +646,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L329">src/engine/Camera.ts:329</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L328">src/engine/Camera.ts:328</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -743,7 +675,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L338">src/engine/Camera.ts:338</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L337">src/engine/Camera.ts:337</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -756,7 +688,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L345">src/engine/Camera.ts:345</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L344">src/engine/Camera.ts:344</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -787,7 +719,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L564">src/engine/Camera.ts:564</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L563">src/engine/Camera.ts:563</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -810,7 +742,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L544">src/engine/Camera.ts:544</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L543">src/engine/Camera.ts:543</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -846,7 +778,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L524">src/engine/Camera.ts:524</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L523">src/engine/Camera.ts:523</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -882,7 +814,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L499">src/engine/Camera.ts:499</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L498">src/engine/Camera.ts:498</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -919,7 +851,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L514">src/engine/Camera.ts:514</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L513">src/engine/Camera.ts:513</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -941,7 +873,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L695">src/engine/Camera.ts:695</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L693">src/engine/Camera.ts:693</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -964,7 +896,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L681">src/engine/Camera.ts:681</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L679">src/engine/Camera.ts:679</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -997,7 +929,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 								<p>Implementation of <a href="../interfaces/_interfaces_evented_.eventable.html">Eventable</a>.<a href="../interfaces/_interfaces_evented_.eventable.html#emit">emit</a></p>
 								<p>Inherited from <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1034,7 +966,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L398">src/engine/Camera.ts:398</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L397">src/engine/Camera.ts:397</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1056,7 +988,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L478">src/engine/Camera.ts:478</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L477">src/engine/Camera.ts:477</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1078,7 +1010,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L411">src/engine/Camera.ts:411</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L410">src/engine/Camera.ts:410</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1124,7 +1056,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L589">src/engine/Camera.ts:589</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L588">src/engine/Camera.ts:588</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1160,7 +1092,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L590">src/engine/Camera.ts:590</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L589">src/engine/Camera.ts:589</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1196,7 +1128,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L591">src/engine/Camera.ts:591</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L590">src/engine/Camera.ts:590</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1232,7 +1164,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L592">src/engine/Camera.ts:592</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L591">src/engine/Camera.ts:591</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1279,7 +1211,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L582">src/engine/Camera.ts:582</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L581">src/engine/Camera.ts:581</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1315,7 +1247,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L583">src/engine/Camera.ts:583</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L582">src/engine/Camera.ts:582</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1351,7 +1283,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L584">src/engine/Camera.ts:584</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L583">src/engine/Camera.ts:583</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1396,7 +1328,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.caninitialize.html">CanInitialize</a>.<a href="../interfaces/_interfaces_lifecycleevents_.caninitialize.html#oninitialize">onInitialize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L578">src/engine/Camera.ts:578</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L577">src/engine/Camera.ts:577</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1426,7 +1358,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html">CanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html#onpostupdate">onPostUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L554">src/engine/Camera.ts:554</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L553">src/engine/Camera.ts:553</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1459,7 +1391,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html">CanUpdate</a>.<a href="../interfaces/_interfaces_lifecycleevents_.canupdate.html#onpreupdate">onPreUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L534">src/engine/Camera.ts:534</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L533">src/engine/Camera.ts:533</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1495,7 +1427,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L597">src/engine/Camera.ts:597</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L596">src/engine/Camera.ts:596</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1531,7 +1463,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L598">src/engine/Camera.ts:598</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L597">src/engine/Camera.ts:597</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1567,7 +1499,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L599">src/engine/Camera.ts:599</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L598">src/engine/Camera.ts:598</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1603,7 +1535,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 							<aside class="tsd-sources">
 								<p>Overrides <a href="_class_.class.html">Class</a>.<a href="_class_.class.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L600">src/engine/Camera.ts:600</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L599">src/engine/Camera.ts:599</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1647,7 +1579,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L507">src/engine/Camera.ts:507</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L506">src/engine/Camera.ts:506</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1684,7 +1616,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L443">src/engine/Camera.ts:443</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L442">src/engine/Camera.ts:442</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1727,7 +1659,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L605">src/engine/Camera.ts:605</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L604">src/engine/Camera.ts:604</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1753,7 +1685,7 @@ game.currentScene.camera.strategy.limitCameraBounds(boundingBox);</code></pre>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Camera.ts#L456">src/engine/Camera.ts:456</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Camera.ts#L455">src/engine/Camera.ts:455</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

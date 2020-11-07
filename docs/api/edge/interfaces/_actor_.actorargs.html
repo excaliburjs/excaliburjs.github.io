@@ -69,58 +69,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<a href="#constructor-arguments" id="constructor-arguments" style="color: inherit; text-decoration: none;">
-							<h2>Constructor Arguments</h2>
-						</a>
-						<p>In Excalibur there are option bag constructors available on most types. These support any public property or member, methods are not supported. The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.</p>
-						<p>For example instead of doing this:</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">100</span>, <span class="hljs-number">100</span>, ex.Color.Red);
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-						<p>This is possible:</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> options: IActorArgs = {
-   pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);
-   width: <span class="hljs-number">100</span>,
-   height: <span class="hljs-number">100</span>,
-   color: ex.Color.Red,
-}
-
-<span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-actor.body.collider.type = ex.CollisionType.Active;</code></pre>
-						<p>In fact you can create a duplicate this way</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor({
-  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
-});
-<span class="hljs-keyword">const</span> actorClone = <span class="hljs-keyword">new</span> ex.Actor(actor);
-
-expect(actor.pos).toBe(actorClone.pos); <span class="hljs-comment">// true;</span></code></pre>
-						<p>Types that support option bags can have their properties mass assigned using the assign method.</p>
-						<pre><code class="language-typescript"><span class="hljs-keyword">const</span> actor = <span class="hljs-keyword">new</span> ex.Actor(options);
-
-actor.assign({
-  pos: <span class="hljs-keyword">new</span> ex.Vector(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>),
-  width: <span class="hljs-number">1000</span>,
-  color: ex.Color.Red
-});</code></pre>
-						<p>See:</p>
-						<ul>
-							<li><a href="../classes/_actor_.actor.html">Actor</a></li>
-							<li><a href="../classes/_drawing_animation_.animation.html">Animation</a></li>
-							<li><a href="../classes/_label_.label.html">Label</a></li>
-							<li><a href="../classes/_drawing_sprite_.sprite.html">Sprite</a></li>
-							<li><a href="../classes/_drawing_spritesheet_.spritesheet.html">SpriteSheet</a></li>
-							<li><a href="../classes/_drawing_spritesheet_.spritefont.html">SpriteFont</a></li>
-							<li><a href="../classes/_screenelement_.uiactor.html">UIActor</a></li>
-							<li><a href="../classes/_particles_.particle.html">Particle</a></li>
-							<li><a href="../classes/_particles_.particleemitter.html">ParticleEmitter</a></li>
-							<li><a href="../classes/_tilemap_.tilemap.html">TileMap</a></li>
-							<li><a href="../classes/_tilemap_.cell.html">Cell</a></li>
-						</ul>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -168,7 +116,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">acc<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L65">src/engine/Actor.ts:65</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L68">src/engine/Actor.ts:68</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -178,7 +126,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="../classes/_collision_body_.body.html" class="tsd-signature-type">Body</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L71">src/engine/Actor.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L74">src/engine/Actor.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +136,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">collision<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/_collision_collisiontype_.collisiontype.html" class="tsd-signature-type">CollisionType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L72">src/engine/Actor.ts:72</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L75">src/engine/Actor.ts:75</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -198,7 +146,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">color<span class="tsd-signature-symbol">:</span> <a href="../classes/_drawing_color_.color.html" class="tsd-signature-type">Color</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L69">src/engine/Actor.ts:69</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L72">src/engine/Actor.ts:72</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -208,7 +156,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L62">src/engine/Actor.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L65">src/engine/Actor.ts:65</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -218,7 +166,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L63">src/engine/Actor.ts:63</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L66">src/engine/Actor.ts:66</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -228,7 +176,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L66">src/engine/Actor.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L69">src/engine/Actor.ts:69</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -238,7 +186,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">rx<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L67">src/engine/Actor.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L70">src/engine/Actor.ts:70</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -248,7 +196,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">vel<span class="tsd-signature-symbol">:</span> <a href="../classes/_algebra_.vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L64">src/engine/Actor.ts:64</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L67">src/engine/Actor.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -258,7 +206,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">visible<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L70">src/engine/Actor.ts:70</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L73">src/engine/Actor.ts:73</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -268,7 +216,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L61">src/engine/Actor.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L64">src/engine/Actor.ts:64</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -278,7 +226,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L59">src/engine/Actor.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L62">src/engine/Actor.ts:62</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -288,7 +236,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L60">src/engine/Actor.ts:60</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L63">src/engine/Actor.ts:63</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -298,7 +246,7 @@ actor.assign({
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/855ce516/src/engine/Actor.ts#L68">src/engine/Actor.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/659665f7/src/engine/Actor.ts#L71">src/engine/Actor.ts:71</a></li>
 						</ul>
 					</aside>
 				</section>
