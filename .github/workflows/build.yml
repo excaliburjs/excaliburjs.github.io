@@ -2,14 +2,11 @@ name: Build and Deploy Docs
 
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
 on:
   push:
     branches:
       - "site"
-  pull_request: # TEMPORARY
-    branches:   # TEMPORARY
-      - "site"  # TEMPORARY
 
 jobs:
   build:
