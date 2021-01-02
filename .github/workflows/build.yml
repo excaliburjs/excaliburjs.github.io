@@ -27,7 +27,9 @@ jobs:
 
   deploy:
     name: Deploy documentation site
+    runs-on: ubuntu-latest
     needs: build
     if: github.event_name != 'pull_request'
+    
     steps:
       - run: npm run deploy
