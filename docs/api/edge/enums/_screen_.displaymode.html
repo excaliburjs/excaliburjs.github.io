@@ -84,6 +84,7 @@
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_screen_.displaymode.html#container" class="tsd-kind-icon">Container</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_screen_.displaymode.html#dynamic" class="tsd-kind-icon">Dynamic</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_screen_.displaymode.html#fixed" class="tsd-kind-icon">Fixed</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_screen_.displaymode.html#fullscreen" class="tsd-kind-icon">Full<wbr>Screen</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_screen_.displaymode.html#position" class="tsd-kind-icon">Position</a></li>
@@ -100,7 +101,7 @@
 					<div class="tsd-signature tsd-kind-icon">Container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Container&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b4d56baa/src/engine/Screen.ts#L19">src/engine/Screen.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/33325af0/src/engine/Screen.ts#L60">src/engine/Screen.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -110,17 +111,33 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="dynamic" class="tsd-anchor"></a>
+					<h3> Dynamic</h3>
+					<div class="tsd-signature tsd-kind-icon">Dynamic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Dynamic&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/33325af0/src/engine/Screen.ts#L44">src/engine/Screen.ts:44</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Use the entire screen&#39;s css width/height for the game resolution dynamically. This means the resolution of the game will
+							change dynamically as the window is resized This is not the same as <a href="../classes/_screen_.screen.html#gofullscreen">Screen.goFullScreen</a></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="fixed" class="tsd-anchor"></a>
 					<h3> Fixed</h3>
 					<div class="tsd-signature tsd-kind-icon">Fixed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Fixed&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b4d56baa/src/engine/Screen.ts#L24">src/engine/Screen.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/33325af0/src/engine/Screen.ts#L49">src/engine/Screen.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Default, use a specified resolution for the game</p>
+							<p>Default, use a specified resolution for the game. Like 800x600 pixels for example.</p>
 						</div>
 					</div>
 				</section>
@@ -130,13 +147,29 @@
 					<div class="tsd-signature tsd-kind-icon">Full<wbr>Screen<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;FullScreen&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b4d56baa/src/engine/Screen.ts#L14">src/engine/Screen.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/33325af0/src/engine/Screen.ts#L38">src/engine/Screen.ts:38</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Use the entire screen&#39;s css width/height for the game resolution dynamically. This is not the same as <a href="../classes/_screen_.screen.html#gofullscreen">Screen.goFullScreen</a></p>
+							<p>Use as much space as possible that still fits in the screen while maintaining aspect ratio and resolution.
+							This is not the same as <a href="../classes/_screen_.screen.html#gofullscreen">Screen.goFullScreen</a></p>
 						</div>
+						<p>You may want to center your game here is an example</p>
+						<pre><code class="language-html"><span class="hljs-comment">&lt;!-- html --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;game&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></code></pre>
+						<pre><code class="language-css">// css
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}</code></pre>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
@@ -145,13 +178,18 @@
 					<div class="tsd-signature tsd-kind-icon">Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Position&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b4d56baa/src/engine/Screen.ts#L29">src/engine/Screen.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/33325af0/src/engine/Screen.ts#L55">src/engine/Screen.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Allow the game to be positioned with the <a href="../interfaces/_engine_.engineoptions.html#position">EngineOptions.position</a> option</p>
 						</div>
+						<dl class="tsd-comment-tags">
+							<dt >deprecated</dt>
+							<dd ><p>Use CSS to position the game canvas, will be removed in v0.26.0</p>
+							</dd>
+						</dl>
 					</div>
 				</section>
 			</section>
@@ -176,6 +214,9 @@
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_screen_.displaymode.html#container" class="tsd-kind-icon">Container</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_screen_.displaymode.html#dynamic" class="tsd-kind-icon">Dynamic</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_screen_.displaymode.html#fixed" class="tsd-kind-icon">Fixed</a>
