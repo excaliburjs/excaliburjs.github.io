@@ -1,0 +1,33 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - "site"
+
+jobs:
+  build:
+    name: Build using Node 12
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+        env:
+          GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
+          GH_RELEASE_TAG: master
+      - run: gem install sass -v 3.4.24
+      - run: npm install
+      - run: npm run docs
+      - run: npm run build
+
+  deploy:
+    name: Deploy documentation site
+    needs: build
+
+    steps:
+      - run: npm run deploy
