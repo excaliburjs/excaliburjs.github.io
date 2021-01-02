@@ -20,9 +20,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 12
-        env:
-          GH_REF: github.com/excaliburjs/excaliburjs.github.io.git
-          GH_RELEASE_TAG: master
       - run: gem install sass -v 3.4.24
       - run: npm install
       - run: npm run docs
@@ -31,6 +28,6 @@ jobs:
   deploy:
     name: Deploy documentation site
     needs: build
-
+    if: github.event_name != 'pull_request'
     steps:
       - run: npm run deploy
