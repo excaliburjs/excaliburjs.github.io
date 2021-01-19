@@ -15,7 +15,7 @@ const loader = new ex.Loader([
 ])
 ```
 
-[[Loadable|Loadables]] are different kinds of assets such as textures, sounds, and generic resources.
+[[Loadable|Loadables]] are different kinds of assets such as [image](/doc/graphics#imagesource), sounds, and generic resources.
 
 <Note>
 
@@ -98,19 +98,19 @@ This is a good approach to use when hosting your game at a sub-directory, such a
 
 ## Asset types
 
-### Images and textures
+### ImageSource
 
-Textures are the raw images that back [sprites](/docs/drawings#sprites). Excalibur supports loading most formats that browsers natively support like PNG, BMP, and JPEG. GIFs are even converted to [Excalibur animations](/docs/drawings#animations).
+[ImagesSource](/docs/graphics#imagesource)'s are the html images that back [sprites](/docs/graphics#sprites). Excalibur supports loading most formats that browsers natively support like PNG, BMP, and JPEG. GIFs are even converted to [Excalibur animations](/docs/drawings#animations).
 
-Pass an instance of [[Texture]] to a [[Loader]] to preload it. Once a texture
-is loaded, you can generate a sprite with it:
+Pass an instance of [[ImageSource]] to a [[Loader]] to preload it. Once a [image source](/docs/graphics#imagesource)
+is loaded, you can generate a [sprite](/docs/graphics#sprite) with it or use the whole image as a sprite implicitly:
 
 ```js
-const txPlayer = new ex.Texture('/assets/tx/player.png')
-const loader = new ex.Loader([txPlayer])
+const playerImg = new ex.Graphics.ImageSource('/assets/tx/player.png')
+const loader = new ex.Loader([playerImg])
 game.start(loader).then(function () {
   const player = new ex.Actor()
-  player.addDrawing(txPlayer)
+  player.graphics.show(playerImg)
   game.add(player)
 })
 ```

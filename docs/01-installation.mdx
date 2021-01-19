@@ -7,6 +7,13 @@ path: /docs/installation
 
 There are several ways you can get Excalibur: as standalone packages, using a script generator, or as raw script files you can download.
 
+<Note>
+
+Excalibur is a client-side library and cannot be used in a
+server-side Node.js, however it can be downloaded with npm.
+
+</Note>
+
 #### npm Package
 
 <Note>
@@ -39,6 +46,30 @@ See below for how to reference these files in your project after Excalibur is in
 
 View the [excalibur](https://www.npmjs.com/package/excalibur) package on npm.
 
+#### Script Reference or Download
+
+<Note>
+
+Best for quick prototypes or small projects
+
+</Note>
+
+If you are using Excalibur in a script tag, [unpkg](https://unpkg.com/) provides a quick way to include published npm packages as scripts.
+
+It is recommended you pin your version of excalibur to specific version like `excalibur@0.24.5`, however you can get the latest `https://unpkg.com/excalibur@latest`
+
+You can also download the compiled script from [Excalibur repository](https://github.com/excaliburjs/excalibur/releases).
+
+```html
+<html>
+  <head></head>
+  <body>
+    <script src="https://unpkg.com/excalibur@0.24.5"></script>
+    <script src="./my-game.js"></script>
+  </body>
+</html>
+```
+
 #### Nuget Package
 
 <Note>
@@ -68,39 +99,16 @@ See below for how to reference these files in your project after Excalibur is in
 
 View the [Excalibur](https://www.nuget.org/packages/Excalibur/) package on Nuget.
 
-#### Yeoman Generator
+#### GitHub Templates
 
-You can use the [Excalibur Yeoman generator](https://github.com/excaliburjs/generator-excalibur) to spin up a blank, ready-to-go Excalibur game:
-
-```bash
-# Install Yeoman globally
-npm install -g yo
-# Install the Excalibur generator globally
-npm install -g @excaliburjs/generator-excalibur
-# Create the folder you want your game to be in
-mkdir my-game
-# Go into the folder
-cd my-game
-# Run the excalibur generator
-yo @excaliburjs/excalibur
-```
-
-The Yeoman generator will automatically create the appropriate package.json and bower.json files and install the needed dependencies for your project.
-
-#### Raw Script Files via CDN or Download
-
-Excalibur is available via [unpkg](https://unpkg.com/) CDN, with the latest version at the following URL:
-
-- https://unpkg.com/excalibur@latest/dist/excalibur.js
-
-You can also download the raw Javascript files from the [Excalibur repository](https://github.com/excaliburjs/excalibur/releases).
-
-<Note>
-
-Remember, Excalibur is a client-side library and cannot be used in a
-server-side Node.js
-
-</Note>
+- [Parcel 1 and TypeScript](https://github.com/excaliburjs/template-ts-parcel)
+- [Webpack and TypeScript](https://github.com/excaliburjs/template-ts-webpack)
+- [TypeScript, Angular2 & SystemJS](https://github.com/excaliburjs/example-ts-angular2)
+- [TypeScript & Browserify](https://github.com/excaliburjs/example-ts-browserify)
+- [Universal Windows Platform (UWP)](https://github.com/excaliburjs/example-uwp)
+- [Apache Cordova](https://github.com/excaliburjs/example-cordova)
+- [Xamarin Forms](https://github.com/excaliburjs/example-xamarin)
+- [Electron](https://github.com/excaliburjs/example-electron)
 
 #### Unstable Builds
 
@@ -109,14 +117,6 @@ If you want to live on the edge and get unstable builds, you can add the Excalib
 #### Example Project Templates
 
 The excaliburjs organization on GitHub has several example projects:
-
-- [TypeScript, Angular2 & SystemJS](https://github.com/excaliburjs/example-ts-angular2)
-- [TypeScript & Webpack][example-webpack]
-- [TypeScript & Browserify](https://github.com/excaliburjs/example-ts-browserify)
-- [Universal Windows Platform (UWP)](https://github.com/excaliburjs/example-uwp)
-- [Apache Cordova](https://github.com/excaliburjs/example-cordova)
-- [Xamarin Forms](https://github.com/excaliburjs/example-xamarin)
-- [Electron](https://github.com/excaliburjs/example-electron)
 
 These examples allow you to simply clone and start building your game!
 
