@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs-extra')
 const child_process = require('child_process')
 const request = require('sync-request')
-const BUILD_CMD = 'node apidocs.js ' // leave space at end for specifying title as argument
+const BUILD_CMD = 'npm run apidocs -- ' // leave space at end for specifying title as argument
 
 function build(version, title) {
   const exPath = path.join('./ex', version)
