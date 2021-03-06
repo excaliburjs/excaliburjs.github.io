@@ -1,0 +1,671 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>System | Excalibur.js Edge API Documentation</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Excalibur.js Edge API Documentation</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/entitycomponentsystem.html">EntityComponentSystem</a>
+				</li>
+				<li>
+					<a href="entitycomponentsystem.system.html">System</a>
+				</li>
+			</ul>
+			<h1>Class System&lt;ComponentTypeUnion, ContextType&gt;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>An Excalibur <a href="entitycomponentsystem.system.html">System</a> that updates entities of certain types.
+						Systems are scene specific</p>
+					</div>
+					<p>Excalibur Systems currently require at least 1 Component type to operated</p>
+					<p>Multiple types are declared as a type union
+					For example:</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">class</span><span style="color: #000000"> </span><span style="color: #267F99">MySystem</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">System</span><span style="color: #000000">&lt;</span><span style="color: #267F99">ComponentA</span><span style="color: #000000"> | </span><span style="color: #267F99">ComponentB</span><span style="color: #000000">&gt; {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">public</span><span style="color: #000000"> </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #001080">types</span><span style="color: #000000"> = [</span><span style="color: #A31515">&#039;a&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;b&#039;</span><span style="color: #000000">] </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #0000FF">const</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">public</span><span style="color: #000000"> </span><span style="color: #0000FF">readonly</span><span style="color: #000000"> </span><span style="color: #001080">systemType</span><span style="color: #000000"> = </span><span style="color: #001080">SystemType</span><span style="color: #000000">.</span><span style="color: #001080">Update</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">public</span><span style="color: #000000"> </span><span style="color: #795E26">update</span><span style="color: #000000">(</span><span style="color: #001080">entities</span><span style="color: #000000">: </span><span style="color: #267F99">Entity</span><span style="color: #000000">&lt;</span><span style="color: #267F99">ComponentA</span><span style="color: #000000"> | </span><span style="color: #267F99">ComponentB</span><span style="color: #000000">&gt;) {</span>
+<span style="color: #000000">     ...</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>ComponentTypeUnion<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_component.component.html" class="tsd-signature-type">Component</a></h4>
+					</li>
+					<li>
+						<h4>ContextType</h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">System</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/util_observable.observer.html" class="tsd-signature-type">Observer</a><span class="tsd-signature-symbol">&lt;</span><a href="entitycomponentsystem_system.addedentity.html" class="tsd-signature-type">AddedEntity</a><span class="tsd-signature-symbol"> | </span><a href="entitycomponentsystem_system.removedentity.html" class="tsd-signature-type">RemovedEntity</a><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter"><a href="entitycomponentsystem.system.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#priority" class="tsd-kind-icon">priority</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#systemtype" class="tsd-kind-icon">system<wbr>Type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#types" class="tsd-kind-icon">types</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#initialize" class="tsd-kind-icon">initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#notify" class="tsd-kind-icon">notify</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#postupdate" class="tsd-kind-icon">postupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#preupdate" class="tsd-kind-icon">preupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#sort" class="tsd-kind-icon">sort</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="entitycomponentsystem.system.html#update" class="tsd-kind-icon">update</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3> constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>System&lt;ComponentTypeUnion, ContextType&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_system.system.html" class="tsd-signature-type">System</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ContextType</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>ComponentTypeUnion<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_component.component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+								<li>
+									<h4>ContextType</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="entitycomponentsystem_system.system.html" class="tsd-signature-type">System</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">ContextType</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="priority" class="tsd-anchor"></a>
+					<h3> priority</h3>
+					<div class="tsd-signature tsd-kind-icon">priority<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L53">src/engine/EntityComponentSystem/System.ts:53</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>System can execute in priority order, by default all systems are priority 0. Lower values indicated higher priority.
+								For a system to execute before all other a lower priority value (-1 for example) must be set.
+							For a system to exectue after all other a higher priority value (10 for example) must be set.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="systemtype" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagReadonly">Readonly</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> system<wbr>Type</h3>
+					<div class="tsd-signature tsd-kind-icon">system<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="../enums/entitycomponentsystem_system.systemtype.html" class="tsd-signature-type">SystemType</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L46">src/engine/EntityComponentSystem/System.ts:46</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Determine whether the system is called in the <a href="../enums/entitycomponentsystem.systemtype.html#update">SystemType.Update</a> or the <a href="../enums/entitycomponentsystem.systemtype.html#draw">SystemType.Draw</a> phase. Update is first, then Draw.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="types" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagReadonly">Readonly</span> <span class="tsd-flag ts-flagAbstract">Abstract</span> types</h3>
+					<div class="tsd-signature tsd-kind-icon">types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">readonly SystemTypes&lt;ComponentTypeUnion&gt;[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L41">src/engine/EntityComponentSystem/System.ts:41</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The types of entities that this system operates on
+							For example [&#39;transform&#39;, &#39;motion&#39;]</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="debugdraw" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> debug<wbr>Draw</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">debug<wbr>Draw<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CanvasRenderingContext2D</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L92">src/engine/EntityComponentSystem/System.ts:92</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optionally run a debug draw step to visualize the internals of the system</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <span class="tsd-signature-type">CanvasRenderingContext2D</span></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="initialize" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> initialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">initialize<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ContextType</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L66">src/engine/EntityComponentSystem/System.ts:66</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optionally specify an initialize handler</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <span class="tsd-signature-type">ContextType</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="notify" class="tsd-anchor"></a>
+					<h3> notify</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">notify<span class="tsd-signature-symbol">(</span>_entityAddedOrRemoved<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_system.addedentity.html" class="tsd-signature-type">AddedEntity</a><span class="tsd-signature-symbol"> | </span><a href="entitycomponentsystem_system.removedentity.html" class="tsd-signature-type">RemovedEntity</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L98">src/engine/EntityComponentSystem/System.ts:98</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Systems observe when entities match their types or no longer match their types, override</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_entityAddedOrRemoved: <a href="entitycomponentsystem_system.addedentity.html" class="tsd-signature-type">AddedEntity</a><span class="tsd-signature-symbol"> | </span><a href="entitycomponentsystem_system.removedentity.html" class="tsd-signature-type">RemovedEntity</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="postupdate" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> postupdate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">postupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ContextType</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L87">src/engine/EntityComponentSystem/System.ts:87</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optionally run a postupdate after the system processes matching entities</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <span class="tsd-signature-type">ContextType</span></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Time in milliseconds since the last frame</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="preupdate" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> preupdate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">preupdate<span class="tsd-signature-symbol">(</span>engine<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ContextType</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L80">src/engine/EntityComponentSystem/System.ts:80</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optionally run a preupdate before the system processes matching entities</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>engine: <span class="tsd-signature-type">ContextType</span></h5>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Time in milliseconds since the last frame</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sort" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> sort</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sort<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_entity.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span>, b<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_entity.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L60">src/engine/EntityComponentSystem/System.ts:60</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Optionally specify a sort order for entities passed to the your system</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <a href="entitycomponentsystem_entity.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The left entity</p>
+									</div>
+								</li>
+								<li>
+									<h5>b: <a href="entitycomponentsystem_entity.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The right entity</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="update" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagAbstract">Abstract</span> update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>entities<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_entity.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/System.ts#L73">src/engine/EntityComponentSystem/System.ts:73</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update all entities that match this system&#39;s types</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>entities: <a href="entitycomponentsystem_entity.entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ComponentTypeUnion</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Entities to update that match this system&#39;s typse</p>
+									</div>
+								</li>
+								<li>
+									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Time in milliseconds</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/entitycomponentsystem.html">Entity<wbr>Component<wbr>System</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/entitycomponentsystem.coordplane.html" class="tsd-kind-icon">Coord<wbr>Plane</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/entitycomponentsystem.systemtype.html" class="tsd-kind-icon">System<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.addedcomponent.html" class="tsd-kind-icon">Added<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.addedentity.html" class="tsd-kind-icon">Added<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.component.html" class="tsd-kind-icon">Component</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.entity.html" class="tsd-kind-icon">Entity</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.entitymanager.html" class="tsd-kind-icon">Entity<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.query.html" class="tsd-kind-icon">Query</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.querymanager.html" class="tsd-kind-icon">Query<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.removedcomponent.html" class="tsd-kind-icon">Removed<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.removedentity.html" class="tsd-kind-icon">Removed<wbr>Entity</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.system.html" class="tsd-kind-icon">System</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="entitycomponentsystem.system.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#priority" class="tsd-kind-icon">priority</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#systemtype" class="tsd-kind-icon">system<wbr>Type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#types" class="tsd-kind-icon">types</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#debugdraw" class="tsd-kind-icon">debug<wbr>Draw</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#initialize" class="tsd-kind-icon">initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#notify" class="tsd-kind-icon">notify</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#postupdate" class="tsd-kind-icon">postupdate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#preupdate" class="tsd-kind-icon">preupdate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#sort" class="tsd-kind-icon">sort</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="entitycomponentsystem.system.html#update" class="tsd-kind-icon">update</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.systemmanager.html" class="tsd-kind-icon">System<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.tagcomponent.html" class="tsd-kind-icon">Tag<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module">
+						<a href="entitycomponentsystem.transformcomponent.html" class="tsd-kind-icon">Transform<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="entitycomponentsystem.world.html" class="tsd-kind-icon">World</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/entitycomponentsystem.componentctor.html" class="tsd-kind-icon">Component<wbr>Ctor</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/entitycomponentsystem.entitycomponent.html" class="tsd-kind-icon">Entity<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/entitycomponentsystem.html#componentmap" class="tsd-kind-icon">Component<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/entitycomponentsystem.html#componentmapper" class="tsd-kind-icon">Component<wbr>Mapper</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/entitycomponentsystem.html#excludetype" class="tsd-kind-icon">Exclude<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/entitycomponentsystem.html#maptypenametocomponent" class="tsd-kind-icon">Map<wbr>Type<wbr>Name<wbr>ToComponent</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="../modules/entitycomponentsystem.html#systemtypes" class="tsd-kind-icon">System<wbr>Types</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/entitycomponentsystem.html#isaddedcomponent" class="tsd-kind-icon">is<wbr>Added<wbr>Component</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/entitycomponentsystem.html#isaddedsystementity" class="tsd-kind-icon">is<wbr>Added<wbr>System<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/entitycomponentsystem.html#isremovesystementity" class="tsd-kind-icon">is<wbr>Remove<wbr>System<wbr>Entity</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/entitycomponentsystem.html#isremovedcomponent" class="tsd-kind-icon">is<wbr>Removed<wbr>Component</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-46390208-1', 'excaliburjs.com');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>

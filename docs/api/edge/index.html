@@ -53,7 +53,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="modules.html">Globals</a>
 				</li>
 			</ul>
 			<h1>Excalibur.js Edge API Documentation</h1>
@@ -130,433 +130,553 @@
 					<li><em>Optional:</em> Grunt CLI (<code>npm i -g grunt-cli</code>), same task names</li>
 				</ul>
 				<p>After cloning the repository, run:</p>
-				<pre><code class="language-sh">npm install</code></pre>
+				<pre><code class="language-sh"><span style="color: #000000">npm install</span>
+</code></pre>
 				<p>You can then run the npm tasks for various purposes:</p>
-				<pre><code class="language-bash"><span class="hljs-comment"># Run compilation, linting, and all unit &amp; visual tests</span>
-<span class="hljs-comment"># Recommend to do this before finalizing pull requests</span>
-npm run all
+				<pre><code class="language-bash"><span style="color: #008000"># Run compilation, linting, and all unit &amp; visual tests</span>
+<span style="color: #008000"># Recommend to do this before finalizing pull requests</span>
+<span style="color: #000000">npm run all</span>
 
-<span class="hljs-comment"># Run engine core compilation only</span>
-<span class="hljs-comment"># Useful for quick checks to ensure everything compiles</span>
-npm run core
+<span style="color: #008000"># Run engine core compilation only</span>
+<span style="color: #008000"># Useful for quick checks to ensure everything compiles</span>
+<span style="color: #000000">npm run build</span>
 
-<span class="hljs-comment"># Run engine tests only (does not run compile task)</span>
-<span class="hljs-comment"># Useful to run tests ad-hoc</span>
-npm <span class="hljs-built_in">test</span>
-npm run <span class="hljs-built_in">test</span>
+<span style="color: #008000"># Run engine tests only (does not run compile task)</span>
+<span style="color: #008000"># Useful to run tests ad-hoc</span>
+<span style="color: #000000">npm </span><span style="color: #795E26">test</span>
+<span style="color: #000000">npm run </span><span style="color: #795E26">test</span>
 
-<span class="hljs-comment"># Compile HTML visual tests</span>
-<span class="hljs-comment"># Useful to ensure HTML sandbox compiles</span>
-npm run visual
+<span style="color: #008000"># Compile HTML visual tests</span>
+<span style="color: #008000"># Useful to ensure HTML sandbox compiles</span>
+<span style="color: #000000">npm run visual</span>
 
-<span class="hljs-comment"># Start sandbox dev server (long-running)</span>
-<span class="hljs-comment"># Run in separate terminal alongside `npm run visual`</span>
-npm run sandbox
+<span style="color: #008000"># Start sandbox dev server (long-running)</span>
+<span style="color: #008000"># Run in separate terminal alongside `npm run visual`</span>
+<span style="color: #000000">npm run sandbox</span>
 
-<span class="hljs-comment"># Compile API docs</span>
-npm run apidocs
+<span style="color: #008000"># Compile API docs</span>
+<span style="color: #000000">npm run apidocs</span>
 
-<span class="hljs-comment"># Build a nuget package and specify a version</span>
-npm run nuget -- 1.1.1</code></pre>
+<span style="color: #008000"># Build a nuget package and specify a version</span>
+<span style="color: #000000">npm run nuget -- 1.1.1</span>
+</code></pre>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h1>License</h1>
 				</a>
 				<p>Excalibur is open source and operates under the 2-clause BSD license:</p>
-				<pre><code>BSD 2-Clause License
+				<pre><code><span style="color: #0070C1">BSD</span><span style="color: #000000"> </span><span style="color: #098658">2</span><span style="color: #000000">-</span><span style="color: #001080">Clause</span><span style="color: #000000"> </span><span style="color: #001080">License</span>
 
-Copyright (c) 2014, Erik Onarheim
-All rights reserved.
+<span style="color: #795E26">Copyright</span><span style="color: #000000"> (</span><span style="color: #001080">c</span><span style="color: #000000">) </span><span style="color: #098658">2014</span><span style="color: #000000">, </span><span style="color: #001080">Erik</span><span style="color: #000000"> </span><span style="color: #001080">Onarheim</span>
+<span style="color: #001080">All</span><span style="color: #000000"> </span><span style="color: #001080">rights</span><span style="color: #000000"> </span><span style="color: #001080">reserved</span><span style="color: #000000">.</span>
 
-Redistribution and <span class="hljs-keyword">use</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">source</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">binary</span> forms, <span class="hljs-keyword">with</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">without</span>
-<span class="hljs-keyword">modification</span>, <span class="hljs-keyword">are</span> permitted provided that the <span class="hljs-keyword">following</span> conditions <span class="hljs-keyword">are</span> met:
+<span style="color: #001080">Redistribution</span><span style="color: #000000"> </span><span style="color: #001080">and</span><span style="color: #000000"> </span><span style="color: #001080">use</span><span style="color: #000000"> </span><span style="color: #0000FF">in</span><span style="color: #000000"> </span><span style="color: #001080">source</span><span style="color: #000000"> </span><span style="color: #001080">and</span><span style="color: #000000"> </span><span style="color: #001080">binary</span><span style="color: #000000"> </span><span style="color: #001080">forms</span><span style="color: #000000">, </span><span style="color: #AF00DB">with</span><span style="color: #000000"> </span><span style="color: #001080">or</span><span style="color: #000000"> </span><span style="color: #001080">without</span>
+<span style="color: #001080">modification</span><span style="color: #000000">, </span><span style="color: #001080">are</span><span style="color: #000000"> </span><span style="color: #001080">permitted</span><span style="color: #000000"> </span><span style="color: #001080">provided</span><span style="color: #000000"> </span><span style="color: #001080">that</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">following</span><span style="color: #000000"> </span><span style="color: #001080">conditions</span><span style="color: #000000"> </span><span style="color: #001080">are</span><span style="color: #000000"> met:</span>
 
-* Redistributions <span class="hljs-keyword">of</span> <span class="hljs-keyword">source</span> code must retain the above copyright <span class="hljs-keyword">notice</span>, this
-  <span class="hljs-keyword">list</span> <span class="hljs-keyword">of</span> conditions <span class="hljs-keyword">and</span> the <span class="hljs-keyword">following</span> disclaimer.
+<span style="color: #000000">* </span><span style="color: #001080">Redistributions</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">source</span><span style="color: #000000"> </span><span style="color: #001080">code</span><span style="color: #000000"> </span><span style="color: #001080">must</span><span style="color: #000000"> </span><span style="color: #001080">retain</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">above</span><span style="color: #000000"> </span><span style="color: #001080">copyright</span><span style="color: #000000"> </span><span style="color: #001080">notice</span><span style="color: #000000">, </span><span style="color: #0000FF">this</span>
+<span style="color: #000000">  </span><span style="color: #001080">list</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">conditions</span><span style="color: #000000"> </span><span style="color: #001080">and</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">following</span><span style="color: #000000"> </span><span style="color: #001080">disclaimer</span><span style="color: #000000">.</span>
 
-* Redistributions <span class="hljs-keyword">in</span> <span class="hljs-built_in">binary</span> <span class="hljs-keyword">form</span> must reproduce the above copyright <span class="hljs-keyword">notice</span>,
-  this <span class="hljs-keyword">list</span> <span class="hljs-keyword">of</span> conditions <span class="hljs-keyword">and</span> the <span class="hljs-keyword">following</span> disclaimer <span class="hljs-keyword">in</span> the documentation
-  <span class="hljs-keyword">and</span>/<span class="hljs-keyword">or</span> other materials provided <span class="hljs-keyword">with</span> the distribution.
+<span style="color: #000000">* </span><span style="color: #001080">Redistributions</span><span style="color: #000000"> </span><span style="color: #0000FF">in</span><span style="color: #000000"> </span><span style="color: #001080">binary</span><span style="color: #000000"> </span><span style="color: #001080">form</span><span style="color: #000000"> </span><span style="color: #001080">must</span><span style="color: #000000"> </span><span style="color: #001080">reproduce</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">above</span><span style="color: #000000"> </span><span style="color: #001080">copyright</span><span style="color: #000000"> </span><span style="color: #001080">notice</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">this</span><span style="color: #000000"> </span><span style="color: #001080">list</span><span style="color: #000000"> </span><span style="color: #0000FF">of</span><span style="color: #000000"> </span><span style="color: #001080">conditions</span><span style="color: #000000"> </span><span style="color: #001080">and</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">following</span><span style="color: #000000"> </span><span style="color: #001080">disclaimer</span><span style="color: #000000"> </span><span style="color: #0000FF">in</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">documentation</span>
+<span style="color: #000000">  </span><span style="color: #001080">and</span><span style="color: #000000">/</span><span style="color: #001080">or</span><span style="color: #000000"> </span><span style="color: #001080">other</span><span style="color: #000000"> </span><span style="color: #001080">materials</span><span style="color: #000000"> </span><span style="color: #001080">provided</span><span style="color: #000000"> </span><span style="color: #AF00DB">with</span><span style="color: #000000"> </span><span style="color: #001080">the</span><span style="color: #000000"> </span><span style="color: #001080">distribution</span><span style="color: #000000">.</span>
 
-THIS SOFTWARE <span class="hljs-keyword">IS</span> PROVIDED <span class="hljs-keyword">BY</span> THE COPYRIGHT HOLDERS <span class="hljs-keyword">AND</span> <span class="hljs-keyword">CONTRIBUTORS</span> <span class="hljs-string">&quot;AS IS&quot;</span>
-<span class="hljs-keyword">AND</span> <span class="hljs-keyword">ANY</span> EXPRESS <span class="hljs-keyword">OR</span> IMPLIED WARRANTIES, <span class="hljs-keyword">INCLUDING</span>, BUT <span class="hljs-keyword">NOT</span> LIMITED <span class="hljs-keyword">TO</span>, THE
-IMPLIED WARRANTIES <span class="hljs-keyword">OF</span> MERCHANTABILITY <span class="hljs-keyword">AND</span> FITNESS <span class="hljs-keyword">FOR</span> A PARTICULAR PURPOSE <span class="hljs-keyword">ARE</span>
-DISCLAIMED. <span class="hljs-keyword">IN</span> <span class="hljs-keyword">NO</span> <span class="hljs-keyword">EVENT</span> SHALL THE COPYRIGHT HOLDER <span class="hljs-keyword">OR</span> <span class="hljs-keyword">CONTRIBUTORS</span> BE LIABLE
-<span class="hljs-keyword">FOR</span> <span class="hljs-keyword">ANY</span> DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, <span class="hljs-keyword">OR</span> CONSEQUENTIAL
-DAMAGES (<span class="hljs-keyword">INCLUDING</span>, BUT <span class="hljs-keyword">NOT</span> LIMITED <span class="hljs-keyword">TO</span>, PROCUREMENT <span class="hljs-keyword">OF</span> SUBSTITUTE GOODS <span class="hljs-keyword">OR</span>
-SERVICES; LOSS OF <span class="hljs-keyword">USE</span>, <span class="hljs-keyword">DATA</span>, <span class="hljs-keyword">OR</span> PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE <span class="hljs-keyword">USE</span>
-<span class="hljs-keyword">OF</span> THIS SOFTWARE, EVEN <span class="hljs-keyword">IF</span> ADVISED <span class="hljs-keyword">OF</span> THE POSSIBILITY <span class="hljs-keyword">OF</span> SUCH DAMAGE.</code></pre>
+<span style="color: #0070C1">THIS</span><span style="color: #000000"> </span><span style="color: #0070C1">SOFTWARE</span><span style="color: #000000"> </span><span style="color: #0070C1">IS</span><span style="color: #000000"> </span><span style="color: #0070C1">PROVIDED</span><span style="color: #000000"> </span><span style="color: #0070C1">BY</span><span style="color: #000000"> </span><span style="color: #0070C1">THE</span><span style="color: #000000"> </span><span style="color: #0070C1">COPYRIGHT</span><span style="color: #000000"> </span><span style="color: #0070C1">HOLDERS</span><span style="color: #000000"> </span><span style="color: #0070C1">AND</span><span style="color: #000000"> </span><span style="color: #0070C1">CONTRIBUTORS</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;AS IS&quot;</span>
+<span style="color: #0070C1">AND</span><span style="color: #000000"> </span><span style="color: #0070C1">ANY</span><span style="color: #000000"> </span><span style="color: #0070C1">EXPRESS</span><span style="color: #000000"> </span><span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #0070C1">IMPLIED</span><span style="color: #000000"> </span><span style="color: #0070C1">WARRANTIES</span><span style="color: #000000">, </span><span style="color: #0070C1">INCLUDING</span><span style="color: #000000">, </span><span style="color: #0070C1">BUT</span><span style="color: #000000"> </span><span style="color: #0070C1">NOT</span><span style="color: #000000"> </span><span style="color: #0070C1">LIMITED</span><span style="color: #000000"> </span><span style="color: #0070C1">TO</span><span style="color: #000000">, </span><span style="color: #0070C1">THE</span>
+<span style="color: #0070C1">IMPLIED</span><span style="color: #000000"> </span><span style="color: #0070C1">WARRANTIES</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">MERCHANTABILITY</span><span style="color: #000000"> </span><span style="color: #0070C1">AND</span><span style="color: #000000"> </span><span style="color: #0070C1">FITNESS</span><span style="color: #000000"> </span><span style="color: #0070C1">FOR</span><span style="color: #000000"> </span><span style="color: #0070C1">A</span><span style="color: #000000"> </span><span style="color: #0070C1">PARTICULAR</span><span style="color: #000000"> </span><span style="color: #0070C1">PURPOSE</span><span style="color: #000000"> </span><span style="color: #0070C1">ARE</span>
+<span style="color: #0070C1">DISCLAIMED</span><span style="color: #000000">. </span><span style="color: #0070C1">IN</span><span style="color: #000000"> </span><span style="color: #0070C1">NO</span><span style="color: #000000"> </span><span style="color: #0070C1">EVENT</span><span style="color: #000000"> </span><span style="color: #0070C1">SHALL</span><span style="color: #000000"> </span><span style="color: #0070C1">THE</span><span style="color: #000000"> </span><span style="color: #0070C1">COPYRIGHT</span><span style="color: #000000"> </span><span style="color: #0070C1">HOLDER</span><span style="color: #000000"> </span><span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #0070C1">CONTRIBUTORS</span><span style="color: #000000"> </span><span style="color: #0070C1">BE</span><span style="color: #000000"> </span><span style="color: #0070C1">LIABLE</span>
+<span style="color: #0070C1">FOR</span><span style="color: #000000"> </span><span style="color: #0070C1">ANY</span><span style="color: #000000"> </span><span style="color: #0070C1">DIRECT</span><span style="color: #000000">, </span><span style="color: #0070C1">INDIRECT</span><span style="color: #000000">, </span><span style="color: #0070C1">INCIDENTAL</span><span style="color: #000000">, </span><span style="color: #0070C1">SPECIAL</span><span style="color: #000000">, </span><span style="color: #0070C1">EXEMPLARY</span><span style="color: #000000">, </span><span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #0070C1">CONSEQUENTIAL</span>
+<span style="color: #795E26">DAMAGES</span><span style="color: #000000"> (</span><span style="color: #0070C1">INCLUDING</span><span style="color: #000000">, </span><span style="color: #0070C1">BUT</span><span style="color: #000000"> </span><span style="color: #0070C1">NOT</span><span style="color: #000000"> </span><span style="color: #0070C1">LIMITED</span><span style="color: #000000"> </span><span style="color: #0070C1">TO</span><span style="color: #000000">, </span><span style="color: #0070C1">PROCUREMENT</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">SUBSTITUTE</span><span style="color: #000000"> </span><span style="color: #0070C1">GOODS</span><span style="color: #000000"> </span><span style="color: #0070C1">OR</span>
+<span style="color: #0070C1">SERVICES</span><span style="color: #000000">; </span><span style="color: #0070C1">LOSS</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">USE</span><span style="color: #000000">, </span><span style="color: #0070C1">DATA</span><span style="color: #000000">, </span><span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #0070C1">PROFITS</span><span style="color: #000000">; </span><span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #0070C1">BUSINESS</span><span style="color: #000000"> </span><span style="color: #0070C1">INTERRUPTION</span><span style="color: #000000">) </span><span style="color: #0070C1">HOWEVER</span>
+<span style="color: #0070C1">CAUSED</span><span style="color: #000000"> </span><span style="color: #0070C1">AND</span><span style="color: #000000"> </span><span style="color: #0070C1">ON</span><span style="color: #000000"> </span><span style="color: #0070C1">ANY</span><span style="color: #000000"> </span><span style="color: #0070C1">THEORY</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">LIABILITY</span><span style="color: #000000">, </span><span style="color: #0070C1">WHETHER</span><span style="color: #000000"> </span><span style="color: #0070C1">IN</span><span style="color: #000000"> </span><span style="color: #0070C1">CONTRACT</span><span style="color: #000000">, </span><span style="color: #0070C1">STRICT</span><span style="color: #000000"> </span><span style="color: #0070C1">LIABILITY</span><span style="color: #000000">,</span>
+<span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #795E26">TORT</span><span style="color: #000000"> (</span><span style="color: #0070C1">INCLUDING</span><span style="color: #000000"> </span><span style="color: #0070C1">NEGLIGENCE</span><span style="color: #000000"> </span><span style="color: #0070C1">OR</span><span style="color: #000000"> </span><span style="color: #0070C1">OTHERWISE</span><span style="color: #000000">) </span><span style="color: #0070C1">ARISING</span><span style="color: #000000"> </span><span style="color: #0070C1">IN</span><span style="color: #000000"> </span><span style="color: #0070C1">ANY</span><span style="color: #000000"> </span><span style="color: #0070C1">WAY</span><span style="color: #000000"> </span><span style="color: #0070C1">OUT</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">THE</span><span style="color: #000000"> </span><span style="color: #0070C1">USE</span>
+<span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">THIS</span><span style="color: #000000"> </span><span style="color: #0070C1">SOFTWARE</span><span style="color: #000000">, </span><span style="color: #0070C1">EVEN</span><span style="color: #000000"> </span><span style="color: #0070C1">IF</span><span style="color: #000000"> </span><span style="color: #0070C1">ADVISED</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">THE</span><span style="color: #000000"> </span><span style="color: #0070C1">POSSIBILITY</span><span style="color: #000000"> </span><span style="color: #0070C1">OF</span><span style="color: #000000"> </span><span style="color: #0070C1">SUCH</span><span style="color: #000000"> </span><span style="color: #0070C1">DAMAGE</span><span style="color: #000000">.</span>
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_actions_action_.html">&quot;<wbr>Actions/<wbr>Action&quot;</a>
+						<a href="modules/actions_action.html">Actions/<wbr>Action</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_actions_actioncontext_.html">&quot;<wbr>Actions/<wbr>Action<wbr>Context&quot;</a>
+						<a href="modules/actions_actioncontext.html">Actions/<wbr>Action<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_actions_actionable_.html">&quot;<wbr>Actions/<wbr>Actionable&quot;</a>
+						<a href="modules/actions_actionable.html">Actions/<wbr>Actionable</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_actions_index_.html">&quot;<wbr>Actions/<wbr>Index&quot;</a>
+						<a href="modules/actions_index.html">Actions/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_actions_rotationtype_.html">&quot;<wbr>Actions/<wbr>Rotation<wbr>Type&quot;</a>
+						<a href="modules/actions_rotationtype.html">Actions/<wbr>Rotation<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_actor_.html">&quot;<wbr>Actor&quot;</a>
+						<a href="modules/actor.html">Actor</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_algebra_.html">&quot;<wbr>Algebra&quot;</a>
+						<a href="modules/algebra.html">Algebra</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_camera_.html">&quot;<wbr>Camera&quot;</a>
+						<a href="modules/camera.html">Camera</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_class_.html">&quot;<wbr>Class&quot;</a>
+						<a href="modules/class.html">Class</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_body_.html">&quot;<wbr>Collision/<wbr>Body&quot;</a>
+						<a href="modules/collision_body.html">Collision/<wbr>Body</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_boundingbox_.html">&quot;<wbr>Collision/<wbr>Bounding<wbr>Box&quot;</a>
+						<a href="modules/collision_boundingbox.html">Collision/<wbr>Bounding<wbr>Box</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_circle_.html">&quot;<wbr>Collision/<wbr>Circle&quot;</a>
+						<a href="modules/collision_circle.html">Collision/<wbr>Circle</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_closestlinejumptable_.html">&quot;<wbr>Collision/<wbr>Closest<wbr>Line<wbr>Jump<wbr>Table&quot;</a>
+						<a href="modules/collision_closestlinejumptable.html">Collision/<wbr>Closest<wbr>Line<wbr>Jump<wbr>Table</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collider_.html">&quot;<wbr>Collision/<wbr>Collider&quot;</a>
+						<a href="modules/collision_collider.html">Collision/<wbr>Collider</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisioncontact_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Contact&quot;</a>
+						<a href="modules/collision_collisioncontact.html">Collision/<wbr>Collision<wbr>Contact</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisiongroup_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Group&quot;</a>
+						<a href="modules/collision_collisiongroup.html">Collision/<wbr>Collision<wbr>Group</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisiongroupmanager_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Group<wbr>Manager&quot;</a>
+						<a href="modules/collision_collisiongroupmanager.html">Collision/<wbr>Collision<wbr>Group<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisionjumptable_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Jump<wbr>Table&quot;</a>
+						<a href="modules/collision_collisionjumptable.html">Collision/<wbr>Collision<wbr>Jump<wbr>Table</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisionresolver_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Resolver&quot;</a>
+						<a href="modules/collision_collisionresolver.html">Collision/<wbr>Collision<wbr>Resolver</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisionshape_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Shape&quot;</a>
+						<a href="modules/collision_collisionshape.html">Collision/<wbr>Collision<wbr>Shape</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_collisiontype_.html">&quot;<wbr>Collision/<wbr>Collision<wbr>Type&quot;</a>
+						<a href="modules/collision_collisiontype.html">Collision/<wbr>Collision<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_convexpolygon_.html">&quot;<wbr>Collision/<wbr>Convex<wbr>Polygon&quot;</a>
+						<a href="modules/collision_convexpolygon.html">Collision/<wbr>Convex<wbr>Polygon</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_dynamictree_.html">&quot;<wbr>Collision/<wbr>Dynamic<wbr>Tree&quot;</a>
+						<a href="modules/collision_dynamictree.html">Collision/<wbr>Dynamic<wbr>Tree</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_dynamictreecollisionbroadphase_.html">&quot;<wbr>Collision/<wbr>Dynamic<wbr>Tree<wbr>Collision<wbr>Broadphase&quot;</a>
+						<a href="modules/collision_dynamictreecollisionbroadphase.html">Collision/<wbr>Dynamic<wbr>Tree<wbr>Collision<wbr>Broadphase</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_edge_.html">&quot;<wbr>Collision/<wbr>Edge&quot;</a>
+						<a href="modules/collision_edge.html">Collision/<wbr>Edge</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_index_.html">&quot;<wbr>Collision/<wbr>Index&quot;</a>
+						<a href="modules/collision_index.html">Collision/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_pair_.html">&quot;<wbr>Collision/<wbr>Pair&quot;</a>
+						<a href="modules/collision_pair.html">Collision/<wbr>Pair</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_physics_.html">&quot;<wbr>Collision/<wbr>Physics&quot;</a>
+						<a href="modules/collision_physics.html">Collision/<wbr>Physics</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_shape_.html">&quot;<wbr>Collision/<wbr>Shape&quot;</a>
+						<a href="modules/collision_shape.html">Collision/<wbr>Shape</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_collision_side_.html">&quot;<wbr>Collision/<wbr>Side&quot;</a>
+						<a href="modules/collision_side.html">Collision/<wbr>Side</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_configurable_.html">&quot;<wbr>Configurable&quot;</a>
+						<a href="modules/configurable.html">Configurable</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_debug_.html">&quot;<wbr>Debug&quot;</a>
+						<a href="modules/debug.html">Debug</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_debugflags_.html">&quot;<wbr>Debug<wbr>Flags&quot;</a>
+						<a href="modules/debugflags.html">Debug<wbr>Flags</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_deprecated_.html">&quot;<wbr>Deprecated&quot;</a>
+						<a href="modules/deprecated.html">Deprecated</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_animation_.html">&quot;<wbr>Drawing/<wbr>Animation&quot;</a>
+						<a href="modules/drawing_animation.html">Drawing/<wbr>Animation</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_canvasdrawcomponent_.html">&quot;<wbr>Drawing/<wbr>Canvas<wbr>Draw<wbr>Component&quot;</a>
+						<a href="modules/drawing_canvasdrawcomponent.html">Drawing/<wbr>Canvas<wbr>Draw<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_canvasdrawingsystem_.html">&quot;<wbr>Drawing/<wbr>Canvas<wbr>Drawing<wbr>System&quot;</a>
+						<a href="modules/drawing_canvasdrawingsystem.html">Drawing/<wbr>Canvas<wbr>Drawing<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_color_.html">&quot;<wbr>Drawing/<wbr>Color&quot;</a>
+						<a href="modules/drawing_color.html">Drawing/<wbr>Color</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_index_.html">&quot;<wbr>Drawing/<wbr>Index&quot;</a>
+						<a href="modules/drawing_index.html">Drawing/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_polygon_.html">&quot;<wbr>Drawing/<wbr>Polygon&quot;</a>
+						<a href="modules/drawing_polygon.html">Drawing/<wbr>Polygon</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_sprite_.html">&quot;<wbr>Drawing/<wbr>Sprite&quot;</a>
+						<a href="modules/drawing_sprite.html">Drawing/<wbr>Sprite</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_spriteeffects_.html">&quot;<wbr>Drawing/<wbr>Sprite<wbr>Effects&quot;</a>
+						<a href="modules/drawing_spriteeffects.html">Drawing/<wbr>Sprite<wbr>Effects</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_drawing_spritesheet_.html">&quot;<wbr>Drawing/<wbr>Sprite<wbr>Sheet&quot;</a>
+						<a href="modules/drawing_spritesheet.html">Drawing/<wbr>Sprite<wbr>Sheet</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_engine_.html">&quot;<wbr>Engine&quot;</a>
+						<a href="modules/engine.html">Engine</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_component_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Component&quot;</a>
+						<a href="modules/entitycomponentsystem.html">Entity<wbr>Component<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_components_transformcomponent_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Components/<wbr>Transform<wbr>Component&quot;</a>
+						<a href="modules/entitycomponentsystem_component.html">Entity<wbr>Component<wbr>System/<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_entity_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Entity&quot;</a>
+						<a href="modules/entitycomponentsystem_components_transformcomponent.html">Entity<wbr>Component<wbr>System/<wbr>Components/<wbr>Transform<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_entitymanager_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Entity<wbr>Manager&quot;</a>
+						<a href="modules/entitycomponentsystem_entity.html">Entity<wbr>Component<wbr>System/<wbr>Entity</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_query_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Query&quot;</a>
+						<a href="modules/entitycomponentsystem_entitymanager.html">Entity<wbr>Component<wbr>System/<wbr>Entity<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_querymanager_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Query<wbr>Manager&quot;</a>
+						<a href="modules/entitycomponentsystem_query.html">Entity<wbr>Component<wbr>System/<wbr>Query</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_system_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>System&quot;</a>
+						<a href="modules/entitycomponentsystem_querymanager.html">Entity<wbr>Component<wbr>System/<wbr>Query<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_systemmanager_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>System<wbr>Manager&quot;</a>
+						<a href="modules/entitycomponentsystem_system.html">Entity<wbr>Component<wbr>System/<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_util_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>Util&quot;</a>
+						<a href="modules/entitycomponentsystem_systemmanager.html">Entity<wbr>Component<wbr>System/<wbr>System<wbr>Manager</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_world_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/<wbr>World&quot;</a>
+						<a href="modules/entitycomponentsystem_util.html">Entity<wbr>Component<wbr>System/<wbr>Util</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_entitycomponentsystem_index_.html">&quot;<wbr>Entity<wbr>Component<wbr>System/index&quot;</a>
+						<a href="modules/entitycomponentsystem_world.html">Entity<wbr>Component<wbr>System/<wbr>World</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_eventdispatcher_.html">&quot;<wbr>Event<wbr>Dispatcher&quot;</a>
+						<a href="modules/eventdispatcher.html">Event<wbr>Dispatcher</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_events_.html">&quot;<wbr>Events&quot;</a>
+						<a href="modules/events.html">Events</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_events_mediaevents_.html">&quot;<wbr>Events/<wbr>Media<wbr>Events&quot;</a>
+						<a href="modules/events_mediaevents.html">Events/<wbr>Media<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_flags_.html">&quot;<wbr>Flags&quot;</a>
+						<a href="modules/flags.html">Flags</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_engineinput_.html">&quot;<wbr>Input/<wbr>Engine<wbr>Input&quot;</a>
+						<a href="modules/graphics.html">Graphics</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_gamepad_.html">&quot;<wbr>Input/<wbr>Gamepad&quot;</a>
+						<a href="modules/graphics_animation.html">Graphics/<wbr>Animation</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_index_.html">&quot;<wbr>Input/<wbr>Index&quot;</a>
+						<a href="modules/graphics_canvas.html">Graphics/<wbr>Canvas</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_keyboard_.html">&quot;<wbr>Input/<wbr>Keyboard&quot;</a>
+						<a href="modules/graphics_circle.html">Graphics/<wbr>Circle</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_pointer_.html">&quot;<wbr>Input/<wbr>Pointer&quot;</a>
+						<a href="modules/graphics_context_excaliburgraphicscontext.html">Graphics/<wbr>Context/<wbr>Excalibur<wbr>Graphics<wbr>Context</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_pointerevents_.html">&quot;<wbr>Input/<wbr>Pointer<wbr>Events&quot;</a>
+						<a href="modules/graphics_context_excaliburgraphicscontext2dcanvas.html">Graphics/<wbr>Context/<wbr>Excalibur<wbr>Graphics<wbr>Context2DCanvas</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_input_pointers_.html">&quot;<wbr>Input/<wbr>Pointers&quot;</a>
+						<a href="modules/graphics_context_excaliburgraphicscontextwebgl.html">Graphics/<wbr>Context/<wbr>Excalibur<wbr>Graphics<wbr>Context<wbr>WebGL</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_audio_.html">&quot;<wbr>Interfaces/<wbr>Audio&quot;</a>
+						<a href="modules/graphics_context_batch.html">Graphics/<wbr>Context/batch</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_audioimplementation_.html">&quot;<wbr>Interfaces/<wbr>Audio<wbr>Implementation&quot;</a>
+						<a href="modules/graphics_context_draw_image_command.html">Graphics/<wbr>Context/draw-<wbr>image-<wbr>command</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_clonable_.html">&quot;<wbr>Interfaces/<wbr>Clonable&quot;</a>
+						<a href="modules/graphics_context_image_renderer.html">Graphics/<wbr>Context/image-<wbr>renderer</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_drawable_.html">&quot;<wbr>Interfaces/<wbr>Drawable&quot;</a>
+						<a href="modules/graphics_context_line_renderer.html">Graphics/<wbr>Context/line-<wbr>renderer</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_evented_.html">&quot;<wbr>Interfaces/<wbr>Evented&quot;</a>
+						<a href="modules/graphics_context_point_renderer.html">Graphics/<wbr>Context/point-<wbr>renderer</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_index_.html">&quot;<wbr>Interfaces/<wbr>Index&quot;</a>
+						<a href="modules/graphics_context_renderer.html">Graphics/<wbr>Context/renderer</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_lifecycleevents_.html">&quot;<wbr>Interfaces/<wbr>Lifecycle<wbr>Events&quot;</a>
+						<a href="modules/graphics_context_shader.html">Graphics/<wbr>Context/shader</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_loadable_.html">&quot;<wbr>Interfaces/<wbr>Loadable&quot;</a>
+						<a href="modules/graphics_context_state_stack.html">Graphics/<wbr>Context/state-<wbr>stack</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_pointereventhandlers_.html">&quot;<wbr>Interfaces/<wbr>Pointer<wbr>Event<wbr>Handlers&quot;</a>
+						<a href="modules/graphics_context_texture_loader.html">Graphics/<wbr>Context/texture-<wbr>loader</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_interfaces_trait_.html">&quot;<wbr>Interfaces/<wbr>Trait&quot;</a>
+						<a href="modules/graphics_context_transform_stack.html">Graphics/<wbr>Context/transform-<wbr>stack</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_label_.html">&quot;<wbr>Label&quot;</a>
+						<a href="modules/graphics_context_webgl_util.html">Graphics/<wbr>Context/webgl-<wbr>util</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_loader_.html">&quot;<wbr>Loader&quot;</a>
+						<a href="modules/graphics_font.html">Graphics/<wbr>Font</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_math_index_.html">&quot;<wbr>Math/<wbr>Index&quot;</a>
+						<a href="modules/graphics_fontcommon.html">Graphics/<wbr>Font<wbr>Common</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_math_perlinnoise_.html">&quot;<wbr>Math/<wbr>Perlin<wbr>Noise&quot;</a>
+						<a href="modules/graphics_graphic.html">Graphics/<wbr>Graphic</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_math_random_.html">&quot;<wbr>Math/<wbr>Random&quot;</a>
+						<a href="modules/graphics_graphicscomponent.html">Graphics/<wbr>Graphics<wbr>Component</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_particles_.html">&quot;<wbr>Particles&quot;</a>
+						<a href="modules/graphics_graphicsdiagnostics.html">Graphics/<wbr>Graphics<wbr>Diagnostics</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_physics_.html">&quot;<wbr>Physics&quot;</a>
+						<a href="modules/graphics_graphicsgroup.html">Graphics/<wbr>Graphics<wbr>Group</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_polyfill_.html">&quot;<wbr>Polyfill&quot;</a>
+						<a href="modules/graphics_graphicssystem.html">Graphics/<wbr>Graphics<wbr>System</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_postprocessing_colorblindcorrector_.html">&quot;<wbr>Post<wbr>Processing/<wbr>Color<wbr>Blind<wbr>Corrector&quot;</a>
+						<a href="modules/graphics_imagesource.html">Graphics/<wbr>Image<wbr>Source</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_postprocessing_index_.html">&quot;<wbr>Post<wbr>Processing/<wbr>Index&quot;</a>
+						<a href="modules/graphics_polygon.html">Graphics/<wbr>Polygon</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_postprocessing_postprocessor_.html">&quot;<wbr>Post<wbr>Processing/<wbr>Post<wbr>Processor&quot;</a>
+						<a href="modules/graphics_raster.html">Graphics/<wbr>Raster</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_promises_.html">&quot;<wbr>Promises&quot;</a>
+						<a href="modules/graphics_rectangle.html">Graphics/<wbr>Rectangle</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_gif_.html">&quot;<wbr>Resources/<wbr>Gif&quot;</a>
+						<a href="modules/graphics_sprite.html">Graphics/<wbr>Sprite</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_index_.html">&quot;<wbr>Resources/<wbr>Index&quot;</a>
+						<a href="modules/graphics_spritefont.html">Graphics/<wbr>Sprite<wbr>Font</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_resource_.html">&quot;<wbr>Resources/<wbr>Resource&quot;</a>
+						<a href="modules/graphics_spritesheet.html">Graphics/<wbr>Sprite<wbr>Sheet</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_sound_audiocontext_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Audio<wbr>Context&quot;</a>
+						<a href="modules/graphics_text.html">Graphics/<wbr>Text</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_sound_index_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Index&quot;</a>
+						<a href="modules/input_engineinput.html">Input/<wbr>Engine<wbr>Input</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_sound_sound_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Sound&quot;</a>
+						<a href="modules/input_gamepad.html">Input/<wbr>Gamepad</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_sound_webaudioinstance_.html">&quot;<wbr>Resources/<wbr>Sound/<wbr>Web<wbr>Audio<wbr>Instance&quot;</a>
+						<a href="modules/input_index.html">Input/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_resources_texture_.html">&quot;<wbr>Resources/<wbr>Texture&quot;</a>
+						<a href="modules/input_keyboard.html">Input/<wbr>Keyboard</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_scene_.html">&quot;<wbr>Scene&quot;</a>
+						<a href="modules/input_pointer.html">Input/<wbr>Pointer</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_screen_.html">&quot;<wbr>Screen&quot;</a>
+						<a href="modules/input_pointerevents.html">Input/<wbr>Pointer<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_screenelement_.html">&quot;<wbr>Screen<wbr>Element&quot;</a>
+						<a href="modules/input_pointers.html">Input/<wbr>Pointers</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_tilemap_.html">&quot;<wbr>Tile<wbr>Map&quot;</a>
+						<a href="modules/interfaces_audio.html">Interfaces/<wbr>Audio</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_timer_.html">&quot;<wbr>Timer&quot;</a>
+						<a href="modules/interfaces_audioimplementation.html">Interfaces/<wbr>Audio<wbr>Implementation</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_traits_capturepointer_.html">&quot;<wbr>Traits/<wbr>Capture<wbr>Pointer&quot;</a>
+						<a href="modules/interfaces_clonable.html">Interfaces/<wbr>Clonable</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_traits_index_.html">&quot;<wbr>Traits/<wbr>Index&quot;</a>
+						<a href="modules/interfaces_drawable.html">Interfaces/<wbr>Drawable</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_traits_offscreenculling_.html">&quot;<wbr>Traits/<wbr>Offscreen<wbr>Culling&quot;</a>
+						<a href="modules/interfaces_evented.html">Interfaces/<wbr>Evented</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_traits_tilemapcollisiondetection_.html">&quot;<wbr>Traits/<wbr>Tile<wbr>Map<wbr>Collision<wbr>Detection&quot;</a>
+						<a href="modules/interfaces_index.html">Interfaces/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_trigger_.html">&quot;<wbr>Trigger&quot;</a>
+						<a href="modules/interfaces_lifecycleevents.html">Interfaces/<wbr>Lifecycle<wbr>Events</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_actors_.html">&quot;<wbr>Util/<wbr>Actors&quot;</a>
+						<a href="modules/interfaces_loadable.html">Interfaces/<wbr>Loadable</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_browser_.html">&quot;<wbr>Util/<wbr>Browser&quot;</a>
+						<a href="modules/interfaces_pointereventhandlers.html">Interfaces/<wbr>Pointer<wbr>Event<wbr>Handlers</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_cullingbox_.html">&quot;<wbr>Util/<wbr>Culling<wbr>Box&quot;</a>
+						<a href="modules/interfaces_trait.html">Interfaces/<wbr>Trait</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_decorators_.html">&quot;<wbr>Util/<wbr>Decorators&quot;</a>
+						<a href="modules/label.html">Label</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_detector_.html">&quot;<wbr>Util/<wbr>Detector&quot;</a>
+						<a href="modules/loader.html">Loader</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_drawutil_.html">&quot;<wbr>Util/<wbr>Draw<wbr>Util&quot;</a>
+						<a href="modules/math_index.html">Math/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_easingfunctions_.html">&quot;<wbr>Util/<wbr>Easing<wbr>Functions&quot;</a>
+						<a href="modules/math_perlinnoise.html">Math/<wbr>Perlin<wbr>Noise</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_index_.html">&quot;<wbr>Util/<wbr>Index&quot;</a>
+						<a href="modules/math_random.html">Math/<wbr>Random</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_log_.html">&quot;<wbr>Util/<wbr>Log&quot;</a>
+						<a href="modules/math_matrix.html">Math/matrix</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_observable_.html">&quot;<wbr>Util/<wbr>Observable&quot;</a>
+						<a href="modules/particles.html">Particles</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_sortedlist_.html">&quot;<wbr>Util/<wbr>Sorted<wbr>List&quot;</a>
+						<a href="modules/physics.html">Physics</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_sound_.html">&quot;<wbr>Util/<wbr>Sound&quot;</a>
+						<a href="modules/polyfill.html">Polyfill</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_util_.html">&quot;<wbr>Util/<wbr>Util&quot;</a>
+						<a href="modules/postprocessing_colorblindcorrector.html">Post<wbr>Processing/<wbr>Color<wbr>Blind<wbr>Corrector</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_util_webaudio_.html">&quot;<wbr>Util/<wbr>Web<wbr>Audio&quot;</a>
+						<a href="modules/postprocessing_index.html">Post<wbr>Processing/<wbr>Index</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_index_.html">&quot;index&quot;</a>
+						<a href="modules/postprocessing_postprocessor.html">Post<wbr>Processing/<wbr>Post<wbr>Processor</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/promises.html">Promises</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_gif.html">Resources/<wbr>Gif</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_index.html">Resources/<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_resource.html">Resources/<wbr>Resource</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_sound_audiocontext.html">Resources/<wbr>Sound/<wbr>Audio<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_sound_index.html">Resources/<wbr>Sound/<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_sound_sound.html">Resources/<wbr>Sound/<wbr>Sound</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_sound_webaudioinstance.html">Resources/<wbr>Sound/<wbr>Web<wbr>Audio<wbr>Instance</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/resources_texture.html">Resources/<wbr>Texture</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/scene.html">Scene</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/screen.html">Screen</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/screenelement.html">Screen<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tilemap.html">Tile<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/timer.html">Timer</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/traits_capturepointer.html">Traits/<wbr>Capture<wbr>Pointer</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/traits_index.html">Traits/<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/traits_offscreenculling.html">Traits/<wbr>Offscreen<wbr>Culling</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/traits_tilemapcollisiondetection.html">Traits/<wbr>Tile<wbr>Map<wbr>Collision<wbr>Detection</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/trigger.html">Trigger</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_actors.html">Util/<wbr>Actors</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_browser.html">Util/<wbr>Browser</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_cullingbox.html">Util/<wbr>Culling<wbr>Box</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_decorators.html">Util/<wbr>Decorators</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_detector.html">Util/<wbr>Detector</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_drawutil.html">Util/<wbr>Draw<wbr>Util</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_easingfunctions.html">Util/<wbr>Easing<wbr>Functions</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_index.html">Util/<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_log.html">Util/<wbr>Log</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_observable.html">Util/<wbr>Observable</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_pool.html">Util/<wbr>Pool</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_sortedlist.html">Util/<wbr>Sorted<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_sound.html">Util/<wbr>Sound</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_util.html">Util/<wbr>Util</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_watch.html">Util/<wbr>Watch</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/util_webaudio.html">Util/<wbr>Web<wbr>Audio</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/excalibur.html">excalibur</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/files.html">files</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/globals.html">globals</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/index.html">index</a>
 					</li>
 				</ul>
 			</nav>
