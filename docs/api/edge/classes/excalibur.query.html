@@ -75,7 +75,7 @@
 						<p>Represents query for entities that match a list of types that is cached and observable</p>
 					</div>
 					<p>Queries can be strongly typed by supplying a type union in the optional type parameter</p>
-					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">queryAB</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ex</span><span style="color: #000000">.</span><span style="color: #795E26">Query</span><span style="color: #000000">&lt;</span><span style="color: #267F99">ComponentTypeA</span><span style="color: #000000">, </span><span style="color: #267F99">ComponentTypeB</span><span style="color: #000000">&gt;([</span><span style="color: #A31515">&#039;A&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;B&#039;</span><span style="color: #000000">]);</span>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">queryAB</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">ex</span><span style="color: #000000">.</span><span style="color: #795E26">Query</span><span style="color: #000000">&lt;</span><span style="color: #267F99">ComponentTypeA</span><span style="color: #000000"> | </span><span style="color: #267F99">ComponentTypeB</span><span style="color: #000000">&gt;([</span><span style="color: #A31515">&#039;A&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;B&#039;</span><span style="color: #000000">]);</span>
 </code></pre>
 				</div>
 			</section>
@@ -127,7 +127,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="excalibur.query.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="excalibur.query.html#clear" class="tsd-kind-icon">clear</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="excalibur.query.html#clear" class="tsd-kind-icon">clear</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="excalibur.query.html#getentities" class="tsd-kind-icon">get<wbr>Entities</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="excalibur.query.html#matches" class="tsd-kind-icon">matches</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="excalibur.query.html#notifyall" class="tsd-kind-icon">notify<wbr>All</a></li>
@@ -146,13 +146,14 @@
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">new <wbr>Query&lt;T&gt;<span class="tsd-signature-symbol">(</span>types<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">readonly string[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_query.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Query&lt;T&gt;<span class="tsd-signature-symbol">(</span>types<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">readonly ComponentCtor&lt;T&gt;[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_query.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="util_observable.observable.html">Observable</a>.<a href="util_observable.observable.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L23">src/engine/EntityComponentSystem/Query.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L24">src/engine/EntityComponentSystem/Query.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -169,6 +170,26 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="entitycomponentsystem_query.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L26">src/engine/EntityComponentSystem/Query.ts:26</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_component.component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>types: <span class="tsd-signature-type">readonly ComponentCtor&lt;T&gt;[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="entitycomponentsystem_query.query.html" class="tsd-signature-type">Query</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
 					</ul>
 				</section>
 			</section>
@@ -181,7 +202,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="util_observable.observable.html">Observable</a>.<a href="util_observable.observable.html#observers">observers</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Util/Observable.ts#L13">src/engine/Util/Observable.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Util/Observable.ts#L13">src/engine/Util/Observable.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,6 +211,9 @@
 					<h3> types</h3>
 					<div class="tsd-signature tsd-kind-icon">types<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">readonly string[]</span></div>
 					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L16">src/engine/EntityComponentSystem/Query.ts:16</a></li>
+						</ul>
 					</aside>
 				</section>
 			</section>
@@ -205,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L18">src/engine/EntityComponentSystem/Query.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L19">src/engine/EntityComponentSystem/Query.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -225,7 +249,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L45">src/engine/EntityComponentSystem/Query.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L53">src/engine/EntityComponentSystem/Query.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -245,17 +269,18 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 					<a name="clear" class="tsd-anchor"></a>
 					<h3> clear</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 						<li class="tsd-signature tsd-kind-icon">clear<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
+								<p>Overrides <a href="util_observable.observable.html">Observable</a>.<a href="util_observable.observable.html#clear">clear</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L65">src/engine/EntityComponentSystem/Query.ts:65</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L73">src/engine/EntityComponentSystem/Query.ts:73</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -277,7 +302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L34">src/engine/EntityComponentSystem/Query.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L42">src/engine/EntityComponentSystem/Query.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -330,7 +355,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L76">src/engine/EntityComponentSystem/Query.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L84">src/engine/EntityComponentSystem/Query.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,7 +376,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L81">src/engine/EntityComponentSystem/Query.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L89">src/engine/EntityComponentSystem/Query.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -382,7 +407,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="util_observable.observable.html">Observable</a>.<a href="util_observable.observable.html#notifyall">notifyAll</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Util/Observable.ts#L26">src/engine/Util/Observable.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Util/Observable.ts#L26">src/engine/Util/Observable.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -406,7 +431,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="util_observable.observable.html">Observable</a>.<a href="util_observable.observable.html#register">register</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Util/Observable.ts#L15">src/engine/Util/Observable.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Util/Observable.ts#L15">src/engine/Util/Observable.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -429,7 +454,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Query.ts#L56">src/engine/EntityComponentSystem/Query.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Query.ts#L64">src/engine/EntityComponentSystem/Query.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -460,7 +485,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="util_observable.observable.html">Observable</a>.<a href="util_observable.observable.html#unregister">unregister</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Util/Observable.ts#L19">src/engine/Util/Observable.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Util/Observable.ts#L19">src/engine/Util/Observable.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -508,7 +533,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="excalibur.query.html#addentity" class="tsd-kind-icon">add<wbr>Entity</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
 								<a href="excalibur.query.html#clear" class="tsd-kind-icon">clear</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">

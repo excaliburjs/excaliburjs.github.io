@@ -74,6 +74,7 @@
 					<div class="lead">
 						<p>Excalibur Matrix helper for 4x4 matrices</p>
 					</div>
+					<p>Useful for webgl 4x4 matrices</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -104,10 +105,24 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getaffineinverse" class="tsd-kind-icon">get<wbr>Affine<wbr>Inverse</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getbasisdeterminant" class="tsd-kind-icon">get<wbr>Basis<wbr>Determinant</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getposition" class="tsd-kind-icon">get<wbr>Position</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getrotation" class="tsd-kind-icon">get<wbr>Rotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getscale" class="tsd-kind-icon">get<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getscalex" class="tsd-kind-icon">get<wbr>ScaleX</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#getscaley" class="tsd-kind-icon">get<wbr>ScaleY</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#isidentity" class="tsd-kind-icon">is<wbr>Identity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#multm" class="tsd-kind-icon">multm</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#multv" class="tsd-kind-icon">multv</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#rotate" class="tsd-kind-icon">rotate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#scale" class="tsd-kind-icon">scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#setposition" class="tsd-kind-icon">set<wbr>Position</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#setrotation" class="tsd-kind-icon">set<wbr>Rotation</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#setscale" class="tsd-kind-icon">set<wbr>Scale</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#setscalex" class="tsd-kind-icon">set<wbr>ScaleX</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#setscaley" class="tsd-kind-icon">set<wbr>ScaleY</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="math_matrix.matrix.html#translate" class="tsd-kind-icon">translate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_matrix.matrix.html#identity" class="tsd-kind-icon">identity</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="math_matrix.matrix.html#ortho" class="tsd-kind-icon">ortho</a></li>
@@ -144,17 +159,47 @@
 					<div class="tsd-signature tsd-kind-icon">data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Float32Array</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L16">src/engine/Math/matrix.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L49">src/engine/Math/matrix.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p> 4x4 matrix in column major order
-								| data[0], data[4], data[8],  data[12] |
-								| data[1], data[5], data[9],  data[13] |
-								| data[2], data[6], data[10], data[14] |
-							| data[3], data[7], data[11], data[15] |</p>
+							<p> 4x4 matrix in column major order</p>
 						</div>
+						<table>
+							<thead>
+								<tr>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody><tr>
+									<td>data[0]</td>
+									<td>data[4]</td>
+									<td>data[8]</td>
+									<td>data[12]</td>
+								</tr>
+								<tr>
+									<td>data[1]</td>
+									<td>data[5]</td>
+									<td>data[9]</td>
+									<td>data[13]</td>
+								</tr>
+								<tr>
+									<td>data[2]</td>
+									<td>data[6]</td>
+									<td>data[10]</td>
+									<td>data[14]</td>
+								</tr>
+								<tr>
+									<td>data[3]</td>
+									<td>data[7]</td>
+									<td>data[11]</td>
+									<td>data[15]</td>
+								</tr>
+						</tbody></table>
 					</div>
 				</section>
 			</section>
@@ -170,7 +215,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L55">src/engine/Math/matrix.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L88">src/engine/Math/matrix.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -179,6 +224,152 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getaffineinverse" class="tsd-anchor"></a>
+					<h3> get<wbr>Affine<wbr>Inverse</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Affine<wbr>Inverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L451">src/engine/Math/matrix.ts:451</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbasisdeterminant" class="tsd-anchor"></a>
+					<h3> get<wbr>Basis<wbr>Determinant</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Basis<wbr>Determinant<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L447">src/engine/Math/matrix.ts:447</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Determinant of the upper left 2x2 matrix</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getposition" class="tsd-anchor"></a>
+					<h3> get<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Position<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L316">src/engine/Math/matrix.ts:316</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getrotation" class="tsd-anchor"></a>
+					<h3> get<wbr>Rotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Rotation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L394">src/engine/Math/matrix.ts:394</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getscale" class="tsd-anchor"></a>
+					<h3> get<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Scale<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L417">src/engine/Math/matrix.ts:417</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the scale of the matrix</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getscalex" class="tsd-anchor"></a>
+					<h3> get<wbr>ScaleX</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ScaleX<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L402">src/engine/Math/matrix.ts:402</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getscaley" class="tsd-anchor"></a>
+					<h3> get<wbr>ScaleY</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>ScaleY<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L408">src/engine/Math/matrix.ts:408</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isidentity" class="tsd-anchor"></a>
+					<h3> is<wbr>Identity</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Identity<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L481">src/engine/Math/matrix.ts:481</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -192,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L174">src/engine/Math/matrix.ts:174</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L205">src/engine/Math/matrix.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -223,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L151">src/engine/Math/matrix.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L182">src/engine/Math/matrix.ts:182</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,7 +435,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L152">src/engine/Math/matrix.ts:152</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L183">src/engine/Math/matrix.ts:183</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -267,7 +458,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L278">src/engine/Math/matrix.ts:278</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L324">src/engine/Math/matrix.ts:324</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,6 +471,7 @@
 								<li>
 									<h5>angle: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>in Radians</p>
 									</div>
 								</li>
 							</ul>
@@ -297,7 +489,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L310">src/engine/Math/matrix.ts:310</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L357">src/engine/Math/matrix.ts:357</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -321,6 +513,141 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setposition" class="tsd-anchor"></a>
+					<h3> set<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Position<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L311">src/engine/Math/matrix.ts:311</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setrotation" class="tsd-anchor"></a>
+					<h3> set<wbr>Rotation</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Rotation<span class="tsd-signature-symbol">(</span>angle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L382">src/engine/Math/matrix.ts:382</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>angle: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setscale" class="tsd-anchor"></a>
+					<h3> set<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Scale<span class="tsd-signature-symbol">(</span>scale<span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L439">src/engine/Math/matrix.ts:439</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>scale: <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setscalex" class="tsd-anchor"></a>
+					<h3> set<wbr>ScaleX</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>ScaleX<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L422">src/engine/Math/matrix.ts:422</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setscaley" class="tsd-anchor"></a>
+					<h3> set<wbr>ScaleY</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>ScaleY<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L431">src/engine/Math/matrix.ts:431</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3> to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L500">src/engine/Math/matrix.ts:500</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="translate" class="tsd-anchor"></a>
 					<h3> translate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -330,7 +657,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L244">src/engine/Math/matrix.ts:244</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L279">src/engine/Math/matrix.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -363,7 +690,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L82">src/engine/Math/matrix.ts:82</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L115">src/engine/Math/matrix.ts:115</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -385,7 +712,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L28">src/engine/Math/matrix.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L61">src/engine/Math/matrix.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -431,7 +758,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L138">src/engine/Math/matrix.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L169">src/engine/Math/matrix.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -461,7 +788,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L125">src/engine/Math/matrix.ts:125</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L156">src/engine/Math/matrix.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -488,13 +815,13 @@
 					<a name="translation" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagStatic">Static</span> translation</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">translation<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, z<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></li>
+						<li class="tsd-signature tsd-kind-icon">translation<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Math/matrix.ts#L112">src/engine/Math/matrix.ts:112</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Math/matrix.ts#L144">src/engine/Math/matrix.ts:144</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -509,9 +836,6 @@
 								</li>
 								<li>
 									<h5>y: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>z: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
@@ -535,6 +859,9 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/math_matrix.matrixlocations.html" class="tsd-kind-icon">Matrix<wbr>Locations</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
@@ -550,6 +877,30 @@
 								<a href="math_matrix.matrix.html#clone" class="tsd-kind-icon">clone</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getaffineinverse" class="tsd-kind-icon">get<wbr>Affine<wbr>Inverse</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getbasisdeterminant" class="tsd-kind-icon">get<wbr>Basis<wbr>Determinant</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getposition" class="tsd-kind-icon">get<wbr>Position</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getrotation" class="tsd-kind-icon">get<wbr>Rotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getscale" class="tsd-kind-icon">get<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getscalex" class="tsd-kind-icon">get<wbr>ScaleX</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#getscaley" class="tsd-kind-icon">get<wbr>ScaleY</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#isidentity" class="tsd-kind-icon">is<wbr>Identity</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="math_matrix.matrix.html#multm" class="tsd-kind-icon">multm</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -560,6 +911,24 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="math_matrix.matrix.html#scale" class="tsd-kind-icon">scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#setposition" class="tsd-kind-icon">set<wbr>Position</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#setrotation" class="tsd-kind-icon">set<wbr>Rotation</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#setscale" class="tsd-kind-icon">set<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#setscalex" class="tsd-kind-icon">set<wbr>ScaleX</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#setscaley" class="tsd-kind-icon">set<wbr>ScaleY</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="math_matrix.matrix.html#tostring" class="tsd-kind-icon">to<wbr>String</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="math_matrix.matrix.html#translate" class="tsd-kind-icon">translate</a>

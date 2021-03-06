@@ -81,6 +81,20 @@
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">Vector</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="math_vector_view.vectorview.html" class="tsd-signature-type">VectorView</a>
+							</li>
+							<li>
+								<a href="math_index.vectorview.html" class="tsd-signature-type">VectorView</a>
+							</li>
+							<li>
+								<a href="excalibur.vectorview.html" class="tsd-signature-type">VectorView</a>
+							</li>
+							<li>
+								<a href="index.vectorview.html" class="tsd-signature-type">VectorView</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -101,16 +115,11 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="algebra.vector.html#x" class="tsd-kind-icon">x</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="algebra.vector.html#y" class="tsd-kind-icon">y</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Accessors</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="algebra.vector.html#size" class="tsd-kind-icon">size</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="algebra.vector.html#x" class="tsd-kind-icon">x</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="algebra.vector.html#y" class="tsd-kind-icon">y</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-static"><a href="algebra.vector.html#down" class="tsd-kind-icon">Down</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-static"><a href="algebra.vector.html#half" class="tsd-kind-icon">Half</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-static"><a href="algebra.vector.html#left" class="tsd-kind-icon">Left</a></li>
@@ -164,7 +173,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L90">src/engine/Algebra.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L90">src/engine/Algebra.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -188,23 +197,6 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="x" class="tsd-anchor"></a>
-					<h3> x</h3>
-					<div class="tsd-signature tsd-kind-icon">x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="y" class="tsd-anchor"></a>
-					<h3> y</h3>
-					<div class="tsd-signature tsd-kind-icon">y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Accessors</h2>
 				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
 					<a name="size" class="tsd-anchor"></a>
@@ -217,12 +209,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L138">src/engine/Algebra.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L175">src/engine/Algebra.ts:175</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The size(magnitude) of the Vector</p>
+									<p>The size (magnitude) of the Vector</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -230,18 +222,117 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L142">src/engine/Algebra.ts:142</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L184">src/engine/Algebra.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The size(magnitude) of the Vector</p>
+									<p>Setting the size mutates the current vector</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p>Can be used to set the size of the vector, <strong>be very careful using this, mutating vectors can cause hard to find bugs</strong></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>newLength: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="x" class="tsd-anchor"></a>
+					<h3> x</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> x<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> x<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L105">src/engine/Algebra.ts:105</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the x component of the vector</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L113">src/engine/Algebra.ts:113</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the x component, THIS MUTATES the current vector. It is usually better to create a new vector.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p><strong>Be very careful setting components on shared vectors, mutating shared vectors can cause hard to find bugs</strong></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="y" class="tsd-anchor"></a>
+					<h3> y</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> y<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> y<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L121">src/engine/Algebra.ts:121</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the y component of the vector</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L129">src/engine/Algebra.ts:129</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Set the y component, THIS MUTATES the current vector. It is usually better to create a new vector.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p><strong>Be very careful setting components on shared vectors, mutating shared vectors can cause hard to find bugs</strong></p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -258,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L40">src/engine/Algebra.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L40">src/engine/Algebra.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -280,7 +371,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L26">src/engine/Algebra.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L26">src/engine/Algebra.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -302,7 +393,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L47">src/engine/Algebra.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L47">src/engine/Algebra.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -324,7 +415,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L19">src/engine/Algebra.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L19">src/engine/Algebra.ts:19</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -346,7 +437,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L53">src/engine/Algebra.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L53">src/engine/Algebra.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,7 +459,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L33">src/engine/Algebra.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L33">src/engine/Algebra.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,7 +481,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L12">src/engine/Algebra.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L12">src/engine/Algebra.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -415,7 +506,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L185">src/engine/Algebra.ts:185</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L226">src/engine/Algebra.ts:226</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -446,13 +537,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L201">src/engine/Algebra.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L243">src/engine/Algebra.ts:243</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Adds one vector to this one modifying the original</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p>Be very careful using this, mutating vectors can cause hard to find bugs</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -477,7 +573,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L163">src/engine/Algebra.ts:163</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L204">src/engine/Algebra.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -506,7 +602,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/interfaces_clonable.clonable.html">Clonable</a>.<a href="../interfaces/interfaces_clonable.clonable.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L298">src/engine/Algebra.ts:298</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L339">src/engine/Algebra.ts:339</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -529,7 +625,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L238">src/engine/Algebra.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L279">src/engine/Algebra.ts:279</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -551,7 +647,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L243">src/engine/Algebra.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L284">src/engine/Algebra.ts:284</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -582,7 +678,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L119">src/engine/Algebra.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L156">src/engine/Algebra.ts:156</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,7 +709,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L230">src/engine/Algebra.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L271">src/engine/Algebra.ts:271</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -644,7 +740,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L111">src/engine/Algebra.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L148">src/engine/Algebra.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -681,7 +777,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L131">src/engine/Algebra.ts:131</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L168">src/engine/Algebra.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -708,7 +804,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L269">src/engine/Algebra.ts:269</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L310">src/engine/Algebra.ts:310</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -730,7 +826,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L262">src/engine/Algebra.ts:262</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L303">src/engine/Algebra.ts:303</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -752,7 +848,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L151">src/engine/Algebra.ts:151</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L192">src/engine/Algebra.ts:192</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -774,7 +870,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L255">src/engine/Algebra.ts:255</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L296">src/engine/Algebra.ts:296</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -796,7 +892,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L284">src/engine/Algebra.ts:284</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L325">src/engine/Algebra.ts:325</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -829,7 +925,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L171">src/engine/Algebra.ts:171</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L212">src/engine/Algebra.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -848,7 +944,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L172">src/engine/Algebra.ts:172</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L213">src/engine/Algebra.ts:213</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -871,13 +967,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L220">src/engine/Algebra.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L262">src/engine/Algebra.ts:262</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Scales this vector by a factor of size and modifies the original</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p>Be very careful using this, mutating vectors can cause hard to find bugs</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -899,13 +1000,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L101">src/engine/Algebra.ts:101</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L138">src/engine/Algebra.ts:138</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Sets the x and y components at once</p>
+									<p>Sets the x and y components at once, THIS MUTATES the current vector. It is usually better to create a new vector.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p><strong>Be very careful using this, mutating vectors can cause hard to find bugs</strong></p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -930,7 +1036,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L193">src/engine/Algebra.ts:193</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L234">src/engine/Algebra.ts:234</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -961,13 +1067,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L211">src/engine/Algebra.ts:211</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L253">src/engine/Algebra.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Subtracts a vector from this one modifying the original</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt >warning</dt>
+									<dd ><p>Be very careful using this, mutating vectors can cause hard to find bugs</p>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
@@ -992,7 +1103,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L276">src/engine/Algebra.ts:276</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L317">src/engine/Algebra.ts:317</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1014,7 +1125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L305">src/engine/Algebra.ts:305</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L346">src/engine/Algebra.ts:346</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1036,7 +1147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L88">src/engine/Algebra.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L88">src/engine/Algebra.ts:88</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1069,7 +1180,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L61">src/engine/Algebra.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L61">src/engine/Algebra.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1100,7 +1211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/Algebra.ts#L68">src/engine/Algebra.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/Algebra.ts#L68">src/engine/Algebra.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1153,14 +1264,14 @@
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="algebra.vector.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="algebra.vector.html#x" class="tsd-kind-icon">x</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="algebra.vector.html#y" class="tsd-kind-icon">y</a>
-							</li>
 							<li class=" tsd-kind-accessor tsd-parent-kind-class">
 								<a href="algebra.vector.html#size" class="tsd-kind-icon">size</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="algebra.vector.html#x" class="tsd-kind-icon">x</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="algebra.vector.html#y" class="tsd-kind-icon">y</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-static">
 								<a href="algebra.vector.html#down" class="tsd-kind-icon">Down</a>

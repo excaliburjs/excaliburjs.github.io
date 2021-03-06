@@ -97,20 +97,32 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="index.transformcomponent.html#coordplane" class="tsd-kind-icon">coord<wbr>Plane</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="index.transformcomponent.html#dependencies" class="tsd-kind-icon">dependencies</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="index.transformcomponent.html#matrix" class="tsd-kind-icon">matrix</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="index.transformcomponent.html#onadd" class="tsd-kind-icon">on<wbr>Add</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="index.transformcomponent.html#onremove" class="tsd-kind-icon">on<wbr>Remove</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="index.transformcomponent.html#owner" class="tsd-kind-icon">owner</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="index.transformcomponent.html#pos" class="tsd-kind-icon">pos</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="index.transformcomponent.html#rotation" class="tsd-kind-icon">rotation</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="index.transformcomponent.html#scale" class="tsd-kind-icon">scale</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="index.transformcomponent.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="index.transformcomponent.html#z" class="tsd-kind-icon">z</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="index.transformcomponent.html#dirty" class="tsd-kind-icon">dirty</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="index.transformcomponent.html#globalpos" class="tsd-kind-icon">global<wbr>Pos</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="index.transformcomponent.html#globalrotation" class="tsd-kind-icon">global<wbr>Rotation</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="index.transformcomponent.html#globalscale" class="tsd-kind-icon">global<wbr>Scale</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="index.transformcomponent.html#parent" class="tsd-kind-icon">parent</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="index.transformcomponent.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="index.transformcomponent.html#rotation" class="tsd-kind-icon">rotation</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="index.transformcomponent.html#scale" class="tsd-kind-icon">scale</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="index.transformcomponent.html#clone" class="tsd-kind-icon">clone</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="index.transformcomponent.html#getglobalmatrix" class="tsd-kind-icon">get<wbr>Global<wbr>Matrix</a></li>
 							</ul>
 						</section>
 					</div>
@@ -142,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">coord<wbr>Plane<span class="tsd-signature-symbol">:</span> <a href="../enums/entitycomponentsystem_components_transformcomponent.coordplane.html" class="tsd-signature-type">CoordPlane</a><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L26">src/engine/EntityComponentSystem/Components/TransformComponent.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L93">src/engine/EntityComponentSystem/Components/TransformComponent.ts:93</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -154,11 +166,11 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="dependencies" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> dependencies</h3>
-					<div class="tsd-signature tsd-kind-icon">dependencies<span class="tsd-signature-symbol">:</span> <a href="../interfaces/entitycomponentsystem_component.componentctor.html" class="tsd-signature-type">ComponentCtor</a><span class="tsd-signature-symbol">[]</span></div>
+					<div class="tsd-signature tsd-kind-icon">dependencies<span class="tsd-signature-symbol">:</span> <a href="../interfaces/entitycomponentsystem_component.componentctor.html" class="tsd-signature-type">ComponentCtor</a><span class="tsd-signature-symbol">&lt;</span><a href="entitycomponentsystem_component.component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="entitycomponentsystem_component.component.html">Component</a>.<a href="entitycomponentsystem_component.component.html#dependencies">dependencies</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Component.ts#L35">src/engine/EntityComponentSystem/Component.ts:35</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Component.ts#L40">src/engine/EntityComponentSystem/Component.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,6 +181,16 @@
 						<p>Only components with zero-arg constructors are supported as automatic component dependencies</p>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="matrix" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagReadonly">Readonly</span> matrix</h3>
+					<div class="tsd-signature tsd-kind-icon">matrix<span class="tsd-signature-symbol">:</span> <a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L63">src/engine/EntityComponentSystem/Components/TransformComponent.ts:63</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="onadd" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Add</h3>
@@ -176,7 +198,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="entitycomponentsystem_component.component.html">Component</a>.<a href="entitycomponentsystem_component.component.html#onadd">onAdd</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Component.ts#L68">src/engine/EntityComponentSystem/Component.ts:68</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Component.ts#L73">src/engine/EntityComponentSystem/Component.ts:73</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -213,7 +235,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="entitycomponentsystem_component.component.html">Component</a>.<a href="entitycomponentsystem_component.component.html#onremove">onRemove</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Component.ts#L73">src/engine/EntityComponentSystem/Component.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Component.ts#L78">src/engine/EntityComponentSystem/Component.ts:78</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -250,57 +272,12 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="entitycomponentsystem_component.component.html">Component</a>.<a href="entitycomponentsystem_component.component.html#owner">owner</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Component.ts#L45">src/engine/EntityComponentSystem/Component.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Component.ts#L50">src/engine/EntityComponentSystem/Component.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Current owning <a href="index.entity.html">Entity</a>, if any, of this component. Null if not added to any <a href="index.entity.html">Entity</a></p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="pos" class="tsd-anchor"></a>
-					<h3> pos</h3>
-					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L31">src/engine/EntityComponentSystem/Components/TransformComponent.ts:31</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The current position of the entity in world space or in screen space depending on the the <a href="../enums/index.coordplane.html">coordinate plane</a></p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="rotation" class="tsd-anchor"></a>
-					<h3> rotation</h3>
-					<div class="tsd-signature tsd-kind-icon">rotation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L42">src/engine/EntityComponentSystem/Components/TransformComponent.ts:42</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The rotation of the entity in radians. For example <code>Math.PI</code> radians is the same as 180 degrees.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="scale" class="tsd-anchor"></a>
-					<h3> scale</h3>
-					<div class="tsd-signature tsd-kind-icon">scale<span class="tsd-signature-symbol">:</span> <a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol"> = ...</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L47">src/engine/EntityComponentSystem/Components/TransformComponent.ts:47</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The scale of the entity.</p>
 						</div>
 					</div>
 				</section>
@@ -311,7 +288,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="entitycomponentsystem_component.component.html">Component</a>.<a href="entitycomponentsystem_component.component.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L21">src/engine/EntityComponentSystem/Components/TransformComponent.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L59">src/engine/EntityComponentSystem/Components/TransformComponent.ts:59</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -326,7 +303,7 @@
 					<div class="tsd-signature tsd-kind-icon">z<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L37">src/engine/EntityComponentSystem/Components/TransformComponent.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L162">src/engine/EntityComponentSystem/Components/TransformComponent.ts:162</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -335,6 +312,277 @@
 							For example z=99 would be drawn on top of z=0.</p>
 						</div>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="dirty" class="tsd-anchor"></a>
+					<h3> dirty</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> dirty<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L114">src/engine/EntityComponentSystem/Components/TransformComponent.ts:114</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="globalpos" class="tsd-anchor"></a>
+					<h3> global<wbr>Pos</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> globalPos<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> globalPos<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L125">src/engine/EntityComponentSystem/Components/TransformComponent.ts:125</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The current world position calculated</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L149">src/engine/EntityComponentSystem/Components/TransformComponent.ts:149</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The current world position calculated</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="globalrotation" class="tsd-anchor"></a>
+					<h3> global<wbr>Rotation</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> globalRotation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> globalRotation<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L180">src/engine/EntityComponentSystem/Components/TransformComponent.ts:180</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L184">src/engine/EntityComponentSystem/Components/TransformComponent.ts:184</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="globalscale" class="tsd-anchor"></a>
+					<h3> global<wbr>Scale</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> globalScale<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> globalScale<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L208">src/engine/EntityComponentSystem/Components/TransformComponent.ts:208</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L232">src/engine/EntityComponentSystem/Components/TransformComponent.ts:232</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="parent" class="tsd-anchor"></a>
+					<h3> parent</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> parent<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="entitycomponentsystem_components_transformcomponent.transformcomponent.html" class="tsd-signature-type">TransformComponent</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L86">src/engine/EntityComponentSystem/Components/TransformComponent.ts:86</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="entitycomponentsystem_components_transformcomponent.transformcomponent.html" class="tsd-signature-type">TransformComponent</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="pos" class="tsd-anchor"></a>
+					<h3> pos</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> pos<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> pos<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L101">src/engine/EntityComponentSystem/Components/TransformComponent.ts:101</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The current position of the entity in world space or in screen space depending on the the [[coordinate plan|CoordPlane]].</p>
+								</div>
+								<p>If a parent entity exists coordinates are local to the parent.</p>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L108">src/engine/EntityComponentSystem/Components/TransformComponent.ts:108</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The current position of the entity in world space or in screen space depending on the the [[coordinate plan|CoordPlane]].</p>
+								</div>
+								<p>If a parent entity exists coordinates are local to the parent.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="rotation" class="tsd-anchor"></a>
+					<h3> rotation</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> rotation<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> rotation<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L167">src/engine/EntityComponentSystem/Components/TransformComponent.ts:167</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The rotation of the entity in radians. For example <code>Math.PI</code> radians is the same as 180 degrees.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L174">src/engine/EntityComponentSystem/Components/TransformComponent.ts:174</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The rotation of the entity in radians. For example <code>Math.PI</code> radians is the same as 180 degrees.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="scale" class="tsd-anchor"></a>
+					<h3> scale</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> scale<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> scale<span class="tsd-signature-symbol">(</span>val<span class="tsd-signature-symbol">: </span><a href="algebra.vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L196">src/engine/EntityComponentSystem/Components/TransformComponent.ts:196</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The scale of the entity.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L203">src/engine/EntityComponentSystem/Components/TransformComponent.ts:203</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The scale of the entity.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>val: <a href="algebra.vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -350,7 +598,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="entitycomponentsystem_component.component.html">Component</a>.<a href="entitycomponentsystem_component.component.html#clone">clone</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/fb1de795/src/engine/EntityComponentSystem/Component.ts#L50">src/engine/EntityComponentSystem/Component.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Component.ts#L55">src/engine/EntityComponentSystem/Component.ts:55</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -359,6 +607,23 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="entitycomponentsystem_components_transformcomponent.transformcomponent.html" class="tsd-signature-type">TransformComponent</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getglobalmatrix" class="tsd-anchor"></a>
+					<h3> get<wbr>Global<wbr>Matrix</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Global<wbr>Matrix<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/a24a7b7a/src/engine/EntityComponentSystem/Components/TransformComponent.ts#L78">src/engine/EntityComponentSystem/Components/TransformComponent.ts:78</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="math_matrix.matrix.html" class="tsd-signature-type">Matrix</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -391,6 +656,9 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="index.transformcomponent.html#dependencies" class="tsd-kind-icon">dependencies</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#matrix" class="tsd-kind-icon">matrix</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="index.transformcomponent.html#onadd" class="tsd-kind-icon">on<wbr>Add</a>
 							</li>
@@ -400,23 +668,41 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="index.transformcomponent.html#owner" class="tsd-kind-icon">owner</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="index.transformcomponent.html#pos" class="tsd-kind-icon">pos</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="index.transformcomponent.html#rotation" class="tsd-kind-icon">rotation</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="index.transformcomponent.html#scale" class="tsd-kind-icon">scale</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="index.transformcomponent.html#type" class="tsd-kind-icon">type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="index.transformcomponent.html#z" class="tsd-kind-icon">z</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#dirty" class="tsd-kind-icon">dirty</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#globalpos" class="tsd-kind-icon">global<wbr>Pos</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#globalrotation" class="tsd-kind-icon">global<wbr>Rotation</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#globalscale" class="tsd-kind-icon">global<wbr>Scale</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#parent" class="tsd-kind-icon">parent</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#pos" class="tsd-kind-icon">pos</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#rotation" class="tsd-kind-icon">rotation</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#scale" class="tsd-kind-icon">scale</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="index.transformcomponent.html#clone" class="tsd-kind-icon">clone</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="index.transformcomponent.html#getglobalmatrix" class="tsd-kind-icon">get<wbr>Global<wbr>Matrix</a>
 							</li>
 						</ul>
 					</li>
