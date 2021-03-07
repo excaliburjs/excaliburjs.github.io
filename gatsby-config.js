@@ -19,9 +19,6 @@ module.exports = {
           `${__dirname}/ex/edge/src/engine/excalibur.d.ts`,
         ],
         typedoc: {
-          target: 'es5',
-          mode: 'modules',
-          experimentalDecorators: true,
           excludePrivate: true,
           tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
         },
