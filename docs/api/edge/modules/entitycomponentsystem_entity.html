@@ -74,7 +74,7 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/entitycomponentsystem_entity.addedcomponent.html" class="tsd-kind-icon">Added<wbr>Component</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter"><a href="../classes/entitycomponentsystem_entity.entity.html" class="tsd-kind-icon">Entity</a></li>
+								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/entitycomponentsystem_entity.entity.html" class="tsd-kind-icon">Entity</a></li>
 								<li class="tsd-kind-class tsd-parent-kind-module"><a href="../classes/entitycomponentsystem_entity.removedcomponent.html" class="tsd-kind-icon">Removed<wbr>Component</a></li>
 							</ul>
 						</section>
@@ -85,15 +85,6 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="entitycomponentsystem_entity.html#componentmap" class="tsd-kind-icon">Component<wbr>Map</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="entitycomponentsystem_entity.html#componentmapper" class="tsd-kind-icon">Component<wbr>Mapper</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="entitycomponentsystem_entity.html#excludetype" class="tsd-kind-icon">Exclude<wbr>Type</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="entitycomponentsystem_entity.html#maptypenametocomponent" class="tsd-kind-icon">Map<wbr>Type<wbr>Name<wbr>ToComponent</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="entitycomponentsystem_entity.html#isaddedcomponent" class="tsd-kind-icon">is<wbr>Added<wbr>Component</a></li>
@@ -101,57 +92,6 @@
 							</ul>
 						</section>
 					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="componentmap" class="tsd-anchor"></a>
-					<h3> Component<wbr>Map</h3>
-					<div class="tsd-signature tsd-kind-icon">Component<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3dbe3ec7/src/engine/EntityComponentSystem/Entity.ts#L48">src/engine/EntityComponentSystem/Entity.ts:48</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>type: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../classes/entitycomponentsystem_component.component.html" class="tsd-signature-type">Component</a></h5>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="componentmapper" class="tsd-anchor"></a>
-					<h3> Component<wbr>Mapper</h3>
-					<div class="tsd-signature tsd-kind-icon">Component<wbr>Mapper<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">{ [TypeName in PossibleComponentTypes[&quot;type&quot;]]: MapTypeNameToComponent&lt;TypeName, PossibleComponentTypes&gt;}</span><span class="tsd-signature-symbol"> &amp; </span><a href="entitycomponentsystem_entity.html#componentmap" class="tsd-signature-type">ComponentMap</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3dbe3ec7/src/engine/EntityComponentSystem/Entity.ts#L56">src/engine/EntityComponentSystem/Entity.ts:56</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="excludetype" class="tsd-anchor"></a>
-					<h3> Exclude<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Exclude<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TypeNameOrType extends string ? Exclude&lt;TypeUnion, Component&lt;TypeNameOrType&gt;&gt; : Exclude&lt;TypeUnion, TypeNameOrType&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3dbe3ec7/src/engine/EntityComponentSystem/Entity.ts#L61">src/engine/EntityComponentSystem/Entity.ts:61</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="maptypenametocomponent" class="tsd-anchor"></a>
-					<h3> Map<wbr>Type<wbr>Name<wbr>ToComponent</h3>
-					<div class="tsd-signature tsd-kind-icon">Map<wbr>Type<wbr>Name<wbr>ToComponent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ComponentType extends Component&lt;TypeName&gt; ? ComponentType : never</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3dbe3ec7/src/engine/EntityComponentSystem/Entity.ts#L51">src/engine/EntityComponentSystem/Entity.ts:51</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -166,7 +106,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3dbe3ec7/src/engine/EntityComponentSystem/Entity.ts#L29">src/engine/EntityComponentSystem/Entity.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b684ff8c/src/engine/EntityComponentSystem/Entity.ts#L29">src/engine/EntityComponentSystem/Entity.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,7 +134,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/3dbe3ec7/src/engine/EntityComponentSystem/Entity.ts#L44">src/engine/EntityComponentSystem/Entity.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/b684ff8c/src/engine/EntityComponentSystem/Entity.ts#L44">src/engine/EntityComponentSystem/Entity.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,7 +170,7 @@
 					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/entitycomponentsystem_entity.addedcomponent.html" class="tsd-kind-icon">Added<wbr>Component</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module tsd-has-type-parameter">
+					<li class=" tsd-kind-class tsd-parent-kind-module">
 						<a href="../classes/entitycomponentsystem_entity.entity.html" class="tsd-kind-icon">Entity</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
@@ -238,18 +178,6 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
 						<a href="../interfaces/entitycomponentsystem_entity.entitycomponent.html" class="tsd-kind-icon">Entity<wbr>Component</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
-						<a href="entitycomponentsystem_entity.html#componentmap" class="tsd-kind-icon">Component<wbr>Map</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="entitycomponentsystem_entity.html#componentmapper" class="tsd-kind-icon">Component<wbr>Mapper</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="entitycomponentsystem_entity.html#excludetype" class="tsd-kind-icon">Exclude<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="entitycomponentsystem_entity.html#maptypenametocomponent" class="tsd-kind-icon">Map<wbr>Type<wbr>Name<wbr>ToComponent</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="entitycomponentsystem_entity.html#isaddedcomponent" class="tsd-kind-icon">is<wbr>Added<wbr>Component</a>
