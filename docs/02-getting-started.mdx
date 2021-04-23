@@ -3,27 +3,40 @@ title: Getting Started
 path: /docs/getting-started
 ---
 
-## Download and Install Excalibur
+Review the [Installing Guide](/docs/installation) for instructions.
 
-Review the [Installing Excalibur.js][docs-install] for instructions.
+## Introduction
+
+Excalibur uses a theater-style metaphor to organize your games. There are `Actor`'s which can move around and do things in a currently active `Scene`, and all of that lives in the `Engine` container.
 
 ## Global Namespace vs. Imports
 
-In this tutorial, we are using the global `ex.` namespace, which works within a browser environment. If you are using ES2015 modules, you would replace `ex.` with an import statement at the top of the file:
+In this tutorial, we are using "ES Style" imports, the global `ex.` namespace can also be used, which works well when doing a [standalone script](/docs/installation#script-reference-or-download).
 
 ```ts
-import * as ex from 'excalibur'
+// ES Style
+import { Actor } from 'excalibur'
+
+const actor = new Actor()
+```
+
+If you are using a standalone script, the excalibur types will have a `ex.` in front of them
+
+```ts
+// Standalone style 'ex' global exists ambiently from an included script.
+
+const actor = new ex.Actor()
 ```
 
 <Note>
 
-See [notes about ES2015 imports](/docs/installation#module-loaders-and-bundlers) with module loaders and bundlers.
+See [notes about ES imports](/docs/bundlers) with module loaders and bundlers.
 
 </Note>
 
 ## Build Your Game Script
 
-Create a script in your project, here I’ve named it `game.js`. Excalibur games are built off of the [ex.Engine](/docs/intro) container. It is important to start the engine once you are done building your game.
+Create a script in your project, here I’ve named it `game.ts`. Excalibur games are built off of the [Engine](/docs/intro) container. It is important to start the engine once you are done building your game.
 
 <Note>
 
@@ -32,8 +45,8 @@ Call `game.start()` right away so you don’t forget
 </Note>
 
 ```typescript
-import { Engine } from "excalibur";
 // game.ts
+import { Engine } from 'excalibur'
 
 // Create an instance of the engine.
 // I'm specifying that the game be 800 pixels wide by 600 pixels tall.
@@ -42,13 +55,13 @@ const game = new Engine({
   width: 800,
   height: 600,
 })
-// todo build awesome game here
+// TODO build awesome game here
 
 // Start the engine to begin the game.
 game.start()
 ```
 
-Include your game script after the excalibur script.
+Include your compiled game.js script after the excalibur script.
 
 ```html
 <html>
@@ -66,7 +79,7 @@ Open a browser and view the blank blue screen of goodness.
 
 ## Hello Excalibur: Building Breakout!
 
-That’s cool, but let’s make something more interesting on the screen.
+That’s cool, but let’s make something more interesting on the screen. TLDR [GitHub repo of this example](https://github.com/excaliburjs/sample-breakout)
 
 To do this Excalibur uses a primitive called an [Actor][docs-actor], and places actors into a [Scene][docs-scene]. Think of actors like you would the actors in a play. Actors are the primary way to draw things to the screen.
 
@@ -78,42 +91,43 @@ Actors must be added to a scene to be drawn or updated! `game.add(actor)` Will a
 
 <Note>
 
-**Important!** Actors have a default anchor of (0.5, 0.5) which means their position is centered (not top-left) by default.
+**Important!** Actors have a default anchor of (0.5, 0.5) which means their graphics are positioned in their center (not top-left) by default.
 
 </Note>
 
 ```typescript
-import { Actor, CollisionType, Color, Engine } from "excalibur";
+import { Actor, CollisionType, Color, Engine } from 'excalibur'
 
 // Create an instance of the engine.
 const game = new Engine({
   width: 800,
-  height: 600
-});
+  height: 600,
+})
 
 // Create an actor with x position of 150px,
 // y position of 40px from the bottom of the screen,
 // width of 200px, height and a height of 20px
 const paddle = new Actor({
   x: 150,
+  // game.drawHeight is the logical height in pixels after HiDPI and scaling
   y: game.drawHeight - 40,
   width: 200,
-  height: 20
-});
+  height: 20,
+})
 
 // Let's give it some color with one of the predefined
 // color constants
-paddle.color = Color.Chartreuse;
+paddle.color = Color.Chartreuse
 
 // Make sure the paddle can partipate in collisions, by default excalibur actors do not collide
-paddle.body.collider.type = CollisionType.Fixed;
+paddle.body.collider.type = CollisionType.Fixed
 
 // `game.add` is the same as calling
 // `game.currentScene.add`
-game.add(paddle);
+game.add(paddle)
 
 // Start the engine to begin the game.
-game.start();
+game.start()
 ```
 
 Open up your favorite browser and you should see something like this:
@@ -133,101 +147,71 @@ What’s breakout without the ball? To make the ball bounce, Excalibur comes pre
 
 ```typescript
 // Create a ball
-const ball = new Actor(100, 300, 20, 20);
+const ball = new Actor({ x: 100, y: 300 })
+ball.body.useCircleCollider(20)
 
 // Set the color
-ball.color = Color.Red;
+ball.color = Color.Red
 
 // Set the velocity in pixels per second
-ball.vel.setTo(100, 100);
+ball.vel = vec(100, 100)
 
 // Set the collision Type to passive
 // This means "tell me when I collide with an emitted event, but don't let excalibur do anything automatically"
-ball.body.collider.type = CollisionType.Passive;
+ball.body.collider.type = CollisionType.Passive
 // Other possible collision types:
 // "ex.CollisionType.PreventCollision - this means do not participate in any collision notification at all"
 // "ex.CollisionType.Active - this means participate and let excalibur resolve the positions/velocities of actors after collision"
 // "ex.CollisionType.Fixed - this means participate, but this object is unmovable"
 
 // Wire up to the postupdate event
-ball.on("postupdate", () => {
+ball.on('postupdate', () => {
   // If the ball collides with the left side
   // of the screen reverse the x velocity
   if (ball.pos.x < ball.width / 2) {
-    ball.vel.x *= -1;
+    ball.vel.x *= -1
   }
 
   // If the ball collides with the right side
   // of the screen reverse the x velocity
   if (ball.pos.x + ball.width / 2 > game.drawWidth) {
-    ball.vel.x *= -1;
+    ball.vel.x *= -1
   }
 
   // If the ball collides with the top
   // of the screen reverse the y velocity
   if (ball.pos.y < ball.height / 2) {
-    ball.vel.y *= -1;
+    ball.vel.y *= -1
   }
-});
-
-// Draw is passed a rendering context and a delta in milliseconds since the last frame
-ball.draw = (ctx, delta) => {
-  // Optionally call original 'base' method
-  // ex.Actor.prototype.draw.call(this, ctx, delta)
-
-  // Custom draw code
-  ctx.fillStyle = ball.color.toString();
-  ctx.beginPath();
-  ctx.arc(ball.pos.x, ball.pos.y, 10, 0, Math.PI * 2);
-  ctx.closePath();
-  ctx.fill();
-};
+})
 
 // Add the ball to the current scene
-game.add(ball);
+game.add(ball)
 ```
 
 The ball will now bounce off of the paddle, but does not bounce with the side of the screen. To fix that, let’s take advantage of the `postupdate` event.
 
 ```typescript
 // Wire up to the postupdate event
-ball.on("postupdate", () => {
+ball.on('postupdate', () => {
   // If the ball collides with the left side
   // of the screen reverse the x velocity
   if (ball.pos.x < ball.width / 2) {
-    ball.vel.x *= -1;
+    ball.vel.x *= -1
   }
 
   // If the ball collides with the right side
   // of the screen reverse the x velocity
   if (ball.pos.x + ball.width / 2 > game.drawWidth) {
-    ball.vel.x *= -1;
+    ball.vel.x *= -1
   }
 
   // If the ball collides with the top
   // of the screen reverse the y velocity
   if (ball.pos.y < ball.height / 2) {
-    ball.vel.y *= -1;
+    ball.vel.y *= -1
   }
-});
-```
-
-Don’t like square balls? Neither do we. You can create your own custom drawing function like so:
-
-```typescript
-// Draw is passed a rendering context and a delta in milliseconds since the last frame
-ball.draw = (ctx, delta) => {
-  // Optionally call original 'base' method
-  // ex.Actor.prototype.draw.call(this, ctx, delta)
-
-  // Custom draw code
-  ctx.fillStyle = ball.color.toString();
-  ctx.beginPath();
-  ctx.arc(ball.pos.x, ball.pos.y, 10, 0, Math.PI * 2);
-  ctx.closePath();
-  ctx.fill();
-};
-
+})
 ```
 
 <Note>
@@ -242,18 +226,18 @@ Breakout needs some bricks to break. To do this we calculate our brick layout an
 // Build Bricks
 
 // Padding between bricks
-const padding = 20; // px
-const xoffset = 65; // x-offset
-const yoffset = 20; // y-offset
-const columns = 5;
-const rows = 3;
+const padding = 20 // px
+const xoffset = 65 // x-offset
+const yoffset = 20 // y-offset
+const columns = 5
+const rows = 3
 
-const brickColor = [Color.Violet, Color.Orange, Color.Yellow];
+const brickColor = [Color.Violet, Color.Orange, Color.Yellow]
 
 // Individual brick width with padding factored in
-const brickWidth = game.drawWidth / columns - padding - padding / columns; // px
-const brickHeight = 30; // px
-const bricks: Actor[] = [];
+const brickWidth = game.drawWidth / columns - padding - padding / columns // px
+const brickHeight = 30 // px
+const bricks: Actor[] = []
 for (let j = 0; j < rows; j++) {
   for (let i = 0; i < columns; i++) {
     bricks.push(
@@ -262,45 +246,45 @@ for (let j = 0; j < rows; j++) {
         y: yoffset + j * (brickHeight + padding) + padding,
         width: brickWidth,
         height: brickHeight,
-        color: brickColor[j % brickColor.length]
+        color: brickColor[j % brickColor.length],
       })
-    );
+    )
   }
 }
 
 bricks.forEach(function (brick) {
   // Make sure that bricks can participate in collisions
-  brick.body.collider.type = CollisionType.Active;
+  brick.body.collider.type = CollisionType.Active
 
   // Add the brick to the current scene to be drawn
-  game.add(brick);
-});
+  game.add(brick)
+})
 ```
 
 When the ball collides with bricks, we want to remove them from the scene. Update the ‘precollision’ handler we previously added:
 
 ```typescript
 // On collision remove the brick, bounce the ball
-ball.on("precollision", function (ev) {
+ball.on('precollision', function (ev) {
   if (bricks.indexOf(ev.other) > -1) {
     // kill removes an actor from the current scene
     // therefore it will no longer be drawn or updated
-    ev.other.kill();
+    ev.other.kill()
   }
 
   // reverse course after any collision
   // intersections are the direction body A has to move to not be clipping body B
   // `ev.intersection` is a vector `normalize()` will make the length of it 1
   // `negate()` flips the direction of the vector
-  var intersection = ev.intersection.normalize();
+  var intersection = ev.intersection.normalize()
 
   // The largest component of intersection is our axis to flip
   if (Math.abs(intersection.x) > Math.abs(intersection.y)) {
-    ball.vel.x *= -1;
+    ball.vel.x *= -1
   } else {
-    ball.vel.y *= -1;
+    ball.vel.y *= -1
   }
-});
+})
 ```
 
 Finally, if the ball leaves the screen, the player loses!
@@ -313,7 +297,7 @@ ball.on('exitviewport', function () {
 
 ![Final Breakout screenshot](02-getting-started/breakout-final.png)
 
-Congratulations! You have just created your first game in Excalibur!
+Congratulations! You have just created your first game in Excalibur! You can download this example here https://github.com/excaliburjs/sample-breakout
 
 It's time to [get introduced][docs-intro] to the engine for more examples or advanced users can browse the [API Reference][docs-api].
 
@@ -322,7 +306,9 @@ It's time to [get introduced][docs-intro] to the engine for more examples or adv
      title="excaliburjs/sample-breakout"
      allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-   ></iframe>
+   >
+
+</iframe>
 
 [docs-install]: /docs/installation
 [docs-intro]: /docs/intro
