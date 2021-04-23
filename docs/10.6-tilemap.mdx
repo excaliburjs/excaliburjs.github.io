@@ -12,7 +12,21 @@ TileMaps can be useful tools to build levels for platformers or top down games.
 TileMaps consist of a uniform grid of cells that can be solid or not. Each cell can have it's own graphics.
 
 ```typescript
-const tileMap = new ex.TileMap({})
+const tileMap = new ex.TileMap({
+  x: 100,
+  y: 300,
+  cellWidth: 20,
+  cellHeight: 30,
+  rows: 4,
+  cols: 10,
+})
+
+tileMap.data.forEach((cell: ex.Cell) => {
+  // Make each cell solid
+  cell.solid = true
+  // Add a sprite to a cell
+  cell.addSprite(mySprite)
+})
 ```
 
 ### Tiled plugin

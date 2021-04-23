@@ -250,22 +250,6 @@ const animation = new ex.Graphics.Animation({
 })
 ```
 
-Frames can contain tags of information
-
-```typescript
-var anim = new ex.Graphics.Animation({
-  frames: [
-    {
-      graphic: playerGraphic,
-      duration: 500,
-      tags: {
-        handPos: ex.vec(200, 200),
-      },
-    },
-  ],
-})
-```
-
 Animations can be constructed quickly from [`ex.Graphics.SpriteSheets`](#SpriteSheet)
 
 ```typescript
@@ -525,7 +509,7 @@ This type of raster is re-rendered every time the graphic is drawn, thus it shou
 
 ```typescript
 const canvas = new Canvas({
-  drawHandler: (ctx: CanvasRenderingContext2D) => {
+  draw: (ctx: CanvasRenderingContext2D) => {
     ...
   }
 });
