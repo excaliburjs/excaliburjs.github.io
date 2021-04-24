@@ -27,7 +27,10 @@ function build(version, title) {
     })
   } else {
     child_process.execSync('git restore .', { cwd: exPath, stdio: [0, 1, 2] })
-    child_process.execSync('git pull', { cwd: exPath, stdio: [0, 1, 2] })
+    child_process.execSync('git pull origin main', {
+      cwd: exPath,
+      stdio: [0, 1, 2],
+    })
   }
   child_process.execSync('git rev-parse HEAD', {
     cwd: exPath,
@@ -103,9 +106,9 @@ console.info('Discovered', tags.length, 'releases:', tags)
 
 // Pull latest site master with last docs built
 
-console.info('Getting latest site master')
+console.info('Getting latest site main')
 child_process.execSync(
-  'git clone https://github.com/excaliburjs/excaliburjs.github.io -b master _current',
+  'git clone https://github.com/excaliburjs/excaliburjs.github.io -b main _current',
   { stdio: [0, 1, 2] }
 )
 
