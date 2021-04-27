@@ -1,11 +1,12 @@
 import React from 'react'
 import Header from '../components/header'
+import Layout from '../components/layout'
 import CardList from '../components/card-list'
 
 import gallery from '../data/gallery'
 
 const GalleryPage = () => (
-  <>
+  <Layout>
     <Header />
 
     <div className="ui container">
@@ -31,7 +32,7 @@ const GalleryPage = () => (
 
       <div className="ui hidden divider" />
     </div>
-  </>
+  </Layout>
 )
 
 export default GalleryPage
