@@ -108,7 +108,7 @@ console.info('Discovered', tags.length, 'releases:', tags)
 
 console.info('Getting latest site main')
 child_process.execSync(
-  'git clone https://github.com/excaliburjs/excaliburjs.github.io -b main _current',
+  'git clone https://github.com/excaliburjs/excaliburjs.github.io -b site _current',
   { stdio: [0, 1, 2] }
 )
 
