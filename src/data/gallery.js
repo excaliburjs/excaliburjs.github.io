@@ -1,3 +1,4 @@
+import meerkatticaImage from '../assets/images/showcase/meerkattica.png'
 import showMustGoOnImage from '../assets/images/showcase/show.png'
 import officeDaydreamImage from '../assets/images/showcase/office.png'
 import groceriesImage from '../assets/images/showcase/groceries.png'
@@ -7,6 +8,14 @@ import sweepstacksImage from '../assets/images/showcase/sweepstacks.png'
 import krakenImage from '../assets/images/showcase/kraken.png'
 
 export default [
+  {
+    title: 'Meerkattica',
+    image: meerkatticaImage,
+    description:
+      'This game was created for Ludum Dare 48. Dig deeply and quickly to get to your next metal gig, but watch out for the mechanical snake that pursues you!',
+    url: 'http://excaliburjs.com/ludum-48/',
+    source: 'https://github.com/excaliburjs/ludum-48',
+  },
   {
     title: 'The Show Must Go On',
     image: showMustGoOnImage,
