@@ -106,9 +106,9 @@ console.info('Discovered', tags.length, 'releases:', tags)
 
 // Pull latest site master with last docs built
 
-console.info('Getting latest site main')
+console.info('Getting latest published built site, which is on the master branch')
 child_process.execSync(
-  'git clone https://github.com/excaliburjs/excaliburjs.github.io -b site _current',
+  'git clone https://github.com/excaliburjs/excaliburjs.github.io -b master _current',
   { stdio: [0, 1, 2] }
 )
 
