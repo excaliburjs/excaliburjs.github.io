@@ -56,10 +56,10 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/actions_action.html">Actions/Action</a>
+					<a href="../modules/actions_actionqueue.html">Actions/ActionQueue</a>
 				</li>
 				<li>
-					<a href="actions_action.actionqueue.html">ActionQueue</a>
+					<a href="actions_actionqueue.actionqueue.html">ActionQueue</a>
 				</li>
 			</ul>
 			<h1>Class ActionQueue</h1>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Action Queues</p>
+						<p>Action Queues represent an ordered sequence of actions</p>
 					</div>
 					<p>Action queues are part of the <a href="actions_actioncontext.actioncontext.html">Action API</a> and
 					store the list of actions to be executed for an <a href="../modules/actor.html">Actor</a>.</p>
@@ -96,19 +96,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="actions_action.actionqueue.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#add" class="tsd-kind-icon">add</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#clearactions" class="tsd-kind-icon">clear<wbr>Actions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#getactions" class="tsd-kind-icon">get<wbr>Actions</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#hasnext" class="tsd-kind-icon">has<wbr>Next</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#remove" class="tsd-kind-icon">remove</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#reset" class="tsd-kind-icon">reset</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_action.actionqueue.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#add" class="tsd-kind-icon">add</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#clearactions" class="tsd-kind-icon">clear<wbr>Actions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#getactions" class="tsd-kind-icon">get<wbr>Actions</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#hasnext" class="tsd-kind-icon">has<wbr>Next</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#iscomplete" class="tsd-kind-icon">is<wbr>Complete</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#reset" class="tsd-kind-icon">reset</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="actions_actionqueue.actionqueue.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -120,13 +121,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Action<wbr>Queue<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="actor.actor-1.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="actions_action.actionqueue.html" class="tsd-signature-type">ActionQueue</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Action<wbr>Queue<span class="tsd-signature-symbol">(</span>actor<span class="tsd-signature-symbol">: </span><a href="actor.actor-1.html" class="tsd-signature-type">Actor</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="actions_actionqueue.actionqueue.html" class="tsd-signature-type">ActionQueue</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L970">src/engine/Actions/Action.ts:970</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L18">src/engine/Actions/ActionQueue.ts:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -135,7 +136,7 @@
 									<h5>actor: <a href="actor.actor-1.html" class="tsd-signature-type">Actor</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="actions_action.actionqueue.html" class="tsd-signature-type">ActionQueue</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="actions_actionqueue.actionqueue.html" class="tsd-signature-type">ActionQueue</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -152,13 +153,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L975">src/engine/Actions/Action.ts:975</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L27">src/engine/Actions/ActionQueue.ts:27</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Add an action to the sequence</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>action: <a href="../interfaces/actions_action.action.html" class="tsd-signature-type">Action</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -175,9 +183,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L984">src/engine/Actions/Action.ts:984</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L43">src/engine/Actions/ActionQueue.ts:43</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes all actions from this sequence</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -192,10 +205,11 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L992">src/engine/Actions/Action.ts:992</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L55">src/engine/Actions/ActionQueue.ts:55</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/actions_action.action.html" class="tsd-signature-type">Action</a><span class="tsd-signature-symbol">[]</span></h4>
+							<p>The total list of actions in this sequence complete or not</p>
 						</li>
 					</ul>
 				</section>
@@ -209,10 +223,29 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L996">src/engine/Actions/Action.ts:996</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L63">src/engine/Actions/ActionQueue.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if there are more actions to process in the sequence</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="iscomplete" class="tsd-anchor"></a>
+					<h3> is<wbr>Complete</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Complete<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L70">src/engine/Actions/ActionQueue.ts:70</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p><code>true</code> if the current sequence of actions is done</p>
 						</li>
 					</ul>
 				</section>
@@ -226,13 +259,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L979">src/engine/Actions/Action.ts:979</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L35">src/engine/Actions/ActionQueue.ts:35</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Remove an action by reference from the sequence</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>action: <a href="../interfaces/actions_action.action.html" class="tsd-signature-type">Action</a></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -249,9 +289,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L1000">src/engine/Actions/Action.ts:1000</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L77">src/engine/Actions/ActionQueue.ts:77</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Resets the sequence of actions, this is used to restart a sequence from the beginning</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -260,19 +305,26 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3> update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>delta<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>elapsedMs<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/ca377658/src/engine/Actions/Action.ts#L1010">src/engine/Actions/Action.ts:1010</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/f33c016e/src/engine/Actions/ActionQueue.ts#L91">src/engine/Actions/ActionQueue.ts:91</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Update the queue which updates actions and handles completing actions</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>delta: <span class="tsd-signature-type">number</span></h5>
+									<h5>elapsedMs: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -288,7 +340,7 @@
 						<a href="../modules.html">Exports</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/actions_action.html">Actions/<wbr>Action</a>
+						<a href="../modules/actions_actionqueue.html">Actions/<wbr>Action<wbr>Queue</a>
 					</li>
 				</ul>
 			</nav>
@@ -297,87 +349,39 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.actionqueue.html" class="tsd-kind-icon">Action<wbr>Queue</a>
+						<a href="actions_actionqueue.actionqueue.html" class="tsd-kind-icon">Action<wbr>Queue</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="actions_actionqueue.actionqueue.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#add" class="tsd-kind-icon">add</a>
+								<a href="actions_actionqueue.actionqueue.html#add" class="tsd-kind-icon">add</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#clearactions" class="tsd-kind-icon">clear<wbr>Actions</a>
+								<a href="actions_actionqueue.actionqueue.html#clearactions" class="tsd-kind-icon">clear<wbr>Actions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#getactions" class="tsd-kind-icon">get<wbr>Actions</a>
+								<a href="actions_actionqueue.actionqueue.html#getactions" class="tsd-kind-icon">get<wbr>Actions</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#hasnext" class="tsd-kind-icon">has<wbr>Next</a>
+								<a href="actions_actionqueue.actionqueue.html#hasnext" class="tsd-kind-icon">has<wbr>Next</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#remove" class="tsd-kind-icon">remove</a>
+								<a href="actions_actionqueue.actionqueue.html#iscomplete" class="tsd-kind-icon">is<wbr>Complete</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#reset" class="tsd-kind-icon">reset</a>
+								<a href="actions_actionqueue.actionqueue.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="actions_action.actionqueue.html#update" class="tsd-kind-icon">update</a>
+								<a href="actions_actionqueue.actionqueue.html#reset" class="tsd-kind-icon">reset</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="actions_actionqueue.actionqueue.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.blink.html" class="tsd-kind-icon">Blink</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.callmethod.html" class="tsd-kind-icon">Call<wbr>Method</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.delay.html" class="tsd-kind-icon">Delay</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.die.html" class="tsd-kind-icon">Die</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.easeto.html" class="tsd-kind-icon">Ease<wbr>To</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.fade.html" class="tsd-kind-icon">Fade</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.follow.html" class="tsd-kind-icon">Follow</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.meet.html" class="tsd-kind-icon">Meet</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.moveby.html" class="tsd-kind-icon">Move<wbr>By</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.moveto.html" class="tsd-kind-icon">Move<wbr>To</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.repeat.html" class="tsd-kind-icon">Repeat</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.repeatforever.html" class="tsd-kind-icon">Repeat<wbr>Forever</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.rotateby.html" class="tsd-kind-icon">Rotate<wbr>By</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.rotateto.html" class="tsd-kind-icon">Rotate<wbr>To</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.scaleby.html" class="tsd-kind-icon">Scale<wbr>By</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="actions_action.scaleto.html" class="tsd-kind-icon">Scale<wbr>To</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/actions_action.action.html" class="tsd-kind-icon">Action</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
