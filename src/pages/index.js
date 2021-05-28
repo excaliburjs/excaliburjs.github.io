@@ -260,7 +260,7 @@ const IndexPage = ({ data: { release } }) => (
                 <p>
                   Excalibur has a fully-documented API reference that is
                   automatically kept up-to-date with every version, including
-                  the <code>master</code> code branch.
+                  the <code>main</code> code branch.
                 </p>
               </div>
 
