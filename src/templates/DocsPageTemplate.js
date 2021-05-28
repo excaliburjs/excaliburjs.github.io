@@ -107,7 +107,7 @@ export default function Template({ data }) {
       </Helmet>
       <Header />
 
-      <div className="ui page relaxed grid">
+      <div className="ui page stackable relaxed grid">
         <div className="four wide column">
           <Search />
           <TOC
