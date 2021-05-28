@@ -31,8 +31,20 @@ const slugify = (text) => {
 }
 
 const TOC = ({ toc, releases }) => (
-  <div className="ui fluid vertical docs text menu">
-    <div className="header item">User Guides</div>
+  <div id="docs-toc" className="ui fluid vertical docs text menu">
+    <a id="open-toc" className="ui button docs-open" href="#open-toc">
+      <i className="hamburger icon"></i>{' '}
+      <span className="toc-closed">Open</span> Table of Contents
+    </a>
+
+    <a className="ui button docs-close" href="#docs-content">
+      <i className="hamburger icon"></i>{' '}
+      <span className="toc-opened">Close</span> Table of Contents
+    </a>
+
+    <div id="user-guides" className="header item">
+      User Guides
+    </div>
 
     {toc.map(({ id, headings, frontmatter }) => (
       <React.Fragment key={id}>
@@ -110,6 +122,7 @@ export default function Template({ data }) {
       <div className="ui page stackable relaxed grid">
         <div className="four wide column">
           <Search />
+
           <TOC
             toc={toc.edges.map((e) => e.node)}
             releases={releases.edges.map((r) => r.node)}
@@ -119,7 +132,7 @@ export default function Template({ data }) {
         <div className="twelve wide column">
           <div className="ui left aligned container">
             <h1>{frontmatter.title}</h1>
-            <div className="docs-content">
+            <div id="docs-content" className="docs-content">
               <MDXProvider components={shortcodes}>
                 <MDXRenderer>{body}</MDXRenderer>
               </MDXProvider>
