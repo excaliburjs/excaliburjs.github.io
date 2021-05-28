@@ -6,7 +6,7 @@ import Logo from './logo'
 
 const Header = () => (
   <div className="ui container">
-    <div className="ui basic text large menu">
+    <div className="ui basic stackable text large menu">
       <Link className="item" to="/">
         <Logo variant="small" className="ui vertical aligned image" />
       </Link>

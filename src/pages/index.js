@@ -12,13 +12,15 @@ import heroTypeScript from '../assets/images/homepage-typescript.png'
 import heroDocs from '../assets/images/homepage-docs.png'
 import heroCrossPlatform from '../assets/images/homepage-xp.png'
 
+import './index.css'
+
 const selectReleaseSize = (r) => filesize(r.releaseAssets.edges[0].node.size)
 
 const IndexPage = ({ data: { release } }) => (
   <Layout>
     <div className="ui segment blue inverted padded square homepage-hero">
       <div className="ui segment basic clearing">
-        <div className="ui secondary inverted massive menu floated right">
+        <div className="index-menu ui secondary inverted stackable massive menu">
           <Nav />
         </div>
       </div>
