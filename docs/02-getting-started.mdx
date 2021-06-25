@@ -146,9 +146,11 @@ game.input.pointers.primary.on('move', function (evt) {
 What’s breakout without the ball? To make the ball bounce, Excalibur comes prebuilt with an “elastic” collision type that does naive elastic collisions, which is sufficient for breakout.
 
 ```typescript
-// Create a ball
+// Create a ball at pos (100, 300) to start
 const ball = new Actor({ x: 100, y: 300 })
-ball.body.useCircleCollider(20)
+
+// Use circcle collider with radius 10
+ball.body.useCircleCollider(10)
 
 // Set the color
 ball.color = Color.Red
