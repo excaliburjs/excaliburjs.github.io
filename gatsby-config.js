@@ -52,6 +52,12 @@ module.exports = {
             },
           },
           'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              directory: `${__dirname}/snippets/`,
+            },
+          },
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
         ],
@@ -75,6 +81,12 @@ module.exports = {
             },
           },
           'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              directory: `${__dirname}/snippets/`,
+            },
+          },
           `gatsby-remark-prismjs`,
           'gatsby-remark-copy-linked-files',
         ],
