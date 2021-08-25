@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>An enum that describes the types of collisions actors can participate in</p>
+						<p>An enum that describes the types of collisions bodies can participate in</p>
 					</div>
 				</div>
 			</section>
@@ -100,13 +100,13 @@
 					<div class="tsd-signature tsd-kind-icon">Active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Active&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/eedc9f99/src/engine/Collision/CollisionType.ts#L20">src/engine/Collision/CollisionType.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/e1764db9/src/engine/Collision/CollisionType.ts#L21">src/engine/Collision/CollisionType.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Active</code> setting raise collision events and participate
-								in collisions with other actors and will be push or moved by actors sharing
+							<p>Bodies with the <code>Active</code> setting raise collision events and participate
+								in collisions with other bodies and will be push or moved by bodies sharing
 							the <code>Active</code> or <code>Fixed</code> setting.</p>
 						</div>
 					</div>
@@ -117,15 +117,15 @@
 					<div class="tsd-signature tsd-kind-icon">Fixed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Fixed&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/eedc9f99/src/engine/Collision/CollisionType.ts#L29">src/engine/Collision/CollisionType.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/e1764db9/src/engine/Collision/CollisionType.ts#L30">src/engine/Collision/CollisionType.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Fixed</code> setting raise collision events and participate in
-								collisions with other actors. Actors with the <code>Fixed</code> setting will not be
-								pushed or moved by other actors sharing the <code>Fixed</code>. Think of Fixed
-								actors as &quot;immovable/unstoppable&quot; objects. If two <code>Fixed</code> actors meet they will
+							<p>Bodies with the <code>Fixed</code> setting raise collision events and participate in
+								collisions with other bodies. Actors with the <code>Fixed</code> setting will not be
+								pushed or moved by other bodies sharing the <code>Fixed</code>. Think of Fixed
+								bodies as &quot;immovable/unstoppable&quot; objects. If two <code>Fixed</code> bodies meet they will
 								not be pushed or moved by each other, they will not interact except to throw
 							collision events.</p>
 						</div>
@@ -137,13 +137,14 @@
 					<div class="tsd-signature tsd-kind-icon">Passive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;Passive&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/eedc9f99/src/engine/Collision/CollisionType.ts#L14">src/engine/Collision/CollisionType.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/e1764db9/src/engine/Collision/CollisionType.ts#L15">src/engine/Collision/CollisionType.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>Passive</code> setting only raise collision events, but are not
-							influenced or moved by other actors and do not influence or move other actors.</p>
+							<p>Bodies with the <code>Passive</code> setting only raise collision events, but are not
+								influenced or moved by other bodies and do not influence or move other bodies.
+							This is useful for use in trigger type behavior.</p>
 						</div>
 					</div>
 				</section>
@@ -153,12 +154,12 @@
 					<div class="tsd-signature tsd-kind-icon">Prevent<wbr>Collision<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;PreventCollision&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/eedc9f99/src/engine/Collision/CollisionType.ts#L9">src/engine/Collision/CollisionType.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/e1764db9/src/engine/Collision/CollisionType.ts#L9">src/engine/Collision/CollisionType.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actors with the <code>PreventCollision</code> setting do not participate in any
+							<p>Bodies with the <code>PreventCollision</code> setting do not participate in any
 							collisions and do not raise collision events.</p>
 						</div>
 					</div>
