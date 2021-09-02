@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Ray | Excalibur.js Edge API Documentation</title>
+	<title>GlobalCoordinates | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,31 +56,24 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/Algebra.html">Algebra</a>
+					<a href="../modules/Math_global_coordinates.html">Math/global-coordinates</a>
 				</li>
 				<li>
-					<a href="Algebra.Ray.html">Ray</a>
+					<a href="Math_global_coordinates.GlobalCoordinates.html">GlobalCoordinates</a>
 				</li>
 			</ul>
-			<h1>Class Ray</h1>
+			<h1>Class GlobalCoordinates</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>A 2D ray that can be cast into the scene to do collision detection</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Ray</span>
+						<span class="target">GlobalCoordinates</span>
 					</li>
 				</ul>
 			</section>
@@ -91,22 +84,21 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Algebra.Ray.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Math_global_coordinates.GlobalCoordinates.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Algebra.Ray.html#dir" class="tsd-kind-icon">dir</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Algebra.Ray.html#pos" class="tsd-kind-icon">pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Math_global_coordinates.GlobalCoordinates.html#pagePos" class="tsd-kind-icon">page<wbr>Pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Math_global_coordinates.GlobalCoordinates.html#screenPos" class="tsd-kind-icon">screen<wbr>Pos</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Math_global_coordinates.GlobalCoordinates.html#worldPos" class="tsd-kind-icon">world<wbr>Pos</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Algebra.Ray.html#getPoint" class="tsd-kind-icon">get<wbr>Point</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Algebra.Ray.html#intersect" class="tsd-kind-icon">intersect</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Algebra.Ray.html#intersectPoint" class="tsd-kind-icon">intersect<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="Math_global_coordinates.GlobalCoordinates.html#fromPagePosition" class="tsd-kind-icon">from<wbr>Page<wbr>Position</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,35 +110,28 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Ray<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">: </span><a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a>, dir<span class="tsd-signature-symbol">: </span><a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Algebra.Ray.html" class="tsd-signature-type">Ray</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Global<wbr>Coordinates<span class="tsd-signature-symbol">(</span>worldPos<span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a>, pagePos<span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a>, screenPos<span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L373">src/engine/Algebra.ts:373</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/global-coordinates.ts#L31">src/engine/Math/global-coordinates.ts:31</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>pos: <a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The starting position for the ray</p>
-										</div>
-									</div>
+									<h5>worldPos: <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h5>
 								</li>
 								<li>
-									<h5>dir: <a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The vector indicating the direction of the ray</p>
-										</div>
-									</div>
+									<h5>pagePos: <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5>screenPos: <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="Algebra.Ray.html" class="tsd-signature-type">Ray</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -154,108 +139,73 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="dir" class="tsd-anchor"></a>
-					<h3> dir</h3>
-					<div class="tsd-signature tsd-kind-icon">dir<span class="tsd-signature-symbol">:</span> <a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></div>
+					<a name="pagePos" class="tsd-anchor"></a>
+					<h3> page<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">page<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L367">src/engine/Algebra.ts:367</a></li>
-						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="pos" class="tsd-anchor"></a>
-					<h3> pos</h3>
-					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></div>
+					<a name="screenPos" class="tsd-anchor"></a>
+					<h3> screen<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">screen<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L366">src/engine/Algebra.ts:366</a></li>
-						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="worldPos" class="tsd-anchor"></a>
+					<h3> world<wbr>Pos</h3>
+					<div class="tsd-signature tsd-kind-icon">world<wbr>Pos<span class="tsd-signature-symbol">:</span> <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></div>
+					<aside class="tsd-sources">
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getPoint" class="tsd-anchor"></a>
-					<h3> get<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Point<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromPagePosition" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Page<wbr>Position</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Page<wbr>Position<span class="tsd-signature-symbol">(</span>x<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, engine<span class="tsd-signature-symbol">: </span><a href="Engine.Engine-1.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Page<wbr>Position<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a>, engine<span class="tsd-signature-symbol">: </span><a href="Engine.Engine-1.html" class="tsd-signature-type">Engine</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L419">src/engine/Algebra.ts:419</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/global-coordinates.ts#L5">src/engine/Math/global-coordinates.ts:5</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Returns the point of intersection given the intersection time</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>time: <span class="tsd-signature-type">number</span></h5>
+									<h5>x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>engine: <a href="Engine.Engine-1.html" class="tsd-signature-type">Engine</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></h4>
 						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="intersect" class="tsd-anchor"></a>
-					<h3> intersect</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">intersect<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><a href="Algebra.Line.html" class="tsd-signature-type">Line</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L383">src/engine/Algebra.ts:383</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Tests a whether this ray intersects with a line segment. Returns a number greater than or equal to 0 on success.
-									This number indicates the mathematical intersection time.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>line: <a href="Algebra.Line.html" class="tsd-signature-type">Line</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The line to test</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="intersectPoint" class="tsd-anchor"></a>
-					<h3> intersect<wbr>Point</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">intersect<wbr>Point<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><a href="Algebra.Line.html" class="tsd-signature-type">Line</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L408">src/engine/Algebra.ts:408</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/global-coordinates.ts#L6">src/engine/Math/global-coordinates.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>line: <a href="Algebra.Line.html" class="tsd-signature-type">Line</a></h5>
+									<h5>pos: <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h5>
+								</li>
+								<li>
+									<h5>engine: <a href="Engine.Engine-1.html" class="tsd-signature-type">Engine</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="Algebra.Vector.html" class="tsd-signature-type">Vector</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-signature-type">GlobalCoordinates</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -268,54 +218,36 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/Algebra.html">Algebra</a>
+						<a href="../modules/Math_global_coordinates.html">Math/global-<wbr>coordinates</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.GlobalCoordinates.html" class="tsd-kind-icon">Global<wbr>Coordinates</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Line.html" class="tsd-kind-icon">Line</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Projection.html" class="tsd-kind-icon">Projection</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Ray.html" class="tsd-kind-icon">Ray</a>
+						<a href="Math_global_coordinates.GlobalCoordinates.html" class="tsd-kind-icon">Global<wbr>Coordinates</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="Algebra.Ray.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="Math_global_coordinates.GlobalCoordinates.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Algebra.Ray.html#dir" class="tsd-kind-icon">dir</a>
+								<a href="Math_global_coordinates.GlobalCoordinates.html#pagePos" class="tsd-kind-icon">page<wbr>Pos</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Algebra.Ray.html#pos" class="tsd-kind-icon">pos</a>
+								<a href="Math_global_coordinates.GlobalCoordinates.html#screenPos" class="tsd-kind-icon">screen<wbr>Pos</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Algebra.Ray.html#getPoint" class="tsd-kind-icon">get<wbr>Point</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Math_global_coordinates.GlobalCoordinates.html#worldPos" class="tsd-kind-icon">world<wbr>Pos</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Algebra.Ray.html#intersect" class="tsd-kind-icon">intersect</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Algebra.Ray.html#intersectPoint" class="tsd-kind-icon">intersect<wbr>Point</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="Math_global_coordinates.GlobalCoordinates.html#fromPagePosition" class="tsd-kind-icon">from<wbr>Page<wbr>Position</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Vector.html" class="tsd-kind-icon">Vector</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/Algebra.html#vec" class="tsd-kind-icon">vec</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

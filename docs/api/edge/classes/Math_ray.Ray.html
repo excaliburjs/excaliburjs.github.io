@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Projection | Excalibur.js Edge API Documentation</title>
+	<title>Ray | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/Algebra.html">Algebra</a>
+					<a href="../modules/Math_ray.html">Math/ray</a>
 				</li>
 				<li>
-					<a href="Algebra.Projection.html">Projection</a>
+					<a href="Math_ray.Ray.html">Ray</a>
 				</li>
 			</ul>
-			<h1>Class Projection</h1>
+			<h1>Class Ray</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>A 1 dimensional projection on an axis, used to test overlaps</p>
+						<p>A 2D ray that can be cast into the scene to do collision detection</p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Projection</span>
+						<span class="target">Ray</span>
 					</li>
 				</ul>
 			</section>
@@ -91,21 +91,22 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Algebra.Projection.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Math_ray.Ray.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Algebra.Projection.html#max" class="tsd-kind-icon">max</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Algebra.Projection.html#min" class="tsd-kind-icon">min</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Math_ray.Ray.html#dir" class="tsd-kind-icon">dir</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Math_ray.Ray.html#pos" class="tsd-kind-icon">pos</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Algebra.Projection.html#getOverlap" class="tsd-kind-icon">get<wbr>Overlap</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Algebra.Projection.html#overlaps" class="tsd-kind-icon">overlaps</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Math_ray.Ray.html#getPoint" class="tsd-kind-icon">get<wbr>Point</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Math_ray.Ray.html#intersect" class="tsd-kind-icon">intersect</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Math_ray.Ray.html#intersectPoint" class="tsd-kind-icon">intersect<wbr>Point</a></li>
 							</ul>
 						</section>
 					</div>
@@ -117,25 +118,35 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Projection<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Algebra.Projection.html" class="tsd-signature-type">Projection</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Ray<span class="tsd-signature-symbol">(</span>pos<span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a>, dir<span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Math_ray.Ray.html" class="tsd-signature-type">Ray</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L659">src/engine/Algebra.ts:659</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/ray.ts#L16">src/engine/Math/ray.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>min: <span class="tsd-signature-type">number</span></h5>
+									<h5>pos: <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The starting position for the ray</p>
+										</div>
+									</div>
 								</li>
 								<li>
-									<h5>max: <span class="tsd-signature-type">number</span></h5>
+									<h5>dir: <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The vector indicating the direction of the ray</p>
+										</div>
+									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="Algebra.Projection.html" class="tsd-signature-type">Projection</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="Math_ray.Ray.html" class="tsd-signature-type">Ray</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -143,39 +154,82 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="max" class="tsd-anchor"></a>
-					<h3> max</h3>
-					<div class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="dir" class="tsd-anchor"></a>
+					<h3> dir</h3>
+					<div class="tsd-signature tsd-kind-icon">dir<span class="tsd-signature-symbol">:</span> <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/ray.ts#L10">src/engine/Math/ray.ts:10</a></li>
+						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="min" class="tsd-anchor"></a>
-					<h3> min</h3>
-					<div class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="pos" class="tsd-anchor"></a>
+					<h3> pos</h3>
+					<div class="tsd-signature tsd-kind-icon">pos<span class="tsd-signature-symbol">:</span> <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></div>
 					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/ray.ts#L9">src/engine/Math/ray.ts:9</a></li>
+						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getOverlap" class="tsd-anchor"></a>
-					<h3> get<wbr>Overlap</h3>
+					<a name="getPoint" class="tsd-anchor"></a>
+					<h3> get<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Overlap<span class="tsd-signature-symbol">(</span>projection<span class="tsd-signature-symbol">: </span><a href="Algebra.Projection.html" class="tsd-signature-type">Projection</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Point<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L664">src/engine/Algebra.ts:664</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/ray.ts#L62">src/engine/Math/ray.ts:62</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the point of intersection given the intersection time</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>projection: <a href="Algebra.Projection.html" class="tsd-signature-type">Projection</a></h5>
+									<h5>time: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="intersect" class="tsd-anchor"></a>
+					<h3> intersect</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">intersect<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><a href="Math_line.Line.html" class="tsd-signature-type">Line</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/ray.ts#L26">src/engine/Math/ray.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Tests a whether this ray intersects with a line segment. Returns a number greater than or equal to 0 on success.
+									This number indicates the mathematical intersection time.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>line: <a href="Math_line.Line.html" class="tsd-signature-type">Line</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The line to test</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -183,25 +237,25 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="overlaps" class="tsd-anchor"></a>
-					<h3> overlaps</h3>
+					<a name="intersectPoint" class="tsd-anchor"></a>
+					<h3> intersect<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">overlaps<span class="tsd-signature-symbol">(</span>projection<span class="tsd-signature-symbol">: </span><a href="Algebra.Projection.html" class="tsd-signature-type">Projection</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">intersect<wbr>Point<span class="tsd-signature-symbol">(</span>line<span class="tsd-signature-symbol">: </span><a href="Math_line.Line.html" class="tsd-signature-type">Line</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/d48e3195/src/engine/Algebra.ts#L660">src/engine/Algebra.ts:660</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Math/ray.ts#L51">src/engine/Math/ray.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>projection: <a href="Algebra.Projection.html" class="tsd-signature-type">Projection</a></h5>
+									<h5>line: <a href="Math_line.Line.html" class="tsd-signature-type">Line</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="Math_vector.Vector.html" class="tsd-signature-type">Vector</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -214,51 +268,39 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/Algebra.html">Algebra</a>
+						<a href="../modules/Math_ray.html">Math/ray</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.GlobalCoordinates.html" class="tsd-kind-icon">Global<wbr>Coordinates</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Line.html" class="tsd-kind-icon">Line</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Projection.html" class="tsd-kind-icon">Projection</a>
+						<a href="Math_ray.Ray.html" class="tsd-kind-icon">Ray</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="Algebra.Projection.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="Math_ray.Ray.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Algebra.Projection.html#max" class="tsd-kind-icon">max</a>
+								<a href="Math_ray.Ray.html#dir" class="tsd-kind-icon">dir</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Algebra.Projection.html#min" class="tsd-kind-icon">min</a>
+								<a href="Math_ray.Ray.html#pos" class="tsd-kind-icon">pos</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Algebra.Projection.html#getOverlap" class="tsd-kind-icon">get<wbr>Overlap</a>
+								<a href="Math_ray.Ray.html#getPoint" class="tsd-kind-icon">get<wbr>Point</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="Algebra.Projection.html#overlaps" class="tsd-kind-icon">overlaps</a>
+								<a href="Math_ray.Ray.html#intersect" class="tsd-kind-icon">intersect</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Math_ray.Ray.html#intersectPoint" class="tsd-kind-icon">intersect<wbr>Point</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Ray.html" class="tsd-kind-icon">Ray</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="Algebra.Vector.html" class="tsd-kind-icon">Vector</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="../modules/Algebra.html#vec" class="tsd-kind-icon">vec</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
