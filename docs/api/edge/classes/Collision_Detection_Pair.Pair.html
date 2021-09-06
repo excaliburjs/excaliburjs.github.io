@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Models a potential collision between 2 bodies</p>
+						<p>Models a potential collision between 2 colliders</p>
 					</div>
 				</div>
 			</section>
@@ -97,8 +97,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#bodyA" class="tsd-kind-icon">bodyA</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#bodyB" class="tsd-kind-icon">bodyB</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#colliderA" class="tsd-kind-icon">colliderA</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#colliderB" class="tsd-kind-icon">colliderB</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#id" class="tsd-kind-icon">id</a></li>
 							</ul>
 						</section>
@@ -112,6 +112,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#collide" class="tsd-kind-icon">collide</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Collision_Detection_Pair.Pair.html#hasCollider" class="tsd-kind-icon">has<wbr>Collider</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="Collision_Detection_Pair.Pair.html#calculatePairHash" class="tsd-kind-icon">calculate<wbr>Pair<wbr>Hash</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="Collision_Detection_Pair.Pair.html#canCollide-1" class="tsd-kind-icon">can<wbr>Collide</a></li>
 							</ul>
@@ -125,22 +126,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Pair<span class="tsd-signature-symbol">(</span>bodyA<span class="tsd-signature-symbol">: </span><a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a>, bodyB<span class="tsd-signature-symbol">: </span><a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Collision_Detection_Pair.Pair.html" class="tsd-signature-type">Pair</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Pair<span class="tsd-signature-symbol">(</span>colliderA<span class="tsd-signature-symbol">: </span><a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a>, colliderB<span class="tsd-signature-symbol">: </span><a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Collision_Detection_Pair.Pair.html" class="tsd-signature-type">Pair</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Collision/Detection/Pair.ts#L13">src/engine/Collision/Detection/Pair.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L12">src/engine/Collision/Detection/Pair.ts:12</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>bodyA: <a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a></h5>
+									<h5>colliderA: <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></h5>
 								</li>
 								<li>
-									<h5>bodyB: <a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a></h5>
+									<h5>colliderB: <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="Collision_Detection_Pair.Pair.html" class="tsd-signature-type">Pair</a></h4>
@@ -151,16 +152,16 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bodyA" class="tsd-anchor"></a>
-					<h3> bodyA</h3>
-					<div class="tsd-signature tsd-kind-icon">bodyA<span class="tsd-signature-symbol">:</span> <a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a></div>
+					<a name="colliderA" class="tsd-anchor"></a>
+					<h3> colliderA</h3>
+					<div class="tsd-signature tsd-kind-icon">colliderA<span class="tsd-signature-symbol">:</span> <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="bodyB" class="tsd-anchor"></a>
-					<h3> bodyB</h3>
-					<div class="tsd-signature tsd-kind-icon">bodyB<span class="tsd-signature-symbol">:</span> <a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a></div>
+					<a name="colliderB" class="tsd-anchor"></a>
+					<h3> colliderB</h3>
+					<div class="tsd-signature tsd-kind-icon">colliderB<span class="tsd-signature-symbol">:</span> <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></div>
 					<aside class="tsd-sources">
 					</aside>
 				</section>
@@ -170,7 +171,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Collision/Detection/Pair.ts#L11">src/engine/Collision/Detection/Pair.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L11">src/engine/Collision/Detection/Pair.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +188,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Collision/Detection/Pair.ts#L52">src/engine/Collision/Detection/Pair.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L52">src/engine/Collision/Detection/Pair.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,7 +213,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Collision/Detection/Pair.ts#L61">src/engine/Collision/Detection/Pair.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L61">src/engine/Collision/Detection/Pair.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,6 +222,34 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="Collision_Detection_CollisionContact.CollisionContact.html" class="tsd-signature-type">CollisionContact</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="hasCollider" class="tsd-anchor"></a>
+					<h3> has<wbr>Collider</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">has<wbr>Collider<span class="tsd-signature-symbol">(</span>collider<span class="tsd-signature-symbol">: </span><a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L70">src/engine/Collision/Detection/Pair.ts:70</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check if the collider is part of the pair</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>collider: <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -234,7 +263,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Collision/Detection/Pair.ts#L70">src/engine/Collision/Detection/Pair.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L77">src/engine/Collision/Detection/Pair.ts:77</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -259,22 +288,22 @@
 					<a name="canCollide-1" class="tsd-anchor"></a>
 					<h3> <span class="tsd-flag ts-flagStatic">Static</span> can<wbr>Collide</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">can<wbr>Collide<span class="tsd-signature-symbol">(</span>bodyA<span class="tsd-signature-symbol">: </span><a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a>, bodyB<span class="tsd-signature-symbol">: </span><a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">can<wbr>Collide<span class="tsd-signature-symbol">(</span>colliderA<span class="tsd-signature-symbol">: </span><a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a>, colliderB<span class="tsd-signature-symbol">: </span><a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b687195/src/engine/Collision/Detection/Pair.ts#L19">src/engine/Collision/Detection/Pair.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Collision/Detection/Pair.ts#L16">src/engine/Collision/Detection/Pair.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>bodyA: <a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a></h5>
+									<h5>colliderA: <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></h5>
 								</li>
 								<li>
-									<h5>bodyB: <a href="Collision_BodyComponent.BodyComponent.html" class="tsd-signature-type">BodyComponent</a></h5>
+									<h5>colliderB: <a href="Collision_Shapes_Collider.Collider.html" class="tsd-signature-type">Collider</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -305,10 +334,10 @@
 								<a href="Collision_Detection_Pair.Pair.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Collision_Detection_Pair.Pair.html#bodyA" class="tsd-kind-icon">bodyA</a>
+								<a href="Collision_Detection_Pair.Pair.html#colliderA" class="tsd-kind-icon">colliderA</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="Collision_Detection_Pair.Pair.html#bodyB" class="tsd-kind-icon">bodyB</a>
+								<a href="Collision_Detection_Pair.Pair.html#colliderB" class="tsd-kind-icon">colliderB</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="Collision_Detection_Pair.Pair.html#id" class="tsd-kind-icon">id</a>
@@ -318,6 +347,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="Collision_Detection_Pair.Pair.html#collide" class="tsd-kind-icon">collide</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Collision_Detection_Pair.Pair.html#hasCollider" class="tsd-kind-icon">has<wbr>Collider</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="Collision_Detection_Pair.Pair.html#calculatePairHash" class="tsd-kind-icon">calculate<wbr>Pair<wbr>Hash</a>
