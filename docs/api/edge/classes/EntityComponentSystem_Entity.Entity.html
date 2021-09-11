@@ -135,6 +135,7 @@
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#children" class="tsd-kind-icon">children</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#events" class="tsd-kind-icon">events</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#isInitialized" class="tsd-kind-icon">is<wbr>Initialized</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#name" class="tsd-kind-icon">name</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#parent" class="tsd-kind-icon">parent</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#tags" class="tsd-kind-icon">tags</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#types" class="tsd-kind-icon">types</a></li>
@@ -146,6 +147,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#_initialize" class="tsd-kind-icon">_initialize</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#_postupdate" class="tsd-kind-icon">_postupdate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#_preupdate" class="tsd-kind-icon">_preupdate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><a href="EntityComponentSystem_Entity.Entity.html#_setName" class="tsd-kind-icon">_set<wbr>Name</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#addChild" class="tsd-kind-icon">add<wbr>Child</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="EntityComponentSystem_Entity.Entity.html#addComponent" class="tsd-kind-icon">add<wbr>Component</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="EntityComponentSystem_Entity.Entity.html#addTag" class="tsd-kind-icon">add<wbr>Tag</a></li>
@@ -183,20 +185,23 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Entity<span class="tsd-signature-symbol">(</span>components<span class="tsd-signature-symbol">?: </span><a href="EntityComponentSystem_Component.Component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="EntityComponentSystem_Entity.Entity.html" class="tsd-signature-type">Entity</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Entity<span class="tsd-signature-symbol">(</span>components<span class="tsd-signature-symbol">?: </span><a href="EntityComponentSystem_Component.Component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span>, name<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="EntityComponentSystem_Entity.Entity.html" class="tsd-signature-type">Entity</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="Class.Class-1.html">Class</a>.<a href="Class.Class-1.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L63">src/engine/EntityComponentSystem/Entity.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L63">src/engine/EntityComponentSystem/Entity.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> components: <a href="EntityComponentSystem_Component.Component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="EntityComponentSystem_Entity.Entity.html" class="tsd-signature-type">Entity</a></h4>
@@ -212,7 +217,7 @@
 					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L84">src/engine/EntityComponentSystem/Entity.ts:84</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L95">src/engine/EntityComponentSystem/Entity.ts:95</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -227,7 +232,7 @@
 					<div class="tsd-signature tsd-kind-icon">children<wbr>Added$<span class="tsd-signature-symbol">:</span> <a href="Util_Observable.Observable.html" class="tsd-signature-type">Observable</a><span class="tsd-signature-symbol">&lt;</span><a href="EntityComponentSystem_Entity.Entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L187">src/engine/EntityComponentSystem/Entity.ts:187</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L198">src/engine/EntityComponentSystem/Entity.ts:198</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -237,7 +242,7 @@
 					<div class="tsd-signature tsd-kind-icon">children<wbr>Removed$<span class="tsd-signature-symbol">:</span> <a href="Util_Observable.Observable.html" class="tsd-signature-type">Observable</a><span class="tsd-signature-symbol">&lt;</span><a href="EntityComponentSystem_Entity.Entity.html" class="tsd-signature-type">Entity</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L188">src/engine/EntityComponentSystem/Entity.ts:188</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L199">src/engine/EntityComponentSystem/Entity.ts:199</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +252,7 @@
 					<div class="tsd-signature tsd-kind-icon">component<wbr>Added$<span class="tsd-signature-symbol">:</span> <a href="Util_Observable.Observable.html" class="tsd-signature-type">Observable</a><span class="tsd-signature-symbol">&lt;</span><a href="EntityComponentSystem_Entity.AddedComponent.html" class="tsd-signature-type">AddedComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L162">src/engine/EntityComponentSystem/Entity.ts:162</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L173">src/engine/EntityComponentSystem/Entity.ts:173</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -262,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">component<wbr>Removed$<span class="tsd-signature-symbol">:</span> <a href="Util_Observable.Observable.html" class="tsd-signature-type">Observable</a><span class="tsd-signature-symbol">&lt;</span><a href="EntityComponentSystem_Entity.RemovedComponent.html" class="tsd-signature-type">RemovedComponent</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L172">src/engine/EntityComponentSystem/Entity.ts:172</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L183">src/engine/EntityComponentSystem/Entity.ts:183</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -273,7 +278,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="Class.Class-1.html">Class</a>.<a href="Class.Class-1.html#eventDispatcher">eventDispatcher</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Class.ts#L13">src/engine/Class.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -288,7 +293,7 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L75">src/engine/EntityComponentSystem/Entity.ts:75</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L76">src/engine/EntityComponentSystem/Entity.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -310,7 +315,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L194">src/engine/EntityComponentSystem/Entity.ts:194</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L205">src/engine/EntityComponentSystem/Entity.ts:205</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -332,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L77">src/engine/EntityComponentSystem/Entity.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L88">src/engine/EntityComponentSystem/Entity.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="EventDispatcher.EventDispatcher-1.html" class="tsd-signature-type">EventDispatcher</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -349,7 +354,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L424">src/engine/EntityComponentSystem/Entity.ts:424</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L434">src/engine/EntityComponentSystem/Entity.ts:434</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -358,6 +363,23 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class">
+					<a name="name" class="tsd-anchor"></a>
+					<h3> name</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> name<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L84">src/engine/EntityComponentSystem/Entity.ts:84</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -371,7 +393,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L183">src/engine/EntityComponentSystem/Entity.ts:183</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L194">src/engine/EntityComponentSystem/Entity.ts:194</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="EntityComponentSystem_Entity.Entity.html" class="tsd-signature-type">Entity</a></h4>
@@ -388,7 +410,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L100">src/engine/EntityComponentSystem/Entity.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L111">src/engine/EntityComponentSystem/Entity.ts:111</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,7 +432,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L135">src/engine/EntityComponentSystem/Entity.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L146">src/engine/EntityComponentSystem/Entity.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -435,7 +457,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L435">src/engine/EntityComponentSystem/Entity.ts:435</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L445">src/engine/EntityComponentSystem/Entity.ts:445</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -468,7 +490,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L460">src/engine/EntityComponentSystem/Entity.ts:460</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L470">src/engine/EntityComponentSystem/Entity.ts:470</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -504,7 +526,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L449">src/engine/EntityComponentSystem/Entity.ts:449</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L459">src/engine/EntityComponentSystem/Entity.ts:459</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -530,6 +552,29 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+					<a name="_setName" class="tsd-anchor"></a>
+					<h3> <span class="tsd-flag ts-flagProtected">Protected</span> _set<wbr>Name</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+						<li class="tsd-signature tsd-kind-icon">_set<wbr>Name<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L79">src/engine/EntityComponentSystem/Entity.ts:79</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>name: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="addChild" class="tsd-anchor"></a>
 					<h3> add<wbr>Child</h3>
@@ -540,7 +585,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L212">src/engine/EntityComponentSystem/Entity.ts:212</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L223">src/engine/EntityComponentSystem/Entity.ts:223</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -570,7 +615,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L311">src/engine/EntityComponentSystem/Entity.ts:311</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L321">src/engine/EntityComponentSystem/Entity.ts:321</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,7 +658,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L117">src/engine/EntityComponentSystem/Entity.ts:117</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L128">src/engine/EntityComponentSystem/Entity.ts:128</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -642,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L296">src/engine/EntityComponentSystem/Entity.ts:296</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L306">src/engine/EntityComponentSystem/Entity.ts:306</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -679,7 +724,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L280">src/engine/EntityComponentSystem/Entity.ts:280</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L290">src/engine/EntityComponentSystem/Entity.ts:290</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +747,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="Class.Class-1.html">Class</a>.<a href="Class.Class-1.html#emit">emit</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Class.ts#L46">src/engine/Class.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -740,7 +785,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L409">src/engine/EntityComponentSystem/Entity.ts:409</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L419">src/engine/EntityComponentSystem/Entity.ts:419</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -768,7 +813,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L410">src/engine/EntityComponentSystem/Entity.ts:410</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L420">src/engine/EntityComponentSystem/Entity.ts:420</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -797,7 +842,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L252">src/engine/EntityComponentSystem/Entity.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L263">src/engine/EntityComponentSystem/Entity.ts:263</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -819,7 +864,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L155">src/engine/EntityComponentSystem/Entity.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L166">src/engine/EntityComponentSystem/Entity.ts:166</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="EntityComponentSystem_Component.Component.html" class="tsd-signature-type">Component</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
@@ -836,7 +881,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L265">src/engine/EntityComponentSystem/Entity.ts:265</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L276">src/engine/EntityComponentSystem/Entity.ts:276</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -859,7 +904,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L393">src/engine/EntityComponentSystem/Entity.ts:393</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L403">src/engine/EntityComponentSystem/Entity.ts:403</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -886,7 +931,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L394">src/engine/EntityComponentSystem/Entity.ts:394</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L404">src/engine/EntityComponentSystem/Entity.ts:404</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -909,7 +954,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L108">src/engine/EntityComponentSystem/Entity.ts:108</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L119">src/engine/EntityComponentSystem/Entity.ts:119</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -940,7 +985,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L93">src/engine/EntityComponentSystem/Entity.ts:93</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L104">src/engine/EntityComponentSystem/Entity.ts:104</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -957,7 +1002,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L89">src/engine/EntityComponentSystem/Entity.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L100">src/engine/EntityComponentSystem/Entity.ts:100</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -980,7 +1025,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="Class.Class-1.html">Class</a>.<a href="Class.Class-1.html#off">off</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Class.ts#L37">src/engine/Class.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Class.ts#L37">src/engine/Class.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1038,7 +1083,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="Class.Class-1.html">Class</a>.<a href="Class.Class-1.html#on">on</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Class.ts#L25">src/engine/Class.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Class.ts#L25">src/engine/Class.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1095,7 +1140,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/Interfaces_LifecycleEvents.OnInitialize.html">OnInitialize</a>.<a href="../interfaces/Interfaces_LifecycleEvents.OnInitialize.html#onInitialize">onInitialize</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L471">src/engine/EntityComponentSystem/Entity.ts:471</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L481">src/engine/EntityComponentSystem/Entity.ts:481</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1126,7 +1171,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/Interfaces_LifecycleEvents.OnPostUpdate.html">OnPostUpdate</a>.<a href="../interfaces/Interfaces_LifecycleEvents.OnPostUpdate.html#onPostUpdate">onPostUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L489">src/engine/EntityComponentSystem/Entity.ts:489</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L499">src/engine/EntityComponentSystem/Entity.ts:499</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1159,7 +1204,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/Interfaces_LifecycleEvents.OnPreUpdate.html">OnPreUpdate</a>.<a href="../interfaces/Interfaces_LifecycleEvents.OnPreUpdate.html#onPreUpdate">onPreUpdate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L480">src/engine/EntityComponentSystem/Entity.ts:480</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L490">src/engine/EntityComponentSystem/Entity.ts:490</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1192,7 +1237,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="Class.Class-1.html">Class</a>.<a href="Class.Class-1.html#once">once</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Class.ts#L56">src/engine/Class.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Class.ts#L56">src/engine/Class.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1247,7 +1292,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L242">src/engine/EntityComponentSystem/Entity.ts:242</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L253">src/engine/EntityComponentSystem/Entity.ts:253</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1269,7 +1314,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L230">src/engine/EntityComponentSystem/Entity.ts:230</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L241">src/engine/EntityComponentSystem/Entity.ts:241</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1299,7 +1344,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L349">src/engine/EntityComponentSystem/Entity.ts:349</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L359">src/engine/EntityComponentSystem/Entity.ts:359</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1339,7 +1384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L128">src/engine/EntityComponentSystem/Entity.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L139">src/engine/EntityComponentSystem/Entity.ts:139</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1374,7 +1419,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L201">src/engine/EntityComponentSystem/Entity.ts:201</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L212">src/engine/EntityComponentSystem/Entity.ts:212</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1396,7 +1441,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/EntityComponentSystem/Entity.ts#L501">src/engine/EntityComponentSystem/Entity.ts:501</a></li>
+									<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/EntityComponentSystem/Entity.ts#L511">src/engine/EntityComponentSystem/Entity.ts:511</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1480,6 +1525,9 @@
 								<a href="EntityComponentSystem_Entity.Entity.html#isInitialized" class="tsd-kind-icon">is<wbr>Initialized</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
+								<a href="EntityComponentSystem_Entity.Entity.html#name" class="tsd-kind-icon">name</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="EntityComponentSystem_Entity.Entity.html#parent" class="tsd-kind-icon">parent</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
@@ -1496,6 +1544,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="EntityComponentSystem_Entity.Entity.html#_preupdate" class="tsd-kind-icon">_preupdate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-protected">
+								<a href="EntityComponentSystem_Entity.Entity.html#_setName" class="tsd-kind-icon">_set<wbr>Name</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="EntityComponentSystem_Entity.Entity.html#addChild" class="tsd-kind-icon">add<wbr>Child</a>

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>DebugStats | Excalibur.js Edge API Documentation</title>
+	<title>FrameActorStats | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/Debug.html">Debug</a>
+					<a href="../modules/Debug_Debug.html">Debug/Debug</a>
 				</li>
 				<li>
-					<a href="Debug.DebugStats.html">DebugStats</a>
+					<a href="Debug_Debug.FrameActorStats.html">FrameActorStats</a>
 				</li>
 			</ul>
-			<h1>Interface DebugStats</h1>
+			<h1>Interface FrameActorStats</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Debug stats containing current and previous frame statistics</p>
+						<p>Represents actor stats for a frame</p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">DebugStats</span>
+						<span class="target">FrameActorStats</span>
 					</li>
 				</ul>
 			</section>
@@ -91,8 +91,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.DebugStats.html#currFrame" class="tsd-kind-icon">curr<wbr>Frame</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.DebugStats.html#prevFrame" class="tsd-kind-icon">prev<wbr>Frame</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.FrameActorStats.html#alive" class="tsd-kind-icon">alive</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.FrameActorStats.html#killed" class="tsd-kind-icon">killed</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.FrameActorStats.html#remaining" class="tsd-kind-icon">remaining</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.FrameActorStats.html#total" class="tsd-kind-icon">total</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.FrameActorStats.html#ui" class="tsd-kind-icon">ui</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,24 +104,79 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="currFrame" class="tsd-anchor"></a>
-					<h3> curr<wbr>Frame</h3>
-					<div class="tsd-signature tsd-kind-icon">curr<wbr>Frame<span class="tsd-signature-symbol">:</span> <a href="../classes/Debug.FrameStats.html" class="tsd-signature-type">FrameStats</a></div>
+					<a name="alive" class="tsd-anchor"></a>
+					<h3> alive</h3>
+					<div class="tsd-signature tsd-kind-icon">alive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L9">src/engine/Debug.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L61">src/engine/Debug/Debug.ts:61</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets the frame&#39;s number of actors (alive)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="prevFrame" class="tsd-anchor"></a>
-					<h3> prev<wbr>Frame</h3>
-					<div class="tsd-signature tsd-kind-icon">prev<wbr>Frame<span class="tsd-signature-symbol">:</span> <a href="../classes/Debug.FrameStats.html" class="tsd-signature-type">FrameStats</a></div>
+					<a name="killed" class="tsd-anchor"></a>
+					<h3> killed</h3>
+					<div class="tsd-signature tsd-kind-icon">killed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L10">src/engine/Debug.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L66">src/engine/Debug/Debug.ts:66</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets the frame&#39;s number of actors (killed)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="remaining" class="tsd-anchor"></a>
+					<h3> remaining</h3>
+					<div class="tsd-signature tsd-kind-icon">remaining<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L71">src/engine/Debug/Debug.ts:71</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets the frame&#39;s number of remaining actors (alive - killed)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="total" class="tsd-anchor"></a>
+					<h3> total</h3>
+					<div class="tsd-signature tsd-kind-icon">total<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L81">src/engine/Debug/Debug.ts:81</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets the frame&#39;s number of total actors (remaining + UI)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="ui" class="tsd-anchor"></a>
+					<h3> ui</h3>
+					<div class="tsd-signature tsd-kind-icon">ui<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L76">src/engine/Debug/Debug.ts:76</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Gets the frame&#39;s number of UI actors</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -129,53 +187,59 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/Debug.html">Debug</a>
+						<a href="../modules/Debug_Debug.html">Debug/<wbr>Debug</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/Debug.Debug-1.html" class="tsd-kind-icon">Debug</a>
+						<a href="../classes/Debug_Debug.Debug.html" class="tsd-kind-icon">Debug</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/Debug.FrameStats.html" class="tsd-kind-icon">Frame<wbr>Stats</a>
+						<a href="../classes/Debug_Debug.FrameStats.html" class="tsd-kind-icon">Frame<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/Debug.PhysicsStats.html" class="tsd-kind-icon">Physics<wbr>Stats</a>
+						<a href="../classes/Debug_Debug.PhysicsStats.html" class="tsd-kind-icon">Physics<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.CollidersHash.html" class="tsd-kind-icon">Colliders<wbr>Hash</a>
+						<a href="Debug_Debug.DebugStats.html" class="tsd-kind-icon">Debug<wbr>Stats</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.DebugStats.html" class="tsd-kind-icon">Debug<wbr>Stats</a>
+						<a href="Debug_Debug.FrameActorStats.html" class="tsd-kind-icon">Frame<wbr>Actor<wbr>Stats</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.DebugStats.html#currFrame" class="tsd-kind-icon">curr<wbr>Frame</a>
+								<a href="Debug_Debug.FrameActorStats.html#alive" class="tsd-kind-icon">alive</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.DebugStats.html#prevFrame" class="tsd-kind-icon">prev<wbr>Frame</a>
+								<a href="Debug_Debug.FrameActorStats.html#killed" class="tsd-kind-icon">killed</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="Debug_Debug.FrameActorStats.html#remaining" class="tsd-kind-icon">remaining</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="Debug_Debug.FrameActorStats.html#total" class="tsd-kind-icon">total</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="Debug_Debug.FrameActorStats.html#ui" class="tsd-kind-icon">ui</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.FrameActorStats.html" class="tsd-kind-icon">Frame<wbr>Actor<wbr>Stats</a>
+						<a href="Debug_Debug.FrameDurationStats.html" class="tsd-kind-icon">Frame<wbr>Duration<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.FrameDurationStats.html" class="tsd-kind-icon">Frame<wbr>Duration<wbr>Stats</a>
+						<a href="Debug_Debug.FrameStatistics.html" class="tsd-kind-icon">Frame<wbr>Statistics</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.FrameStatistics.html" class="tsd-kind-icon">Frame<wbr>Statistics</a>
+						<a href="Debug_Debug.GraphicsStatistics.html" class="tsd-kind-icon">Graphics<wbr>Statistics</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.GraphicsStatistics.html" class="tsd-kind-icon">Graphics<wbr>Statistics</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.PhysicsStatistics.html" class="tsd-kind-icon">Physics<wbr>Statistics</a>
+						<a href="Debug_Debug.PhysicsStatistics.html" class="tsd-kind-icon">Physics<wbr>Statistics</a>
 					</li>
 				</ul>
 			</nav>

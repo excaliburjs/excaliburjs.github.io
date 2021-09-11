@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FrameStatistics | Excalibur.js Edge API Documentation</title>
+	<title>PhysicsStatistics | Excalibur.js Edge API Documentation</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../modules.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/Debug.html">Debug</a>
+					<a href="../modules/Debug_Debug.html">Debug/Debug</a>
 				</li>
 				<li>
-					<a href="Debug.FrameStatistics.html">FrameStatistics</a>
+					<a href="Debug_Debug.PhysicsStatistics.html">PhysicsStatistics</a>
 				</li>
 			</ul>
-			<h1>Interface FrameStatistics</h1>
+			<h1>Interface PhysicsStatistics</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Represents a frame&#39;s individual statistics</p>
+						<p>Represents physics stats for the current frame</p>
 					</div>
 				</div>
 			</section>
@@ -80,14 +80,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">FrameStatistics</span>
+						<span class="target">PhysicsStatistics</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implemented by</h3>
 				<ul class="tsd-hierarchy">
-					<li><a href="../classes/Debug.FrameStats.html" class="tsd-signature-type">FrameStats</a></li>
+					<li><a href="../classes/Debug_Debug.PhysicsStats.html" class="tsd-signature-type">PhysicsStats</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -97,13 +97,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#actors" class="tsd-kind-icon">actors</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#delta" class="tsd-kind-icon">delta</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#duration" class="tsd-kind-icon">duration</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#fps" class="tsd-kind-icon">fps</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#graphics" class="tsd-kind-icon">graphics</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug.FrameStatistics.html#physics" class="tsd-kind-icon">physics</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#broadphase" class="tsd-kind-icon">broadphase</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#collisions" class="tsd-kind-icon">collisions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#contacts" class="tsd-kind-icon">contacts</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#fastBodies" class="tsd-kind-icon">fast<wbr>Bodies</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#fastBodyCollisions" class="tsd-kind-icon">fast<wbr>Body<wbr>Collisions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#narrowphase" class="tsd-kind-icon">narrowphase</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Debug_Debug.PhysicsStatistics.html#pairs" class="tsd-kind-icon">pairs</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,107 +112,107 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="actors" class="tsd-anchor"></a>
-					<h3> actors</h3>
-					<div class="tsd-signature tsd-kind-icon">actors<span class="tsd-signature-symbol">:</span> <a href="Debug.FrameActorStats.html" class="tsd-signature-type">FrameActorStats</a></div>
+					<a name="broadphase" class="tsd-anchor"></a>
+					<h3> broadphase</h3>
+					<div class="tsd-signature tsd-kind-icon">broadphase<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L47">src/engine/Debug.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L136">src/engine/Debug/Debug.ts:136</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Actor statistics</p>
+							<p>Gets the time it took to calculate the broadphase pairs</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="delta" class="tsd-anchor"></a>
-					<h3> delta</h3>
-					<div class="tsd-signature tsd-kind-icon">delta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="collisions" class="tsd-anchor"></a>
+					<h3> collisions</h3>
+					<div class="tsd-signature tsd-kind-icon">collisions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L32">src/engine/Debug.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L116">src/engine/Debug/Debug.ts:116</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Gets the frame&#39;s delta (time since last frame scaled by <a href="../classes/Engine.Engine-1.html#timescale">Engine.timescale</a>) (in ms)</p>
+							<p>Gets the number of actual collisions</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="duration" class="tsd-anchor"></a>
-					<h3> duration</h3>
-					<div class="tsd-signature tsd-kind-icon">duration<span class="tsd-signature-symbol">:</span> <a href="Debug.FrameDurationStats.html" class="tsd-signature-type">FrameDurationStats</a></div>
+					<a name="contacts" class="tsd-anchor"></a>
+					<h3> contacts</h3>
+					<div class="tsd-signature tsd-kind-icon">contacts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="../classes/Collision_Detection_CollisionContact.CollisionContact.html" class="tsd-signature-type">CollisionContact</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L42">src/engine/Debug.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L121">src/engine/Debug/Debug.ts:121</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Duration statistics (in ms)</p>
+							<p>Copy of the current frame contacts (only updated if debug is toggled on)</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="fps" class="tsd-anchor"></a>
-					<h3> fps</h3>
-					<div class="tsd-signature tsd-kind-icon">fps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="fastBodies" class="tsd-anchor"></a>
+					<h3> fast<wbr>Bodies</h3>
+					<div class="tsd-signature tsd-kind-icon">fast<wbr>Bodies<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L37">src/engine/Debug.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L126">src/engine/Debug/Debug.ts:126</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Gets the frame&#39;s frames-per-second (FPS)</p>
+							<p>Gets the number of fast moving bodies using raycast continuous collisions in the scene</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="graphics" class="tsd-anchor"></a>
-					<h3> graphics</h3>
-					<div class="tsd-signature tsd-kind-icon">graphics<span class="tsd-signature-symbol">:</span> <a href="Debug.GraphicsStatistics.html" class="tsd-signature-type">GraphicsStatistics</a></div>
+					<a name="fastBodyCollisions" class="tsd-anchor"></a>
+					<h3> fast<wbr>Body<wbr>Collisions</h3>
+					<div class="tsd-signature tsd-kind-icon">fast<wbr>Body<wbr>Collisions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L57">src/engine/Debug.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L131">src/engine/Debug/Debug.ts:131</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Graphics statistics</p>
+							<p>Gets the number of bodies that had a fast body collision resolution</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3> id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="narrowphase" class="tsd-anchor"></a>
+					<h3> narrowphase</h3>
+					<div class="tsd-signature tsd-kind-icon">narrowphase<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L27">src/engine/Debug.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L141">src/engine/Debug/Debug.ts:141</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The number of the frame</p>
+							<p>Gets the time it took to calculate the narrowphase</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="physics" class="tsd-anchor"></a>
-					<h3> physics</h3>
-					<div class="tsd-signature tsd-kind-icon">physics<span class="tsd-signature-symbol">:</span> <a href="Debug.PhysicsStatistics.html" class="tsd-signature-type">PhysicsStatistics</a></div>
+					<a name="pairs" class="tsd-anchor"></a>
+					<h3> pairs</h3>
+					<div class="tsd-signature tsd-kind-icon">pairs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/0c51f1e2/src/engine/Debug.ts#L52">src/engine/Debug.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/587a5e33/src/engine/Debug/Debug.ts#L111">src/engine/Debug/Debug.ts:111</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Physics statistics</p>
+							<p>Gets the number of broadphase collision pairs which</p>
 						</div>
 					</div>
 				</section>
@@ -225,69 +225,66 @@
 						<a href="../modules.html">Modules</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="../modules/Debug.html">Debug</a>
+						<a href="../modules/Debug_Debug.html">Debug/<wbr>Debug</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/Debug.Debug-1.html" class="tsd-kind-icon">Debug</a>
+						<a href="../classes/Debug_Debug.Debug.html" class="tsd-kind-icon">Debug</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/Debug.FrameStats.html" class="tsd-kind-icon">Frame<wbr>Stats</a>
+						<a href="../classes/Debug_Debug.FrameStats.html" class="tsd-kind-icon">Frame<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/Debug.PhysicsStats.html" class="tsd-kind-icon">Physics<wbr>Stats</a>
+						<a href="../classes/Debug_Debug.PhysicsStats.html" class="tsd-kind-icon">Physics<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.CollidersHash.html" class="tsd-kind-icon">Colliders<wbr>Hash</a>
+						<a href="Debug_Debug.DebugStats.html" class="tsd-kind-icon">Debug<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.DebugStats.html" class="tsd-kind-icon">Debug<wbr>Stats</a>
+						<a href="Debug_Debug.FrameActorStats.html" class="tsd-kind-icon">Frame<wbr>Actor<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.FrameActorStats.html" class="tsd-kind-icon">Frame<wbr>Actor<wbr>Stats</a>
+						<a href="Debug_Debug.FrameDurationStats.html" class="tsd-kind-icon">Frame<wbr>Duration<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.FrameDurationStats.html" class="tsd-kind-icon">Frame<wbr>Duration<wbr>Stats</a>
+						<a href="Debug_Debug.FrameStatistics.html" class="tsd-kind-icon">Frame<wbr>Statistics</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="Debug_Debug.GraphicsStatistics.html" class="tsd-kind-icon">Graphics<wbr>Statistics</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.FrameStatistics.html" class="tsd-kind-icon">Frame<wbr>Statistics</a>
+						<a href="Debug_Debug.PhysicsStatistics.html" class="tsd-kind-icon">Physics<wbr>Statistics</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#actors" class="tsd-kind-icon">actors</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#broadphase" class="tsd-kind-icon">broadphase</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#delta" class="tsd-kind-icon">delta</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#collisions" class="tsd-kind-icon">collisions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#duration" class="tsd-kind-icon">duration</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#contacts" class="tsd-kind-icon">contacts</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#fps" class="tsd-kind-icon">fps</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#fastBodies" class="tsd-kind-icon">fast<wbr>Bodies</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#graphics" class="tsd-kind-icon">graphics</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#fastBodyCollisions" class="tsd-kind-icon">fast<wbr>Body<wbr>Collisions</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#id" class="tsd-kind-icon">id</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#narrowphase" class="tsd-kind-icon">narrowphase</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Debug.FrameStatistics.html#physics" class="tsd-kind-icon">physics</a>
+								<a href="Debug_Debug.PhysicsStatistics.html#pairs" class="tsd-kind-icon">pairs</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.GraphicsStatistics.html" class="tsd-kind-icon">Graphics<wbr>Statistics</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="Debug.PhysicsStatistics.html" class="tsd-kind-icon">Physics<wbr>Statistics</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
