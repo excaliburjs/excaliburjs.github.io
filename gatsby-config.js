@@ -31,43 +31,43 @@ module.exports = {
         excludePattern: /^\/(examples|docs\/api)/i,
       },
     },
-    'gatsby-plugin-mdx',
-    // {
-    //   resolve: `gatsby-plugin-mdx`,
-    //   options: {
-    //     gatsbyRemarkPlugins: [
-    //       {
-    //         resolve: 'gatsby-remark-typedoc-symbol-links',
-    //         options: {
-    //           basePath: '/docs/api/edge/',
-    //           linkTitleMessage(symbolPath, missing) {
-    //             return missing
-    //               ? `Missing link to '${symbolPath}' docs. We will happily accept a PR to fix this! 🙏`
-    //               : `View '${symbolPath}' in Excalibur.js Edge API docs`
-    //           },
-    //         },
-    //       },
-    //       {
-    //         resolve: `gatsby-remark-images`,
-    //         options: {
-    //           // It's important to specify the maxWidth (in pixels) of
-    //           // the content container as this plugin uses this as the
-    //           // base for generating different widths of each image.
-    //           maxWidth: 750,
-    //         },
-    //       },
-    //       'gatsby-remark-autolink-headers',
-    //       {
-    //         resolve: 'gatsby-remark-embed-snippet',
-    //         options: {
-    //           directory: `${__dirname}/snippets/`,
-    //         },
-    //       },
-    //       `gatsby-remark-prismjs`,
-    //       'gatsby-remark-copy-linked-files',
-    //     ],
-    //   },
-    //},
+    // 'gatsby-plugin-mdx',
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          // {
+          //   resolve: 'gatsby-remark-typedoc-symbol-links',
+          //   options: {
+          //     basePath: '/docs/api/edge/',
+          //     linkTitleMessage(symbolPath, missing) {
+          //       return missing
+          //         ? `Missing link to '${symbolPath}' docs. We will happily accept a PR to fix this! 🙏`
+          //         : `View '${symbolPath}' in Excalibur.js Edge API docs`
+          //     },
+          //   },
+          // },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 750,
+            },
+          },
+          'gatsby-remark-autolink-headers',
+          {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              directory: `${__dirname}/snippets/`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+          'gatsby-remark-copy-linked-files',
+        ],
+      },
+    },
 
     //
     // We need this "duplicate" config here, due to
