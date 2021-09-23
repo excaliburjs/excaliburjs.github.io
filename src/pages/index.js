@@ -16,7 +16,13 @@ import './index.css'
 
 const selectReleaseSize = (r) => filesize(r.releaseAssets.edges[0].node.size)
 
-const IndexPage = ({ data: { release } }) => (
+const IndexPage = ({
+  data: {
+    github: {
+      repository: { release },
+    },
+  },
+}) => (
   <Layout>
     <div className="ui segment blue inverted padded square homepage-hero">
       <div className="ui segment basic clearing">
@@ -41,16 +47,19 @@ const IndexPage = ({ data: { release } }) => (
             href="https://excaliburjs.com/docs/installation"
             className="ui button massive download"
           >
-            Download {release.tag.name}
+            Download {release.edges[0].node.tag.name}
           </a>
         </p>
         <p>
-          <a href={release.url}>
+          <a href={release.edges[0].node.url}>
             View Release Notes (
-            {format(new Date(release.publishedAt), 'MMM d, yyyy')})
+            {format(new Date(release.edges[0].node.publishedAt), 'MMM d, yyyy')}
+            )
           </a>{' '}
           &bull;{' '}
-          <span className="size">{selectReleaseSize(release)} minified</span>
+          <span className="size">
+            {selectReleaseSize(release.edges[0].node)} minified
+          </span>
         </p>
       </div>
     </div>
@@ -348,16 +357,24 @@ const IndexPage = ({ data: { release } }) => (
 
 export const query = graphql`
   query {
-    release: githubLatestrelease {
-      tag {
-        name
-      }
-      url
-      publishedAt
-      releaseAssets {
-        edges {
-          node {
-            size
+    github {
+      repository(owner: "excaliburjs", name: "excalibur") {
+        release: releases(last: 1) {
+          edges {
+            node {
+              tag {
+                name
+              }
+              publishedAt
+              url
+              releaseAssets(first: 1, name: "excalibur.min.js") {
+                edges {
+                  node {
+                    size
+                  }
+                }
+              }
+            }
           }
         }
       }

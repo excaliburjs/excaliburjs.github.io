@@ -87,7 +87,7 @@ the showcase module.
 
 ## Requirements
 
-- Node.js (8.x)
+- Node.js (12.x)
 - `GH_TOKEN` defined with your GitHub Personal Access Token that has access to excaliburjs org
 
 For building Semantic UI (optional):

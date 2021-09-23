@@ -6,7 +6,6 @@ const BUILD_CMD = 'npm run apidocs -- ' // leave space at end for specifying tit
 
 function build(version, title) {
   const exPath = path.join('./ex', version)
-  const themePath = path.join(exPath, 'typedoc-default-themes')
   const branch = version === 'edge' ? 'main' : version
   const docsPath = path.join(exPath, 'docs', 'api')
   const destPath = path.join('static', 'docs', 'api', version)
@@ -106,7 +105,9 @@ console.info('Discovered', tags.length, 'releases:', tags)
 
 // Pull latest site master with last docs built
 
-console.info('Getting latest published built site, which is on the master branch')
+console.info(
+  'Getting latest published built site, which is on the master branch'
+)
 child_process.execSync(
   'git clone https://github.com/excaliburjs/excaliburjs.github.io -b master _current',
   { stdio: [0, 1, 2] }

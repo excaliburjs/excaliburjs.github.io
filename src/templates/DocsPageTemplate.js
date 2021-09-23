@@ -102,7 +102,13 @@ const Search = () => (
 )
 
 export default function Template({ data }) {
-  const { page, toc, releases } = data
+  const {
+    page,
+    toc,
+    github: {
+      repository: { releases },
+    },
+  } = data
   const { frontmatter, body } = page
 
   return (
@@ -146,13 +152,17 @@ export default function Template({ data }) {
 
 export const pageQuery = graphql`
   query DocsByPath($path: String!) {
-    releases: allGithubReleases {
-      edges {
-        node {
-          publishedAt
-          name
-          tag {
-            name
+    github {
+      repository(owner: "excaliburjs", name: "excalibur") {
+        releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC }) {
+          edges {
+            node {
+              publishedAt
+              name
+              tag {
+                name
+              }
+            }
           }
         }
       }
