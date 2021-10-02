@@ -94,8 +94,6 @@ Alternatively, if a native resolution is set and then CSS is used to change the 
 
 HiDPI displays scale device pixels. For example, on a normal monitor, a 1280x720 game canvas will return `1280` and `720` for the `width` and `height` respectively. However, on a 2X HiDPI display _what's actually drawn_ is multiplied by a device pixel ratio of `2` so, `2560` and `1440`. Any time you need to get this "actual" width and height of what's being drawn to the canvas, the engine exposes [[Engine.drawWidth]] and [[Engine.drawHeight]] that takes into account the device pixel ratio. In this HiDPI scenario, [[Engine.canvasWidth]] and [[Engine.canvasHeight]] would still return the native `1280x720` resolution.
 
-<!-- TODO: Embed example -->
-
 ## Managing display modes
 
 Excalibur supports multiple display modes for a game. Pass in a [[EngineOptions.displayMode|displayMode]]
@@ -136,8 +134,6 @@ main {
 ### Fill Screen Display Mode
 
 [[DisplayMode.FillScreen]] Fill the entire screen's css width/height for the game resolution dynamically. This means the resolution of the game will change dynamically as the window is resized. This is not the same as [[Screen.goFullScreen]]
-
-<!-- TODO: Embed example -->
 
 ### Fit Container Display Mode
 
