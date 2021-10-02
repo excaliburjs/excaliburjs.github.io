@@ -105,23 +105,13 @@ option when creating a game to customize the viewport.
 
 [[DisplayMode.Fixed]] is the default, use a specified resolution for the game. Like 800x600 pixels for example.
 
-### Fill Display Mode
+### Fit Screen Display Mode
 
-[[DisplayMode.Fill]] will style the canvas with CSS to take up the entire window viewport. If `canvasWidth` and `canvasHeight` are not set explicitly, the native resolution will be the same as the viewport size.
+[[DisplayMode.FitScreen]] Fit to screen using as much space as possible while maintaining aspect ratio and resolution.
 
-<!-- TODO: Embed example -->
+This is not the same as [[Screen.goFullScreen]], which uses the fullscreen api, but behaves in a similar way maintaining aspect ratio.
 
-### Fit Display Mode
-
-[[DisplayMode.Fit]] fit to screen using as much space as possible while maintaining aspect ratio and resolution.
-
-### Fit Display Mode
-
-[[DisplayMode.Fit]] to screen using as much space as possible while maintaining aspect ratio and resolution.
-
-This is not the same as [[Screen.goFullScreen]]
-
-You may want to center your game here is an example
+You may want to center your game here is an example:
 
 ```html
 <!-- html -->
@@ -143,19 +133,19 @@ main {
 }
 ```
 
-### Fill Display Mode
+### Fill Screen Display Mode
 
-[[DisplayMode.Fill]] will fill the entire screen's css width/height for the game resolution dynamically. This means the resolution of the game will change dynamically as the window is resized. This is not the same as [[Screen.goFullScreen]]
-
-<!-- TODO: Embed example -->
-
-### Container Display Mode
-
-If you use [[DisplayMode.Container]], the canvas will automatically resize to fit inside of
-it's parent DOM element. This allows you maximum control over the game viewport, e.g. in case
-you want to provide HTML UI on top or as part of your game.
+[[DisplayMode.FillScreen]] Fill the entire screen's css width/height for the game resolution dynamically. This means the resolution of the game will change dynamically as the window is resized. This is not the same as [[Screen.goFullScreen]]
 
 <!-- TODO: Embed example -->
+
+### Fit Container Display Mode
+
+[[DisplayMode.FitContainer]] Fit to parent element width/height using as much space as possible while maintaining aspect ratio and resolution.
+
+### Fill Container Display Mode
+
+[[DisplayMode.FillContainer]] will fill the entire screen's css width/height for the game resolution dynamically. This means the resolution of the game will change dynamically as the window is resized. This is not the same as [[Screen.goFullScreen]]
 
 ## Fullscreen API
 

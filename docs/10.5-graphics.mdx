@@ -3,37 +3,69 @@ title: Graphics
 path: /docs/graphics
 ---
 
-Excalibur has a new graphics system that has been developed to hide the underyling
+## Why Graphics?
+
+The Excalibur graphics context is responsible for displaying images and graphics to the screen.
+
+// TODO EXAMPLE
+
+The [[ExcaliburGraphicsContext]] provides an abstraction over the underyling drawing implementation.
+
+This graphics context does a great deal to reduce the complexity of the drawing stack for both developers using Excalibur and the maintainers.
+
+Excalibur has a graphics system that has been developed to hide the underyling
 implementation. This allows optimizations like webgl batch rendering and shader
-programs to increase the speed and power of our drawings. This new system does a great deal to reduce the complexity of the drawing stack for both developers using Excalibur and the maintainers.
+programs to increase the speed and power of our drawings.
 
-### Experimental WebGL support
+### WebGL vs Canvas support
 
-The new webgl support implements an automatic 2d batch renderer that dramatically improves draw performance.
+The WebGL based implmentation of [[ExcaliburGraphicsContext]] is on by default, this implements an automatic 2d batch renderer that dramatically improves draw performance.
 
-To use this experiment turn on the flag before engine construction.
+If you have need to switch to 2D canvas based rendering turn on the flag before engine construction.
 
 ```typescript
-ex.Flags.enable('use-webgl');
+ex.Flags.useCanvasGraphicsContext();
 const game = new ex.Engine(...);
+```
+
+## How to use the Graphics Component
+
+1. Graphics using [[ImageSource|images]] (and any [[Resource]]) must be [[loaded]] before use
+2. Graphics like [[Sprite|Sprites]] are like a window into an [[ImageSource|image]]
+3. Graphics like [[Canvas]]([[Raster|Rasters]]) produce internal bitmap's which are large in memory and should be used sparingly or cached
+4. Graphics can be added to the [[GraphicsComponent]] on an [[Actor]] or [[Entity]]
+5. Direct access to the [[ExcaliburGraphicsContext]]
+
+For most games, you will be using the graphics component off of [[Actors|Actors]] or plain [[Entity|Entities]].
+
+```typescript
+const image = new ex.ImageSource('./path/to/my/image.png')
+await game.start()
+
+const actor = new Actor({
+  x: 100,
+  y: 100,
+})
+
+actor.graphics.use(image.toSprite())
 ```
 
 ## Excalibur Graphics Context
 
-This is an abstraction (`ex.Graphics.ExcaliburGraphicsContext`) over the underlying drawing mechanism and only knows how to draw `ex.Graphic` objects.
+[[ExcaliburGraphicsContext]] is the abstraction over the underlying drawing mechanism and only knows how to draw `ex.Graphic` objects.
 
 #### ImageSource
 
-Loading images from files (png, jpeg, etc)
+Loading images from files (png, jpeg, etc), in some engines/frameworks is known as a Texture
 
-`ex.Graphics.ImageSource` is a new type in Excalibur that represents the source bitmap and contains the logic for loading that image from a file. You can thing of this as the file representation in Excalibur for the image.
+[[ImageSource]] represents the source bitmap and contains the logic for loading that image from a file. You can thing of this as the file representation in Excalibur for the image.
 
 These images can be presented to the loader at the start of an Excalibur game
 
 ```typescript
 const game = new ex.Engine({ width: 800, height: 600 })
 
-const image = new ex.Graphics.ImageSource('./img/myimg.png')
+const image = new ex.ImageSource('./img/myimg.png')
 
 const loader = new ex.Loader()
 loader.addResource(image)
@@ -46,7 +78,7 @@ game.start(loader).then(() => {
 Or they can be loaded out of band **Note: it is important to check that a ImageSource has been loaded before using it at runtime to avoid errors and visual bugs if your game is loading images this way.**
 
 ```typescript
-const image = new ex.Graphics.ImageSource('./img/myimg.png')
+const image = new ex.ImageSource('./img/myimg.png')
 
 image.load().then(() => {
   // image loaded
@@ -127,9 +159,9 @@ actor.graphics.getLayer('default').show(myAnimation)
 
 ## Graphics
 
-Excalibur `ex.Graphic`s break into 2 main categories, `ex.Graphic.Sprite` based and `ex.Graphic.Raster` based. That is to say Raster and non-Raster graphics.
+Excalibur `ex.Graphic`s break into 2 main categories, `ex.[[Sprite]]` based and `ex.[[Raster]]` based. That is to say Raster and non-Raster graphics.
 
-`ex.Graphics` have a bunch of useful feature that work for ALL types of graphics
+[[Graphics]] have a bunch of useful feature that work for ALL types of graphics
 
 - `clone(): Graphic`
 
@@ -167,14 +199,25 @@ Excalibur `ex.Graphic`s break into 2 main categories, `ex.Graphic.Sprite` based 
 
   - Gets or sets the origin of the graphic, if not set the center of the graphic is the origin
 
+#### Canvas
+
+For drawing hooks the `ExcaliburGraphicsContext` is replacing the browser `CanvasRenderingContext2D`. But if you need to do some custom drawing using the `CanvasRenderingContext2D` the new [`Canvas`](https://excaliburjs.com/docs/api/edge/classes/Canvas.html) graphic has your back.
+
+`embed:excalibur-snippets/src/canvas/main.ts{snippet: "canvas"}`
+
+<iframe src="https://excaliburjs.com/excalibur-snippets/canvas/" 
+        style="width:100%; height:420px; border:0; overflow:hidden">
+
+</iframe>
+
 #### Sprite
 
-A sprite is a view into a [ex.Graphics.ImageSource](#ImageSource) and a projection into a final destination size.
+A sprite is a view into a [ImageSource](#ImageSource) and a projection into a final destination size.
 
 ```typescript
-const image = new ex.Graphics.ImageSource('./img/myimage.png')
+const image = new ex.ImageSource('./img/myimage.png')
 // keep in mind this wont work until the raw image is loaded
-const sprite = new ex.Graphics.Sprite({
+const sprite = new ex.Sprite({
   ImageSource: image,
   sourceView: {
     // Take a small slice of the source image starting at pixel (10, 10) with dimension 20 pixels x 20 pixels
@@ -194,9 +237,9 @@ const sprite = new ex.Graphics.Sprite({
 Many times a sprite is the exact same view and size as the source [raw image](#ImageSource) so there is a quick static helper to do this
 
 ```typescript
-const image = new ex.Graphics.ImageSource('./img/myimage.png')
-// keep in mind this wont work until the raw image is loaded
-const sprite = ex.Graphics.Sprite.from(image)
+const image = new ex.ImageSource('./img/myimage.png')
+// keep in mind this wont work until the image source is loaded
+const sprite = image.toSprite()
 ```
 
 #### Animation
@@ -228,7 +271,7 @@ export enum AnimationStrategy {
 Animation frames can be created by hand in the following example
 
 ```typescript
-const animation = new ex.Graphics.Animation({
+const animation = new ex.Animation({
   frames: [
     {
       graphic: newSprite,
@@ -250,16 +293,16 @@ const animation = new ex.Graphics.Animation({
 })
 ```
 
-Animations can be constructed quickly from [`ex.Graphics.SpriteSheets`](#SpriteSheet)
+Animations can be constructed quickly from [`ex.SpriteSheets`](#SpriteSheet)
 
-```typescript
-// Use the specified sprite sheet, take frames 1 - 10 (including 10), with a frame duration of 50 millseconds
-const left = ex.Graphics.Animation.fromSpriteSheet(
-  spriteSheetRun,
-  ex.Util.range(1, 10),
-  50
-)
-```
+![Character running sprite sheet](10.5-graphics/player-run.png)
+
+`embed:excalibur-snippets/src/animation/main.ts{snippet: "animation"}`
+
+<iframe src="https://excaliburjs.com/excalibur-snippets/animation/" 
+        style="width:100%; height:420px; border:0; overflow:hidden">
+
+</iframe>
 
 Animations also emit events per frame, per loop, and per end (if it completes).
 
@@ -280,32 +323,31 @@ anim.on('ended', (a) => {
 SpriteSheet is really an ordered collection of sprites from the same base image.
 
 ```typescript
-const spriteSheet = new ex.Graphics.SpriteSheet({
+const spriteSheet = new ex.SpriteSheet({
   image: imageRun,
   sprites: [...]
 })
 ```
 
-If you spritesheet is a neat grid there is a static builder for you to slice up that raw image.
+If you spritesheet is a neat grid there is a static builder for you to slice up that image source. Most sprite sheets are tightly packed like so.
 
-```typescript
-const spriteSheetRun = ex.Graphics.SpriteSheet.fromGrid({
-  image: imageRun,
-  grid: {
-    rows: 1,
-    columns: 21,
-    spriteHeight: 96,
-    spriteWidth: 96,
-  },
-})
-```
+Some source spritesheets may have margin between sprites and an offset, like these [playing cards from Kenny.nl](https://www.kenney.nl/assets/playing-cards-pack)
+
+![Kenney.nl pixel art playing cards](10.5-graphics/kenny-cards.png)
+
+`embed:excalibur-snippets/src/spritesheet/main.ts{snippet: "spritesheet"}`
+
+<iframe src="https://excaliburjs.com/excalibur-snippets/spritesheet/" 
+        style="width:100%; height:420px; border:0; overflow:hidden">
+
+</iframe>
 
 ### GraphicsGroup
 
 A graphics group is an new graphic that draws a graphics in some relation to one another. This can be useful when you want to compose graphics together into a single graphic. Graphics groups do support all types of graphics including [animations](#Animation)
 
 ```typescript
-const group = new ex.Graphics.GraphicsGroup({
+const group = new ex.GraphicsGroup({
   members: [
     {
       graphic: newSprite,
@@ -353,10 +395,10 @@ See these useful raster implemenations
 - [Circle](#Circle)
 - [Canvas](#Canvas)
 
-A custom raster can be built implementing the `execute` function
+A custom raster can be built implementing the `execute` function, this is in fact how the [[Canvas]] is implemented.
 
 ```typescript
-export class MyRaster extends ex.Graphics.Raster {
+export class MyRaster extends ex.Raster {
   constructor() {
     super()
   }
@@ -388,9 +430,9 @@ Text supports both normal OS/web fonts and Sprite fonts.
 Example
 
 ```typescript
-var text = new ex.Graphics.Text({
+var text = new ex.Text({
   text: 'This is raster text ❤️',
-  font: new ex.Graphics.Font({ size: 30 }),
+  font: new ex.Font({ size: 30 }),
 })
 ```
 
@@ -419,9 +461,9 @@ export interface FontOptions {
 ```
 
 ```typescript
-var text = new ex.Graphics.Text({
+var text = new ex.Text({
   text: 'This is raster text ❤️',
-  font: new ex.Graphics.Font({
+  font: new ex.Font({
     size: 30,
     unit: FontUnit.Px,
     family: 'sans-serif',
@@ -444,7 +486,7 @@ var text = new ex.Graphics.Text({
 Sometimes you want to use text of your own creation from a [spritesheet](#spritesheet),
 
 ```typescript
-const spriteFontSheet = ex.Graphics.SpriteSheet.fromGrid({
+const spriteFontSheet = ex.SpriteSheet.fromImageSource({
   image: spriteFontImage,
   grid: {
     rows: 3,
@@ -454,14 +496,14 @@ const spriteFontSheet = ex.Graphics.SpriteSheet.fromGrid({
   }
 });
 
-const spriteFont = new ex.Graphics.SpriteFont({
+const spriteFont = new ex.SpriteFont({
     alphabet: '0123456789abcdefghijklmnopqrstuvwxyz,!\'&."?- ',
     caseInsensitive: true,
     spriteSheet: spriteFontSheet
   });
 });
 
-const text = new ex.Graphics.Text({
+const text = new ex.Text({
   text: 'This is sprite font text!!',
   font: spriteFont
 });
@@ -472,7 +514,7 @@ const text = new ex.Graphics.Text({
 Polygon creates a rastered polygon graphic given a set of points
 
 ```typescript
-const triangle = new ex.Graphics.Polygon({
+const triangle = new ex.Polygon({
   points: [ex.vec(10 * 5, 0), ex.vec(0, 20 * 5), ex.vec(20 * 5, 20 * 5)],
   color: ex.Color.Yellow,
 })
@@ -483,7 +525,7 @@ const triangle = new ex.Graphics.Polygon({
 Circle creates a rastered circle graphic given a raidus
 
 ```typescript
-const circle = new ex.Graphics.Circle({
+const circle = new ex.Circle({
   radius: 10,
   color: ex.Color.Red,
 })
@@ -494,7 +536,7 @@ const circle = new ex.Graphics.Circle({
 Rectangle creates a rastered rectange graphic given a width and height
 
 ```typescript
-const rect = new ex.Graphics.Rectangle({
+const rect = new ex.Rectangle({
   width: 100,
   height: 100,
   color: ex.Color.Green,

@@ -1,0 +1,63 @@
+---
+title: Entities
+path: /docs/entities
+---
+
+An [[Entity]] in is an empty container for [[Components]], alone an Entity has little behavior.
+
+They are useful for defining bare bones game objects with custom behavior.
+
+If you want a batteries included prebuilt Entity use an [[Actor]], read more [here](/docs/actor).
+
+## Entity
+
+Entities have no behavior by default, only a few lifecycle hooks `onInitialize`,
+
+Building and adding an entity to a game is pretty straightforward.
+
+```typescript
+const game = new ex.Engine({...});
+
+const entity = new ex.Entity();
+const entityWithName = new ex.Entity({name: 'Named Entity'});
+game.currentScene.add(entity);
+```
+
+## EntityManager
+
+- EntityManager.getById(entityId)
+- EntityManager.getByName(entityName)
+
+## Child Entities
+
+- Entity.parent
+- Entity.children
+- Entity.addChild()
+- Entity.removeChild()
+- Entity.removeAllChildren()
+- Entity.unparent()
+
+## Lifecycle
+
+- onInitialize
+- onPreUpdate
+- onPostUpdate
+
+## Tags
+
+- Entity.addTag("sometag")
+- Entity.removeTag("sometag")
+- Entity.hasTag("sometag")
+
+## Components
+
+- Entity.get(TransformComponent)
+- Entity.has(TransformComponent)
+- Entity.getComponents()
+- Entity.addComponent(new TransformComponent)
+- Entity.removeComponent(componentInstance, force)
+- Deferred removal
+
+## Templates aka Prefab
+
+- Entity.addTemplate(TemplateEntity)

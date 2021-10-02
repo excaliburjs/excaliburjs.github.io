@@ -3,215 +3,210 @@ title: Physics
 path: /docs/physics
 ---
 
-Excalibur comes built in with two physics systems. The first system is [[CollisionResolutionStrategy.Box|Box physics]], and is a
-simple axis-aligned way of doing basic collision detection for non-rotated rectangular areas, defined by an actor's
-[[BoundingBox|bounding box]].
+Excalibur comes built in with two physics simulations.
 
-### Physics hierarchy
+- "Arcade" style physics which is good for basic collision detection for non-rotated rectangular areas.
+  - Example: platformers, tile based games, top down, etc
+- "Realistic" style physics which is good for rigid body games where realistic collisions are desired
+  - Example: block stacking, angry bird's style games, etc
 
-Excalibur physics are organized into a hierarchy, each has a specific single role in the collision system.
+## Arcade
 
+Arcade physics simulation is on by default, but can be enabled explicitly at any time with `ex.Physics.useArcadePhysics()`
+
+```typescript
+Physics.useArcadePhysics();
+
+const game = new Engine({...});
 ```
-Actor (game entity)
-  -> Body (transform information)
-     -> Collider (collision related information)
-        -> Shape (geometry for collision)
+
+## Realistic
+
+Realistic physics are not on by default, but can be enabled explicitly at any time with `ex.Physics.useRealisticPhysics()`
+
+```typescript
+Physics.useRealisticPhysics();
+
+const game = new Engine({...});
 ```
 
-For example:
+### Example
+
+`embed:excalibur-snippets/src/collision/main.ts{snippet: "collision"}`
+
+<iframe src="https://excaliburjs.com/excalibur-snippets/collision/" 
+        style="width:100%; height:420px; border:0; overflow:hidden">
+
+</iframe>
+
+## Other Physics Settings
+
+See [[Physics]] documentation for more
+
+- Turn off excalibur physics `ex.Physics.enabled = false`
+- Global acceleration applied to [[CollisionType.Active|active objects]] `ex.Physics.acc = ex.vec(0, 100)`
+- Fast moving object detection (continuous collision) `ex.Physics.checkForFastBodies = true`
+- Physics realistic passes, more passes mean higher quality simulation at the expense of cpu
+  - Realistic solver position iterations, improves overlap resolution `ex.Physics.positionIterations = 3`
+  - Realistic solver velocity iterations, improves response and stability `ex.Physics.velocityIterations = 8`
+
+## Using Physics with Actors or Entities
+
+The physics simulation has 2 major pieces for actors
+
+1. [[BodyComponent]] - Controls the motion and qualities of the physics simulation
+2. [[ColliderComponent]] - Stores the geometry of any collider and performs overlap testing
+
+### Actors
+
+Actors come out of the box with both of these components, an implicitly created [[BodyComponent]] and a [[ColliderComponent]]
+of a [[ConvexPolygon|box]] that matches the specified `width` and `height`, or a [[CircleCollider|circle]]
 
 ```typescript
 const actor = new ex.Actor({
-  pos: new ex.Vector(100, 100),
-  body: new ex.Body({
-    vel: new ex.Vector(20, 0), // velocity
-    acc: new ex.Vector(0, 100), // acceleration
-    collider: new ex.Collider({
-      mass: 100, // mass of 100
-      type: ex.CollisionType.Active, // active collision type
-      shape: ex.Shape.Circle(50), // circle geometry of radius 50
-    }),
-  }),
+  pos: ex.vec(200, 200),
+  width: 100,
+  height: 100,
+  collisionType: ex.CollisionType.Active,
 })
+
+const builtInBox = actor.collider.get()
 ```
 
-### Actor/Body
+### Entities
 
-An actor has a position, velocity, and acceleration in physical space, but actors are just containers. All of these positional physical attributes are stored and managed inside a physics [[Body]]. An actor can only have one associated [[Body]] (like us!).
-
-[[Actor.body]] is the container for all transform related information for physics and any associated colliders. There are several convenience properties on an actor that delegate to the underlying physics body:
+Reminder entities don't have anything pre-built, all Actors are Entities, but with the common built in features included.
 
 ```typescript
+const entity = new ex.Entity([
+  new TransformComponent(),
+  new BodyComponent(),
+  new ColliderComponent(),
+])
+
+const tx = entity.get(TransformComponent)
+
+const body = entity.get(BodyComponent)
+
+const collider = entity.get(ColliderComponent)
+```
+
+## Colliders
+
+Colliders are abstractions over geometry in Excalibur, they implement the [[Collider]] interface and know how
+to detect intersecions with other colliders, test ray casts, check point containment, etc.
+
+Colliders attached to an [[Entity]] will have a [[Entity.owner]] populated.
+
+<Note>
+
+**Keep in mind** colliders are relative to the owner [[TransformComponent]], they only represent geometry relative to an entity [[TransformComponent]]. Colliders can be shifted using the [[Collider.offset]].
+
+Colliders don't have a position in the world without an Actor/Entity with a position
+
+</Note>
+
+### CircleCollider
+
+The [[CircleCollider]] defines a circular geometry and can be created and added to an actor
+
+```typescript
+// Actors have a built in circle collider if radius is set
+const actorWithCircleCollider = new ex.Actor({
+  pos: ex.vec(5, 5),
+  radius: 10,
+})
+
+// Alternatively you can define and set a collider yourself
+
+const circle = new ex.CircleCollider({
+  radius: 10, // 10 pixel radius
+})
+
+// or
+
+const circle = ex.Shape.Circle(10) // 10 pixel radius
+
 const actor = new ex.Actor({
-    // actor's position is stored on a default body
-    pos: new ex.Vector(40, 40);
-});
+  pos: ex.vec(100, 100),
+  collider: circle,
+})
 
-// actor position is stored on the body, actor.pos is a convenience
-actor.pos === actor.body.pos
-
-// actor velocity is stored on the body, actor.vel is a convenience
-actor.vel === actor.body.vel
-
-// actor acceleration is stored on the body, actor.acc is a convenience
-actor.acc === actor.body.acc
+// Change the collider afterwards
+actor.collider.set(circle)
 ```
 
-### Collider
+### Box and PolygonCollider
 
-A body has a default box collider that is derived from the width and height of the associated actor. Only one collider can be associated with a body, and by extension an actor. (Collision events are re-emitted onto actors)
+The [[PolygonCollider]] allows the definition of arbitrary **convex** polygons. Convex meaning there are no dents in the shape, for example "Pac-Man" would be a non-convex shape.
 
-The [[Collider]] class is the container of all collision related information, collision type, collision events, mass, inertia, friction, bounciness, shape, etc.
-
-### Shape
-
-A collider has a [[CollisionShape]] that represent physical geometry. The possible shapes in Excalibur are [[Circle]], [[Edge]], and [[ConvexPolygon]]. A collider can only have one [[CollisionShape]] associated with them at a time.
-
-#### Box and ConvexPolygon Shapes
-
-<!-- TODO: Example -->
-
-The default shape for a collider is a box. A custom box shape and [[Collider|collider]] can be created for an [[Actor|actor]] [[Body|body]]. The `ex.Shape.Box` helper actually creates a [[ConvexPolygon]] shape in Excalibur.
+A box collider is created using the PolygonCollider, there is a [[Shape.Box]] helper to build these.
 
 ```typescript
-const block = new ex.Actor({
-  pos: new ex.Vector(400, 400),
-  color: ex.Color.Red,
-  body: new ex.Body({
-    collider: new ex.Collider({
-      shape: ex.Shape.Box(50, 50)
-      type: ex.CollisionType.Active;
-    })
-  })
-});
-```
+// Actors have a built in box collider if width/height are set
+const actorWithBoxCollider = new ex.Actor({
+  pos: ex.vec(100, 100),
+  width: 100,
+  height: 10,
+})
 
-Creating a custom [[ConvexPolygon|convex polygon]] shape is just as simple. Excalibur only supports arbitrary convex shapes as a ConvexPolygon, this means no "cavities" in the shape, for example "pac-man" is not a convex shape.
+// Alternatively you can define and set a collider yourself
+const box = ex.Shape.Box(100, 10)
 
-The `points` in a [[ConvexPolygon|convex polygon]] have counter-clockwise winding by default, this means the points must be listed in counter-clockwise order around the shape to work. This can be switched by supplying `true` or `false` to the winding argument `ex.Shape.Polygon([...], true)` for clockwise winding.
-
-<Note>
-
-**Keep in mind**, points are defined local to the [[Body|body]] or [[Actor|actor]]. Meaning that the triangle defined below is centered around `ex.Vector(400, 400)` in world space.
-
-</Note>
-
-```typescript
-const triangle = new ex.Actor({
-  pos: new ex.Vector(400, 400),
-  color: ex.Color.Red,
-  body: new ex.Body({
-    collider: new ex.Collider({
-      shape: ex.Shape.Polygon([new ex.Vector(0, -100), new ex.Vector(-100, 50), new ex.Vector(100, 50)])
-      type: ex.CollisionType.Active;
-    })
-  })
-});
-```
-
-#### Edge Shape
-
-<!-- TODO: Example -->
-
-The default shape for a collider is a box, however a custom [[Edge|edge]] shape and [[Collider|collider]] can be created for an [[Actor|actor]] [[Body|body]].
-
-[[Edge|Edges]] are useful for creating walls, barriers, or platforms in your game.
-
-<Note>
-
-**Keep in mind**, edges are defined local to the [[Body|body]] or [[Actor|actor]]. Meaning that the edge defined below starts at `ex.Vector(100, 100)` and goes to `ex.Vector(130, 400)` in world space. It is recommended when defining edges to leave the first coordinate `ex.Vector.Zero` to avoid confusion.
-
-</Note>
-
-```typescript
-const wall = new ex.Actor({
-  pos: new ex.Vector(100, 300),
-  color: ex.Color.Blue,
-  body: new ex.Body({
-    collider: new ex.Collider({
-      shape: ex.Shape.Edge(new ex.Vector.Zero(), new ex.Vector(30, 100)),
-    }),
-  }),
+const actor = new ex.Actor({
+  pos: ex.vec(100, 100),
+  collider: box,
 })
 ```
 
-#### Circle Shape
-
-<!-- TODO: Example -->
-
-Excalibur has a [[CollisionShape|Shape]] static helper to create [[Circle|circles]] for collisions in your game.
-
-The default shape for a collider is a box, however a custom [[Circle|circle]] shape and [[Collider|collider]] can be created for an [[Actor|actor]] [[Body|body]].
-
-This example creates a circle of `radius = 50`.
+A polygon collider can be defined using a set of points specified in clockwise order (also known as "winding").
 
 ```typescript
-const circle = new ex.Actor({
-  pos: new ex.Vector(400, 400),
-  color: ex.Color.Red,
-  body: new ex.Body({
-    collider: new ex.Collider({
-      shape: ex.Shape.Circle(50)
-      type: ex.CollisionType.Active;
-    })
-  })
-});
+const triangle = new ex.PolygonCollider({
+  points: [ex.vec(-100, 0), ex.vec(0, -50), ex.vec(100, 0)],
+})
 ```
 
-## Collision Types
+### EdgeCollider
 
-Colliders have the default collision type of [[CollisionType.PreventCollision]], this is so colliders don't accidentally opt into something computationally expensive. **In order for colliders to participate in collisions** and the global physics system, colliders **must** have a collision type of [[CollisionType.Active]] or [[CollisionType.Fixed]].
+An [[EdgeCollider]] can be used to define a single line collider.
 
-### Prevent
+They are useful for creating walls, barriers, or platforms in your game.
 
-Actors with the [[CollisionType.PreventCollision]] setting do not participate in any
-collisions and do not raise collision events.
+Edge points are relative to the Entity position, so begin of `(0, 0)` means it starts right on the top of the Entity [[TransformComponent]]
 
-### Passive
+```typescript
+const edge = new ex.EdgeCollider({
+  begin: ex.vec(0, 0),
+  end: ex.vec(100, 0),
+})
 
-Actors with the [[CollisionType.Passive]] setting only raise collision events, but are not
-influenced or moved by other actors and do not influence or move other actors.
+const actor = new ex.Actor({
+  pos: ex.vec(100, 100),
+  collider: edge,
+})
+```
 
-### Active
+### CompositeCollider
 
-Actors with the [[CollisionType.Active]] setting raise collision events and participate
-in collisions with other actors and will be push or moved by actors sharing
-the [[CollisionType.Active]] or [[CollisionType.Fixed]] setting.
+CompositeCollider can be used to attach multiple colliders to an entity at once. This can be useful when generating complex shapes, like for
+example a capsule collider for a player Actor.
 
-### Fixed
+```typescript
+// Capsule Collider
+const capsule = new ex.CompositeCollider([
+  ex.Shape.Circle(10, ex.vec(0, -20)),
+  ex.Shape.Box(20, 40),
+  ex.Shape.Circle(10, ex.vec(0, 20)),
+])
 
-Actors with the [[CollisionType.Fixed]] setting raise collision events and participate in
-collisions with other actors. Actors with the [[CollisionType.Fixed]] setting will not be
-pushed or moved by other actors sharing the [[CollisionType.Fixed]].
+const player = new ex.Actor({
+  pos: ex.vec(100, 100),
+  collider: capsule,
+})
+```
 
-Think of `Fixed` actors as "immovable/unstoppable" objects. If two [[CollisionType.Fixed]] actors
-meet they will not be pushed or moved by each other, they will not interact except to throw
-collision events.
-
-## Collision Type Behavior Matrix
-
-This matrix shows what will happen with 2 actors of any collision type.
-
-| Collision Type | Prevent |   Passive   |       Active        |        Fixed        |
-| -------------- | :-----: | :---------: | :-----------------: | :-----------------: |
-| Prevent        |  None   |    None     |        None         |        None         |
-| Passive        |  None   | Events Only |     Events Only     |     Events Only     |
-| Active         |  None   | Events Only | Resolution & Events | Resolution & Events |
-| Fixed          |  None   | Events Only | Resolution & Events |        None         |
-
-- None = No collision resolution and no collision events
-- Events Only = No resolution is performed, only collision events are fired on colliders, except for `postcollision` which only fires if resolution was performed.
-- Resolution & Events = Collider positions are resolved according to their collision type and collision events are fired on both colliders
-
-## Enabling Excalibur physics
-
-To enable physics in your game it is as simple as setting [[Physics.enabled]] to true and picking your
-[[CollisionResolutionStrategy]]
-
-Excalibur supports 3 different types of collision area shapes in its physics simulation: [[ConvexPolygon|polygons]],
-[[Circle|circles]], and [[Edge|edges]]. To use any one of these areas on an actor there are convenience methods off of
-the [[Actor|actor]] [[Body|physics body]]: [[Body.useBoxCollider|useBoxCollider]],
-[[Body.usePolygonCollider|usePolygonCollider]], [[Body.useCircleCollider|useCircleCollider]], and [[Body.useEdgeCollider]]
+## Collision Events
 
 ## Collision Event Lifecycle
 
@@ -264,6 +259,103 @@ actor.on('postcollision', () => {...})
 // or
 actor.body.collider.on('postcollision', () => {...})
 ```
+
+## Collision Types
+
+Colliders have the default collision type of [[CollisionType.PreventCollision]], this is so colliders don't accidentally opt into something computationally expensive. **In order for colliders to participate in collisions** and the global physics system, colliders **must** have a collision type of [[CollisionType.Active]] or [[CollisionType.Fixed]].
+
+### Prevent
+
+Actors with the [[CollisionType.PreventCollision]] setting do not participate in any
+collisions and do not raise collision events.
+
+### Passive
+
+Actors with the [[CollisionType.Passive]] setting only raise collision events, but are not
+influenced or moved by other actors and do not influence or move other actors.
+
+### Active
+
+Actors with the [[CollisionType.Active]] setting raise collision events and participate
+in collisions with other actors and will be push or moved by actors sharing
+the [[CollisionType.Active]] or [[CollisionType.Fixed]] setting.
+
+### Fixed
+
+Actors with the [[CollisionType.Fixed]] setting raise collision events and participate in
+collisions with other actors. Actors with the [[CollisionType.Fixed]] setting will not be
+pushed or moved by other actors sharing the [[CollisionType.Fixed]].
+
+Think of `Fixed` actors as "immovable/unstoppable" objects. If two [[CollisionType.Fixed]] actors
+meet they will not be pushed or moved by each other, they will not interact except to throw
+collision events.
+
+### Collision Type Behavior Matrix
+
+This matrix shows what will happen with 2 actors of any collision type.
+
+| Collision Type | Prevent |   Passive   |       Active        |        Fixed        |
+| -------------- | :-----: | :---------: | :-----------------: | :-----------------: |
+| Prevent        |  None   |    None     |        None         |        None         |
+| Passive        |  None   | Events Only |     Events Only     |     Events Only     |
+| Active         |  None   | Events Only | Resolution & Events | Resolution & Events |
+| Fixed          |  None   | Events Only | Resolution & Events |        None         |
+
+- None = No collision resolution and no collision events
+- Events Only = No resolution is performed, only collision events are fired on colliders, except for `postcollision` which only fires if resolution was performed.
+- Resolution & Events = Collider positions are resolved according to their collision type and collision events are fired on both colliders
+
+## Collision Groups
+
+Collision groups are useful when you want to filter the collision that are possible between colliders
+on a granular level above and beyond collision type. This idea is also known as collision layers, collision filters, or collision filtering.
+
+Collision groups currently are a property on the [[BodyComponent]] because ??? TODO
+
+```typescript
+// Create a group for each distinct category of "collidable" in your game
+const playerGroup = ex.CollisionGroupManager.create('player')
+const npcGroup = ex.CollisionGroupManager.create('npcGroup')
+const floorGroup = ex.CollisionGroupManager.create('floorGroup')
+const enemyGroup = ex.CollisionGroupManager.create('enemyGroup')
+
+// Define your rules
+const playersCanCollideWith = ex.CollisionGroup.collidesWith([
+  playersGroup, // collide with other players
+  floorGroup, // collide with the floor
+  enemyGroup, // collide with enemies
+])
+
+const enemiesCanCollideWith = ex.CollisionGroup.collidesWith([
+  playerGroup, // collide with players
+  floorGroup, // collide with the floor
+])
+
+const npcGroupCanCollideWith = ex.CollisionGroup.collidesWith([
+  floorGroup, // only collides with the floor
+])
+
+const player = new ex.Actor({
+  collisionGroup: playersCanCollideWith,
+})
+
+const npc = new ex.Actor({
+  collisionGroup: npcGroupCanCollideWith,
+})
+
+const enemy = new ex.Actor({
+  collisionGroup: enemiesCanCollideWith,
+})
+
+const floor = new ex.Actor({
+  pos: ex.vec(100, 400),
+  width: 100,
+  height: 20,
+  collisionGroup: floorGroup,
+})
+```
+
+## Collision System Under the Hood
 
 ## Example Active-Active/Active-Fixed scenario
 
