@@ -58,73 +58,11 @@ For custom component types it is recommended you prefix your types, like `type =
 
 In this example, we create a "search" type component, that searches for a target position. Notice how this component implementation is mostly data.
 
-```ts
-class SearchComponent extends ex.Component<'search'> {
-  public readonly type = 'search'
-  constructor(public target: ex.Vector) {}
-}
-```
+`embed:excalibur-snippets/src/ecs/main.ts{snippet: "ecs"}`
 
-[[Actor]] comes prebuilt with other components and functionality, or build an empty [[Entity]] from scratch! In this example we use actor and add our new component in the `onInitialize`.
+<iframe src="https://excaliburjs.com/excalibur-snippets/ecs/" 
+        style="width:100%; height:420px; border:0; overflow:hidden">
 
-```ts
-class Explorer extends ex.Actor {
-  onInitialize() {
-    // Excalibur Actors already has some components pre-installed
-    // Like this one that keeps track of the position -> `this.addComponent(new ex.TransformComponent);`
-    // And this one that knows how to draw -> `this.addComponent(new ex.CanvasDrawComponent((ctx, delta) => this.draw(ctx, delta)));`
-
-    // Add your new component in
-    this.addComponent(new SearchComponent(ex.vec(100, 100)))
-  }
-}
-```
-
-To implement this behavior as a system, extend the Excalibur [[System]] abstract class and pick the types this system should operate on.
-
-```ts
-class SearchSystem extends ex.System<
-  ex.TransformComponent | SearchAIComponent
-> {
-  // Types need to be listed as a const literal
-  public readonly types = ['transform', 'search'] as const
-
-  // Run this system in the "update" phase
-  public systemType = System.Update
-
-  private _searchSpeed = 10 // pixels/sec
-
-  public update(
-    entities: Entity<ex.TransformComponent | SearchComponent>[],
-    delta: number
-  ) {
-    for (let entity of entities) {
-      const target = entity.components.search.target
-      // ex.TransformComponent is a built in type
-      const transform = entity.components.transform
-
-      const motion = target.sub(transform.pos).size(this._searchSpeed)
-
-      // Moves these entities towards the target at 10 pixels per second
-      transform.pos = transform.pos.add(motion.scale(delta / 1000))
-    }
-  }
-}
-```
+</iframe>
 
 Any entity that has the new component attached will be processed by the new system once added to the world!
-
-```ts
-class MainLevel extends ex.Scene {
-  onInitialize(engine: ex.Engine) {
-    // Excalibur has some systems built in
-    // If you want to opt out and define your own `this.world.clearSystems()` will remove them
-
-    // Setup your new system in the ECS world and any others you want
-    this.world.add(new SearchSystem())
-
-    // Add your actors
-    this.add(new Explorer())
-  }
-}
-```
