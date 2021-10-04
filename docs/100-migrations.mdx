@@ -1,0 +1,134 @@
+---
+title: Migration
+path: /docs/migration
+---
+
+## Migrating from v0.24.5 to v0.25.0
+
+### Graphics
+
+- Replace `ex.Texture` with `ex.ImageSource`
+
+- Replace `ex.Texture.asSprite()` with `ex.ImageSource.toSprit()`
+
+```typescript
+const image = new ex.ImageSource('./img/myimage.png')
+// keep in mind this wont work until the image source is loaded
+const sprite = image.toSprite()
+```
+
+- Update `ex.Sprite` constructor arguments
+
+```typescript
+const image = new ex.ImageSource('./path/to/image.png')
+const sprite = new ex.Sprite({
+  image: image,
+  sourceView: {
+    // Take a small slice of the source image starting at pixel (10, 10) with dimension 20 pixels x 20 pixels
+    x: 10,
+    y: 10,
+    width: 20,
+    height: 20,
+  },
+  destSize: {
+    // Optionally specify a different projected size, otherwise use the source
+    width: 100,
+    height: 100,
+  },
+})
+```
+
+- Update `new ex.SpriteSheet()` constructor with `ex.SpriteSheet.fromImageSource()`
+
+```typescript
+const runImage = new ex.ImageSource(runImageSrc)
+
+const runSheet = ex.SpriteSheet.fromImageSource({
+  image: runImage,
+  grid: {
+    rows: 1,
+    columns: 21,
+    spriteWidth: 96,
+    spriteHeight: 96,
+  },
+})
+```
+
+- Replace Legacy Drawing Usage
+
+  - `ex.Actor.addDrawing()` with `ex.Actor.graphics.add()`
+  - `ex.Actor.setDrawing()` with `ex.Actor.graphics.use()` or `ex.Actor.graphics.show()`
+
+- Replace Legacy `ex.Actor.onPostDraw` and `ex.Actor.onPreDraw` with `actor.graphics` or `ex.Canvas`
+
+```typescript
+const canvas = new ex.Canvas({
+  cache: true,
+  draw: (ctx: CanvasRenderingContext2D) => {
+    // custom drawing with CanvasRenderingContext2D
+  },
+})
+
+actor.use(canvas)
+
+actor.graphics.onPreDraw = (exctx: ExcaliburGraphicsContext) => {
+  // custom drawing with ExcaliburGraphicsContext
+}
+
+actor.graphics.onPostDraw = (exctx: ExcaliburGraphicsContext) => {
+  // custom drawing with ExcaliburGraphicsContext
+}
+```
+
+### Actors
+
+- Actor only supports the option bag constructor `new ex.Actor({...})`
+- Label only supports the option bag constructor `new ex.Label({...})`
+- Replace `ex.Actor.rx` with `ex.Actor.angularVelocity`
+
+### Camera
+
+- `ex.Camera.z` has been renamed to property `ex.Camera.zoom` which is the zoom factor
+- `ex.Camera.zoom(...)` has been renamed to function `ex.Camera.zoomOverTime()`
+
+### Engine
+
+- `DisplayMode`'s have changed ([#1733](https://github.com/excaliburjs/Excalibur/issues/1733)) & ([#1928](https://github.com/excaliburjs/Excalibur/issues/1928)):
+
+  - `DisplayMode.FitContainer` fits the screen to the available width/height in the canvas parent element, while maintaining aspect ratio and resolution
+  - `DisplayMode.FillContainer` update the resolution and viewport dyanmically to fill the available space in the canvas parent element, DOES NOT preserve `aspectRatio`
+  - `DisplayMode.FitScreen` fits the screen to the available browser window space, while maintaining aspect ratio and resolution
+  - `DisplayMode.FillScreen` now does what `DisplayMode.FullScreen` used to do, the resolution and viewport dynamically adjust to fill the available space in the window, DOES NOT preserve `aspectRatio` ([#1733](https://github.com/excaliburjs/Excalibur/issues/1733))
+  - `DisplayMode.FullScreen` is now removed, use `Screen.goFullScreen()`.
+
+### Physics
+
+- Rename `ex.Edge` to `ex.EdgeCollider` and `ex.ConvexPolygon` to `ex.PolygonCollider`
+
+### Timer
+
+- Timers must be added to a scene and `Timer.start()` called for them to start
+- `Timer.unpause()` has be deprecated in favor of `Timer.resume()` ([#1864](https://github.com/excaliburjs/Excalibur/issues/1864))
+
+### Actions
+
+- Rewrite `ex.Actor.actions.repeat()` and `ex.Actor.actions.repeatForever()` to use the `ctx` to define the set of repeating actions
+
+```typescript
+const actor = new ex.Actor()
+
+actor.actions
+  // Move up in a zig-zag by repeating 5 times
+  .repeat((ctx) => {
+    ctx.moveBy(10, 0, 10)
+    ctx.moveBy(0, 10, 10)
+  }, 5)
+  .callMethod(() => {
+    console.log('Done repeating!')
+  })
+```
+
+### TileMap
+
+- TileMap no longer needs registered SpriteSheets, `Sprite`'s can be added directly to `Cell`'s with `addGraphic`
+  - The confusing `TileSprite` type is removed (Related to TileMap plugin updates https://github.com/excaliburjs/excalibur-tiled/issues/4, https://github.com/excaliburjs/excalibur-tiled/issues/23, https://github.com/excaliburjs/excalibur-tiled/issues/108)
