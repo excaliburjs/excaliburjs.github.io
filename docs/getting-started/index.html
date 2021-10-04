@@ -260,15 +260,14 @@ game<span class="token punctuation">.</span><span class="token function">start</
   y<span class="token operator">:</span> game<span class="token punctuation">.</span>drawHeight <span class="token operator">-</span> <span class="token number">40</span><span class="token punctuation">,</span>
   width<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
   height<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+  <span class="token comment">// Let&#x27;s give it some color with one of the predefined</span>
+  <span class="token comment">// color constants</span>
+  color<span class="token operator">:</span> Color<span class="token punctuation">.</span>Chartreuse<span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Let&#x27;s give it some color with one of the predefined</span>
-<span class="token comment">// color constants</span>
-paddle<span class="token punctuation">.</span>color <span class="token operator">=</span> Color<span class="token punctuation">.</span>Chartreuse<span class="token punctuation">;</span>
 
 <span class="token comment">// Make sure the paddle can partipate in collisions, by default excalibur actors do not collide with each other</span>
 <span class="token comment">// CollisionType.Fixed is like an object with infinite mass, and cannot be moved, but does participate in collision.</span>
-paddle<span class="token punctuation">.</span>body<span class="token punctuation">.</span>collider<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">=</span> CollisionType<span class="token punctuation">.</span>Fixed<span class="token punctuation">;</span>
+paddle<span class="token punctuation">.</span>body<span class="token punctuation">.</span>collisionType <span class="token operator">=</span> CollisionType<span class="token punctuation">.</span>Fixed<span class="token punctuation">;</span>
 
 <span class="token comment">// `game.add` is the same as calling</span>
 <span class="token comment">// `game.currentScene.add`</span>
@@ -281,13 +280,14 @@ game<span class="token punctuation">.</span><span class="token function">add</sp
 game<span class="token punctuation">.</span>input<span class="token punctuation">.</span>pointers<span class="token punctuation">.</span>primary<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;move&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>evt<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   paddle<span class="token punctuation">.</span>pos<span class="token punctuation">.</span>x <span class="token operator">=</span> evt<span class="token punctuation">.</span>worldPos<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></p><div class="ui info message"><p><strong>Important!</strong> Actors have a default anchor of (0.5, 0.5) which means their graphics are positioned in their center (not top-left) by default.</p></div><h2 id="creating-the-ball-with-actors" style="position:relative"><a href="#creating-the-ball-with-actors" aria-label="creating the ball with actors permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating the ball with Actors</h2><p>What’s breakout without the ball? Excalibur comes pre-built with a physics collision system to help you out with things like balls bouncing off of other objects.</p><p>To make the ball, we switch the collider to a circle with the <code class="language-text">useCircleCollider(radius)</code> helper.</p><p>In this case we want to handle the resolution ourselves to emulate the the way breakout works. We use the <code class="language-text">ex.CollisionType.Passive</code> which will send an event that there has been an intersection but not resolve the positions.</p><p>Read more about the different <a href="/docs/physics/#collision-types">CollisionTypes</a> that excalibur supports.</p><p><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// Create a ball at pos (100, 300) to start</span>
-<span class="token keyword">const</span> ball <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Actor</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">300</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Use a circle collider with radius 10</span>
-ball<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">useCircleCollider</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Set the color</span>
-ball<span class="token punctuation">.</span>color <span class="token operator">=</span> Color<span class="token punctuation">.</span>Red<span class="token punctuation">;</span>
+<span class="token keyword">const</span> ball <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Actor</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  x<span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+  y<span class="token operator">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+  <span class="token comment">// Use a circle collider with radius 10</span>
+  radius<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  <span class="token comment">// Set the color</span>
+  color<span class="token operator">:</span> Color<span class="token punctuation">.</span>Red<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Start the serve after a second</span>
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -297,7 +297,7 @@ ball<span class="token punctuation">.</span>color <span class="token operator">=
 
 <span class="token comment">// Set the collision Type to passive</span>
 <span class="token comment">// This means &quot;tell me when I collide with an emitted event, but don&#x27;t let excalibur do anything automatically&quot;</span>
-ball<span class="token punctuation">.</span>body<span class="token punctuation">.</span>collider<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">=</span> CollisionType<span class="token punctuation">.</span>Passive<span class="token punctuation">;</span>
+ball<span class="token punctuation">.</span>body<span class="token punctuation">.</span>collisionType <span class="token operator">=</span> CollisionType<span class="token punctuation">.</span>Passive<span class="token punctuation">;</span>
 <span class="token comment">// Other possible collision types:</span>
 <span class="token comment">// &quot;ex.CollisionType.PreventCollision - this means do not participate in any collision notification at all&quot;</span>
 <span class="token comment">// &quot;ex.CollisionType.Active - this means participate and let excalibur resolve the positions/velocities of actors after collision&quot;</span>
@@ -354,7 +354,7 @@ ball<span class="token punctuation">.</span><span class="token function">on</spa
 
 bricks<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>brick<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// Make sure that bricks can participate in collisions</span>
-  brick<span class="token punctuation">.</span>body<span class="token punctuation">.</span>collider<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">=</span> CollisionType<span class="token punctuation">.</span>Active<span class="token punctuation">;</span>
+  brick<span class="token punctuation">.</span>body<span class="token punctuation">.</span>collisionType <span class="token operator">=</span> CollisionType<span class="token punctuation">.</span>Active<span class="token punctuation">;</span>
 
   <span class="token comment">// Add the brick to the current scene to be drawn</span>
   game<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>brick<span class="token punctuation">)</span><span class="token punctuation">;</span>
