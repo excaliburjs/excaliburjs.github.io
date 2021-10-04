@@ -250,7 +250,7 @@ actor. This is optional, but is nice for encapsulating your specifics.</p><div c
   <span class="token keyword">public</span> health<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">100</span>
   <span class="token keyword">public</span> ammo<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">=</span> <span class="token number">20</span>
 
-  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
@@ -271,7 +271,7 @@ you don&#x27;t incur the cost of initialization until an actor is ready to be up
   <span class="token keyword">public</span> endurance <span class="token operator">=</span> <span class="token number">0</span>
   <span class="token keyword">public</span> fortitude <span class="token operator">=</span> <span class="token number">0</span>
 
-  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">{</span> x<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
@@ -325,7 +325,7 @@ actor<span class="token punctuation">.</span><span class="token function">use</s
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 actor<span class="token punctuation">.</span>graphics<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>canvas<span class="token punctuation">)</span></code></pre></div><p>Override the [<!-- -->[GraphicsComponent]<!-- -->] [<!-- -->[Actor.graphics.onPreDraw]<!-- -->] or [<!-- -->[Actor.graphics.onPostDraw]<!-- -->] methods to customize the draw logic at different points in the loop.</p><div class="ui info message"><p>Reference <a href="#actor-lifecycle">Actor lifecycle</a> for a breakdown of each phase and when things are executed.</p></div><h3 id="pre-draw" style="position:relative"><a href="#pre-draw" aria-label="pre draw permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pre-draw</h3><p>[<!-- -->[Actor.graphics.onPreDraw]<!-- -->] is run <em>before</em> the core draw logic to prepare the frame.</p><div class="ui info message"><p><strong>Important:</strong> This runs <em>before</em> Excalibur has run all its draw logic to apply effects, transform information, etc. so you essentially are working with the <em>last frame&#x27;s draw state</em>.</p></div><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token keyword">extends</span> <span class="token class-name">ex</span><span class="token punctuation">.</span>Actor <span class="token punctuation">{</span>
-  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">/**
      * ADVANCED: This is run before Actor.graphics.onPreDraw core logic.
      */</span>
@@ -337,7 +337,7 @@ actor<span class="token punctuation">.</span>graphics<span class="token punctuat
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre></div><h3 id="post-draw" style="position:relative"><a href="#post-draw" aria-label="post draw permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Post-draw</h3><p>[<!-- -->[Actor.graphics.onPostDraw]<!-- -->] is run <em>after</em> the core draw and will draw in the current frame.</p><div class="ui info message"><p>This is the recommended method to override since Excalibur has run its core draw logic and you can now customize what gets drawn during the current frame.</p></div><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token keyword">class</span> <span class="token class-name">Player</span> <span class="token keyword">extends</span> <span class="token class-name">ex</span><span class="token punctuation">.</span>Actor <span class="token punctuation">{</span>
-  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">/**
      * ADVANCED: This is run before Actor.graphics.onPreDraw core logic.
      */</span>
