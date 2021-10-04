@@ -3,7 +3,7 @@ title: Getting Started
 path: /docs/getting-started
 ---
 
-Review the [Installing Guide](/docs/installation) for instructions.
+Review the [Installation Guide](/docs/installation) for instructions.
 
 ## Introduction
 
@@ -30,7 +30,7 @@ const actor = new Actor()
 
 ### Script Tag
 
-If you are using a standalone script, the excalibur types will have a `ex.` in front of them.
+If you are using a standalone script, the Excalibur types will have a `ex.` in front of them.
 
 Excalibur can be used as a script reference, see [standalone script](/docs/installation#script-reference-or-download) for more info
 
@@ -99,7 +99,7 @@ Think of actors like you would the actors in a play. If you change scenes differ
 
 <Note>
 
-Actors must be added to a scene to be drawn or updated! `game.add(actor)` Will add an actor to the current scene.
+Actors must be added to a scene to be drawn or updated! `game.add(actor)` will add an actor to the current scene.
 
 </Note>
 
@@ -129,17 +129,17 @@ To make the ball, we switch the collider to a circle with the `useCircleCollider
 
 In this case we want to handle the resolution ourselves to emulate the the way breakout works. We use the `ex.CollisionType.Passive` which will send an event that there has been an intersection but not resolve the positions.
 
-Read more about the different [CollisionTypes](/docs/physics/#collision-types) that excalibur supports.
+Read more about the different [CollisionTypes](/docs/physics/#collision-types) that Excalibur supports.
 
 `embed:sample-breakout/src/main.ts{snippet: "create-ball"}`
 
-The ball will now bounce off of the paddle, but does not bounce with the side of the screen. To fix that, let’s take advantage of the `postupdate` event.
+The ball will now bounce off of the paddle, but doesn't bounce against the sides of the screen. To fix that, let’s take advantage of the `postupdate` event.
 
 `embed:sample-breakout/src/main.ts{snippet: "screen-collision"}`
 
 ## Creating the bricks with Actors
 
-Breakout needs some bricks to break. To do this we calculate our brick layout and add them to the current scene.
+Breakout needs some bricks to break. To do this, we calculate our brick layout and add them to the current scene.
 
 `embed:sample-breakout/src/main.ts{snippet: "create-bricks"}`
 
@@ -155,7 +155,7 @@ Finally, if the ball leaves the screen, the player loses!
 
 Congratulations! You have just created your first game in Excalibur! You can download this example here https://github.com/excaliburjs/sample-breakout
 
-It's time to [get introduced][docs-intro] to the engine for more examples or advanced users can browse the [API Reference][docs-api].
+Next up, we recommend reading [our introduction][docs-intro] to the engine for more examples. If you prefer, you can also browse the [API Reference][docs-api] directly.
 
 <iframe src="https://codesandbox.io/embed/github/excaliburjs/sample-breakout/tree/main/?fontsize=14&hidenavigation=1&theme=dark&view=preview"
      style="width:100%; height:700px; border:0; border-radius: 4px; overflow:hidden;"

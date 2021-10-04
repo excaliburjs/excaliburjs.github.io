@@ -3,7 +3,7 @@ title: Actors
 path: /docs/actors
 ---
 
-[[Actor|Actors]] are prebuilt Excalibur [[Entity|Entities]] that come with the batteries included for most applications.
+[[Actor|Actors]] are prebuilt Excalibur [[Entity|Entities]] that come preconfigured for most applications.
 Like [[TransformComponent|position]], [[MotionComponent|velocity]], [[GraphicsComponent|graphics]], and [[ColliderComponent|collision detection]].
 
 [[Actor|Actors]] are the recommended way to use Excalibur, they are the primary way to show something on the screen.
@@ -29,9 +29,9 @@ and updated on-screen.
 
 ## Custom actors
 
-For "real-world" games, it is common to extend the `Actor` class.
+For more complicated games, it is common to extend the `Actor` class.
 This gives you much greater control and encapsulates logic for that
-actor. This is optional, but is nice for encapsulating your specifics.
+actor. Custom actors are optional, but they're nice for encapsulating specific behavior for different types of actors.
 
 ```ts
 class Player extends ex.Actor {
@@ -56,7 +56,7 @@ Custom actors make it easier to hook into the actor lifecycle and encapsulate th
 
 ## Actor lifecycle
 
-An actor has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
+An actor has a standardized lifecycle that dictates how it is initialized, updated, and drawn. Once an actor is part of a
 [scene](/docs/scene), it will follow this lifecycle.
 
 ![Actor Lifecycle](/assets/images/docs/ActorLifecycle.png)
@@ -74,8 +74,8 @@ an instance of [Engine](/docs/engine) to access global state or perform coordina
 
 <Note>
 
-This is the recommended way to manage startup logic for actor, _not_ the constructor since
-you don't incur the cost of initialization until an actor is ready to be updated in the game.
+This is the recommended way to manage startup logic for an actor. We do _not_ recommend putting logic in the constructor,
+because you will incur the cost of initialization before an actor is ready to be updated in the game.
 
 </Note>
 

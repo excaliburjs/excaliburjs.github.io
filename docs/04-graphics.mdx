@@ -17,9 +17,9 @@ programs to increase the speed and power of our drawings.
 
 ### WebGL vs Canvas support
 
-The WebGL based implmentation of [[ExcaliburGraphicsContext]] is on by default, this implements an automatic 2d batch renderer that dramatically improves draw performance.
+The WebGL based implmentation of [[ExcaliburGraphicsContext]] is on by default; this implements an automatic 2D batch renderer that dramatically improves draw performance.
 
-If you have need to switch to 2D canvas based rendering turn on the flag before engine construction.
+If you need to switch to 2D canvas based rendering, turn on the flag before engine construction:
 
 ```typescript
 ex.Flags.useCanvasGraphicsContext();
@@ -34,7 +34,7 @@ const game = new ex.Engine(...);
 4. Graphics can be added to the [[GraphicsComponent]] on an [[Actor]] or [[Entity]]
 5. Direct access to the [[ExcaliburGraphicsContext]]
 
-For most games, you will be using the graphics component off of [[Actors|Actors]] or plain [[Entity|Entities]].
+For most games, you will be using the graphics component available on [[Actors|Actors]] or plain [[Entity|Entities]].
 
 ```typescript
 const image = new ex.ImageSource('./path/to/my/image.png')
@@ -50,15 +50,15 @@ actor.graphics.use(image.toSprite())
 
 ## Excalibur Graphics Context
 
-[[ExcaliburGraphicsContext]] is the abstraction over the underlying drawing mechanism and only knows how to draw `ex.Graphic` objects.
+[[ExcaliburGraphicsContext]] is the abstraction over the underlying drawing mechanism, and only knows how to draw `ex.Graphic` objects.
 
 #### ImageSource
 
-Loading images from files (png, jpeg, etc), in some engines/frameworks is known as a Texture
+Loading images from files such as .png or .jpg (in some engines/frameworks is known as a Texture).
 
-[[ImageSource]] represents the source bitmap and contains the logic for loading that image from a file. You can thing of this as the file representation in Excalibur for the image.
+[[ImageSource]] represents the source bitmap and contains the logic for loading that image from a file. You can think of this as the file representation in Excalibur for the image.
 
-These images can be presented to the loader at the start of an Excalibur game
+These images can be presented to the loader at the start of an Excalibur game:
 
 ```typescript
 const game = new ex.Engine({ width: 800, height: 600 })
@@ -92,11 +92,11 @@ if (image.isLoaded()) {
 
 There is a new component, `ex.GraphicsComponent` to work with these graphics with `ex.Actor`'s and other `ex.Entity`'s
 
-The `ex.GraphicsComponent` alows users to manage graphics with Actors and Entities in an easy way
+The `ex.GraphicsComponent` allows users to manage graphics directly from Actors and Entities.
 
 ### Adding/Showing graphics
 
-The graphics component allows developers to save named graphics to avoid passing around graphic object references if desired. These can be used to show specific graphics.
+The graphics component allows developers to save named graphics to avoid passing around graphic object references. These can be used to show specific graphics:
 
 ```typescript
 actor.graphics.add('jump', jumpAnimation)
@@ -106,7 +106,7 @@ actor.graphics.show(jumpAnimation) // display the graphic
 actor.graphics.hide() // hide the graphic
 ```
 
-If no name is specified when added to the graphics component it is considered the 'default' graphic and is shown automatically.
+If no name is specified when added to the graphics component, it is considered the 'default' graphic and is shown automatically.
 
 ```typescript
 // graphic considered 'default' and displayed automatically
@@ -115,7 +115,7 @@ actor.graphics.add(jumpAnimation)
 
 ### Layers
 
-The components adds a why multiple [graphics](#graphics) on top or behind each other for a certain actor or entity.
+Layers allow you to add multiple [graphics](#graphics) on top or behind each other for a certain actor or entity.
 
 Layers can be ordered numerically, larger negative layers behind, and positive layers in front.
 
@@ -159,7 +159,7 @@ actor.graphics.getLayer('default').show(myAnimation)
 
 Excalibur `ex.Graphic`s break into 2 main categories, `ex.[[Sprite]]` based and `ex.[[Raster]]` based. That is to say Raster and non-Raster graphics.
 
-[[Graphics]] have a bunch of useful feature that work for ALL types of graphics
+[[Graphics]] have a number of useful features that work for ALL types of graphics:
 
 - `clone(): Graphic`
 
@@ -199,7 +199,7 @@ Excalibur `ex.Graphic`s break into 2 main categories, `ex.[[Sprite]]` based and 
 
 #### Canvas
 
-For drawing hooks the `ExcaliburGraphicsContext` is replacing the browser `CanvasRenderingContext2D`. But if you need to do some custom drawing using the `CanvasRenderingContext2D` the new [`Canvas`](https://excaliburjs.com/docs/api/edge/classes/Canvas.html) graphic has your back.
+For drawing hooks the `ExcaliburGraphicsContext` is replacing the browser `CanvasRenderingContext2D`. If you need to do some custom drawing using the `CanvasRenderingContext2D`, you can use the new [`Canvas`](https://excaliburjs.com/docs/api/edge/classes/Canvas.html) graphic.
 
 `embed:excalibur-snippets/src/canvas/main.ts{snippet: "canvas"}`
 
@@ -327,9 +327,11 @@ const spriteSheet = new ex.SpriteSheet({
 })
 ```
 
-If you spritesheet is a neat grid there is a static builder for you to slice up that image source. Most sprite sheets are tightly packed like so.
+If you spritesheet is a neat grid, there is a static builder you can use to slice up that image source. Most sprite sheets are tightly packed.
 
-Some source spritesheets may have margin between sprites and an offset, like these [playing cards from Kenny.nl](https://www.kenney.nl/assets/playing-cards-pack)
+// TODO example image missing
+
+However, some source spritesheets may have margin between sprites and an offset, like these [playing cards from Kenny.nl](https://www.kenney.nl/assets/playing-cards-pack)
 
 ![Kenney.nl pixel art playing cards](10.5-graphics/kenny-cards.png)
 
@@ -342,7 +344,7 @@ Some source spritesheets may have margin between sprites and an offset, like the
 
 ### GraphicsGroup
 
-A graphics group is an new graphic that draws a graphics in some relation to one another. This can be useful when you want to compose graphics together into a single graphic. Graphics groups do support all types of graphics including [animations](#Animation)
+A graphics group is a new graphic that draws a graphics in some relation to one another. This can be useful when you want to compose graphics together into a single graphic. Graphics groups support all types of graphics, including [animations](#Animation)
 
 ```typescript
 const group = new ex.GraphicsGroup({
@@ -381,11 +383,11 @@ const group = new ex.GraphicsGroup({
 
 ### Raster
 
-Rasters are a type of `ex.Graphic` built by constructing a bitmap (using CanvasRenderingContext2D) in memory which is then sent to the drawing context. This allows the use of features available to developers in the 2D canvas to produce Graphics for Excalibur. It's important to share or limit the number of Raster graphics due to their memory footprint in the browser.
+Rasters are a type of `ex.Graphic` built by constructing a bitmap (using CanvasRenderingContext2D) in memory, which is then sent to the drawing context. This allows the use of features available to developers in the 2D canvas to produce Graphics for Excalibur. It's important to share or limit the number of Raster graphics in your game, due to their memory footprint in the browser.
 
-Rasters are only rendered when they need to be, if no properties change on them, they are not recalculated. Rasters can be forced to be re-draw by calling `.flagDirty()`.
+Rasters are only rendered when they need to be; if no properties change on them, they are not recalculated. Rasters can be forced to be re-draw by calling `.flagDirty()`.
 
-See these useful raster implemenations
+See these useful raster implemenations:
 
 - [Text](#Text)
 - [Polygon](#Polygon)
@@ -393,7 +395,7 @@ See these useful raster implemenations
 - [Circle](#Circle)
 - [Canvas](#Canvas)
 
-A custom raster can be built implementing the `execute` function, this is in fact how the [[Canvas]] is implemented.
+A custom raster can be built implementing the `execute` function; this is in fact how the [[Canvas]] is implemented.
 
 ```typescript
 export class MyRaster extends ex.Raster {
@@ -413,7 +415,7 @@ export class MyRaster extends ex.Raster {
 
 - `abstract execute(ctx: CanvasRenderingContext2D): void`
 
-  - This is the bitmap generation implementation, this will construct the desired bitmap on the CanvasRenderingContext2D.
+  - This is the bitmap generation implementation; it will construct the desired bitmap on the CanvasRenderingContext2D.
 
 - `rasterize(): void`
 
@@ -545,7 +547,7 @@ const rect = new ex.Rectangle({
 
 The canvas is a special type of raster graphic that acts like a shim between direct CanvasRenderingContext2D drawing and the [ExcaliburGraphicsContext](#ExcaliburGraphicsContext)
 
-This type of raster is re-rendered every time the graphic is drawn, thus it should be used sparingly due to this inefficiency.
+This type of raster is re-rendered every time the graphic is drawn, so it should be used sparingly due to this inefficiency.
 
 ```typescript
 const canvas = new Canvas({

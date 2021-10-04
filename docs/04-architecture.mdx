@@ -48,7 +48,7 @@ Excalibur can automatically generate a `<canvas>` element for you or you can pro
 
 ## The main loop
 
-The Excalibur engine uses a simple main loop. The engine updates and renders
+The Excalibur engine uses a straightforward main loop. The engine updates and renders
 the "scene graph" which is the [[Scene|scenes]] and the tree of [[Actor|actors]] within that
 scene. Only one [[Scene]] can be active at a time. The engine does not update/draw any other
 scene, which means any actors will not be updated/drawn if they are part of a deactivated scene.
@@ -66,19 +66,19 @@ Engine
   |_ Scene 3 (deactivated)
 ```
 
-The engine splits the game into two primary responsibilities: updating and drawing. This is
-to keep your game smart about splitting duties so that you aren't drawing when doing
-logic or performing logic as you draw.
+The engine splits the game into two primary responsibilities: updating and drawing. This division is
+done to keep your game from trying to draw when its busy calculating logic or trying to calculate logic while its busy drawing.
+Trying to update and draw simultaneously can lead to unexpected behavior, so we avoid that scenario in Excalibur.
 
 ### Update loop
 
-The first operation run is the **Update** loop. Actors and scenes both implement
-an overridable/extendable `onPreUpdate` and `onPostUpdate` methods. Use them to perform any logic-based operations
+The first operation that runs is the **Update** loop. Actors and scenes both implement
+an overridable/extendable `onPreUpdate` and `onPostUpdate` methods. Use these methods to perform any logic-based operations
 in your game for a particular class.
 
 ### Draw loop
 
-The next step is the **Draw** loop. A scene loops through its child actors and
+The next step is the **Draw** loop. A scene iterates through its child actors and
 draws each one. You can override the `onPreDraw` and `onPostDraw` methods on an actor or scene to customize their drawing.
 You should **not** perform any logic in a draw call, it should only relate to drawing.
 
@@ -87,7 +87,7 @@ You should **not** perform any logic in a draw call, it should only relate to dr
 The engine automatically creates a "root" [Scene](/docs/scenes). You can use this for whatever you want.
 You can manipulate scenes using [[Engine.add|add]], [[Engine.remove|remove]],
 and [[Engine.goToScene|goToScene]]. You can overwrite or remove the `root` scene if
-you want. There always has to be at least one scene and only **one** scene can be
+you want. However, there always has to be at least one scene and only **one** scene can be
 active at any one time.
 
 Learn more about the [scene lifecycle](/docs/scenes#scene-lifecycle).
@@ -113,16 +113,16 @@ you can use [[Engine.currentScene]] to directly access the current scene.
 
 ## Constructor arguments
 
-In Excalibur there are option bag constructors available on most types. These support any public property or member, **methods are not supported.** The API documentation does not provide an exhaustive list of possible properties but a list of commonly used properties.
+In Excalibur, there are option bag constructors available on most types. These support any public property or member, but **methods are not supported.** The API documentation does not provide an exhaustive list of possible properties, but instead provides a list of commonly used properties.
 
-For example instead of doing this:
+For example, instead of doing this:
 
 ```typescript
 const actor = new ex.Actor(1, 2, 100, 100, ex.Color.Red)
 actor.body.collider.type = ex.CollisionType.Active
 ```
 
-This is possible:
+This is possible instead:
 
 ```typescript
 const options: ActorArgs = {
@@ -136,7 +136,7 @@ const actor = new ex.Actor(options);
 actor.body.collider.type = ex.CollisionType.Active;
 ```
 
-In fact you can create a duplicate this way
+Relatedly, you can create a duplicate this way
 
 ```typescript
 const actor = new ex.Actor({
@@ -147,7 +147,7 @@ const actorClone = new ex.Actor(actor)
 expect(actor.pos).toBe(actorClone.pos) // true;
 ```
 
-Types that support option bags can have their properties mass assigned using the assign method.
+Types that support option bags can have their properties bulk assigned using the assign method.
 
 ```typescript
 const actor = new ex.Actor(options)
@@ -162,8 +162,8 @@ actor.assign({
 ## Extending the engine
 
 For complex games, any entity that inherits [[Class]] can be extended to override built-in
-functionality. This is recommended for [[Actor|actors]] and [[Scene|scenes]], especially.
-You can customize the options or provide more for your game by extending [[Engine]].
+functionality. This is recommended for [[Actor|actors]] and [[Scene|scenes]] especially.
+You can customize the options or provide more options for your game by extending [[Engine]].
 
 ```ts
 class Game extends ex.Engine {
@@ -186,7 +186,7 @@ game.start()
 
 ## Event handling
 
-When working with events, be sure to keep in mind the order of subscriptions
+When working with events, be sure to keep in mind the order of subscriptions,
 and try not to create a situation that requires specific things to happen in
 order. Events are best used for input events, tying together disparate objects,
 or for UI updates.
@@ -209,7 +209,7 @@ actor.on('predraw', (evtObj: PreDrawEvent) => {
 Actors implement an EventDispatcher ([[Actor.eventDispatcher]]) so they can
 send and receive events. For example, they can enable Pointer events (mouse/touch)
 and you can respond to them by subscribing to the event names.
-You can also emit any other kind of event for your game just by using a custom
+You can also emit any other kind of event for your game by using a custom
 `string` value and implementing a class that inherits from [[GameEvent]].
 
 ```js
@@ -254,9 +254,9 @@ vent.emit('someevent', new ex.GameEvent())
 
 ## Managing game state
 
-Excalibur does not provide any out-of-the-box way to manage game state but typically you can either use class properties or introduce something more sophisticated like a [state machine](https://github.com/davidkpiano/xstate).
+Excalibur does not provide any out-of-the-box way to manage game state, but you can typically either use class properties or introduce something more sophisticated like a [state machine](https://github.com/davidkpiano/xstate).
 
-The benefit of something like a state machine is that state can be separated from the actions an actor may take and you can then _save_ and _load_ state more easily to enable save game management. You could choose for example to have a global game state that you can serialize and deserialize.
+The benefit of a state machine is that state can be separated from the actions an actor may take and you can then _save_ and _load_ state more easily to enable save game management. For example, you could choose to have a global game state that you can serialize and deserialize.
 
 <Note>
 

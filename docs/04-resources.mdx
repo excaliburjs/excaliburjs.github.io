@@ -5,7 +5,7 @@ path: /docs/assets
 
 ## Why Resources
 
-When building games you may have assets you want to load from an external file, like sound, art, etc.
+When building games, you may have assets you want to load from an external file, such as sound, art, or other assets.
 
 Resources must be loaded before they can be used with a [[Loader]]
 
@@ -29,12 +29,12 @@ const loader = new ex.Loader([
 
 ## Images with the [[ImageSource]] Resource
 
-Excalibur supports `.png`, `.jpg`, `.gif`, and `.bmp` image sources with partial support for `.svg`
+Excalibur supports `.png`, `.jpg`, `.gif`, and `.bmp` image sources, with partial support for `.svg`
 
 - `.png` and `.svg` will be completely lossless formats. For pixel art type games we recommend `.png`
 - `.jpg` and `.gif` are lossy formats, useful to optimize for download size.
 - `.bmp` are the biggest
-- `base64` useful if you don't want to pay the loading time cost of your images at the expense of larger source download
+- `base64` is useful if you don't want to pay the loading time cost of your images at the expense of larger source download
   - `data:image/png;base64,BASE64DATA...`
 
 ```typescript
@@ -58,8 +58,8 @@ const spriteSheet = SpriteSheet.fromImageSource({
 
 ## Audio with the [[Sound]] Resource
 
-Excalibur supports any audio the browser supports like `.wav`, `.mp3`, and `.ogg`. Due to mixed browser support you may wish to specificy a list of
-source files and codecs,the order of the files specifies order of preference (we recommend mp3, wav).
+Excalibur supports any audio the browser supports, such as `.wav`, `.mp3`, and `.ogg`. Due to mixed browser support you may wish to specificy a list of
+source files and codecs. The order of the files specifies order of preference (we recommend `.mp3` and then `.wav`).
 
 Major Browser support table [documented on MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Cross-browser_audio_basics#audio_codec_support)
 
@@ -106,7 +106,7 @@ See the [examples](https://excaliburjs.com/examples/?path=/docs/audio) or API do
 
 ## Using a web server
 
-The asset loader **only works with a web server** since it loads assets with [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). That means you cannot use the loader whenrunning an HTML file locally from the file-system (e.g. a `file://` protocol URL will not work). The browser throws errors that will prevent you from loading assets.
+The asset loader **only works with a web server** since it loads assets with [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). That means you cannot use the loader when running an HTML file locally from the file-system (e.g. a `file://` protocol URL will not work). The browser throws errors that will prevent you from loading assets.
 
 The fastest way to serve a folder of files is by using the [serve](https://npmjs.org/package/serve) NPM package.
 
@@ -118,7 +118,7 @@ npx serve .
 npx serve ./dist
 ```
 
-If you are developing a game using Excalibur with Webpack, Parcel, or another bundler, these typically already come with dev servers for running your game. See [Excalibur project templates](/docs/installation#example-project-templates) for templates you can start from that use these tools.
+If you are developing a game using Excalibur with Webpack, Parcel, or another bundler, these tools typically already come with dev servers for running your game. See [Excalibur project templates](/docs/installation#example-project-templates) for templates you can start from that use these tools.
 
 ### Relative vs. absolute paths
 
@@ -153,7 +153,7 @@ But if you are serving under a sub-directory, like `http://localhost:3000/root/i
 - `/assets/textures/map.png => HTTP 404 Not Found`
 - `assets/textures/map.png => HTTP 200 OK`
 
-The first path will fail to load as the absolute asset path would now be `/root/assets` and not `/assets`. Use a relative path to load assets _relative_ to the HTML file serving your game.
+The first path will fail to load because the absolute asset path would now be `/root/assets` and not `/assets`. Use a relative path to load assets _relative_ to the HTML file serving your game.
 
 ### Setting the base for a page
 
