@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-typedoc',
       options: {
-        src: [`${__dirname}/ex/edge/src/engine`],
+        src: [`${__dirname}/ex/edge/src/engine/index.ts`],
         typedoc: {
           excludePrivate: true,
           tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
