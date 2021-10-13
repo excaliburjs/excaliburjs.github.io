@@ -113,6 +113,26 @@ Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and 
 
 </Note>
 
+### Update
+
+You can override the core [[Actor.update]] but it is important to call the `super.update(...)` method in order to preserve the Excalibur core update implementation.
+
+```typescript
+class Player extends Actor {
+  public update(engine: Engine, delta: number) {
+    // Custom update here
+    super.update(engine, delta)
+    // Custom update here
+  }
+}
+```
+
+<Note variant="warning">
+
+Actions will not function properly if you override `Actor.update()` without calling the `super.update()`
+
+</Note>
+
 ### Pre-update
 
 Override the [[Actor.onPreUpdate]] method to update the state of your actor before [[Actor.update]].
