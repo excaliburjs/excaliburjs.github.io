@@ -16,7 +16,11 @@ import './index.css'
 
 const selectReleaseSize = (r) => filesize(r.releaseAssets.edges[0].node.size)
 
-const IndexPage = ({ data: { release } }) => (
+const IndexPage = ({
+  data: {
+    github: { release },
+  },
+}) => (
   <Layout>
     <div className="ui segment blue inverted padded square homepage-hero">
       <div className="ui segment basic clearing">
@@ -348,16 +352,18 @@ const IndexPage = ({ data: { release } }) => (
 
 export const query = graphql`
   query {
-    release: githubLatestrelease {
-      tag {
-        name
-      }
-      url
-      publishedAt
-      releaseAssets {
-        edges {
-          node {
-            size
+    github: allGithubData {
+      release: latestRelease {
+        tag {
+          name
+        }
+        url
+        publishedAt
+        releaseAssets {
+          edges {
+            node {
+              size
+            }
           }
         }
       }

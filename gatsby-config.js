@@ -102,14 +102,11 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-source-github',
+      resolve: 'gatsby-source-github-api',
       options: {
-        headers: {
-          Authorization: `Bearer ${GITHUB_TOKEN}`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-        },
-        queries: [
-          `{ 
-            repository(owner: "excaliburjs", name: "excalibur") {
+        token: GITHUB_TOKEN,
+        graphQLQuery: `{ 
+          repository(owner: "excaliburjs", name: "excalibur") {
               latestRelease: releases(last: 1) {
                 edges {
                   node {
@@ -129,23 +126,19 @@ module.exports = {
                 }
               }
             }
-          }`,
-          `{ 
-            repository(owner: "excaliburjs", name: "excalibur") {
-              releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
-                edges {
-                  node {
-                    publishedAt
+            releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
+              edges {
+                node {
+                  publishedAt
+                  name
+                  tag {
                     name
-                    tag {
-                      name
-                    }
                   }
                 }
               }
             }
-          }`,
-        ],
+          }
+        }`,
       },
     },
   ],
