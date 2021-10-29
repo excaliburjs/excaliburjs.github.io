@@ -133,9 +133,11 @@ Configuring webpack is not for the faint of heart, we recommend thoroughly readi
 
 ### Deno
 
+[Deno](https://deno.land/) is a runtime for JavaScript and TypeScript and much more than a bundler, but we put this section here since you'll be doing a lot of bundling :).
+
 For Excalibur to work in a Deno envirionment, use a Content Delivery Network for making Node.js packages compatible with Deno: two popular ones are [esm.sh](https://esm.sh/) and [skypack.dev](https://www.skypack.dev/).
 
-To keep it simple, we use esm.sh in the following examples, but feel free to make your own choice - both esm.sh and skypack.dev work in similar ways.
+To keep it simple, we use esm.sh in the following examples, but feel free to make your own choice - at the time of writing the procedure for esm.sh and skypack.dev is nearly identical (for a difference, see the section [Types and IntelliSense](#types-and-intellisense)).
 
 #### Importing within an HTML file
 
@@ -166,13 +168,21 @@ Using as a native module works in Chrome without any extras:
 </script>
 ```
 
+The drawback to this method is that it doesn't give you type annotations in your IDE, like [the following method](#importing-into-a-javascript-or-typescript-file).
+
 <Note>
 
 Learn more about the `type="module"` attribute [on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules).
 
 </Note>
 
-#### Importing into a JavaScript or TypeScript file
+#### Importing into a JavaScript or TypeScript File
+
+<Note>
+
+We have tested the following examples with version 0.26.0-alpha.264 of the excalibur package. We recommend you run at least that version for this to work. You can get [the latest excalibur version on npm](https://www.npmjs.com/package/excalibur).
+
+</Note>
 
 More likely, you will want to import Excalibur into a JavaScript or TypeScript file.
 
@@ -193,45 +203,39 @@ A custom `tsconfig.json` has to be used with `strict` turned off and a few DOM l
 
 Then Excalibur can be imported. This can be done in two ways:
 
-##### **Recommended: Named Import**
+**Recommended: Named Import**
 
-```js
+```typescript
 // index.ts
 
-import { Engine } from 'https://cdn.skypack.dev/excalibur@0.26.0-alpha.264?dts'
+import { Engine } from 'https://esm.sh/excalibur@0.26.0-alpha.264'
 
 const game = new Engine()
 game.start()
 ```
 
-##### **Alternative: `import * as ex` **
+**Alternative: Namespace Import **
 
-```js
+```typescript
 // index.ts
 
-import * as ex from 'https://cdn.skypack.dev/excalibur@0.26.0-alpha.264?dts'
+import * as ex from 'https://esm.sh/excalibur@0.26.0-alpha.264'
 
 const game = new ex.Engine()
 game.start()
 ```
 
-<Note>
-
-The `* as` syntax is [sometimes](https://blog.logrocket.com/javascript-reference-guide-js-modules/) called a "namespace import". It results in importing a [module namespace object](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/).
-
-</Note>
-
-##### Why do we recommend named imports over namespace imports?
+##### Aside - Why do we recommend named imports over namespace imports?
 
 There are two main reasons:
 
-- We find named imports more [expressive](https://stackoverflow.com/questions/42051588/wildcard-or-asterisk-vs-named-or-selective-import-es6-javascript) and [explicit](https://javascript.info/import-export#import) than the wildcard `* as` syntax. It makes it easier for you and your collaborators to see what parts of the module are actually being used just by looking at the import statement.
+- We find named imports more [expressive](https://stackoverflow.com/questions/42051588/wildcard-or-asterisk-vs-named-or-selective-import-es6-javascript) and [explicit](https://javascript.info/import-export#import) than the wildcard `*` syntax. It's easier for you and your collaborators to see what parts of the module are actually being used if they are all listed in the import statement.
 
-- They can help with _tree shaking_, as described in [this relatively beginner-friendly developers.google tutorial](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/#finding_opportunities_to_shake_a_tree).
+- They can help with _tree shaking_, as explained in [this relatively beginner-friendly developers.google tutorial](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/#finding_opportunities_to_shake_a_tree).
 
 <Note>
 
-    *Tree shaking* means dropping unused code, reducing the size of your bundle so that your app can load faster for the end-user. This can be done by build tools such as [Rollup](https://rollupjs.org/guide/en/#tree-shaking) and [Webpack](https://webpack.js.org/guides/tree-shaking/).
+_Tree shaking_ means dropping unused code, reducing the size of your bundle so that your app can load faster for the end-user. This can be done by build tools such as [Rollup](https://rollupjs.org/guide/en/#tree-shaking) and [Webpack](https://webpack.js.org/guides/tree-shaking/).
 
 </Note>
 
@@ -243,9 +247,9 @@ The official MDN documentation is a great place to start learning about [modules
 
 </Note>
 
-#### Bundling and applying
+#### Bundling and Applying
 
-Set up your `tsconfig.json` and your `index.ts` as described in the sections above. Then Deno should successfully bundle:
+Set up your `tsconfig.json` and your `index.ts` as described in [the section above]((#importing-into-a-javascript-or-typescript-file). Then Deno should successfully bundle:
 
 ```bash
 deno bundle index.ts game.bundle.js --config tsconfig.json
@@ -265,7 +269,10 @@ And you can apply it in your `index.html` with a regular script tag:
 
 #### Types and IntelliSense
 
-[Screenshot demonstrating IntelliSense](/02.1-bundlers/intellisense_screenshot.png)
+<img
+  src="./02.1-bundlers/intellisense_screenshot.png"
+  alt="Screenshot demonstrating IntelliSense"
+/>
 
 To enable type annotations and IntelliSense in a Deno environment, you might need to install a special extension in your IDE, like this one for VSCode: [Deno extension by denoland](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno).
 
@@ -279,13 +286,13 @@ It might also take a few seconds until the IntelliSense starts working. Deno is 
 
 **If you're using skypack.dev**, you might also need to add the `?dts` query parameter to the package name. your import should read something like this:
 
-```js
+```typescript
 import { Engine } from "https://cdn.skypack.dev/excalibur?dts
 ```
 
 Or, if you want to use a specific version:
 
-```js
+```typescript
 import { Engine } from "https://cdn.skypack.dev/excalibur@0.26.0-alpha.264?dts
 ```
 
