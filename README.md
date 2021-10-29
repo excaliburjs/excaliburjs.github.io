@@ -11,8 +11,12 @@
 
     # Run site for docs or development
     npm run develop
+    
+### `GH_TOKEN` GitHub Personal Access Token
 
-You will need some kind of `GH_TOKEN` environment variable but we're working on removing that restriction for contributors.
+You will need a `GH_TOKEN` environment variable for the site to start. The scope can be `repo:public`. See [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in GitHub documentation for details.
+
+You can specify the token in your system environment variables on [Windows](https://www.youtube.com/watch?v=bEroNNzqlF4) or [Linux](https://www.youtube.com/watch?v=Y6_7xaxkPik).
 
 ## Writing Docs
 
