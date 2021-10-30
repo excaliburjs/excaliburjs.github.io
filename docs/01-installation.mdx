@@ -5,7 +5,12 @@ path: /docs/installation
 
 ### Getting Excalibur
 
-There are several ways you can get Excalibur: as standalone packages from `npm` or `nuget`, as raw script files you can download, or by using one of our pre-made [template repos](#github-templates).
+There are several ways you can get Excalibur:
+
+- as standalone packages [from `npm`](#npm-package) or [`nuget`](#nuget-package)
+- [as raw script files](#script-reference-or-download) you can download
+- [by using one of our pre-made template repos](#github-templates)
+- [by using a CDN](#using-a-cdn) - e.g. for working with [`Deno`](https://deno.land/)
 
 <Note>
 
@@ -120,6 +125,26 @@ Nuget will automatically place the Excalibur files in the `Content/Scripts` fold
 See below for how to reference these files in your project after Excalibur is installed.
 
 View the [Excalibur](https://www.nuget.org/packages/Excalibur/) package on Nuget.
+
+#### Using a CDN
+
+If you want to use Excalibur in a [`Deno`](https://deno.land/) environment, use a content delivery network like [`esm.sh`](https://esm.sh/) or [`skypack.dev`](https://www.skypack.dev/). They transform our `NPM` package into an `ES Module`. That may sound complicated, but it's really just one line of code:
+
+```typescript
+// index.ts
+
+import { Engine } from 'https://esm.sh/excalibur'
+
+// and Tada!
+const game = new Engine()
+game.start()
+```
+
+<Note>
+
+To see the full instructions on setting up Excalibur with `Deno`, check out [our `Deno` guide](https://excaliburjs.com/docs/bundlers#deno).
+
+</Note>
 
 ### Unstable Builds
 
