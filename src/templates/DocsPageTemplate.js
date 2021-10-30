@@ -51,7 +51,7 @@ const TOC = ({ toc, releases }) => (
         <Link activeClassName="active" className="item" to={frontmatter.path}>
           {frontmatter.title}
         </Link>
-        {!!headings.length && (
+        {headings && !!headings.length && (
           <div className="sub item">
             <div className="menu">
               {headings.map((heading, index) => (
