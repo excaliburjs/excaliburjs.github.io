@@ -105,27 +105,28 @@ module.exports = {
       resolve: 'gatsby-source-github-api',
       options: {
         token: GITHUB_TOKEN,
-        graphQLQuery: `{ 
+        graphQLQuery: `
+        { 
           repository(owner: "excaliburjs", name: "excalibur") {
-              latestRelease: releases(last: 1) {
-                edges {
-                  node {
-                    tag {
-                      name
-                    }
-                    publishedAt
-                    url
-                    releaseAssets(first: 1, name: "excalibur.min.js") {
-                      edges {
-                        node {
-                          size
-                        }
+            latestRelease: releases(last: 1) {
+              edges {
+                node {
+                  tag {
+                    name
+                  }
+                  publishedAt
+                  url
+                  releaseAssets(first: 1, name: "excalibur.min.js") {
+                    edges {
+                      node {
+                        size
                       }
                     }
                   }
                 }
               }
             }
+          
             releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
               edges {
                 node {
@@ -138,7 +139,8 @@ module.exports = {
               }
             }
           }
-        }`,
+        }
+      `,
       },
     },
   ],
