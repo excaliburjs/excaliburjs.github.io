@@ -233,7 +233,7 @@ const canvas = new ex.Canvas({
 actor.graphics.use(canvas)
 ```
 
-Override the [[GraphicsComponent]] [[Actor.graphics.onPreDraw]] or [[Actor.graphics.onPostDraw]] methods to customize the draw logic at different points in the loop.
+Override the [[GraphicsComponent.onPreDraw|Actor.graphics.onPreDraw]] or [[GraphicsComponent.onPostDraw|Actor.graphics.onPostDraw]] methods to customize the draw logic at different points in the loop.
 
 <Note>
 
@@ -243,7 +243,7 @@ Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and 
 
 ### Pre-draw
 
-[[Actor.graphics.onPreDraw]] is run _before_ the core draw logic to prepare the frame.
+[[GraphicsComponent.onPreDraw|Actor.graphics.onPreDraw]] is run _before_ the core draw logic to prepare the frame.
 
 <Note>
 
@@ -269,7 +269,7 @@ class Player extends ex.Actor {
 
 ### Post-draw
 
-[[Actor.graphics.onPostDraw]] is run _after_ the core draw and will draw in the current frame.
+[[GraphicsComponent.onPostDraw|Actor.graphics.onPostDraw]] is run _after_ the core draw and will draw in the current frame.
 
 <Note>
 
