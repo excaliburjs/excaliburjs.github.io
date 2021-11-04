@@ -24,11 +24,13 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "build:styles": "gulp --gulpfile ui/gulpfile.js build",
+    "build:ci": "npm run build:styles && npm run build",
     "clean": "gatsby clean",
     "start": "npm run develop",
     "serve": "serve ./public -l 8888 -n",
     "develop": "gatsby develop",
-    "styles": "cd ui && gulp watch",
+    "styles": "gulp --gulpfile ui/gulpfile.js watch",
     "format": "prettier --write \"src/**/*.js\"",
     "docs": "node docs.js",
     "test": "jest --watch"
