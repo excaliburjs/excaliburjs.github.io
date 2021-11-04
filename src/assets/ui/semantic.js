@@ -1,15 +1,15 @@
- /*
- * # Fomantic UI - 2.8.4
+/*
+ * # Fomantic UI - 2.8.8
  * https://github.com/fomantic/Fomantic-UI
  * http://fomantic-ui.com/
  *
- * Copyright 2014 Contributors
+ * Copyright 2021 Contributors
  * Released under the MIT license
  * http://opensource.org/licenses/MIT
  *
  */
 /*!
- * # Fomantic-UI - Site
+ * # Fomantic-UI 2.8.8 - Site
  * http://github.com/fomantic/Fomantic-UI/
  *
  *
@@ -503,7 +503,7 @@ $.extend($.expr[ ":" ], {
 })( jQuery, window, document );
 
 /*!
- * # Fomantic-UI - Transition
+ * # Fomantic-UI 2.8.8 - Transition
  * http://github.com/fomantic/Fomantic-UI/
  *
  *
@@ -1613,7 +1613,7 @@ $.fn.transition.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Fomantic-UI - State
+ * # Fomantic-UI 2.8.8 - State
  * http://github.com/fomantic/Fomantic-UI/
  *
  *
@@ -2325,7 +2325,7 @@ $.fn.state.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Fomantic-UI - Visibility
+ * # Fomantic-UI 2.8.8 - Visibility
  * http://github.com/fomantic/Fomantic-UI/
  *
  *
@@ -3228,7 +3228,7 @@ $.fn.visibility = function(parameters) {
               element.offset.top += $context.scrollTop() - $context.offset().top;
             }
             if(module.is.horizontallyScrollableContext()) {
-              element.offset.left += $context.scrollLeft - $context.offset().left;
+              element.offset.left += $context.scrollLeft() - $context.offset().left;
             }
             // store
             module.cache.element = element;
