@@ -803,8 +803,18 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 }
 
 .snippet-border {
-  background: #176BAA;
+  position: relative;
+  background: rgba(0, 0, 0, 0.87);
   border: 4px dashed black;
+}
+
+.snippet-border::before {
+  position: absolute;
+  content: 'Resize me! 👇';
+  color: red;
+  white-space: nowrap;
+  bottom: 0;
+  right: 0;
 }
 /*!
  * # Fomantic-UI - Button

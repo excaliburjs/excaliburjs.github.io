@@ -3,7 +3,7 @@ title: Screen & Viewport
 path: /docs/screens
 ---
 
-For your game you may want a great deal of control over the shape and behavior of you screen.
+The [[Screen]] is useful for for controlling the shape and behavior of you screen.
 
 ## Basic Screen
 
@@ -68,18 +68,20 @@ option when creating a game to customize the viewport.
 
 ### Fixed Display Mode
 
-[[DisplayMode.Fixed]] is the default, use a specified resolution for the game. Like 800x600 pixels for example.
+[[DisplayMode.Fixed]] is the default, use a specified resolution for the game. Like 600x400 pixels for example.
 
 <div class="snippet-resizer snippet-border" alt="Resize me!">
 
 <iframe class="snippet-resized" src="https://excaliburjs.com/excalibur-snippets/displaymode/fixed/" 
-          style="width:100%; height:420px; border:0; overflow:hidden">
+            style="width:100%; min-height:420px; height:100%; border:0; overflow:hidden">
 
 </iframe>
 
 </div>
 
 Click and drag right corner to resize!
+
+`embed:excalibur-snippets/src/displaymode/fixed/main.ts{snippet: "displaymode.fixed"}`
 
 ### Fit Screen Display Mode
 
@@ -87,22 +89,22 @@ Click and drag right corner to resize!
 
 This is not the same as [[Screen.goFullScreen]], which uses the fullscreen api, but behaves in a similar way maintaining aspect ratio.
 
-You may want to center your game here is an example:
+You may want to center your game and fit to the screen here is an example:
 
-`embed:excalibur-snippets/src/displaymode/fitscreen/main.ts{snippet: "displaymode.fitscreen.css"}`
-
-`embed:excalibur-snippets/src/displaymode/fitscreen/main.ts{snippet: "displaymode.fitscreen"}`
+<!-- `embed:excalibur-snippets/src/displaymode/fitscreen/main.ts{snippet: "displaymode.fitscreen.css"}` -->
 
 <div class="snippet-resizer snippet-border" alt="Resize me!">
 
 <iframe class="snippet-resized" src="https://excaliburjs.com/excalibur-snippets/displaymode/fitscreen/" 
-          style="width:100%; height:420px; border:0; overflow:hidden">
+            style="width:100%; min-height:420px; height:100%; border:0; overflow:hidden">
 
 </iframe>
 
 </div>
 
 Click and drag right corner to resize!
+
+`embed:excalibur-snippets/src/displaymode/fitscreen/main.ts{snippet: "displaymode.fitscreen"}`
 
 ### Fill Screen Display Mode
 
@@ -111,13 +113,15 @@ Click and drag right corner to resize!
 <div class="snippet-resizer snippet-border" alt="Resize me!">
 
 <iframe class="snippet-resized" src="https://excaliburjs.com/excalibur-snippets/displaymode/fillscreen/" 
-          style="width:100%; height:420px; border:0; overflow:hidden">
+            style="width:100%; min-height:420px; height:100%; border:0; overflow:hidden">
 
 </iframe>
 
 </div>
 
 Click and drag right corner to resize!
+
+`embed:excalibur-snippets/src/displaymode/fillscreen/main.ts{snippet: "displaymode.fillscreen"}`
 
 ### Fit Container Display Mode
 
@@ -126,13 +130,19 @@ Click and drag right corner to resize!
 <div class="snippet-resizer snippet-border" alt="Resize me!">
 
 <iframe class="snippet-resized" src="https://excaliburjs.com/excalibur-snippets/displaymode/fitcontainer/" 
-          style="width:100%; height:420px; border:0; overflow:hidden">
+            style="width:100%; min-height:420px; height:100%; border:0; overflow:hidden">
 
 </iframe>
 
 </div>
 
 Click and drag right corner to resize!
+
+`embed:excalibur-snippets/src/displaymode/fitcontainer/index.html{snippet: "container-css"}`
+
+`embed:excalibur-snippets/src/displaymode/fitcontainer/index.html{snippet: "container-html"}`
+
+`embed:excalibur-snippets/src/displaymode/fitcontainer/main.ts{snippet: "displaymode.fitcontainer"}`
 
 ### Fill Container Display Mode
 
@@ -141,13 +151,19 @@ Click and drag right corner to resize!
 <div class="snippet-resizer snippet-border" alt="Resize me!">
 
 <iframe class="snippet-resized" src="https://excaliburjs.com/excalibur-snippets/displaymode/fillcontainer/" 
-          style="width:100%; height:420px; border:0; overflow:hidden">
+            style="width:100%; min-height:420px; height:100%; border:0; overflow:hidden">
 
 </iframe>
 
 </div>
 
 Click and drag right corner to resize!
+
+`embed:excalibur-snippets/src/displaymode/fillcontainer/index.html{snippet: "container-css"}`
+
+`embed:excalibur-snippets/src/displaymode/fillcontainer/index.html{snippet: "container-html"}`
+
+`embed:excalibur-snippets/src/displaymode/fillcontainer/main.ts{snippet: "displaymode.fillcontainer"}`
 
 ## Fullscreen API
 
@@ -156,7 +172,7 @@ The screen abstraction now supports the [browser fullscreen api](https://develop
 <div class="snippet-resizer snippet-border" alt="Resize me!">
 
 <iframe class="snippet-resized" src="https://excaliburjs.com/excalibur-snippets/fullscreen/" 
-          style="width:100%; height:420px; border:0; overflow:hidden">
+            style="width:100%; min-height:420px; height:100%; border:0; overflow:hidden">
 
 </iframe>
 
@@ -169,6 +185,8 @@ Click and drag right corner to resize!
 This requires an explicit user gesture due to browser security, so wiring it into a native HTML button click is the easiest way to do this.
 
 </Note>
+
+`embed:excalibur-snippets/src/fullscreen/main.ts{snippet: "fullscreen"}`
 
 ```typescript
 await game.screen.goFullScreen()

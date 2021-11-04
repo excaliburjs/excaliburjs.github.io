@@ -141,5 +141,16 @@
 
 .snippet-resizer { display:flex; margin:0; padding:0; resize:both; overflow:hidden }
 .snippet-resizer > .snippet-resized { flex-grow:1; margin:0; padding:0; border:0 }
-.snippet-border { background:#c0c0c0; border:4px dashed black; }
-
+.snippet-border {
+  position: relative;
+  background:rgba(0,0,0,.87);
+  border:4px dashed black;
+}
+.snippet-border::before {
+    position: absolute;
+    content: 'Resize me! 👇';
+    color: red;
+    white-space: nowrap;
+    bottom: 0;
+    right: 0;
+}
