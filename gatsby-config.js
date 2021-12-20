@@ -15,6 +15,7 @@ module.exports = {
         src: [`${__dirname}/ex/edge/src/engine/index.ts`],
         typedoc: {
           excludePrivate: true,
+          entryPointStrategy: 'expand',
           tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
         },
       },
