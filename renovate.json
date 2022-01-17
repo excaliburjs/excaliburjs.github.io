@@ -1,13 +1,17 @@
 {
-    "extends": [
-        "config:base"
-    ],
-    "commitMessagePrefix": "chore:",
-    "automerge": true,
-    "major": {
-        "automerge": false
+  "extends": ["config:base"],
+  "commitMessagePrefix": "chore:",
+  "git-submodules": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     },
-    "git-submodules": {
-        "enabled": true
+    {
+      "matchPackageNames": ["typedoc"],
+      "automerge": false
     }
+  ]
 }

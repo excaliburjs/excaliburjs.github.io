@@ -1,5 +1,5 @@
 /*!
- * # Fomantic-UI - Site
+ * # Fomantic-UI 2.8.8 - Site
  * http://github.com/fomantic/Fomantic-UI/
  *
  *
@@ -13,7 +13,7 @@
              Page
 *******************************/
 
-@import url('https://fonts.googleapis.com/css?family=Source Sans Pro:200,400,400italic&subset=latin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source Sans Pro:200,400,400italic&subset=latin&display=swap');
 html,
 body {
   height: 100%;
@@ -307,4 +307,34 @@ body .ui.inverted:not(.dimmer)::-webkit-scrollbar-thumb:hover {
 .docs-content table tbody tr {
   border-bottom: 1px solid #eee;
   font-size: 0.9em;
+}
+.snippet-resizer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  resize: both;
+  overflow: hidden;
+}
+.snippet-resizer > .snippet-resized {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.snippet-border {
+  position: relative;
+  background: rgba(0, 0, 0, 0.87);
+  border: 4px dashed black;
+}
+.snippet-border::before {
+  position: absolute;
+  content: 'Resize me! 👇';
+  color: red;
+  white-space: nowrap;
+  bottom: 0;
+  right: 0;
 }

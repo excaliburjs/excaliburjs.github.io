@@ -21,7 +21,7 @@ const game = new ex.Engine({
   width: 800, // the width of the canvas
   height: 600, // the height of the canvas
   canvasElementId: '', // the DOM canvas element ID, if you are providing your own
-  displayMode: ex.DisplayMode.FullScreen, // the display mode
+  displayMode: ex.DisplayMode.FitScreen, // the display mode
   pointerScope: ex.Input.PointerScope.Document, // the scope of capturing pointer (mouse/touch) events
 })
 // call game.start, which is a Promise
@@ -119,7 +119,7 @@ For example, instead of doing this:
 
 ```typescript
 const actor = new ex.Actor(1, 2, 100, 100, ex.Color.Red)
-actor.body.collider.type = ex.CollisionType.Active
+actor.body.collisionType = ex.CollisionType.Active
 ```
 
 This is possible instead:
@@ -133,7 +133,7 @@ const options: ActorArgs = {
 }
 
 const actor = new ex.Actor(options);
-actor.body.collider.type = ex.CollisionType.Active;
+actor.body.collisionType = ex.CollisionType.Active;
 ```
 
 Relatedly, you can create a duplicate this way
@@ -168,7 +168,7 @@ You can customize the options or provide more options for your game by extending
 ```ts
 class Game extends ex.Engine {
   constructor() {
-    super({ width: 800, height: 600, displayMode: DisplayMode.FullScreen })
+    super({ width: 800, height: 600, displayMode: DisplayMode.FitScreen })
   }
 
   public start() {
@@ -266,4 +266,4 @@ Have you implemented state management in your Excalibur game? [Let us know](http
 
 ## Enabling debug mode
 
-Set [[Engine.isDebug]] to `true` to enable Excalibur's debug feature. This will enable [actor debug drawing](/docs/actors#debug-draw) to help diagnose drawing issues.
+Call [[Engine.showDebug]] with a `true` or `false` to enable or disable Excalibur's debug feature. This will enable [actor debug drawing](/docs/actors#debug-draw) to help diagnose drawing issues.

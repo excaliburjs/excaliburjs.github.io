@@ -28,9 +28,9 @@ const game = new ex.Engine(...);
 
 ## How to use the Graphics Component
 
-1. Graphics using [[ImageSource|images]] (and any [[Resource]]) must be [[loaded]] before use
+1. Graphics using [[ImageSource|images]] (and any [[Resource]]) must be [loaded](assets) before use
 2. Graphics like [[Sprite|Sprites]] are like a window into an [[ImageSource|image]]
-3. Graphics like [[Canvas]]([[Raster|Rasters]]) produce internal bitmap's which are large in memory and should be used sparingly or cached
+3. Graphics like [[Canvas]] produce internal bitmap's which are large in memory and should be used sparingly or cached
 4. Graphics can be added to the [[GraphicsComponent]] on an [[Actor]] or [[Entity]]
 5. Direct access to the [[ExcaliburGraphicsContext]]
 
@@ -157,9 +157,9 @@ actor.graphics.getLayer('default').show(myAnimation)
 
 ## Graphics
 
-Excalibur `ex.Graphic`s break into 2 main categories, `ex.[[Sprite]]` based and `ex.[[Raster]]` based. That is to say Raster and non-Raster graphics.
+Excalibur `ex.Graphic`s break into 2 main categories, [[Sprite]] based and [[Raster]] based. That is to say Raster and non-Raster graphics.
 
-[[Graphics]] have a number of useful features that work for ALL types of graphics:
+[[Graphic|Graphics]] have a number of useful features that work for ALL types of graphics:
 
 - `clone(): Graphic`
 
@@ -199,7 +199,7 @@ Excalibur `ex.Graphic`s break into 2 main categories, `ex.[[Sprite]]` based and 
 
 #### Canvas
 
-For drawing hooks the `ExcaliburGraphicsContext` is replacing the browser `CanvasRenderingContext2D`. If you need to do some custom drawing using the `CanvasRenderingContext2D`, you can use the new [`Canvas`](https://excaliburjs.com/docs/api/edge/classes/Canvas.html) graphic.
+For drawing hooks the `ExcaliburGraphicsContext` is replacing the browser `CanvasRenderingContext2D`. If you need to do some custom drawing using the `CanvasRenderingContext2D`, you can use the new [[Canvas]] graphic.
 
 `embed:excalibur-snippets/src/canvas/main.ts{snippet: "canvas"}`
 
@@ -216,7 +216,7 @@ A sprite is a view into a [ImageSource](#ImageSource) and a projection into a fi
 const image = new ex.ImageSource('./img/myimage.png')
 // keep in mind this wont work until the raw image is loaded
 const sprite = new ex.Sprite({
-  ImageSource: image,
+  image: image,
   sourceView: {
     // Take a small slice of the source image starting at pixel (10, 10) with dimension 20 pixels x 20 pixels
     x: 10,

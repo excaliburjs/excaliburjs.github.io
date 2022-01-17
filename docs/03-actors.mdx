@@ -8,7 +8,7 @@ Like [[TransformComponent|position]], [[MotionComponent|velocity]], [[GraphicsCo
 
 [[Actor|Actors]] are the recommended way to use Excalibur, they are the primary way to show something on the screen.
 
-If you don't want these builtins and you want to build only what you want, read me about entities [here](/docs/entities)
+If you don't want these builtins and you want to build only what you want, read about entities [here](/docs/entities)
 
 ## Basic actors
 
@@ -113,6 +113,26 @@ Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and 
 
 </Note>
 
+### Update
+
+You can override the core [[Actor.update]] but it is important to call the `super.update(...)` method in order to preserve the Excalibur core update implementation.
+
+```typescript
+class Player extends Actor {
+  public update(engine: Engine, delta: number) {
+    // Custom update here
+    super.update(engine, delta)
+    // Custom update here
+  }
+}
+```
+
+<Note variant="warning">
+
+Actions will not function properly if you override `Actor.update()` without calling the `super.update()`
+
+</Note>
+
 ### Pre-update
 
 Override the [[Actor.onPreUpdate]] method to update the state of your actor before [[Actor.update]].
@@ -213,7 +233,7 @@ const canvas = new ex.Canvas({
 actor.graphics.use(canvas)
 ```
 
-Override the [[GraphicsComponent]] [[Actor.graphics.onPreDraw]] or [[Actor.graphics.onPostDraw]] methods to customize the draw logic at different points in the loop.
+Override the [[GraphicsComponent.onPreDraw|Actor.graphics.onPreDraw]] or [[GraphicsComponent.onPostDraw|Actor.graphics.onPostDraw]] methods to customize the draw logic at different points in the loop.
 
 <Note>
 
@@ -223,7 +243,7 @@ Reference [Actor lifecycle](#actor-lifecycle) for a breakdown of each phase and 
 
 ### Pre-draw
 
-[[Actor.graphics.onPreDraw]] is run _before_ the core draw logic to prepare the frame.
+[[GraphicsComponent.onPreDraw|Actor.graphics.onPreDraw]] is run _before_ the core draw logic to prepare the frame.
 
 <Note>
 
@@ -249,7 +269,7 @@ class Player extends ex.Actor {
 
 ### Post-draw
 
-[[Actor.graphics.onPostDraw]] is run _after_ the core draw and will draw in the current frame.
+[[GraphicsComponent.onPostDraw|Actor.graphics.onPostDraw]] is run _after_ the core draw and will draw in the current frame.
 
 <Note>
 

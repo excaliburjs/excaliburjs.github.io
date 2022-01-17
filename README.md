@@ -11,8 +11,12 @@
 
     # Run site for docs or development
     npm run develop
+    
+### `GH_TOKEN` GitHub Personal Access Token
 
-You will need some kind of `GH_TOKEN` environment variable but we're working on removing that restriction for contributors.
+You will need a `GH_TOKEN` environment variable for the site to start. The scope can be `repo:public`. See [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in GitHub documentation for details.
+
+You can specify the token in your system environment variables on [Windows](https://www.youtube.com/watch?v=bEroNNzqlF4) or [Linux](https://www.youtube.com/watch?v=Y6_7xaxkPik).
 
 ## Writing Docs
 
@@ -87,15 +91,8 @@ the showcase module.
 
 ## Requirements
 
-- Node.js (8.x)
+- Node.js (16.x)
 - `GH_TOKEN` defined with your GitHub Personal Access Token that has access to excaliburjs org
-
-For building Semantic UI (optional):
-
-- Ruby 2.2.x (ensure it's in PATH)
-- Ruby Gems 2.6.x ([fix SSL error on Windows x64](https://gist.github.com/luislavena/f064211759ee0f806c88#gistcomment-1916808))
-- Sass (`gem install sass`)
-- Windows or Unix-like
 
 ## Packages we use
 
@@ -111,10 +108,31 @@ Once you've cloned the repository, run the following commands:
     # Run site for local development
     npm run develop
 
+    # Watch for style changes (css)
+    npm run styles
+
     # Compile API reference documentation for each Excalibur tag
     npm run docs
 
 We recommend using the free [Visual Studio Code](http://code.visualstudio.com) editor since it's easy to use and works on any platform.
+
+## Building styles
+
+For building Semantic UI:
+
+- Ruby 2.2.x (ensure it's in PATH)
+- Ruby Gems 2.6.x ([fix SSL error on Windows x64](https://gist.github.com/luislavena/f064211759ee0f806c88#gistcomment-1916808))
+- Sass (`gem install sass`)
+- Windows or Unix-like
+
+    # Build styles (outputs css)
+    npm run build:styles
+
+    # Watch for style changes
+    npm run styles
+
+During local development, you'd open two terminals with `npm start` and `npm run styles` at the same time. The CI build will ensure any unbuilt styles
+are built and deployed so you don't have to remember to compile CSS before commit.
 
 ## Compiling documentation
 

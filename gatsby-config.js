@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-typedoc',
       options: {
-        src: [`${__dirname}/ex/edge/src/engine`],
+        src: [`${__dirname}/ex/edge/src/engine/index.ts`],
         typedoc: {
           excludePrivate: true,
           tsconfig: `${__dirname}/ex/edge/src/engine/tsconfig.json`,
@@ -102,50 +102,45 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-source-github',
+      resolve: 'gatsby-source-github-api',
       options: {
-        headers: {
-          Authorization: `Bearer ${GITHUB_TOKEN}`, // https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-        },
-        queries: [
-          `{ 
-            repository(owner: "excaliburjs", name: "excalibur") {
-              latestRelease: releases(last: 1) {
-                edges {
-                  node {
-                    tag {
-                      name
-                    }
-                    publishedAt
-                    url
-                    releaseAssets(first: 1, name: "excalibur.min.js") {
-                      edges {
-                        node {
-                          size
-                        }
+        token: GITHUB_TOKEN,
+        graphQLQuery: `
+        { 
+          repository(owner: "excaliburjs", name: "excalibur") {
+            latestRelease: releases(last: 1) {
+              edges {
+                node {
+                  tag {
+                    name
+                  }
+                  publishedAt
+                  url
+                  releaseAssets(first: 1, name: "excalibur.min.js") {
+                    edges {
+                      node {
+                        size
                       }
                     }
                   }
                 }
               }
             }
-          }`,
-          `{ 
-            repository(owner: "excaliburjs", name: "excalibur") {
-              releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
-                edges {
-                  node {
-                    publishedAt
+          
+            releases(first: 5, orderBy: { field: CREATED_AT, direction: DESC}) {
+              edges {
+                node {
+                  publishedAt
+                  name
+                  tag {
                     name
-                    tag {
-                      name
-                    }
                   }
                 }
               }
             }
-          }`,
-        ],
+          }
+        }
+      `,
       },
     },
   ],
