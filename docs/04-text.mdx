@@ -3,7 +3,7 @@ title: Text
 path: /docs/text
 ---
 
-You may want to display [[Text]] in your game, this can be acheived with the [[Text]], [[Font]], and [[SpriteFont]].
+You may want to display [[Text]] in your game. This can be acheived with the [[Text]], [[Font]], and [[SpriteFont]].
 
 ## Text
 
@@ -25,7 +25,8 @@ game.currentScene.add(actor);
 
 ## Labels
 
-[[Label|Labels]] are a batteries included [[Actor|Actors]] with [[Text]] built and font built in.
+//TODO clarify end of sentence.
+[[Label|Labels]] are a preconfigured [[Actor|Actors]] with [[Text]] built and font included.
 
 ```typescript
 const label = new ex.Label({
@@ -56,9 +57,9 @@ const text = new ex.Text({
 })
 ```
 
-It is recommended you load any font important to your game and not rely on any pre-installed system fonts, those will be different from computer to computer.
+We recommend that you speicifically load any font important to your game and avoid relying on any pre-installed system fonts (those will be different from computer to computer, and may not always be present).
 
-For example the [google fonts](https://fonts.google.com/) loader is a common way to do this.
+The [google fonts](https://fonts.google.com/) loader is a common way to do this.
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +78,7 @@ const font = new ex.Font({
 })
 ```
 
-One potential issue with using web fonts is they won't render correctly until loaded see [article for details](https://erikonarheim.com/posts/dont-test-fonts/).
+One potential issue with using web fonts is that they won't render correctly until loaded (see [this article](https://erikonarheim.com/posts/dont-test-fonts/) for additional details).
 
 ```typescript
 async function waitForFontLoad(font, timeout = 2000, interval = 100) {

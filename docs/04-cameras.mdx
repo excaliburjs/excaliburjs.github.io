@@ -23,21 +23,21 @@ offset the focal point.
 Cameras can implement a number of strategies to track, follow, or exhibit custom behavior in relation to a target. A common reason to use a
 strategy is to have the [[Camera]] follow an [[Actor]].
 
-In order to user the different built-in strategies, you can access [[Camera.strategy]]
+In order to user the different built-in strategies, you can access [[Camera.strategy]].
 
-Lock the camera exactly to the center of the actor's bounding box
+Lock the camera exactly to the center of the actor's bounding box:
 
 ```typescript
 game.currentScene.camera.strategy.lockToActor(actor)
 ```
 
-Lock the camera to one axis of the actor, in this case follow the actors x position
+Lock the camera to one axis of the actor, in this case follow the actors x position:
 
 ```typescript
 game.currentScene.camera.strategy.lockToActorAxis(actor, ex.Axis.X)
 ```
 
-Elastically move the camera to an actor in a smooth motion see [[ElasticToActorStrategy]] for details
+Elastically move the camera to an actor in a smooth motion (see [[ElasticToActorStrategy]] for details):
 
 ```typescript
 game.currentScene.camera.strategy.elasticToActor(
@@ -47,14 +47,14 @@ game.currentScene.camera.strategy.elasticToActor(
 )
 ```
 
-Keep the actor within a circle around the focus
+Keep the actor within a circle around the focus:
 
 ```typescript
 game.currentScene.camera.strategy.radiusAroundActor(actor, radius)
 ```
 
-Keep the camera limited within camera constraints.  
-Make sure that the camera bounds are at least as large as the viewport size.
+Keep the camera limited within camera constraints:
+(Make sure that the camera bounds are at least as large as the viewport size.)
 
 ```typescript
 let boundingBox = new BoundingBox(
@@ -97,7 +97,7 @@ in-game effects.
 
 ### Camera lerp
 
-"Lerp" is short for [Linear Interpolation](http://en.wikipedia.org/wiki/Linear_interpolation)
+"Lerp" is short for [Linear Interpolation](http://en.wikipedia.org/wiki/Linear_interpolation),
 and it enables the camera focus to move smoothly between two points using timing functions.
 Use [[Camera.move]] to ease to a specific point using a provided [[EasingFunction]].
 

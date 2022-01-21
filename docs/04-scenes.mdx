@@ -41,19 +41,19 @@ game.start().then(() => {
 
 ## Scene lifecycle
 
-A scene has a basic lifecycle that dictates how it is initialized, updated, and drawn. Once a scene is added to
-the engine it will follow this lifecycle:
+A scene has a basic lifecycle that directs how it is initialized, updated, and drawn. Once a scene is added to
+the engine, it will follow this lifecycle:
 
 ![Scene Lifecycle](/assets/images/docs/SceneLifecycle.png)
 
-For more complex games, you might want more control over a scene in which
+For more complex games, you might want more control over a scene, in which
 case you can extend [[Scene]]. This is useful for menus, custom loaders,
 and levels.
 
 ### Adding a scene
 
 Use [[Engine.add]] to add a new scene to the game. Each scene has a `string` key you can assign. You can then use
-[[Engine.goToScene]] to switch scenes which runs the scene lifecycle hooks.
+[[Engine.goToScene]] to switch scenes (which runs the scene lifecycle hooks).
 
 ```ts
 class MainMenu extends ex.Scene {}
@@ -66,7 +66,7 @@ game.goToScene('mainmenu')
 
 <Note>
 
-This is the recommended hook for setting up scene state
+This is the recommended hook for setting up scene state.
 
 </Note>
 
@@ -107,7 +107,7 @@ class MainMenu extends Scene {
 
 ### Activation
 
-[[Scene.onActivate]] is called when the engine switches to the scene. It may be called more than once during the lifetime of a game, if you switch back and forth between scenes. It is useful for taking action before showing the scene. You may use this hook over `onInitialize` for anything specific to the context in which the scene was activated.
+[[Scene.onActivate]] is called when the engine switches to the scene. It may be called more than once during the lifetime of a game if you switch back and forth between scenes. It is useful for taking action before showing the scene. You may use this hook instead of `onInitialize` for anything specific to the context in which the scene was activated.
 
 ```ts
 class MainMenu extends Scene {
