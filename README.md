@@ -9,9 +9,13 @@
     # Install dependencies
     npm install
 
+    # Initialize sub repos
+    git submodule init
+    git submodule update
+
     # Run site for docs or development
     npm run develop
-    
+
 ### `GH_TOKEN` GitHub Personal Access Token
 
 You will need a `GH_TOKEN` environment variable for the site to start. The scope can be `repo:public`. See [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in GitHub documentation for details.
@@ -54,18 +58,10 @@ This is just a relative path to your image, as simple as that!
 You can embed a "note" block element like:
 
 ```html
-<Note>
-  An info variant note
-</Note>
-<Note variant="warning">
-  A warning variant note
-</Note>
-<Note variant="error">
-  A error variant note
-</Note>
-<Note variant="success">
-  A success variant note
-</Note>
+<Note> An info variant note </Note>
+<Note variant="warning"> A warning variant note </Note>
+<Note variant="error"> A error variant note </Note>
+<Note variant="success"> A success variant note </Note>
 ```
 
 > **Note:** The blank line after `<Note>` is important to format the body as Markdown. Prettier will handle this for you, if you forget.
@@ -125,11 +121,13 @@ For building Semantic UI:
 - Sass (`gem install sass`)
 - Windows or Unix-like
 
-    # Build styles (outputs css)
-    npm run build:styles
+  # Build styles (outputs css)
 
-    # Watch for style changes
-    npm run styles
+  npm run build:styles
+
+  # Watch for style changes
+
+  npm run styles
 
 During local development, you'd open two terminals with `npm start` and `npm run styles` at the same time. The CI build will ensure any unbuilt styles
 are built and deployed so you don't have to remember to compile CSS before commit.

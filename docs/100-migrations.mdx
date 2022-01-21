@@ -3,6 +3,23 @@ title: Migration
 path: /docs/migration
 ---
 
+## Migrating from v0.25.1 to v0.25.2
+
+- [[EventEmitter]] no longer tampers with `this` on the event callbacks which may be a breaking change for some people. Change callbacks's to be an arrow function to capture `this`
+
+```typescript
+class MyActor extends ex.Actor {
+  constructor() {
+    super()
+    // Change from this
+    this.on('precollision', this.onPreCollision)
+
+    // To this
+    this.on('precollision', (evt) => this.onPreCollision(evt))
+  }
+}
+```
+
 ## Migrating from v0.24.5 to v0.25.0
 
 ### Graphics
@@ -96,7 +113,7 @@ actor.graphics.onPostDraw = (exctx: ExcaliburGraphicsContext) => {
 - `DisplayMode`'s have changed ([#1733](https://github.com/excaliburjs/Excalibur/issues/1733)) & ([#1928](https://github.com/excaliburjs/Excalibur/issues/1928)):
 
   - `DisplayMode.FitContainer` fits the screen to the available width/height in the canvas parent element, while maintaining aspect ratio and resolution
-  - `DisplayMode.FillContainer` update the resolution and viewport dyanmically to fill the available space in the canvas parent element, DOES NOT preserve `aspectRatio`
+  - `DisplayMode.FillContainer` update the resolution and viewport dynamically to fill the available space in the canvas parent element, DOES NOT preserve `aspectRatio`
   - `DisplayMode.FitScreen` fits the screen to the available browser window space, while maintaining aspect ratio and resolution
   - `DisplayMode.FillScreen` now does what `DisplayMode.FullScreen` used to do, the resolution and viewport dynamically adjust to fill the available space in the window, DOES NOT preserve `aspectRatio` ([#1733](https://github.com/excaliburjs/Excalibur/issues/1733))
   - `DisplayMode.FullScreen` is now removed, use `Screen.goFullScreen()`.
