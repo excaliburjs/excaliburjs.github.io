@@ -3,11 +3,38 @@ title: Components
 path: /docs/components
 ---
 
+[[Component|Components]] are a useful tool for storing data associated with an entity. Components can be used with [[System|Systems]] to implement complex behavior. Sometimes [[Component|Components]] can be a better choice than creating an inherited
+
+## Custom Components
+
+To create a new component, you must extend the built in component class.
+
+<Note variant="warning">
+
+It is important to select a unique component type name, otherwise the excalibur system runtime will be confused.
+
+</Note>
+
+<Note>
+
+Type names with the prefix "ex." are reserved for excalibur
+
+</Note>
+
+```typescript
+export class MyComponent extends ex.Component<'mycomponent'> {
+  // Unique type name is required
+  public readonly type = 'mycomponent'
+
+  public mydata: string = 'my custom data'
+}
+```
+
 ## Built in Excalibur Components
 
 ### [[TagComponent]]
 
-Tag components are useful when you want to flag an entity with something, for example "offscreen". A good way to think about it is to use a flag for a non-default state.
+Tag components are useful when you want to flag an entity with something, for example "offscreen". A good way to think about it is to use a flag for a non-default state. They are a special component that is only a type.
 
 ```ts
 const entity = new ex.Entity()

@@ -13,7 +13,7 @@ Each Excalibur [[System]] loops through all entities in `System.priority` order.
 
 ## System Types
 
-There are two system types [[SystemType.Update]] and [[SystemType.Draw]].
+There are two system types [[SystemType.Update|update]] and [[SystemType.Draw|draw]].
 
 [[SystemType.Update]] type systems all run before [[SystemType.Draw]] type systems.
 
@@ -32,7 +32,7 @@ Excalibur has a few built in systems that are used to enable the default behavio
 
 The motion system implements motion on entities, like Actors moving with velocity and acceleration.
 
-This system makes use of the [[TransformComponent]] and [[MotionComponent]] to implemenat motion.
+This system makes use of the [[TransformComponent]] and [[MotionComponent]] to implement motion.
 
 If a [[BodyComponent]] is present that will be used to apply sleep or global acceleration [[Physics.acc]] to all [[CollisionType.Active]] bodies.
 
