@@ -95,7 +95,8 @@ const TOC = ({ toc, releases }) => (
 const Search = () => (
   <div className="docs-search">
     <DocSearch
-      apiKey="bbb7679ce1b7e6f26980984d864045d3"
+      apiKey="f8e274d9f62a3088bb54ab80f766d740"
+      appId="IVI5ONIKWP"
       indexName="excaliburjs"
     />
   </div>
