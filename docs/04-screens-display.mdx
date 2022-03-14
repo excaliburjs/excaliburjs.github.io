@@ -42,9 +42,20 @@ const game = new ex.Engine({
 const screen = game.screen
 ```
 
+## HiDPI scaling
+
+Excalibur will automatically detect HiDPI devices and scale the internal canvas resolution. This prevents an issue that causes graphics to look blurry because images are spread across at least twice as many physical pixels. Read more about this [on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio#correcting_resolution_in_a_canvas).
+
+This automatic scaling can be disabled with the `suppressHiDPIScaling: true` in the [[Engine]] constructor.
+
+You may wish to disable this scaling for a few reasons:
+
+1. Large resolutions in addition to the scaling can cause games to break on mobile (4k pixels in width or height will cause mobile devices to fail loading to the GPU).
+2. Performance, a smaller resolution means the game does not need to drive as many pixels.
+
 <Note>
 
-Large resolutions (Commonly in the range 3000x3000) can cause problems on HiDPI screens (aka Retina), the underlying WebGL technology will limit the size.
+Large resolutions (Commonly in the range 4000x4000) can cause problems on HiDPI screens (aka Retina), the underlying WebGL technology will limit the size.
 
 If you need large resolutions you may need to suppress HiDPI
 
