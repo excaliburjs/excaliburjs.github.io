@@ -233,19 +233,19 @@
   <span class="token punctuation">}</span>
 
   <span class="token function">onInitialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addDrawing</span><span class="token punctuation">(</span><span class="token string">&#x27;idle&#x27;</span><span class="token punctuation">,</span> Resources<span class="token punctuation">.</span>StartButtonBackground<span class="token punctuation">)</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">addDrawing</span><span class="token punctuation">(</span><span class="token string">&#x27;hover&#x27;</span><span class="token punctuation">,</span> Resources<span class="token punctuation">.</span>StartButtonHovered<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>graphics<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&#x27;idle&#x27;</span><span class="token punctuation">,</span> Resources<span class="token punctuation">.</span>StartButtonBackground<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>graphics<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&#x27;hover&#x27;</span><span class="token punctuation">,</span> Resources<span class="token punctuation">.</span>StartButtonHovered<span class="token punctuation">)</span>
 
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&#x27;pointerup&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
       <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&quot;I&#x27;ve been clicked&quot;</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&#x27;pointerenter&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setDrawing</span><span class="token punctuation">(</span><span class="token string">&#x27;hover&#x27;</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>graphics<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">&#x27;hover&#x27;</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&#x27;pointerleave&#x27;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setDrawing</span><span class="token punctuation">(</span><span class="token string">&#x27;idle&#x27;</span><span class="token punctuation">)</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>graphics<span class="token punctuation">.</span><span class="token function">show</span><span class="token punctuation">(</span><span class="token string">&#x27;idle&#x27;</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
