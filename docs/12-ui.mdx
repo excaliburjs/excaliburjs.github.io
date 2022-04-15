@@ -33,19 +33,19 @@ class StartButton extends ex.ScreenElement {
   }
 
   onInitialize() {
-    this.addDrawing('idle', Resources.StartButtonBackground)
-    this.addDrawing('hover', Resources.StartButtonHovered)
+    this.graphics.add('idle', Resources.StartButtonBackground)
+    this.graphics.add('hover', Resources.StartButtonHovered)
 
     this.on('pointerup', () => {
       alert("I've been clicked")
     })
 
     this.on('pointerenter', () => {
-      this.setDrawing('hover')
+      this.graphics.show('hover')
     })
 
     this.on('pointerleave', () => {
-      this.setDrawing('idle')
+      this.graphics.show('idle')
     })
   }
 }
