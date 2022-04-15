@@ -3,7 +3,10 @@ import React from 'react'
 const NotFoundPage = () => (
   <div>
     <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <p>
+      We could not find the page you were looking for, please try refreshing the
+      browser to clear the cache.
+    </p>
   </div>
 )
 
