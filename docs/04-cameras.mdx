@@ -25,6 +25,12 @@ strategy is to have the [[Camera]] follow an [[Actor]].
 
 In order to user the different built-in strategies, you can access [[Camera.strategy]]
 
+<Note variant="warning">
+
+It is important to add the camera strategy in your Engine, Scene, or Actor's `onInitialize()`, the strategy will automatically update itself so do not put it in a update/draw lifecycle event.
+
+</Note>
+
 Lock the camera exactly to the center of the actor's bounding box
 
 ```typescript
