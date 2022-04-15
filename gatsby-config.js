@@ -24,7 +24,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-catch-links',
       options: {
-        excludePattern: /^\/(examples|docs\/api)/i,
+        excludePattern: /^\/(examples|docs\/api|https?:\/\/)/i,
       },
     },
     {
