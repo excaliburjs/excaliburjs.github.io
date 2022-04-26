@@ -1,3 +1,4 @@
+import beachBreachImage from '../assets/images/showcase/beachbreach.png'
 import meerkatticaImage from '../assets/images/showcase/meerkattica.png'
 import showMustGoOnImage from '../assets/images/showcase/show.png'
 import officeDaydreamImage from '../assets/images/showcase/office.png'
@@ -8,6 +9,14 @@ import sweepstacksImage from '../assets/images/showcase/sweepstacks.png'
 import krakenImage from '../assets/images/showcase/kraken.png'
 
 export default [
+  {
+    title: 'Beach Breach',
+    image: beachBreachImage,
+    description:
+      'This game was created for Ludum Dare 50. Defend your sandcastle from crabs, turtles, and seagulls in this beach-themed tower defense game!',
+    url: 'http://excaliburjs.com/ludum-50/',
+    source: 'https://github.com/excaliburjs/ludum-50',
+  },
   {
     title: 'Meerkattica',
     image: meerkatticaImage,
