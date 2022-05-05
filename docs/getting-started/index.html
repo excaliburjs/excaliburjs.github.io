@@ -279,11 +279,11 @@ game<span class="token punctuation">.</span>input<span class="token punctuation"
   <span class="token comment">// Set the color</span>
   color<span class="token operator">:</span> Color<span class="token punctuation">.</span>Red<span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
 <span class="token comment">// Start the serve after a second</span>
+<span class="token keyword">const</span> ballSpeed <span class="token operator">=</span> <span class="token function">vec</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token comment">// Set the velocity in pixels per second</span>
-  ball<span class="token punctuation">.</span>vel <span class="token operator">=</span> <span class="token function">vec</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  ball<span class="token punctuation">.</span>vel <span class="token operator">=</span> ballSpeed<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Set the collision Type to passive</span>
@@ -300,19 +300,19 @@ ball<span class="token punctuation">.</span><span class="token function">on</spa
   <span class="token comment">// If the ball collides with the left side</span>
   <span class="token comment">// of the screen reverse the x velocity</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>pos<span class="token punctuation">.</span>x <span class="token operator">&lt;</span> ball<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>x <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>x <span class="token operator">=</span> ballSpeed<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token comment">// If the ball collides with the right side</span>
   <span class="token comment">// of the screen reverse the x velocity</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>pos<span class="token punctuation">.</span>x <span class="token operator">+</span> ball<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">&gt;</span> game<span class="token punctuation">.</span>drawWidth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>x <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>x <span class="token operator">=</span> ballSpeed<span class="token punctuation">.</span>x <span class="token operator">*</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 
   <span class="token comment">// If the ball collides with the top</span>
   <span class="token comment">// of the screen reverse the y velocity</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>ball<span class="token punctuation">.</span>pos<span class="token punctuation">.</span>y <span class="token operator">&lt;</span> ball<span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>y <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>y <span class="token operator">=</span> ballSpeed<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></p><h2 id="creating-the-bricks-with-actors" style="position:relative"><a href="#creating-the-bricks-with-actors" aria-label="creating the bricks with actors permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating the bricks with Actors</h2><p>Breakout needs some bricks to break. To do this we calculate our brick layout and add them to the current scene.</p><p><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// Build Bricks</span>
 
@@ -350,7 +350,8 @@ bricks<span class="token punctuation">.</span><span class="token function">forEa
   <span class="token comment">// Add the brick to the current scene to be drawn</span>
   game<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>brick<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></p><p>When the ball collides with bricks, we want to remove them from the scene. Update the ‘precollision’ handler we previously added:</p><p><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// On collision remove the brick, bounce the ball</span>
-ball<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;precollision&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>ev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">let</span> colliding <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+ball<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;collisionstart&quot;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>ev<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>bricks<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>ev<span class="token punctuation">.</span>other<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// kill removes an actor from the current scene</span>
     <span class="token comment">// therefore it will no longer be drawn or updated</span>
@@ -359,17 +360,28 @@ ball<span class="token punctuation">.</span><span class="token function">on</spa
 
   <span class="token comment">// reverse course after any collision</span>
   <span class="token comment">// intersections are the direction body A has to move to not be clipping body B</span>
-  <span class="token comment">// `ev.intersection` is a vector `normalize()` will make the length of it 1</span>
+  <span class="token comment">// `ev.content.mtv` &quot;minimum translation vector&quot; is a vector `normalize()` will make the length of it 1</span>
   <span class="token comment">// `negate()` flips the direction of the vector</span>
-  <span class="token keyword">var</span> intersection <span class="token operator">=</span> ev<span class="token punctuation">.</span>intersection<span class="token punctuation">.</span><span class="token function">normalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> intersection <span class="token operator">=</span> ev<span class="token punctuation">.</span>contact<span class="token punctuation">.</span>mtv<span class="token punctuation">.</span><span class="token function">normalize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  <span class="token comment">// The largest component of intersection is our axis to flip</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>intersection<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">&gt;</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>intersection<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>x <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-    ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>y <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token comment">// Only reverse direction when the collision starts</span>
+  <span class="token comment">// Object could be colliding for multiple frames</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>colliding<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    colliding <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token comment">// The largest component of intersection is our axis to flip</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>intersection<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">&gt;</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>intersection<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>x <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      ball<span class="token punctuation">.</span>vel<span class="token punctuation">.</span>y <span class="token operator">*=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></p><p>Finally, if the ball leaves the screen, the player loses!</p><p><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// Loss condition</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ball<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;collisionend&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token comment">// ball has separated from whatever object it was colliding with</span>
+  colliding <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></p><p>Finally, if the ball leaves the screen, the player loses!</p><p><div class="gatsby-highlight" data-language="ts"><pre class="language-ts"><code class="language-ts"><span class="token comment">// Loss condition</span>
 ball<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">&quot;exitviewport&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&quot;You lose!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></p><p><span class="gatsby-resp-image-wrapper" style="position:relative;display:block;margin-left:auto;margin-right:auto;max-width:750px">
