@@ -24,6 +24,9 @@ const Nav = () => (
     <a className="item" href="http://blog.excaliburjs.com">
       Blog
     </a>
+    <Link className="item" to="/donate">
+      Donate
+    </Link>
   </>
 )
 
