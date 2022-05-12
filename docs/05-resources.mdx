@@ -1,6 +1,6 @@
 ---
-title: Assets
-path: /docs/assets
+title: Loader
+path: /docs/loader
 section: Resources
 ---
 
@@ -20,63 +20,13 @@ const loader = new ex.Loader([
 ])
 ```
 
-[[Loadable|Loadables]] are different kinds of assets such as [image](/doc/graphics#imagesource), sounds, and generic resources.
+[[Loadable|Loadables]] are different kinds of assets such as [image](/doc/imagesource), sounds, and generic resources.
 
 <Note>
 
 **Anytime** you call `game.start(loader)`, the game will pause and the engine will load assets. This means that you _do not have to load every asset at once_! Instead you may want to call `game.start(loader)` initially with core assets and then again when [initializing a Scene](/docs/scenes#initialization).
 
 </Note>
-
-## Images with the [[ImageSource]] Resource
-
-Excalibur supports `.png`, `.jpg`, `.gif`, and `.bmp` image sources with partial support for `.svg`
-
-- `.png` and `.svg` will be completely lossless formats. For pixel art type games we recommend `.png`
-- `.jpg` and `.gif` are lossy formats, useful to optimize for download size.
-- `.bmp` are the biggest
-- `base64` useful if you don't want to pay the loading time cost of your images at the expense of larger source download
-  - `data:image/png;base64,BASE64DATA...`
-
-```typescript
-const game = new Engine({...});
-const spriteSheetImage = new ImageSource('./my/spritesheet.png');
-
-const loader = new Loader([spriteSheetImage]);
-await game.start([loader]);
-
-const spriteSheet = SpriteSheet.fromImageSource({
-  image: spriteFontImage,
-  grid: {
-    rows: 5,
-    columns: 2,
-    spriteWidth: 32, // pixels
-    spriteHeight: 32 // pixels
-  }
-});
-
-```
-
-## Audio with the [[Sound]] Resource
-
-Excalibur supports any audio the browser supports like `.wav`, `.mp3`, and `.ogg`. Due to mixed browser support you may wish to specificy a list of
-source files and codecs,the order of the files specifies order of preference (we recommend mp3, wav).
-
-Major Browser support table [documented on MDN](https://developer.mozilla.org/en-US/docs/Web/Guide/Audio_and_video_delivery/Cross-browser_audio_basics#audio_codec_support)
-
-Pass an instance of [[Sound]] to a [[Loader]] to preload it. Once a sound
-is loaded, you can [[Sound.play|play]] it. You can pass an argument from 0.0 - 1.0
-into [[Sound.play|play]] in order to play the sound at that volume.
-
-```typescript
-const game = new Engine({...});
-const sound = new Sound('./path/to/my.mp3', './path/to/fallback.wav');
-
-const loader = new Loader([sound]);
-await game.start([loader]);
-
-sound.play(0.5);
-```
 
 ## Generic [[Resource|Resources]]
 
@@ -96,10 +46,6 @@ console.log(text.data);
 console.log(json.data);
 ```
 
-See the [examples](https://excaliburjs.com/examples/?path=/docs/audio) or API documentation for [[Sound]] for additional features available such as looping, volume setting, and more.
-
-<Example story="audio" />
-
 ## Other Resources
 
 - [[Gif]] resource supports loading Gif's as [[Animation|animation]], [[SpriteSheet|spritesheets]], or [[Sprite|sprites]]!
@@ -107,7 +53,7 @@ See the [examples](https://excaliburjs.com/examples/?path=/docs/audio) or API do
 
 ## Using a web server
 
-The asset loader **only works with a web server** since it loads assets with [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). That means you cannot use the loader whenrunning an HTML file locally from the file-system (e.g. a `file://` protocol URL will not work). The browser throws errors that will prevent you from loading assets.
+The asset loader **only works with a web server** since it loads assets with [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest). That means you cannot use the loader when running an HTML file locally from the file-system (e.g. a `file://` protocol URL will not work). The browser throws errors that will prevent you from loading assets.
 
 The fastest way to serve a folder of files is by using the [serve](https://npmjs.org/package/serve) NPM package.
 

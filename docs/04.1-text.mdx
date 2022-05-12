@@ -4,9 +4,22 @@ path: /docs/text
 section: Graphics
 ---
 
-You may want to display [[Text]] in your game, this can be acheived with the [[Text]], [[Font]], and [[SpriteFont]].
+You may want to display [[Text]] in your game, this can be achieved with the [[Text]], [[Font]], and [[SpriteFont]].
 
 ## Text
+
+Text is a [raster](#raster) [graphic](#graphic) that can be used to draw text to the screen, all of the normal things that can be done with [rasters](#raster) and [graphics](#graphic) can be done with text.
+
+Text supports both normal OS/web fonts and Sprite fonts.
+
+Example
+
+```typescript
+var text = new ex.Text({
+  text: 'This is raster text ❤️',
+  font: new ex.Font({ size: 30 }),
+})
+```
 
 [[Text]] is a prebuilt [[Graphic]] that can be used to draw text to the screen. Multiple lines of text are supported.
 
@@ -44,17 +57,45 @@ const label = new ex.Label({
 
 A [[Font]] is a traditional system or loaded web font.
 
-```typescript
-const font = new ex.Font({
-  family: 'impact',
-  size: 24,
-  unit: ex.FontUnit.Px,
-})
+Possible font options
 
-const text = new ex.Text({
-  text: 'some text with a font',
-  font: font,
-})
+```typescript
+export interface FontOptions {
+  size?: number
+  unit?: FontUnit
+  family?: string
+  style?: FontStyle
+  bold?: boolean
+  textAlign?: TextAlign
+  baseAlign?: BaseAlign
+  direction?: Direction
+  shadow?: {
+    blur?: number
+    offset?: Vector
+    color?: Color
+  }
+}
+```
+
+```typescript
+var text = new ex.Text({
+  text: 'This is raster text ❤️',
+  font: new ex.Font({
+    size: 30,
+    unit: FontUnit.Px,
+    family: 'sans-serif',
+    style: FontStyle.Normal,
+    bold: false,
+    textAlign: TextAlign.Left,
+    baseAlign: BaseAlign.Alphabetic,
+    direction: Direction.LeftToRight,
+    shadow: {
+      blur: 2,
+      offset: ex.Vec(2, 2),
+      color: ex.Color.Black,
+    };
+  })
+});
 ```
 
 It is recommended you load any font important to your game and not rely on any pre-installed system fonts, those will be different from computer to computer.
@@ -136,4 +177,32 @@ const text = new ex.Text({
   text: 'some text with a sprite font!',
   font: spriteFont,
 })
+```
+
+#### SpriteFont
+
+Sometimes you want to use text of your own creation from a [spritesheet](#spritesheet),
+
+```typescript
+const spriteFontSheet = ex.SpriteSheet.fromImageSource({
+  image: spriteFontImage,
+  grid: {
+    rows: 3,
+    columns: 16,
+    spriteWidth: 16,
+    spriteHeight: 16
+  }
+});
+
+const spriteFont = new ex.SpriteFont({
+    alphabet: '0123456789abcdefghijklmnopqrstuvwxyz,!\'&."?- ',
+    caseInsensitive: true,
+    spriteSheet: spriteFontSheet
+  });
+});
+
+const text = new ex.Text({
+  text: 'This is sprite font text!!',
+  font: spriteFont
+});
 ```
