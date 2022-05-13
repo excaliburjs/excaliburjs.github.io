@@ -4,6 +4,61 @@ path: /docs/migration
 section: Migration Guides
 ---
 
+## Migrating from v0.25.3 to v0.26.0
+
+The old drawing API had been removed from excalibur, this should not affect you unless you were using the `ex.Flags.useLegacyDrawing()`. If so you must switch to the new [graphics api](/docs/graphics).
+
+`ex.TileMap` has several breaking changes around naming, but brings it consistent with Tiled terminology and the new `ex.IsometricMap`. Additionally the new names are easier to follow.
+
+- Constructor has been changed to the following
+  ```typescript
+  new ex.TileMap({
+    pos: ex.vec(100, 100),
+    tileWidth: 64,
+    tileHeight: 48,
+    rows: 20,
+    columns: 20,
+  })
+  ```
+- `ex.Cell` has been renamed to `ex.Tile`
+  - `ex.Tile` now uses `addGraphic(...)`, `removeGraphic(...)`, `clearGraphics()` and `getGraphics()` instead of having an accessible `ex.Tile.graphics` array.
+- `ex.TileMap.data` has been renamed to `ex.TileMap.tiles`
+- `ex.TileMap.getCell(..)` has been renamed to `ex.TileMap.getTile(...)`
+- `ex.TileMap.getCellByIndex(...)` has been renamed to `ex.TileMap.getTileByIndex(...)`
+- `ex.TileMap.getCellByPoint(...)` has been renamed to `ex.TileMap.getTileByPoint(...)`
+
+The following types have been removed:
+
+- `ex.SortedList` old sorted list is removed, use the built in browser Array.sort
+- `ex.Collection` old collection type is removed, use the built in browser Array
+- `ex.Util` import site, exported code promoted `ex.*`
+- `ex.DisplayMode.Position` is removed, use CSS to position the canvas
+- `ex.Trait` interface, traits are not longer supported
+- `ex.Promises` old promise implementation is removed in favor of browser promises
+
+Notable method & property removals
+
+- `ex.Actor`
+  - `.getZIndex()` and `.setZIndex()` removed use `.z`
+- `ex.Scene`
+  - `.screenElements` removed in favor of `.entities`
+  - `.addScreenElement(...)` removed use `.add(...)`
+  - `.addTileMap(...)` removed use `.add(...)`
+  - `.removeTileMap(...)` removed use `.remove(...)`
+- `ex.Timer`
+  - `.unpause()` removed use `.resume()`
+- `ex.Camera`
+  - `.rx` removed use `.angularVelocity`
+- `ex.BodyComponent`
+  - `.sx` removed use `.scaleFactor`
+  - `.rx` removed use `.angularVelocity`
+- `ex.ActionsComponent`
+  - `.asPromise()` removed use `.toPromise()`
+- `ex.ActionContext`
+  - `.asPromise()` removed use `.toPromise()`
+- `ex.Color`
+  - Misspellings corrected
+
 ## Migrating from v0.25.1 to v0.25.2
 
 - [[EventEmitter]] no longer tampers with `this` on the event callbacks which may be a breaking change for some people. Change callbacks's to be an arrow function to capture `this`
