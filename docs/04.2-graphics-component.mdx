@@ -49,6 +49,37 @@ If no name is specified when added to the graphics component it is considered th
 actor.graphics.add(jumpAnimation)
 ```
 
+### Component Specific Overrides
+
+- `visible: boolean`
+
+  - Shows or hides the all the graphics for this component
+
+- `opacity: number`
+
+  - Applies an opacity to all the graphics shown for this component
+
+- `offset: Vector`
+
+  - Offset in pixels to shift the graphics for this component
+
+- `anchor: Vector`
+  - Anchor to apply to all drawings in this component if set, if null the drawing's anchor is respected by default (.5, .5) which centers the drawing.
+
+### Accessing the Graphics context
+
+The graphics component allows access to the underlying graphics context.
+
+```typescript
+const actor = new ex.Actor({...});
+actor.graphics.onPostDraw = (ctx: ex.ExcaliburGraphicsContext) => {
+  ctx.save();
+  ctx.z = 99;
+  ctx.drawLine(ex.vec(0, 0), ex.vec(200, 200), ex.Color.Green, 10);
+  ctx.restore();
+}
+```
+
 ### Layers
 
 The components adds a why multiple [graphics](#graphics) on top or behind each other for a certain actor or entity.
@@ -73,20 +104,3 @@ actor.graphics.show(myAnimation)
 // is equivalent to
 actor.graphics.getLayer('default').show(myAnimation)
 ```
-
-### Component Specific Overrides
-
-- `visible: boolean`
-
-  - Shows or hides the all the graphics for this component
-
-- `opacity: number`
-
-  - Applies an opacity to all the graphics shown for this component
-
-- `offset: Vector`
-
-  - Offset in pixels to shift the graphics for this component
-
-- `anchor: Vector`
-  - Anchor to apply to all drawings in this component if set, if null the drawing's anchor is respected.

@@ -49,6 +49,14 @@ var game = new ex.Engine({
 });
 ```
 
+When the performance fallback is triggered Excalibur will raise the event `fallbackgraphicscontext` that developers can listen to for
+
+```typescript
+game.on('fallbackgraphicscontext', (ctx) => {
+  console.log('fallback triggered', ctx)
+})
+```
+
 ## Debugging Performance Problems
 
 If you notice lag or unstable physics you may want to look into your game performance. Installing the [DevTool](/docs/devtool) will give you a live FPS read out to help debug your game.
