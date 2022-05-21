@@ -30,7 +30,7 @@ const slugify = (text) => {
     .trim() // Trim
 }
 
-const TOC = ({ toc, releases }) => (
+const TOC = ({ toc: pages, releases }) => (
   <div id="docs-toc" className="ui fluid vertical docs text menu">
     <a id="open-toc" className="ui button docs-open" href="#open-toc">
       <i className="hamburger icon"></i>{' '}
@@ -43,32 +43,45 @@ const TOC = ({ toc, releases }) => (
     </a>
 
     <div id="user-guides" className="header item">
-      User Guides
+      Documentation
     </div>
+    {(() => {
+      const sections = {}
+      for (let page of pages) {
+        if (!sections[page.frontmatter.section]) {
+          sections[page.frontmatter.section] = []
+        }
+        sections[page.frontmatter.section].push(page)
+      }
 
-    {toc.map(({ id, headings, frontmatter }) => (
-      <React.Fragment key={id}>
-        <Link activeClassName="active" className="item" to={frontmatter.path}>
-          {frontmatter.title}
-        </Link>
-        {headings && !!headings.length && (
-          <div className="sub item">
-            <div className="menu">
-              {headings.map((heading, index) => (
-                <Link
-                  key={`${frontmatter.path}-${index}`}
-                  data-heading-level={heading.depth}
-                  className="item"
-                  to={`${frontmatter.path}#${slugify(heading.value)}`}
-                >
-                  {heading.value}
-                </Link>
-              ))}
+      return Object.keys(sections).map((section) => (
+        <React.Fragment>
+          <section>
+            <Link
+              className="item active"
+              style={{ fontSize: 1.2 + 'em' }}
+              to={sections[section][0].frontmatter.path}
+            >
+              {section}
+            </Link>
+            <div className="sub item">
+              <div className="menu">
+                {sections[section].map(({ frontmatter }) => (
+                  <Link
+                    activeClassName="active"
+                    className="item"
+                    style={{ fontSize: 1.0 + 'em' }}
+                    to={frontmatter.path}
+                  >
+                    {frontmatter.title}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        )}
-      </React.Fragment>
-    ))}
+          </section>
+        </React.Fragment>
+      ))
+    })()}
 
     <a className="item" href="/examples/">
       Examples
@@ -184,6 +197,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            section
           }
         }
       }
@@ -194,6 +208,7 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        section
       }
     }
   }

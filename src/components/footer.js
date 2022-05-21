@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'gatsby'
 import Logo from './logo'
 
 const Footer = ({ discussionBoardUrl }) => (
@@ -20,6 +20,9 @@ const Footer = ({ discussionBoardUrl }) => (
         <a className="item" href={discussionBoardUrl}>
           Ask a Question
         </a>
+        <Link className="item" to="/donate">
+          Donate
+        </Link>
       </div>
 
       <div className="ui inverted section divider" />
