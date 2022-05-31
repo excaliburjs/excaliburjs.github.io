@@ -24,8 +24,8 @@ This method will cause the actor to repeat all of the actions built in the `repe
 
 ```typescript
 // Move up in a zig-zag by repeated moveBy's
-actor.actions.repeat((repeatCtx) => {
+actor.actions.repeatForever((repeatCtx) => {
   repeatCtx.moveBy(10, 0, 10)
   repeatCtx.moveBy(0, 10, 10)
-}, 5)
+})
 ```
