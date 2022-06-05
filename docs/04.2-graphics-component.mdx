@@ -82,19 +82,19 @@ actor.graphics.onPostDraw = (ctx: ex.ExcaliburGraphicsContext) => {
 
 ### Layers
 
-The components adds a why multiple [graphics](#graphics) on top or behind each other for a certain actor or entity.
+The layer's component adds a way for multiple [graphics](#graphics) to be on top or behind each other for a certain actor or entity.
 
 Layers can be ordered numerically, larger negative layers behind, and positive layers in front.
 
 ```typescript
-actor.graphics.createLayer({ name: 'background', order: -1 })
-actor.graphics.createLayer({ name: 'foreground', order: 1 })
+actor.graphics.layers.create({ name: 'background', order: -1 })
+actor.graphics.layers.create({ name: 'foreground', order: 1 })
 
-actor.graphics.getLayer('background').show(myBackground)
-actor.graphics.getLayer('foreground').show(myForeground)
+actor.graphics.layers.get('background').show(myBackground)
+actor.graphics.layers.get('foreground').show(myForeground)
 
 // no longer display the background
-actor.graphics.getLayer('background').hide()
+actor.graphics.layers.get('background').hide()
 ```
 
 There is always a layer named `'default'` at `order: 0`
@@ -102,5 +102,5 @@ There is always a layer named `'default'` at `order: 0`
 ```typescript
 actor.graphics.show(myAnimation)
 // is equivalent to
-actor.graphics.getLayer('default').show(myAnimation)
+actor.graphics.layers.get('default').show(myAnimation)
 ```
