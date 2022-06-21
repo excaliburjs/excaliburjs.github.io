@@ -252,20 +252,24 @@ game<span class="token punctuation">.</span>graphicsContext<span class="token pu
     </span></p><h2 id="custom-shader-based-post-processors" style="position:relative"><a href="#custom-shader-based-post-processors" aria-label="custom shader based post processors permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Custom Shader based Post Processors</h2><p>Post processors can also be use to produce some interesting custom effects.</p><p>There is a helper class <a href="/docs/api/edge/classes/ScreenShader.html" title="View &#x27;ScreenShader&#x27; in Excalibur.js Edge API docs" class="tsdoc-link" target="_blank">ScreenShader</a> to help build shaders for post processing. The only things that come predefined are the:</p><ol><li><code class="language-text">v_texcoord</code> representing the current UV from <!-- -->[0, 1]</li><li><code class="language-text">u_texture</code> which is the texture representing the screen pixels</li></ol><p>In this example we can make the entire game gray scale:</p><div class="gatsby-highlight" data-language="typescript"><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">GrayScalePostProcessor</span> <span class="token keyword">implements</span> <span class="token class-name">ex</span><span class="token punctuation">.</span>PostProcessor <span class="token punctuation">{</span>
   <span class="token keyword">private</span> _shader<span class="token operator">:</span> ex<span class="token punctuation">.</span>ScreenShader
   <span class="token function">initialize</span><span class="token punctuation">(</span>gl<span class="token operator">:</span> WebGLRenderingContext<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span>_shader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ex</span><span class="token punctuation">.</span><span class="token function">ScreenShader</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+    <span class="token keyword">this</span><span class="token punctuation">.</span>_shader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ex</span><span class="token punctuation">.</span><span class="token function">ScreenShader</span><span class="token punctuation">(</span>
+      <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">#version 300 es
     precision mediump float;
 
-    // Passed in from the vertex shader.
-    varying vec2 v_texcoord;
-    
-    // The texture.
-    uniform sampler2D u_texture;
-    
+    // our texture
+    uniform sampler2D u_image;
+
+    // the texCoords passed in from the vertex shader.
+    in vec2 v_texcoord;
+
+    out vec4 fragColor;
+
     void main() {
-      vec4 tex = texture2D(u_texture, vec2(v_texcoord.x, v_texcoord.y));
+      vec4 tex = texture(u_image, v_texcoord);
       float avg = 0.2126 * tex.r + 0.7152 * tex.g + 0.0722 * tex.b;
-      gl_FragColor = vec4(avg, avg, avg, 1.0);
-    }</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+      fragColor = vec4(avg, avg, avg, 1.0);
+    }</span><span class="token template-punctuation string">`</span></span>
+    <span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 
   <span class="token function">getLayout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> ex<span class="token punctuation">.</span>VertexLayout <span class="token punctuation">{</span>
