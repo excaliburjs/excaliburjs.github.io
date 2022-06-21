@@ -74,20 +74,24 @@ In this example we can make the entire game gray scale:
 class GrayScalePostProcessor implements ex.PostProcessor {
   private _shader: ex.ScreenShader
   initialize(gl: WebGLRenderingContext): void {
-    this._shader = new ex.ScreenShader(`
+    this._shader = new ex.ScreenShader(
+      `#version 300 es
     precision mediump float;
 
-    // Passed in from the vertex shader.
-    varying vec2 v_texcoord;
-    
-    // The texture.
-    uniform sampler2D u_texture;
-    
+    // our texture
+    uniform sampler2D u_image;
+
+    // the texCoords passed in from the vertex shader.
+    in vec2 v_texcoord;
+
+    out vec4 fragColor;
+
     void main() {
-      vec4 tex = texture2D(u_texture, vec2(v_texcoord.x, v_texcoord.y));
+      vec4 tex = texture(u_image, v_texcoord);
       float avg = 0.2126 * tex.r + 0.7152 * tex.g + 0.0722 * tex.b;
-      gl_FragColor = vec4(avg, avg, avg, 1.0);
-    }`)
+      fragColor = vec4(avg, avg, avg, 1.0);
+    }`
+    )
   }
 
   getLayout(): ex.VertexLayout {
