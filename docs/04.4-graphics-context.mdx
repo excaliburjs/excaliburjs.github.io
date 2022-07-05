@@ -16,7 +16,9 @@ If you have need to switch to 2D canvas based rendering turn on the flag before 
 
 <Note variant="warning">
 
-    Some features like
+<div>
+
+Some features like
 
 <a href="#custom-renderer">
 
@@ -33,6 +35,8 @@ post processors
 </a>
 
 do not work with the Canvas 2D implementation!
+
+</div>
 
 </Note>
 
@@ -128,6 +132,19 @@ onPostDraw(ctx: ExcaliburGraphicsContext) {
     ctx.drawRectangle(...);
     ctx.restore();
 }
+```
+
+## Snap To pixel
+
+Excalibur has built in snap to pixel support, this can be useful if you are building a game with a pixel aesthetic.
+
+To enable snap to pixel, enable `snapToPixel` in the engine constructor parameter. By default `snapToPixel` is not enabled.
+
+```typescript
+const game = new ex.Engine({
+    ...
+    snapToPixel: true
+});
 ```
 
 ## Custom Renderer

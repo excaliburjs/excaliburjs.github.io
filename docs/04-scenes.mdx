@@ -110,15 +110,23 @@ class MainMenu extends Scene {
 
 [[Scene.onActivate]] is called when the engine switches to the scene. It may be called more than once during the lifetime of a game, if you switch back and forth between scenes. It is useful for taking action before showing the scene. You may use this hook over `onInitialize` for anything specific to the context in which the scene was activated.
 
+Data can be passed to a scene during activation via the `goToScene('sceneKey', { some: 'data' })`.
+
 ```ts
-class MainMenu extends Scene {
+interface MyLevelData {
+  spawnLocation: Vector
+}
+
+class MainMenu extends Scene<MyLevelData> {
   private startButton: StartButton
 
   /**
    * Each time the scene is entered (Engine.goToScene)
    */
-  public onActivate(oldScene: Scene, newScene: Scene) {
-    if (oldScene instanceof Level) {
+  public onActivate(ctx: SceneActivationContext<MyLevelData>) {
+    const { spawnLocation } = ctx.data
+    console.log(spawnLocation)
+    if (ctx.previousScene instanceof Level) {
       this.startButton.text = 'Resume game'
     } else {
       this.startButton.text = 'Start game'
@@ -136,7 +144,7 @@ class Level extends Scene {
   /**
    * Each time the scene is exited (Engine.goToScene)
    */
-  public onDeactivate(oldScene: Scene, newScene: Scene) {
+  public onDeactivate(ctx: SceneActivationContext) {
     this.saveState()
   }
 }

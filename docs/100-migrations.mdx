@@ -4,6 +4,34 @@ path: /docs/migration
 section: Migration Guides
 ---
 
+## Migrating from v0.26.0 to v0.27.0
+
+- `ex.Engine.snapToPixel` now defaults to `false`, it was unexpected to have pixel snapping on by default it has now been switched. You may need to explicitly switch it depending on your desired effect.
+- The `ex.Physics.useRealisticPhysics()` physics solver has been updated to fix a bug in bounciness to be more physically accurate, this does change how physics behaves. Setting `ex.Body.bounciness = 0` will simulate the old behavior.
+- `ex.TransformComponent.getGlobalMatrix()` has been removed, use this instead
+  ```typescript
+  const actor = new ex.Actor({...});
+  const transform = actor.get(TransformComponent);
+  const matrix = transform.get().matrix;
+  ```
+- `ex.TransformComponent.posChanged$` has been removed, it incurs a steep performance cost.
+- `ex.EventDispatcher` meta events 'subscribe' and 'unsubscribe' were unused and undocumented and have been removed.
+- `ex.TileMap` tiles are now drawn from the lower left by default to match with `ex.IsometricMap` and Tiled, but can be configured with `renderFromTopOfGraphic` to restore the previous behavior.
+
+  ```typescript
+  const tilemap = new ex.TileMap({
+    ...
+    renderFromTopOfGraphic: true
+  })
+  ```
+
+- Scene `onActivate` and `onDeactivate` methods have been changed to receive a single context parameter, an object containing the `previousScene`, `nextScene`, and optional `data` passed in from `goToScene()`. Update any `onActivate` or `onDeactivate` handlers
+  ```typescript
+  onActivate(ctx: SceneActivationContext<TActivationData>) {
+    ...
+  }
+  ```
+
 ## Migrating from v0.25.3 to v0.26.0
 
 The old drawing API had been removed from excalibur, this should not affect you unless you were using the `ex.Flags.useLegacyDrawing()`. If so you must switch to the new [graphics api](/docs/graphics).
