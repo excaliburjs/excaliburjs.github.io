@@ -6,7 +6,7 @@ section: Resources
 
 Often you want external images loaded into your game, this is accomplished with [[ImageSource]]. In some other engines/frameworks this can be known as a Texture.
 
-[[ImageSource]] represents the source bitmap and contains the logic for loading that image from a file. You can thing of this as the file representation in Excalibur for the image. Use [Sprites](/docs/sprites) to draw them to the screen.
+[[ImageSource]] represents the source bitmap and contains the logic for loading that image from a file. You can think of this as the file representation in Excalibur for the image. Use [Sprites](/docs/sprites) to draw them to the screen.
 
 ## Loading Images with the [[ImageSource]] Resource
 
@@ -23,7 +23,7 @@ const game = new Engine({...});
 const spriteSheetImage = new ImageSource('./my/spritesheet.png');
 
 const loader = new Loader([spriteSheetImage]);
-await game.start([loader]);
+await game.start(loader);
 
 const spriteSheet = SpriteSheet.fromImageSource({
   image: spriteFontImage,
