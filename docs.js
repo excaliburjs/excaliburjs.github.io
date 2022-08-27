@@ -106,13 +106,22 @@ console.info('Discovered', tags.length, 'releases:', tags)
 
 // Pull latest site master with last docs built
 
-console.info('Getting latest published built site, which is on the master branch')
+console.info(
+  'Getting latest published built site, which is on the master branch'
+)
 child_process.execSync(
   'git clone https://github.com/excaliburjs/excaliburjs.github.io -b master _current',
   { stdio: [0, 1, 2] }
 )
 
+// Skip certain releases
+const skipTags = ['v0.23.0']
+
 tags.forEach(function (tag) {
+  if (skipTags.includes(tag)) {
+    console.info('Skipping release', tag)
+    return
+  }
   // Ignore releases that are already checked into source control
   if (fs.existsSync(path.join('_current', 'docs', 'api', tag))) {
     console.info(`Tagged version ${tag} exists already`)
