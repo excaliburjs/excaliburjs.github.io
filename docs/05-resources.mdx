@@ -40,7 +40,7 @@ const text = new Resource<string>('./path/to/my/data.txt', 'text');
 const json = new Resource<MyJsonShapeType>('./path/to/my/json.json', 'json');
 
 const loader = new Loader([text, json]);
-await game.start([loader]);
+await game.start(loader);
 
 console.log(text.data);
 console.log(json.data);
