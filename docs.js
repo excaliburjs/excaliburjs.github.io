@@ -100,7 +100,7 @@ const res = request(
 const releases = JSON.parse(res.getBody())
 
 // Ignore drafts
-const tags = releases.filter((r) => !r.draft).map((r) => r.tag_name)
+let tags = releases.filter((r) => !r.draft).map((r) => r.tag_name)
 
 console.info('Discovered', tags.length, 'releases:', tags)
 
@@ -114,14 +114,10 @@ child_process.execSync(
   { stdio: [0, 1, 2] }
 )
 
-// Skip certain releases
-const skipTags = ['v0.23.0']
+// Build the last 4 releases
+tags = tags.slice(0, 4)
 
 tags.forEach(function (tag) {
-  if (skipTags.includes(tag)) {
-    console.info('Skipping release', tag)
-    return
-  }
   // Ignore releases that are already checked into source control
   if (fs.existsSync(path.join('_current', 'docs', 'api', tag))) {
     console.info(`Tagged version ${tag} exists already`)
