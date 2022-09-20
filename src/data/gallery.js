@@ -7,8 +7,17 @@ import hexshaperImage from '../assets/images/showcase/hexshaper.png'
 import minotaurImage from '../assets/images/showcase/minotaur.png'
 import sweepstacksImage from '../assets/images/showcase/sweepstacks.png'
 import krakenImage from '../assets/images/showcase/kraken.png'
+import swordAdventureImage from '../assets/images/showcase/sword-adventure.png'
 
 export default [
+  {
+    title: 'Sword Adventure',
+    image: swordAdventureImage,
+    description:
+      'This game is an easily customizable template for developing an Excalibur game with Ionic React, the XState library, i18next, Twine integration for dynamic dialogs, and CapacitorJS. It comes with scene transitions, data persistence and tutorials included!',
+    url: 'https://nicastro.in/excalibur-games/sword-adventure',
+    source: 'https://github.com/facondiaGames/sword-adventure',
+  },
   {
     title: 'Beach Breach',
     image: beachBreachImage,
