@@ -172,3 +172,7 @@ await game.screen.goFullScreen()
 
 await game.screen.exitFullScreen()
 ```
+
+By default `goFullScreen()` will use the canvas element as the root of full screen mode. If your game uses [HTML based UI](/docs/ui#html-based-ui), the HTML UI will not be included because it is not a child of the canvas element. 
+
+To include both the HTML based game UI as well as the game canvas, pass an id of an element that is the parent of both the canvas and UI. For example `goFullScreen('root')` 
