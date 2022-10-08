@@ -134,7 +134,7 @@ Read more about the different [CollisionTypes](/docs/physics/#collision-types) t
 
 `embed:sample-breakout/src/main.ts{snippet: "create-ball"}`
 
-The ball will now bounce off of the paddle, but does not bounce with the side of the screen. To fix that, let’s take advantage of the `postupdate` event.
+The ball is now setup to move at 100 pixels per second down and right. Next we will make the ball bounce with the side of the screen, let’s take advantage of the `postupdate` event.
 
 `embed:sample-breakout/src/main.ts{snippet: "screen-collision"}`
 
@@ -144,7 +144,7 @@ Breakout needs some bricks to break. To do this we calculate our brick layout an
 
 `embed:sample-breakout/src/main.ts{snippet: "create-bricks"}`
 
-When the ball collides with bricks, we want to remove them from the scene. Update the ‘precollision’ handler we previously added:
+When the ball collides with bricks, we want to remove them from the scene. We use the `collisionstart` handler to accomplish this. This handler fires when objects first touch, if you want to know every time resolution is completed use `postcollision`.
 
 `embed:sample-breakout/src/main.ts{snippet: "ball-brick-collision"}`
 
