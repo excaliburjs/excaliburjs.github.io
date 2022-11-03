@@ -134,7 +134,7 @@ are built and deployed so you don't have to remember to compile CSS before commi
 
 ## Compiling documentation
 
-Travis will automatically compile `master` (edge) and any tagged releases. If a release folder already exists, the GitHub release is ignored and the source controlled version is used.
+GitHub will automatically compile `master` (edge) and any tagged releases. If a release folder already exists, the GitHub release is ignored and the source controlled version is used.
 
 Compiled documentation lives in `static/docs/api/[version]`. The documentation generation works by cloning each version of Excalibur and running the `npm run apidocs` script. API documentation is generated in `ex/[version]/docs/api` and then copied to the corresponding `static/docs/api/[version]` folder.
 
