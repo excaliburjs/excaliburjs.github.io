@@ -108,7 +108,7 @@ module.exports = {
         graphQLQuery: `
         { 
           repository(owner: "excaliburjs", name: "excalibur") {
-            latestRelease: releases(last: 1) {
+            latestRelease: releases(first: 1) {
               edges {
                 node {
                   tag {
