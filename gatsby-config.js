@@ -100,7 +100,6 @@ module.exports = {
         name: 'markdown-pages',
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-github-api',
       options: {

@@ -34,8 +34,12 @@ exports.createPages = ({ actions, graphql, reporter }) => {
       allMdx {
         edges {
           node {
+            id
             frontmatter {
               path
+            }
+            internal {
+              contentFilePath
             }
           }
         }
@@ -49,7 +53,7 @@ exports.createPages = ({ actions, graphql, reporter }) => {
     result.data.allMdx.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
-        component: docsPageTemplate,
+        component: `${docsPageTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
         context: { id: node.id }, // additional data can be passed via context
       })
     })
