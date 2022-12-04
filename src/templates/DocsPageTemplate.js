@@ -3,8 +3,6 @@ import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { DocSearch } from '@docsearch/react'
 
-import '@docsearch/react/style'
-
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
@@ -41,7 +39,7 @@ const Toc = ({ toc: pages, releases }) => (
       }
 
       return Object.keys(sections).map((section) => (
-        <React.Fragment>
+        <React.Fragment key={section}>
           <section>
             <Link
               className="item active"
@@ -54,6 +52,7 @@ const Toc = ({ toc: pages, releases }) => (
               <div className="menu">
                 {sections[section].map(({ frontmatter }) => (
                   <Link
+                    key={frontmatter.path}
                     activeClassName="active"
                     className="item"
                     style={{ fontSize: 1.0 + 'em' }}
@@ -104,13 +103,10 @@ const Search = () => (
 export const Head = ({ data }) => (
   <>
     <title>{data.page.frontmatter.title}</title>
+    <link rel="preconnect" href="https://IVI5ONIKWP-dsn.algolia.net" crossOrigin="true" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@docsearch/css@1.0.0-alpha.28"
     />
   </>
 )

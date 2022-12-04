@@ -4,6 +4,9 @@ require('dotenv').config({
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
 module.exports = {
+  flags: {
+    DEV_SSR: true
+  },
   siteMetadata: {
     title: 'Excalibur.js HTML5 Game Engine',
     discussionBoard: 'https://github.com/excaliburjs/Excalibur/discussions',

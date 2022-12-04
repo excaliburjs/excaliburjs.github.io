@@ -9,6 +9,7 @@ import favicon from './favicon.png'
 
 import '../assets/ui/prism.css'
 import '../assets/ui/semantic.css'
+import '@docsearch/css';
 
 export const Head = ({ data, pageContext }) => {
   return (
