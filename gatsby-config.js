@@ -4,9 +4,6 @@ require('dotenv').config({
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || ''
 
 module.exports = {
-  flags: {
-    DEV_SSR: true
-  },
   siteMetadata: {
     title: 'Excalibur.js HTML5 Game Engine',
     discussionBoard: 'https://github.com/excaliburjs/Excalibur/discussions',
@@ -61,7 +58,12 @@ module.exports = {
               directory: `${__dirname}/snippets/`,
             },
           },
-          `gatsby-remark-prismjs`,
+          { 
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true
+            },
+          },
           'gatsby-remark-copy-linked-files',
         ],
       },

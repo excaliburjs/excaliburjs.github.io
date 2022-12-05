@@ -14,7 +14,13 @@ import CodeSandboxEmbed from '../components/docs/CodeSandboxEmbed'
  * Common shared template components to expose automatically
  * within the MDX files
  */
-const shortcodes = { Link, Note, Example, IFrameEmbed, CodeSandboxEmbed }
+const shortcodes = {
+  Link,
+  Note,
+  Example,
+  IFrameEmbed,
+  CodeSandboxEmbed,
+}
 
 const Toc = ({ toc: pages, releases }) => (
   <div id="docs-toc" className="ui fluid vertical docs text menu">
@@ -105,7 +111,11 @@ const Search = () => (
 export const Head = ({ data }) => (
   <>
     <title>{data.page.frontmatter.title}</title>
-    <link rel="preconnect" href="https://IVI5ONIKWP-dsn.algolia.net" crossOrigin="true" />
+    <link
+      rel="preconnect"
+      href="https://IVI5ONIKWP-dsn.algolia.net"
+      crossOrigin="true"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
@@ -143,9 +153,7 @@ export default function Template({ data, children }) {
           <div className="ui left aligned container">
             <h1>{frontmatter.title}</h1>
             <div id="docs-content" className="docs-content">
-              <MDXProvider components={shortcodes}>
-              {children}
-              </MDXProvider>
+              <MDXProvider components={shortcodes}>{children}</MDXProvider>
             </div>
           </div>
         </div>
