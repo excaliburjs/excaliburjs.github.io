@@ -7,12 +7,14 @@ import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
 import Example from '../components/docs/Example'
+import IFrameEmbed from '../components/docs/IFrameEmbed'
+import CodeSandboxEmbed from '../components/docs/CodeSandboxEmbed'
 
 /**
  * Common shared template components to expose automatically
  * within the MDX files
  */
-const shortcodes = { Link, Note, Example }
+const shortcodes = { Link, Note, Example, IFrameEmbed, CodeSandboxEmbed }
 
 const Toc = ({ toc: pages, releases }) => (
   <div id="docs-toc" className="ui fluid vertical docs text menu">
