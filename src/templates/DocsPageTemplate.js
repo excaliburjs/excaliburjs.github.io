@@ -2,35 +2,27 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { DocSearch } from '@docsearch/react'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { Helmet } from 'react-helmet'
-
-import '@docsearch/react/style'
 
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Note from '../components/docs/Note'
 import Example from '../components/docs/Example'
+import IFrameEmbed from '../components/docs/IFrameEmbed'
+import CodeSandboxEmbed from '../components/docs/CodeSandboxEmbed'
 
 /**
  * Common shared template components to expose automatically
  * within the MDX files
  */
-const shortcodes = { Link, Note, Example }
-
-/*
- * https://gist.github.com/mathewbyrne/1280286
- */
-const slugify = (text) => {
-  return text
-    .toString()
-    .toLowerCase()
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/[^\w-]+/g, '') // Remove all non-word chars
-    .trim() // Trim
+const shortcodes = {
+  Link,
+  Note,
+  Example,
+  IFrameEmbed,
+  CodeSandboxEmbed,
 }
 
-const TOC = ({ toc: pages, releases }) => (
+const Toc = ({ toc: pages, releases }) => (
   <div id="docs-toc" className="ui fluid vertical docs text menu">
     <a id="open-toc" className="ui button docs-open" href="#open-toc">
       <i className="hamburger icon"></i>{' '}
@@ -55,7 +47,7 @@ const TOC = ({ toc: pages, releases }) => (
       }
 
       return Object.keys(sections).map((section) => (
-        <React.Fragment>
+        <React.Fragment key={section}>
           <section>
             <Link
               className="item active"
@@ -68,6 +60,7 @@ const TOC = ({ toc: pages, releases }) => (
               <div className="menu">
                 {sections[section].map(({ frontmatter }) => (
                   <Link
+                    key={frontmatter.path}
                     activeClassName="active"
                     className="item"
                     style={{ fontSize: 1.0 + 'em' }}
@@ -115,7 +108,22 @@ const Search = () => (
   </div>
 )
 
-export default function Template({ data }) {
+export const Head = ({ data }) => (
+  <>
+    <title>{data.page.frontmatter.title}</title>
+    <link
+      rel="preconnect"
+      href="https://IVI5ONIKWP-dsn.algolia.net"
+      crossOrigin="true"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
+    />
+  </>
+)
+
+export default function Template({ data, children }) {
   const {
     page,
     toc,
@@ -125,27 +133,17 @@ export default function Template({ data }) {
       },
     },
   } = data
-  const { frontmatter, body } = page
+  const { frontmatter } = page
 
   return (
-    <Layout pageTitle={frontmatter.title}>
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@docsearch/css@1.0.0-alpha.28"
-        />
-      </Helmet>
+    <Layout>
       <Header />
 
       <div className="ui page stackable relaxed grid">
         <div className="four wide column">
           <Search />
 
-          <TOC
+          <Toc
             toc={toc.edges.map((e) => e.node)}
             releases={releases.edges.map((r) => r.node)}
           />
@@ -155,9 +153,7 @@ export default function Template({ data }) {
           <div className="ui left aligned container">
             <h1>{frontmatter.title}</h1>
             <div id="docs-content" className="docs-content">
-              <MDXProvider components={shortcodes}>
-                <MDXRenderer>{body}</MDXRenderer>
-              </MDXProvider>
+              <MDXProvider components={shortcodes}>{children}</MDXProvider>
             </div>
           </div>
         </div>
@@ -166,8 +162,8 @@ export default function Template({ data }) {
   )
 }
 
-export const pageQuery = graphql`
-  query DocsByPath($path: String!) {
+export const query = graphql`
+  query DocsByPath($id: String!) {
     github: githubData {
       data {
         repository {
@@ -186,14 +182,10 @@ export const pageQuery = graphql`
       }
     }
 
-    toc: allMdx(sort: { fields: [fileAbsolutePath], order: ASC }) {
+    toc: allMdx(sort: { internal: { contentFilePath: ASC } }) {
       edges {
         node {
           id
-          headings {
-            value
-            depth
-          }
           frontmatter {
             title
             path
@@ -203,7 +195,7 @@ export const pageQuery = graphql`
       }
     }
 
-    page: mdx(frontmatter: { path: { eq: $path } }) {
+    page: mdx(id: { eq: $id }) {
       body
       frontmatter {
         path

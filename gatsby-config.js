@@ -58,7 +58,12 @@ module.exports = {
               directory: `${__dirname}/snippets/`,
             },
           },
-          `gatsby-remark-prismjs`,
+          { 
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              noInlineHighlight: true
+            },
+          },
           'gatsby-remark-copy-linked-files',
         ],
       },
@@ -100,7 +105,6 @@ module.exports = {
         name: 'markdown-pages',
       },
     },
-    'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-github-api',
       options: {

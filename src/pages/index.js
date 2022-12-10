@@ -1,5 +1,5 @@
 import React from 'react'
-import filesize from 'filesize'
+import { filesize } from 'filesize'
 import { graphql } from 'gatsby'
 import { format } from 'date-fns'
 

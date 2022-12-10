@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: Build using Node 16
+    name: Build using Node
     runs-on: ubuntu-latest
 
     steps:
@@ -24,7 +24,9 @@ jobs:
           submodules: recursive
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          node-version-file: '.nvmrc'
+          cache: npm
+          registry-url: 'https://registry.npmjs.org'
       - uses: actions/cache@v2
         with:
           path: ~/.npm
