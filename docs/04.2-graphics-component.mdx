@@ -25,6 +25,7 @@ await game.start()
 const actor = new Actor({
   x: 100,
   y: 100,
+  anchor: ex.vec(0.5, 1), // Optional value that controls the position of the image.
 })
 
 actor.graphics.use(image.toSprite())
@@ -64,7 +65,10 @@ actor.graphics.add(jumpAnimation)
   - Offset in pixels to shift the graphics for this component
 
 - `anchor: Vector`
+
   - Anchor to apply to all drawings in this component if set, if null the drawing's anchor is respected by default (.5, .5) which centers the drawing.
+
+    ![Behavior per anchor setting](./04.2-graphics-component/anchor.png)
 
 ### Accessing the Graphics context
 
