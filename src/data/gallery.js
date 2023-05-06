@@ -9,8 +9,17 @@ import sweepstacksImage from '../assets/images/showcase/sweepstacks.png'
 import krakenImage from '../assets/images/showcase/kraken.png'
 import swordAdventureImage from '../assets/images/showcase/sword-adventure.png'
 import superMetronomeImage from '../assets/images/showcase/super-metronome-hero.png'
+import nightBikeImage from '../assets/images/showcase/nightbike.png'
 
 export default [
+  {
+    title: 'Night Bike',
+    image: nightBikeImage,
+    description:
+      'Ride your motorcycle through the city at night! Jump over as many vehicles as you can!',
+    url: 'https://nightbike.mattjennin.gs/',
+    source: 'https://github.com/mattjennings/nightbike',
+  },
   {
     title: 'Super Metronome Hero',
     image: superMetronomeImage,
