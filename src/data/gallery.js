@@ -8,8 +8,17 @@ import minotaurImage from '../assets/images/showcase/minotaur.png'
 import sweepstacksImage from '../assets/images/showcase/sweepstacks.png'
 import krakenImage from '../assets/images/showcase/kraken.png'
 import swordAdventureImage from '../assets/images/showcase/sword-adventure.png'
+import superMetronomeImage from '../assets/images/showcase/super-metronome-hero.png'
 
 export default [
+  {
+    title: 'Super Metronome Hero',
+    image: superMetronomeImage,
+    description:
+      'Super Metronome Hero is a rhythm game. Rather than trying to make a game I wanted to play out of this rather popular genre I decided to send it up with this nonsense joke game.',
+    url: 'https://super-metronome-hero.vidja.games/',
+    source: 'https://github.com/dcgw/super-metronome-hero',
+  },
   {
     title: 'Sword Adventure',
     image: swordAdventureImage,
