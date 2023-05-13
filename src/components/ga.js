@@ -1,19 +1,20 @@
 import React from 'react'
 
 const GoogleAnalytics = () => (
-  <script
-    dangerouslySetInnerHTML={{
-      __html: /* js */ `
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QM3LR3WVS" />
+    <script
+      dangerouslySetInnerHTML={{
+        __html: /* js */ `             
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-            ga('create', 'UA-46390208-1', 'excaliburjs.com');
-            ga('send', 'pageview');
-        `,
-    }}
-  />
+            gtag('config', 'G-9QM3LR3WVS');
+          `,
+      }}
+    />
+  </>
 )
 
 export default GoogleAnalytics
