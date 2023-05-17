@@ -14,6 +14,8 @@ In Excalibur, if you want to display something like a HUD element or UI element,
 
 - They automatically [capture pointer events](/docs/input#actor-pointer-events)
 - They do not participate in collisions
+- They draw graphics from the top left instead of the center like [[Actors]]
+  - This can be changed to center by setting `ex.ScreenElement.anchor = ex.Vector.Half`
 - They appear above all "normal" actors in a [scene](/docs/scenes)
 - Invoking [[ScreenElement.contains]] will check against [screen coordinates](/docs/engine#screen-coordinates) by default.
 
