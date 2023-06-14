@@ -8,6 +8,16 @@ section: Other
 
 Upload a zip file containing your built game
 
+For keyboard events in cross-origin iframes there is a [known issue](https://github.com/excaliburjs/Excalibur/issues/1512) (will be fixed in v0.28.0), add this snippet to workaround
+
+```typescript
+const engine = new ex.Engine({...});
+engine.start().then(() => {
+  // Grab the frame's focus
+  window.focus();
+});
+```
+
 Read more https://itch.io/docs/creators/html5#common-pitfalls
 
 ## GitHub Pages
