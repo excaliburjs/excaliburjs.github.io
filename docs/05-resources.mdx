@@ -123,3 +123,74 @@ In your HTML file(s), to set the base for any absolute paths like the example ab
 This can be accessed programmatically using [document.baseUri](https://developer.mozilla.org/en-US/docs/Web/API/Node/baseURI) to resolve absolute paths in JavaScript.
 
 This is a good approach to use when hosting your game at a sub-directory, such as publishing to [GitHub Pages](https://pages.github.com/).
+
+## Custom Loader Screen
+
+In your game, you may not want the default Excalibur loading screen. It is possible to customize the screen to show anything.
+
+### Loader Builtin Customizations
+
+The default [[Loader]] comes with some builtin customization features to tweak the default behaviors. If you create a custom play button, it's important to give it the id `excalibur-play`.The play button is necessary to unlock the browser's audio context for your game. Here is an example:
+
+```typescript
+const loader = new ex.Loader([...]);
+loader.loadingBarColor = ex.Color.Black;
+loader.backgroundColor = ex.Color.White;
+loader.loadingBarPosition = ex.vec(40, 270);
+
+
+loader.startButtonFactory = () => {
+  let buttonElement: HTMLButtonElement = document.getElementById('excalibur-play') as HTMLButtonElement;
+  if (!buttonElement) {
+    buttonElement = document.createElement('button');
+  }
+
+  buttonElement.id = 'excalibur-play';
+  buttonElement.textContent = 'some different text'
+  buttonElement.style.backgroundColor = 'blue';
+  // Initially hide the button
+  buttonElement.style.display = 'none';
+  return buttonElement;
+};
+
+loader.playButtonPosition = ex.vec(100, 100);
+loader.playButtonText = "Let's mosey";
+
+
+loader.logoPosition = ex.vec(140, 180);
+// base64 encoding of your custom logo
+loader.logo = '"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQA...';
+
+```
+
+Play around with the code [here](https://codepen.io/chrisk7777/pen/RwMvXKZ?editors=0011)
+
+### Extend Loader
+
+By extending the built in [[Loader]] you can draw anything you like. If you create a custom play button, it's important to give it the id `excalibur-play`.The play button is necessary to unlock the browser's audio context for your game.
+
+```typescript
+class CustomLoader extends ex.Loader {
+  // Return a custom play button html element
+  public startButtonFactory = () => {
+    let buttonElement: HTMLButtonElement = document.getElementById(
+      'excalibur-play'
+    ) as HTMLButtonElement
+    if (!buttonElement) {
+      buttonElement = document.createElement('button')
+    }
+
+    buttonElement.id = 'excalibur-play'
+    buttonElement.textContent = this.playButtonText
+    buttonElement.style.display = 'none'
+    return buttonElement
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    // custom drawing code
+    c.fillStyle = 'red'
+    c.fillRect(0, 0, c.canvas.width, c.canvas.height)
+    console.log(this.progress) // progress is between [0, 1]
+  }
+}
+```
