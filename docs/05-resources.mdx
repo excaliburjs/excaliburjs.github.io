@@ -28,6 +28,59 @@ const loader = new ex.Loader([
 
 </Note>
 
+## Typical Loader Pattern
+
+Generally we recommend creating a file in your project dedicated to your resources. Something like this
+
+```typescript
+// resources.ts
+import * as ex from 'excalibur'
+
+const Images = {
+  // Characters
+  heroImage: new ex.ImageSource('/path/to/hero.png'),
+  enemyImage: new ex.ImageSource('/path/to/enemy.png'),
+
+  // Weapons
+  swordImage: new ex.ImageSource('/path/to/sword.png'),
+  arrowImage: new ex.ImageSource('/path/to/arrow.png'),
+
+  // Maps
+  overWorldImage: new ex.ImageSource('/path/to/overWorld.png'),
+}
+
+const Sounds = {
+  jump: new ex.Sound('/path/to/jump.mp3', '/path/to/jump.wav'),
+  hit: new ex.Sound('/path/to/hit.mp3', '/path/to/hit.wav'),
+}
+
+const loader = new ex.Loader()
+const allResources = { ...Images, ...Sounds }
+for (const res in allResources) {
+  loader.addResource(allResources[res])
+}
+
+export { loader, Images, Sounds }
+```
+
+Then in your main game you can import your loader, images, and sounds for use!
+
+```typescript
+// main.ts
+import * as ex from "excalibur";
+import { loader, Images, Sounds } from "./resources"
+const engine = new ex.Engine({...});
+
+const hero = new ex.Actor({...});
+const sprite = Images.heroImage.toSprite();
+hero.graphics.use(sprite);
+hero.on('postcollision', () => {
+  Sounds.hit.play()
+});
+
+engine.start(loader);
+```
+
 ## Generic [[Resource|Resources]]
 
 Sometimes you may have some other type of file you'd like to load, perhaps some data stored in a text file, json, or perhaps some binary data.
