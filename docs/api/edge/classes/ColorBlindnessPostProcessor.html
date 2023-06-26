@@ -15,6 +15,17 @@
 <li><a href="../modules.html">Excalibur.js Edge API Documentation</a></li>
 <li><a href="ColorBlindnessPostProcessor.html">ColorBlindnessPostProcessor</a></li></ul>
 <h1>Class ColorBlindnessPostProcessor</h1></div>
+<section class="tsd-panel tsd-comment">
+<div class="tsd-comment tsd-typography"><p>PostProcessors can be used to apply a shader to the entire screen. It is recommended
+you use the <a href="ScreenShader.html">ScreenShader</a> to build your post processor shader.</p>
+<p>The screen texture comes through as this uniform</p>
+<p><code>uniform sampler2D u_image</code></p>
+<p>Post processor shaders get some default uniforms passed to them</p>
+<p><code>uniform float u_time_ms</code> - total playback time in milliseconds
+<code>uniform float u_elapsed_ms</code> - the elapsed time from the last frame in milliseconds
+<code>uniform vec2 u_resolution</code> - the resolution of the canvas (in pixels)</p>
+<p>Custom uniforms can be updated in the <a href="../interfaces/PostProcessor.html#onUpdate">PostProcessor.onUpdate</a></p>
+</div></section>
 <section class="tsd-panel tsd-hierarchy">
 <h4>Hierarchy</h4>
 <ul class="tsd-hierarchy">
@@ -24,7 +35,7 @@
 <ul class="tsd-hierarchy">
 <li><a href="../interfaces/PostProcessor.html" class="tsd-signature-type" data-tsd-kind="Interface">PostProcessor</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L8">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:8</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L8">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:8</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -61,7 +72,7 @@
 <h5>simulate: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="ColorBlindnessPostProcessor.html" class="tsd-signature-type" data-tsd-kind="Class">ColorBlindnessPostProcessor</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L11">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:11</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L11">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:11</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Accessors</h2>
 <section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"><a id="colorBlindnessMode" class="tsd-anchor"></a>
@@ -71,7 +82,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <a href="../enums/ColorBlindnessMode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ColorBlindnessMode</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L44">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:44</a></li></ul></aside></li>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L44">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:44</a></li></ul></aside></li>
 <li class="tsd-signature" id="colorBlindnessMode.colorBlindnessMode-2"><span class="tsd-signature-symbol">set</span> colorBlindnessMode<span class="tsd-signature-symbol">(</span>colorBlindMode<span class="tsd-signature-symbol">: </span><a href="../enums/ColorBlindnessMode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ColorBlindnessMode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
@@ -81,7 +92,7 @@
 <h5>colorBlindMode: <a href="../enums/ColorBlindnessMode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ColorBlindnessMode</a></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L29">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:29</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L29">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:29</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class"><a id="simulate" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>simulate</span><a href="#simulate" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
@@ -89,7 +100,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L58">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:58</a></li></ul></aside></li>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L58">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:58</a></li></ul></aside></li>
 <li class="tsd-signature" id="simulate.simulate-2"><span class="tsd-signature-symbol">set</span> simulate<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
@@ -99,7 +110,7 @@
 <h5>value: <span class="tsd-signature-type">boolean</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L48">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:48</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L48">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:48</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getLayout" class="tsd-anchor"></a>
@@ -110,7 +121,7 @@
 <h4 class="tsd-returns-title">Returns <a href="VertexLayout.html" class="tsd-signature-type" data-tsd-kind="Class">VertexLayout</a></h4><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/PostProcessor.html">PostProcessor</a>.<a href="../interfaces/PostProcessor.html#getLayout">getLayout</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L25">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:25</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L25">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:25</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="getShader" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Shader</span><a href="#getShader" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -119,7 +130,7 @@
 <h4 class="tsd-returns-title">Returns <a href="Shader.html" class="tsd-signature-type" data-tsd-kind="Class">Shader</a></h4><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/PostProcessor.html">PostProcessor</a>.<a href="../interfaces/PostProcessor.html#getShader">getShader</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L21">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:21</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L21">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:21</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class"><a id="initialize" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>initialize</span><a href="#initialize" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><use href="#icon-anchor-a"></use><use href="#icon-anchor-b"></use><use href="#icon-anchor-c"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -133,7 +144,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/PostProcessor.html">PostProcessor</a>.<a href="../interfaces/PostProcessor.html#initialize">initialize</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/4b726911/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L15">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:15</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/excaliburjs/Excalibur/blob/214e6094/src/engine/Graphics/PostProcessor/ColorBlindnessPostProcessor.ts#L15">Graphics/PostProcessor/ColorBlindnessPostProcessor.ts:15</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
