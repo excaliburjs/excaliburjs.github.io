@@ -36,12 +36,179 @@ collision events.
 
 This matrix shows what will happen with 2 actors of any collision type.
 
-| Collision Type | Prevent |   Passive   |       Active        |        Fixed        |
-| -------------- | :-----: | :---------: | :-----------------: | :-----------------: |
-| Prevent        |  None   |    None     |        None         |        None         |
-| Passive        |  None   | Events Only |     Events Only     |     Events Only     |
-| Active         |  None   | Events Only | Resolution & Events | Resolution & Events |
-| Fixed          |  None   | Events Only | Resolution & Events |        None         |
+<table style={{border: '1px solid'}}>
+
+<tr style={{border: '1px solid'}}>
+
+<th style={{border: '1px solid'}}>
+
+Collision Type
+
+</th>
+
+<th>
+
+Prevent
+
+</th>
+
+<th>
+
+Passive
+
+</th>
+
+<th>
+
+Active
+
+</th>
+
+<th>
+
+Fixed
+
+</th>
+
+</tr>
+
+<tr>
+
+<td style={{borderRight: '1px solid'}}>
+
+Prevent
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style={{borderRight: '1px solid'}}>
+
+Passive
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+<td>
+
+Events Only
+
+</td>
+
+<td>
+
+Events Only
+
+</td>
+
+<td>
+
+Events Only
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style={{borderRight: '1px solid'}}>
+
+Active
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+<td>
+
+Events Only
+
+</td>
+
+<td>
+
+Resolutions & Events
+
+</td>
+
+<td>
+
+Resolutions & Events
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style={{borderRight: '1px solid'}}>
+
+Fixed
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+<td>
+
+Events Only
+
+</td>
+
+<td>
+
+Resolutions & Events
+
+</td>
+
+<td>
+
+None
+
+</td>
+
+</tr>
+
+</table>
 
 - None = No collision resolution and no collision events
 - Events Only = No resolution is performed, only collision events are fired on colliders, except for `postcollision` which only fires if resolution was performed.
