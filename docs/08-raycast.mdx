@@ -1,0 +1,29 @@
+---
+title: Ray Casting
+path: /docs/raycast
+section: Physics
+---
+
+You may need to test if other colliders are nearby for your game, this might be for line of sight, for certain graphics effects, or for more complicated physics simulations.
+
+You may arbitrarily ray cast into a scene and get a list of "hits"
+
+```typescript
+  const engine = new ex.Engine({...});
+  const enemyGroup = ex.CollisionGroupManager.create('enemy');
+  const ray = new ex.Ray(ex.vec(0, 0), ex.Vector.Right);
+  const hits = engine.currentScene.physics.rayCast(ray, {
+    /**
+      * Optionally specify to search for all colliders that intersect the ray cast, not just the first which is the default
+      */
+    searchAllColliders: true,
+    /**
+      * Optionally specify the maximum distance in pixels to ray cast, default is Infinity
+      */
+    maxDistance: 100,
+    /**
+      * Optionally specify a collision group to consider in the ray cast, default is All
+      */
+    collisionGroup: enemyGroup
+  });
+```

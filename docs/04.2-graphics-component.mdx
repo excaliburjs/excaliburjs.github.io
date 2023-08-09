@@ -50,7 +50,26 @@ If no name is specified when added to the graphics component it is considered th
 actor.graphics.add(jumpAnimation)
 ```
 
+### Flipping Graphics
+
+The graphics component allows flipping all the graphics at once without modifying the original graphics.
+
+```typescript
+actor.graphics.add('walk', leftAnimation)
+actor.graphics.show('walk') // display the graphic
+// flip the graphics to go right
+actor.graphics.flipHorizontal = true
+```
+
 ### Component Specific Overrides
+
+- `flipHorizontal`
+
+  - Flips all the graphics in the component horizontally
+
+- `flipVertical`
+
+  - Flips all the graphics in the component vertically
 
 - `visible: boolean`
 

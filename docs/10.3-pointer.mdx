@@ -184,9 +184,52 @@ Actors have the following **extra** events you can subscribe to:
 
 You can query any [[Gamepad|Gamepads]] that are connected or listen to events ("button" and "axis").
 
-You must opt-in to controller support ([[Gamepads.enabled]]) because it is a polling-based
-API, so we have to check it each update frame. If an gamepad related event handler is set, you will
-automatically opt-in to controller polling.
-
 HTML5 Gamepad API only supports a maximum of 4 gamepads. You can access them using the [[Gamepads.at]] method. If a [[Gamepad]] is
 not connected, it will simply not throw events.
+
+The gamepad can be accessed off of the engine
+
+```typescript
+const game = new ex.Engine({...});
+const gamepad1 = game.input.gamepads.at(0);
+
+// retrieve buttons
+const dpadRight = gamepad1.getButton(ex.Buttons.DpadRight);
+const face1 = gamepad1.getButton(ex.Buttons.Face1);
+
+// joysticks
+const leftJoyX = gamepad1.getAxes(ex.Axes.LeftStickX);
+const leftJoyY = gamepad1.getAxes(ex.Axes.LeftStickY);
+
+// was a button pressed?
+gamepad1.isButtonPressed(ex.Buttons.DpadRight);
+gamepad1.isButtonHeld(ex.Buttons.DpadRight);
+gamepad1.wasButtonPressed(ex.Buttons.DpadRight);
+
+
+// listen to events
+gamepad1.on('connect', (ev: GamepadConnectEvent) => {...}); // game pad connected
+gamepad1.on('disconnect', (ev: GamepadDisconnectEvent) => {...}); // game pad disconnected
+gamepad1.on('button', (ev: GamepadButtonEvent) => {}); // button pressed
+gamepad1.on('axis', (ev: GamepadAxisEvent) => {}); // axis changed
+
+```
+
+## Minimum Controller Requirements
+
+The variety of controllers is vast, and a lot of devices may present as a controller to the controller api that you do not want to support in your game.
+
+You can use the minimum controller requirement to filter out controllers that are unsuitable for your game.
+
+```typescript
+const game = new ex.Engine({...});
+game.input.gamepads.setMinimumGamepadConfiguration({
+  buttons: 8,
+  axis: 2
+});
+
+```
+
+## Common Issues
+
+Sometimes there is a certain amount of slack in the joysticks where the idle position does not read (0, 0). The threshold for registering input can be adjusted with the static `ex.Gamepads.MinAxisMoveThreshold = 0.1` the default is `0.05`.

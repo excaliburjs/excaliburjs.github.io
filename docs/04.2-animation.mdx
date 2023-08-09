@@ -68,9 +68,35 @@ anim.on('loop', (a) => {
   console.log('loop')
 })
 anim.on('frame', (f) => {
-  console.log('frame')
+  console.log('frame', f)
+  console.log('Current frame index:', anim.currentFrameIndex)
 })
 anim.on('end', (a) => {
   console.log('ended')
 })
+```
+
+Animations can be controlled by the [[Animation.goToFrame]] method, this allows you to skip to specific frames in an animation
+
+```typescript
+const anim = new ex.Animation({...});
+anim.goToFrame(4);
+```
+
+## Animations from SpriteSheet Coordinates
+
+The `ex.Animation.fromSpriteSheetCoordinates` to help build animations more tersely from SpriteSheets
+
+```typescript
+  const spriteSheet = SpriteSheet.fromImageSource({...});
+  const anim = Animation.fromSpriteSheetCoordinates({
+    spriteSheet,
+    frameCoordinates: [
+      {x: 0, y: 5, duration: 100},
+      {x: 1, y: 5, duration: 200},
+      {x: 2, y: 5, duration: 100},
+      {x: 3, y: 5, duration: 500}
+    ],
+    strategy: AnimationStrategy.PingPong
+  });
 ```

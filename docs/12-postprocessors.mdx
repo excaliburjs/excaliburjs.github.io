@@ -65,8 +65,14 @@ Post processors can also be use to produce some interesting custom effects.
 
 There is a helper class [[ScreenShader]] to help build shaders for post processing. The only things that come predefined are the:
 
-1.  `v_texcoord` representing the current UV from [0, 1]
-2.  `u_texture` which is the texture representing the screen pixels
+- `v_texcoord` representing the current UV from [0, 1]
+- `u_texture` which is the texture representing the screen pixels
+
+There are also a number of provided uniforms
+
+- `uniform float u_time_ms` - total playback time in milliseconds
+- `uniform float u_elapsed_ms` - the elapsed time from the last frame in milliseconds
+- `uniform vec2 u_resolution` - the resolution of the canvas (in pixels)
 
 In this example we can make the entire game gray scale:
 
@@ -100,6 +106,10 @@ class GrayScalePostProcessor implements ex.PostProcessor {
 
   getShader(): ex.Shader {
     return this._shader.getShader()
+  }
+
+  onUpdate() {
+    // update any custom uniforms here
   }
 }
 ```
