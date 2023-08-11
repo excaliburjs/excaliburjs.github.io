@@ -6,6 +6,17 @@ section: Graphics
 
 You may want to display [[Text]] in your game, this can be achieved with the [[Text]], [[Font]], and [[SpriteFont]].
 
+## Font or SpriteFont or HTML?
+
+Excalibur currently supports 2 different types of text out of the box. We generally recommend using HTML where you can for UI, because it's really good at that!
+
+1. [[Font]] which will source a CSS loaded font from the browser
+2. [[SpriteFont]] which will source an image to source glyphs for text
+
+You should use a [[SpriteFont]] when you really care about how the look and feel of the glyphs. For example, if you have a pixel art game and not having anti-aliased text is important to you you should use a [[SpriteFont]]. If you specifically don't want blurry text at lower game resolutions you should use a [[SpriteFont]].
+
+You should use a [[Font]] if you want to leverage CSS fonts and want smoothed text or emojis to display. [[Font]] works best at higher game resolutions.
+
 ## Text
 
 Text is a [raster](#raster) [graphic](#graphic) that can be used to draw text to the screen, all of the normal things that can be done with [rasters](#raster) and [graphics](#graphic) can be done with text.
@@ -37,20 +48,29 @@ actor.graphics.use(text);
 game.currentScene.add(actor);
 ```
 
+[[Text]] also supports word wrapping, this can be done by setting the `maxWidth` property on the text options.
+
+```typescript
+const text = new ex.Text({
+    text: 'Some Text Drawn Here\nNext line'
+    maxWidth: 200 // pixels
+});
+```
+
 ## Labels
 
 [[Label|Labels]] are a batteries included [[Actor|Actors]] with [[Text]] built and font built in.
 
 ```typescript
 const label = new ex.Label({
-    text: 'Some text',
-    pos: ex.vec(100, 100),
-    font: new ex.Font({
-        family: 'impact',
-        size: 24,
-        unit: ex.FontUnit.Px
-    })
-});
+  text: 'Some text',
+  pos: ex.vec(100, 100),
+  font: new ex.Font({
+    family: 'impact',
+    size: 24,
+    unit: ex.FontUnit.Px,
+  }),
+})
 ```
 
 ## Font
@@ -169,7 +189,7 @@ const spriteSheet = SpriteSheet.fromImageSource({
 const spriteFont = new SpriteFont({
   alphabet: '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ,!\'&."?-()+ ',
   caseInsensitive: true,
-  spriteSheet: this._spriteSheet,
+  spriteSheet: spriteSheet,
   spacing: -6,
 })
 
