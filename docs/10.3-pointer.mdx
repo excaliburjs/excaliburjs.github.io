@@ -101,9 +101,9 @@ can inspect what type of pointer it is from the [[PointerEvent]] handled.
 
 ```js
 engine.input.pointers.primary.on('down', function (pe) {
-  if (pe.pointerType === ex.Input.PointerType.Mouse) {
+  if (pe.pointerType === ex.PointerType.Mouse) {
     ex.Logger.getInstance().info('Mouse event:', pe)
-  } else if (pe.pointerType === ex.Input.PointerType.Touch) {
+  } else if (pe.pointerType === ex.PointerType.Touch) {
     ex.Logger.getInstance().info('Touch event:', pe)
   }
 })
@@ -131,7 +131,7 @@ know that there are _n_ touches on the screen at once.
 function paint(color) {
   // create a handler for the event
   return function (pe) {
-    if (pe.pointerType === ex.Input.PointerType.Touch) {
+    if (pe.pointerType === ex.PointerType.Touch) {
       engine.canvas.fillStyle = color
       engine.canvas.fillRect(pe.x, pe.y, 5, 5)
     }
