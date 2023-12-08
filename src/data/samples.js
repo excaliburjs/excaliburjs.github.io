@@ -12,7 +12,7 @@ export default [
     title: 'Grid Movement',
     image: sampleGrid,
     description: 'Example of building grid based movement.',
-    url: 'https://codesandbox.io/s/github/excaliburjs/sample-gird',
+    url: 'https://codesandbox.io/s/github/excaliburjs/sample-grid',
     source: 'https://github.com/excaliburjs/sample-grid',
   },
   {
