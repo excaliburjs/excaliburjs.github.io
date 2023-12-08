@@ -12,7 +12,7 @@ export default [
     title: 'Grid Movement',
     image: sampleGrid,
     description: 'Example of building grid based movement.',
-    url: 'https:/excaliburjs.com/sample-grid',
+    url: '/sample-grid',
     source: 'https://github.com/excaliburjs/sample-grid',
   },
   {
@@ -20,7 +20,7 @@ export default [
     image: sampleTiled,
     description:
       'This is a small level with the Tiled Plugin and Parcel bundler.',
-    url: 'https:/excaliburjs.com/sample-tiled-parcel',
+    url: '/sample-tiled-parcel',
     source: 'https://github.com/excaliburjs/sample-tiled-parcel',
   },
   {
@@ -28,7 +28,7 @@ export default [
     image: sampleTiled,
     description:
       'This is a small level with the Tiled Plugin and Vite bundler.',
-    url: 'https:/excaliburjs.com/sample-tiled-vite',
+    url: '/sample-tiled-vite',
     source: 'https://github.com/excaliburjs/sample-tiled-vite',
   },
   {
@@ -36,14 +36,14 @@ export default [
     image: sampleTiled,
     description:
       'This is a small level with the Tiled Plugin and Webpack bundler.',
-    url: 'https:/excaliburjs.com/sample-tiled-webpack',
+    url: '/sample-tiled-webpack',
     source: 'https://github.com/excaliburjs/sample-tiled-webpack',
   },
   {
     title: 'Platformer',
     image: samplePlatformer,
     description: 'This is a small platforming example.',
-    url: 'https:/excaliburjs.com/sample-platformer',
+    url: '/sample-platformer',
     source: 'https://github.com/excaliburjs/sample-platformer',
   },
   {
@@ -51,7 +51,7 @@ export default [
     image: sampleMatterjs,
     description:
       'This is a small sample showing how to wire in a 3rd party physics instead of using Excalibur.',
-    url: 'https:/excaliburjs.com/sample-matterjs',
+    url: '/sample-matterjs',
     source: 'https://github.com/excaliburjs/sample-matterjs',
   },
   {
