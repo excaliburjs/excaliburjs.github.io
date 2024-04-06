@@ -1,3 +1,5 @@
+# ⚠️ This is the old docs repo, visit [main repo /site](https://github.com/excaliburjs/Excalibur/tree/main/site) for latest ⚠️
+
 # Excalibur.js Site & Docs
 
 [![Build Status](https://travis-ci.org/excaliburjs/excaliburjs.github.io.svg?branch=site)](https://travis-ci.org/excaliburjs/excaliburjs.github.io)
